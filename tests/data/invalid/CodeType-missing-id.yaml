@@ -1,0 +1,4 @@
+# INVALID: CodeType is missing the required `id` attribute (from OidGrp).
+# Expected error: ValueError "id must be supplied"
+name: Market
+value: "1"

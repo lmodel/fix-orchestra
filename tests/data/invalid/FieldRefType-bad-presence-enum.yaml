@@ -1,0 +1,6 @@
+# INVALID: FieldRefType uses an unknown value for the `presence` enum (Presence).
+# Valid values are: optional, required, forbidden, ignored, constant.
+# Expected error: ValueError "Unknown Presence enumeration code: conditional"
+id: 44
+name: Price
+presence: conditional

@@ -1,0 +1,8 @@
+# SessionType (inherits baseInterfaceType): minimum is `name`. Role + identifier
+# exercise the session-specific extension fields.
+name: SESS_ACCEPTOR_1
+role: acceptor
+
+identifier:
+  - name: SenderCompID
+  - name: TargetCompID

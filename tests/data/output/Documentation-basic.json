@@ -1,0 +1,8 @@
+{
+  "value": "The price at which a NewOrderSingle is to be executed.",
+  "lang_id": "en",
+  "purpose": "SYNOPSIS",
+  "content_type": "text/plain",
+  "supported": "supported",
+  "@type": "Documentation"
+}

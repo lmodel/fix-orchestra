@@ -1,0 +1,35 @@
+# Repository with a Components container holding one component.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-components"
+
+datatypes:
+  datatype:
+    - name: String
+    - name: int
+
+fields:
+  field:
+    - id: 55
+      name: Symbol
+      type: String
+    - id: 48
+      name: SecurityID
+      type: String
+
+messages:
+  message: []
+
+components:
+  component:
+    - id: 1003
+      name: Instrument
+      field_ref:
+        - id: 55
+          name: Symbol
+          presence: required
+        - id: 48
+          name: SecurityID
+          presence: optional

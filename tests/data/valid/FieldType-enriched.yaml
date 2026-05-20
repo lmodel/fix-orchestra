@@ -1,0 +1,19 @@
+# FieldType exercising the optional attributeGroup-derived slots
+# (fieldAttribGrp + entityAttribGrp) on top of the required oidGrp pair.
+id: 38
+name: OrderQty
+type: Qty
+
+abbr_name: Qty
+scenario: base
+scenario_id: 1
+
+added: FIX.4.0
+last_modified: FIX.5.0SP2_EP216
+supported: supported
+
+presence: required
+min_inclusive: "0"
+impl_min_length: 1
+impl_max_length: 19
+rendering: decimal

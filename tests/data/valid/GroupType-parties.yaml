@@ -1,0 +1,19 @@
+# GroupType: a repeating group (Parties) with numInGroup counter and member fields.
+id: 453
+name: Parties
+category: Common
+
+num_in_group:
+  id: 453
+  name: NoPartyIDs
+
+field_ref:
+  - id: 448
+    name: PartyID
+    presence: optional
+  - id: 447
+    name: PartyIDSource
+    presence: optional
+  - id: 452
+    name: PartyRole
+    presence: optional

@@ -1,0 +1,19 @@
+# CodeSetType (FIX OrdType code set) with multiple Code entries.
+id: 40
+name: OrdTypeCodeSet
+type: char
+default: "1"
+
+code:
+  - id: 401
+    name: Market
+    value: "1"
+  - id: 402
+    name: Limit
+    value: "2"
+  - id: 403
+    name: Stop
+    value: "3"
+  - id: 404
+    name: StopLimit
+    value: "4"

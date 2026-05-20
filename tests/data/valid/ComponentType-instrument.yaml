@@ -1,0 +1,15 @@
+# ComponentType: a reusable FIX component with field references (id + name required).
+id: 1003
+name: Instrument
+category: Common
+
+field_ref:
+  - id: 55
+    name: Symbol
+    presence: required
+  - id: 48
+    name: SecurityID
+    presence: optional
+  - id: 22
+    name: SecurityIDSource
+    presence: optional

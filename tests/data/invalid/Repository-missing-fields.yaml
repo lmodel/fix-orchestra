@@ -1,0 +1,14 @@
+# INVALID: Repository is missing the required `fields` container.
+# Expected error: ValueError "fields must be supplied"
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  elements:
+    - "title=Missing fields test"
+
+datatypes:
+  datatype: []
+
+messages:
+  message: []

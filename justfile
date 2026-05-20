@@ -85,7 +85,7 @@ deploy: site
 
 # Run all tests
 [group('model development')]
-test: _test-schema _test-python _test-examples
+test: _test-schema _test-python _test-examples test-third-party
 
 # Run linting
 [group('model development')]
@@ -186,9 +186,10 @@ _update-linkml:
 _test-schema:
   uv run gen-project {{config_yaml}} -d tmp {{source_schema_path}}
 
-# Run Python unit tests with pytest
+# Run Python unit tests with pytest (test_third_party.py is handled
+# separately by test-third-party so it can run with verbose summaries)
 _test-python: gen-python
-  uv run python -m pytest
+  uv run python -m pytest --ignore=tests/test_third_party.py
 
 # Run example tests
 _test-examples: _ensure_examples_output

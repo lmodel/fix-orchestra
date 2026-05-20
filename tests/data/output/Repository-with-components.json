@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "title": "Repository-with-components"
+  },
+  "datatypes": {
+    "datatype": [
+      {
+        "name": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported"
+      },
+      {
+        "name": "int",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported"
+      }
+    ]
+  },
+  "fields": {
+    "field": [
+      {
+        "id": 55,
+        "name": "Symbol",
+        "type": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      },
+      {
+        "id": 48,
+        "name": "SecurityID",
+        "type": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      }
+    ]
+  },
+  "name": "FIX.5.0SP2",
+  "version": "FIX.5.0SP2_EP216",
+  "components": {
+    "component": [
+      {
+        "id": 1003,
+        "name": "Instrument",
+        "field_ref": [
+          {
+            "id": 55,
+            "scenario_id": 1,
+            "name": "Symbol",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "required"
+          },
+          {
+            "id": 48,
+            "scenario_id": 1,
+            "name": "SecurityID",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "optional"
+          }
+        ],
+        "supported": "supported",
+        "scenario_id": 1,
+        "scenario": "base"
+      }
+    ]
+  },
+  "expression_language": "Score",
+  "@type": "Repository"
+}

@@ -1,0 +1,14 @@
+# Datatype with multi-standard MappedDatatype entries (name required).
+name: int
+base_type: NumericType
+
+mapped_datatype:
+  - standard: XML
+    base: xs:integer
+    builtin: true
+  - standard: SBE
+    base: int32
+    builtin: true
+  - standard: JSON
+    base: number
+    builtin: true

@@ -1,0 +1,27 @@
+{
+  "name": "BuySide",
+  "field_ref": [
+    {
+      "id": 49,
+      "scenario_id": 1,
+      "name": "SenderCompID",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    },
+    {
+      "id": 56,
+      "scenario_id": 1,
+      "name": "TargetCompID",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    }
+  ],
+  "timer": [
+    {
+      "name": "HeartbeatTimer"
+    }
+  ],
+  "@type": "ActorType"
+}

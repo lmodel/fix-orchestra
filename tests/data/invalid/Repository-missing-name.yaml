@@ -1,0 +1,16 @@
+# INVALID: Repository is missing the required `name` field.
+# Expected error: ValueError "name must be supplied"
+version: FIX.5.0SP2_EP216
+
+metadata:
+  elements:
+    - "title=Missing name test"
+
+datatypes:
+  datatype: []
+
+fields:
+  field: []
+
+messages:
+  message: []

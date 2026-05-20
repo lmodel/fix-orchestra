@@ -1,0 +1,16 @@
+# Minimal valid Repository: only the FIX-required children of <repository>
+# (metadata + datatypes + fields + messages) plus the required name/version.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-minimal"
+
+datatypes:
+  datatype: []
+
+fields:
+  field: []
+
+messages:
+  message: []

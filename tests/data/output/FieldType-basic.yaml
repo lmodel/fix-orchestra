@@ -1,0 +1,7 @@
+id: 11
+name: ClOrdID
+type: String
+scenario_id: 1
+scenario: base
+supported: supported
+presence: optional

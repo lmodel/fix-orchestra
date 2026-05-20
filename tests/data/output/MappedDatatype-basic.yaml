@@ -1,0 +1,5 @@
+standard: XML
+builtin: true
+min_inclusive: '0'
+max_inclusive: '9999999999999999'
+base: xs:integer

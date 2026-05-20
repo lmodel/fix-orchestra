@@ -1,0 +1,5 @@
+# Documentation: a plain-text synopsis annotation.
+purpose: SYNOPSIS
+value: "The price at which a NewOrderSingle is to be executed."
+content_type: text/plain
+lang_id: en

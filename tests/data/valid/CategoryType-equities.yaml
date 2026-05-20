@@ -1,0 +1,5 @@
+# CategoryType: a business process category. Requires name + section.
+name: Equities
+section: Trade
+component_type: Message
+fixml_file_name: equities

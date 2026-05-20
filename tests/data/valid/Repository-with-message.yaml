@@ -1,0 +1,37 @@
+# Repository with one populated message referencing fields.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-message"
+
+datatypes:
+  datatype:
+    - name: int
+    - name: String
+
+fields:
+  field:
+    - id: 11
+      name: ClOrdID
+      type: String
+    - id: 38
+      name: OrderQty
+      type: int
+    - id: 44
+      name: Price
+      type: int
+
+messages:
+  message:
+    - id: 14
+      name: NewOrderSingle
+      msg_type: "D"
+      structure:
+        field_ref:
+          - id: 11
+            name: ClOrdID
+          - id: 38
+            name: OrderQty
+          - id: 44
+            name: Price

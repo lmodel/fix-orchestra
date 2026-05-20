@@ -1,0 +1,28 @@
+# StateMachineType: a minimal order state machine (initial, state, and name required).
+name: OrderStateMachine
+
+initial:
+  name: PendingNew
+
+state:
+  - name: PendingNew
+    transition:
+      - name: Accept
+        target: New
+      - name: Reject
+        target: Rejected
+  - name: New
+    transition:
+      - name: Fill
+        target: PartiallyFilled
+      - name: Cancel
+        target: Cancelled
+  - name: PartiallyFilled
+    transition:
+      - name: CompleteFill
+        target: Filled
+      - name: Cancel
+        target: Cancelled
+  - name: Filled
+  - name: Cancelled
+  - name: Rejected

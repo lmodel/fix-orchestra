@@ -1,0 +1,6 @@
+# Minimal Interfaces document with one named interface.
+metadata:
+  title: "Interfaces-minimal"
+
+interface:
+  - name: Public

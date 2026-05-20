@@ -1,0 +1,4 @@
+# INVALID: CodeSetType is missing the required `name` attribute (from OidGrp).
+# Expected error: ValueError "name must be supplied"
+id: 40
+type: char

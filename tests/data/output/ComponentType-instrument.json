@@ -1,0 +1,35 @@
+{
+  "id": 1003,
+  "name": "Instrument",
+  "field_ref": [
+    {
+      "id": 55,
+      "scenario_id": 1,
+      "name": "Symbol",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "required"
+    },
+    {
+      "id": 48,
+      "scenario_id": 1,
+      "name": "SecurityID",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    },
+    {
+      "id": 22,
+      "scenario_id": 1,
+      "name": "SecurityIDSource",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    }
+  ],
+  "category": "Common",
+  "supported": "supported",
+  "scenario_id": 1,
+  "scenario": "base",
+  "@type": "ComponentType"
+}

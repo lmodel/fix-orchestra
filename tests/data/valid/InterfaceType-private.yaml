@@ -1,0 +1,12 @@
+# InterfaceType: a single named interface with one transport definition.
+name: Private
+
+protocol:
+  - name: FIXT
+    version: "1.1"
+    layer: session
+
+transport:
+  - name: TCP
+    layer: transport
+    address: tcp://order-router.example.com:9876

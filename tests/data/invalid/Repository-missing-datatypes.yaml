@@ -1,0 +1,14 @@
+# INVALID: Repository is missing the required `datatypes` container.
+# Expected error: ValueError "datatypes must be supplied"
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  elements:
+    - "title=Missing datatypes test"
+
+fields:
+  field: []
+
+messages:
+  message: []

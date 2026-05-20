@@ -1,0 +1,3 @@
+# INVALID: TransitionType is missing the required `target` attribute.
+# Expected error: ValueError "target must be supplied"
+name: Accept

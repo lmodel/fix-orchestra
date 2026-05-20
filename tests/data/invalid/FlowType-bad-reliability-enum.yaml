@@ -1,0 +1,7 @@
+# INVALID: FlowType uses an unknown value for the `reliability` enum (Reliability).
+# Valid values are: bestEffort, idempotent, recoverable.
+# Expected error: ValueError "Unknown Reliability enumeration code: guaranteed"
+name: AppMessageFlow
+source: BuySide
+destination: SellSide
+reliability: guaranteed

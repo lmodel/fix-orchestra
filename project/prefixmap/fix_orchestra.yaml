@@ -1,0 +1,499 @@
+{
+   "dc": "http://purl.org/dc/elements/1.1/",
+   "dcmitype": "http://purl.org/dc/dcmitype/",
+   "dct": "http://purl.org/dc/terms/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "fix_orchestra": "https://w3id.org/lmodel/fix-orchestra/",
+   "fixi": "http://fixprotocol.io/2024/orchestra/interfaces/",
+   "fixr": "http://fixprotocol.io/2024/orchestra/repository/",
+   "linkml": "https://w3id.org/linkml/",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "xml": "http://www.w3.org/XML/1998/namespace#",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "ActionType": {
+      "@id": "fixr:actionType"
+   },
+   "Actors": {
+      "@id": "fixr:actors"
+   },
+   "ActorType": {
+      "@id": "fixr:actorType"
+   },
+   "Annotation": {
+      "@id": "fixr:annotation"
+   },
+   "Appinfo": {
+      "@id": "fixr:appinfo"
+   },
+   "BaseInterfaceType": {
+      "@id": "fixi:baseInterfaceType"
+   },
+   "BlockAssignmentType": {
+      "@id": "fixr:blockAssignmentType"
+   },
+   "Categories": {
+      "@id": "fixr:categories"
+   },
+   "CategoryType": {
+      "@id": "fixr:categoryType"
+   },
+   "CodeSets": {
+      "@id": "fixr:codeSets"
+   },
+   "CodeSetType": {
+      "@id": "fixr:codeSetType"
+   },
+   "CodeType": {
+      "@id": "fixr:codeType"
+   },
+   "ComponentRefType": {
+      "@id": "fixr:componentRefType"
+   },
+   "ComponentRuleType": {
+      "@id": "fixr:componentRuleType"
+   },
+   "Components": {
+      "@id": "fixr:components"
+   },
+   "ComponentType": {
+      "@id": "fixr:componentType"
+   },
+   "Concepts": {
+      "@id": "fixr:concepts"
+   },
+   "ConceptType": {
+      "@id": "fixr:conceptType"
+   },
+   "Datatype": {
+      "@id": "fixr:datatype"
+   },
+   "Datatypes": {
+      "@id": "fixr:datatypes"
+   },
+   "DcAny": {
+      "@id": "dc:any"
+   },
+   "DcContributor": {
+      "@id": "dc:contributor"
+   },
+   "DcCoverage": {
+      "@id": "dc:coverage"
+   },
+   "DcCreator": {
+      "@id": "dc:creator"
+   },
+   "DcDate": {
+      "@id": "dc:date"
+   },
+   "DcDescription": {
+      "@id": "dc:description"
+   },
+   "DcElementContainer": {
+      "@id": "dc:elementContainer"
+   },
+   "DcElementsGroup": {
+      "@id": "dc:elementsGroup"
+   },
+   "DcFormat": {
+      "@id": "dc:format"
+   },
+   "DcIdentifier": {
+      "@id": "dc:identifier"
+   },
+   "DcLanguage": {
+      "@id": "dc:language"
+   },
+   "DcPublisher": {
+      "@id": "dc:publisher"
+   },
+   "DcRelation": {
+      "@id": "dc:relation"
+   },
+   "DcRights": {
+      "@id": "dc:rights"
+   },
+   "DcSimpleLiteral": {
+      "@id": "dc:SimpleLiteral"
+   },
+   "DcSource": {
+      "@id": "dc:source"
+   },
+   "DcSubject": {
+      "@id": "dc:subject"
+   },
+   "DctermsAbstract": {
+      "@id": "dct:abstract"
+   },
+   "DctermsAccessRights": {
+      "@id": "dct:accessRights"
+   },
+   "DctermsAccrualMethod": {
+      "@id": "dct:accrualMethod"
+   },
+   "DctermsAccrualPeriodicity": {
+      "@id": "dct:accrualPeriodicity"
+   },
+   "DctermsAccrualPolicy": {
+      "@id": "dct:accrualPolicy"
+   },
+   "DctermsAlternative": {
+      "@id": "dct:alternative"
+   },
+   "DctermsAudience": {
+      "@id": "dct:audience"
+   },
+   "DctermsAvailable": {
+      "@id": "dct:available"
+   },
+   "DctermsBibliographicCitation": {
+      "@id": "dct:bibliographicCitation"
+   },
+   "DctermsBox": {
+      "@id": "dct:Box"
+   },
+   "DctermsConformsTo": {
+      "@id": "dct:conformsTo"
+   },
+   "DctermsContributor": {
+      "@id": "dct:contributor"
+   },
+   "DctermsCoverage": {
+      "@id": "dct:coverage"
+   },
+   "DctermsCreated": {
+      "@id": "dct:created"
+   },
+   "DctermsCreator": {
+      "@id": "dct:creator"
+   },
+   "DctermsDate": {
+      "@id": "dct:date"
+   },
+   "DctermsDateAccepted": {
+      "@id": "dct:dateAccepted"
+   },
+   "DctermsDateCopyrighted": {
+      "@id": "dct:dateCopyrighted"
+   },
+   "DctermsDateSubmitted": {
+      "@id": "dct:dateSubmitted"
+   },
+   "DctermsDCMIType": {
+      "@id": "dct:DCMIType"
+   },
+   "DctermsDDC": {
+      "@id": "dct:DDC"
+   },
+   "DctermsDescription": {
+      "@id": "dct:description"
+   },
+   "DctermsEducationLevel": {
+      "@id": "dct:educationLevel"
+   },
+   "DctermsElementOrRefinementContainer": {
+      "@id": "dct:elementOrRefinementContainer"
+   },
+   "DctermsElementsAndRefinementsGroup": {
+      "@id": "dct:elementsAndRefinementsGroup"
+   },
+   "DctermsExtent": {
+      "@id": "dct:extent"
+   },
+   "DctermsFormat": {
+      "@id": "dct:format"
+   },
+   "DctermsHasFormat": {
+      "@id": "dct:hasFormat"
+   },
+   "DctermsHasPart": {
+      "@id": "dct:hasPart"
+   },
+   "DctermsHasVersion": {
+      "@id": "dct:hasVersion"
+   },
+   "DctermsIdentifier": {
+      "@id": "dct:identifier"
+   },
+   "DctermsIMT": {
+      "@id": "dct:IMT"
+   },
+   "DctermsInstructionalMethod": {
+      "@id": "dct:instructionalMethod"
+   },
+   "DctermsIsFormatOf": {
+      "@id": "dct:isFormatOf"
+   },
+   "DctermsISO3166": {
+      "@id": "dct:ISO3166"
+   },
+   "DctermsISO6392": {
+      "@id": "dct:ISO639-2"
+   },
+   "DctermsISO6393": {
+      "@id": "dct:ISO639-3"
+   },
+   "DctermsIsPartOf": {
+      "@id": "dct:isPartOf"
+   },
+   "DctermsIsReferencedBy": {
+      "@id": "dct:isReferencedBy"
+   },
+   "DctermsIsReplacedBy": {
+      "@id": "dct:isReplacedBy"
+   },
+   "DctermsIsRequiredBy": {
+      "@id": "dct:isRequiredBy"
+   },
+   "DctermsIssued": {
+      "@id": "dct:issued"
+   },
+   "DctermsIsVersionOf": {
+      "@id": "dct:isVersionOf"
+   },
+   "DctermsLanguage": {
+      "@id": "dct:language"
+   },
+   "DctermsLCC": {
+      "@id": "dct:LCC"
+   },
+   "DctermsLCSH": {
+      "@id": "dct:LCSH"
+   },
+   "DctermsLicense": {
+      "@id": "dct:license"
+   },
+   "DctermsMediator": {
+      "@id": "dct:mediator"
+   },
+   "DctermsMedium": {
+      "@id": "dct:medium"
+   },
+   "DctermsMESH": {
+      "@id": "dct:MESH"
+   },
+   "DctermsModified": {
+      "@id": "dct:modified"
+   },
+   "DctermsPeriod": {
+      "@id": "dct:Period"
+   },
+   "DctermsPoint": {
+      "@id": "dct:Point"
+   },
+   "DctermsProvenance": {
+      "@id": "dct:provenance"
+   },
+   "DctermsPublisher": {
+      "@id": "dct:publisher"
+   },
+   "DctermsReferences": {
+      "@id": "dct:references"
+   },
+   "DctermsRelation": {
+      "@id": "dct:relation"
+   },
+   "DctermsReplaces": {
+      "@id": "dct:replaces"
+   },
+   "DctermsRequires": {
+      "@id": "dct:requires"
+   },
+   "DctermsRFC1766": {
+      "@id": "dct:RFC1766"
+   },
+   "DctermsRFC3066": {
+      "@id": "dct:RFC3066"
+   },
+   "DctermsRFC4646": {
+      "@id": "dct:RFC4646"
+   },
+   "DctermsRights": {
+      "@id": "dct:rights"
+   },
+   "DctermsRightsHolder": {
+      "@id": "dct:rightsHolder"
+   },
+   "DctermsSource": {
+      "@id": "dct:source"
+   },
+   "DctermsSpatial": {
+      "@id": "dct:spatial"
+   },
+   "DctermsSubject": {
+      "@id": "dct:subject"
+   },
+   "DctermsTableOfContents": {
+      "@id": "dct:tableOfContents"
+   },
+   "DctermsTemporal": {
+      "@id": "dct:temporal"
+   },
+   "DctermsTGN": {
+      "@id": "dct:TGN"
+   },
+   "DctermsTitle": {
+      "@id": "dct:title"
+   },
+   "DctermsType": {
+      "@id": "dct:type"
+   },
+   "DctermsUDC": {
+      "@id": "dct:UDC"
+   },
+   "DctermsURI": {
+      "@id": "dct:URI"
+   },
+   "DctermsValid": {
+      "@id": "dct:valid"
+   },
+   "DctermsW3CDTF": {
+      "@id": "dct:W3CDTF"
+   },
+   "DcTitle": {
+      "@id": "dc:title"
+   },
+   "DcType": {
+      "@id": "dc:type"
+   },
+   "Documentation": {
+      "@id": "fixr:documentation"
+   },
+   "EncodingType": {
+      "@id": "fixi:encodingType"
+   },
+   "EntityAttribGrp": {
+      "@id": "fixr:entityAttribGrp"
+   },
+   "FieldAttribGrp": {
+      "@id": "fixr:fieldAttribGrp"
+   },
+   "FieldRefType": {
+      "@id": "fixr:fieldRefType"
+   },
+   "FieldRuleType": {
+      "@id": "fixr:fieldRuleType"
+   },
+   "Fields": {
+      "@id": "fixr:fields"
+   },
+   "FieldType": {
+      "@id": "fixr:fieldType"
+   },
+   "FlowType": {
+      "@id": "fixr:flowType"
+   },
+   "GroupRefType": {
+      "@id": "fixr:groupRefType"
+   },
+   "Groups": {
+      "@id": "fixr:groups"
+   },
+   "GroupType": {
+      "@id": "fixr:groupType"
+   },
+   "IdentifiersType": {
+      "@id": "fixr:identifiersType"
+   },
+   "IdentifierType": {
+      "@id": "fixi:identifierType"
+   },
+   "InterfaceAnnotation": {
+      "@id": "fixi:annotation"
+   },
+   "InterfaceAppinfo": {
+      "@id": "fixi:appinfo"
+   },
+   "InterfaceDocumentation": {
+      "@id": "fixi:documentation"
+   },
+   "Interfaces": {
+      "@id": "fixi:interfaces"
+   },
+   "InterfaceType": {
+      "@id": "fixi:interfaceType"
+   },
+   "MappedDatatype": {
+      "@id": "fixr:mappedDatatype"
+   },
+   "MessageRefType": {
+      "@id": "fixr:messageRefType"
+   },
+   "Messages": {
+      "@id": "fixr:messages"
+   },
+   "MessageType": {
+      "@id": "fixr:messageType"
+   },
+   "OidGrp": {
+      "@id": "fixr:oidGrp"
+   },
+   "ProtocolType": {
+      "@id": "fixi:protocolType"
+   },
+   "RefidGrp": {
+      "@id": "fixr:refidGrp"
+   },
+   "Repository": {
+      "@id": "fixr:repository"
+   },
+   "ResponseType": {
+      "@id": "fixr:responseType"
+   },
+   "ScenarioRefGrp": {
+      "@id": "fixr:scenarioRefGrp"
+   },
+   "Scenarios": {
+      "@id": "fixr:scenarios"
+   },
+   "ScenarioType": {
+      "@id": "fixr:scenarioType"
+   },
+   "Sections": {
+      "@id": "fixr:sections"
+   },
+   "SectionType": {
+      "@id": "fixr:sectionType"
+   },
+   "ServiceType": {
+      "@id": "fixi:serviceType"
+   },
+   "SessionProtocolType": {
+      "@id": "fixi:sessionProtocolType"
+   },
+   "SessionType": {
+      "@id": "fixi:sessionType"
+   },
+   "StateMachineType": {
+      "@id": "fixr:stateMachineType"
+   },
+   "StateType": {
+      "@id": "fixr:stateType"
+   },
+   "TimerSchedule": {
+      "@id": "fixr:timerSchedule"
+   },
+   "TimerType": {
+      "@id": "fixr:timerType"
+   },
+   "TransitionType": {
+      "@id": "fixr:transitionType"
+   },
+   "TransportProtocolType": {
+      "@id": "fixi:transportProtocolType"
+   },
+   "TriggerType": {
+      "@id": "fixr:triggerType"
+   },
+   "UserInterfaceType": {
+      "@id": "fixi:userInterfaceType"
+   },
+   "XmlGlobalAttributes": {
+      "@id": "xml:GlobalAttributes"
+   },
+   "XmlSpecialAttrs": {
+      "@id": "xml:specialAttrs"
+   }
+}

@@ -8,3 +8,9 @@
 [group('model development')]
 gen-linkml:
   uv run python scripts/schema_to_linkml.py
+
+# Validate the FIX-supplied XML corpus against the LinkML schema (with per-file record counts)
+[group('model development')]
+test-third-party:
+  uv run python -m pytest -v -s tests/test_third_party.py
+

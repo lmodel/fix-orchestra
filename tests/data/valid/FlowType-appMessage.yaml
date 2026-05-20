@@ -1,0 +1,5 @@
+# FlowType: a one-directional message flow (all three required fields present).
+name: AppMessageFlow
+source: BuySide
+destination: SellSide
+reliability: recoverable

@@ -1,0 +1,7 @@
+# INVALID: FieldType uses an unknown value for the `supported` enum (SupportType).
+# Valid values are: supported, forbidden, ignored.
+# Expected error: ValueError "Unknown SupportType enumeration code: BadValue"
+id: 38
+name: OrderQty
+type: Qty
+supported: BadValue

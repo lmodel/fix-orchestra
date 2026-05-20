@@ -1,0 +1,26 @@
+# Interfaces document populated with session/transport/encoding configuration.
+metadata:
+  title: "Interfaces-with-protocols"
+
+interface:
+  - name: Private
+    protocol:
+      - name: FIXT
+        version: "1.1"
+        layer: session
+        reliability: recoverable
+    transport:
+      - name: TCP
+        layer: transport
+        address: tcp://example.com:9876
+        message_cast: unicast
+        use: primary
+    encoding:
+      - name: tagvalue
+        layer: presentation
+    sessions:
+      session:
+        - name: SESS1
+          role: initiator
+        - name: SESS2
+          role: acceptor

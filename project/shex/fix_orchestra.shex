@@ -1,0 +1,2194 @@
+# metamodel_version: 1.11.0
+# version: 1.1-rc2
+BASE <https://w3id.org/lmodel/fix-orchestra/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX xml1: <http://www.w3.org/XML/1998/namespace#>
+PREFIX fixr: <http://fixprotocol.io/2024/orchestra/repository/>
+PREFIX fixi: <http://fixprotocol.io/2024/orchestra/interfaces/>
+
+
+<DcmitypeDCMIType> dcmitype:DCMIType
+
+<XmlLangType> xml1:lang_t
+
+<ComponentName> fixr:ComponentName_t
+
+<DatatypeStandard> fixr:datatypeStandard_t
+
+<EP> fixr:EP_t
+
+<ExpressionType> fixr:expressionType
+
+<Id> fixr:id_t
+
+<Language> fixr:language_t
+
+<Mime> fixr:mime_t
+
+<MsgType> fixr:MsgType_t
+
+<Name> fixr:Name_t
+
+<Purpose> fixr:purpose_t
+
+<UnboundedIntType> fixr:unboundedIntType
+
+<Version> fixr:Version_t
+
+<ProtocolName> fixi:protocolName_t
+
+<InterfacePurpose> fixi:purpose_t
+
+<TransportUse> fixi:transportUse_t
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<ActionType>  (
+    CLOSED {
+       (  $<ActionType_tes> (  fixr:field @<FieldType> * ;
+             fixr:fieldRef @<FieldRefType> * ;
+             fixr:component @<ComponentType> * ;
+             fixr:componentRef @<ComponentRefType> * ;
+             fixr:groupRef @<GroupRefType> * ;
+             fixr:messageRef @<MessageRefType> * ;
+             fixr:trigger @<TriggerType> * ;
+             fixr:timerSchedule @<TimerSchedule> * ;
+             fixr:group @<GroupType> * ;
+             fixr:assign @<ExpressionType> *
+          ) ;
+          rdf:type [ fixr:actionType ] ?
+       )
+    } OR @<ResponseType>
+)
+
+<Actors> CLOSED {
+    (  $<Actors_tes> (  fixr:actor @<ActorType> * ;
+          fixr:flow @<FlowType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:actors ] ?
+    )
+}
+
+<ActorType> CLOSED {
+    (  $<ActorType_tes> (  fixr:field @<FieldType> * ;
+          fixr:fieldRef @<FieldRefType> * ;
+          fixr:component @<ComponentType> * ;
+          fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:states @<StateMachineType> * ;
+          fixr:timer @<TimerType> * ;
+          fixr:group @<GroupType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:actorType ] ?
+    )
+}
+
+<Annotation> CLOSED {
+    (  $<Annotation_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:documentation @<Documentation> * ;
+          fixr:appinfo @<Appinfo> * ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:annotation ] ?
+    )
+}
+
+<Appinfo> CLOSED {
+    (  $<Appinfo_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:specUrl @linkml:Uri ? ;
+          <value> @linkml:String ? ;
+          <content> @linkml:String * ;
+          <extra_attributes> @linkml:String * ;
+          fixr:langId @<Language> ? ;
+          fixr:purpose @<Purpose> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:appinfo ] ?
+    )
+}
+
+<BaseInterfaceType>  (
+    @<InterfaceType> OR @<SessionType>
+)
+
+<BaseInterfaceType_struct> {
+    (  $<BaseInterfaceType_tes> (  fixi:service @<ServiceType> * ;
+          fixi:userInterface @<UserInterfaceType> * ;
+          fixi:sessionProtocol @<SessionProtocolType> * ;
+          fixi:protocol @<ProtocolType> * ;
+          fixi:transport @<TransportProtocolType> * ;
+          <extra_attributes> @linkml:String * ;
+          fixi:encoding @<EncodingType> * ;
+          fixi:annotation @<InterfaceAnnotation> ? ;
+          fixi:name @linkml:String
+       ) ;
+       rdf:type [ fixi:baseInterfaceType ] ?
+    )
+}
+
+<BlockAssignmentType> CLOSED {
+    (  $<BlockAssignmentType_tes> (  fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:fieldRef @<FieldRefType> *
+       ) ;
+       rdf:type [ fixr:blockAssignmentType ] ?
+    )
+}
+
+<Categories> CLOSED {
+    (  $<Categories_tes> (  fixr:category @<CategoryType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:categories ] ?
+    )
+}
+
+<CategoryType> CLOSED {
+    (  $<CategoryType_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:FIXMLFileName @<Name> ? ;
+          fixr:componentType [ <https://w3id.org/lmodel/fix-orchestra/CatComponentType#Field>
+             <https://w3id.org/lmodel/fix-orchestra/CatComponentType#Message> ] ? ;
+          fixr:includeFile [ <https://w3id.org/lmodel/fix-orchestra/CatIncludeFile#components>
+             <https://w3id.org/lmodel/fix-orchestra/CatIncludeFile#fields> ] ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name> ;
+          fixr:section @<Name> ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:categoryType ] ?
+    )
+}
+
+<CodeSets> CLOSED {
+    (  $<CodeSets_tes> (  fixr:codeSet @<CodeSetType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:codeSets ] ?
+    )
+}
+
+<CodeSetType> CLOSED {
+    (  $<CodeSetType_tes> (  &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<ScenarioRefGrp_tes> ;
+          rdf:type [ fixr:scenarioRefGrp ] ? ;
+          &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:code @<CodeType> * ;
+          fixr:default @linkml:String ? ;
+          fixr:specUrl @linkml:Uri ? ;
+          fixr:unionDataType [ <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Qty>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved100Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved1000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved4000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Tenor> ] ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:type @<Name> ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:scenarioRefId @<Id> ? ;
+          fixr:scenarioRef @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:codeSetType ] ?
+    )
+}
+
+<CodeType> CLOSED {
+    (  $<CodeType_tes> (  &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:value @linkml:String ;
+          fixr:sort @linkml:Integer ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:group @linkml:String ? ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:codeType ] ?
+    )
+}
+
+<ComponentRefType>  (
+    CLOSED {
+       (  $<ComponentRefType_tes> (  &<RefidGrp_tes> ;
+             rdf:type [ fixr:refidGrp ] ? ;
+             &<EntityAttribGrp_tes> ;
+             rdf:type [ fixr:entityAttribGrp ] ? ;
+             fixr:blockAssignment @<BlockAssignmentType> * ;
+             fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+                <https://w3id.org/lmodel/fix-orchestra/Presence#required>
+                <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden> <https://w3id.org/lmodel/fix-orchestra/Presence#ignored>
+                <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ? ;
+             fixr:rule @<ComponentRuleType> * ;
+             fixr:annotation @<Annotation> ? ;
+             fixr:instanceName @<ComponentName> ? ;
+             fixr:scenarioId @<Id> ? ;
+             fixr:id @<Id> ;
+             fixr:name @<Name> ? ;
+             fixr:scenario @<Name> ? ;
+             fixr:added @<Version> ? ;
+             fixr:addedEP @<EP> ? ;
+             fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+                <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+             fixr:deprecatedEP @<EP> ? ;
+             fixr:issue @linkml:String ? ;
+             fixr:lastModified @<Version> ? ;
+             fixr:replaced @<Version> ? ;
+             fixr:replacedEP @<EP> ? ;
+             fixr:replacedByField @<Id> ? ;
+             fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+                <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+                <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+             fixr:updated @<Version> ? ;
+             fixr:updatedEP @<EP> ? ;
+             fixr:deprecated @<Version> ?
+          ) ;
+          rdf:type [ fixr:componentRefType ] ?
+       )
+    } OR @<GroupRefType>
+)
+
+<ComponentRuleType> CLOSED {
+    (  $<ComponentRuleType_tes> (  fixr:when @<ExpressionType> ;
+          fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#required> <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#ignored> <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ?
+          ;
+          fixr:name @<Name> ?
+       ) ;
+       rdf:type [ fixr:componentRuleType ] ?
+    )
+}
+
+<Components> CLOSED {
+    (  $<Components_tes> (  fixr:component @<ComponentType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:components ] ?
+    )
+}
+
+<ComponentType> CLOSED {
+    (  $<ComponentType_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<ScenarioRefGrp_tes> ;
+          rdf:type [ fixr:scenarioRefGrp ] ? ;
+          fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:fieldRef @<FieldRefType> * ;
+          fixr:rendering @linkml:String ? ;
+          fixr:which [ <https://w3id.org/lmodel/fix-orchestra/MemberType#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/MemberType#anyOf> ] ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:category @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ? ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:scenarioRefId @<Id> ? ;
+          fixr:scenarioRef @<Name> ?
+       ) ;
+       rdf:type [ fixr:componentType ] ?
+    )
+}
+
+<Concepts> CLOSED {
+    (  $<Concepts_tes> (  fixr:concept @<ConceptType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:concepts ] ?
+    )
+}
+
+<ConceptType> CLOSED {
+    (  $<ConceptType_tes> (  fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:fieldRef @<FieldRefType> * ;
+          fixr:messageRef @<MessageRefType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:conceptType ] ?
+    )
+}
+
+<Datatype> CLOSED {
+    (  $<Datatype_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:mappedDatatype @<MappedDatatype> * ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:baseType @<Name> ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:datatype ] ?
+    )
+}
+
+<Datatypes> CLOSED {
+    (  $<Datatypes_tes> (  fixr:datatype @<Datatype> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:datatypes ] ?
+    )
+}
+
+<DcAny>  (
+    @<DcContributor> OR @<DcCoverage> OR @<DcCreator> OR @<DcDate> OR @<DcDescription> OR @<DcFormat> OR @<DcIdentifier> OR
+    @<DcLanguage> OR @<DcPublisher> OR @<DcRelation> OR @<DcRights> OR @<DcSource> OR @<DcSubject> OR @<DcTitle> OR @<DcType> OR
+    @<DctermsAccrualMethod> OR @<DctermsAccrualPeriodicity> OR @<DctermsAccrualPolicy> OR @<DctermsAudience> OR
+    @<DctermsInstructionalMethod> OR @<DctermsProvenance> OR @<DctermsRightsHolder>
+)
+
+<DcAny_struct> {
+    (  $<DcAny_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dc:any ] ?
+    )
+}
+
+<DcContributor>  (
+    CLOSED {
+       (  $<DcContributor_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:contributor ] ?
+       )
+    } OR @<DctermsContributor>
+)
+
+<DcCoverage>  (
+    CLOSED {
+       (  $<DcCoverage_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:coverage ] ?
+       )
+    } OR @<DctermsCoverage>
+)
+
+<DcCreator>  (
+    CLOSED {
+       (  $<DcCreator_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:creator ] ?
+       )
+    } OR @<DctermsCreator>
+)
+
+<DcDate>  (
+    CLOSED {
+       (  $<DcDate_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:date ] ?
+       )
+    } OR @<DctermsDate>
+)
+
+<DcDescription>  (
+    CLOSED {
+       (  $<DcDescription_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:description ] ?
+       )
+    } OR @<DctermsDescription>
+)
+
+<DcElementContainer> CLOSED {
+    (  $<DcElementContainer_tes> (  dcterms:title @linkml:String ? ;
+          dcterms:creator @linkml:String ? ;
+          dcterms:subject @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          dcterms:publisher @linkml:String ? ;
+          dcterms:contributor @linkml:String ? ;
+          dcterms:date @linkml:String ? ;
+          dcterms:format @linkml:String ? ;
+          dcterms:source @linkml:String ? ;
+          dcterms:language @linkml:String ? ;
+          dcterms:relation @linkml:String ? ;
+          dcterms:coverage @linkml:String ? ;
+          dcterms:rights @linkml:String ? ;
+          dcterms:alternative @linkml:String ? ;
+          dcterms:tableOfContents @linkml:String ? ;
+          dcterms:abstract @linkml:String ? ;
+          dcterms:created @linkml:String ? ;
+          dcterms:valid @linkml:String ? ;
+          dcterms:available @linkml:String ? ;
+          dcterms:issued @linkml:String ? ;
+          dcterms:modified @linkml:String ? ;
+          dcterms:dateAccepted @linkml:String ? ;
+          dcterms:dateCopyrighted @linkml:String ? ;
+          dcterms:dateSubmitted @linkml:String ? ;
+          dcterms:extent @linkml:String ? ;
+          dcterms:medium @linkml:String ? ;
+          dcterms:isVersionOf @linkml:String ? ;
+          dcterms:hasVersion @linkml:String ? ;
+          dcterms:isReplacedBy @linkml:String ? ;
+          dcterms:replaces @linkml:String ? ;
+          dcterms:isRequiredBy @linkml:String ? ;
+          dcterms:requires @linkml:String ? ;
+          dcterms:isPartOf @linkml:String ? ;
+          dcterms:hasPart @linkml:String ? ;
+          dcterms:isReferencedBy @linkml:String ? ;
+          dcterms:references @linkml:String ? ;
+          dcterms:isFormatOf @linkml:String ? ;
+          dcterms:hasFormat @linkml:String ? ;
+          dcterms:conformsTo @linkml:String ? ;
+          dcterms:spatial @linkml:String ? ;
+          dcterms:temporal @linkml:String ? ;
+          dcterms:audience @linkml:String ? ;
+          dcterms:accrualMethod @linkml:String ? ;
+          dcterms:accrualPeriodicity @linkml:String ? ;
+          dcterms:accrualPolicy @linkml:String ? ;
+          dcterms:instructionalMethod @linkml:String ? ;
+          dcterms:provenance @linkml:String ? ;
+          dcterms:rightsHolder @linkml:String ? ;
+          dcterms:mediator @linkml:String ? ;
+          dcterms:educationLevel @linkml:String ? ;
+          dcterms:accessRights @linkml:String ? ;
+          dcterms:license @linkml:String ? ;
+          dcterms:bibliographicCitation @linkml:String ? ;
+          dcterms:type @linkml:String ? ;
+          dcterms:identifier @linkml:String ?
+       ) ;
+       rdf:type [ dc:elementContainer ] ?
+    )
+}
+
+<DcElementsGroup> {
+    (  $<DcElementsGroup_tes> rdf:type . * ;
+       rdf:type [ dc:elementsGroup ] ?
+    )
+}
+
+<DcFormat>  (
+    CLOSED {
+       (  $<DcFormat_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:format ] ?
+       )
+    } OR @<DctermsFormat>
+)
+
+<DcIdentifier>  (
+    CLOSED {
+       (  $<DcIdentifier_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:identifier ] ?
+       )
+    } OR @<DctermsIdentifier>
+)
+
+<DcLanguage>  (
+    CLOSED {
+       (  $<DcLanguage_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:language ] ?
+       )
+    } OR @<DctermsLanguage>
+)
+
+<DcPublisher>  (
+    CLOSED {
+       (  $<DcPublisher_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:publisher ] ?
+       )
+    } OR @<DctermsPublisher>
+)
+
+<DcRelation>  (
+    CLOSED {
+       (  $<DcRelation_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:relation ] ?
+       )
+    } OR @<DctermsRelation>
+)
+
+<DcRights>  (
+    CLOSED {
+       (  $<DcRights_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:rights ] ?
+       )
+    } OR @<DctermsRights>
+)
+
+<DcSimpleLiteral>  (
+    CLOSED {
+       (  $<DcSimpleLiteral_tes> (  <value> @linkml:String ? ;
+             <content> @linkml:String * ;
+             <lang> @linkml:String ?
+          ) ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       )
+    } OR @<DcAny> OR @<DctermsBox> OR @<DctermsDCMIType> OR @<DctermsDDC> OR @<DctermsIMT> OR @<DctermsISO3166> OR
+    @<DctermsISO6392> OR @<DctermsISO6393> OR @<DctermsLCC> OR @<DctermsLCSH> OR @<DctermsMESH> OR @<DctermsPeriod> OR
+    @<DctermsPoint> OR @<DctermsRFC1766> OR @<DctermsRFC3066> OR @<DctermsRFC4646> OR @<DctermsTGN> OR @<DctermsUDC> OR
+    @<DctermsURI> OR @<DctermsW3CDTF>
+)
+
+<DcSource>  (
+    CLOSED {
+       (  $<DcSource_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:source ] ?
+       )
+    } OR @<DctermsSource>
+)
+
+<DcSubject>  (
+    CLOSED {
+       (  $<DcSubject_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:subject ] ?
+       )
+    } OR @<DctermsSubject>
+)
+
+<DctermsAbstract> CLOSED {
+    (  $<DctermsAbstract_tes> (  &<DctermsDescription_tes> ;
+          rdf:type [ dcterms:description ] ?
+       ) ;
+       rdf:type [ dcterms:abstract ] ?
+    )
+}
+
+<DctermsAccessRights> CLOSED {
+    (  $<DctermsAccessRights_tes> (  &<DctermsRights_tes> ;
+          rdf:type [ dcterms:rights ] ?
+       ) ;
+       rdf:type [ dcterms:accessRights ] ?
+    )
+}
+
+<DctermsAccrualMethod> CLOSED {
+    (  $<DctermsAccrualMethod_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:accrualMethod ] ?
+    )
+}
+
+<DctermsAccrualPeriodicity> CLOSED {
+    (  $<DctermsAccrualPeriodicity_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:accrualPeriodicity ] ?
+    )
+}
+
+<DctermsAccrualPolicy> CLOSED {
+    (  $<DctermsAccrualPolicy_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:accrualPolicy ] ?
+    )
+}
+
+<DctermsAlternative> CLOSED {
+    (  $<DctermsAlternative_tes> (  &<DctermsTitle_tes> ;
+          rdf:type [ dcterms:title ] ?
+       ) ;
+       rdf:type [ dcterms:alternative ] ?
+    )
+}
+
+<DctermsAudience>  (
+    CLOSED {
+       (  $<DctermsAudience_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dcterms:audience ] ?
+       )
+    } OR @<DctermsEducationLevel> OR @<DctermsMediator>
+)
+
+<DctermsAvailable> CLOSED {
+    (  $<DctermsAvailable_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:available ] ?
+    )
+}
+
+<DctermsBibliographicCitation> CLOSED {
+    (  $<DctermsBibliographicCitation_tes> (  &<DctermsIdentifier_tes> ;
+          rdf:type [ dcterms:identifier ] ?
+       ) ;
+       rdf:type [ dcterms:bibliographicCitation ] ?
+    )
+}
+
+<DctermsBox> CLOSED {
+    (  $<DctermsBox_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:Box ] ?
+    )
+}
+
+<DctermsConformsTo> CLOSED {
+    (  $<DctermsConformsTo_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:conformsTo ] ?
+    )
+}
+
+<DctermsContributor> CLOSED {
+    (  $<DctermsContributor_tes> (  &<DcContributor_tes> ;
+          rdf:type [ dc:contributor ] ?
+       ) ;
+       rdf:type [ dcterms:contributor ] ?
+    )
+}
+
+<DctermsCoverage>  (
+    CLOSED {
+       (  $<DctermsCoverage_tes> (  &<DcCoverage_tes> ;
+             rdf:type [ dc:coverage ] ?
+          ) ;
+          rdf:type [ dcterms:coverage ] ?
+       )
+    } OR @<DctermsSpatial> OR @<DctermsTemporal>
+)
+
+<DctermsCreated> CLOSED {
+    (  $<DctermsCreated_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:created ] ?
+    )
+}
+
+<DctermsCreator> CLOSED {
+    (  $<DctermsCreator_tes> (  &<DcCreator_tes> ;
+          rdf:type [ dc:creator ] ?
+       ) ;
+       rdf:type [ dcterms:creator ] ?
+    )
+}
+
+<DctermsDate>  (
+    CLOSED {
+       (  $<DctermsDate_tes> (  &<DcDate_tes> ;
+             rdf:type [ dc:date ] ?
+          ) ;
+          rdf:type [ dcterms:date ] ?
+       )
+    } OR @<DctermsAvailable> OR @<DctermsCreated> OR @<DctermsDateAccepted> OR @<DctermsDateCopyrighted> OR @<DctermsDateSubmitted>
+    OR @<DctermsIssued> OR @<DctermsModified> OR @<DctermsValid>
+)
+
+<DctermsDateAccepted> CLOSED {
+    (  $<DctermsDateAccepted_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:dateAccepted ] ?
+    )
+}
+
+<DctermsDateCopyrighted> CLOSED {
+    (  $<DctermsDateCopyrighted_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:dateCopyrighted ] ?
+    )
+}
+
+<DctermsDateSubmitted> CLOSED {
+    (  $<DctermsDateSubmitted_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:dateSubmitted ] ?
+    )
+}
+
+<DctermsDCMIType> CLOSED {
+    (  $<DctermsDCMIType_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:DCMIType ] ?
+    )
+}
+
+<DctermsDDC> CLOSED {
+    (  $<DctermsDDC_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:DDC ] ?
+    )
+}
+
+<DctermsDescription>  (
+    CLOSED {
+       (  $<DctermsDescription_tes> (  &<DcDescription_tes> ;
+             rdf:type [ dc:description ] ?
+          ) ;
+          rdf:type [ dcterms:description ] ?
+       )
+    } OR @<DctermsAbstract> OR @<DctermsTableOfContents>
+)
+
+<DctermsEducationLevel> CLOSED {
+    (  $<DctermsEducationLevel_tes> (  &<DctermsAudience_tes> ;
+          rdf:type [ dcterms:audience ] ?
+       ) ;
+       rdf:type [ dcterms:educationLevel ] ?
+    )
+}
+
+<DctermsElementOrRefinementContainer> CLOSED {
+    (  $<DctermsElementOrRefinementContainer_tes> (  dcterms:title @linkml:String ? ;
+          dcterms:creator @linkml:String ? ;
+          dcterms:subject @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          dcterms:publisher @linkml:String ? ;
+          dcterms:contributor @linkml:String ? ;
+          dcterms:date @linkml:String ? ;
+          dcterms:format @linkml:String ? ;
+          dcterms:source @linkml:String ? ;
+          dcterms:language @linkml:String ? ;
+          dcterms:relation @linkml:String ? ;
+          dcterms:coverage @linkml:String ? ;
+          dcterms:rights @linkml:String ? ;
+          dcterms:alternative @linkml:String ? ;
+          dcterms:tableOfContents @linkml:String ? ;
+          dcterms:abstract @linkml:String ? ;
+          dcterms:created @linkml:String ? ;
+          dcterms:valid @linkml:String ? ;
+          dcterms:available @linkml:String ? ;
+          dcterms:issued @linkml:String ? ;
+          dcterms:modified @linkml:String ? ;
+          dcterms:dateAccepted @linkml:String ? ;
+          dcterms:dateCopyrighted @linkml:String ? ;
+          dcterms:dateSubmitted @linkml:String ? ;
+          dcterms:extent @linkml:String ? ;
+          dcterms:medium @linkml:String ? ;
+          dcterms:isVersionOf @linkml:String ? ;
+          dcterms:hasVersion @linkml:String ? ;
+          dcterms:isReplacedBy @linkml:String ? ;
+          dcterms:replaces @linkml:String ? ;
+          dcterms:isRequiredBy @linkml:String ? ;
+          dcterms:requires @linkml:String ? ;
+          dcterms:isPartOf @linkml:String ? ;
+          dcterms:hasPart @linkml:String ? ;
+          dcterms:isReferencedBy @linkml:String ? ;
+          dcterms:references @linkml:String ? ;
+          dcterms:isFormatOf @linkml:String ? ;
+          dcterms:hasFormat @linkml:String ? ;
+          dcterms:conformsTo @linkml:String ? ;
+          dcterms:spatial @linkml:String ? ;
+          dcterms:temporal @linkml:String ? ;
+          dcterms:audience @linkml:String ? ;
+          dcterms:accrualMethod @linkml:String ? ;
+          dcterms:accrualPeriodicity @linkml:String ? ;
+          dcterms:accrualPolicy @linkml:String ? ;
+          dcterms:instructionalMethod @linkml:String ? ;
+          dcterms:provenance @linkml:String ? ;
+          dcterms:rightsHolder @linkml:String ? ;
+          dcterms:mediator @linkml:String ? ;
+          dcterms:educationLevel @linkml:String ? ;
+          dcterms:accessRights @linkml:String ? ;
+          dcterms:license @linkml:String ? ;
+          dcterms:bibliographicCitation @linkml:String ? ;
+          dcterms:type @linkml:String ? ;
+          dcterms:identifier @linkml:String ?
+       ) ;
+       rdf:type [ dcterms:elementOrRefinementContainer ] ?
+    )
+}
+
+<DctermsElementsAndRefinementsGroup> {
+    (  $<DctermsElementsAndRefinementsGroup_tes> rdf:type . * ;
+       rdf:type [ dcterms:elementsAndRefinementsGroup ] ?
+    )
+}
+
+<DctermsExtent> CLOSED {
+    (  $<DctermsExtent_tes> (  &<DctermsFormat_tes> ;
+          rdf:type [ dcterms:format ] ?
+       ) ;
+       rdf:type [ dcterms:extent ] ?
+    )
+}
+
+<DctermsFormat>  (
+    CLOSED {
+       (  $<DctermsFormat_tes> (  &<DcFormat_tes> ;
+             rdf:type [ dc:format ] ?
+          ) ;
+          rdf:type [ dcterms:format ] ?
+       )
+    } OR @<DctermsExtent> OR @<DctermsMedium>
+)
+
+<DctermsHasFormat> CLOSED {
+    (  $<DctermsHasFormat_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:hasFormat ] ?
+    )
+}
+
+<DctermsHasPart> CLOSED {
+    (  $<DctermsHasPart_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:hasPart ] ?
+    )
+}
+
+<DctermsHasVersion> CLOSED {
+    (  $<DctermsHasVersion_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:hasVersion ] ?
+    )
+}
+
+<DctermsIdentifier>  (
+    CLOSED {
+       (  $<DctermsIdentifier_tes> (  &<DcIdentifier_tes> ;
+             rdf:type [ dc:identifier ] ?
+          ) ;
+          rdf:type [ dcterms:identifier ] ?
+       )
+    } OR @<DctermsBibliographicCitation>
+)
+
+<DctermsIMT> CLOSED {
+    (  $<DctermsIMT_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:IMT ] ?
+    )
+}
+
+<DctermsInstructionalMethod> CLOSED {
+    (  $<DctermsInstructionalMethod_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:instructionalMethod ] ?
+    )
+}
+
+<DctermsIsFormatOf> CLOSED {
+    (  $<DctermsIsFormatOf_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isFormatOf ] ?
+    )
+}
+
+<DctermsISO3166> CLOSED {
+    (  $<DctermsISO3166_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:ISO3166 ] ?
+    )
+}
+
+<DctermsISO6392> CLOSED {
+    (  $<DctermsISO6392_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:ISO639-2 ] ?
+    )
+}
+
+<DctermsISO6393> CLOSED {
+    (  $<DctermsISO6393_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:ISO639-3 ] ?
+    )
+}
+
+<DctermsIsPartOf> CLOSED {
+    (  $<DctermsIsPartOf_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isPartOf ] ?
+    )
+}
+
+<DctermsIsReferencedBy> CLOSED {
+    (  $<DctermsIsReferencedBy_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isReferencedBy ] ?
+    )
+}
+
+<DctermsIsReplacedBy> CLOSED {
+    (  $<DctermsIsReplacedBy_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isReplacedBy ] ?
+    )
+}
+
+<DctermsIsRequiredBy> CLOSED {
+    (  $<DctermsIsRequiredBy_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isRequiredBy ] ?
+    )
+}
+
+<DctermsIssued> CLOSED {
+    (  $<DctermsIssued_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:issued ] ?
+    )
+}
+
+<DctermsIsVersionOf> CLOSED {
+    (  $<DctermsIsVersionOf_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:isVersionOf ] ?
+    )
+}
+
+<DctermsLanguage> CLOSED {
+    (  $<DctermsLanguage_tes> (  &<DcLanguage_tes> ;
+          rdf:type [ dc:language ] ?
+       ) ;
+       rdf:type [ dcterms:language ] ?
+    )
+}
+
+<DctermsLCC> CLOSED {
+    (  $<DctermsLCC_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:LCC ] ?
+    )
+}
+
+<DctermsLCSH> CLOSED {
+    (  $<DctermsLCSH_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:LCSH ] ?
+    )
+}
+
+<DctermsLicense> CLOSED {
+    (  $<DctermsLicense_tes> (  &<DctermsRights_tes> ;
+          rdf:type [ dcterms:rights ] ?
+       ) ;
+       rdf:type [ dcterms:license ] ?
+    )
+}
+
+<DctermsMediator> CLOSED {
+    (  $<DctermsMediator_tes> (  &<DctermsAudience_tes> ;
+          rdf:type [ dcterms:audience ] ?
+       ) ;
+       rdf:type [ dcterms:mediator ] ?
+    )
+}
+
+<DctermsMedium> CLOSED {
+    (  $<DctermsMedium_tes> (  &<DctermsFormat_tes> ;
+          rdf:type [ dcterms:format ] ?
+       ) ;
+       rdf:type [ dcterms:medium ] ?
+    )
+}
+
+<DctermsMESH> CLOSED {
+    (  $<DctermsMESH_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:MESH ] ?
+    )
+}
+
+<DctermsModified> CLOSED {
+    (  $<DctermsModified_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:modified ] ?
+    )
+}
+
+<DctermsPeriod> CLOSED {
+    (  $<DctermsPeriod_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:Period ] ?
+    )
+}
+
+<DctermsPoint> CLOSED {
+    (  $<DctermsPoint_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:Point ] ?
+    )
+}
+
+<DctermsProvenance> CLOSED {
+    (  $<DctermsProvenance_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:provenance ] ?
+    )
+}
+
+<DctermsPublisher> CLOSED {
+    (  $<DctermsPublisher_tes> (  &<DcPublisher_tes> ;
+          rdf:type [ dc:publisher ] ?
+       ) ;
+       rdf:type [ dcterms:publisher ] ?
+    )
+}
+
+<DctermsReferences> CLOSED {
+    (  $<DctermsReferences_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:references ] ?
+    )
+}
+
+<DctermsRelation>  (
+    CLOSED {
+       (  $<DctermsRelation_tes> (  &<DcRelation_tes> ;
+             rdf:type [ dc:relation ] ?
+          ) ;
+          rdf:type [ dcterms:relation ] ?
+       )
+    } OR @<DctermsConformsTo> OR @<DctermsHasFormat> OR @<DctermsHasPart> OR @<DctermsHasVersion> OR @<DctermsIsFormatOf> OR
+    @<DctermsIsPartOf> OR @<DctermsIsReferencedBy> OR @<DctermsIsReplacedBy> OR @<DctermsIsRequiredBy> OR @<DctermsIsVersionOf> OR
+    @<DctermsReferences> OR @<DctermsReplaces> OR @<DctermsRequires>
+)
+
+<DctermsReplaces> CLOSED {
+    (  $<DctermsReplaces_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:replaces ] ?
+    )
+}
+
+<DctermsRequires> CLOSED {
+    (  $<DctermsRequires_tes> (  &<DctermsRelation_tes> ;
+          rdf:type [ dcterms:relation ] ?
+       ) ;
+       rdf:type [ dcterms:requires ] ?
+    )
+}
+
+<DctermsRFC1766> CLOSED {
+    (  $<DctermsRFC1766_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:RFC1766 ] ?
+    )
+}
+
+<DctermsRFC3066> CLOSED {
+    (  $<DctermsRFC3066_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:RFC3066 ] ?
+    )
+}
+
+<DctermsRFC4646> CLOSED {
+    (  $<DctermsRFC4646_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:RFC4646 ] ?
+    )
+}
+
+<DctermsRights>  (
+    CLOSED {
+       (  $<DctermsRights_tes> (  &<DcRights_tes> ;
+             rdf:type [ dc:rights ] ?
+          ) ;
+          rdf:type [ dcterms:rights ] ?
+       )
+    } OR @<DctermsAccessRights> OR @<DctermsLicense>
+)
+
+<DctermsRightsHolder> CLOSED {
+    (  $<DctermsRightsHolder_tes> (  &<DcAny_tes> ;
+          rdf:type [ dc:any ] ?
+       ) ;
+       rdf:type [ dcterms:rightsHolder ] ?
+    )
+}
+
+<DctermsSource> CLOSED {
+    (  $<DctermsSource_tes> (  &<DcSource_tes> ;
+          rdf:type [ dc:source ] ?
+       ) ;
+       rdf:type [ dcterms:source ] ?
+    )
+}
+
+<DctermsSpatial> CLOSED {
+    (  $<DctermsSpatial_tes> (  &<DctermsCoverage_tes> ;
+          rdf:type [ dcterms:coverage ] ?
+       ) ;
+       rdf:type [ dcterms:spatial ] ?
+    )
+}
+
+<DctermsSubject> CLOSED {
+    (  $<DctermsSubject_tes> (  &<DcSubject_tes> ;
+          rdf:type [ dc:subject ] ?
+       ) ;
+       rdf:type [ dcterms:subject ] ?
+    )
+}
+
+<DctermsTableOfContents> CLOSED {
+    (  $<DctermsTableOfContents_tes> (  &<DctermsDescription_tes> ;
+          rdf:type [ dcterms:description ] ?
+       ) ;
+       rdf:type [ dcterms:tableOfContents ] ?
+    )
+}
+
+<DctermsTemporal> CLOSED {
+    (  $<DctermsTemporal_tes> (  &<DctermsCoverage_tes> ;
+          rdf:type [ dcterms:coverage ] ?
+       ) ;
+       rdf:type [ dcterms:temporal ] ?
+    )
+}
+
+<DctermsTGN> CLOSED {
+    (  $<DctermsTGN_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:TGN ] ?
+    )
+}
+
+<DctermsTitle>  (
+    CLOSED {
+       (  $<DctermsTitle_tes> (  &<DcTitle_tes> ;
+             rdf:type [ dc:title ] ?
+          ) ;
+          rdf:type [ dcterms:title ] ?
+       )
+    } OR @<DctermsAlternative>
+)
+
+<DctermsType> CLOSED {
+    (  $<DctermsType_tes> (  &<DcType_tes> ;
+          rdf:type [ dc:type ] ?
+       ) ;
+       rdf:type [ dcterms:type ] ?
+    )
+}
+
+<DctermsUDC> CLOSED {
+    (  $<DctermsUDC_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:UDC ] ?
+    )
+}
+
+<DctermsURI> CLOSED {
+    (  $<DctermsURI_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:URI ] ?
+    )
+}
+
+<DctermsValid> CLOSED {
+    (  $<DctermsValid_tes> (  &<DctermsDate_tes> ;
+          rdf:type [ dcterms:date ] ?
+       ) ;
+       rdf:type [ dcterms:valid ] ?
+    )
+}
+
+<DctermsW3CDTF> CLOSED {
+    (  $<DctermsW3CDTF_tes> (  &<DcSimpleLiteral_tes> ;
+          rdf:type [ dc:SimpleLiteral ] ?
+       ) ;
+       rdf:type [ dcterms:W3CDTF ] ?
+    )
+}
+
+<DcTitle>  (
+    CLOSED {
+       (  $<DcTitle_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:title ] ?
+       )
+    } OR @<DctermsTitle>
+)
+
+<DcType>  (
+    CLOSED {
+       (  $<DcType_tes> (  &<DcAny_tes> ;
+             rdf:type [ dc:any ] ?
+          ) ;
+          rdf:type [ dc:type ] ?
+       )
+    } OR @<DctermsType>
+)
+
+<Documentation> CLOSED {
+    (  $<Documentation_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          <value> @linkml:String ? ;
+          <content> @linkml:String * ;
+          fixr:langId @<Language> ? ;
+          fixr:purpose @<Purpose> ? ;
+          fixr:contentType @<Mime> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:documentation ] ?
+    )
+}
+
+<EncodingType> CLOSED {
+    (  $<EncodingType_tes> (  &<ProtocolType_tes> ;
+          rdf:type [ fixi:protocolType ] ?
+       ) ;
+       rdf:type [ fixi:encodingType ] ?
+    )
+}
+
+<EntityAttribGrp> {
+    (  $<EntityAttribGrp_tes> (  fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:entityAttribGrp ] ?
+    )
+}
+
+<ExtensionInline> CLOSED {
+    (  $<ExtensionInline_tes> <content> @linkml:String * ;
+       rdf:type [ <ExtensionInline> ] ?
+    )
+}
+
+<FieldAttribGrp> {
+    (  $<FieldAttribGrp_tes> (  fixr:minInclusive @linkml:String ? ;
+          fixr:maxInclusive @linkml:String ? ;
+          fixr:implLength @linkml:Integer ? ;
+          fixr:implMinLength @linkml:Integer ? ;
+          fixr:implMaxLength @linkml:Integer ? ;
+          fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#required> <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#ignored> <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ?
+          ;
+          fixr:value @linkml:String ? ;
+          fixr:rendering @linkml:String ? ;
+          fixr:encoding @linkml:String ?
+       ) ;
+       rdf:type [ fixr:fieldAttribGrp ] ?
+    )
+}
+
+<FieldRefType> CLOSED {
+    (  $<FieldRefType_tes> (  &<RefidGrp_tes> ;
+          rdf:type [ fixr:refidGrp ] ? ;
+          &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          &<FieldAttribGrp_tes> ;
+          rdf:type [ fixr:fieldAttribGrp ] ? ;
+          fixr:lengthId @<Id> ? ;
+          fixr:nonEncodedFieldId @<Id> ? ;
+          fixr:rule @<FieldRuleType> * ;
+          fixr:assign @<ExpressionType> ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:instanceName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ? ;
+          fixr:scenario @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ? ;
+          fixr:minInclusive @linkml:String ? ;
+          fixr:maxInclusive @linkml:String ? ;
+          fixr:implLength @linkml:Integer ? ;
+          fixr:implMinLength @linkml:Integer ? ;
+          fixr:implMaxLength @linkml:Integer ? ;
+          fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#required> <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#ignored> <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ?
+          ;
+          fixr:value @linkml:String ? ;
+          fixr:rendering @linkml:String ? ;
+          fixr:encoding @linkml:String ?
+       ) ;
+       rdf:type [ fixr:fieldRefType ] ?
+    )
+}
+
+<FieldRuleType> CLOSED {
+    (  $<FieldRuleType_tes> (  &<FieldAttribGrp_tes> ;
+          rdf:type [ fixr:fieldAttribGrp ] ? ;
+          fixr:unique @<UniqueInline> ? ;
+          fixr:when @<ExpressionType> ;
+          fixr:assign @<ExpressionType> * ;
+          fixr:name @<Name> ? ;
+          fixr:type @<Name> ? ;
+          fixr:minInclusive @linkml:String ? ;
+          fixr:maxInclusive @linkml:String ? ;
+          fixr:implLength @linkml:Integer ? ;
+          fixr:implMinLength @linkml:Integer ? ;
+          fixr:implMaxLength @linkml:Integer ? ;
+          fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#required> <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#ignored> <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ?
+          ;
+          fixr:value @linkml:String ? ;
+          fixr:rendering @linkml:String ? ;
+          fixr:encoding @linkml:String ?
+       ) ;
+       rdf:type [ fixr:fieldRuleType ] ?
+    )
+}
+
+<Fields> CLOSED {
+    (  $<Fields_tes> (  fixr:field @<FieldType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:fields ] ?
+    )
+}
+
+<FieldType> CLOSED {
+    (  $<FieldType_tes> (  &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          &<FieldAttribGrp_tes> ;
+          rdf:type [ fixr:fieldAttribGrp ] ? ;
+          fixr:lengthId @<Id> ? ;
+          fixr:nonEncodedFieldId @<Id> ? ;
+          fixr:discriminatorId @<Id> ? ;
+          fixr:baseCategory @<Name> ? ;
+          fixr:baseCategoryAbbrName @<Name> ? ;
+          fixr:unionDataType [ <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Qty>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved100Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved1000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Reserved4000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/UnionDataType#Tenor> ] ? ;
+          fixr:rule @<FieldRuleType> * ;
+          fixr:assign @<ExpressionType> ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:type @<Name> ? ;
+          fixr:codeSet @<Name> ? ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ? ;
+          fixr:minInclusive @linkml:String ? ;
+          fixr:maxInclusive @linkml:String ? ;
+          fixr:implLength @linkml:Integer ? ;
+          fixr:implMinLength @linkml:Integer ? ;
+          fixr:implMaxLength @linkml:Integer ? ;
+          fixr:presence [ <https://w3id.org/lmodel/fix-orchestra/Presence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#required> <https://w3id.org/lmodel/fix-orchestra/Presence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/Presence#ignored> <https://w3id.org/lmodel/fix-orchestra/Presence#constant> ] ?
+          ;
+          fixr:value @linkml:String ? ;
+          fixr:rendering @linkml:String ? ;
+          fixr:encoding @linkml:String ?
+       ) ;
+       rdf:type [ fixr:fieldType ] ?
+    )
+}
+
+<FlowType> CLOSED {
+    (  $<FlowType_tes> (  fixr:source @linkml:String ;
+          fixr:destination @linkml:String ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name> ;
+          fixr:reliability [ <https://w3id.org/lmodel/fix-orchestra/Reliability#bestEffort>
+             <https://w3id.org/lmodel/fix-orchestra/Reliability#idempotent>
+             <https://w3id.org/lmodel/fix-orchestra/Reliability#recoverable> ] ?
+       ) ;
+       rdf:type [ fixr:flowType ] ?
+    )
+}
+
+<GroupRefType> CLOSED {
+    (  $<GroupRefType_tes> (  &<ComponentRefType_tes> ;
+          rdf:type [ fixr:componentRefType ] ? ;
+          fixr:implMinOccurs @linkml:Integer ? ;
+          fixr:implMaxOccurs @<UnboundedIntType> ?
+       ) ;
+       rdf:type [ fixr:groupRefType ] ?
+    )
+}
+
+<Groups> CLOSED {
+    (  $<Groups_tes> (  fixr:group @<GroupType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:groups ] ?
+    )
+}
+
+<GroupType> CLOSED {
+    (  $<GroupType_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<ScenarioRefGrp_tes> ;
+          rdf:type [ fixr:scenarioRefGrp ] ? ;
+          fixr:numInGroup @<FieldRefType> ? ;
+          fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:fieldRef @<FieldRefType> * ;
+          fixr:rendering @linkml:String ? ;
+          fixr:implMinOccurs @linkml:Integer ? ;
+          fixr:implMaxOccurs @<UnboundedIntType> ? ;
+          fixr:which [ <https://w3id.org/lmodel/fix-orchestra/MemberType#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/MemberType#anyOf> ] ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:category @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ? ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:scenarioRefId @<Id> ? ;
+          fixr:scenarioRef @<Name> ?
+       ) ;
+       rdf:type [ fixr:groupType ] ?
+    )
+}
+
+<IdentifiersType> CLOSED {
+    (  $<IdentifiersType_tes> (  fixr:correlate @<IdentifierType> * ;
+          fixr:assign @<IdentifierType> * ;
+          fixr:annotation @<Annotation> ?
+       ) ;
+       rdf:type [ fixr:identifiersType ] ?
+    )
+}
+
+<IdentifierType> CLOSED {
+    (  $<IdentifierType_tes> (  <value> @linkml:String ? ;
+          fixi:name @linkml:String ?
+       ) ;
+       rdf:type [ fixi:identifierType ] ?
+    )
+}
+
+<InterfaceAnnotation> CLOSED {
+    (  $<InterfaceAnnotation_tes> (  fixi:documentation @<InterfaceDocumentation> * ;
+          fixi:appinfo @<InterfaceAppinfo> *
+       ) ;
+       rdf:type [ fixi:annotation ] ?
+    )
+}
+
+<InterfaceAppinfo> CLOSED {
+    (  $<InterfaceAppinfo_tes> (  fixi:specUrl @linkml:Uri ? ;
+          <value> @linkml:String ? ;
+          <content> @linkml:String * ;
+          <extra_attributes> @linkml:String * ;
+          fixi:langId @linkml:String ? ;
+          fixi:purpose @<InterfacePurpose> ?
+       ) ;
+       rdf:type [ fixi:appinfo ] ?
+    )
+}
+
+<InterfaceDocumentation> CLOSED {
+    (  $<InterfaceDocumentation_tes> (  <value> @linkml:String ? ;
+          <content> @linkml:String * ;
+          fixi:langId @linkml:String ? ;
+          fixi:purpose @<InterfacePurpose> ? ;
+          fixi:contentType @linkml:String ?
+       ) ;
+       rdf:type [ fixi:documentation ] ?
+    )
+}
+
+<Interfaces> CLOSED {
+    (  $<Interfaces_tes> (  fixi:metadata @<DctermsElementOrRefinementContainer> ;
+          fixi:interface @<InterfaceType> *
+       ) ;
+       rdf:type [ fixi:interfaces ] ?
+    )
+}
+
+<InterfaceType> CLOSED {
+    (  $<InterfaceType_tes> (  &<BaseInterfaceType_tes> ;
+          rdf:type [ fixi:baseInterfaceType ] ? ;
+          fixi:sessions @<SessionsInline> ?
+       ) ;
+       rdf:type [ fixi:interfaceType ] ?
+    )
+}
+
+<MappedDatatype> CLOSED {
+    (  $<MappedDatatype_tes> (  fixr:extension @<ExtensionInline> ? ;
+          fixr:standard @<DatatypeStandard> ;
+          fixr:builtin @linkml:Boolean ? ;
+          fixr:pattern @linkml:String ? ;
+          fixr:element @linkml:String ? ;
+          fixr:size @linkml:Integer ? ;
+          fixr:parameter @linkml:String ? ;
+          fixr:minInclusive @linkml:String ? ;
+          fixr:maxInclusive @linkml:String ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:mappedDatatype ] ?
+    )
+}
+
+<MessageRefType> CLOSED {
+    (  $<MessageRefType_tes> (  &<RefidGrp_tes> ;
+          rdf:type [ fixr:refidGrp ] ? ;
+          fixr:identifiers @<IdentifiersType> ? ;
+          fixr:msgType @<MsgType> ? ;
+          fixr:implMinOccurs @linkml:Integer ? ;
+          fixr:implMaxOccurs @<UnboundedIntType> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ? ;
+          fixr:scenario @<Name> ?
+       ) ;
+       rdf:type [ fixr:messageRefType ] ?
+    )
+}
+
+<Messages> CLOSED {
+    (  $<Messages_tes> (  fixr:message @<MessageType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:messages ] ?
+    )
+}
+
+<MessageType> CLOSED {
+    (  $<MessageType_tes> (  &<OidGrp_tes> ;
+          rdf:type [ fixr:oidGrp ] ? ;
+          &<ScenarioRefGrp_tes> ;
+          rdf:type [ fixr:scenarioRefGrp ] ? ;
+          &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:structure @<StructureInline> ? ;
+          fixr:when @<ExpressionType> ? ;
+          fixr:responses @<ResponsesInline> ? ;
+          fixr:msgType @<MsgType> ? ;
+          fixr:rendering @linkml:String ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:category @<Name> ? ;
+          fixr:flow @<Name> ? ;
+          fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ? ;
+          fixr:scenarioRefId @<Id> ? ;
+          fixr:scenarioRef @<Name> ? ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:messageType ] ?
+    )
+}
+
+<OidGrp> {
+    (  $<OidGrp_tes> (  fixr:abbrName @<Name> ? ;
+          fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ;
+          fixr:scenario @<Name> ?
+       ) ;
+       rdf:type [ fixr:oidGrp ] ?
+    )
+}
+
+<ProtocolType>  (
+    CLOSED {
+       (  $<ProtocolType_tes> (  fixi:activationTime @linkml:Datetime ? ;
+             fixi:deactivationTime @linkml:Datetime ? ;
+             fixi:layer [ <https://w3id.org/lmodel/fix-orchestra/Layer#application>
+                <https://w3id.org/lmodel/fix-orchestra/Layer#presentation> <https://w3id.org/lmodel/fix-orchestra/Layer#session>
+                <https://w3id.org/lmodel/fix-orchestra/Layer#transport> ] ? ;
+             fixi:orchestration @linkml:Uri ? ;
+             <extra_attributes> @linkml:String * ;
+             fixi:annotation @<InterfaceAnnotation> ? ;
+             fixi:name @<ProtocolName> ? ;
+             fixi:version @linkml:String ? ;
+             fixi:deprecated @linkml:Datetime ? ;
+             fixi:reliability [ <https://w3id.org/lmodel/fix-orchestra/InterfaceReliability#bestEffort>
+                <https://w3id.org/lmodel/fix-orchestra/InterfaceReliability#idempotent>
+                <https://w3id.org/lmodel/fix-orchestra/InterfaceReliability#recoverable> ] ?
+          ) ;
+          rdf:type [ fixi:protocolType ] ?
+       )
+    } OR @<EncodingType> OR @<ServiceType> OR @<SessionProtocolType> OR @<TransportProtocolType> OR @<UserInterfaceType>
+)
+
+<RefidGrp> {
+    (  $<RefidGrp_tes> (  fixr:scenarioId @<Id> ? ;
+          fixr:id @<Id> ;
+          fixr:name @<Name> ? ;
+          fixr:scenario @<Name> ?
+       ) ;
+       rdf:type [ fixr:refidGrp ] ?
+    )
+}
+
+<Repository> CLOSED {
+    (  $<Repository_tes> (  fixr:metadata @<DctermsElementOrRefinementContainer> ;
+          fixr:categories @<Categories> ? ;
+          fixr:sections @<Sections> ? ;
+          fixr:datatypes @<Datatypes> ;
+          fixr:codeSets @<CodeSets> ? ;
+          fixr:fields @<Fields> ;
+          fixr:actors @<Actors> ? ;
+          fixr:components @<Components> ? ;
+          fixr:groups @<Groups> ? ;
+          fixr:messages @<Messages> ;
+          fixr:concepts @<Concepts> ? ;
+          fixr:scenarios @<Scenarios> ? ;
+          fixr:guid @linkml:String ? ;
+          fixr:specUrl @linkml:Uri ? ;
+          fixr:namespace @linkml:Uri ? ;
+          fixr:expressionLanguage @linkml:String ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @linkml:String ;
+          fixr:version @<Version>
+       ) ;
+       rdf:type [ fixr:repository ] ?
+    )
+}
+
+<ResponsesInline> CLOSED {
+    (  $<ResponsesInline_tes> fixr:response @<ResponseType> + ;
+       rdf:type [ <ResponsesInline> ] ?
+    )
+}
+
+<ResponseType> CLOSED {
+    (  $<ResponseType_tes> (  &<ActionType_tes> ;
+          rdf:type [ fixr:actionType ] ? ;
+          fixr:when @<ExpressionType> ? ;
+          fixr:sync [ <https://w3id.org/lmodel/fix-orchestra/Synchronization#asynchronous>
+             <https://w3id.org/lmodel/fix-orchestra/Synchronization#synchronous>
+             <https://w3id.org/lmodel/fix-orchestra/Synchronization#pipelined> ] ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name> ?
+       ) ;
+       rdf:type [ fixr:responseType ] ?
+    )
+}
+
+<ScenarioRefGrp> {
+    (  $<ScenarioRefGrp_tes> (  fixr:scenarioRefId @<Id> ? ;
+          fixr:scenarioRef @<Name> ?
+       ) ;
+       rdf:type [ fixr:scenarioRefGrp ] ?
+    )
+}
+
+<Scenarios> CLOSED {
+    (  $<Scenarios_tes> (  fixr:scenario @<ScenarioType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:scenarios ] ?
+    )
+}
+
+<ScenarioType> CLOSED {
+    (  $<ScenarioType_tes> (  fixr:annotation @<Annotation> ? ;
+          fixr:id @<Id> ? ;
+          fixr:name @<Name> ?
+       ) ;
+       rdf:type [ fixr:scenarioType ] ?
+    )
+}
+
+<Sections> CLOSED {
+    (  $<Sections_tes> (  fixr:section @<SectionType> * ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:base @linkml:String ?
+       ) ;
+       rdf:type [ fixr:sections ] ?
+    )
+}
+
+<SectionType> CLOSED {
+    (  $<SectionType_tes> (  &<EntityAttribGrp_tes> ;
+          rdf:type [ fixr:entityAttribGrp ] ? ;
+          fixr:displayOrder @linkml:Integer ? ;
+          fixr:FIXMLFileName @<Name> ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name> ;
+          fixr:added @<Version> ? ;
+          fixr:addedEP @<EP> ? ;
+          fixr:changeType [ <https://w3id.org/lmodel/fix-orchestra/ChangeType#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/ChangeType#Definitional> ] ? ;
+          fixr:deprecatedEP @<EP> ? ;
+          fixr:issue @linkml:String ? ;
+          fixr:lastModified @<Version> ? ;
+          fixr:replaced @<Version> ? ;
+          fixr:replacedEP @<EP> ? ;
+          fixr:replacedByField @<Id> ? ;
+          fixr:supported [ <https://w3id.org/lmodel/fix-orchestra/SupportType#supported>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/SupportType#ignored> ] ? ;
+          fixr:updated @<Version> ? ;
+          fixr:updatedEP @<EP> ? ;
+          fixr:deprecated @<Version> ?
+       ) ;
+       rdf:type [ fixr:sectionType ] ?
+    )
+}
+
+<ServiceType> CLOSED {
+    (  $<ServiceType_tes> (  &<ProtocolType_tes> ;
+          rdf:type [ fixi:protocolType ] ?
+       ) ;
+       rdf:type [ fixi:serviceType ] ?
+    )
+}
+
+<SessionProtocolType> CLOSED {
+    (  $<SessionProtocolType_tes> (  &<ProtocolType_tes> ;
+          rdf:type [ fixi:protocolType ] ?
+       ) ;
+       rdf:type [ fixi:sessionProtocolType ] ?
+    )
+}
+
+<SessionsInline> CLOSED {
+    (  $<SessionsInline_tes> fixi:session @<SessionType> + ;
+       rdf:type [ <SessionsInline> ] ?
+    )
+}
+
+<SessionType> CLOSED {
+    (  $<SessionType_tes> (  &<BaseInterfaceType_tes> ;
+          rdf:type [ fixi:baseInterfaceType ] ? ;
+          fixi:role [ <https://w3id.org/lmodel/fix-orchestra/Role#initiator> <https://w3id.org/lmodel/fix-orchestra/Role#acceptor>
+             <https://w3id.org/lmodel/fix-orchestra/Role#client> <https://w3id.org/lmodel/fix-orchestra/Role#server> ] ? ;
+          fixi:securityKeys @linkml:String ? ;
+          fixi:activationTime @linkml:Datetime ? ;
+          fixi:deactivationTime @linkml:Datetime ? ;
+          fixi:identifier @<IdentifierType> *
+       ) ;
+       rdf:type [ fixi:sessionType ] ?
+    )
+}
+
+<StateMachineType> CLOSED {
+    (  $<StateMachineType_tes> (  fixr:initial @<StateType> ;
+          fixr:state @<StateType> + ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:stateMachineType ] ?
+    )
+}
+
+<StateType> CLOSED {
+    (  $<StateType_tes> (  fixr:transition @<TransitionType> * ;
+          fixr:onentry @<ActionType> ? ;
+          fixr:activity @<ActionType> ? ;
+          fixr:onexit @<ActionType> ? ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:stateType ] ?
+    )
+}
+
+<StructureInline> CLOSED {
+    (  $<StructureInline_tes> (  fixr:componentRef @<ComponentRefType> * ;
+          fixr:groupRef @<GroupRefType> * ;
+          fixr:fieldRef @<FieldRefType> * ;
+          fixr:which [ <https://w3id.org/lmodel/fix-orchestra/MemberType#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/MemberType#anyOf> ] ?
+       ) ;
+       rdf:type [ <StructureInline> ] ?
+    )
+}
+
+<TimerSchedule> CLOSED {
+    (  $<TimerSchedule_tes> (  fixr:activity @<ActionType> ;
+          fixr:operation [ <https://w3id.org/lmodel/fix-orchestra/TimerOperation#START>
+             <https://w3id.org/lmodel/fix-orchestra/TimerOperation#CANCEL>
+             <https://w3id.org/lmodel/fix-orchestra/TimerOperation#RESET> ] ;
+          fixr:interval @linkml:String ? ;
+          fixr:actor @<Name> ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:timerSchedule ] ?
+    )
+}
+
+<TimerType> CLOSED {
+    (  $<TimerType_tes> fixr:name @<Name> ;
+       rdf:type [ fixr:timerType ] ?
+    )
+}
+
+<TransitionType> CLOSED {
+    (  $<TransitionType_tes> (  fixr:when @<ExpressionType> ? ;
+          fixr:target @linkml:String ;
+          fixr:annotation @<Annotation> ? ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:transitionType ] ?
+    )
+}
+
+<TransportProtocolType> CLOSED {
+    (  $<TransportProtocolType_tes> (  &<ProtocolType_tes> ;
+          rdf:type [ fixi:protocolType ] ? ;
+          fixi:address @linkml:String ? ;
+          fixi:messageCast [ <https://w3id.org/lmodel/fix-orchestra/MessageCast#unicast>
+             <https://w3id.org/lmodel/fix-orchestra/MessageCast#multicast>
+             <https://w3id.org/lmodel/fix-orchestra/MessageCast#broadcast> ] ? ;
+          fixi:use @<TransportUse> ?
+       ) ;
+       rdf:type [ fixi:transportProtocolType ] ?
+    )
+}
+
+<TriggerType> CLOSED {
+    (  $<TriggerType_tes> (  fixr:stateMachine @linkml:String ;
+          fixr:actor @<Name> ;
+          fixr:name @<Name>
+       ) ;
+       rdf:type [ fixr:triggerType ] ?
+    )
+}
+
+<UniqueInline> CLOSED {
+    (  $<UniqueInline_tes> fixr:fieldRef @<FieldRefType> * ;
+       rdf:type [ <UniqueInline> ] ?
+    )
+}
+
+<UserInterfaceType> CLOSED {
+    (  $<UserInterfaceType_tes> (  &<ProtocolType_tes> ;
+          rdf:type [ fixi:protocolType ] ?
+       ) ;
+       rdf:type [ fixi:userInterfaceType ] ?
+    )
+}
+
+<XmlGlobalAttributes> CLOSED {
+    (  $<XmlGlobalAttributes_tes> (  xml1:lang @<XmlLangType> ? ;
+          xml1:space [ <https://w3id.org/lmodel/fix-orchestra/XmlSpaceType#default>
+             <https://w3id.org/lmodel/fix-orchestra/XmlSpaceType#preserve> ] ? ;
+          xml1:base @linkml:Uri ? ;
+          xml1:id @linkml:String ?
+       ) ;
+       rdf:type [ xml1:GlobalAttributes ] ?
+    )
+}
+
+<XmlSpecialAttrs> {
+    (  $<XmlSpecialAttrs_tes> (  <base> @linkml:String ? ;
+          <lang> @linkml:String ? ;
+          <space> @linkml:String ? ;
+          <id> @linkml:String ?
+       ) ;
+       rdf:type [ xml1:specialAttrs ] ?
+    )
+}

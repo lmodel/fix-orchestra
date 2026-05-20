@@ -1,0 +1,4 @@
+# Minimal SectionType: a large-grained business process grouping.
+name: Trade
+display_order: 1
+fixml_file_name: trade

@@ -1,0 +1,44 @@
+{
+  "id": 453,
+  "name": "Parties",
+  "num_in_group": {
+    "id": 453,
+    "scenario_id": 1,
+    "name": "NoPartyIDs",
+    "scenario": "base",
+    "supported": "supported",
+    "presence": "optional"
+  },
+  "field_ref": [
+    {
+      "id": 448,
+      "scenario_id": 1,
+      "name": "PartyID",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    },
+    {
+      "id": 447,
+      "scenario_id": 1,
+      "name": "PartyIDSource",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    },
+    {
+      "id": 452,
+      "scenario_id": 1,
+      "name": "PartyRole",
+      "scenario": "base",
+      "supported": "supported",
+      "presence": "optional"
+    }
+  ],
+  "impl_max_occurs": "unbounded",
+  "category": "Common",
+  "supported": "supported",
+  "scenario_id": 1,
+  "scenario": "base",
+  "@type": "GroupType"
+}

@@ -1,0 +1,1894 @@
+# metamodel_version: 1.11.0
+# version: 1.1-rc2
+enum CatComponentType
+  {
+    Field
+    Message
+  }
+
+enum CatIncludeFile
+  {
+    components
+    fields
+  }
+
+enum ChangeType
+  {
+    Editorial
+    Definitional
+  }
+
+enum DatatypeStandardEnum
+  {
+    ISO11404
+    GPB
+    JSON
+    SBE
+    XML
+    TAG_VALUE
+  }
+
+enum InterfacePurposeEnum
+  {
+    SYNOPSIS
+    ELABORATION
+    EXAMPLE
+    DISPLAY
+  }
+
+enum InterfaceReliability
+  {
+    bestEffort
+    idempotent
+    recoverable
+  }
+
+enum Layer
+  {
+    application
+    presentation
+    session
+    transport
+  }
+
+enum MemberType
+  {
+    oneOf
+    anyOf
+  }
+
+enum MessageCast
+  {
+    unicast
+    multicast
+    broadcast
+  }
+
+enum Presence
+  {
+    optional
+    required
+    forbidden
+    ignored
+    constant
+  }
+
+enum ProtocolEnum
+  {
+    FIX4
+    FIXT
+    FIXP
+    tagvalue
+    FIXML
+    FAST
+    SBE
+    SOFH
+    GPB
+    JSON
+    FIXS
+  }
+
+enum PurposeEnum
+  {
+    SYNOPSIS
+    ELABORATION
+    EXAMPLE
+    DISPLAY
+    CAPTION
+    TOOLTIP
+    DEFINITION
+  }
+
+enum Reliability
+  {
+    bestEffort
+    idempotent
+    recoverable
+  }
+
+enum Role
+  {
+    initiator
+    acceptor
+    client
+    server
+  }
+
+enum SupportType
+  {
+    supported
+    forbidden
+    ignored
+  }
+
+enum Synchronization
+  {
+    asynchronous
+    synchronous
+    pipelined
+  }
+
+enum TimerOperation
+  {
+    START
+    CANCEL
+    RESET
+  }
+
+enum TransportUseEnum
+  {
+    primary
+    secondary
+    alternate
+  }
+
+enum Unbounded
+  {
+    unbounded
+  }
+
+enum UnionDataType
+  {
+    Qty
+    Reserved100Plus
+    Reserved1000Plus
+    Reserved4000Plus
+    Tenor
+  }
+
+enum XmlSpaceType
+  {
+    default
+    preserve
+  }
+
+type ActionType
+  {
+    field: [FieldType]
+    fieldRef: [FieldRefType]
+    component: [ComponentType]
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    messageRef: [MessageRefType]
+    trigger: [TriggerType]
+    timerSchedule: [TimerSchedule]
+    group: [GroupType]
+    assign: [ExpressionType]
+  }
+
+type Actors
+  {
+    actor: [ActorType]
+    flow: [FlowType]
+    annotation: Annotation
+    base: String
+  }
+
+type ActorType
+  {
+    field: [FieldType]
+    fieldRef: [FieldRefType]
+    component: [ComponentType]
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    states: [StateMachineType]
+    timer: [TimerType]
+    group: [GroupType]
+    annotation: Annotation
+    name: Name!
+  }
+
+type Annotation implements EntityAttribGrp
+  {
+    documentation: [Documentation]
+    appinfo: [Appinfo]
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type Appinfo implements EntityAttribGrp
+  {
+    specUrl: String
+    value: String
+    content: [String]
+    extraAttributes: [String]
+    langId: Language
+    purpose: Purpose
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+interface BaseInterfaceType
+  {
+    service: [ServiceType]
+    userInterface: [UserInterfaceType]
+    sessionProtocol: [SessionProtocolType]
+    protocol: [ProtocolType]
+    transport: [TransportProtocolType]
+    extraAttributes: [String]
+    encoding: [EncodingType]
+    annotation: InterfaceAnnotation
+    name: String!
+  }
+
+type BlockAssignmentType
+  {
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    fieldRef: [FieldRefType]
+  }
+
+type Categories
+  {
+    category: [CategoryType]
+    annotation: Annotation
+    base: String
+  }
+
+type CategoryType implements EntityAttribGrp
+  {
+    fixmlFileName: Name
+    componentType: CatComponentType
+    includeFile: CatIncludeFile
+    annotation: Annotation
+    name: Name!
+    section: Name!
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type CodeSets
+  {
+    codeSet: [CodeSetType]
+    annotation: Annotation
+    base: String
+  }
+
+type CodeSetType implements OidGrp, ScenarioRefGrp, EntityAttribGrp
+  {
+    code: [CodeType]
+    default: String
+    specUrl: String
+    unionDataType: UnionDataType
+    annotation: Annotation
+    type: Name!
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    scenarioRefId: Id
+    scenarioRef: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type CodeType implements OidGrp, EntityAttribGrp
+  {
+    value: String!
+    sort: Int
+    annotation: Annotation
+    group: String
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type ComponentRefType implements RefidGrp, EntityAttribGrp
+  {
+    blockAssignment: [BlockAssignmentType]
+    presence: Presence
+    rule: [ComponentRuleType]
+    annotation: Annotation
+    instanceName: ComponentName
+    scenarioId: Id
+    id: Id!
+    name: Name
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type ComponentRuleType
+  {
+    when: ExpressionType!
+    presence: Presence
+    name: Name
+  }
+
+type Components
+  {
+    component: [ComponentType]
+    annotation: Annotation
+    base: String
+  }
+
+type ComponentType implements EntityAttribGrp, OidGrp, ScenarioRefGrp
+  {
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    fieldRef: [FieldRefType]
+    rendering: String
+    which: MemberType
+    annotation: Annotation
+    category: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    scenarioRefId: Id
+    scenarioRef: Name
+  }
+
+type Concepts
+  {
+    concept: [ConceptType]
+    annotation: Annotation
+    base: String
+  }
+
+type ConceptType
+  {
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    fieldRef: [FieldRefType]
+    messageRef: [MessageRefType]
+    annotation: Annotation
+    name: Name!
+  }
+
+type Datatype implements EntityAttribGrp
+  {
+    mappedDatatype: [MappedDatatype]
+    scenarioId: Id
+    baseType: Name
+    annotation: Annotation
+    name: Name!
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type Datatypes
+  {
+    datatype: [Datatype]
+    annotation: Annotation
+    base: String
+  }
+
+interface DcAny
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcContributor
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcCoverage
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcCreator
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcDate
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcDescription
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcElementContainer
+  {
+    title: String
+    creator: String
+    subject: String
+    description: String
+    publisher: String
+    contributor: String
+    date: String
+    format: String
+    source: String
+    language: String
+    relation: String
+    coverage: String
+    rights: String
+    alternative: String
+    tableOfContents: String
+    abstract: String
+    created: String
+    valid: String
+    available: String
+    issued: String
+    modified: String
+    dateAccepted: String
+    dateCopyrighted: String
+    dateSubmitted: String
+    extent: String
+    medium: String
+    isVersionOf: String
+    hasVersion: String
+    isReplacedBy: String
+    replaces: String
+    isRequiredBy: String
+    requires: String
+    isPartOf: String
+    hasPart: String
+    isReferencedBy: String
+    references: String
+    isFormatOf: String
+    hasFormat: String
+    conformsTo: String
+    spatial: String
+    temporal: String
+    audience: String
+    accrualMethod: String
+    accrualPeriodicity: String
+    accrualPolicy: String
+    instructionalMethod: String
+    provenance: String
+    rightsHolder: String
+    mediator: String
+    educationLevel: String
+    accessRights: String
+    license: String
+    bibliographicCitation: String
+    type: String
+    identifier: String
+  }
+
+interface DcElementsGroup
+  {
+  }
+
+type DcFormat
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcIdentifier
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcLanguage
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcPublisher
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcRelation
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcRights
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcSimpleLiteral
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcSource
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcSubject
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAbstract
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAccessRights
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAccrualMethod
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAccrualPeriodicity
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAccrualPolicy
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAlternative
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAudience
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsAvailable
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsBibliographicCitation
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsBox
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsConformsTo
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsContributor
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsCoverage
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsCreated
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsCreator
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDate
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDateAccepted
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDateCopyrighted
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDateSubmitted
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDCMIType
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDDC
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsDescription
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsEducationLevel
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsElementOrRefinementContainer
+  {
+    title: String
+    creator: String
+    subject: String
+    description: String
+    publisher: String
+    contributor: String
+    date: String
+    format: String
+    source: String
+    language: String
+    relation: String
+    coverage: String
+    rights: String
+    alternative: String
+    tableOfContents: String
+    abstract: String
+    created: String
+    valid: String
+    available: String
+    issued: String
+    modified: String
+    dateAccepted: String
+    dateCopyrighted: String
+    dateSubmitted: String
+    extent: String
+    medium: String
+    isVersionOf: String
+    hasVersion: String
+    isReplacedBy: String
+    replaces: String
+    isRequiredBy: String
+    requires: String
+    isPartOf: String
+    hasPart: String
+    isReferencedBy: String
+    references: String
+    isFormatOf: String
+    hasFormat: String
+    conformsTo: String
+    spatial: String
+    temporal: String
+    audience: String
+    accrualMethod: String
+    accrualPeriodicity: String
+    accrualPolicy: String
+    instructionalMethod: String
+    provenance: String
+    rightsHolder: String
+    mediator: String
+    educationLevel: String
+    accessRights: String
+    license: String
+    bibliographicCitation: String
+    type: String
+    identifier: String
+  }
+
+interface DctermsElementsAndRefinementsGroup
+  {
+  }
+
+type DctermsExtent
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsFormat
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsHasFormat
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsHasPart
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsHasVersion
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIdentifier
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIMT
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsInstructionalMethod
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsFormatOf
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsISO3166
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsISO6392
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsISO6393
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsPartOf
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsReferencedBy
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsReplacedBy
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsRequiredBy
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIssued
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsIsVersionOf
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsLanguage
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsLCC
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsLCSH
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsLicense
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsMediator
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsMedium
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsMESH
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsModified
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsPeriod
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsPoint
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsProvenance
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsPublisher
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsReferences
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRelation
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsReplaces
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRequires
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRFC1766
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRFC3066
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRFC4646
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRights
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsRightsHolder
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsSource
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsSpatial
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsSubject
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsTableOfContents
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsTemporal
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsTGN
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsTitle
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsType
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsUDC
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsURI
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsValid
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DctermsW3CDTF
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcTitle
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type DcType
+  {
+    value: String
+    content: [String]
+    lang: String
+  }
+
+type Documentation implements EntityAttribGrp
+  {
+    value: String
+    content: [String]
+    langId: Language
+    purpose: Purpose
+    contentType: Mime
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type EncodingType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    extraAttributes: [String]
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+  }
+
+interface EntityAttribGrp
+  {
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type ExtensionInline
+  {
+    content: [String]
+  }
+
+interface FieldAttribGrp
+  {
+    minInclusive: String
+    maxInclusive: String
+    implLength: Int
+    implMinLength: Int
+    implMaxLength: Int
+    presence: Presence
+    value: String
+    rendering: String
+    encoding: String
+  }
+
+type FieldRefType implements RefidGrp, EntityAttribGrp, FieldAttribGrp
+  {
+    lengthId: Id
+    nonEncodedFieldId: Id
+    rule: [FieldRuleType]
+    assign: ExpressionType
+    annotation: Annotation
+    instanceName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+    minInclusive: String
+    maxInclusive: String
+    implLength: Int
+    implMinLength: Int
+    implMaxLength: Int
+    presence: Presence
+    value: String
+    rendering: String
+    encoding: String
+  }
+
+type FieldRuleType implements FieldAttribGrp
+  {
+    unique: UniqueInline
+    when: ExpressionType!
+    assign: [ExpressionType]
+    name: Name
+    type: Name
+    minInclusive: String
+    maxInclusive: String
+    implLength: Int
+    implMinLength: Int
+    implMaxLength: Int
+    presence: Presence
+    value: String
+    rendering: String
+    encoding: String
+  }
+
+type Fields
+  {
+    field: [FieldType]
+    annotation: Annotation
+    base: String
+  }
+
+type FieldType implements OidGrp, EntityAttribGrp, FieldAttribGrp
+  {
+    lengthId: Id
+    nonEncodedFieldId: Id
+    discriminatorId: Id
+    baseCategory: Name
+    baseCategoryAbbrName: Name
+    unionDataType: UnionDataType
+    rule: [FieldRuleType]
+    assign: ExpressionType
+    annotation: Annotation
+    type: Name
+    codeSet: Name
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+    minInclusive: String
+    maxInclusive: String
+    implLength: Int
+    implMinLength: Int
+    implMaxLength: Int
+    presence: Presence
+    value: String
+    rendering: String
+    encoding: String
+  }
+
+type FlowType
+  {
+    source: String!
+    destination: String!
+    annotation: Annotation
+    name: Name!
+    reliability: Reliability
+  }
+
+type GroupRefType
+  {
+    blockAssignment: [BlockAssignmentType]
+    presence: Presence
+    rule: [ComponentRuleType]
+    annotation: Annotation
+    instanceName: ComponentName
+    scenarioId: Id
+    id: Id!
+    name: Name
+    scenario: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+    implMinOccurs: Int
+    implMaxOccurs: UnboundedIntType
+  }
+
+type Groups
+  {
+    group: [GroupType]
+    annotation: Annotation
+    base: String
+  }
+
+type GroupType implements EntityAttribGrp, OidGrp, ScenarioRefGrp
+  {
+    numInGroup: FieldRefType
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    fieldRef: [FieldRefType]
+    rendering: String
+    implMinOccurs: Int
+    implMaxOccurs: UnboundedIntType
+    which: MemberType
+    annotation: Annotation
+    category: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    scenarioRefId: Id
+    scenarioRef: Name
+  }
+
+type IdentifiersType
+  {
+    correlate: [IdentifierType]
+    assign: [IdentifierType]
+    annotation: Annotation
+  }
+
+type IdentifierType
+  {
+    value: String
+    name: String
+  }
+
+type InterfaceAnnotation
+  {
+    documentation: [InterfaceDocumentation]
+    appinfo: [InterfaceAppinfo]
+  }
+
+type InterfaceAppinfo
+  {
+    specUrl: String
+    value: String
+    content: [String]
+    extraAttributes: [String]
+    langId: String
+    purpose: InterfacePurpose
+  }
+
+type InterfaceDocumentation
+  {
+    value: String
+    content: [String]
+    langId: String
+    purpose: InterfacePurpose
+    contentType: String
+  }
+
+type Interfaces
+  {
+    metadata: DctermsElementOrRefinementContainer!
+    interface: [InterfaceType]
+  }
+
+type InterfaceType
+  {
+    service: [ServiceType]
+    userInterface: [UserInterfaceType]
+    sessionProtocol: [SessionProtocolType]
+    protocol: [ProtocolType]
+    transport: [TransportProtocolType]
+    extraAttributes: [String]
+    encoding: [EncodingType]
+    annotation: InterfaceAnnotation
+    name: String!
+    sessions: SessionsInline
+  }
+
+type MappedDatatype
+  {
+    extension: ExtensionInline
+    standard: DatatypeStandard!
+    builtin: Boolean
+    pattern: String
+    element: String
+    size: Int
+    parameter: String
+    minInclusive: String
+    maxInclusive: String
+    annotation: Annotation
+    base: String
+  }
+
+type MessageRefType implements RefidGrp
+  {
+    identifiers: IdentifiersType
+    msgType: MsgType
+    implMinOccurs: Int
+    implMaxOccurs: UnboundedIntType
+    scenarioId: Id
+    id: Id!
+    name: Name
+    scenario: Name
+  }
+
+type Messages
+  {
+    message: [MessageType]
+    annotation: Annotation
+    base: String
+  }
+
+type MessageType implements OidGrp, ScenarioRefGrp, EntityAttribGrp
+  {
+    structure: StructureInline
+    when: ExpressionType
+    responses: ResponsesInline
+    msgType: MsgType
+    rendering: String
+    annotation: Annotation
+    category: Name
+    flow: Name
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+    scenarioRefId: Id
+    scenarioRef: Name
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+interface OidGrp
+  {
+    abbrName: Name
+    scenarioId: Id
+    id: Id!
+    name: Name!
+    scenario: Name
+  }
+
+type ProtocolType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    extraAttributes: [String]
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+  }
+
+interface RefidGrp
+  {
+    scenarioId: Id
+    id: Id!
+    name: Name
+    scenario: Name
+  }
+
+type Repository
+  {
+    metadata: DctermsElementOrRefinementContainer!
+    categories: Categories
+    sections: Sections
+    datatypes: Datatypes!
+    codeSets: CodeSets
+    fields: Fields!
+    actors: Actors
+    components: Components
+    groups: Groups
+    messages: Messages!
+    concepts: Concepts
+    scenarios: Scenarios
+    guid: String
+    specUrl: String
+    namespace: String
+    expressionLanguage: String
+    annotation: Annotation
+    name: String!
+    version: Version!
+  }
+
+type ResponsesInline
+  {
+    response: [ResponseType]!
+  }
+
+type ResponseType
+  {
+    field: [FieldType]
+    fieldRef: [FieldRefType]
+    component: [ComponentType]
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    messageRef: [MessageRefType]
+    trigger: [TriggerType]
+    timerSchedule: [TimerSchedule]
+    group: [GroupType]
+    assign: [ExpressionType]
+    when: ExpressionType
+    sync: Synchronization
+    annotation: Annotation
+    name: Name
+  }
+
+interface ScenarioRefGrp
+  {
+    scenarioRefId: Id
+    scenarioRef: Name
+  }
+
+type Scenarios
+  {
+    scenario: [ScenarioType]
+    annotation: Annotation
+    base: String
+  }
+
+type ScenarioType
+  {
+    annotation: Annotation
+    id: Id
+    name: Name
+  }
+
+type Sections
+  {
+    section: [SectionType]
+    annotation: Annotation
+    base: String
+  }
+
+type SectionType implements EntityAttribGrp
+  {
+    displayOrder: Int
+    fixmlFileName: Name
+    annotation: Annotation
+    name: Name!
+    added: Version
+    addedEp: EP
+    changeType: ChangeType
+    deprecatedEp: EP
+    issue: String
+    lastModified: Version
+    replaced: Version
+    replacedEp: EP
+    replacedByField: Id
+    supported: SupportType
+    updated: Version
+    updatedEp: EP
+    deprecated: Version
+  }
+
+type ServiceType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    extraAttributes: [String]
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+  }
+
+type SessionProtocolType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    extraAttributes: [String]
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+  }
+
+type SessionsInline
+  {
+    session: [SessionType]!
+  }
+
+type SessionType
+  {
+    service: [ServiceType]
+    userInterface: [UserInterfaceType]
+    sessionProtocol: [SessionProtocolType]
+    protocol: [ProtocolType]
+    transport: [TransportProtocolType]
+    extraAttributes: [String]
+    encoding: [EncodingType]
+    annotation: InterfaceAnnotation
+    name: String!
+    role: Role
+    securityKeys: String
+    activationTime: String
+    deactivationTime: String
+    identifier: [IdentifierType]
+  }
+
+type StateMachineType
+  {
+    initial: StateType!
+    state: [StateType]!
+    annotation: Annotation
+    name: Name!
+  }
+
+type StateType
+  {
+    transition: [TransitionType]
+    onentry: ActionType
+    activity: ActionType
+    onexit: ActionType
+    annotation: Annotation
+    name: Name!
+  }
+
+type StructureInline
+  {
+    componentRef: [ComponentRefType]
+    groupRef: [GroupRefType]
+    fieldRef: [FieldRefType]
+    which: MemberType
+  }
+
+type TimerSchedule
+  {
+    activity: ActionType!
+    operation: TimerOperation!
+    interval: String
+    actor: Name!
+    name: Name!
+  }
+
+type TimerType
+  {
+    name: Name!
+  }
+
+type TransitionType
+  {
+    when: ExpressionType
+    target: String!
+    annotation: Annotation
+    name: Name!
+  }
+
+type TransportProtocolType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+    address: String
+    messageCast: MessageCast
+    use: TransportUse
+    extraAttributes: [String]
+  }
+
+type TriggerType
+  {
+    stateMachine: String!
+    actor: Name!
+    name: Name!
+  }
+
+type UniqueInline
+  {
+    fieldRef: [FieldRefType]
+  }
+
+type UserInterfaceType
+  {
+    activationTime: String
+    deactivationTime: String
+    layer: Layer
+    orchestration: String
+    extraAttributes: [String]
+    annotation: InterfaceAnnotation
+    name: ProtocolName
+    version: String
+    deprecated: String
+    reliability: InterfaceReliability
+  }
+
+type XmlGlobalAttributes
+  {
+    lang: XmlLangType
+    space: XmlSpaceType
+    base: String
+    id: String
+  }
+
+interface XmlSpecialAttrs
+  {
+    base: String
+    lang: String
+    space: String
+    id: String
+  }

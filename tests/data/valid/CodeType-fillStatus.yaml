@@ -1,0 +1,5 @@
+# A single Code entry: id + name (oidGrp required) + value (required attr).
+id: 4711
+name: Filled
+value: "2"
+sort: 2

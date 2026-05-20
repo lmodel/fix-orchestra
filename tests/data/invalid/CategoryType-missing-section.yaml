@@ -1,0 +1,3 @@
+# INVALID: CategoryType is missing the required `section` attribute.
+# Expected error: ValueError "section must be supplied"
+name: Equities

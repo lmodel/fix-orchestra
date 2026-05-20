@@ -1,0 +1,4 @@
+# INVALID: FlowType is missing the required `destination` attribute.
+# Expected error: ValueError "destination must be supplied"
+name: AppMessageFlow
+source: BuySide

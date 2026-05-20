@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "title": "Repository-with-codesets"
+  },
+  "name": "FIX.5.0SP2",
+  "version": "FIX.5.0SP2_EP216",
+  "code_sets": {
+    "code_set": [
+      {
+        "type": "char",
+        "id": 4,
+        "name": "OrdTypeCodeSet",
+        "code": [
+          {
+            "value": "1",
+            "id": 41,
+            "name": "Market",
+            "scenario_id": 1,
+            "scenario": "base",
+            "supported": "supported"
+          },
+          {
+            "value": "2",
+            "id": 42,
+            "name": "Limit",
+            "scenario_id": 1,
+            "scenario": "base",
+            "supported": "supported"
+          },
+          {
+            "value": "3",
+            "id": 43,
+            "name": "Stop",
+            "scenario_id": 1,
+            "scenario": "base",
+            "supported": "supported"
+          },
+          {
+            "value": "4",
+            "id": 44,
+            "name": "StopLimit",
+            "scenario_id": 1,
+            "scenario": "base",
+            "supported": "supported"
+          }
+        ],
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported"
+      }
+    ]
+  },
+  "expression_language": "Score",
+  "@type": "Repository"
+}

@@ -2,7 +2,7 @@
 
 Source: <https://www.fixtrading.org/standards/fix-orchestra-standard/>
 
-The downloadable ZIP is unpacked here:
+The downloadable ZIP was unpacked here:
 
 ```bash
 unzip ~/Downloads/Orchestra-Schema-v1.1-RC2-108835.zip
@@ -25,11 +25,7 @@ Target namespaces:
 
 ### Supporting imports (W3C / Dublin Core)
 
-These files complete the `<xs:import>` graph so the three XSDs above can be
-validated offline (e.g. `xmllint --schema repository.xsd …`). Sourced from
-the FIX Trading Community
-[fix-orchestra](https://github.com/FIXTradingCommunity/fix-orchestra) GitHub
-repository - byte-identical to upstream.
+These files complete the `<xs:import>` graph so the three XSDs above can be validated offline (e.g. `xmllint --schema repository.xsd …`). Sourced from the FIX Trading Community [fix-orchestra](https://github.com/FIXTradingCommunity/fix-orchestra) GitHub repository - byte-identical to upstream.
 
 | File | Size | Origin |
 |---|---|---|
@@ -43,7 +39,6 @@ repository - byte-identical to upstream.
 | File | Description |
 |---|---|
 | `Orchestra-V1.1-RC2-Technical-Proposal-v0.2.pdf` | Vendor technical proposal narrative (reference reading). |
-| `github-fix-orchestra/` | Full clone of the FIX Trading Community reference implementation - kept for traceability and to source the supporting XSDs above. Not consumed directly by the schema generator. |
 
 ## Regenerating the LinkML schema
 
@@ -56,14 +51,8 @@ python3 scripts/schema_to_linkml.py
 
 ## Test data
 
-Sample XML instances pulled from the upstream `github-fix-orchestra`
-repository live under `tests/data/third_party/fix-orchestra/` with their own
-[README](../tests/data/third_party/fix-orchestra/README.md).
+Sample XML instances pulled from the upstream [Fix-Orchestra](https://github.com/FIXTradingCommunity/fix-orchestra) repository live under `tests/data/third_party/fix-orchestra/` with their own [README](../tests/data/third_party/fix-orchestra/README.md).
 
 ## License
 
-The upstream XSDs and PDF are © Copyright 2016-2024 FIX Protocol Limited and
-distributed under [Creative Commons Attribution-NoDerivatives 4.0
-International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).
-Dublin Core and W3C XML namespace schemas carry their own permissive terms;
-see file headers.
+The upstream XSDs and PDF are © Copyright 2016-2024 FIX Protocol Limited and distributed under [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/). Dublin Core and W3C XML namespace schemas carry their own permissive terms; see file headers.

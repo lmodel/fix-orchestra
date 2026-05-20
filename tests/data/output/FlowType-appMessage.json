@@ -1,0 +1,7 @@
+{
+  "source": "BuySide",
+  "destination": "SellSide",
+  "name": "AppMessageFlow",
+  "reliability": "recoverable",
+  "@type": "FlowType"
+}

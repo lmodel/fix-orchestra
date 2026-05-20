@@ -1,0 +1,10 @@
+documentation:
+- value: A simple order type code set used for testing.
+  purpose: SYNOPSIS
+  content_type: text/plain
+  supported: supported
+appinfo:
+- value: See FIX TagValue encoding spec section 3.
+  purpose: EXAMPLE
+  supported: supported
+supported: supported

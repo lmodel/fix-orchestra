@@ -1,0 +1,44 @@
+{
+  "type": "char",
+  "id": 40,
+  "name": "OrdTypeCodeSet",
+  "code": [
+    {
+      "value": "1",
+      "id": 401,
+      "name": "Market",
+      "scenario_id": 1,
+      "scenario": "base",
+      "supported": "supported"
+    },
+    {
+      "value": "2",
+      "id": 402,
+      "name": "Limit",
+      "scenario_id": 1,
+      "scenario": "base",
+      "supported": "supported"
+    },
+    {
+      "value": "3",
+      "id": 403,
+      "name": "Stop",
+      "scenario_id": 1,
+      "scenario": "base",
+      "supported": "supported"
+    },
+    {
+      "value": "4",
+      "id": 404,
+      "name": "StopLimit",
+      "scenario_id": 1,
+      "scenario": "base",
+      "supported": "supported"
+    }
+  ],
+  "default": "1",
+  "scenario_id": 1,
+  "scenario": "base",
+  "supported": "supported",
+  "@type": "CodeSetType"
+}

@@ -1,0 +1,24 @@
+metadata:
+  title: Interfaces-with-protocols
+interface:
+- name: Private
+  protocol:
+  - layer: session
+    name: FIXT
+    version: '1.1'
+    reliability: recoverable
+  transport:
+  - layer: transport
+    name: TCP
+    address: tcp://example.com:9876
+    message_cast: unicast
+    use: primary
+  encoding:
+  - layer: presentation
+    name: tagvalue
+  sessions:
+    session:
+    - name: SESS1
+      role: initiator
+    - name: SESS2
+      role: acceptor

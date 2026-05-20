@@ -1,0 +1,29 @@
+metadata:
+  title: Repository-with-scenarios
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+categories:
+  category:
+  - name: Equities
+    section: Trade
+    supported: supported
+  - name: FixedIncome
+    section: Trade
+    supported: supported
+sections:
+  section:
+  - name: Trade
+    display_order: 1
+    supported: supported
+  - name: PreTrade
+    display_order: 0
+    supported: supported
+scenarios:
+  scenario:
+  - id: 1
+    name: base
+  - id: 2
+    name: expired
+  - id: 3
+    name: rejected
+expression_language: Score

@@ -1,0 +1,7 @@
+{
+  "name": "Trade",
+  "display_order": 1,
+  "fixml_file_name": "trade",
+  "supported": "supported",
+  "@type": "SectionType"
+}

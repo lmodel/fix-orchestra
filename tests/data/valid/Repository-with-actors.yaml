@@ -1,0 +1,37 @@
+# Repository with an Actors section containing participant classes and a flow.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-actors"
+
+datatypes:
+  datatype: []
+
+fields:
+  field:
+    - id: 49
+      name: SenderCompID
+      type: String
+    - id: 56
+      name: TargetCompID
+      type: String
+
+messages:
+  message: []
+
+actors:
+  actor:
+    - name: BuySide
+      field_ref:
+        - id: 49
+          name: SenderCompID
+    - name: SellSide
+      field_ref:
+        - id: 56
+          name: TargetCompID
+  flow:
+    - name: AppMessageFlow
+      source: BuySide
+      destination: SellSide
+      reliability: recoverable

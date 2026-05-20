@@ -1,0 +1,4 @@
+# INVALID: CodeSetType is missing the required `id` attribute (from OidGrp).
+# Expected error: ValueError "id must be supplied"
+name: OrdTypeCodeSet
+type: char

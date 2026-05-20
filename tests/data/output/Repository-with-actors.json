@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "Repository-with-actors"
+  },
+  "fields": {
+    "field": [
+      {
+        "id": 49,
+        "name": "SenderCompID",
+        "type": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      },
+      {
+        "id": 56,
+        "name": "TargetCompID",
+        "type": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      }
+    ]
+  },
+  "name": "FIX.5.0SP2",
+  "version": "FIX.5.0SP2_EP216",
+  "actors": {
+    "actor": [
+      {
+        "name": "BuySide",
+        "field_ref": [
+          {
+            "id": 49,
+            "scenario_id": 1,
+            "name": "SenderCompID",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "optional"
+          }
+        ]
+      },
+      {
+        "name": "SellSide",
+        "field_ref": [
+          {
+            "id": 56,
+            "scenario_id": 1,
+            "name": "TargetCompID",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "optional"
+          }
+        ]
+      }
+    ],
+    "flow": [
+      {
+        "source": "BuySide",
+        "destination": "SellSide",
+        "name": "AppMessageFlow",
+        "reliability": "recoverable"
+      }
+    ]
+  },
+  "expression_language": "Score",
+  "@type": "Repository"
+}

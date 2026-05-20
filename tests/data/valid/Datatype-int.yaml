@@ -1,0 +1,9 @@
+# Datatype declaration with a mappedDatatype targeting XSD encoding.
+name: int
+base_type: integer
+
+mapped_datatype:
+  - standard: XML
+    base: xs:int
+  - standard: SBE
+    base: int32

@@ -1,0 +1,25 @@
+{
+  "name": "int",
+  "mapped_datatype": [
+    {
+      "standard": "XML",
+      "builtin": true,
+      "base": "xs:integer"
+    },
+    {
+      "standard": "SBE",
+      "builtin": true,
+      "base": "int32"
+    },
+    {
+      "standard": "JSON",
+      "builtin": true,
+      "base": "number"
+    }
+  ],
+  "scenario_id": 1,
+  "base_type": "NumericType",
+  "scenario": "base",
+  "supported": "supported",
+  "@type": "Datatype"
+}

@@ -1,0 +1,4 @@
+# INVALID: MappedDatatype is missing the required `standard` attribute.
+# Expected error: ValueError "standard must be supplied"
+base: xs:integer
+builtin: true

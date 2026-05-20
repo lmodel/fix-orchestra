@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Repository-with-groups"
+  },
+  "datatypes": {
+    "datatype": [
+      {
+        "name": "int",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported"
+      },
+      {
+        "name": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported"
+      }
+    ]
+  },
+  "fields": {
+    "field": [
+      {
+        "id": 453,
+        "name": "NoPartyIDs",
+        "type": "int",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      },
+      {
+        "id": 448,
+        "name": "PartyID",
+        "type": "String",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      },
+      {
+        "id": 452,
+        "name": "PartyRole",
+        "type": "int",
+        "scenario_id": 1,
+        "scenario": "base",
+        "supported": "supported",
+        "presence": "optional"
+      }
+    ]
+  },
+  "name": "FIX.5.0SP2",
+  "version": "FIX.5.0SP2_EP216",
+  "groups": {
+    "group": [
+      {
+        "id": 453,
+        "name": "Parties",
+        "num_in_group": {
+          "id": 453,
+          "scenario_id": 1,
+          "name": "NoPartyIDs",
+          "scenario": "base",
+          "supported": "supported",
+          "presence": "optional"
+        },
+        "field_ref": [
+          {
+            "id": 448,
+            "scenario_id": 1,
+            "name": "PartyID",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "optional"
+          },
+          {
+            "id": 452,
+            "scenario_id": 1,
+            "name": "PartyRole",
+            "scenario": "base",
+            "supported": "supported",
+            "presence": "optional"
+          }
+        ],
+        "impl_max_occurs": "unbounded",
+        "supported": "supported",
+        "scenario_id": 1,
+        "scenario": "base"
+      }
+    ]
+  },
+  "expression_language": "Score",
+  "@type": "Repository"
+}

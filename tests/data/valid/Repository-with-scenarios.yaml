@@ -1,0 +1,36 @@
+# Repository with scenarios + categories + sections populated.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-scenarios"
+
+datatypes:
+  datatype: []
+fields:
+  field: []
+messages:
+  message: []
+
+scenarios:
+  scenario:
+    - id: 1
+      name: base
+    - id: 2
+      name: expired
+    - id: 3
+      name: rejected
+
+categories:
+  category:
+    - name: Equities
+      section: Trade
+    - name: FixedIncome
+      section: Trade
+
+sections:
+  section:
+    - name: Trade
+      display_order: 1
+    - name: PreTrade
+      display_order: 0

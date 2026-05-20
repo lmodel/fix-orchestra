@@ -1,0 +1,9 @@
+# Annotation carrying a Documentation child and an Appinfo child.
+documentation:
+  - purpose: SYNOPSIS
+    value: "A simple order type code set used for testing."
+    content_type: text/plain
+
+appinfo:
+  - purpose: EXAMPLE
+    value: "See FIX TagValue encoding spec section 3."

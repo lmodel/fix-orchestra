@@ -1,0 +1,5 @@
+name: Equities
+section: Trade
+fixml_file_name: equities
+component_type: Message
+supported: supported

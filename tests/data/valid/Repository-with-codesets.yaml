@@ -1,0 +1,32 @@
+# Repository carrying a populated CodeSet with multiple Code entries.
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-codesets"
+
+datatypes:
+  datatype: []
+fields:
+  field: []
+messages:
+  message: []
+
+code_sets:
+  code_set:
+    - id: 4
+      name: OrdTypeCodeSet
+      type: char
+      code:
+        - id: 41
+          name: Market
+          value: "1"
+        - id: 42
+          name: Limit
+          value: "2"
+        - id: 43
+          name: Stop
+          value: "3"
+        - id: 44
+          name: StopLimit
+          value: "4"

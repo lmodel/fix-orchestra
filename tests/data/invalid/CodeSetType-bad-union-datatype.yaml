@@ -1,0 +1,7 @@
+# INVALID: CodeSetType uses an unknown value for the `union_data_type` enum (UnionDataType).
+# Valid values are: Qty, Reserved100Plus, Reserved1000Plus, Reserved4000Plus, Tenor.
+# Expected error: ValueError "Unknown UnionDataType enumeration code: BadType"
+id: 40
+name: OrdTypeCodeSet
+type: char
+union_data_type: BadType

@@ -1,0 +1,8 @@
+# INVALID: Interfaces is missing the required `metadata` container.
+# Expected error: ValueError "metadata must be supplied"
+interface:
+  - name: TestInterface
+    protocol:
+      - name: FIXT
+        version: "1.1"
+        layer: session

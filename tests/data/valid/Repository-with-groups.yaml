@@ -1,0 +1,41 @@
+# Repository with a Groups container (repeating group definition).
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  title: "Repository-with-groups"
+
+datatypes:
+  datatype:
+    - name: int
+    - name: String
+
+fields:
+  field:
+    - id: 453
+      name: NoPartyIDs
+      type: int
+    - id: 448
+      name: PartyID
+      type: String
+    - id: 452
+      name: PartyRole
+      type: int
+
+messages:
+  message: []
+
+groups:
+  group:
+    - id: 453
+      name: Parties
+      num_in_group:
+        id: 453
+        name: NoPartyIDs
+      field_ref:
+        - id: 448
+          name: PartyID
+          presence: optional
+        - id: 452
+          name: PartyRole
+          presence: optional

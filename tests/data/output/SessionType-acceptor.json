@@ -1,0 +1,13 @@
+{
+  "name": "SESS_ACCEPTOR_1",
+  "role": "acceptor",
+  "identifier": [
+    {
+      "name": "SenderCompID"
+    },
+    {
+      "name": "TargetCompID"
+    }
+  ],
+  "@type": "SessionType"
+}

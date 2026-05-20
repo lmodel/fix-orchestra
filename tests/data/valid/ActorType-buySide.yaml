@@ -1,0 +1,11 @@
+# ActorType: a participant class. Minimal valid instance only needs `name`.
+name: BuySide
+
+field_ref:
+  - id: 49
+    name: SenderCompID
+  - id: 56
+    name: TargetCompID
+
+timer:
+  - name: HeartbeatTimer

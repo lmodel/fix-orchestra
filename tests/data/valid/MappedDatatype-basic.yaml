@@ -1,0 +1,6 @@
+# MappedDatatype: maps a FIX logical type to an XML Schema encoding (standard required).
+standard: XML
+base: xs:integer
+builtin: true
+min_inclusive: "0"
+max_inclusive: "9999999999999999"

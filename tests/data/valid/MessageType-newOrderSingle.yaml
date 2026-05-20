@@ -1,0 +1,21 @@
+# MessageType with a body structure referencing fields by id.
+id: 14
+name: NewOrderSingle
+msg_type: "D"
+category: SingleGeneralOrderHandling
+flow: AppMessageFlow
+
+structure:
+  field_ref:
+    - id: 11
+      name: ClOrdID
+      presence: required
+    - id: 38
+      name: OrderQty
+      presence: required
+    - id: 40
+      name: OrdType
+      presence: required
+    - id: 44
+      name: Price
+      presence: optional

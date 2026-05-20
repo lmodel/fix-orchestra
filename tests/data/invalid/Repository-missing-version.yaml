@@ -1,0 +1,16 @@
+# INVALID: Repository is missing the required `version` field.
+# Expected error: ValueError "version must be supplied"
+name: FIX.5.0SP2
+
+metadata:
+  elements:
+    - "title=Missing version test"
+
+datatypes:
+  datatype: []
+
+fields:
+  field: []
+
+messages:
+  message: []

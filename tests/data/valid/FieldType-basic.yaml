@@ -1,0 +1,4 @@
+# Minimal FieldType: id + name (the two required oidGrp attributes).
+id: 11
+name: ClOrdID
+type: String

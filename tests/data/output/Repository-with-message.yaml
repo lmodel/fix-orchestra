@@ -1,0 +1,66 @@
+metadata:
+  title: Repository-with-message
+datatypes:
+  datatype:
+  - name: int
+    scenario_id: 1
+    scenario: base
+    supported: supported
+  - name: String
+    scenario_id: 1
+    scenario: base
+    supported: supported
+fields:
+  field:
+  - id: 11
+    name: ClOrdID
+    type: String
+    scenario_id: 1
+    scenario: base
+    supported: supported
+    presence: optional
+  - id: 38
+    name: OrderQty
+    type: int
+    scenario_id: 1
+    scenario: base
+    supported: supported
+    presence: optional
+  - id: 44
+    name: Price
+    type: int
+    scenario_id: 1
+    scenario: base
+    supported: supported
+    presence: optional
+messages:
+  message:
+  - id: 14
+    name: NewOrderSingle
+    structure:
+      field_ref:
+      - id: 11
+        scenario_id: 1
+        name: ClOrdID
+        scenario: base
+        supported: supported
+        presence: optional
+      - id: 38
+        scenario_id: 1
+        name: OrderQty
+        scenario: base
+        supported: supported
+        presence: optional
+      - id: 44
+        scenario_id: 1
+        name: Price
+        scenario: base
+        supported: supported
+        presence: optional
+    msg_type: D
+    scenario_id: 1
+    scenario: base
+    supported: supported
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+expression_language: Score

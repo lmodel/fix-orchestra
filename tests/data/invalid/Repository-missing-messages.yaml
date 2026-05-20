@@ -1,0 +1,14 @@
+# INVALID: Repository is missing the required `messages` container.
+# Expected error: ValueError "messages must be supplied"
+name: FIX.5.0SP2
+version: FIX.5.0SP2_EP216
+
+metadata:
+  elements:
+    - "title=Missing messages test"
+
+datatypes:
+  datatype: []
+
+fields:
+  field: []

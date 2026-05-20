@@ -1,0 +1,34 @@
+id: 14
+name: NewOrderSingle
+structure:
+  field_ref:
+  - id: 11
+    scenario_id: 1
+    name: ClOrdID
+    scenario: base
+    supported: supported
+    presence: required
+  - id: 38
+    scenario_id: 1
+    name: OrderQty
+    scenario: base
+    supported: supported
+    presence: required
+  - id: 40
+    scenario_id: 1
+    name: OrdType
+    scenario: base
+    supported: supported
+    presence: required
+  - id: 44
+    scenario_id: 1
+    name: Price
+    scenario: base
+    supported: supported
+    presence: optional
+msg_type: D
+category: SingleGeneralOrderHandling
+flow: AppMessageFlow
+scenario_id: 1
+scenario: base
+supported: supported

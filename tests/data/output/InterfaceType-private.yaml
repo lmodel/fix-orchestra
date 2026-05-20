@@ -1,0 +1,10 @@
+name: Private
+protocol:
+- layer: session
+  name: FIXT
+  version: '1.1'
+transport:
+- layer: transport
+  name: TCP
+  address: tcp://order-router.example.com:9876
+  message_cast: unicast

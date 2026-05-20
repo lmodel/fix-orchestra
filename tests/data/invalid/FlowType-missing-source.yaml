@@ -1,0 +1,4 @@
+# INVALID: FlowType is missing the required `source` attribute.
+# Expected error: ValueError "source must be supplied"
+name: AppMessageFlow
+destination: SellSide

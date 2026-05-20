@@ -1,0 +1,25 @@
+initial:
+  name: PendingNew
+state:
+- name: PendingNew
+  transition:
+  - target: New
+    name: Accept
+  - target: Rejected
+    name: Reject
+- name: New
+  transition:
+  - target: PartiallyFilled
+    name: Fill
+  - target: Cancelled
+    name: Cancel
+- name: PartiallyFilled
+  transition:
+  - target: Filled
+    name: CompleteFill
+  - target: Cancelled
+    name: Cancel
+- name: Filled
+- name: Cancelled
+- name: Rejected
+name: OrderStateMachine

@@ -1,0 +1,7 @@
+# INVALID: StateMachineType is missing the required `initial` state.
+# Expected error: ValueError "initial must be supplied"
+name: OrderStateMachine
+
+state:
+  - name: New
+  - name: Filled

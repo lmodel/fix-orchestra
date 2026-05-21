@@ -1055,6 +1055,8 @@ def _emit_aux_elements(
                 if not is_cls and el.get("ref"):
                     rng_e, is_cls = resolve(el.get("ref"))
                 body = OrderedDict([("range", rng_e)])
+                if el.get("doc"):
+                    body["description"] = el["doc"]
                 if el.get("max_occurs") == "unbounded":
                     body["multivalued"] = True
                     if is_cls:
@@ -1066,7 +1068,10 @@ def _emit_aux_elements(
                     continue
                 slot = snake(a["name"])
                 rng_a, _ = resolve(a.get("type"))
-                attrs[slot] = OrderedDict([("range", rng_a)])
+                body_a = OrderedDict([("range", rng_a)])
+                if a.get("doc"):
+                    body_a["description"] = a["doc"]
+                attrs[slot] = body_a
             if inline.get("mixed") and "value" not in attrs:
                 attrs["value"] = OrderedDict(
                     [
@@ -1275,6 +1280,14 @@ def _promote_to_schema_slots(
             if canonical.get("required"):
                 if not all(d.get("required") for _, d in uses):
                     del canonical["required"]
+            # Use best description: prefer first non-empty description across
+            # all uses so that a later XSD annotation is not silently dropped
+            # when the first-encountered definition has no doc.
+            if not canonical.get("description"):
+                for _, other in uses[1:]:
+                    if other.get("description"):
+                        canonical["description"] = other["description"]
+                        break
             promotable[attr_name] = canonical
         else:
             keep_local.add(attr_name)
@@ -1320,11 +1333,170 @@ def _promote_to_schema_slots(
 
 
 # ---------------------------------------------------------------------------
+# FIX Orchestra XML enrichment helpers
+# ---------------------------------------------------------------------------
+
+# Maps xs:* base type names (from <fixr:mappedDatatype standard="XML" base="xs:...">) to
+# their closest LinkML primitive type name.
+_XSD_BASE_TO_LINKML: dict[str, str] = {
+    "xs:integer":            "integer",
+    "xs:nonNegativeInteger": "integer",
+    "xs:positiveInteger":    "integer",
+    "xs:long":               "integer",
+    "xs:int":                "integer",
+    "xs:short":              "integer",
+    "xs:decimal":            "float",
+    "xs:float":              "float",
+    "xs:double":             "float",
+    "xs:boolean":            "boolean",
+    "xs:string":             "string",
+    "xs:normalizedString":   "string",
+    "xs:token":              "string",
+    "xs:language":           "string",
+    "xs:Name":               "string",
+    "xs:NCName":             "string",
+    "xs:anyURI":             "uri",
+    "xs:base64Binary":       "string",
+    "xs:date":               "date",
+    "xs:dateTime":           "datetime",
+    "xs:time":               "string",
+}
+
+# Maps FIX datatype name -> protobuf scalar type.
+# Canonical copy lives in scripts/fix_xml_to_proto.py; kept in sync manually.
+_FIX_DATATYPE_TO_PROTO: dict[str, str] = {
+    "int":                "fixed32",
+    "Length":             "fixed32",
+    "TagNum":             "fixed32",
+    "SeqNum":             "fixed32",
+    "DayOfMonth":         "fixed32",
+    "NumInGroup":         "fixed32",
+    "float":              "double",
+    "Qty":                "Decimal64",
+    "Price":              "Decimal64",
+    "PriceOffset":        "Decimal64",
+    "Amt":                "Decimal64",
+    "Percentage":         "double",
+    "char":               "string",
+    "Boolean":            "bool",
+    "String":             "string",
+    "MultipleCharValue":  "string",
+    "MultipleStringValue":"string",
+    "Country":            "string",
+    "Currency":           "string",
+    "Exchange":           "string",
+    "MonthYear":          "string",
+    "UTCTimestamp":       "Timestamp",
+    "UTCTimeOnly":        "TimeOnly",
+    "UTCDateOnly":        "string",
+    "LocalMktDate":       "string",
+    "TZTimeOnly":         "TimeOnly",
+    "TZTimestamp":        "Timestamp",
+    "data":               "bytes",
+    "Pattern":            "string",
+    "Tenor":              "Tenor",
+    "Reserved100Plus":    "fixed32",
+    "Reserved1000Plus":   "fixed32",
+    "Reserved4000Plus":   "fixed32",
+    "XMLData":            "string",
+    "Language":           "string",
+    "LocalMktTime":       "TimeOnly",
+    "XID":                "string",
+    "XIDREF":             "string",
+}
+
+_FIXR_NS = "http://fixprotocol.io/2020/orchestra/repository"
+_FIXR = "{" + _FIXR_NS + "}"
+
+
+def _enrich_fix_datatypes(
+    orchestra_xml: Path,
+    types: "OrderedDict[str, OrderedDict]",
+    subsets: "OrderedDict[str, OrderedDict]",
+) -> int:
+    """Parse ``<fixr:datatypes>`` from *orchestra_xml* and append LinkML type
+    entries with ``proto_scalar`` annotations to *types*.
+
+    Also registers a ``fix_base_types`` subset.  Returns the count of entries
+    added.
+    """
+    tree = ET.parse(orchestra_xml)
+    root = tree.getroot()
+
+    subsets["fix_base_types"] = OrderedDict(
+        [
+            (
+                "description",
+                "FIX base datatypes derived from the FIX Orchestra XML repository. "
+                "Each type carries a proto_scalar annotation giving the recommended "
+                "Protocol Buffers scalar type when encoding FIX wire-format messages.",
+            )
+        ]
+    )
+
+    datatypes_el = root.find(f"{_FIXR}datatypes")
+    if datatypes_el is None:
+        return 0
+
+    count = 0
+    for dt in datatypes_el.findall(f"{_FIXR}datatype"):
+        name = dt.attrib.get("name")
+        if not name:
+            continue
+
+        # Determine the closest LinkML primitive from the XSD mapping.
+        xsd_base: str | None = None
+        for mapped in dt.findall(f"{_FIXR}mappedDatatype"):
+            if mapped.attrib.get("standard") == "XML":
+                xsd_base = mapped.attrib.get("base")
+                break
+        linkml_typeof = _XSD_BASE_TO_LINKML.get(xsd_base or "", "string")
+
+        # Collect description from annotation/documentation.
+        desc_parts: list[str] = []
+        base_type = dt.attrib.get("baseType")
+        if base_type:
+            desc_parts.append(f"FIX {name} datatype (extends {base_type}).")
+        else:
+            desc_parts.append(f"FIX {name} base datatype.")
+        ann = dt.find(f"{_FIXR}annotation")
+        if ann is not None:
+            for doc_el in ann.findall(f"{_FIXR}documentation"):
+                text = " ".join((doc_el.text or "").split())
+                if text:
+                    desc_parts.append(text)
+                    break
+
+        # LinkML type name: "FIX" + capitalised original name avoids clashing
+        # with built-in LinkML primitives (e.g. FIX "int" -> "FIXInt").
+        linkml_name = "FIX" + name[0].upper() + name[1:]
+
+        out: OrderedDict = OrderedDict()
+        out["description"] = " ".join(desc_parts)
+        out["typeof"] = linkml_typeof
+        out["uri"] = f"fixr:{name}"
+        out["in_subset"] = ["fix_base_types"]
+        proto_scalar = _FIX_DATATYPE_TO_PROTO.get(name)
+        if proto_scalar:
+            out["annotations"] = OrderedDict([("proto_scalar", proto_scalar)])
+
+        types[linkml_name] = out
+        count += 1
+
+    return count
+
+
+# ---------------------------------------------------------------------------
 # Conversion
 # ---------------------------------------------------------------------------
 
 
-def convert(upstream_dir: Path, out_file: Path) -> None:
+def convert(
+    upstream_dir: Path,
+    out_file: Path,
+    orchestra_xml: "Path | None" = None,
+    dc_out_file: "Path | None" = None,
+) -> None:
     repo_types = parse_xsd(upstream_dir / "repositorytypes.xsd")
     repo_root = parse_xsd(upstream_dir / "repository.xsd")
     iface = parse_xsd(upstream_dir / "interfaces.xsd")
@@ -1953,6 +2125,115 @@ def convert(upstream_dir: Path, out_file: Path) -> None:
     for k in post_dc:
         slots_section[k] = promoted_slots[k]
 
+    # ---- Optional FIX Orchestra XML enrichment --------------------------------
+    if orchestra_xml is not None:
+        n_enriched = _enrich_fix_datatypes(orchestra_xml, types, subsets)
+        print(
+            f"  FIX Orchestra XML   : added {n_enriched} FIX base datatype types",
+            file=sys.stderr,
+        )
+
+    # ---- DC schema split ----------------------------------------------------
+    # Entities whose in_subset belongs to one of the four DC-originated XSDs
+    # are emitted to a companion fix_orchestra_dc.yaml schema.  The main
+    # fix_orchestra.yaml schema imports it so non-DC classes that happen to
+    # share slots (value, content, source) can still resolve them.
+    _DC_SUBSETS = frozenset({"dc", "dcterms", "dcmitype", "xml_namespace"})
+
+    def _is_dc(entity: dict) -> bool:
+        return bool(set(entity.get("in_subset") or []) & _DC_SUBSETS)
+
+    # Collect slots that DC classes reference in their `slots:` list.
+    # Those slots MUST live in the DC schema so DC classes can resolve them
+    # without a back-reference to the FIX schema.
+    _dc_class_names: set[str] = {k for k, v in classes.items() if _is_dc(v)}
+    _dc_slot_names: set[str] = set()
+    for _cname in _dc_class_names:
+        for _sname in (classes[_cname].get("slots") or []):
+            _dc_slot_names.add(_sname)
+
+    dc_types = OrderedDict((k, v) for k, v in types.items() if _is_dc(v))
+    dc_enums = OrderedDict((k, v) for k, v in enums.items() if _is_dc(v))
+    dc_subsets_d = OrderedDict((k, v) for k, v in subsets.items() if k in _DC_SUBSETS)
+    dc_classes = OrderedDict((k, v) for k, v in classes.items() if _is_dc(v))
+    dc_slots = OrderedDict(
+        (k, v) for k, v in slots_section.items() if k in _dc_slot_names
+    )
+
+    fix_types = OrderedDict((k, v) for k, v in types.items() if not _is_dc(v))
+    fix_enums = OrderedDict((k, v) for k, v in enums.items() if not _is_dc(v))
+    fix_subsets_d = OrderedDict(
+        (k, v) for k, v in subsets.items() if k not in _DC_SUBSETS
+    )
+    fix_classes = OrderedDict((k, v) for k, v in classes.items() if not _is_dc(v))
+    fix_slots = OrderedDict(
+        (k, v) for k, v in slots_section.items() if k not in _dc_slot_names
+    )
+
+    if dc_out_file is None:
+        dc_out_file = out_file.with_name(out_file.stem + "_dc" + out_file.suffix)
+
+    dc_hdr: OrderedDict = OrderedDict()
+    dc_hdr["id"] = "https://w3id.org/lmodel/fix-orchestra/dc"
+    dc_hdr["name"] = "fix_orchestra_dc"
+    dc_hdr["title"] = "FIX Orchestra - Dublin Core vocabularies"
+    dc_hdr["description"] = (
+        "Dublin Core Elements 1.1, Dublin Core Terms, DCMI Type Vocabulary, "
+        "and W3C xml.xsd namespace declarations. "
+        "Auto-generated from dc.xsd, dcterms.xsd, dcmitype.xsd, xml.xsd."
+    )
+    dc_hdr["license"] = "Apache-2.0"
+    dc_hdr["prefixes"] = OrderedDict(
+        [
+            ("fix_orchestra", "https://w3id.org/lmodel/fix-orchestra/"),
+            ("linkml", "https://w3id.org/linkml/"),
+            ("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#"),
+            ("rdfs", "http://www.w3.org/2000/01/rdf-schema#"),
+            ("xsd", "http://www.w3.org/2001/XMLSchema#"),
+            ("dc", "http://purl.org/dc/elements/1.1/"),
+            ("dct", "http://purl.org/dc/terms/"),
+            ("dcterms", "http://purl.org/dc/terms/"),
+            ("dcmitype", "http://purl.org/dc/dcmitype/"),
+            ("xml", "http://www.w3.org/XML/1998/namespace#"),
+        ]
+    )
+    dc_hdr["default_prefix"] = "fix_orchestra"
+    dc_hdr["default_range"] = "string"
+    dc_hdr["imports"] = ["linkml:types"]
+
+    dc_doc: OrderedDict = OrderedDict(dc_hdr)
+    if dc_types:
+        dc_doc["types"] = dc_types
+    if dc_subsets_d:
+        dc_doc["subsets"] = dc_subsets_d
+    if dc_enums:
+        dc_doc["enums"] = dc_enums
+    if dc_classes:
+        dc_doc["classes"] = dc_classes
+    if dc_slots:
+        dc_doc["slots"] = dc_slots
+
+    dc_lines = [
+        "---",
+        "# Auto-generated by scripts/schema_to_linkml.py",
+        "# Source: upstream-releases/{dc,dcterms,dcmitype,xml}.xsd",
+        "# DO NOT EDIT BY HAND - re-run the script to regenerate.",
+        "",
+    ]
+    dc_lines.extend(dump_yaml(dc_doc, separate=False))
+    dc_lines.append("")
+    dc_out_file.parent.mkdir(parents=True, exist_ok=True)
+    dc_out_file.write_text("\n".join(dc_lines), encoding="utf-8")
+    print(f"  Wrote: {dc_out_file}", file=sys.stderr)
+
+    # Rebuild entity dicts with only FIX-schema entities so the document
+    # assembly below produces the lean main schema.
+    types = fix_types
+    enums = fix_enums
+    subsets = fix_subsets_d
+    classes = fix_classes
+    slots_section = fix_slots
+
     # ---- Document assembly --------------------------------------------------
     header: OrderedDict = OrderedDict()
     header["id"] = "https://w3id.org/lmodel/fix-orchestra"
@@ -2014,7 +2295,7 @@ def convert(upstream_dir: Path, out_file: Path) -> None:
     )
     header["default_prefix"] = "fix_orchestra"
     header["default_range"] = "string"
-    header["imports"] = ["linkml:types"]
+    header["imports"] = ["linkml:types", dc_out_file.stem]
 
     doc: OrderedDict = OrderedDict(header)
     if types:
@@ -2146,6 +2427,11 @@ def yaml_quote(s: str) -> str:
     fine and does NOT require quoting in block context.
     """
     s = str(s)
+    # Normalise embedded newlines to a single space - a literal '\n' inside a
+    # YAML flow scalar breaks the parser (the continuation is mis-interpreted
+    # as a new mapping key).
+    if "\n" in s:
+        s = " ".join(s.split())
     if s == "":
         return "''"
     if re.fullmatch(r"-?\d+(\.\d+)?([eE][+-]?\d+)?", s):
@@ -2285,12 +2571,30 @@ def main(argv: list[str] | None = None) -> int:
         default=default_out,
         help="destination LinkML YAML schema path",
     )
+    p.add_argument(
+        "--orchestra-xml",
+        type=Path,
+        default=None,
+        metavar="XML",
+        help=(
+            "FIX Orchestra XML repository file (e.g. OrchestraFIXLatest.xml). "
+            "When supplied, appends 38 FIX base datatype entries to the schema "
+            "types section, each annotated with proto_scalar."
+        ),
+    )
     args = p.parse_args(argv)
     for f in ("repository.xsd", "repositorytypes.xsd", "interfaces.xsd"):
         if not (args.upstream_dir / f).is_file():
             print(f"ERROR: missing {args.upstream_dir / f}", file=sys.stderr)
             return 1
-    convert(args.upstream_dir, args.out_file)
+    if args.orchestra_xml is not None and not args.orchestra_xml.is_file():
+        print(f"ERROR: missing --orchestra-xml {args.orchestra_xml}", file=sys.stderr)
+        return 1
+    convert(
+        args.upstream_dir,
+        args.out_file,
+        orchestra_xml=args.orchestra_xml,
+    )
     return 0
 
 

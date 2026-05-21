@@ -42,6 +42,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -143,6 +144,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -567,6 +569,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -1183,7 +1186,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "replaced": {
                     "type": [
@@ -1265,6 +1269,7 @@
                     "description": "Overrides presence when expression is true"
                 },
                 "when": {
+                    "description": "A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.",
                     "type": "string"
                 }
             },
@@ -1337,6 +1342,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -1442,7 +1448,8 @@
                     ]
                 },
                 "which": {
-                    "$ref": "#/$defs/MemberType"
+                    "$ref": "#/$defs/MemberType",
+                    "description": "Member selection within each group instance"
                 }
             },
             "required": [
@@ -1509,6 +1516,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -5706,7 +5714,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "rendering": {
                     "description": "A hint to processes about how to interpret the element. Not validated.",
@@ -5859,7 +5868,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "rendering": {
                     "description": "A hint to processes about how to interpret the element. Not validated.",
@@ -6001,7 +6011,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "rendering": {
                     "description": "A hint to processes about how to interpret the element. Not validated.",
@@ -6035,6 +6046,7 @@
                     ]
                 },
                 "when": {
+                    "description": "A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.",
                     "type": "string"
                 }
             },
@@ -6198,7 +6210,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "rendering": {
                     "description": "A hint to processes about how to interpret the element. Not validated.",
@@ -6415,12 +6428,14 @@
                     "type": "integer"
                 },
                 "impl_max_occurs": {
+                    "description": "Upper bound of group instances (numInGroup)",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "impl_min_occurs": {
+                    "description": "Lower bound of group instances (numInGroup)",
                     "type": [
                         "integer",
                         "null"
@@ -6453,7 +6468,8 @@
                     ]
                 },
                 "presence": {
-                    "$ref": "#/$defs/Presence"
+                    "$ref": "#/$defs/Presence",
+                    "description": "Overrides presence when expression is true"
                 },
                 "replaced": {
                     "type": [
@@ -6582,6 +6598,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -7226,6 +7243,7 @@
                     ]
                 },
                 "impl_min_occurs": {
+                    "description": "Lower bound of group instances (numInGroup)",
                     "type": [
                         "integer",
                         "null"
@@ -7899,6 +7917,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -8647,6 +8666,7 @@
                     ]
                 },
                 "field_ref": {
+                    "description": "Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.",
                     "items": {
                         "$ref": "#/$defs/FieldRefType"
                     },
@@ -8665,7 +8685,8 @@
                     ]
                 },
                 "which": {
-                    "$ref": "#/$defs/MemberType"
+                    "$ref": "#/$defs/MemberType",
+                    "description": "Member selection within each group instance"
                 }
             },
             "title": "StructureInline",

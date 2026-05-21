@@ -354,6 +354,18 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     schema = yaml.safe_load(args.schema.read_text())
+    # Merge locally-resolvable imports so SchemaIndex can see DC classes.
+    for imp in schema.get("imports") or []:
+        if ":" in imp:
+            continue  # skip linkml:types etc.
+        for ext in (".yaml", ".yml"):
+            imp_path = args.schema.parent / (imp + ext)
+            if imp_path.is_file():
+                imp_schema = yaml.safe_load(imp_path.read_text())
+                for section in ("classes", "slots", "types", "enums"):
+                    base = schema.setdefault(section, {})
+                    base.update(imp_schema.get(section) or {})
+                break
     idx = SchemaIndex(schema)
 
     target = args.target_class or infer_target_class(args.input)

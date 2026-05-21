@@ -41,23 +41,8 @@ default_prefix: fix_orchestra
 default_range: string
 imports:
 - linkml:types
+- fix_orchestra_dc
 types:
-  DcmitypeDCMIType:
-    description: 'Union of: '
-    typeof: string
-    uri: dcmitype:DCMIType
-    aliases:
-    - DCMIType
-    in_subset:
-    - dcmitype
-
-  XmlLangType:
-    description: Anonymous simpleType for xml:lang (from xml.xsd).
-    typeof: string
-    uri: xml:lang_t
-    in_subset:
-    - xml_namespace
-
   ComponentName:
     typeof: string
     uri: fixr:ComponentName_t
@@ -196,6 +181,348 @@ types:
     - transportUse_t
     in_subset:
     - interfaces
+
+  FIXInt:
+    description: FIX int base datatype. Sequence of digits without commas or decimals and optional sign character (ASCII characters "-" and "0" - "9" ). The sign character utilizes one byte (i.e. positive int is "99999" while negative int is "-99999"). Note that int values may contain leading zeros (e.g. "00023" = "23").
+    typeof: integer
+    uri: fixr:int
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXLength:
+    description: FIX Length datatype (extends int). int field representing the length in bytes. Value must be positive.
+    typeof: integer
+    uri: fixr:Length
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXTagNum:
+    description: FIX TagNum datatype (extends int). int field representing a field's tag number when using FIX "Tag=Value" syntax. Value must be positive and may not contain leading zeros.
+    typeof: integer
+    uri: fixr:TagNum
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXSeqNum:
+    description: FIX SeqNum datatype (extends int). int field representing a message sequence number. Value must be positive.
+    typeof: integer
+    uri: fixr:SeqNum
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXNumInGroup:
+    description: FIX NumInGroup datatype (extends int). int field representing the number of entries in a repeating group. Value must be positive.
+    typeof: string
+    uri: fixr:NumInGroup
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXDayOfMonth:
+    description: FIX DayOfMonth datatype (extends int). int field representing a day during a particular month (values 1 to 31).
+    typeof: integer
+    uri: fixr:DayOfMonth
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXFloat:
+    description: FIX float base datatype. Sequence of digits with optional decimal point and sign character (ASCII characters "-", "0" - "9" and "."); the absence of the decimal point within the string will be interpreted as the float representation of an integer value. All float fields must accommodate up to fifteen significant digits. The number of decimal places used should be a factor of business/market needs and mutual agreement between counterparties. Note that float values may contain leading zeros (e.g. "00023.23" = "23.23") and may contain or omit trailing zeros after the decimal point (e.g. "23.0" = "23.0000" = "23" = "23."). Note that fields which are derived from float may contain negative values unless explicitly specified otherwise.
+    typeof: float
+    uri: fixr:float
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: double
+
+  FIXQty:
+    description: FIX Qty datatype (extends float). float field capable of storing either a whole number (no decimal places) of "shares" (securities denominated in whole units) or a decimal value containing decimal places for non-share quantity asset classes (securities denominated in fractional units).
+    typeof: float
+    uri: fixr:Qty
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Decimal64
+
+  FIXPrice:
+    description: 'FIX Price datatype (extends float). float field representing a price. Note the number of decimal places may vary. For certain asset classes prices may be negative values. For example, prices for options strategies can be negative under certain market conditions. Refer to Volume 7: FIX Usage by Product for asset classes that support negative price values.'
+    typeof: float
+    uri: fixr:Price
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Decimal64
+
+  FIXPriceOffset:
+    description: FIX PriceOffset datatype (extends float). float field representing a price offset, which can be mathematically added to a "Price". Note the number of decimal places may vary and some fields such as LastForwardPoints may be negative.
+    typeof: float
+    uri: fixr:PriceOffset
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Decimal64
+
+  FIXAmt:
+    description: FIX Amt datatype (extends float). float field typically representing a Price times a Qty
+    typeof: float
+    uri: fixr:Amt
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Decimal64
+
+  FIXPercentage:
+    description: FIX Percentage datatype (extends float). float field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary.
+    typeof: float
+    uri: fixr:Percentage
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: double
+
+  FIXChar:
+    description: FIX char base datatype. Single character value, can include any alphanumeric character or punctuation except the delimiter. All char fields are case sensitive (i.e. m != M).
+    typeof: string
+    uri: fixr:char
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXBoolean:
+    description: 'FIX Boolean datatype (extends char). char field containing one of two values:'
+    typeof: string
+    uri: fixr:Boolean
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: bool
+
+  FIXString:
+    description: FIX String base datatype. Alpha-numeric free format strings, can include any character or punctuation except the delimiter. All String fields are case sensitive (i.e. morstatt != Morstatt).
+    typeof: string
+    uri: fixr:String
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXMultipleCharValue:
+    description: FIX MultipleCharValue datatype (extends String). string field containing one or more space delimited single character values (e.g. |18=2 A F| ).
+    typeof: string
+    uri: fixr:MultipleCharValue
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXMultipleStringValue:
+    description: FIX MultipleStringValue datatype (extends String). string field containing one or more space delimited multiple character values (e.g. |277=AV AN A| ).
+    typeof: string
+    uri: fixr:MultipleStringValue
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXCountry:
+    description: FIX Country datatype (extends String). string field representing a country using ISO 3166 Country code (2 character) values (see Appendix 6-B).
+    typeof: string
+    uri: fixr:Country
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXCurrency:
+    description: FIX Currency datatype (extends String). string field representing a currency type using ISO 4217 Currency code (3 character) values (see Appendix 6-A).
+    typeof: string
+    uri: fixr:Currency
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXExchange:
+    description: FIX Exchange datatype (extends String). string field representing a market or exchange using ISO 10383 Market Identifier Code (MIC) values (see"Appendix 6-C).
+    typeof: string
+    uri: fixr:Exchange
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXMonthYear:
+    description: FIX MonthYear datatype (extends String). string field representing month of a year. An optional day of the month can be appended or an optional week code.
+    typeof: string
+    uri: fixr:MonthYear
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXUTCTimestamp:
+    description: FIX UTCTimestamp datatype (extends String). string field representing time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss* format, colons, dash, and period required.
+    typeof: datetime
+    uri: fixr:UTCTimestamp
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Timestamp
+
+  FIXUTCTimeOnly:
+    description: FIX UTCTimeOnly datatype (extends String). string field representing time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss* (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.
+    typeof: string
+    uri: fixr:UTCTimeOnly
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: TimeOnly
+
+  FIXUTCDateOnly:
+    description: FIX UTCDateOnly datatype (extends String). string field representing Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.
+    typeof: date
+    uri: fixr:UTCDateOnly
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXLocalMktDate:
+    description: FIX LocalMktDate datatype (extends String). string field representing a Date of Local Market (as opposed to UTC) in YYYYMMDD format. This is the "normal" date field used by the FIX Protocol.
+    typeof: date
+    uri: fixr:LocalMktDate
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXTZTimeOnly:
+    description: FIX TZTimeOnly datatype (extends String). string field representing the time represented based on ISO 8601. This is the time with a UTC offset to allow identification of local time and timezone of that time.
+    typeof: string
+    uri: fixr:TZTimeOnly
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: TimeOnly
+
+  FIXTZTimestamp:
+    description: FIX TZTimestamp datatype (extends String). string field representing a time/date combination representing local time with an offset to UTC to allow identification of local time and timezone offset of that time. The representation is based on ISO 8601.
+    typeof: datetime
+    uri: fixr:TZTimestamp
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Timestamp
+
+  FIXData:
+    description: 'FIX data base datatype. string field containing opaque or non-ASCII data with no format or content restrictions. Data fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). The number of bytes does not equal the number of characters when multibyte character sets are used. Caution: The value of these fields may contain the delimiter (SOH) character. Note that the value specified for these fields must be followed by the delimiter (SOH) character as all tag-value fields are terminated with an SOH.'
+    typeof: string
+    uri: fixr:data
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: bytes
+
+  FIXPattern:
+    description: FIX Pattern base datatype. Used to build on and provide some restrictions on what is allowed as valid values in fields that uses a base FIX data type and a pattern data type. The universe of allowable valid values for the field would then be the union of the base set of valid values and what is defined by the pattern data type. The pattern data type used by the field will retain its base FIX data type (e.g. String, int, char).
+    typeof: string
+    uri: fixr:Pattern
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXTenor:
+    description: 'FIX Tenor datatype (extends Pattern). used to allow the expression of FX standard tenors in addition to the base valid enumerations defined for the field that uses this pattern data type. This pattern data type is defined as follows:'
+    typeof: string
+    uri: fixr:Tenor
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: Tenor
+
+  FIXReserved100Plus:
+    description: FIX Reserved100Plus datatype (extends Pattern). Values "100" and above are reserved for bilaterally agreed upon user defined enumerations.
+    typeof: integer
+    uri: fixr:Reserved100Plus
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXReserved1000Plus:
+    description: FIX Reserved1000Plus datatype (extends Pattern). Values "1000" and above are reserved for bilaterally agreed upon user defined enumerations.
+    typeof: integer
+    uri: fixr:Reserved1000Plus
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXReserved4000Plus:
+    description: FIX Reserved4000Plus datatype (extends Pattern). Values "4000" and above are reserved for bilaterally agreed upon user defined enumerations.
+    typeof: integer
+    uri: fixr:Reserved4000Plus
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: fixed32
+
+  FIXXMLData:
+    description: FIX XMLData datatype (extends String). Contains an XML document raw data with no format or content restrictions. XMLData fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH).
+    typeof: string
+    uri: fixr:XMLData
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXLanguage:
+    description: FIX Language datatype (extends String). Identifier for a national language - uses ISO 639-1 standard
+    typeof: string
+    uri: fixr:Language
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXLocalMktTime:
+    description: FIX LocalMktTime datatype (extends String). string field representing the time local to a particular market center. Used where offset to UTC varies throughout the year and the defining market center is identified in a corresponding field.
+    typeof: string
+    uri: fixr:LocalMktTime
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: TimeOnly
+
+  FIXXID:
+    description: FIX XID datatype (extends String). The purpose of the XID datatype is to define a unique identifier that is global to a FIX message. An identifier defined using this datatype uniquely identifies its containing element, whatever its type and name is. The constraint added by this datatype is that the values of all the fields that have an XID datatype in a FIX message must be unique.
+    typeof: string
+    uri: fixr:XID
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
+
+  FIXXIDREF:
+    description: FIX XIDREF datatype (extends String). The XIDREF datatype defines a reference to an identifier defined by the XID datatype.
+    typeof: string
+    uri: fixr:XIDREF
+    in_subset:
+    - fix_base_types
+    annotations:
+      proto_scalar: string
 subsets:
   repository_types:
     description: Types and elements defined in repositorytypes.xsd. Forms the shared vocabulary used by repository.xsd.
@@ -206,27 +533,9 @@ subsets:
   interfaces:
     description: Types and elements defined in interfaces.xsd, describing FIX service / session / encoding / protocol / transport bindings.
 
-  dc:
-    description: Dublin Core elements 1.1 (dc.xsd, namespace http://purl.org/dc/elements/1.1/).
-
-  dcterms:
-    description: Dublin Core Terms (dcterms.xsd, namespace http://purl.org/dc/terms/). Includes element refinements and value encoding schemes (LCSH, MESH, W3CDTF, ISO639, ...).
-
-  dcmitype:
-    description: DCMI Type Vocabulary (dcmitype.xsd, namespace http://purl.org/dc/dcmitype/). Controlled list of resource type values (Collection, Dataset, Image, ...).
-
-  xml_namespace:
-    description: W3C XML namespace declarations (xml.xsd, namespace http://www.w3.org/XML/1998/namespace). Defines the well-known xml:base, xml:lang, xml:space, xml:id attributes.
+  fix_base_types:
+    description: FIX base datatypes derived from the FIX Orchestra XML repository. Each type carries a proto_scalar annotation giving the recommended Protocol Buffers scalar type when encoding FIX wire-format messages.
 enums:
-  XmlSpaceType:
-    description: Anonymous simpleType for xml:space (from xml.xsd).
-    enum_uri: xml:space_t
-    in_subset:
-    - xml_namespace
-    permissible_values:
-      default:
-      preserve:
-
   CatComponentType:
     enum_uri: fixr:CatComponentType_t
     aliases:
@@ -505,1163 +814,6 @@ enums:
       secondary:
       alternate:
 classes:
-  DcSimpleLiteral:
-    description: This is the default type for all of the DC elements. It permits text content only with optional xml:lang attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child elements.
-    annotations:
-      xsd_base: xs:anyType
-      xsd_source: dc.xsd
-    class_uri: dc:SimpleLiteral
-    aliases:
-    - SimpleLiteral
-    in_subset:
-    - dc
-    attributes:
-      lang:
-        range: string
-    slots:
-    - value
-    - content
-
-  DcElementContainer:
-    description: This complexType is included as a convenience for schema authors who need to define a root or container element for all of the DC elements.
-    class_uri: dc:elementContainer
-    aliases:
-    - elementContainer
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-    attributes:
-      type:
-        range: string
-        description: Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
-
-      identifier:
-        range: string
-        description: Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
-    slots:
-    - title
-    - creator
-    - subject
-    - description
-    - publisher
-    - contributor
-    - date
-    - format
-    - source
-    - language
-    - relation
-    - coverage
-    - rights
-    - alternative
-    - table_of_contents
-    - abstract
-    - created
-    - valid
-    - available
-    - issued
-    - modified
-    - date_accepted
-    - date_copyrighted
-    - date_submitted
-    - extent
-    - medium
-    - is_version_of
-    - has_version
-    - is_replaced_by
-    - replaces
-    - is_required_by
-    - requires
-    - is_part_of
-    - has_part
-    - is_referenced_by
-    - references
-    - is_format_of
-    - has_format
-    - conforms_to
-    - spatial
-    - temporal
-    - audience
-    - accrual_method
-    - accrual_periodicity
-    - accrual_policy
-    - instructional_method
-    - provenance
-    - rights_holder
-    - mediator
-    - education_level
-    - access_rights
-    - license
-    - bibliographic_citation
-
-  DcAny:
-    abstract: true
-    is_a: DcSimpleLiteral
-    class_uri: dc:any
-    aliases:
-    - any
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcTitle:
-    is_a: DcAny
-    class_uri: dc:title
-    aliases:
-    - title
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcCreator:
-    is_a: DcAny
-    class_uri: dc:creator
-    aliases:
-    - creator
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcSubject:
-    is_a: DcAny
-    class_uri: dc:subject
-    aliases:
-    - subject
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcDescription:
-    is_a: DcAny
-    class_uri: dc:description
-    aliases:
-    - description
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcPublisher:
-    is_a: DcAny
-    class_uri: dc:publisher
-    aliases:
-    - publisher
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcContributor:
-    is_a: DcAny
-    class_uri: dc:contributor
-    aliases:
-    - contributor
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcDate:
-    is_a: DcAny
-    class_uri: dc:date
-    aliases:
-    - date
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcType:
-    is_a: DcAny
-    class_uri: dc:type
-    aliases:
-    - type
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcFormat:
-    is_a: DcAny
-    class_uri: dc:format
-    aliases:
-    - format
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcIdentifier:
-    is_a: DcAny
-    class_uri: dc:identifier
-    aliases:
-    - identifier
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcSource:
-    is_a: DcAny
-    class_uri: dc:source
-    aliases:
-    - source
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcLanguage:
-    is_a: DcAny
-    class_uri: dc:language
-    aliases:
-    - language
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcRelation:
-    is_a: DcAny
-    class_uri: dc:relation
-    aliases:
-    - relation
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcCoverage:
-    is_a: DcAny
-    class_uri: dc:coverage
-    aliases:
-    - coverage
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcRights:
-    is_a: DcAny
-    class_uri: dc:rights
-    aliases:
-    - rights
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-
-  DcElementsGroup:
-    description: This group is included as a convenience for schema authors who need to refer to all the elements in the http://purl.org/dc/elements/1.1/ namespace.
-    mixin: true
-    class_uri: dc:elementsGroup
-    aliases:
-    - elementsGroup
-    in_subset:
-    - dc
-    annotations:
-      xsd_source: dc.xsd
-      xsd_group_members: any
-
-  DctermsLCSH:
-    is_a: DcSimpleLiteral
-    class_uri: dct:LCSH
-    aliases:
-    - LCSH
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsMESH:
-    is_a: DcSimpleLiteral
-    class_uri: dct:MESH
-    aliases:
-    - MESH
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsDDC:
-    is_a: DcSimpleLiteral
-    class_uri: dct:DDC
-    aliases:
-    - DDC
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsLCC:
-    is_a: DcSimpleLiteral
-    class_uri: dct:LCC
-    aliases:
-    - LCC
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsUDC:
-    is_a: DcSimpleLiteral
-    class_uri: dct:UDC
-    aliases:
-    - UDC
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsPeriod:
-    is_a: DcSimpleLiteral
-    class_uri: dct:Period
-    aliases:
-    - Period
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsW3CDTF:
-    is_a: DcSimpleLiteral
-    class_uri: dct:W3CDTF
-    aliases:
-    - W3CDTF
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsDCMIType:
-    is_a: DcSimpleLiteral
-    class_uri: dct:DCMIType
-    aliases:
-    - DCMIType
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsIMT:
-    is_a: DcSimpleLiteral
-    class_uri: dct:IMT
-    aliases:
-    - IMT
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsURI:
-    is_a: DcSimpleLiteral
-    class_uri: dct:URI
-    aliases:
-    - URI
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsISO6392:
-    is_a: DcSimpleLiteral
-    class_uri: dct:ISO639-2
-    aliases:
-    - ISO639-2
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsISO6393:
-    is_a: DcSimpleLiteral
-    class_uri: dct:ISO639-3
-    aliases:
-    - ISO639-3
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsRFC1766:
-    is_a: DcSimpleLiteral
-    class_uri: dct:RFC1766
-    aliases:
-    - RFC1766
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsRFC3066:
-    is_a: DcSimpleLiteral
-    class_uri: dct:RFC3066
-    aliases:
-    - RFC3066
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsRFC4646:
-    is_a: DcSimpleLiteral
-    class_uri: dct:RFC4646
-    aliases:
-    - RFC4646
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsPoint:
-    is_a: DcSimpleLiteral
-    class_uri: dct:Point
-    aliases:
-    - Point
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsISO3166:
-    is_a: DcSimpleLiteral
-    class_uri: dct:ISO3166
-    aliases:
-    - ISO3166
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsBox:
-    is_a: DcSimpleLiteral
-    class_uri: dct:Box
-    aliases:
-    - Box
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsTGN:
-    is_a: DcSimpleLiteral
-    class_uri: dct:TGN
-    aliases:
-    - TGN
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_simple_restriction: dc:SimpleLiteral
-
-  DctermsElementOrRefinementContainer:
-    description: This is included as a convenience for schema authors who need to define a root or container element for all of the DC elements and element refinements.
-    class_uri: dct:elementOrRefinementContainer
-    aliases:
-    - elementOrRefinementContainer
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-    attributes:
-      type:
-        range: string
-        description: Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
-
-      identifier:
-        range: string
-        description: Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
-    slots:
-    - title
-    - creator
-    - subject
-    - description
-    - publisher
-    - contributor
-    - date
-    - format
-    - source
-    - language
-    - relation
-    - coverage
-    - rights
-    - alternative
-    - table_of_contents
-    - abstract
-    - created
-    - valid
-    - available
-    - issued
-    - modified
-    - date_accepted
-    - date_copyrighted
-    - date_submitted
-    - extent
-    - medium
-    - is_version_of
-    - has_version
-    - is_replaced_by
-    - replaces
-    - is_required_by
-    - requires
-    - is_part_of
-    - has_part
-    - is_referenced_by
-    - references
-    - is_format_of
-    - has_format
-    - conforms_to
-    - spatial
-    - temporal
-    - audience
-    - accrual_method
-    - accrual_periodicity
-    - accrual_policy
-    - instructional_method
-    - provenance
-    - rights_holder
-    - mediator
-    - education_level
-    - access_rights
-    - license
-    - bibliographic_citation
-
-  DctermsTitle:
-    is_a: DcTitle
-    class_uri: dct:title
-    aliases:
-    - title
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsCreator:
-    is_a: DcCreator
-    class_uri: dct:creator
-    aliases:
-    - creator
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsSubject:
-    is_a: DcSubject
-    class_uri: dct:subject
-    aliases:
-    - subject
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsDescription:
-    is_a: DcDescription
-    class_uri: dct:description
-    aliases:
-    - description
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsPublisher:
-    is_a: DcPublisher
-    class_uri: dct:publisher
-    aliases:
-    - publisher
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsContributor:
-    is_a: DcContributor
-    class_uri: dct:contributor
-    aliases:
-    - contributor
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsDate:
-    is_a: DcDate
-    class_uri: dct:date
-    aliases:
-    - date
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsType:
-    is_a: DcType
-    class_uri: dct:type
-    aliases:
-    - type
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsFormat:
-    is_a: DcFormat
-    class_uri: dct:format
-    aliases:
-    - format
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIdentifier:
-    is_a: DcIdentifier
-    class_uri: dct:identifier
-    aliases:
-    - identifier
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsSource:
-    is_a: DcSource
-    class_uri: dct:source
-    aliases:
-    - source
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsLanguage:
-    is_a: DcLanguage
-    class_uri: dct:language
-    aliases:
-    - language
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsRelation:
-    is_a: DcRelation
-    class_uri: dct:relation
-    aliases:
-    - relation
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsCoverage:
-    is_a: DcCoverage
-    class_uri: dct:coverage
-    aliases:
-    - coverage
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsRights:
-    is_a: DcRights
-    class_uri: dct:rights
-    aliases:
-    - rights
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAlternative:
-    is_a: DctermsTitle
-    class_uri: dct:alternative
-    aliases:
-    - alternative
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsTableOfContents:
-    is_a: DctermsDescription
-    class_uri: dct:tableOfContents
-    aliases:
-    - tableOfContents
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAbstract:
-    is_a: DctermsDescription
-    class_uri: dct:abstract
-    aliases:
-    - abstract
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsCreated:
-    is_a: DctermsDate
-    class_uri: dct:created
-    aliases:
-    - created
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsValid:
-    is_a: DctermsDate
-    class_uri: dct:valid
-    aliases:
-    - valid
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAvailable:
-    is_a: DctermsDate
-    class_uri: dct:available
-    aliases:
-    - available
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIssued:
-    is_a: DctermsDate
-    class_uri: dct:issued
-    aliases:
-    - issued
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsModified:
-    is_a: DctermsDate
-    class_uri: dct:modified
-    aliases:
-    - modified
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsDateAccepted:
-    is_a: DctermsDate
-    class_uri: dct:dateAccepted
-    aliases:
-    - dateAccepted
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsDateCopyrighted:
-    is_a: DctermsDate
-    class_uri: dct:dateCopyrighted
-    aliases:
-    - dateCopyrighted
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsDateSubmitted:
-    is_a: DctermsDate
-    class_uri: dct:dateSubmitted
-    aliases:
-    - dateSubmitted
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsExtent:
-    is_a: DctermsFormat
-    class_uri: dct:extent
-    aliases:
-    - extent
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsMedium:
-    is_a: DctermsFormat
-    class_uri: dct:medium
-    aliases:
-    - medium
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsVersionOf:
-    is_a: DctermsRelation
-    class_uri: dct:isVersionOf
-    aliases:
-    - isVersionOf
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsHasVersion:
-    is_a: DctermsRelation
-    class_uri: dct:hasVersion
-    aliases:
-    - hasVersion
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsReplacedBy:
-    is_a: DctermsRelation
-    class_uri: dct:isReplacedBy
-    aliases:
-    - isReplacedBy
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsReplaces:
-    is_a: DctermsRelation
-    class_uri: dct:replaces
-    aliases:
-    - replaces
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsRequiredBy:
-    is_a: DctermsRelation
-    class_uri: dct:isRequiredBy
-    aliases:
-    - isRequiredBy
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsRequires:
-    is_a: DctermsRelation
-    class_uri: dct:requires
-    aliases:
-    - requires
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsPartOf:
-    is_a: DctermsRelation
-    class_uri: dct:isPartOf
-    aliases:
-    - isPartOf
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsHasPart:
-    is_a: DctermsRelation
-    class_uri: dct:hasPart
-    aliases:
-    - hasPart
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsReferencedBy:
-    is_a: DctermsRelation
-    class_uri: dct:isReferencedBy
-    aliases:
-    - isReferencedBy
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsReferences:
-    is_a: DctermsRelation
-    class_uri: dct:references
-    aliases:
-    - references
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsIsFormatOf:
-    is_a: DctermsRelation
-    class_uri: dct:isFormatOf
-    aliases:
-    - isFormatOf
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsHasFormat:
-    is_a: DctermsRelation
-    class_uri: dct:hasFormat
-    aliases:
-    - hasFormat
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsConformsTo:
-    is_a: DctermsRelation
-    class_uri: dct:conformsTo
-    aliases:
-    - conformsTo
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsSpatial:
-    is_a: DctermsCoverage
-    class_uri: dct:spatial
-    aliases:
-    - spatial
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsTemporal:
-    is_a: DctermsCoverage
-    class_uri: dct:temporal
-    aliases:
-    - temporal
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAudience:
-    is_a: DcAny
-    class_uri: dct:audience
-    aliases:
-    - audience
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAccrualMethod:
-    is_a: DcAny
-    class_uri: dct:accrualMethod
-    aliases:
-    - accrualMethod
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAccrualPeriodicity:
-    is_a: DcAny
-    class_uri: dct:accrualPeriodicity
-    aliases:
-    - accrualPeriodicity
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAccrualPolicy:
-    is_a: DcAny
-    class_uri: dct:accrualPolicy
-    aliases:
-    - accrualPolicy
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsInstructionalMethod:
-    is_a: DcAny
-    class_uri: dct:instructionalMethod
-    aliases:
-    - instructionalMethod
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsProvenance:
-    is_a: DcAny
-    class_uri: dct:provenance
-    aliases:
-    - provenance
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsRightsHolder:
-    is_a: DcAny
-    class_uri: dct:rightsHolder
-    aliases:
-    - rightsHolder
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsMediator:
-    is_a: DctermsAudience
-    class_uri: dct:mediator
-    aliases:
-    - mediator
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsEducationLevel:
-    is_a: DctermsAudience
-    class_uri: dct:educationLevel
-    aliases:
-    - educationLevel
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsAccessRights:
-    is_a: DctermsRights
-    class_uri: dct:accessRights
-    aliases:
-    - accessRights
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsLicense:
-    is_a: DctermsRights
-    class_uri: dct:license
-    aliases:
-    - license
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsBibliographicCitation:
-    is_a: DctermsIdentifier
-    class_uri: dct:bibliographicCitation
-    aliases:
-    - bibliographicCitation
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-
-  DctermsElementsAndRefinementsGroup:
-    description: This group is included as a convenience for schema authors who need to refer to all the DC elements and element refinements in the http://purl.org/dc/elements/1.1/ and http://purl.org/dc/terms namespaces. N.B. Refinements available via substitution groups.
-    mixin: true
-    class_uri: dct:elementsAndRefinementsGroup
-    aliases:
-    - elementsAndRefinementsGroup
-    in_subset:
-    - dcterms
-    annotations:
-      xsd_source: dcterms.xsd
-      xsd_group_members: any
-
-  XmlSpecialAttrs:
-    mixin: true
-    class_uri: xml:specialAttrs
-    aliases:
-    - specialAttrs
-    in_subset:
-    - xml_namespace
-    attributes:
-      base:
-        range: string
-
-      lang:
-        range: string
-
-      space:
-        range: string
-
-      id:
-        range: string
-
-  XmlGlobalAttributes:
-    description: Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
-    class_uri: xml:GlobalAttributes
-    in_subset:
-    - xml_namespace
-    annotations:
-      xsd_source: xml.xsd
-    attributes:
-      lang:
-        range: XmlLangType
-        description: lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string.
-        slot_uri: xml:lang
-
-      space:
-        range: XmlSpaceType
-        description: space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification.
-        slot_uri: xml:space
-
-      base:
-        range: uri
-        description: base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute.
-        slot_uri: xml:base
-
-      id:
-        range: string
-        description: id (as an attribute name) denotes an attribute whose value should be interpreted as if declared to be of type ID. This name is reserved by virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/ for information about this attribute.
-        slot_uri: xml:id
-
   EntityAttribGrp:
     mixin: true
     class_uri: fixr:entityAttribGrp
@@ -1710,6 +862,8 @@ classes:
     - value
     - rendering
     slot_usage:
+      presence:
+        description:
       value:
         description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
         slot_uri: fixr:value
@@ -1813,6 +967,9 @@ classes:
     - message_ref
     - trigger
     - timer_schedule
+    slot_usage:
+      field_ref:
+        description:
 
   ActorType:
     description: Represents a class of participants
@@ -1847,6 +1004,9 @@ classes:
     - group_ref
     - states
     - timer
+    slot_usage:
+      field_ref:
+        description:
 
   Annotation:
     mixins:
@@ -1913,6 +1073,9 @@ classes:
     - component_ref
     - group_ref
     - field_ref
+    slot_usage:
+      field_ref:
+        description:
 
   CategoryType:
     mixins:
@@ -2034,6 +1197,9 @@ classes:
     slots:
     - block_assignment
     - presence
+    slot_usage:
+      presence:
+        description:
 
   ComponentRuleType:
     class_uri: fixr:componentRuleType
@@ -2054,8 +1220,8 @@ classes:
     slot_usage:
       when:
         required: true
+        description:
       presence:
-        description: Overrides presence when expression is true
         ifabsent:
 
   ComponentType:
@@ -2084,6 +1250,11 @@ classes:
     - field_ref
     - rendering
     - which
+    slot_usage:
+      field_ref:
+        description:
+      which:
+        description:
 
   ConceptType:
     class_uri: fixr:conceptType
@@ -2108,6 +1279,8 @@ classes:
     - field_ref
     - message_ref
     slot_usage:
+      field_ref:
+        description:
       message_ref:
         description:
 
@@ -2189,9 +1362,6 @@ classes:
       xsd_anonymous_inline: true
     slots:
     - field_ref
-    slot_usage:
-      field_ref:
-        description: Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.
 
   FieldRuleType:
     mixins:
@@ -2225,6 +1395,7 @@ classes:
     slot_usage:
       when:
         required: true
+        description:
 
   FieldType:
     mixins:
@@ -2318,6 +1489,11 @@ classes:
     slots:
     - impl_min_occurs
     - impl_max_occurs
+    slot_usage:
+      impl_min_occurs:
+        description:
+      impl_max_occurs:
+        description:
 
   GroupType:
     description: A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the sequence, it cannot be an extension.
@@ -2350,13 +1526,10 @@ classes:
     - impl_max_occurs
     - which
     slot_usage:
-      impl_min_occurs:
-        description: Lower bound of group instances (numInGroup)
+      field_ref:
+        description:
       impl_max_occurs:
-        description: Upper bound of group instances (numInGroup)
         ifabsent:
-      which:
-        description: Member selection within each group instance
 
   IdentifiersType:
     class_uri: fixr:identifiersType
@@ -2455,6 +1628,7 @@ classes:
     slot_usage:
       impl_min_occurs:
         ifabsent: string(1)
+        description:
       impl_max_occurs:
         description: The same message type may be sent one or more times
 
@@ -2468,6 +1642,11 @@ classes:
     - group_ref
     - field_ref
     - which
+    slot_usage:
+      field_ref:
+        description:
+      which:
+        description:
 
   ResponsesInline:
     in_subset:
@@ -2507,9 +1686,6 @@ classes:
     - responses
     - msg_type
     - rendering
-    slot_usage:
-      when:
-        description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
 
   ResponseType:
     description: Any number of action behaviors can be triggered by the same 'when' condition
@@ -3427,324 +2603,6 @@ classes:
       metadata:
         slot_uri: fixi:metadata
 slots:
-  value:
-    range: string
-    description: Mixed text content of the element.
-
-  content:
-    range: string
-    multivalued: true
-    description: Pass-through xs:any content as raw strings.
-
-  title:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:title
-
-  description:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `description`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:description
-
-  creator:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `creator`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:creator
-
-  rights:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `rights`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:rights
-
-  date:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `date`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:date
-
-  publisher:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `publisher`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:publisher
-
-  subject:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `subject`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:subject
-
-  contributor:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `contributor`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:contributor
-
-  format:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `format`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:format
-
-  source:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `source`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:source
-
-  language:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `language`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:language
-
-  relation:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `relation`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:relation
-
-  coverage:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `coverage`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:coverage
-
-  alternative:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `alternative`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:alternative
-
-  table_of_contents:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `tableOfContents`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:tableOfContents
-    aliases:
-    - tableOfContents
-
-  abstract:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `abstract`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:abstract
-
-  created:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `created`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:created
-
-  valid:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `valid`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:valid
-
-  available:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `available`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:available
-
-  issued:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `issued`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:issued
-
-  modified:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `modified`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:modified
-
-  date_accepted:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `dateAccepted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateAccepted
-    aliases:
-    - dateAccepted
-
-  date_copyrighted:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `dateCopyrighted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateCopyrighted
-    aliases:
-    - dateCopyrighted
-
-  date_submitted:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `dateSubmitted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateSubmitted
-    aliases:
-    - dateSubmitted
-
-  extent:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `extent`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:extent
-
-  medium:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `medium`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:medium
-
-  is_version_of:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isVersionOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isVersionOf
-    aliases:
-    - isVersionOf
-
-  has_version:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `hasVersion`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasVersion
-    aliases:
-    - hasVersion
-
-  is_replaced_by:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isReplacedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isReplacedBy
-    aliases:
-    - isReplacedBy
-
-  replaces:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `replaces`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:replaces
-
-  is_required_by:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isRequiredBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isRequiredBy
-    aliases:
-    - isRequiredBy
-
-  requires:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `requires`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:requires
-
-  is_part_of:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isPartOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isPartOf
-    aliases:
-    - isPartOf
-
-  has_part:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `hasPart`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasPart
-    aliases:
-    - hasPart
-
-  is_referenced_by:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isReferencedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isReferencedBy
-    aliases:
-    - isReferencedBy
-
-  references:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `references`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:references
-
-  is_format_of:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `isFormatOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isFormatOf
-    aliases:
-    - isFormatOf
-
-  has_format:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `hasFormat`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasFormat
-    aliases:
-    - hasFormat
-
-  conforms_to:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `conformsTo`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:conformsTo
-    aliases:
-    - conformsTo
-
-  spatial:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `spatial`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:spatial
-
-  temporal:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `temporal`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:temporal
-
-  audience:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `audience`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:audience
-
-  accrual_method:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `accrualMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualMethod
-    aliases:
-    - accrualMethod
-
-  accrual_periodicity:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `accrualPeriodicity`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualPeriodicity
-    aliases:
-    - accrualPeriodicity
-
-  accrual_policy:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `accrualPolicy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualPolicy
-    aliases:
-    - accrualPolicy
-
-  instructional_method:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `instructionalMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:instructionalMethod
-    aliases:
-    - instructionalMethod
-
-  provenance:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `provenance`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:provenance
-
-  rights_holder:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `rightsHolder`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:rightsHolder
-    aliases:
-    - rightsHolder
-
-  mediator:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `mediator`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:mediator
-
-  education_level:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `educationLevel`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:educationLevel
-    aliases:
-    - educationLevel
-
-  access_rights:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `accessRights`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accessRights
-    aliases:
-    - accessRights
-
-  license:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `license`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:license
-
-  bibliographic_citation:
-    range: string
-    description: Free-text value of the Dublin Core element/refinement `bibliographicCitation`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:bibliographicCitation
-    aliases:
-    - bibliographicCitation
-
   added:
     range: Version
     slot_uri: fixr:added
@@ -3845,6 +2703,7 @@ slots:
     range: Presence
     ifabsent: string(optional)
     slot_uri: fixr:presence
+    description: Overrides presence when expression is true
 
   rendering:
     range: string
@@ -3894,6 +2753,7 @@ slots:
     slot_uri: fixr:fieldRef
     aliases:
     - fieldRef
+    description: Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.
 
   component:
     range: ComponentType
@@ -4026,10 +2886,12 @@ slots:
   when:
     range: ExpressionType
     slot_uri: fixr:when
+    description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
 
   which:
     range: MemberType
     slot_uri: fixr:which
+    description: Member selection within each group instance
 
   length_id:
     range: Id
@@ -4079,6 +2941,7 @@ slots:
     slot_uri: fixr:implMinOccurs
     aliases:
     - implMinOccurs
+    description: Lower bound of group instances (numInGroup)
 
   impl_max_occurs:
     range: UnboundedIntType
@@ -4086,6 +2949,7 @@ slots:
     slot_uri: fixr:implMaxOccurs
     aliases:
     - implMaxOccurs
+    description: Upper bound of group instances (numInGroup)
 
   num_in_group:
     range: FieldRefType

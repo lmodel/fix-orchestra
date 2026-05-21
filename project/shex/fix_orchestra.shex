@@ -12,10 +12,6 @@ PREFIX fixr: <http://fixprotocol.io/2024/orchestra/repository/>
 PREFIX fixi: <http://fixprotocol.io/2024/orchestra/interfaces/>
 
 
-<DcmitypeDCMIType> dcmitype:DCMIType
-
-<XmlLangType> xml1:lang_t
-
 <ComponentName> fixr:ComponentName_t
 
 <DatatypeStandard> fixr:datatypeStandard_t
@@ -45,6 +41,82 @@ PREFIX fixi: <http://fixprotocol.io/2024/orchestra/interfaces/>
 <InterfacePurpose> fixi:purpose_t
 
 <TransportUse> fixi:transportUse_t
+
+<FIXInt> fixr:int
+
+<FIXLength> fixr:Length
+
+<FIXTagNum> fixr:TagNum
+
+<FIXSeqNum> fixr:SeqNum
+
+<FIXNumInGroup> fixr:NumInGroup
+
+<FIXDayOfMonth> fixr:DayOfMonth
+
+<FIXFloat> fixr:float
+
+<FIXQty> fixr:Qty
+
+<FIXPrice> fixr:Price
+
+<FIXPriceOffset> fixr:PriceOffset
+
+<FIXAmt> fixr:Amt
+
+<FIXPercentage> fixr:Percentage
+
+<FIXChar> fixr:char
+
+<FIXBoolean> fixr:Boolean
+
+<FIXString> fixr:String
+
+<FIXMultipleCharValue> fixr:MultipleCharValue
+
+<FIXMultipleStringValue> fixr:MultipleStringValue
+
+<FIXCountry> fixr:Country
+
+<FIXCurrency> fixr:Currency
+
+<FIXExchange> fixr:Exchange
+
+<FIXMonthYear> fixr:MonthYear
+
+<FIXUTCTimestamp> fixr:UTCTimestamp
+
+<FIXUTCTimeOnly> fixr:UTCTimeOnly
+
+<FIXUTCDateOnly> fixr:UTCDateOnly
+
+<FIXLocalMktDate> fixr:LocalMktDate
+
+<FIXTZTimeOnly> fixr:TZTimeOnly
+
+<FIXTZTimestamp> fixr:TZTimestamp
+
+<FIXData> fixr:data
+
+<FIXPattern> fixr:Pattern
+
+<FIXTenor> fixr:Tenor
+
+<FIXReserved100Plus> fixr:Reserved100Plus
+
+<FIXReserved1000Plus> fixr:Reserved1000Plus
+
+<FIXReserved4000Plus> fixr:Reserved4000Plus
+
+<FIXXMLData> fixr:XMLData
+
+<FIXLanguage> fixr:Language
+
+<FIXLocalMktTime> fixr:LocalMktTime
+
+<FIXXID> fixr:XID
+
+<FIXXIDREF> fixr:XIDREF
 
 linkml:String xsd:string
 
@@ -83,6 +155,10 @@ linkml:Jsonpointer xsd:string
 linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
+
+<DcmitypeDCMIType> dcmitype:DCMIType
+
+<XmlLangType> xml1:lang_t
 
 <ActionType>  (
     CLOSED {

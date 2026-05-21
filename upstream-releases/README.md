@@ -1,16 +1,14 @@
 # FIX Orchestra upstream specification
 
-Source: <https://www.fixtrading.org/standards/fix-orchestra-standard/>
+## File inventory
 
-The downloadable ZIP was unpacked here:
+### FIX Orchestra v1.1-RC2 schemas (authoritative)
+
+Source: <https://www.fixtrading.org/standards/fix-orchestra-standard/>
 
 ```bash
 unzip ~/Downloads/Orchestra-Schema-v1.1-RC2-108835.zip
 ```
-
-## File inventory
-
-### FIX Orchestra v1.1-RC2 schemas (authoritative)
 
 | File | Size | Description |
 |---|---|---|
@@ -23,7 +21,7 @@ Target namespaces:
 - `http://fixprotocol.io/2024/orchestra/repository` (`fixr:`)
 - `http://fixprotocol.io/2024/orchestra/interfaces` (`fixi:`)
 
-### Supporting imports (W3C / Dublin Core)
+#### Supporting imports (W3C / Dublin Core)
 
 These files complete the `<xs:import>` graph so the three XSDs above can be validated offline (e.g. `xmllint --schema repository.xsd …`). Sourced from the FIX Trading Community [fix-orchestra](https://github.com/FIXTradingCommunity/fix-orchestra) GitHub repository - byte-identical to upstream.
 
@@ -34,16 +32,19 @@ These files complete the `<xs:import>` graph so the three XSDs above can be vali
 | `dcterms.xsd` | 13 KB | Dublin Core Terms (<http://purl.org/dc/terms/>) - imported by `repository.xsd` and `interfaces.xsd` via `<xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>`. |
 | `xml.xsd` | 9 KB | W3C XML namespace declarations (e.g. `xml:base`) - imported by `repository.xsd` and `interfaces.xsd`. |
 
-### Other artefacts
+### Reference implementation: FIX Orchestra -> Protobuf/Cap'n Proto
 
-| File | Description |
-|---|---|
-| `Orchestra-V1.1-RC2-Technical-Proposal-v0.2.pdf` | Vendor technical proposal narrative (reference reading). |
+Source: <https://github.com/FIXTradingCommunity/fix-orchestra-protobuf>  
+Copied to `fix-orchestra-protobuf/` (commit `a2e9edd`).  
+Maven artifact: `io.fixprotocol:orchestra2proto:0.0.1-SNAPSHOT`, orchestra binding `1.6.1`, Java 8, Apache 2.0.
+
+Read as a **reference for domain semantics** — FIX datatype->proto scalar mapping, custom option field numbers (`tag=50001`, `msg_type_value=52001`, …), NumInGroup elision, `oneof` for `UnionDataType`, supporting messages (`Decimal64`, `Timestamp`, …), and sort-order-based enum numbering. No Java code is compiled or executed.
+
+Key files: `ProtobufModelFactory.java` (1015 lines, primary reference), `CapnpModelFactory.java` (762 lines, Cap'n Proto variant for cross-checking), `ProtoGen.java` (199 lines, CLI entry point), plus value-object packages `protobuf/` and `capnp/` (11 and 10 files respectively).
 
 ## Regenerating the LinkML schema
 
-The LinkML schema at `src/fix_orchestra/schema/fix_orchestra.yaml` is
-derived from these XSDs. Re-run after any update:
+The LinkML schema at `src/fix_orchestra/schema/fix_orchestra.yaml` is derived from these XSDs. Re-run after any update:
 
 ```bash
 python3 scripts/schema_to_linkml.py
@@ -51,7 +52,7 @@ python3 scripts/schema_to_linkml.py
 
 ## Test data
 
-Sample XML instances pulled from the upstream [Fix-Orchestra](https://github.com/FIXTradingCommunity/fix-orchestra) repository live under `tests/data/third_party/fix-orchestra/` with their own [README](../tests/data/third_party/fix-orchestra/README.md).
+Sample XML instances pulled from the upstream [FixTradingCommunity](https://github.com/FIXTradingCommunity/) live under `tests/data/third_party/` with their own READMEs.
 
 ## License
 

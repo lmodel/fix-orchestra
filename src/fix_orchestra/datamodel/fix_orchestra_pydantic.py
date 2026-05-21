@@ -80,7 +80,7 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                     'artifacts (repository.xsd, repositorytypes.xsd, '
                     'interfaces.xsd).',
      'id': 'https://w3id.org/lmodel/fix-orchestra',
-     'imports': ['linkml:types'],
+     'imports': ['linkml:types', 'fix_orchestra_dc'],
      'license': 'Apache-2.0',
      'name': 'fix_orchestra',
      'notes': ['(c) Copyright 2016-2024 FIX Protocol Limited. Creative Commons '
@@ -123,26 +123,16 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                   'https://lmodel.github.io/fix-orchestra'],
      'source': 'https://www.fixtrading.org/standards/fix-orchestra-standard/',
      'source_file': 'src/fix_orchestra/schema/fix_orchestra.yaml',
-     'subsets': {'dc': {'description': 'Dublin Core elements 1.1 (dc.xsd, '
-                                       'namespace '
-                                       'http://purl.org/dc/elements/1.1/).',
-                        'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                        'name': 'dc'},
-                 'dcmitype': {'description': 'DCMI Type Vocabulary (dcmitype.xsd, '
-                                             'namespace '
-                                             'http://purl.org/dc/dcmitype/). '
-                                             'Controlled list of resource type '
-                                             'values (Collection, Dataset, Image, '
-                                             '...).',
-                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                              'name': 'dcmitype'},
-                 'dcterms': {'description': 'Dublin Core Terms (dcterms.xsd, '
-                                            'namespace http://purl.org/dc/terms/). '
-                                            'Includes element refinements and '
-                                            'value encoding schemes (LCSH, MESH, '
-                                            'W3CDTF, ISO639, ...).',
-                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                             'name': 'dcterms'},
+     'subsets': {'fix_base_types': {'description': 'FIX base datatypes derived '
+                                                   'from the FIX Orchestra XML '
+                                                   'repository. Each type carries '
+                                                   'a proto_scalar annotation '
+                                                   'giving the recommended '
+                                                   'Protocol Buffers scalar type '
+                                                   'when encoding FIX wire-format '
+                                                   'messages.',
+                                    'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                    'name': 'fix_base_types'},
                  'interfaces': {'description': 'Types and elements defined in '
                                                'interfaces.xsd, describing FIX '
                                                'service / session / encoding / '
@@ -158,15 +148,7 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                      'Forms the shared vocabulary '
                                                      'used by repository.xsd.',
                                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                                      'name': 'repository_types'},
-                 'xml_namespace': {'description': 'W3C XML namespace declarations '
-                                                  '(xml.xsd, namespace '
-                                                  'http://www.w3.org/XML/1998/namespace). '
-                                                  'Defines the well-known '
-                                                  'xml:base, xml:lang, xml:space, '
-                                                  'xml:id attributes.',
-                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                                   'name': 'xml_namespace'}},
+                                      'name': 'repository_types'}},
      'title': 'FIX Orchestra',
      'types': {'ComponentName': {'aliases': ['ComponentName_t'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
@@ -184,13 +166,6 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                     'name': 'DatatypeStandard',
                                     'typeof': 'string',
                                     'uri': 'fixr:datatypeStandard_t'},
-               'DcmitypeDCMIType': {'aliases': ['DCMIType'],
-                                    'description': 'Union of: ',
-                                    'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                                    'in_subset': ['dcmitype'],
-                                    'name': 'DcmitypeDCMIType',
-                                    'typeof': 'string',
-                                    'uri': 'dcmitype:DCMIType'},
                'EP': {'aliases': ['EP_t'],
                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                       'in_subset': ['repository_types'],
@@ -207,6 +182,554 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                   'name': 'ExpressionType',
                                   'typeof': 'string',
                                   'uri': 'fixr:expressionType'},
+               'FIXAmt': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                           'value': 'Decimal64'}},
+                          'description': 'FIX Amt datatype (extends float). float '
+                                         'field typically representing a Price '
+                                         'times a Qty',
+                          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                          'in_subset': ['fix_base_types'],
+                          'name': 'FIXAmt',
+                          'typeof': 'float',
+                          'uri': 'fixr:Amt'},
+               'FIXBoolean': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                               'value': 'bool'}},
+                              'description': 'FIX Boolean datatype (extends char). '
+                                             'char field containing one of two '
+                                             'values:',
+                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                              'in_subset': ['fix_base_types'],
+                              'name': 'FIXBoolean',
+                              'typeof': 'string',
+                              'uri': 'fixr:Boolean'},
+               'FIXChar': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                            'value': 'string'}},
+                           'description': 'FIX char base datatype. Single '
+                                          'character value, can include any '
+                                          'alphanumeric character or punctuation '
+                                          'except the delimiter. All char fields '
+                                          'are case sensitive (i.e. m != M).',
+                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                           'in_subset': ['fix_base_types'],
+                           'name': 'FIXChar',
+                           'typeof': 'string',
+                           'uri': 'fixr:char'},
+               'FIXCountry': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                               'value': 'string'}},
+                              'description': 'FIX Country datatype (extends '
+                                             'String). string field representing a '
+                                             'country using ISO 3166 Country code '
+                                             '(2 character) values (see Appendix '
+                                             '6-B).',
+                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                              'in_subset': ['fix_base_types'],
+                              'name': 'FIXCountry',
+                              'typeof': 'string',
+                              'uri': 'fixr:Country'},
+               'FIXCurrency': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                'value': 'string'}},
+                               'description': 'FIX Currency datatype (extends '
+                                              'String). string field representing '
+                                              'a currency type using ISO 4217 '
+                                              'Currency code (3 character) values '
+                                              '(see Appendix 6-A).',
+                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                               'in_subset': ['fix_base_types'],
+                               'name': 'FIXCurrency',
+                               'typeof': 'string',
+                               'uri': 'fixr:Currency'},
+               'FIXData': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                            'value': 'bytes'}},
+                           'description': 'FIX data base datatype. string field '
+                                          'containing opaque or non-ASCII data '
+                                          'with no format or content restrictions. '
+                                          'Data fields are always immediately '
+                                          'preceded by a length field. The length '
+                                          'field should specify the number of '
+                                          'bytes of the value of the data field '
+                                          '(up to but not including the '
+                                          'terminating SOH). The number of bytes '
+                                          'does not equal the number of characters '
+                                          'when multibyte character sets are used. '
+                                          'Caution: The value of these fields may '
+                                          'contain the delimiter (SOH) character. '
+                                          'Note that the value specified for these '
+                                          'fields must be followed by the '
+                                          'delimiter (SOH) character as all '
+                                          'tag-value fields are terminated with an '
+                                          'SOH.',
+                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                           'in_subset': ['fix_base_types'],
+                           'name': 'FIXData',
+                           'typeof': 'string',
+                           'uri': 'fixr:data'},
+               'FIXDayOfMonth': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                  'value': 'fixed32'}},
+                                 'description': 'FIX DayOfMonth datatype (extends '
+                                                'int). int field representing a '
+                                                'day during a particular month '
+                                                '(values 1 to 31).',
+                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                 'in_subset': ['fix_base_types'],
+                                 'name': 'FIXDayOfMonth',
+                                 'typeof': 'integer',
+                                 'uri': 'fixr:DayOfMonth'},
+               'FIXExchange': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                'value': 'string'}},
+                               'description': 'FIX Exchange datatype (extends '
+                                              'String). string field representing '
+                                              'a market or exchange using ISO '
+                                              '10383 Market Identifier Code (MIC) '
+                                              'values (see"Appendix 6-C).',
+                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                               'in_subset': ['fix_base_types'],
+                               'name': 'FIXExchange',
+                               'typeof': 'string',
+                               'uri': 'fixr:Exchange'},
+               'FIXFloat': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                             'value': 'double'}},
+                            'description': 'FIX float base datatype. Sequence of '
+                                           'digits with optional decimal point and '
+                                           'sign character (ASCII characters "-", '
+                                           '"0" - "9" and "."); the absence of the '
+                                           'decimal point within the string will '
+                                           'be interpreted as the float '
+                                           'representation of an integer value. '
+                                           'All float fields must accommodate up '
+                                           'to fifteen significant digits. The '
+                                           'number of decimal places used should '
+                                           'be a factor of business/market needs '
+                                           'and mutual agreement between '
+                                           'counterparties. Note that float values '
+                                           'may contain leading zeros (e.g. '
+                                           '"00023.23" = "23.23") and may contain '
+                                           'or omit trailing zeros after the '
+                                           'decimal point (e.g. "23.0" = "23.0000" '
+                                           '= "23" = "23."). Note that fields '
+                                           'which are derived from float may '
+                                           'contain negative values unless '
+                                           'explicitly specified otherwise.',
+                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                            'in_subset': ['fix_base_types'],
+                            'name': 'FIXFloat',
+                            'typeof': 'float',
+                            'uri': 'fixr:float'},
+               'FIXInt': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                           'value': 'fixed32'}},
+                          'description': 'FIX int base datatype. Sequence of '
+                                         'digits without commas or decimals and '
+                                         'optional sign character (ASCII '
+                                         'characters "-" and "0" - "9" ). The sign '
+                                         'character utilizes one byte (i.e. '
+                                         'positive int is "99999" while negative '
+                                         'int is "-99999"). Note that int values '
+                                         'may contain leading zeros (e.g. "00023" '
+                                         '= "23").',
+                          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                          'in_subset': ['fix_base_types'],
+                          'name': 'FIXInt',
+                          'typeof': 'integer',
+                          'uri': 'fixr:int'},
+               'FIXLanguage': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                'value': 'string'}},
+                               'description': 'FIX Language datatype (extends '
+                                              'String). Identifier for a national '
+                                              'language - uses ISO 639-1 standard',
+                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                               'in_subset': ['fix_base_types'],
+                               'name': 'FIXLanguage',
+                               'typeof': 'string',
+                               'uri': 'fixr:Language'},
+               'FIXLength': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                              'value': 'fixed32'}},
+                             'description': 'FIX Length datatype (extends int). '
+                                            'int field representing the length in '
+                                            'bytes. Value must be positive.',
+                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                             'in_subset': ['fix_base_types'],
+                             'name': 'FIXLength',
+                             'typeof': 'integer',
+                             'uri': 'fixr:Length'},
+               'FIXLocalMktDate': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                    'value': 'string'}},
+                                   'description': 'FIX LocalMktDate datatype '
+                                                  '(extends String). string field '
+                                                  'representing a Date of Local '
+                                                  'Market (as opposed to UTC) in '
+                                                  'YYYYMMDD format. This is the '
+                                                  '"normal" date field used by the '
+                                                  'FIX Protocol.',
+                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                   'in_subset': ['fix_base_types'],
+                                   'name': 'FIXLocalMktDate',
+                                   'typeof': 'date',
+                                   'uri': 'fixr:LocalMktDate'},
+               'FIXLocalMktTime': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                    'value': 'TimeOnly'}},
+                                   'description': 'FIX LocalMktTime datatype '
+                                                  '(extends String). string field '
+                                                  'representing the time local to '
+                                                  'a particular market center. '
+                                                  'Used where offset to UTC varies '
+                                                  'throughout the year and the '
+                                                  'defining market center is '
+                                                  'identified in a corresponding '
+                                                  'field.',
+                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                   'in_subset': ['fix_base_types'],
+                                   'name': 'FIXLocalMktTime',
+                                   'typeof': 'string',
+                                   'uri': 'fixr:LocalMktTime'},
+               'FIXMonthYear': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                 'value': 'string'}},
+                                'description': 'FIX MonthYear datatype (extends '
+                                               'String). string field representing '
+                                               'month of a year. An optional day '
+                                               'of the month can be appended or an '
+                                               'optional week code.',
+                                'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                'in_subset': ['fix_base_types'],
+                                'name': 'FIXMonthYear',
+                                'typeof': 'string',
+                                'uri': 'fixr:MonthYear'},
+               'FIXMultipleCharValue': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                         'value': 'string'}},
+                                        'description': 'FIX MultipleCharValue '
+                                                       'datatype (extends String). '
+                                                       'string field containing '
+                                                       'one or more space '
+                                                       'delimited single character '
+                                                       'values (e.g. |18=2 A F| ).',
+                                        'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                        'in_subset': ['fix_base_types'],
+                                        'name': 'FIXMultipleCharValue',
+                                        'typeof': 'string',
+                                        'uri': 'fixr:MultipleCharValue'},
+               'FIXMultipleStringValue': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                           'value': 'string'}},
+                                          'description': 'FIX MultipleStringValue '
+                                                         'datatype (extends '
+                                                         'String). string field '
+                                                         'containing one or more '
+                                                         'space delimited multiple '
+                                                         'character values (e.g. '
+                                                         '|277=AV AN A| ).',
+                                          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                          'in_subset': ['fix_base_types'],
+                                          'name': 'FIXMultipleStringValue',
+                                          'typeof': 'string',
+                                          'uri': 'fixr:MultipleStringValue'},
+               'FIXNumInGroup': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                  'value': 'fixed32'}},
+                                 'description': 'FIX NumInGroup datatype (extends '
+                                                'int). int field representing the '
+                                                'number of entries in a repeating '
+                                                'group. Value must be positive.',
+                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                 'in_subset': ['fix_base_types'],
+                                 'name': 'FIXNumInGroup',
+                                 'typeof': 'string',
+                                 'uri': 'fixr:NumInGroup'},
+               'FIXPattern': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                               'value': 'string'}},
+                              'description': 'FIX Pattern base datatype. Used to '
+                                             'build on and provide some '
+                                             'restrictions on what is allowed as '
+                                             'valid values in fields that uses a '
+                                             'base FIX data type and a pattern '
+                                             'data type. The universe of allowable '
+                                             'valid values for the field would '
+                                             'then be the union of the base set of '
+                                             'valid values and what is defined by '
+                                             'the pattern data type. The pattern '
+                                             'data type used by the field will '
+                                             'retain its base FIX data type (e.g. '
+                                             'String, int, char).',
+                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                              'in_subset': ['fix_base_types'],
+                              'name': 'FIXPattern',
+                              'typeof': 'string',
+                              'uri': 'fixr:Pattern'},
+               'FIXPercentage': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                  'value': 'double'}},
+                                 'description': 'FIX Percentage datatype (extends '
+                                                'float). float field representing '
+                                                'a percentage (e.g. 0.05 '
+                                                'represents 5% and 0.9525 '
+                                                'represents 95.25%). Note the '
+                                                'number of decimal places may '
+                                                'vary.',
+                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                 'in_subset': ['fix_base_types'],
+                                 'name': 'FIXPercentage',
+                                 'typeof': 'float',
+                                 'uri': 'fixr:Percentage'},
+               'FIXPrice': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                             'value': 'Decimal64'}},
+                            'description': 'FIX Price datatype (extends float). '
+                                           'float field representing a price. Note '
+                                           'the number of decimal places may vary. '
+                                           'For certain asset classes prices may '
+                                           'be negative values. For example, '
+                                           'prices for options strategies can be '
+                                           'negative under certain market '
+                                           'conditions. Refer to Volume 7: FIX '
+                                           'Usage by Product for asset classes '
+                                           'that support negative price values.',
+                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                            'in_subset': ['fix_base_types'],
+                            'name': 'FIXPrice',
+                            'typeof': 'float',
+                            'uri': 'fixr:Price'},
+               'FIXPriceOffset': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                   'value': 'Decimal64'}},
+                                  'description': 'FIX PriceOffset datatype '
+                                                 '(extends float). float field '
+                                                 'representing a price offset, '
+                                                 'which can be mathematically '
+                                                 'added to a "Price". Note the '
+                                                 'number of decimal places may '
+                                                 'vary and some fields such as '
+                                                 'LastForwardPoints may be '
+                                                 'negative.',
+                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                  'in_subset': ['fix_base_types'],
+                                  'name': 'FIXPriceOffset',
+                                  'typeof': 'float',
+                                  'uri': 'fixr:PriceOffset'},
+               'FIXQty': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                           'value': 'Decimal64'}},
+                          'description': 'FIX Qty datatype (extends float). float '
+                                         'field capable of storing either a whole '
+                                         'number (no decimal places) of "shares" '
+                                         '(securities denominated in whole units) '
+                                         'or a decimal value containing decimal '
+                                         'places for non-share quantity asset '
+                                         'classes (securities denominated in '
+                                         'fractional units).',
+                          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                          'in_subset': ['fix_base_types'],
+                          'name': 'FIXQty',
+                          'typeof': 'float',
+                          'uri': 'fixr:Qty'},
+               'FIXReserved1000Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                        'value': 'fixed32'}},
+                                       'description': 'FIX Reserved1000Plus '
+                                                      'datatype (extends Pattern). '
+                                                      'Values "1000" and above are '
+                                                      'reserved for bilaterally '
+                                                      'agreed upon user defined '
+                                                      'enumerations.',
+                                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                       'in_subset': ['fix_base_types'],
+                                       'name': 'FIXReserved1000Plus',
+                                       'typeof': 'integer',
+                                       'uri': 'fixr:Reserved1000Plus'},
+               'FIXReserved100Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                       'value': 'fixed32'}},
+                                      'description': 'FIX Reserved100Plus datatype '
+                                                     '(extends Pattern). Values '
+                                                     '"100" and above are reserved '
+                                                     'for bilaterally agreed upon '
+                                                     'user defined enumerations.',
+                                      'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                      'in_subset': ['fix_base_types'],
+                                      'name': 'FIXReserved100Plus',
+                                      'typeof': 'integer',
+                                      'uri': 'fixr:Reserved100Plus'},
+               'FIXReserved4000Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                        'value': 'fixed32'}},
+                                       'description': 'FIX Reserved4000Plus '
+                                                      'datatype (extends Pattern). '
+                                                      'Values "4000" and above are '
+                                                      'reserved for bilaterally '
+                                                      'agreed upon user defined '
+                                                      'enumerations.',
+                                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                       'in_subset': ['fix_base_types'],
+                                       'name': 'FIXReserved4000Plus',
+                                       'typeof': 'integer',
+                                       'uri': 'fixr:Reserved4000Plus'},
+               'FIXSeqNum': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                              'value': 'fixed32'}},
+                             'description': 'FIX SeqNum datatype (extends int). '
+                                            'int field representing a message '
+                                            'sequence number. Value must be '
+                                            'positive.',
+                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                             'in_subset': ['fix_base_types'],
+                             'name': 'FIXSeqNum',
+                             'typeof': 'integer',
+                             'uri': 'fixr:SeqNum'},
+               'FIXString': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                              'value': 'string'}},
+                             'description': 'FIX String base datatype. '
+                                            'Alpha-numeric free format strings, '
+                                            'can include any character or '
+                                            'punctuation except the delimiter. All '
+                                            'String fields are case sensitive '
+                                            '(i.e. morstatt != Morstatt).',
+                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                             'in_subset': ['fix_base_types'],
+                             'name': 'FIXString',
+                             'typeof': 'string',
+                             'uri': 'fixr:String'},
+               'FIXTZTimeOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                  'value': 'TimeOnly'}},
+                                 'description': 'FIX TZTimeOnly datatype (extends '
+                                                'String). string field '
+                                                'representing the time represented '
+                                                'based on ISO 8601. This is the '
+                                                'time with a UTC offset to allow '
+                                                'identification of local time and '
+                                                'timezone of that time.',
+                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                 'in_subset': ['fix_base_types'],
+                                 'name': 'FIXTZTimeOnly',
+                                 'typeof': 'string',
+                                 'uri': 'fixr:TZTimeOnly'},
+               'FIXTZTimestamp': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                   'value': 'Timestamp'}},
+                                  'description': 'FIX TZTimestamp datatype '
+                                                 '(extends String). string field '
+                                                 'representing a time/date '
+                                                 'combination representing local '
+                                                 'time with an offset to UTC to '
+                                                 'allow identification of local '
+                                                 'time and timezone offset of that '
+                                                 'time. The representation is '
+                                                 'based on ISO 8601.',
+                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                  'in_subset': ['fix_base_types'],
+                                  'name': 'FIXTZTimestamp',
+                                  'typeof': 'datetime',
+                                  'uri': 'fixr:TZTimestamp'},
+               'FIXTagNum': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                              'value': 'fixed32'}},
+                             'description': 'FIX TagNum datatype (extends int). '
+                                            "int field representing a field's tag "
+                                            'number when using FIX "Tag=Value" '
+                                            'syntax. Value must be positive and '
+                                            'may not contain leading zeros.',
+                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                             'in_subset': ['fix_base_types'],
+                             'name': 'FIXTagNum',
+                             'typeof': 'integer',
+                             'uri': 'fixr:TagNum'},
+               'FIXTenor': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                             'value': 'Tenor'}},
+                            'description': 'FIX Tenor datatype (extends Pattern). '
+                                           'used to allow the expression of FX '
+                                           'standard tenors in addition to the '
+                                           'base valid enumerations defined for '
+                                           'the field that uses this pattern data '
+                                           'type. This pattern data type is '
+                                           'defined as follows:',
+                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                            'in_subset': ['fix_base_types'],
+                            'name': 'FIXTenor',
+                            'typeof': 'string',
+                            'uri': 'fixr:Tenor'},
+               'FIXUTCDateOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                   'value': 'string'}},
+                                  'description': 'FIX UTCDateOnly datatype '
+                                                 '(extends String). string field '
+                                                 'representing Date represented in '
+                                                 'UTC (Universal Time Coordinated, '
+                                                 'also known as "GMT") in YYYYMMDD '
+                                                 'format. This special-purpose '
+                                                 'field is paired with UTCTimeOnly '
+                                                 'to form a proper UTCTimestamp '
+                                                 'for bandwidth-sensitive '
+                                                 'messages.',
+                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                  'in_subset': ['fix_base_types'],
+                                  'name': 'FIXUTCDateOnly',
+                                  'typeof': 'date',
+                                  'uri': 'fixr:UTCDateOnly'},
+               'FIXUTCTimeOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                   'value': 'TimeOnly'}},
+                                  'description': 'FIX UTCTimeOnly datatype '
+                                                 '(extends String). string field '
+                                                 'representing time-only '
+                                                 'represented in UTC (Universal '
+                                                 'Time Coordinated, also known as '
+                                                 '"GMT") in either HH:MM:SS (whole '
+                                                 'seconds) or HH:MM:SS.sss* '
+                                                 '(milliseconds) format, colons, '
+                                                 'and period required. This '
+                                                 'special-purpose field is paired '
+                                                 'with UTCDateOnly to form a '
+                                                 'proper UTCTimestamp for '
+                                                 'bandwidth-sensitive messages.',
+                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                  'in_subset': ['fix_base_types'],
+                                  'name': 'FIXUTCTimeOnly',
+                                  'typeof': 'string',
+                                  'uri': 'fixr:UTCTimeOnly'},
+               'FIXUTCTimestamp': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                                    'value': 'Timestamp'}},
+                                   'description': 'FIX UTCTimestamp datatype '
+                                                  '(extends String). string field '
+                                                  'representing time/date '
+                                                  'combination represented in UTC '
+                                                  '(Universal Time Coordinated, '
+                                                  'also known as "GMT") in either '
+                                                  'YYYYMMDD-HH:MM:SS (whole '
+                                                  'seconds) or '
+                                                  'YYYYMMDD-HH:MM:SS.sss* format, '
+                                                  'colons, dash, and period '
+                                                  'required.',
+                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                                   'in_subset': ['fix_base_types'],
+                                   'name': 'FIXUTCTimestamp',
+                                   'typeof': 'datetime',
+                                   'uri': 'fixr:UTCTimestamp'},
+               'FIXXID': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                           'value': 'string'}},
+                          'description': 'FIX XID datatype (extends String). The '
+                                         'purpose of the XID datatype is to define '
+                                         'a unique identifier that is global to a '
+                                         'FIX message. An identifier defined using '
+                                         'this datatype uniquely identifies its '
+                                         'containing element, whatever its type '
+                                         'and name is. The constraint added by '
+                                         'this datatype is that the values of all '
+                                         'the fields that have an XID datatype in '
+                                         'a FIX message must be unique.',
+                          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                          'in_subset': ['fix_base_types'],
+                          'name': 'FIXXID',
+                          'typeof': 'string',
+                          'uri': 'fixr:XID'},
+               'FIXXIDREF': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                              'value': 'string'}},
+                             'description': 'FIX XIDREF datatype (extends String). '
+                                            'The XIDREF datatype defines a '
+                                            'reference to an identifier defined by '
+                                            'the XID datatype.',
+                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                             'in_subset': ['fix_base_types'],
+                             'name': 'FIXXIDREF',
+                             'typeof': 'string',
+                             'uri': 'fixr:XIDREF'},
+               'FIXXMLData': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
+                                                               'value': 'string'}},
+                              'description': 'FIX XMLData datatype (extends '
+                                             'String). Contains an XML document '
+                                             'raw data with no format or content '
+                                             'restrictions. XMLData fields are '
+                                             'always immediately preceded by a '
+                                             'length field. The length field '
+                                             'should specify the number of bytes '
+                                             'of the value of the data field (up '
+                                             'to but not including the terminating '
+                                             'SOH).',
+                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+                              'in_subset': ['fix_base_types'],
+                              'name': 'FIXXMLData',
+                              'typeof': 'string',
+                              'uri': 'fixr:XMLData'},
                'Id': {'aliases': ['id_t'],
                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                       'in_subset': ['repository_types'],
@@ -305,14 +828,7 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                            'in_subset': ['repository_types'],
                            'name': 'Version',
                            'typeof': 'string',
-                           'uri': 'fixr:Version_t'},
-               'XmlLangType': {'description': 'Anonymous simpleType for xml:lang '
-                                              '(from xml.xsd).',
-                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-                               'in_subset': ['xml_namespace'],
-                               'name': 'XmlLangType',
-                               'typeof': 'string',
-                               'uri': 'xml:lang_t'}}} )
+                           'uri': 'fixr:Version_t'}}} )
 
 class XmlSpaceType(str, Enum):
     """
@@ -593,7 +1109,7 @@ class DcSimpleLiteral(ConfiguredBaseModel):
          'annotations': {'xsd_base': {'tag': 'xsd_base', 'value': 'xs:anyType'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:SimpleLiteral',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -620,7 +1136,7 @@ class DcElementContainer(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['elementContainer'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:elementContainer',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     title: Optional[str] = Field(default=None, description="""Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer', 'DctermsElementOrRefinementContainer'],
@@ -770,7 +1286,7 @@ class DcAny(DcSimpleLiteral):
          'aliases': ['any'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:any',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -794,7 +1310,7 @@ class DcTitle(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['title'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:title',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -818,7 +1334,7 @@ class DcCreator(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['creator'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:creator',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -842,7 +1358,7 @@ class DcSubject(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['subject'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:subject',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -866,7 +1382,7 @@ class DcDescription(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['description'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:description',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -890,7 +1406,7 @@ class DcPublisher(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['publisher'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:publisher',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -914,7 +1430,7 @@ class DcContributor(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['contributor'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:contributor',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -938,7 +1454,7 @@ class DcDate(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['date'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:date',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -962,7 +1478,7 @@ class DcType(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['type'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:type',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -986,7 +1502,7 @@ class DcFormat(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['format'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:format',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1010,7 +1526,7 @@ class DcIdentifier(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['identifier'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:identifier',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1034,7 +1550,7 @@ class DcSource(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['source'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:source',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1058,7 +1574,7 @@ class DcLanguage(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['language'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:language',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1082,7 +1598,7 @@ class DcRelation(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['relation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:relation',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1106,7 +1622,7 @@ class DcCoverage(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['coverage'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:coverage',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1130,7 +1646,7 @@ class DcRights(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['rights'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:rights',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1159,7 +1675,7 @@ class DcElementsGroup(ConfiguredBaseModel):
                                                'value': 'any'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dc.xsd'}},
          'class_uri': 'dc:elementsGroup',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dc'],
          'mixin': True})
 
@@ -1172,7 +1688,7 @@ class DctermsLCSH(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:LCSH',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1198,7 +1714,7 @@ class DctermsMESH(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:MESH',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1224,7 +1740,7 @@ class DctermsDDC(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:DDC',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1250,7 +1766,7 @@ class DctermsLCC(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:LCC',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1276,7 +1792,7 @@ class DctermsUDC(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:UDC',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1302,7 +1818,7 @@ class DctermsPeriod(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:Period',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1328,7 +1844,7 @@ class DctermsW3CDTF(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:W3CDTF',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1354,7 +1870,7 @@ class DctermsDCMIType(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:DCMIType',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1380,7 +1896,7 @@ class DctermsIMT(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:IMT',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1406,7 +1922,7 @@ class DctermsURI(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:URI',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1432,7 +1948,7 @@ class DctermsISO6392(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:ISO639-2',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1458,7 +1974,7 @@ class DctermsISO6393(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:ISO639-3',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1484,7 +2000,7 @@ class DctermsRFC1766(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:RFC1766',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1510,7 +2026,7 @@ class DctermsRFC3066(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:RFC3066',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1536,7 +2052,7 @@ class DctermsRFC4646(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:RFC4646',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1562,7 +2078,7 @@ class DctermsPoint(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:Point',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1588,7 +2104,7 @@ class DctermsISO3166(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:ISO3166',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1614,7 +2130,7 @@ class DctermsBox(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:Box',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1640,7 +2156,7 @@ class DctermsTGN(DcSimpleLiteral):
                                                     'value': 'dc:SimpleLiteral'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:TGN',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1667,7 +2183,7 @@ class DctermsElementOrRefinementContainer(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['elementOrRefinementContainer'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:elementOrRefinementContainer',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     title: Optional[str] = Field(default=None, description="""Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer', 'DctermsElementOrRefinementContainer'],
@@ -1816,7 +2332,7 @@ class DctermsTitle(DcTitle):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['title'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:title',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1840,7 +2356,7 @@ class DctermsCreator(DcCreator):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['creator'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:creator',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1864,7 +2380,7 @@ class DctermsSubject(DcSubject):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['subject'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:subject',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1888,7 +2404,7 @@ class DctermsDescription(DcDescription):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['description'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:description',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1912,7 +2428,7 @@ class DctermsPublisher(DcPublisher):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['publisher'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:publisher',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1936,7 +2452,7 @@ class DctermsContributor(DcContributor):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['contributor'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:contributor',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1960,7 +2476,7 @@ class DctermsDate(DcDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['date'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:date',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -1984,7 +2500,7 @@ class DctermsType(DcType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['type'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:type',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2008,7 +2524,7 @@ class DctermsFormat(DcFormat):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['format'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:format',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2032,7 +2548,7 @@ class DctermsIdentifier(DcIdentifier):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['identifier'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:identifier',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2056,7 +2572,7 @@ class DctermsSource(DcSource):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['source'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:source',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2080,7 +2596,7 @@ class DctermsLanguage(DcLanguage):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['language'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:language',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2104,7 +2620,7 @@ class DctermsRelation(DcRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['relation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:relation',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2128,7 +2644,7 @@ class DctermsCoverage(DcCoverage):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['coverage'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:coverage',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2152,7 +2668,7 @@ class DctermsRights(DcRights):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['rights'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:rights',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2176,7 +2692,7 @@ class DctermsAlternative(DctermsTitle):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['alternative'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:alternative',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2200,7 +2716,7 @@ class DctermsTableOfContents(DctermsDescription):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['tableOfContents'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:tableOfContents',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2224,7 +2740,7 @@ class DctermsAbstract(DctermsDescription):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['abstract'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:abstract',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2248,7 +2764,7 @@ class DctermsCreated(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['created'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:created',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2272,7 +2788,7 @@ class DctermsValid(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['valid'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:valid',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2296,7 +2812,7 @@ class DctermsAvailable(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['available'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:available',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2320,7 +2836,7 @@ class DctermsIssued(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['issued'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:issued',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2344,7 +2860,7 @@ class DctermsModified(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['modified'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:modified',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2368,7 +2884,7 @@ class DctermsDateAccepted(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['dateAccepted'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:dateAccepted',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2392,7 +2908,7 @@ class DctermsDateCopyrighted(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['dateCopyrighted'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:dateCopyrighted',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2416,7 +2932,7 @@ class DctermsDateSubmitted(DctermsDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['dateSubmitted'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:dateSubmitted',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2440,7 +2956,7 @@ class DctermsExtent(DctermsFormat):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['extent'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:extent',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2464,7 +2980,7 @@ class DctermsMedium(DctermsFormat):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['medium'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:medium',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2488,7 +3004,7 @@ class DctermsIsVersionOf(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isVersionOf'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isVersionOf',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2512,7 +3028,7 @@ class DctermsHasVersion(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['hasVersion'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:hasVersion',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2536,7 +3052,7 @@ class DctermsIsReplacedBy(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isReplacedBy'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isReplacedBy',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2560,7 +3076,7 @@ class DctermsReplaces(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['replaces'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:replaces',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2584,7 +3100,7 @@ class DctermsIsRequiredBy(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isRequiredBy'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isRequiredBy',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2608,7 +3124,7 @@ class DctermsRequires(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['requires'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:requires',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2632,7 +3148,7 @@ class DctermsIsPartOf(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isPartOf'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isPartOf',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2656,7 +3172,7 @@ class DctermsHasPart(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['hasPart'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:hasPart',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2680,7 +3196,7 @@ class DctermsIsReferencedBy(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isReferencedBy'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isReferencedBy',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2704,7 +3220,7 @@ class DctermsReferences(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['references'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:references',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2728,7 +3244,7 @@ class DctermsIsFormatOf(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['isFormatOf'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:isFormatOf',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2752,7 +3268,7 @@ class DctermsHasFormat(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['hasFormat'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:hasFormat',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2776,7 +3292,7 @@ class DctermsConformsTo(DctermsRelation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['conformsTo'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:conformsTo',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2800,7 +3316,7 @@ class DctermsSpatial(DctermsCoverage):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['spatial'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:spatial',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2824,7 +3340,7 @@ class DctermsTemporal(DctermsCoverage):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['temporal'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:temporal',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2848,7 +3364,7 @@ class DctermsAudience(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['audience'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:audience',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2872,7 +3388,7 @@ class DctermsAccrualMethod(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['accrualMethod'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:accrualMethod',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2896,7 +3412,7 @@ class DctermsAccrualPeriodicity(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['accrualPeriodicity'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:accrualPeriodicity',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2920,7 +3436,7 @@ class DctermsAccrualPolicy(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['accrualPolicy'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:accrualPolicy',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2944,7 +3460,7 @@ class DctermsInstructionalMethod(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['instructionalMethod'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:instructionalMethod',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2968,7 +3484,7 @@ class DctermsProvenance(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['provenance'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:provenance',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -2992,7 +3508,7 @@ class DctermsRightsHolder(DcAny):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['rightsHolder'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:rightsHolder',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3016,7 +3532,7 @@ class DctermsMediator(DctermsAudience):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['mediator'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:mediator',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3040,7 +3556,7 @@ class DctermsEducationLevel(DctermsAudience):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['educationLevel'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:educationLevel',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3064,7 +3580,7 @@ class DctermsAccessRights(DctermsRights):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['accessRights'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:accessRights',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3088,7 +3604,7 @@ class DctermsLicense(DctermsRights):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['license'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:license',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3112,7 +3628,7 @@ class DctermsBibliographicCitation(DctermsIdentifier):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['bibliographicCitation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:bibliographicCitation',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms']})
 
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3141,7 +3657,7 @@ class DctermsElementsAndRefinementsGroup(ConfiguredBaseModel):
                                                'value': 'any'},
                          'xsd_source': {'tag': 'xsd_source', 'value': 'dcterms.xsd'}},
          'class_uri': 'dct:elementsAndRefinementsGroup',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['dcterms'],
          'mixin': True})
 
@@ -3151,7 +3667,7 @@ class DctermsElementsAndRefinementsGroup(ConfiguredBaseModel):
 class XmlSpecialAttrs(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['specialAttrs'],
          'class_uri': 'xml:specialAttrs',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['xml_namespace'],
          'mixin': True})
 
@@ -3184,7 +3700,7 @@ class XmlGlobalAttributes(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xsd_source': {'tag': 'xsd_source', 'value': 'xml.xsd'}},
          'class_uri': 'xml:GlobalAttributes',
-         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
+         'from_schema': 'https://w3id.org/lmodel/fix-orchestra/dc',
          'in_subset': ['xml_namespace']})
 
     lang: Optional[str] = Field(default=None, description="""lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral', 'XmlSpecialAttrs', 'XmlGlobalAttributes'],
@@ -3262,7 +3778,8 @@ class FieldAttribGrp(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True,
-         'slot_usage': {'value': {'description': 'If presence is optional, then it '
+         'slot_usage': {'presence': {'name': 'presence'},
+                        'value': {'description': 'If presence is optional, then it '
                                                  'represents a default when the sender '
                                                  'does not provide the field. If '
                                                  'presence is constant, then it is the '
@@ -3285,7 +3802,7 @@ class FieldAttribGrp(ConfiguredBaseModel):
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
          'slot_uri': 'fixr:implMaxLength'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -3424,10 +3941,11 @@ class ActionType(ConfiguredBaseModel):
                                         'value': 'repositorytypes.xsd'}},
          'class_uri': 'fixr:actionType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types']})
+         'in_subset': ['repository_types'],
+         'slot_usage': {'field_ref': {'name': 'field_ref'}}})
 
     field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -3483,10 +4001,11 @@ class ActorType(ConfiguredBaseModel):
                                         'value': 'repositorytypes.xsd'}},
          'class_uri': 'fixr:actorType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types']})
+         'in_subset': ['repository_types'],
+         'slot_usage': {'field_ref': {'name': 'field_ref'}}})
 
     field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -3710,7 +4229,8 @@ class BlockAssignmentType(ConfiguredBaseModel):
                                         'value': 'repositorytypes.xsd'}},
          'class_uri': 'fixr:blockAssignmentType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types']})
+         'in_subset': ['repository_types'],
+         'slot_usage': {'field_ref': {'name': 'field_ref'}}})
 
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
@@ -3730,7 +4250,7 @@ class BlockAssignmentType(ConfiguredBaseModel):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:groupRef'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -4132,12 +4652,13 @@ class ComponentRefType(RefidGrp, EntityAttribGrp):
          'class_uri': 'fixr:componentRefType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
-         'mixins': ['RefidGrp', 'EntityAttribGrp']})
+         'mixins': ['RefidGrp', 'EntityAttribGrp'],
+         'slot_usage': {'presence': {'name': 'presence'}}})
 
     block_assignment: Optional[list[BlockAssignmentType]] = Field(default=None, description="""Specifies a how a component or each group entry is populated (optional)""", json_schema_extra = { "linkml_meta": {'aliases': ['blockAssignment'],
          'domain_of': ['ComponentRefType'],
          'slot_uri': 'fixr:blockAssignment'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     rule: Optional[list[ComponentRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require component""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
@@ -4256,12 +4777,10 @@ class ComponentRuleType(ConfiguredBaseModel):
          'class_uri': 'fixr:componentRuleType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
-         'slot_usage': {'presence': {'description': 'Overrides presence when '
-                                                    'expression is true',
-                                     'name': 'presence'},
+         'slot_usage': {'presence': {'name': 'presence'},
                         'when': {'name': 'when', 'required': True}}})
 
-    when: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
+    when: str = Field(default=..., description="""A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
                        'FieldRuleType',
                        'MessageType',
                        'ResponseType',
@@ -4302,7 +4821,8 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
          'class_uri': 'fixr:componentType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
-         'mixins': ['EntityAttribGrp', 'OidGrp', 'ScenarioRefGrp']})
+         'mixins': ['EntityAttribGrp', 'OidGrp', 'ScenarioRefGrp'],
+         'slot_usage': {'field_ref': {'name': 'field_ref'}, 'which': {'name': 'which'}}})
 
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
@@ -4322,7 +4842,7 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:groupRef'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -4334,7 +4854,7 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
          'slot_uri': 'fixr:fieldRef'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
          'slot_uri': 'fixr:rendering'} })
-    which: Optional[MemberType] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
+    which: Optional[MemberType] = Field(default=None, description="""Member selection within each group instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
          'slot_uri': 'fixr:which'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
@@ -4456,7 +4976,8 @@ class ConceptType(ConfiguredBaseModel):
          'class_uri': 'fixr:conceptType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
-         'slot_usage': {'message_ref': {'name': 'message_ref'}}})
+         'slot_usage': {'field_ref': {'name': 'field_ref'},
+                        'message_ref': {'name': 'message_ref'}}})
 
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
@@ -4476,7 +4997,7 @@ class ConceptType(ConfiguredBaseModel):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:groupRef'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -4763,7 +5284,7 @@ class FieldRefType(RefidGrp, FieldAttribGrp, EntityAttribGrp):
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
          'slot_uri': 'fixr:implMaxLength'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -4785,12 +5306,7 @@ class UniqueInline(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xsd_anonymous_inline': {'tag': 'xsd_anonymous_inline',
                                                   'value': True}},
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types'],
-         'slot_usage': {'field_ref': {'description': 'Other field or fields that scope '
-                                                     'uniqueness. If none provided, '
-                                                     'then the field value must be '
-                                                     'globally unique.',
-                                      'name': 'field_ref'}}})
+         'in_subset': ['repository_types']})
 
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
@@ -4815,7 +5331,7 @@ class FieldRuleType(FieldAttribGrp):
          'slot_usage': {'when': {'name': 'when', 'required': True}}})
 
     unique: Optional[UniqueInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldRuleType'], 'slot_uri': 'fixr:unique'} })
-    when: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
+    when: str = Field(default=..., description="""A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
                        'FieldRuleType',
                        'MessageType',
                        'ResponseType',
@@ -4871,7 +5387,7 @@ class FieldRuleType(FieldAttribGrp):
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
          'slot_uri': 'fixr:implMaxLength'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -5051,7 +5567,7 @@ class FieldType(OidGrp, FieldAttribGrp, EntityAttribGrp):
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
          'slot_uri': 'fixr:implMaxLength'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
@@ -5158,19 +5674,21 @@ class GroupRefType(ComponentRefType):
                                         'value': 'repositorytypes.xsd'}},
          'class_uri': 'fixr:groupRefType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types']})
+         'in_subset': ['repository_types'],
+         'slot_usage': {'impl_max_occurs': {'name': 'impl_max_occurs'},
+                        'impl_min_occurs': {'name': 'impl_min_occurs'}}})
 
-    impl_min_occurs: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
+    impl_min_occurs: Optional[int] = Field(default=None, description="""Lower bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
          'slot_uri': 'fixr:implMinOccurs'} })
-    impl_max_occurs: Optional[str] = Field(default="unbounded", json_schema_extra = { "linkml_meta": {'aliases': ['implMaxOccurs'],
+    impl_max_occurs: Optional[str] = Field(default="unbounded", description="""Upper bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMaxOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
          'ifabsent': 'string(unbounded)',
          'slot_uri': 'fixr:implMaxOccurs'} })
     block_assignment: Optional[list[BlockAssignmentType]] = Field(default=None, description="""Specifies a how a component or each group entry is populated (optional)""", json_schema_extra = { "linkml_meta": {'aliases': ['blockAssignment'],
          'domain_of': ['ComponentRefType'],
          'slot_uri': 'fixr:blockAssignment'} })
-    presence: Optional[Presence] = Field(default=Presence.optional, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+    presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
          'ifabsent': 'string(optional)',
          'slot_uri': 'fixr:presence'} })
     rule: Optional[list[ComponentRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require component""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
@@ -5293,15 +5811,8 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp', 'OidGrp', 'ScenarioRefGrp'],
-         'slot_usage': {'impl_max_occurs': {'description': 'Upper bound of group '
-                                                           'instances (numInGroup)',
-                                            'name': 'impl_max_occurs'},
-                        'impl_min_occurs': {'description': 'Lower bound of group '
-                                                           'instances (numInGroup)',
-                                            'name': 'impl_min_occurs'},
-                        'which': {'description': 'Member selection within each group '
-                                                 'instance',
-                                  'name': 'which'}}})
+         'slot_usage': {'field_ref': {'name': 'field_ref'},
+                        'impl_max_occurs': {'name': 'impl_max_occurs'}}})
 
     num_in_group: Optional[FieldRefType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['numInGroup'],
          'domain_of': ['GroupType'],
@@ -5324,7 +5835,7 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:groupRef'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -5664,7 +6175,7 @@ class MessageRefType(RefidGrp):
     msg_type: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['msgType'],
          'domain_of': ['MessageRefType', 'MessageType'],
          'slot_uri': 'fixr:msgType'} })
-    impl_min_occurs: Optional[int] = Field(default=1, json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
+    impl_min_occurs: Optional[int] = Field(default=1, description="""Lower bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
          'ifabsent': 'string(1)',
          'slot_uri': 'fixr:implMinOccurs'} })
@@ -5714,7 +6225,8 @@ class StructureInline(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xsd_anonymous_inline': {'tag': 'xsd_anonymous_inline',
                                                   'value': True}},
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
-         'in_subset': ['repository_types']})
+         'in_subset': ['repository_types'],
+         'slot_usage': {'field_ref': {'name': 'field_ref'}, 'which': {'name': 'which'}}})
 
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
@@ -5734,7 +6246,7 @@ class StructureInline(ConfiguredBaseModel):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:groupRef'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',
@@ -5744,7 +6256,7 @@ class StructureInline(ConfiguredBaseModel):
                        'GroupType',
                        'StructureInline'],
          'slot_uri': 'fixr:fieldRef'} })
-    which: Optional[MemberType] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
+    which: Optional[MemberType] = Field(default=None, description="""Member selection within each group instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
          'slot_uri': 'fixr:which'} })
 
 
@@ -5764,15 +6276,7 @@ class MessageType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
          'class_uri': 'fixr:messageType',
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
-         'mixins': ['OidGrp', 'ScenarioRefGrp', 'EntityAttribGrp'],
-         'slot_usage': {'when': {'description': 'A condition that distinguishes when a '
-                                                'scenario of a message type applies. '
-                                                'It could be used to generate a '
-                                                'decision tree to correlate an '
-                                                'incoming message to its scenario, or '
-                                                'to decide which scenario of a request '
-                                                'message to send.',
-                                 'name': 'when'}}})
+         'mixins': ['OidGrp', 'ScenarioRefGrp', 'EntityAttribGrp']})
 
     structure: Optional[StructureInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType'], 'slot_uri': 'fixr:structure'} })
     when: Optional[str] = Field(default=None, description="""A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
@@ -5985,7 +6489,7 @@ class ResponseType(ActionType):
                        'Repository'],
          'slot_uri': 'fixr:name'} })
     field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
-    field_ref: Optional[list[FieldRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
+    field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
                        'BlockAssignmentType',

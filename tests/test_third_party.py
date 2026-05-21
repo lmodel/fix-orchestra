@@ -109,6 +109,9 @@ def _params():
 # Well-formedness gate
 # ---------------------------------------------------------------------------
 
+# could be dropped - we should assume upstream FIX XML is well-formed, and if not,
+# the converter will error out anyway. But leave for now.
+
 @pytest.mark.parametrize("corpus,filename,target,max_errors,note", _params())
 def test_third_party_xml_wellformed(corpus, filename, target, max_errors, note,
                                     capsys):
@@ -133,7 +136,8 @@ def test_third_party_xml_wellformed(corpus, filename, target, max_errors, note,
                     reason="scripts/fix_xml_to_linkml.py not yet implemented.")
 @pytest.mark.parametrize("corpus,filename,target,max_errors,note", _params())
 def test_third_party_xml_validates_against_linkml(
-        tmp_path, corpus, filename, target, max_errors, note, capsys):
+        tmp_path, corpus, filename, target, max_errors, note, capsys,
+        fix_record_tally):
     """Convert the XML to YAML and assert LinkML validation stays within the
     per-file error budget."""
     src = corpus / filename
@@ -162,6 +166,7 @@ def test_third_party_xml_validates_against_linkml(
 
     yaml_obj = yaml.safe_load(yaml_out.read_text())
     counts = _count_yaml_records(yaml_obj)
+    fix_record_tally["total"] += sum(counts.values())
     budget_msg = (f"{actual}/{max_errors} errors (within budget)"
                   if max_errors > 0 else "no errors")
     with capsys.disabled():

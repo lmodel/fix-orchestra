@@ -3892,8 +3892,8 @@ CREATE TABLE "DctermsRightsHolder_content" (
 	PRIMARY KEY ("DctermsRightsHolder_id", content),
 	FOREIGN KEY("DctermsRightsHolder_id") REFERENCES "DctermsRightsHolder" (id)
 );
-CREATE INDEX "ix_DctermsRightsHolder_content_DctermsRightsHolder_id" ON "DctermsRightsHolder_content" ("DctermsRightsHolder_id");
 CREATE INDEX "ix_DctermsRightsHolder_content_content" ON "DctermsRightsHolder_content" (content);
+CREATE INDEX "ix_DctermsRightsHolder_content_DctermsRightsHolder_id" ON "DctermsRightsHolder_content" ("DctermsRightsHolder_id");
 
 CREATE TABLE "DctermsMediator_content" (
 	"DctermsMediator_id" INTEGER,
@@ -4234,9 +4234,9 @@ CREATE TABLE "Repository" (
 	FOREIGN KEY(scenarios_id) REFERENCES "Scenarios" (id),
 	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
 );
-CREATE INDEX "ix_Repository_id" ON "Repository" (id);
-CREATE INDEX "Repository_name_idx" ON "Repository" (name);
 CREATE INDEX "Repository_id_idx" ON "Repository" (id);
+CREATE INDEX "Repository_name_idx" ON "Repository" (name);
+CREATE INDEX "ix_Repository_id" ON "Repository" (id);
 
 CREATE TABLE "Appinfo_content" (
 	"Appinfo_id" INTEGER,

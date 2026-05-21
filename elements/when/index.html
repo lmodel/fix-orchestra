@@ -486,6 +486,7 @@
 
 
 <h1 id="slot-when">Slot: when</h1>
+<p><em>A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.</em></p>
 <div>
 <p>URI: <a href="http://fixprotocol.io/2024/orchestra/repository/when">fixr:when</a></p>
 <!-- no inheritance hierarchy -->
@@ -512,7 +513,7 @@
 <tr>
 <td><a href="../MessageType/">MessageType</a></td>
 <td></td>
-<td>yes</td>
+<td>no</td>
 </tr>
 <tr>
 <td><a href="../ResponseType/">ResponseType</a></td>
@@ -592,6 +593,9 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">when</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A condition that distinguishes when a scenario of a message type applies.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">It could be used to generate a decision tree to correlate an incoming message to</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">its scenario, or to decide which scenario of a request message to send.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/lmodel/fix-orchestra</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fixr:when</span>

@@ -329,6 +329,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -345,6 +363,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justfile-recipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Justfile recipes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test suite
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema enrichment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -370,6 +462,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justfile-recipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Justfile recipes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test suite
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema enrichment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -390,11 +545,184 @@
 
 
 <h1 id="about-fix-orchestra">About fix-orchestra</h1>
-<p>FIX Orchestra - LinkML Schema</p>
+<p>FIX Orchestra - LinkML Schema and wire-format toolchain.</p>
+<p>This project converts the FIX Orchestra XSD specification into a <a href="https://linkml.io/">LinkML</a>
+schema and generates a wire-format Protocol Buffers definition directly from the FIX Orchestra
+XML repository.</p>
+<h2 id="what-is-here">What is here</h2>
+<table>
+<thead>
+<tr>
+<th>Artefact</th>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinkML schema (FIX)</td>
+<td><code>src/fix_orchestra/schema/fix_orchestra.yaml</code></td>
+<td>69 classes, 53 types (38 FIX base), 20 enums, 117 slots — generated from the upstream XSDs; imports the DC companion</td>
+</tr>
+<tr>
+<td>LinkML schema (DC)</td>
+<td><code>src/fix_orchestra/schema/fix_orchestra_dc.yaml</code></td>
+<td>97 Dublin Core / DCterms / DCMIType / XML namespace classes, 2 types, 1 enum, 55 slots — split out from the main schema</td>
+</tr>
+<tr>
+<td>XSD -&gt; schema converter</td>
+<td><code>scripts/schema_to_linkml.py</code></td>
+<td>Reads <code>repository.xsd</code>, <code>repositorytypes.xsd</code>, <code>interfaces.xsd</code>; opt-in <code>--orchestra-xml</code> flag enriches the 38 FIX base datatypes with <code>proto_scalar</code> annotations; emits both schema files</td>
+</tr>
+<tr>
+<td>Wire-format proto generator</td>
+<td><code>scripts/fix_xml_to_proto.py</code></td>
+<td>Reads a FIX Orchestra XML repository file; emits a proto3 definition with one <code>message</code> per FIX message/component/group and one <code>enum</code> per code set</td>
+</tr>
+<tr>
+<td>Wire-format proto</td>
+<td><code>project/protobuf/fix_orchestra.wire.proto</code></td>
+<td>Generated from <code>OrchestraFIXLatest.xml</code> — 932 messages, 691 enums, 1.1 MB</td>
+</tr>
+<tr>
+<td>Known issues</td>
+<td><code>upstream-releases/ISSUE.md</code></td>
+<td>Documents upstream XSD bugs and downstream tool bugs (including the broken <code>gen-proto</code> output from LinkML)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="justfile-recipes">Justfile recipes</h2>
+<table>
+<thead>
+<tr>
+<th>Recipe</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>just gen-linkml</code></td>
+<td>Regenerate the LinkML schema enriched with FIX base datatype <code>proto_scalar</code> annotations</td>
+</tr>
+<tr>
+<td><code>just gen-project</code></td>
+<td>Run all LinkML generators against the schema</td>
+</tr>
+<tr>
+<td><code>just gen-proto-wire</code></td>
+<td>Generate <code>project/protobuf/fix_orchestra.wire.proto</code> from <code>OrchestraFIXLatest.xml</code></td>
+</tr>
+<tr>
+<td><code>just test-third-party</code></td>
+<td>Validate the FIX Orchestra XML corpus against the LinkML schema</td>
+</tr>
+<tr>
+<td><code>just test</code></td>
+<td>Run the full test suite</td>
+</tr>
+</tbody>
+</table>
+<h2 id="test-suite">Test suite</h2>
+<p>103 tests across three modules:</p>
+<ul>
+<li><code>tests/test_data.py</code> — unit tests for the schema converter</li>
+<li><code>tests/test_third_party.py</code> — validates 14 FIX Orchestra XML orchestration files against the LinkML schema (7,882 records validated for <code>OrchestraFIXLatest.xml</code> alone)</li>
+<li><code>tests/test_proto.py</code> — 15 tests for the wire-format proto generator (syntax, field numbering, enum sentinels, custom options, committed file integrity)</li>
+</ul>
+<h2 id="schema-enrichment">Schema enrichment</h2>
+<p>Running <code>just gen-linkml</code> (or <code>python3 scripts/schema_to_linkml.py --orchestra-xml &lt;path&gt;</code>) does two things and emits <strong>two schema files</strong>:</p>
+<ol>
+<li><strong>FIX base datatypes</strong> — adds 38 FIX base datatype entries to the schema <code>types:</code> section under
+   the <code>fix_base_types</code> subset.  Each entry carries a <code>proto_scalar</code> annotation:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">FIXPrice</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">typeof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fixr:Price</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">fix_base_types</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">proto_scalar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decimal64</span>
+</code></pre></div>
+<ol>
+<li><strong>Description enrichment</strong> — every <code>xs:annotation/xs:documentation</code> element in the upstream
+   XSDs is imported into the corresponding LinkML entity's <code>description:</code> field.  Coverage after
+   enrichment (descriptions / total):</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>With description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>slots</code> (global)</td>
+<td>42 / 117</td>
+</tr>
+<tr>
+<td><code>types</code></td>
+<td>47 / 53</td>
+</tr>
+<tr>
+<td><code>classes</code></td>
+<td>15 / 69</td>
+</tr>
+<tr>
+<td><code>enums</code></td>
+<td>6 / 20</td>
+</tr>
+<tr>
+<td>class <code>attributes</code> (inline)</td>
+<td>35 / 129</td>
+</tr>
+</tbody>
+</table>
+<p>(DC-vocabulary entities now live in <code>fix_orchestra_dc.yaml</code> and are excluded from the counts above.)</p>
+<p>The remaining gaps reflect XSD entities that the upstream authors left undocumented (no
+   <code>xs:documentation</code> present).  The extractor is complete — when the upstream XSDs are updated
+   with new documentation nodes, <code>just gen-linkml</code> will pick them up automatically.</p>
+<p>Two extraction improvements were made to the generator:</p>
+<ul>
+<li>
+<p><strong>Best-description selection in slot promotion</strong> — <code>_promote_to_schema_slots()</code> used to take
+     the first-encountered class's attribute definition as the canonical global slot, losing
+     descriptions from later uses.  It now scans all uses and applies the first non-empty
+     description, recovering descriptions for <code>when</code>, <code>field_ref</code>, <code>presence</code>, <code>which</code>,
+     <code>impl_min_occurs</code>, and <code>impl_max_occurs</code>.</p>
+</li>
+<li>
+<p><strong>Inline element/attribute docs in auxiliary XSDs</strong> — <code>_emit_aux_elements()</code> now propagates
+     <code>xs:documentation</code> from inline anonymous <code>xs:complexType</code> children.</p>
+</li>
+<li>
+<p><strong>Dublin Core schema split</strong> — The 97 Dublin Core / DCterms / DCMIType / XML namespace classes
+   (and their 55 slots, 2 types, 1 enum, 4 subsets) were separated into a companion schema
+   <code>fix_orchestra_dc.yaml</code>.  The main schema imports it via <code>imports: [linkml:types, fix_orchestra_dc]</code>.
+   The XML-to-YAML converter (<code>fix_xml_to_linkml.py</code>) was updated to merge locally-resolvable
+   imports before indexing the schema, so it sees DC classes when structuring the <code>metadata</code> field.</p>
+</li>
+</ul>
+<h2 id="known-issues">Known issues</h2>
+<p>See <a href="../upstream-releases/ISSUE.md"><code>upstream-releases/ISSUE.md</code></a> for documented bugs:</p>
+<ol>
+<li>
+<p><strong><code>categoryType/@section</code> declared <code>use="required"</code> in the XSD but omitted in canonical FIX data.</strong>
+   Workaround applied in <code>schema_to_linkml.py</code> via <code>_OPTIONAL_DESPITE_XSD</code>.
+   Upstream target: <a href="https://github.com/FIXTradingCommunity/fix-orchestra-spec">fix-orchestra-spec</a>.</p>
+</li>
+<li>
+<p><strong>LinkML <code>gen-proto</code> produces invalid proto3</strong> — all 1,018 fields numbered <code>= 0</code>, blank <code>package</code>
+   line, fails <code>protoc</code>.  The file <code>project/protobuf/fix_orchestra.proto</code> is retained as-is.
+   <code>project/protobuf/fix_orchestra.wire.proto</code> is the replacement.
+   Upstream target: <a href="https://github.com/linkml/linkml">linkml/linkml</a>.</p>
+</li>
+</ol>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/FIXTradingCommunity/fix-orchestra">Fix Orchestra</a></li>
 <li><a href="https://github.com/FIXTradingCommunity/fix-orchestra-spec">fix-orchestra-spec</a></li>
+<li><a href="https://linkml.io/">LinkML</a></li>
+<li><a href="https://protobuf.dev/">Protocol Buffers</a></li>
 </ul>
 
 

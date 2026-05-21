@@ -1312,7 +1312,7 @@
 </tr>
 <tr>
 <td><a href="base/">base</a></td>
-<td></td>
+<td>A datatype from which a subtype is created by restriction or a derived type i...</td>
 </tr>
 <tr>
 <td><a href="base_category/">base_category</a></td>
@@ -1512,7 +1512,7 @@
 </tr>
 <tr>
 <td><a href="field_ref/">field_ref</a></td>
-<td></td>
+<td>Other field or fields that scope uniqueness</td>
 </tr>
 <tr>
 <td><a href="fields/">fields</a></td>
@@ -1560,11 +1560,11 @@
 </tr>
 <tr>
 <td><a href="id/">id</a></td>
-<td></td>
+<td>Numeric identifier generally must be unique within a file for an element type...</td>
 </tr>
 <tr>
 <td><a href="identifier/">identifier</a></td>
-<td>Free-text value of the Dublin Core element/refinement <code>identifier</code></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="identifiers/">identifiers</a></td>
@@ -1580,7 +1580,7 @@
 </tr>
 <tr>
 <td><a href="impl_max_occurs/">impl_max_occurs</a></td>
-<td></td>
+<td>Upper bound of group instances (numInGroup)</td>
 </tr>
 <tr>
 <td><a href="impl_min_length/">impl_min_length</a></td>
@@ -1588,7 +1588,7 @@
 </tr>
 <tr>
 <td><a href="impl_min_occurs/">impl_min_occurs</a></td>
-<td></td>
+<td>Lower bound of group instances (numInGroup)</td>
 </tr>
 <tr>
 <td><a href="include_file/">include_file</a></td>
@@ -1764,7 +1764,7 @@
 </tr>
 <tr>
 <td><a href="presence/">presence</a></td>
-<td></td>
+<td>Overrides presence when expression is true</td>
 </tr>
 <tr>
 <td><a href="protocol/">protocol</a></td>
@@ -1984,7 +1984,7 @@
 </tr>
 <tr>
 <td><a href="type/">type</a></td>
-<td>Free-text value of the Dublin Core element/refinement <code>type</code></td>
+<td>Underlying FIX datatype of codes</td>
 </tr>
 <tr>
 <td><a href="union_data_type/">union_data_type</a></td>
@@ -2024,11 +2024,11 @@
 </tr>
 <tr>
 <td><a href="when/">when</a></td>
-<td></td>
+<td>A condition that distinguishes when a scenario of a message type applies</td>
 </tr>
 <tr>
 <td><a href="which/">which</a></td>
-<td></td>
+<td>Member selection within each group instance</td>
 </tr>
 </tbody>
 </table>
@@ -2185,6 +2185,158 @@
 <td>Expressed in a Domain Specific Language</td>
 </tr>
 <tr>
+<td><a href="FIXAmt/">FIXAmt</a></td>
+<td>FIX Amt datatype (extends float)</td>
+</tr>
+<tr>
+<td><a href="FIXBoolean/">FIXBoolean</a></td>
+<td>FIX Boolean datatype (extends char)</td>
+</tr>
+<tr>
+<td><a href="FIXChar/">FIXChar</a></td>
+<td>FIX char base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXCountry/">FIXCountry</a></td>
+<td>FIX Country datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXCurrency/">FIXCurrency</a></td>
+<td>FIX Currency datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXData/">FIXData</a></td>
+<td>FIX data base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXDayOfMonth/">FIXDayOfMonth</a></td>
+<td>FIX DayOfMonth datatype (extends int)</td>
+</tr>
+<tr>
+<td><a href="FIXExchange/">FIXExchange</a></td>
+<td>FIX Exchange datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXFloat/">FIXFloat</a></td>
+<td>FIX float base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXInt/">FIXInt</a></td>
+<td>FIX int base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXLanguage/">FIXLanguage</a></td>
+<td>FIX Language datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXLength/">FIXLength</a></td>
+<td>FIX Length datatype (extends int)</td>
+</tr>
+<tr>
+<td><a href="FIXLocalMktDate/">FIXLocalMktDate</a></td>
+<td>FIX LocalMktDate datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXLocalMktTime/">FIXLocalMktTime</a></td>
+<td>FIX LocalMktTime datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXMonthYear/">FIXMonthYear</a></td>
+<td>FIX MonthYear datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXMultipleCharValue/">FIXMultipleCharValue</a></td>
+<td>FIX MultipleCharValue datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXMultipleStringValue/">FIXMultipleStringValue</a></td>
+<td>FIX MultipleStringValue datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXNumInGroup/">FIXNumInGroup</a></td>
+<td>FIX NumInGroup datatype (extends int)</td>
+</tr>
+<tr>
+<td><a href="FIXPattern/">FIXPattern</a></td>
+<td>FIX Pattern base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXPercentage/">FIXPercentage</a></td>
+<td>FIX Percentage datatype (extends float)</td>
+</tr>
+<tr>
+<td><a href="FIXPrice/">FIXPrice</a></td>
+<td>FIX Price datatype (extends float)</td>
+</tr>
+<tr>
+<td><a href="FIXPriceOffset/">FIXPriceOffset</a></td>
+<td>FIX PriceOffset datatype (extends float)</td>
+</tr>
+<tr>
+<td><a href="FIXQty/">FIXQty</a></td>
+<td>FIX Qty datatype (extends float)</td>
+</tr>
+<tr>
+<td><a href="FIXReserved1000Plus/">FIXReserved1000Plus</a></td>
+<td>FIX Reserved1000Plus datatype (extends Pattern)</td>
+</tr>
+<tr>
+<td><a href="FIXReserved100Plus/">FIXReserved100Plus</a></td>
+<td>FIX Reserved100Plus datatype (extends Pattern)</td>
+</tr>
+<tr>
+<td><a href="FIXReserved4000Plus/">FIXReserved4000Plus</a></td>
+<td>FIX Reserved4000Plus datatype (extends Pattern)</td>
+</tr>
+<tr>
+<td><a href="FIXSeqNum/">FIXSeqNum</a></td>
+<td>FIX SeqNum datatype (extends int)</td>
+</tr>
+<tr>
+<td><a href="FIXString/">FIXString</a></td>
+<td>FIX String base datatype</td>
+</tr>
+<tr>
+<td><a href="FIXTagNum/">FIXTagNum</a></td>
+<td>FIX TagNum datatype (extends int)</td>
+</tr>
+<tr>
+<td><a href="FIXTenor/">FIXTenor</a></td>
+<td>FIX Tenor datatype (extends Pattern)</td>
+</tr>
+<tr>
+<td><a href="FIXTZTimeOnly/">FIXTZTimeOnly</a></td>
+<td>FIX TZTimeOnly datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXTZTimestamp/">FIXTZTimestamp</a></td>
+<td>FIX TZTimestamp datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXUTCDateOnly/">FIXUTCDateOnly</a></td>
+<td>FIX UTCDateOnly datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXUTCTimeOnly/">FIXUTCTimeOnly</a></td>
+<td>FIX UTCTimeOnly datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXUTCTimestamp/">FIXUTCTimestamp</a></td>
+<td>FIX UTCTimestamp datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXXID/">FIXXID</a></td>
+<td>FIX XID datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXXIDREF/">FIXXIDREF</a></td>
+<td>FIX XIDREF datatype (extends String)</td>
+</tr>
+<tr>
+<td><a href="FIXXMLData/">FIXXMLData</a></td>
+<td>FIX XMLData datatype (extends String)</td>
+</tr>
+<tr>
 <td><a href="Float/">Float</a></td>
 <td>A real number that conforms to the xsd:float specification</td>
 </tr>
@@ -2302,6 +2454,10 @@
 <tr>
 <td><a href="Dcterms/">Dcterms</a></td>
 <td>Dublin Core Terms (dcterms</td>
+</tr>
+<tr>
+<td><a href="FixBaseTypes/">FixBaseTypes</a></td>
+<td>FIX base datatypes derived from the FIX Orchestra XML repository</td>
 </tr>
 <tr>
 <td><a href="Interfaces/">Interfaces</a></td>

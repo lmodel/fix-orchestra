@@ -1,7 +1,16 @@
 """Validate FIX-Trading-Community sample XML files against the LinkML schema.
 
-The third-party corpus under ``tests/data/third_party/fix-orchestra/`` is
-representative real-world FIX Orchestra data. These tests exercise two gates:
+Two third-party corpora are covered:
+
+* ``tests/data/third_party/fix-orchestra/`` — reference-implementation samples
+  from the `fix-orchestra <https://github.com/FIXTradingCommunity/fix-orchestra>`_
+  repository (interfaces and full FIX dictionaries).
+* ``tests/data/third_party/orchestrations/`` — asset-class and session rules of
+  engagement from the
+  `orchestrations <https://github.com/FIXTradingCommunity/orchestrations>`_
+  repository (FIX Standard subset).
+
+Both corpora exercise two gates:
 
 1. **XML well-formedness** - every ``.xml`` parses without error.
 2. **LinkML-schema validation** - each XML is converted via
@@ -28,21 +37,55 @@ import yaml
 
 PROJECT = Path(__file__).parent.parent
 SCHEMA = PROJECT / "src" / "fix_orchestra" / "schema" / "fix_orchestra.yaml"
-DATA = PROJECT / "tests" / "data" / "third_party" / "fix-orchestra"
 CONV = PROJECT / "scripts" / "fix_xml_to_linkml.py"
+
+_FIX_ORCH = PROJECT / "tests" / "data" / "third_party" / "fix-orchestra"
+_ORCH = PROJECT / "tests" / "data" / "third_party" / "orchestrations"
 
 _LARGE_THRESHOLD = 1_000_000  # 1 MB
 
-# (filename, target-class, max-allowed-validation-errors, note)
+# (corpus-dir, filename, target-class, max-allowed-validation-errors, note)
 # A non-zero allowance flags a *known* data quirk in the upstream FIX corpus,
-# not a converter or schema bug. Investigate before increasing the budget.
+# not a converter or schema bug. Investigate before incrementing the budget.
 CASES = [
-    ("SampleInterfaces.xml", "Interfaces", 0,
-     "FIX-supplied sample - validates cleanly."),
-    ("mit_2016.xml", "Repository", 1,
-     "FIX `Common` category lacks XSD-required `section` attribute."),
-    ("OrchestraFIXLatest.xml", "Repository", 1,
-     "FIX `Common` category lacks XSD-required `section` attribute."),
+    # fix-orchestra – reference implementation corpus
+    (_FIX_ORCH, "SampleInterfaces.xml",           "Interfaces", 0,
+     "FIX-supplied sample – validates cleanly."),
+    (_FIX_ORCH, "mit_2016.xml",                   "Repository", 0,
+     "FIX `Common` category `section` attribute is optional in real Orchestra files."),
+    (_FIX_ORCH, "OrchestraFIXLatest.xml",         "Repository", 0,
+     "FIX `Common` category `section` attribute is optional in real Orchestra files."),
+
+    # orchestrations – FIX Standard asset-class and session rules of engagement
+    # All files use the 2020 (or 2022) Orchestra namespace and validate cleanly.
+    (_ORCH, "Equity.xml",                         "Repository", 0,
+     "FIX equity trading rules of engagement."),
+    (_ORCH, "Warrant.xml",                        "Repository", 0,
+     "FIX warrant trading rules of engagement."),
+    (_ORCH, "Future.xml",                         "Repository", 0,
+     "FIX futures trading rules of engagement."),
+    (_ORCH, "Option.xml",                         "Repository", 0,
+     "FIX options trading rules of engagement."),
+    (_ORCH, "TradingDigitalAssets.xml",           "Repository", 0,
+     "FIX digital-assets trading rules of engagement."),
+    (_ORCH, "FIX44Session.xml",                   "Repository", 0,
+     "FIX 4.4 session protocol definition."),
+    (_ORCH, "FIXTSession.xml",                    "Repository", 0,
+     "FIXT session protocol definition."),
+    (_ORCH, "Debt.xml",                           "Repository", 0,
+     "FIX debt-instrument rules of engagement."),
+    (_ORCH, "FIXReferenceData.xml",               "Repository", 0,
+     "FIX reference-data definitions."),
+    (_ORCH, "OrchestraFIX42.xml",                 "Repository", 0,
+     "Full FIX 4.2 Orchestra dictionary."),
+    (_ORCH, "OrchestraFIX44.xml",                 "Repository", 0,
+     "Full FIX 4.4 Orchestra dictionary (>1 MB, marked slow)."),
+    (_ORCH, "OrchestraExamples-v11-RC1.xml",      "Repository", 0,
+     "Orchestra v1.1-RC1 examples; uses 2022 namespace."),
+    (_ORCH, "OrchestraFIXLatest.xml",             "Repository", 0,
+     "FIX latest dictionary (2020 ns); counterpart to fix-orchestra copy."),
+    (_ORCH, "OrchestraFIXLatestNonOTC_EP273.xml", "Repository", 0,
+     "FIX latest non-OTC subset (EP273)."),
 ]
 
 
@@ -52,13 +95,13 @@ def _have(cmd: str) -> bool:
 
 def _params():
     out = []
-    for name, target, max_err, note in CASES:
-        path = DATA / name
+    for corpus, name, target, max_err, note in CASES:
+        path = corpus / name
         marks: list = []
         if path.is_file() and path.stat().st_size > _LARGE_THRESHOLD:
             marks.append(pytest.mark.slow)
-        out.append(pytest.param(name, target, max_err, note,
-                                id=name, marks=marks))
+        out.append(pytest.param(corpus, name, target, max_err, note,
+                                id=f"{corpus.name}/{name}", marks=marks))
     return out
 
 
@@ -66,17 +109,20 @@ def _params():
 # Well-formedness gate
 # ---------------------------------------------------------------------------
 
-@pytest.mark.parametrize("filename,target,max_errors,note", _params())
-def test_third_party_xml_wellformed(filename, target, max_errors, note,
+# could be dropped - we should assume upstream FIX XML is well-formed, and if not,
+# the converter will error out anyway. But leave for now.
+
+@pytest.mark.parametrize("corpus,filename,target,max_errors,note", _params())
+def test_third_party_xml_wellformed(corpus, filename, target, max_errors, note,
                                     capsys):
     """The XML must parse without error."""
-    src = DATA / filename
+    src = corpus / filename
     if not src.is_file():
         pytest.skip(f"missing upstream file {src}")
     tree = ET.parse(str(src))
     counts = _count_xml_records(tree.getroot())
     with capsys.disabled():
-        print(f"\n  [wellformed] {filename}: "
+        print(f"\n  [wellformed] {corpus.name}/{filename}: "
               f"parsed OK -- {_fmt_counts(counts, verb='counted')}")
 
 
@@ -86,12 +132,15 @@ def test_third_party_xml_wellformed(filename, target, max_errors, note,
 
 @pytest.mark.skipif(not _have("linkml-validate"),
                     reason="linkml-validate not on PATH (run `uv sync`).")
-@pytest.mark.parametrize("filename,target,max_errors,note", _params())
+@pytest.mark.skipif(not CONV.exists(),
+                    reason="scripts/fix_xml_to_linkml.py not yet implemented.")
+@pytest.mark.parametrize("corpus,filename,target,max_errors,note", _params())
 def test_third_party_xml_validates_against_linkml(
-        tmp_path, filename, target, max_errors, note, capsys):
+        tmp_path, corpus, filename, target, max_errors, note, capsys,
+        fix_record_tally):
     """Convert the XML to YAML and assert LinkML validation stays within the
     per-file error budget."""
-    src = DATA / filename
+    src = corpus / filename
     if not src.is_file():
         pytest.skip(f"missing upstream file {src}")
     yaml_out = tmp_path / (Path(filename).stem + ".yaml")
@@ -117,10 +166,11 @@ def test_third_party_xml_validates_against_linkml(
 
     yaml_obj = yaml.safe_load(yaml_out.read_text())
     counts = _count_yaml_records(yaml_obj)
+    fix_record_tally["total"] += sum(counts.values())
     budget_msg = (f"{actual}/{max_errors} errors (within budget)"
                   if max_errors > 0 else "no errors")
     with capsys.disabled():
-        print(f"\n  [validate]   {filename} ({target}): "
+        print(f"\n  [validate]   {corpus.name}/{filename} ({target}): "
               f"{_fmt_counts(counts, verb='linkml schema validated')}; {budget_msg}")
 
     assert actual <= max_errors, (

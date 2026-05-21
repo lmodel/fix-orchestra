@@ -1,3 +1,797 @@
+-- # Class: EntityAttribGrp
+--     * Slot: id
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+-- # Class: FieldAttribGrp Description: Attributes of a field that be overridden by a rule
+--     * Slot: id
+--     * Slot: min_inclusive Description: Inclusive lower bound
+--     * Slot: max_inclusive Description: Inclusive upper bound
+--     * Slot: impl_length Description: Fixed length
+--     * Slot: impl_min_length
+--     * Slot: impl_max_length
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: encoding Description: Character encoding if other than US-ASCII
+-- # Class: OidGrp Description: The identifiers of a message element
+--     * Slot: uid
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+-- # Class: RefidGrp Description: A reference to a message element by its key identifiers
+--     * Slot: uid
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+-- # Class: ScenarioRefGrp Description: A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
+--     * Slot: id
+--     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
+--     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
+-- # Class: ActionType
+--     * Slot: id
+-- # Class: ActorType Description: Represents a class of participants
+--     * Slot: id
+--     * Slot: name
+--     * Slot: Actors_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: Annotation
+--     * Slot: id
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+-- # Class: Appinfo Description: Usage specific annotation, optionally with link to an external reference or standard
+--     * Slot: id
+--     * Slot: spec_url Description: Reference documentation
+--     * Slot: value Description: Mixed text content of the element.
+--     * Slot: lang_id
+--     * Slot: purpose
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Annotation_id Description: Autocreated FK slot
+-- # Class: BlockAssignmentType
+--     * Slot: id
+--     * Slot: ComponentRefType_uid Description: Autocreated FK slot
+--     * Slot: GroupRefType_uid Description: Autocreated FK slot
+-- # Class: CategoryType
+--     * Slot: id
+--     * Slot: fixml_file_name
+--     * Slot: component_type
+--     * Slot: include_file
+--     * Slot: name
+--     * Slot: section
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Categories_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: CodeSetType
+--     * Slot: uid
+--     * Slot: default
+--     * Slot: spec_url Description: Reference documentation for an external code set
+--     * Slot: union_data_type
+--     * Slot: type Description: Underlying FIX datatype of codes
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
+--     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: CodeSets_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: CodeType
+--     * Slot: uid
+--     * Slot: value Description: The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. However, single internal spaces are allowed. May be further restricted by an external style.
+--     * Slot: sort Description: Sort and group may be used to organize visualization of a code set.
+--     * Slot: group
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: CodeSetType_uid Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: ComponentRefType
+--     * Slot: uid
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: instance_name Description: Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
+--     * Slot: ComponentType_uid Description: Autocreated FK slot
+--     * Slot: ConceptType_id Description: Autocreated FK slot
+--     * Slot: GroupType_uid Description: Autocreated FK slot
+--     * Slot: StructureInline_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: ComponentRuleType
+--     * Slot: id
+--     * Slot: when Description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: name Description: Name of this rule
+--     * Slot: ComponentRefType_uid Description: Autocreated FK slot
+--     * Slot: GroupRefType_uid Description: Autocreated FK slot
+-- # Class: ComponentType
+--     * Slot: uid
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: which Description: Member selection within each group instance
+--     * Slot: category
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
+--     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: Components_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: ConceptType
+--     * Slot: id
+--     * Slot: name
+--     * Slot: Concepts_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: Documentation
+--     * Slot: id
+--     * Slot: value Description: Mixed text content of the element.
+--     * Slot: lang_id
+--     * Slot: purpose
+--     * Slot: content_type
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Annotation_id Description: Autocreated FK slot
+-- # Class: FieldRefType
+--     * Slot: uid
+--     * Slot: length_id Description: Identifies a field used as a length prefix
+--     * Slot: non_encoded_field_id Description: Identifies a non-encoded field related to an encoded field
+--     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable
+--     * Slot: instance_name Description: Override the field name for this instance, for code generation and the like. Allows more than one instance of a field in a message or component.
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: min_inclusive Description: Inclusive lower bound
+--     * Slot: max_inclusive Description: Inclusive upper bound
+--     * Slot: impl_length Description: Fixed length
+--     * Slot: impl_min_length
+--     * Slot: impl_max_length
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: encoding Description: Character encoding if other than US-ASCII
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
+--     * Slot: ComponentType_uid Description: Autocreated FK slot
+--     * Slot: ConceptType_id Description: Autocreated FK slot
+--     * Slot: UniqueInline_id Description: Autocreated FK slot
+--     * Slot: GroupType_uid Description: Autocreated FK slot
+--     * Slot: StructureInline_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: UniqueInline
+--     * Slot: id
+-- # Class: FieldRuleType
+--     * Slot: id
+--     * Slot: when Description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
+--     * Slot: name Description: Name of this rule
+--     * Slot: type Description: Overrides the type of the referenced field.
+--     * Slot: min_inclusive Description: Inclusive lower bound
+--     * Slot: max_inclusive Description: Inclusive upper bound
+--     * Slot: impl_length Description: Fixed length
+--     * Slot: impl_min_length
+--     * Slot: impl_max_length
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: encoding Description: Character encoding if other than US-ASCII
+--     * Slot: FieldRefType_uid Description: Autocreated FK slot
+--     * Slot: FieldType_uid Description: Autocreated FK slot
+--     * Slot: unique_id
+-- # Class: FieldType
+--     * Slot: uid
+--     * Slot: length_id Description: Identifies a field used as a length prefix
+--     * Slot: non_encoded_field_id Description: Identifies a non-encoded field related to an encoded field
+--     * Slot: discriminator_id Description: Identifies a field used as a discriminator for this field's domain
+--     * Slot: base_category
+--     * Slot: base_category_abbr_name
+--     * Slot: union_data_type
+--     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable
+--     * Slot: type Description: Attribute type refers to a datatype name
+--     * Slot: code_set Description: Attribute codeSet refers to a codeSet name
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: min_inclusive Description: Inclusive lower bound
+--     * Slot: max_inclusive Description: Inclusive upper bound
+--     * Slot: impl_length Description: Fixed length
+--     * Slot: impl_min_length
+--     * Slot: impl_max_length
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: encoding Description: Character encoding if other than US-ASCII
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: Fields_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: FlowType Description: A stream of messages in one direction
+--     * Slot: id
+--     * Slot: source Description: Name of the actor that originates messages
+--     * Slot: destination Description: Name of the actor that receives messages.
+--     * Slot: name
+--     * Slot: reliability
+--     * Slot: Actors_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: GroupRefType
+--     * Slot: uid
+--     * Slot: impl_min_occurs Description: Lower bound of group instances (numInGroup)
+--     * Slot: impl_max_occurs Description: Upper bound of group instances (numInGroup)
+--     * Slot: presence Description: Overrides presence when expression is true
+--     * Slot: instance_name Description: Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
+--     * Slot: ComponentType_uid Description: Autocreated FK slot
+--     * Slot: ConceptType_id Description: Autocreated FK slot
+--     * Slot: GroupType_uid Description: Autocreated FK slot
+--     * Slot: StructureInline_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: GroupType Description: A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the sequence, it cannot be an extension.
+--     * Slot: uid
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: impl_min_occurs Description: Lower bound of group instances (numInGroup)
+--     * Slot: impl_max_occurs Description: Upper bound of group instances (numInGroup)
+--     * Slot: which Description: Member selection within each group instance
+--     * Slot: category
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
+--     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: Groups_id Description: Autocreated FK slot
+--     * Slot: num_in_group_uid
+--     * Slot: annotation_id
+-- # Class: IdentifiersType
+--     * Slot: id
+--     * Slot: annotation_id
+-- # Class: IdentifierType
+--     * Slot: id
+--     * Slot: value Description: Mixed text content of the element.
+--     * Slot: name
+--     * Slot: IdentifiersType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+-- # Class: ExtensionInline
+--     * Slot: id
+-- # Class: MappedDatatype
+--     * Slot: id
+--     * Slot: standard
+--     * Slot: builtin
+--     * Slot: pattern Description: A lexical restriction from a base type
+--     * Slot: element Description: Element type of an aggregate type such as an array or sequence
+--     * Slot: size Description: Size of an aggregate type such as an array. That is, the number of elements.
+--     * Slot: parameter
+--     * Slot: min_inclusive Description: Inclusive lower bound of values
+--     * Slot: max_inclusive Description: Inclusive upper bound of values
+--     * Slot: base Description: A datatype from which a subtype is created by restriction or a derived type is created by a generator
+--     * Slot: Datatype_id Description: Autocreated FK slot
+--     * Slot: extension_id Description: A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard.
+--     * Slot: annotation_id
+-- # Class: MessageRefType
+--     * Slot: uid
+--     * Slot: msg_type
+--     * Slot: impl_min_occurs Description: Lower bound of group instances (numInGroup)
+--     * Slot: impl_max_occurs Description: The same message type may be sent one or more times
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ConceptType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: identifiers_id
+-- # Class: StructureInline
+--     * Slot: id
+--     * Slot: which Description: Member selection within each group instance
+-- # Class: ResponsesInline
+--     * Slot: id
+-- # Class: MessageType
+--     * Slot: uid
+--     * Slot: when Description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
+--     * Slot: msg_type
+--     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
+--     * Slot: category
+--     * Slot: flow
+--     * Slot: abbr_name
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
+--     * Slot: name
+--     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
+--     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Messages_id Description: Autocreated FK slot
+--     * Slot: structure_id
+--     * Slot: responses_id
+--     * Slot: annotation_id
+-- # Class: ResponseType Description: Any number of action behaviors can be triggered by the same 'when' condition
+--     * Slot: id
+--     * Slot: when Description: A common condition for all of the actions. If it evalutes true, then the actions are invoked. If 'when' is not present, the actions are unconditional.
+--     * Slot: sync
+--     * Slot: name
+--     * Slot: ResponsesInline_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: ScenarioType Description: The use case of an element, distinguished by workflow, asset class, etc.
+--     * Slot: uid
+--     * Slot: id Description: Unique numeric identifier. Default is '1' is for base scenario.
+--     * Slot: name Description: Unique name
+--     * Slot: Scenarios_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: SectionType
+--     * Slot: id
+--     * Slot: display_order
+--     * Slot: fixml_file_name
+--     * Slot: name
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Sections_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: StateMachineType
+--     * Slot: id
+--     * Slot: name
+--     * Slot: ActorType_id Description: Autocreated FK slot
+--     * Slot: initial_id Description: Initial state of a state machine
+--     * Slot: annotation_id
+-- # Class: StateType Description: A state of a state machine. If it has no transitions, then it is a final state.
+--     * Slot: id
+--     * Slot: name
+--     * Slot: StateMachineType_id Description: Autocreated FK slot
+--     * Slot: onentry_id Description: Operation fired when entering a state.
+--     * Slot: activity_id Description: Operation fired when entering a state and completing when exiting or earlier.
+--     * Slot: onexit_id Description: Operation fired when exiting a state.
+--     * Slot: annotation_id
+-- # Class: TimerSchedule
+--     * Slot: id
+--     * Slot: operation
+--     * Slot: interval
+--     * Slot: actor Description: Name of the actor that owns the timer
+--     * Slot: name Description: Name of the timer
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+--     * Slot: activity_id Description: Action to take when a timer expires
+-- # Class: TimerType
+--     * Slot: id
+--     * Slot: name
+--     * Slot: ActorType_id Description: Autocreated FK slot
+-- # Class: TransitionType
+--     * Slot: id
+--     * Slot: when Description: Optional guard condition. The transition is allowed if the condition evaluates true. If not present, the transition is unconditional.
+--     * Slot: target Description: The target state of the transition
+--     * Slot: name
+--     * Slot: StateType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: TriggerType
+--     * Slot: id
+--     * Slot: state_machine Description: Name of the state machine
+--     * Slot: actor Description: Name of the actor that owns the state machine
+--     * Slot: name Description: Name of the transition to invoke
+--     * Slot: ActionType_id Description: Autocreated FK slot
+--     * Slot: ResponseType_id Description: Autocreated FK slot
+-- # Class: InterfaceAnnotation
+--     * Slot: id
+-- # Class: InterfaceAppinfo Description: Usage specific annotation, optionally with link to an external reference or standard
+--     * Slot: id
+--     * Slot: spec_url Description: Reference documentation
+--     * Slot: value Description: Mixed text content of the element.
+--     * Slot: lang_id
+--     * Slot: purpose
+--     * Slot: InterfaceAnnotation_id Description: Autocreated FK slot
+-- # Abstract Class: BaseInterfaceType
+--     * Slot: id
+--     * Slot: name
+--     * Slot: annotation_id
+-- # Class: InterfaceDocumentation
+--     * Slot: id
+--     * Slot: value Description: Mixed text content of the element.
+--     * Slot: lang_id
+--     * Slot: purpose
+--     * Slot: content_type
+--     * Slot: InterfaceAnnotation_id Description: Autocreated FK slot
+-- # Class: EncodingType
+--     * Slot: id
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: SessionsInline
+--     * Slot: id
+-- # Class: InterfaceType
+--     * Slot: id
+--     * Slot: name
+--     * Slot: Interfaces_id Description: Autocreated FK slot
+--     * Slot: sessions_id
+--     * Slot: annotation_id
+-- # Class: ProtocolType
+--     * Slot: id
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: ServiceType
+--     * Slot: id
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: SessionProtocolType
+--     * Slot: id
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: SessionType
+--     * Slot: id
+--     * Slot: role
+--     * Slot: security_keys Description: Textual encoding as specified by IETF RFC 7468
+--     * Slot: activation_time Description: When this session becomes effective
+--     * Slot: deactivation_time Description: When this session is no longer effective
+--     * Slot: name
+--     * Slot: SessionsInline_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: TransportProtocolType
+--     * Slot: id
+--     * Slot: address
+--     * Slot: message_cast
+--     * Slot: use
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: UserInterfaceType
+--     * Slot: id
+--     * Slot: activation_time Description: When this version becomes effective
+--     * Slot: deactivation_time Description: When this version is no longer effective
+--     * Slot: layer
+--     * Slot: orchestration Description: URI of Orchestra rules of engagement
+--     * Slot: name
+--     * Slot: version
+--     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
+--     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: SessionType_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: Datatype
+--     * Slot: id
+--     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
+--     * Slot: base_type
+--     * Slot: name
+--     * Slot: scenario Description: The use case of a datatype by name
+--     * Slot: added
+--     * Slot: added_ep
+--     * Slot: change_type
+--     * Slot: deprecated_ep
+--     * Slot: issue
+--     * Slot: last_modified
+--     * Slot: replaced
+--     * Slot: replaced_ep
+--     * Slot: replaced_by_field
+--     * Slot: supported
+--     * Slot: updated
+--     * Slot: updated_ep
+--     * Slot: deprecated
+--     * Slot: Datatypes_id Description: Autocreated FK slot
+--     * Slot: annotation_id
+-- # Class: Actors Description: Participants and the message flows between them
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Categories
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: CodeSets
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Components
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Concepts
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Datatypes
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Fields
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Groups
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Messages
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Repository
+--     * Slot: id
+--     * Slot: guid
+--     * Slot: spec_url Description: Reference documentation
+--     * Slot: namespace Description: An associated namespace as URI
+--     * Slot: expression_language Description: The syntax of 'expressionType'
+--     * Slot: name Description: Stable name that does not change with minor version updates
+--     * Slot: version
+--     * Slot: metadata_id
+--     * Slot: categories_id
+--     * Slot: sections_id
+--     * Slot: datatypes_id
+--     * Slot: code_sets_id
+--     * Slot: fields_id
+--     * Slot: actors_id
+--     * Slot: components_id
+--     * Slot: groups_id
+--     * Slot: messages_id
+--     * Slot: concepts_id
+--     * Slot: scenarios_id
+--     * Slot: annotation_id
+-- # Class: Scenarios Description: The default scenario is id='1' name='base'.
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Sections
+--     * Slot: id
+--     * Slot: base
+--     * Slot: annotation_id
+-- # Class: Interfaces Description: This represents the current state of service and session configurations. Changes to configuration can represented with patch operations. See IETF RFC 5261
+--     * Slot: id
+--     * Slot: metadata_id
 -- # Class: DcSimpleLiteral Description: This is the default type for all of the DC elements. It permits text content only with optional xml:lang attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child elements.
 --     * Slot: id
 --     * Slot: value Description: Mixed text content of the element.
@@ -492,800 +1286,63 @@
 --     * Slot: space Description: space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification.
 --     * Slot: base Description: base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute.
 --     * Slot: id Description: id (as an attribute name) denotes an attribute whose value should be interpreted as if declared to be of type ID. This name is reserved by virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/ for information about this attribute.
--- # Class: EntityAttribGrp
---     * Slot: id
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
--- # Class: FieldAttribGrp Description: Attributes of a field that be overridden by a rule
---     * Slot: id
---     * Slot: min_inclusive Description: Inclusive lower bound
---     * Slot: max_inclusive Description: Inclusive upper bound
---     * Slot: impl_length Description: Fixed length
---     * Slot: impl_min_length
---     * Slot: impl_max_length
---     * Slot: presence
---     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: encoding Description: Character encoding if other than US-ASCII
--- # Class: OidGrp Description: The identifiers of a message element
---     * Slot: uid
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
--- # Class: RefidGrp Description: A reference to a message element by its key identifiers
---     * Slot: uid
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
--- # Class: ScenarioRefGrp Description: A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
---     * Slot: id
---     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
---     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
--- # Class: ActionType
---     * Slot: id
--- # Class: ActorType Description: Represents a class of participants
---     * Slot: id
---     * Slot: name
---     * Slot: Actors_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: Annotation
---     * Slot: id
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
--- # Class: Appinfo Description: Usage specific annotation, optionally with link to an external reference or standard
---     * Slot: id
---     * Slot: spec_url Description: Reference documentation
---     * Slot: value Description: Mixed text content of the element.
---     * Slot: lang_id
---     * Slot: purpose
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Annotation_id Description: Autocreated FK slot
--- # Class: BlockAssignmentType
---     * Slot: id
---     * Slot: ComponentRefType_uid Description: Autocreated FK slot
---     * Slot: GroupRefType_uid Description: Autocreated FK slot
--- # Class: CategoryType
---     * Slot: id
---     * Slot: fixml_file_name
---     * Slot: component_type
---     * Slot: include_file
---     * Slot: name
---     * Slot: section
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Categories_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: CodeSetType
---     * Slot: uid
---     * Slot: default
---     * Slot: spec_url Description: Reference documentation for an external code set
---     * Slot: union_data_type
---     * Slot: type Description: Underlying FIX datatype of codes
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
---     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: CodeSets_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: CodeType
---     * Slot: uid
---     * Slot: value Description: The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. However, single internal spaces are allowed. May be further restricted by an external style.
---     * Slot: sort Description: Sort and group may be used to organize visualization of a code set.
---     * Slot: group
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: CodeSetType_uid Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: ComponentRefType
---     * Slot: uid
---     * Slot: presence
---     * Slot: instance_name Description: Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
+-- # Class: ActionType_assign
 --     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
---     * Slot: ComponentType_uid Description: Autocreated FK slot
---     * Slot: ConceptType_id Description: Autocreated FK slot
---     * Slot: GroupType_uid Description: Autocreated FK slot
---     * Slot: StructureInline_id Description: Autocreated FK slot
+--     * Slot: assign Description: Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'
+-- # Class: Appinfo_content
+--     * Slot: Appinfo_id Description: Autocreated FK slot
+--     * Slot: content Description: Pass-through xs:any content as raw strings.
+-- # Class: Appinfo_extra_attributes
+--     * Slot: Appinfo_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: Documentation_content
+--     * Slot: Documentation_id Description: Autocreated FK slot
+--     * Slot: content Description: Pass-through xs:any content as raw strings.
+-- # Class: FieldRuleType_assign
+--     * Slot: FieldRuleType_id Description: Autocreated FK slot
+--     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable. This can be used for field validation.
+-- # Class: ExtensionInline_content
+--     * Slot: ExtensionInline_id Description: Autocreated FK slot
+--     * Slot: content Description: Pass-through xs:any content as raw strings.
+-- # Class: ResponseType_assign
 --     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: ComponentRuleType
---     * Slot: id
---     * Slot: when
---     * Slot: presence Description: Overrides presence when expression is true
---     * Slot: name Description: Name of this rule
---     * Slot: ComponentRefType_uid Description: Autocreated FK slot
---     * Slot: GroupRefType_uid Description: Autocreated FK slot
--- # Class: ComponentType
---     * Slot: uid
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: which
---     * Slot: category
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
---     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: Components_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: ConceptType
---     * Slot: id
---     * Slot: name
---     * Slot: Concepts_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: Documentation
---     * Slot: id
---     * Slot: value Description: Mixed text content of the element.
---     * Slot: lang_id
---     * Slot: purpose
---     * Slot: content_type
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Annotation_id Description: Autocreated FK slot
--- # Class: FieldRefType
---     * Slot: uid
---     * Slot: length_id Description: Identifies a field used as a length prefix
---     * Slot: non_encoded_field_id Description: Identifies a non-encoded field related to an encoded field
---     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable
---     * Slot: instance_name Description: Override the field name for this instance, for code generation and the like. Allows more than one instance of a field in a message or component.
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: min_inclusive Description: Inclusive lower bound
---     * Slot: max_inclusive Description: Inclusive upper bound
---     * Slot: impl_length Description: Fixed length
---     * Slot: impl_min_length
---     * Slot: impl_max_length
---     * Slot: presence
---     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: encoding Description: Character encoding if other than US-ASCII
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
---     * Slot: ComponentType_uid Description: Autocreated FK slot
---     * Slot: ConceptType_id Description: Autocreated FK slot
---     * Slot: UniqueInline_id Description: Autocreated FK slot
---     * Slot: GroupType_uid Description: Autocreated FK slot
---     * Slot: StructureInline_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: UniqueInline
---     * Slot: id
--- # Class: FieldRuleType
---     * Slot: id
---     * Slot: when
---     * Slot: name Description: Name of this rule
---     * Slot: type Description: Overrides the type of the referenced field.
---     * Slot: min_inclusive Description: Inclusive lower bound
---     * Slot: max_inclusive Description: Inclusive upper bound
---     * Slot: impl_length Description: Fixed length
---     * Slot: impl_min_length
---     * Slot: impl_max_length
---     * Slot: presence
---     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: encoding Description: Character encoding if other than US-ASCII
---     * Slot: FieldRefType_uid Description: Autocreated FK slot
---     * Slot: FieldType_uid Description: Autocreated FK slot
---     * Slot: unique_id
--- # Class: FieldType
---     * Slot: uid
---     * Slot: length_id Description: Identifies a field used as a length prefix
---     * Slot: non_encoded_field_id Description: Identifies a non-encoded field related to an encoded field
---     * Slot: discriminator_id Description: Identifies a field used as a discriminator for this field's domain
---     * Slot: base_category
---     * Slot: base_category_abbr_name
---     * Slot: union_data_type
---     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable
---     * Slot: type Description: Attribute type refers to a datatype name
---     * Slot: code_set Description: Attribute codeSet refers to a codeSet name
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: min_inclusive Description: Inclusive lower bound
---     * Slot: max_inclusive Description: Inclusive upper bound
---     * Slot: impl_length Description: Fixed length
---     * Slot: impl_min_length
---     * Slot: impl_max_length
---     * Slot: presence
---     * Slot: value Description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: encoding Description: Character encoding if other than US-ASCII
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: Fields_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: FlowType Description: A stream of messages in one direction
---     * Slot: id
---     * Slot: source Description: Name of the actor that originates messages
---     * Slot: destination Description: Name of the actor that receives messages.
---     * Slot: name
---     * Slot: reliability
---     * Slot: Actors_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: GroupRefType
---     * Slot: uid
---     * Slot: impl_min_occurs
---     * Slot: impl_max_occurs
---     * Slot: presence
---     * Slot: instance_name Description: Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: BlockAssignmentType_id Description: Autocreated FK slot
---     * Slot: ComponentType_uid Description: Autocreated FK slot
---     * Slot: ConceptType_id Description: Autocreated FK slot
---     * Slot: GroupType_uid Description: Autocreated FK slot
---     * Slot: StructureInline_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: GroupType Description: A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the sequence, it cannot be an extension.
---     * Slot: uid
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: impl_min_occurs Description: Lower bound of group instances (numInGroup)
---     * Slot: impl_max_occurs Description: Upper bound of group instances (numInGroup)
---     * Slot: which Description: Member selection within each group instance
---     * Slot: category
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
---     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: Groups_id Description: Autocreated FK slot
---     * Slot: num_in_group_uid
---     * Slot: annotation_id
--- # Class: IdentifiersType
---     * Slot: id
---     * Slot: annotation_id
--- # Class: IdentifierType
---     * Slot: id
---     * Slot: value Description: Mixed text content of the element.
---     * Slot: name
---     * Slot: IdentifiersType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
--- # Class: ExtensionInline
---     * Slot: id
--- # Class: MappedDatatype
---     * Slot: id
---     * Slot: standard
---     * Slot: builtin
---     * Slot: pattern Description: A lexical restriction from a base type
---     * Slot: element Description: Element type of an aggregate type such as an array or sequence
---     * Slot: size Description: Size of an aggregate type such as an array. That is, the number of elements.
---     * Slot: parameter
---     * Slot: min_inclusive Description: Inclusive lower bound of values
---     * Slot: max_inclusive Description: Inclusive upper bound of values
---     * Slot: base Description: A datatype from which a subtype is created by restriction or a derived type is created by a generator
---     * Slot: Datatype_id Description: Autocreated FK slot
---     * Slot: extension_id Description: A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard.
---     * Slot: annotation_id
--- # Class: MessageRefType
---     * Slot: uid
---     * Slot: msg_type
---     * Slot: impl_min_occurs
---     * Slot: impl_max_occurs Description: The same message type may be sent one or more times
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name Description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ConceptType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: identifiers_id
--- # Class: StructureInline
---     * Slot: id
---     * Slot: which
--- # Class: ResponsesInline
---     * Slot: id
--- # Class: MessageType
---     * Slot: uid
---     * Slot: when Description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
---     * Slot: msg_type
---     * Slot: rendering Description: A hint to processes about how to interpret the element. Not validated.
---     * Slot: category
---     * Slot: flow
---     * Slot: abbr_name
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: id Description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
---     * Slot: name
---     * Slot: scenario Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: scenario_ref_id Description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
---     * Slot: scenario_ref Description: Name of a scenario. The name is optional as part of a reference and only for convenience.
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Messages_id Description: Autocreated FK slot
---     * Slot: structure_id
---     * Slot: responses_id
---     * Slot: annotation_id
--- # Class: ResponseType Description: Any number of action behaviors can be triggered by the same 'when' condition
---     * Slot: id
---     * Slot: when Description: A common condition for all of the actions. If it evalutes true, then the actions are invoked. If 'when' is not present, the actions are unconditional.
---     * Slot: sync
---     * Slot: name
---     * Slot: ResponsesInline_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: ScenarioType Description: The use case of an element, distinguished by workflow, asset class, etc.
---     * Slot: uid
---     * Slot: id Description: Unique numeric identifier. Default is '1' is for base scenario.
---     * Slot: name Description: Unique name
---     * Slot: Scenarios_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: SectionType
---     * Slot: id
---     * Slot: display_order
---     * Slot: fixml_file_name
---     * Slot: name
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Sections_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: StateMachineType
---     * Slot: id
---     * Slot: name
---     * Slot: ActorType_id Description: Autocreated FK slot
---     * Slot: initial_id Description: Initial state of a state machine
---     * Slot: annotation_id
--- # Class: StateType Description: A state of a state machine. If it has no transitions, then it is a final state.
---     * Slot: id
---     * Slot: name
---     * Slot: StateMachineType_id Description: Autocreated FK slot
---     * Slot: onentry_id Description: Operation fired when entering a state.
---     * Slot: activity_id Description: Operation fired when entering a state and completing when exiting or earlier.
---     * Slot: onexit_id Description: Operation fired when exiting a state.
---     * Slot: annotation_id
--- # Class: TimerSchedule
---     * Slot: id
---     * Slot: operation
---     * Slot: interval
---     * Slot: actor Description: Name of the actor that owns the timer
---     * Slot: name Description: Name of the timer
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: activity_id Description: Action to take when a timer expires
--- # Class: TimerType
---     * Slot: id
---     * Slot: name
---     * Slot: ActorType_id Description: Autocreated FK slot
--- # Class: TransitionType
---     * Slot: id
---     * Slot: when Description: Optional guard condition. The transition is allowed if the condition evaluates true. If not present, the transition is unconditional.
---     * Slot: target Description: The target state of the transition
---     * Slot: name
---     * Slot: StateType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: TriggerType
---     * Slot: id
---     * Slot: state_machine Description: Name of the state machine
---     * Slot: actor Description: Name of the actor that owns the state machine
---     * Slot: name Description: Name of the transition to invoke
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: ResponseType_id Description: Autocreated FK slot
--- # Class: InterfaceAnnotation
---     * Slot: id
--- # Class: InterfaceAppinfo Description: Usage specific annotation, optionally with link to an external reference or standard
---     * Slot: id
---     * Slot: spec_url Description: Reference documentation
---     * Slot: value Description: Mixed text content of the element.
---     * Slot: lang_id
---     * Slot: purpose
---     * Slot: InterfaceAnnotation_id Description: Autocreated FK slot
--- # Abstract Class: BaseInterfaceType
---     * Slot: id
---     * Slot: name
---     * Slot: annotation_id
--- # Class: InterfaceDocumentation
---     * Slot: id
---     * Slot: value Description: Mixed text content of the element.
---     * Slot: lang_id
---     * Slot: purpose
---     * Slot: content_type
---     * Slot: InterfaceAnnotation_id Description: Autocreated FK slot
--- # Class: EncodingType
---     * Slot: id
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
+--     * Slot: assign Description: Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'
+-- # Class: InterfaceAppinfo_content
+--     * Slot: InterfaceAppinfo_id Description: Autocreated FK slot
+--     * Slot: content Description: Pass-through xs:any content as raw strings.
+-- # Class: InterfaceAppinfo_extra_attributes
+--     * Slot: InterfaceAppinfo_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: BaseInterfaceType_extra_attributes
 --     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: InterfaceDocumentation_content
+--     * Slot: InterfaceDocumentation_id Description: Autocreated FK slot
+--     * Slot: content Description: Pass-through xs:any content as raw strings.
+-- # Class: EncodingType_extra_attributes
+--     * Slot: EncodingType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: InterfaceType_extra_attributes
 --     * Slot: InterfaceType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: ProtocolType_extra_attributes
+--     * Slot: ProtocolType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: ServiceType_extra_attributes
+--     * Slot: ServiceType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: SessionProtocolType_extra_attributes
+--     * Slot: SessionProtocolType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: SessionType_extra_attributes
 --     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: SessionsInline
---     * Slot: id
--- # Class: InterfaceType
---     * Slot: id
---     * Slot: name
---     * Slot: Interfaces_id Description: Autocreated FK slot
---     * Slot: sessions_id
---     * Slot: annotation_id
--- # Class: ProtocolType
---     * Slot: id
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: ServiceType
---     * Slot: id
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: SessionProtocolType
---     * Slot: id
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: SessionType
---     * Slot: id
---     * Slot: role
---     * Slot: security_keys Description: Textual encoding as specified by IETF RFC 7468
---     * Slot: activation_time Description: When this session becomes effective
---     * Slot: deactivation_time Description: When this session is no longer effective
---     * Slot: name
---     * Slot: SessionsInline_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: TransportProtocolType
---     * Slot: id
---     * Slot: address
---     * Slot: message_cast
---     * Slot: use
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: UserInterfaceType
---     * Slot: id
---     * Slot: activation_time Description: When this version becomes effective
---     * Slot: deactivation_time Description: When this version is no longer effective
---     * Slot: layer
---     * Slot: orchestration Description: URI of Orchestra rules of engagement
---     * Slot: name
---     * Slot: version
---     * Slot: deprecated Description: When this version was deprecated; may be replaced or removed in the future
---     * Slot: reliability Description: Reliability can be implemented at transport, session, or application layers
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: Datatype
---     * Slot: id
---     * Slot: scenario_id Description: Unique identifier of a scenario. Default is '1' for base scenario.
---     * Slot: base_type
---     * Slot: name
---     * Slot: scenario Description: The use case of a datatype by name
---     * Slot: added
---     * Slot: added_ep
---     * Slot: change_type
---     * Slot: deprecated_ep
---     * Slot: issue
---     * Slot: last_modified
---     * Slot: replaced
---     * Slot: replaced_ep
---     * Slot: replaced_by_field
---     * Slot: supported
---     * Slot: updated
---     * Slot: updated_ep
---     * Slot: deprecated
---     * Slot: Datatypes_id Description: Autocreated FK slot
---     * Slot: annotation_id
--- # Class: Actors Description: Participants and the message flows between them
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Categories
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: CodeSets
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Components
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Concepts
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Datatypes
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Fields
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Groups
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Messages
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Repository
---     * Slot: id
---     * Slot: guid
---     * Slot: spec_url Description: Reference documentation
---     * Slot: namespace Description: An associated namespace as URI
---     * Slot: expression_language Description: The syntax of 'expressionType'
---     * Slot: name Description: Stable name that does not change with minor version updates
---     * Slot: version
---     * Slot: metadata_id
---     * Slot: categories_id
---     * Slot: sections_id
---     * Slot: datatypes_id
---     * Slot: code_sets_id
---     * Slot: fields_id
---     * Slot: actors_id
---     * Slot: components_id
---     * Slot: groups_id
---     * Slot: messages_id
---     * Slot: concepts_id
---     * Slot: scenarios_id
---     * Slot: annotation_id
--- # Class: Scenarios Description: The default scenario is id='1' name='base'.
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Sections
---     * Slot: id
---     * Slot: base
---     * Slot: annotation_id
--- # Class: Interfaces Description: This represents the current state of service and session configurations. Changes to configuration can represented with patch operations. See IETF RFC 5261
---     * Slot: id
---     * Slot: metadata_id
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: TransportProtocolType_extra_attributes
+--     * Slot: TransportProtocolType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+-- # Class: UserInterfaceType_extra_attributes
+--     * Slot: UserInterfaceType_id Description: Autocreated FK slot
+--     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
 -- # Class: DcSimpleLiteral_content
 --     * Slot: DcSimpleLiteral_id Description: Autocreated FK slot
 --     * Slot: content Description: Pass-through xs:any content as raw strings.
@@ -1559,63 +1616,358 @@
 -- # Class: DctermsBibliographicCitation_content
 --     * Slot: DctermsBibliographicCitation_id Description: Autocreated FK slot
 --     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: ActionType_assign
---     * Slot: ActionType_id Description: Autocreated FK slot
---     * Slot: assign Description: Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'
--- # Class: Appinfo_content
---     * Slot: Appinfo_id Description: Autocreated FK slot
---     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: Appinfo_extra_attributes
---     * Slot: Appinfo_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: Documentation_content
---     * Slot: Documentation_id Description: Autocreated FK slot
---     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: FieldRuleType_assign
---     * Slot: FieldRuleType_id Description: Autocreated FK slot
---     * Slot: assign Description: Content of element holds an assignment expression for a message field or state variable. This can be used for field validation.
--- # Class: ExtensionInline_content
---     * Slot: ExtensionInline_id Description: Autocreated FK slot
---     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: ResponseType_assign
---     * Slot: ResponseType_id Description: Autocreated FK slot
---     * Slot: assign Description: Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'
--- # Class: InterfaceAppinfo_content
---     * Slot: InterfaceAppinfo_id Description: Autocreated FK slot
---     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: InterfaceAppinfo_extra_attributes
---     * Slot: InterfaceAppinfo_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: BaseInterfaceType_extra_attributes
---     * Slot: BaseInterfaceType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: InterfaceDocumentation_content
---     * Slot: InterfaceDocumentation_id Description: Autocreated FK slot
---     * Slot: content Description: Pass-through xs:any content as raw strings.
--- # Class: EncodingType_extra_attributes
---     * Slot: EncodingType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: InterfaceType_extra_attributes
---     * Slot: InterfaceType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: ProtocolType_extra_attributes
---     * Slot: ProtocolType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: ServiceType_extra_attributes
---     * Slot: ServiceType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: SessionProtocolType_extra_attributes
---     * Slot: SessionProtocolType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: SessionType_extra_attributes
---     * Slot: SessionType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: TransportProtocolType_extra_attributes
---     * Slot: TransportProtocolType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
--- # Class: UserInterfaceType_extra_attributes
---     * Slot: UserInterfaceType_id Description: Autocreated FK slot
---     * Slot: extra_attributes Description: Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).
+
+CREATE TABLE "EntityAttribGrp" (
+	id INTEGER NOT NULL,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_EntityAttribGrp_id" ON "EntityAttribGrp" (id);
+
+CREATE TABLE "FieldAttribGrp" (
+	id INTEGER NOT NULL,
+	min_inclusive TEXT,
+	max_inclusive TEXT,
+	impl_length INTEGER,
+	impl_min_length INTEGER,
+	impl_max_length INTEGER,
+	presence VARCHAR(9),
+	value TEXT,
+	rendering TEXT,
+	encoding TEXT,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_FieldAttribGrp_id" ON "FieldAttribGrp" (id);
+
+CREATE TABLE "OidGrp" (
+	uid INTEGER NOT NULL,
+	abbr_name TEXT,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT NOT NULL,
+	scenario TEXT,
+	PRIMARY KEY (uid)
+);
+CREATE INDEX "ix_OidGrp_uid" ON "OidGrp" (uid);
+
+CREATE TABLE "RefidGrp" (
+	uid INTEGER NOT NULL,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT,
+	scenario TEXT,
+	PRIMARY KEY (uid)
+);
+CREATE INDEX "ix_RefidGrp_uid" ON "RefidGrp" (uid);
+
+CREATE TABLE "ScenarioRefGrp" (
+	id INTEGER NOT NULL,
+	scenario_ref_id TEXT,
+	scenario_ref TEXT,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_ScenarioRefGrp_id" ON "ScenarioRefGrp" (id);
+
+CREATE TABLE "ActionType" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_ActionType_id" ON "ActionType" (id);
+
+CREATE TABLE "Annotation" (
+	id INTEGER NOT NULL,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_Annotation_id" ON "Annotation" (id);
+
+CREATE TABLE "BlockAssignmentType" (
+	id INTEGER NOT NULL,
+	"ComponentRefType_uid" INTEGER,
+	"GroupRefType_uid" INTEGER,
+	PRIMARY KEY (id),
+	FOREIGN KEY("ComponentRefType_uid") REFERENCES "ComponentRefType" (uid),
+	FOREIGN KEY("GroupRefType_uid") REFERENCES "GroupRefType" (uid)
+);
+CREATE INDEX "ix_BlockAssignmentType_id" ON "BlockAssignmentType" (id);
+
+CREATE TABLE "ComponentRefType" (
+	uid INTEGER NOT NULL,
+	presence VARCHAR(9),
+	instance_name TEXT,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT,
+	scenario TEXT,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	"ActionType_id" INTEGER,
+	"ActorType_id" INTEGER,
+	"BlockAssignmentType_id" INTEGER,
+	"ComponentType_uid" INTEGER,
+	"ConceptType_id" INTEGER,
+	"GroupType_uid" INTEGER,
+	"StructureInline_id" INTEGER,
+	"ResponseType_id" INTEGER,
+	annotation_id INTEGER,
+	PRIMARY KEY (uid),
+	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
+	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
+	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
+	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
+	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
+	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
+	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
+	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_ComponentRefType_uid" ON "ComponentRefType" (uid);
+
+CREATE TABLE "FieldRefType" (
+	uid INTEGER NOT NULL,
+	length_id TEXT,
+	non_encoded_field_id TEXT,
+	assign TEXT,
+	instance_name TEXT,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT,
+	scenario TEXT,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	min_inclusive TEXT,
+	max_inclusive TEXT,
+	impl_length INTEGER,
+	impl_min_length INTEGER,
+	impl_max_length INTEGER,
+	presence VARCHAR(9),
+	value TEXT,
+	rendering TEXT,
+	encoding TEXT,
+	"ActionType_id" INTEGER,
+	"ActorType_id" INTEGER,
+	"BlockAssignmentType_id" INTEGER,
+	"ComponentType_uid" INTEGER,
+	"ConceptType_id" INTEGER,
+	"UniqueInline_id" INTEGER,
+	"GroupType_uid" INTEGER,
+	"StructureInline_id" INTEGER,
+	"ResponseType_id" INTEGER,
+	annotation_id INTEGER,
+	PRIMARY KEY (uid),
+	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
+	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
+	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
+	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
+	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
+	FOREIGN KEY("UniqueInline_id") REFERENCES "UniqueInline" (id),
+	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
+	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
+	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_FieldRefType_uid" ON "FieldRefType" (uid);
+
+CREATE TABLE "UniqueInline" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_UniqueInline_id" ON "UniqueInline" (id);
+
+CREATE TABLE "GroupRefType" (
+	uid INTEGER NOT NULL,
+	impl_min_occurs INTEGER,
+	impl_max_occurs TEXT,
+	presence VARCHAR(9),
+	instance_name TEXT,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT,
+	scenario TEXT,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	"ActionType_id" INTEGER,
+	"ActorType_id" INTEGER,
+	"BlockAssignmentType_id" INTEGER,
+	"ComponentType_uid" INTEGER,
+	"ConceptType_id" INTEGER,
+	"GroupType_uid" INTEGER,
+	"StructureInline_id" INTEGER,
+	"ResponseType_id" INTEGER,
+	annotation_id INTEGER,
+	PRIMARY KEY (uid),
+	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
+	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
+	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
+	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
+	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
+	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
+	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
+	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_GroupRefType_uid" ON "GroupRefType" (uid);
+
+CREATE TABLE "GroupType" (
+	uid INTEGER NOT NULL,
+	rendering TEXT,
+	impl_min_occurs INTEGER,
+	impl_max_occurs TEXT,
+	which VARCHAR(5),
+	category TEXT,
+	added TEXT,
+	added_ep TEXT,
+	change_type VARCHAR(12),
+	deprecated_ep TEXT,
+	issue TEXT,
+	last_modified TEXT,
+	replaced TEXT,
+	replaced_ep TEXT,
+	replaced_by_field TEXT,
+	supported VARCHAR(9),
+	updated TEXT,
+	updated_ep TEXT,
+	deprecated TEXT,
+	abbr_name TEXT,
+	scenario_id TEXT,
+	id TEXT NOT NULL,
+	name TEXT NOT NULL,
+	scenario TEXT,
+	scenario_ref_id TEXT,
+	scenario_ref TEXT,
+	"ActionType_id" INTEGER,
+	"ActorType_id" INTEGER,
+	"ResponseType_id" INTEGER,
+	"Groups_id" INTEGER,
+	num_in_group_uid INTEGER,
+	annotation_id INTEGER,
+	PRIMARY KEY (uid),
+	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
+	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
+	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
+	FOREIGN KEY("Groups_id") REFERENCES "Groups" (id),
+	FOREIGN KEY(num_in_group_uid) REFERENCES "FieldRefType" (uid),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_GroupType_uid" ON "GroupType" (uid);
+
+CREATE TABLE "ExtensionInline" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_ExtensionInline_id" ON "ExtensionInline" (id);
+
+CREATE TABLE "StructureInline" (
+	id INTEGER NOT NULL,
+	which VARCHAR(5),
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_StructureInline_id" ON "StructureInline" (id);
+
+CREATE TABLE "ResponsesInline" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_ResponsesInline_id" ON "ResponsesInline" (id);
+
+CREATE TABLE "StateMachineType" (
+	id INTEGER NOT NULL,
+	name TEXT NOT NULL,
+	"ActorType_id" INTEGER,
+	initial_id INTEGER NOT NULL,
+	annotation_id INTEGER,
+	PRIMARY KEY (id),
+	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
+	FOREIGN KEY(initial_id) REFERENCES "StateType" (id),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_StateMachineType_id" ON "StateMachineType" (id);
+
+CREATE TABLE "StateType" (
+	id INTEGER NOT NULL,
+	name TEXT NOT NULL,
+	"StateMachineType_id" INTEGER,
+	onentry_id INTEGER,
+	activity_id INTEGER,
+	onexit_id INTEGER,
+	annotation_id INTEGER,
+	PRIMARY KEY (id),
+	FOREIGN KEY("StateMachineType_id") REFERENCES "StateMachineType" (id),
+	FOREIGN KEY(onentry_id) REFERENCES "ActionType" (id),
+	FOREIGN KEY(activity_id) REFERENCES "ActionType" (id),
+	FOREIGN KEY(onexit_id) REFERENCES "ActionType" (id),
+	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
+);
+CREATE INDEX "ix_StateType_id" ON "StateType" (id);
+
+CREATE TABLE "InterfaceAnnotation" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_InterfaceAnnotation_id" ON "InterfaceAnnotation" (id);
+
+CREATE TABLE "SessionsInline" (
+	id INTEGER NOT NULL,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_SessionsInline_id" ON "SessionsInline" (id);
 
 CREATE TABLE "DcSimpleLiteral" (
 	id INTEGER NOT NULL,
@@ -2499,358 +2851,6 @@ CREATE TABLE "XmlGlobalAttributes" (
 );
 CREATE INDEX "ix_XmlGlobalAttributes_uid" ON "XmlGlobalAttributes" (uid);
 
-CREATE TABLE "EntityAttribGrp" (
-	id INTEGER NOT NULL,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_EntityAttribGrp_id" ON "EntityAttribGrp" (id);
-
-CREATE TABLE "FieldAttribGrp" (
-	id INTEGER NOT NULL,
-	min_inclusive TEXT,
-	max_inclusive TEXT,
-	impl_length INTEGER,
-	impl_min_length INTEGER,
-	impl_max_length INTEGER,
-	presence VARCHAR(9),
-	value TEXT,
-	rendering TEXT,
-	encoding TEXT,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_FieldAttribGrp_id" ON "FieldAttribGrp" (id);
-
-CREATE TABLE "OidGrp" (
-	uid INTEGER NOT NULL,
-	abbr_name TEXT,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT NOT NULL,
-	scenario TEXT,
-	PRIMARY KEY (uid)
-);
-CREATE INDEX "ix_OidGrp_uid" ON "OidGrp" (uid);
-
-CREATE TABLE "RefidGrp" (
-	uid INTEGER NOT NULL,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT,
-	scenario TEXT,
-	PRIMARY KEY (uid)
-);
-CREATE INDEX "ix_RefidGrp_uid" ON "RefidGrp" (uid);
-
-CREATE TABLE "ScenarioRefGrp" (
-	id INTEGER NOT NULL,
-	scenario_ref_id TEXT,
-	scenario_ref TEXT,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_ScenarioRefGrp_id" ON "ScenarioRefGrp" (id);
-
-CREATE TABLE "ActionType" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_ActionType_id" ON "ActionType" (id);
-
-CREATE TABLE "Annotation" (
-	id INTEGER NOT NULL,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_Annotation_id" ON "Annotation" (id);
-
-CREATE TABLE "BlockAssignmentType" (
-	id INTEGER NOT NULL,
-	"ComponentRefType_uid" INTEGER,
-	"GroupRefType_uid" INTEGER,
-	PRIMARY KEY (id),
-	FOREIGN KEY("ComponentRefType_uid") REFERENCES "ComponentRefType" (uid),
-	FOREIGN KEY("GroupRefType_uid") REFERENCES "GroupRefType" (uid)
-);
-CREATE INDEX "ix_BlockAssignmentType_id" ON "BlockAssignmentType" (id);
-
-CREATE TABLE "ComponentRefType" (
-	uid INTEGER NOT NULL,
-	presence VARCHAR(9),
-	instance_name TEXT,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT,
-	scenario TEXT,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	"ActionType_id" INTEGER,
-	"ActorType_id" INTEGER,
-	"BlockAssignmentType_id" INTEGER,
-	"ComponentType_uid" INTEGER,
-	"ConceptType_id" INTEGER,
-	"GroupType_uid" INTEGER,
-	"StructureInline_id" INTEGER,
-	"ResponseType_id" INTEGER,
-	annotation_id INTEGER,
-	PRIMARY KEY (uid),
-	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
-	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
-	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
-	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
-	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
-	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
-	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
-	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_ComponentRefType_uid" ON "ComponentRefType" (uid);
-
-CREATE TABLE "FieldRefType" (
-	uid INTEGER NOT NULL,
-	length_id TEXT,
-	non_encoded_field_id TEXT,
-	assign TEXT,
-	instance_name TEXT,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT,
-	scenario TEXT,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	min_inclusive TEXT,
-	max_inclusive TEXT,
-	impl_length INTEGER,
-	impl_min_length INTEGER,
-	impl_max_length INTEGER,
-	presence VARCHAR(9),
-	value TEXT,
-	rendering TEXT,
-	encoding TEXT,
-	"ActionType_id" INTEGER,
-	"ActorType_id" INTEGER,
-	"BlockAssignmentType_id" INTEGER,
-	"ComponentType_uid" INTEGER,
-	"ConceptType_id" INTEGER,
-	"UniqueInline_id" INTEGER,
-	"GroupType_uid" INTEGER,
-	"StructureInline_id" INTEGER,
-	"ResponseType_id" INTEGER,
-	annotation_id INTEGER,
-	PRIMARY KEY (uid),
-	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
-	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
-	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
-	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
-	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
-	FOREIGN KEY("UniqueInline_id") REFERENCES "UniqueInline" (id),
-	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
-	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
-	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_FieldRefType_uid" ON "FieldRefType" (uid);
-
-CREATE TABLE "UniqueInline" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_UniqueInline_id" ON "UniqueInline" (id);
-
-CREATE TABLE "GroupRefType" (
-	uid INTEGER NOT NULL,
-	impl_min_occurs INTEGER,
-	impl_max_occurs TEXT,
-	presence VARCHAR(9),
-	instance_name TEXT,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT,
-	scenario TEXT,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	"ActionType_id" INTEGER,
-	"ActorType_id" INTEGER,
-	"BlockAssignmentType_id" INTEGER,
-	"ComponentType_uid" INTEGER,
-	"ConceptType_id" INTEGER,
-	"GroupType_uid" INTEGER,
-	"StructureInline_id" INTEGER,
-	"ResponseType_id" INTEGER,
-	annotation_id INTEGER,
-	PRIMARY KEY (uid),
-	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
-	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
-	FOREIGN KEY("BlockAssignmentType_id") REFERENCES "BlockAssignmentType" (id),
-	FOREIGN KEY("ComponentType_uid") REFERENCES "ComponentType" (uid),
-	FOREIGN KEY("ConceptType_id") REFERENCES "ConceptType" (id),
-	FOREIGN KEY("GroupType_uid") REFERENCES "GroupType" (uid),
-	FOREIGN KEY("StructureInline_id") REFERENCES "StructureInline" (id),
-	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_GroupRefType_uid" ON "GroupRefType" (uid);
-
-CREATE TABLE "GroupType" (
-	uid INTEGER NOT NULL,
-	rendering TEXT,
-	impl_min_occurs INTEGER,
-	impl_max_occurs TEXT,
-	which VARCHAR(5),
-	category TEXT,
-	added TEXT,
-	added_ep TEXT,
-	change_type VARCHAR(12),
-	deprecated_ep TEXT,
-	issue TEXT,
-	last_modified TEXT,
-	replaced TEXT,
-	replaced_ep TEXT,
-	replaced_by_field TEXT,
-	supported VARCHAR(9),
-	updated TEXT,
-	updated_ep TEXT,
-	deprecated TEXT,
-	abbr_name TEXT,
-	scenario_id TEXT,
-	id TEXT NOT NULL,
-	name TEXT NOT NULL,
-	scenario TEXT,
-	scenario_ref_id TEXT,
-	scenario_ref TEXT,
-	"ActionType_id" INTEGER,
-	"ActorType_id" INTEGER,
-	"ResponseType_id" INTEGER,
-	"Groups_id" INTEGER,
-	num_in_group_uid INTEGER,
-	annotation_id INTEGER,
-	PRIMARY KEY (uid),
-	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id),
-	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
-	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id),
-	FOREIGN KEY("Groups_id") REFERENCES "Groups" (id),
-	FOREIGN KEY(num_in_group_uid) REFERENCES "FieldRefType" (uid),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_GroupType_uid" ON "GroupType" (uid);
-
-CREATE TABLE "ExtensionInline" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_ExtensionInline_id" ON "ExtensionInline" (id);
-
-CREATE TABLE "StructureInline" (
-	id INTEGER NOT NULL,
-	which VARCHAR(5),
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_StructureInline_id" ON "StructureInline" (id);
-
-CREATE TABLE "ResponsesInline" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_ResponsesInline_id" ON "ResponsesInline" (id);
-
-CREATE TABLE "StateMachineType" (
-	id INTEGER NOT NULL,
-	name TEXT NOT NULL,
-	"ActorType_id" INTEGER,
-	initial_id INTEGER NOT NULL,
-	annotation_id INTEGER,
-	PRIMARY KEY (id),
-	FOREIGN KEY("ActorType_id") REFERENCES "ActorType" (id),
-	FOREIGN KEY(initial_id) REFERENCES "StateType" (id),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_StateMachineType_id" ON "StateMachineType" (id);
-
-CREATE TABLE "StateType" (
-	id INTEGER NOT NULL,
-	name TEXT NOT NULL,
-	"StateMachineType_id" INTEGER,
-	onentry_id INTEGER,
-	activity_id INTEGER,
-	onexit_id INTEGER,
-	annotation_id INTEGER,
-	PRIMARY KEY (id),
-	FOREIGN KEY("StateMachineType_id") REFERENCES "StateMachineType" (id),
-	FOREIGN KEY(onentry_id) REFERENCES "ActionType" (id),
-	FOREIGN KEY(activity_id) REFERENCES "ActionType" (id),
-	FOREIGN KEY(onexit_id) REFERENCES "ActionType" (id),
-	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
-);
-CREATE INDEX "ix_StateType_id" ON "StateType" (id);
-
-CREATE TABLE "InterfaceAnnotation" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_InterfaceAnnotation_id" ON "InterfaceAnnotation" (id);
-
-CREATE TABLE "SessionsInline" (
-	id INTEGER NOT NULL,
-	PRIMARY KEY (id)
-);
-CREATE INDEX "ix_SessionsInline_id" ON "SessionsInline" (id);
-
 CREATE TABLE "Appinfo" (
 	id INTEGER NOT NULL,
 	spec_url TEXT,
@@ -3103,6 +3103,24 @@ CREATE TABLE "Interfaces" (
 );
 CREATE INDEX "ix_Interfaces_id" ON "Interfaces" (id);
 
+CREATE TABLE "ActionType_assign" (
+	"ActionType_id" INTEGER,
+	assign TEXT,
+	PRIMARY KEY ("ActionType_id", assign),
+	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id)
+);
+CREATE INDEX "ix_ActionType_assign_ActionType_id" ON "ActionType_assign" ("ActionType_id");
+CREATE INDEX "ix_ActionType_assign_assign" ON "ActionType_assign" (assign);
+
+CREATE TABLE "ExtensionInline_content" (
+	"ExtensionInline_id" INTEGER,
+	content TEXT,
+	PRIMARY KEY ("ExtensionInline_id", content),
+	FOREIGN KEY("ExtensionInline_id") REFERENCES "ExtensionInline" (id)
+);
+CREATE INDEX "ix_ExtensionInline_content_content" ON "ExtensionInline_content" (content);
+CREATE INDEX "ix_ExtensionInline_content_ExtensionInline_id" ON "ExtensionInline_content" ("ExtensionInline_id");
+
 CREATE TABLE "DcSimpleLiteral_content" (
 	"DcSimpleLiteral_id" INTEGER,
 	content TEXT,
@@ -3163,8 +3181,8 @@ CREATE TABLE "DcPublisher_content" (
 	PRIMARY KEY ("DcPublisher_id", content),
 	FOREIGN KEY("DcPublisher_id") REFERENCES "DcPublisher" (id)
 );
-CREATE INDEX "ix_DcPublisher_content_content" ON "DcPublisher_content" (content);
 CREATE INDEX "ix_DcPublisher_content_DcPublisher_id" ON "DcPublisher_content" ("DcPublisher_id");
+CREATE INDEX "ix_DcPublisher_content_content" ON "DcPublisher_content" (content);
 
 CREATE TABLE "DcContributor_content" (
 	"DcContributor_id" INTEGER,
@@ -3172,8 +3190,8 @@ CREATE TABLE "DcContributor_content" (
 	PRIMARY KEY ("DcContributor_id", content),
 	FOREIGN KEY("DcContributor_id") REFERENCES "DcContributor" (id)
 );
-CREATE INDEX "ix_DcContributor_content_content" ON "DcContributor_content" (content);
 CREATE INDEX "ix_DcContributor_content_DcContributor_id" ON "DcContributor_content" ("DcContributor_id");
+CREATE INDEX "ix_DcContributor_content_content" ON "DcContributor_content" (content);
 
 CREATE TABLE "DcDate_content" (
 	"DcDate_id" INTEGER,
@@ -3208,8 +3226,8 @@ CREATE TABLE "DcIdentifier_content" (
 	PRIMARY KEY ("DcIdentifier_id", content),
 	FOREIGN KEY("DcIdentifier_id") REFERENCES "DcIdentifier" (id)
 );
-CREATE INDEX "ix_DcIdentifier_content_content" ON "DcIdentifier_content" (content);
 CREATE INDEX "ix_DcIdentifier_content_DcIdentifier_id" ON "DcIdentifier_content" ("DcIdentifier_id");
+CREATE INDEX "ix_DcIdentifier_content_content" ON "DcIdentifier_content" (content);
 
 CREATE TABLE "DcSource_content" (
 	"DcSource_id" INTEGER,
@@ -3262,8 +3280,8 @@ CREATE TABLE "DctermsLCSH_content" (
 	PRIMARY KEY ("DctermsLCSH_id", content),
 	FOREIGN KEY("DctermsLCSH_id") REFERENCES "DctermsLCSH" (id)
 );
-CREATE INDEX "ix_DctermsLCSH_content_content" ON "DctermsLCSH_content" (content);
 CREATE INDEX "ix_DctermsLCSH_content_DctermsLCSH_id" ON "DctermsLCSH_content" ("DctermsLCSH_id");
+CREATE INDEX "ix_DctermsLCSH_content_content" ON "DctermsLCSH_content" (content);
 
 CREATE TABLE "DctermsMESH_content" (
 	"DctermsMESH_id" INTEGER,
@@ -3271,8 +3289,8 @@ CREATE TABLE "DctermsMESH_content" (
 	PRIMARY KEY ("DctermsMESH_id", content),
 	FOREIGN KEY("DctermsMESH_id") REFERENCES "DctermsMESH" (id)
 );
-CREATE INDEX "ix_DctermsMESH_content_content" ON "DctermsMESH_content" (content);
 CREATE INDEX "ix_DctermsMESH_content_DctermsMESH_id" ON "DctermsMESH_content" ("DctermsMESH_id");
+CREATE INDEX "ix_DctermsMESH_content_content" ON "DctermsMESH_content" (content);
 
 CREATE TABLE "DctermsDDC_content" (
 	"DctermsDDC_id" INTEGER,
@@ -3289,8 +3307,8 @@ CREATE TABLE "DctermsLCC_content" (
 	PRIMARY KEY ("DctermsLCC_id", content),
 	FOREIGN KEY("DctermsLCC_id") REFERENCES "DctermsLCC" (id)
 );
-CREATE INDEX "ix_DctermsLCC_content_content" ON "DctermsLCC_content" (content);
 CREATE INDEX "ix_DctermsLCC_content_DctermsLCC_id" ON "DctermsLCC_content" ("DctermsLCC_id");
+CREATE INDEX "ix_DctermsLCC_content_content" ON "DctermsLCC_content" (content);
 
 CREATE TABLE "DctermsUDC_content" (
 	"DctermsUDC_id" INTEGER,
@@ -3298,8 +3316,8 @@ CREATE TABLE "DctermsUDC_content" (
 	PRIMARY KEY ("DctermsUDC_id", content),
 	FOREIGN KEY("DctermsUDC_id") REFERENCES "DctermsUDC" (id)
 );
-CREATE INDEX "ix_DctermsUDC_content_content" ON "DctermsUDC_content" (content);
 CREATE INDEX "ix_DctermsUDC_content_DctermsUDC_id" ON "DctermsUDC_content" ("DctermsUDC_id");
+CREATE INDEX "ix_DctermsUDC_content_content" ON "DctermsUDC_content" (content);
 
 CREATE TABLE "DctermsPeriod_content" (
 	"DctermsPeriod_id" INTEGER,
@@ -3307,8 +3325,8 @@ CREATE TABLE "DctermsPeriod_content" (
 	PRIMARY KEY ("DctermsPeriod_id", content),
 	FOREIGN KEY("DctermsPeriod_id") REFERENCES "DctermsPeriod" (id)
 );
-CREATE INDEX "ix_DctermsPeriod_content_content" ON "DctermsPeriod_content" (content);
 CREATE INDEX "ix_DctermsPeriod_content_DctermsPeriod_id" ON "DctermsPeriod_content" ("DctermsPeriod_id");
+CREATE INDEX "ix_DctermsPeriod_content_content" ON "DctermsPeriod_content" (content);
 
 CREATE TABLE "DctermsW3CDTF_content" (
 	"DctermsW3CDTF_id" INTEGER,
@@ -3316,8 +3334,8 @@ CREATE TABLE "DctermsW3CDTF_content" (
 	PRIMARY KEY ("DctermsW3CDTF_id", content),
 	FOREIGN KEY("DctermsW3CDTF_id") REFERENCES "DctermsW3CDTF" (id)
 );
-CREATE INDEX "ix_DctermsW3CDTF_content_content" ON "DctermsW3CDTF_content" (content);
 CREATE INDEX "ix_DctermsW3CDTF_content_DctermsW3CDTF_id" ON "DctermsW3CDTF_content" ("DctermsW3CDTF_id");
+CREATE INDEX "ix_DctermsW3CDTF_content_content" ON "DctermsW3CDTF_content" (content);
 
 CREATE TABLE "DctermsDCMIType_content" (
 	"DctermsDCMIType_id" INTEGER,
@@ -3325,8 +3343,8 @@ CREATE TABLE "DctermsDCMIType_content" (
 	PRIMARY KEY ("DctermsDCMIType_id", content),
 	FOREIGN KEY("DctermsDCMIType_id") REFERENCES "DctermsDCMIType" (id)
 );
-CREATE INDEX "ix_DctermsDCMIType_content_content" ON "DctermsDCMIType_content" (content);
 CREATE INDEX "ix_DctermsDCMIType_content_DctermsDCMIType_id" ON "DctermsDCMIType_content" ("DctermsDCMIType_id");
+CREATE INDEX "ix_DctermsDCMIType_content_content" ON "DctermsDCMIType_content" (content);
 
 CREATE TABLE "DctermsIMT_content" (
 	"DctermsIMT_id" INTEGER,
@@ -3334,8 +3352,8 @@ CREATE TABLE "DctermsIMT_content" (
 	PRIMARY KEY ("DctermsIMT_id", content),
 	FOREIGN KEY("DctermsIMT_id") REFERENCES "DctermsIMT" (id)
 );
-CREATE INDEX "ix_DctermsIMT_content_content" ON "DctermsIMT_content" (content);
 CREATE INDEX "ix_DctermsIMT_content_DctermsIMT_id" ON "DctermsIMT_content" ("DctermsIMT_id");
+CREATE INDEX "ix_DctermsIMT_content_content" ON "DctermsIMT_content" (content);
 
 CREATE TABLE "DctermsURI_content" (
 	"DctermsURI_id" INTEGER,
@@ -3361,8 +3379,8 @@ CREATE TABLE "DctermsISO6393_content" (
 	PRIMARY KEY ("DctermsISO6393_id", content),
 	FOREIGN KEY("DctermsISO6393_id") REFERENCES "DctermsISO6393" (id)
 );
-CREATE INDEX "ix_DctermsISO6393_content_content" ON "DctermsISO6393_content" (content);
 CREATE INDEX "ix_DctermsISO6393_content_DctermsISO6393_id" ON "DctermsISO6393_content" ("DctermsISO6393_id");
+CREATE INDEX "ix_DctermsISO6393_content_content" ON "DctermsISO6393_content" (content);
 
 CREATE TABLE "DctermsRFC1766_content" (
 	"DctermsRFC1766_id" INTEGER,
@@ -3379,8 +3397,8 @@ CREATE TABLE "DctermsRFC3066_content" (
 	PRIMARY KEY ("DctermsRFC3066_id", content),
 	FOREIGN KEY("DctermsRFC3066_id") REFERENCES "DctermsRFC3066" (id)
 );
-CREATE INDEX "ix_DctermsRFC3066_content_content" ON "DctermsRFC3066_content" (content);
 CREATE INDEX "ix_DctermsRFC3066_content_DctermsRFC3066_id" ON "DctermsRFC3066_content" ("DctermsRFC3066_id");
+CREATE INDEX "ix_DctermsRFC3066_content_content" ON "DctermsRFC3066_content" (content);
 
 CREATE TABLE "DctermsRFC4646_content" (
 	"DctermsRFC4646_id" INTEGER,
@@ -3388,8 +3406,8 @@ CREATE TABLE "DctermsRFC4646_content" (
 	PRIMARY KEY ("DctermsRFC4646_id", content),
 	FOREIGN KEY("DctermsRFC4646_id") REFERENCES "DctermsRFC4646" (id)
 );
-CREATE INDEX "ix_DctermsRFC4646_content_content" ON "DctermsRFC4646_content" (content);
 CREATE INDEX "ix_DctermsRFC4646_content_DctermsRFC4646_id" ON "DctermsRFC4646_content" ("DctermsRFC4646_id");
+CREATE INDEX "ix_DctermsRFC4646_content_content" ON "DctermsRFC4646_content" (content);
 
 CREATE TABLE "DctermsPoint_content" (
 	"DctermsPoint_id" INTEGER,
@@ -3397,8 +3415,8 @@ CREATE TABLE "DctermsPoint_content" (
 	PRIMARY KEY ("DctermsPoint_id", content),
 	FOREIGN KEY("DctermsPoint_id") REFERENCES "DctermsPoint" (id)
 );
-CREATE INDEX "ix_DctermsPoint_content_content" ON "DctermsPoint_content" (content);
 CREATE INDEX "ix_DctermsPoint_content_DctermsPoint_id" ON "DctermsPoint_content" ("DctermsPoint_id");
+CREATE INDEX "ix_DctermsPoint_content_content" ON "DctermsPoint_content" (content);
 
 CREATE TABLE "DctermsISO3166_content" (
 	"DctermsISO3166_id" INTEGER,
@@ -3406,8 +3424,8 @@ CREATE TABLE "DctermsISO3166_content" (
 	PRIMARY KEY ("DctermsISO3166_id", content),
 	FOREIGN KEY("DctermsISO3166_id") REFERENCES "DctermsISO3166" (id)
 );
-CREATE INDEX "ix_DctermsISO3166_content_content" ON "DctermsISO3166_content" (content);
 CREATE INDEX "ix_DctermsISO3166_content_DctermsISO3166_id" ON "DctermsISO3166_content" ("DctermsISO3166_id");
+CREATE INDEX "ix_DctermsISO3166_content_content" ON "DctermsISO3166_content" (content);
 
 CREATE TABLE "DctermsBox_content" (
 	"DctermsBox_id" INTEGER,
@@ -3442,8 +3460,8 @@ CREATE TABLE "DctermsCreator_content" (
 	PRIMARY KEY ("DctermsCreator_id", content),
 	FOREIGN KEY("DctermsCreator_id") REFERENCES "DctermsCreator" (id)
 );
-CREATE INDEX "ix_DctermsCreator_content_content" ON "DctermsCreator_content" (content);
 CREATE INDEX "ix_DctermsCreator_content_DctermsCreator_id" ON "DctermsCreator_content" ("DctermsCreator_id");
+CREATE INDEX "ix_DctermsCreator_content_content" ON "DctermsCreator_content" (content);
 
 CREATE TABLE "DctermsSubject_content" (
 	"DctermsSubject_id" INTEGER,
@@ -3451,8 +3469,8 @@ CREATE TABLE "DctermsSubject_content" (
 	PRIMARY KEY ("DctermsSubject_id", content),
 	FOREIGN KEY("DctermsSubject_id") REFERENCES "DctermsSubject" (id)
 );
-CREATE INDEX "ix_DctermsSubject_content_DctermsSubject_id" ON "DctermsSubject_content" ("DctermsSubject_id");
 CREATE INDEX "ix_DctermsSubject_content_content" ON "DctermsSubject_content" (content);
+CREATE INDEX "ix_DctermsSubject_content_DctermsSubject_id" ON "DctermsSubject_content" ("DctermsSubject_id");
 
 CREATE TABLE "DctermsDescription_content" (
 	"DctermsDescription_id" INTEGER,
@@ -3460,8 +3478,8 @@ CREATE TABLE "DctermsDescription_content" (
 	PRIMARY KEY ("DctermsDescription_id", content),
 	FOREIGN KEY("DctermsDescription_id") REFERENCES "DctermsDescription" (id)
 );
-CREATE INDEX "ix_DctermsDescription_content_DctermsDescription_id" ON "DctermsDescription_content" ("DctermsDescription_id");
 CREATE INDEX "ix_DctermsDescription_content_content" ON "DctermsDescription_content" (content);
+CREATE INDEX "ix_DctermsDescription_content_DctermsDescription_id" ON "DctermsDescription_content" ("DctermsDescription_id");
 
 CREATE TABLE "DctermsPublisher_content" (
 	"DctermsPublisher_id" INTEGER,
@@ -3811,8 +3829,8 @@ CREATE TABLE "DctermsTemporal_content" (
 	PRIMARY KEY ("DctermsTemporal_id", content),
 	FOREIGN KEY("DctermsTemporal_id") REFERENCES "DctermsTemporal" (id)
 );
-CREATE INDEX "ix_DctermsTemporal_content_content" ON "DctermsTemporal_content" (content);
 CREATE INDEX "ix_DctermsTemporal_content_DctermsTemporal_id" ON "DctermsTemporal_content" ("DctermsTemporal_id");
+CREATE INDEX "ix_DctermsTemporal_content_content" ON "DctermsTemporal_content" (content);
 
 CREATE TABLE "DctermsAudience_content" (
 	"DctermsAudience_id" INTEGER,
@@ -3865,8 +3883,8 @@ CREATE TABLE "DctermsProvenance_content" (
 	PRIMARY KEY ("DctermsProvenance_id", content),
 	FOREIGN KEY("DctermsProvenance_id") REFERENCES "DctermsProvenance" (id)
 );
-CREATE INDEX "ix_DctermsProvenance_content_DctermsProvenance_id" ON "DctermsProvenance_content" ("DctermsProvenance_id");
 CREATE INDEX "ix_DctermsProvenance_content_content" ON "DctermsProvenance_content" (content);
+CREATE INDEX "ix_DctermsProvenance_content_DctermsProvenance_id" ON "DctermsProvenance_content" ("DctermsProvenance_id");
 
 CREATE TABLE "DctermsRightsHolder_content" (
 	"DctermsRightsHolder_id" INTEGER,
@@ -3922,24 +3940,6 @@ CREATE TABLE "DctermsBibliographicCitation_content" (
 CREATE INDEX "ix_DctermsBibliographicCitation_content_DctermsBibliographicCitation_id" ON "DctermsBibliographicCitation_content" ("DctermsBibliographicCitation_id");
 CREATE INDEX "ix_DctermsBibliographicCitation_content_content" ON "DctermsBibliographicCitation_content" (content);
 
-CREATE TABLE "ActionType_assign" (
-	"ActionType_id" INTEGER,
-	assign TEXT,
-	PRIMARY KEY ("ActionType_id", assign),
-	FOREIGN KEY("ActionType_id") REFERENCES "ActionType" (id)
-);
-CREATE INDEX "ix_ActionType_assign_ActionType_id" ON "ActionType_assign" ("ActionType_id");
-CREATE INDEX "ix_ActionType_assign_assign" ON "ActionType_assign" (assign);
-
-CREATE TABLE "ExtensionInline_content" (
-	"ExtensionInline_id" INTEGER,
-	content TEXT,
-	PRIMARY KEY ("ExtensionInline_id", content),
-	FOREIGN KEY("ExtensionInline_id") REFERENCES "ExtensionInline" (id)
-);
-CREATE INDEX "ix_ExtensionInline_content_ExtensionInline_id" ON "ExtensionInline_content" ("ExtensionInline_id");
-CREATE INDEX "ix_ExtensionInline_content_content" ON "ExtensionInline_content" (content);
-
 CREATE TABLE "ActorType" (
 	id INTEGER NOT NULL,
 	name TEXT NOT NULL,
@@ -3957,7 +3957,7 @@ CREATE TABLE "CategoryType" (
 	component_type VARCHAR(7),
 	include_file VARCHAR(10),
 	name TEXT NOT NULL,
-	section TEXT NOT NULL,
+	section TEXT,
 	added TEXT,
 	added_ep TEXT,
 	change_type VARCHAR(12),
@@ -4234,9 +4234,9 @@ CREATE TABLE "Repository" (
 	FOREIGN KEY(scenarios_id) REFERENCES "Scenarios" (id),
 	FOREIGN KEY(annotation_id) REFERENCES "Annotation" (id)
 );
+CREATE INDEX "ix_Repository_id" ON "Repository" (id);
 CREATE INDEX "Repository_name_idx" ON "Repository" (name);
 CREATE INDEX "Repository_id_idx" ON "Repository" (id);
-CREATE INDEX "ix_Repository_id" ON "Repository" (id);
 
 CREATE TABLE "Appinfo_content" (
 	"Appinfo_id" INTEGER,
@@ -4244,8 +4244,8 @@ CREATE TABLE "Appinfo_content" (
 	PRIMARY KEY ("Appinfo_id", content),
 	FOREIGN KEY("Appinfo_id") REFERENCES "Appinfo" (id)
 );
-CREATE INDEX "ix_Appinfo_content_Appinfo_id" ON "Appinfo_content" ("Appinfo_id");
 CREATE INDEX "ix_Appinfo_content_content" ON "Appinfo_content" (content);
+CREATE INDEX "ix_Appinfo_content_Appinfo_id" ON "Appinfo_content" ("Appinfo_id");
 
 CREATE TABLE "Appinfo_extra_attributes" (
 	"Appinfo_id" INTEGER,
@@ -4633,8 +4633,8 @@ CREATE TABLE "InterfaceType_extra_attributes" (
 	PRIMARY KEY ("InterfaceType_id", extra_attributes),
 	FOREIGN KEY("InterfaceType_id") REFERENCES "InterfaceType" (id)
 );
-CREATE INDEX "ix_InterfaceType_extra_attributes_InterfaceType_id" ON "InterfaceType_extra_attributes" ("InterfaceType_id");
 CREATE INDEX "ix_InterfaceType_extra_attributes_extra_attributes" ON "InterfaceType_extra_attributes" (extra_attributes);
+CREATE INDEX "ix_InterfaceType_extra_attributes_InterfaceType_id" ON "InterfaceType_extra_attributes" ("InterfaceType_id");
 
 CREATE TABLE "FieldRuleType" (
 	id INTEGER NOT NULL,
@@ -4666,8 +4666,8 @@ CREATE TABLE "EncodingType_extra_attributes" (
 	PRIMARY KEY ("EncodingType_id", extra_attributes),
 	FOREIGN KEY("EncodingType_id") REFERENCES "EncodingType" (id)
 );
-CREATE INDEX "ix_EncodingType_extra_attributes_EncodingType_id" ON "EncodingType_extra_attributes" ("EncodingType_id");
 CREATE INDEX "ix_EncodingType_extra_attributes_extra_attributes" ON "EncodingType_extra_attributes" (extra_attributes);
+CREATE INDEX "ix_EncodingType_extra_attributes_EncodingType_id" ON "EncodingType_extra_attributes" ("EncodingType_id");
 
 CREATE TABLE "ProtocolType_extra_attributes" (
 	"ProtocolType_id" INTEGER,
@@ -4720,5 +4720,5 @@ CREATE TABLE "FieldRuleType_assign" (
 	PRIMARY KEY ("FieldRuleType_id", assign),
 	FOREIGN KEY("FieldRuleType_id") REFERENCES "FieldRuleType" (id)
 );
-CREATE INDEX "ix_FieldRuleType_assign_FieldRuleType_id" ON "FieldRuleType_assign" ("FieldRuleType_id");
 CREATE INDEX "ix_FieldRuleType_assign_assign" ON "FieldRuleType_assign" (assign);
+CREATE INDEX "ix_FieldRuleType_assign_FieldRuleType_id" ON "FieldRuleType_assign" ("FieldRuleType_id");

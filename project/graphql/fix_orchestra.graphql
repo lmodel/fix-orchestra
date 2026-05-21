@@ -274,7 +274,7 @@ type CategoryType implements EntityAttribGrp
     includeFile: CatIncludeFile
     annotation: Annotation
     name: Name!
-    section: Name!
+    section: Name
     added: Version
     addedEp: EP
     changeType: ChangeType

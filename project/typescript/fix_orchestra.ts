@@ -976,6 +976,7 @@ export interface FieldAttribGrp {
     impl_length?: number,
     impl_min_length?: number,
     impl_max_length?: number,
+    /** Overrides presence when expression is true */
     presence?: string,
     /** If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value. */
     value?: string,
@@ -1030,6 +1031,7 @@ export interface ScenarioRefGrp {
 
 export interface ActionType {
     field?: FieldType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
     component?: ComponentType[],
     component_ref?: ComponentRefType[],
@@ -1050,6 +1052,7 @@ export interface ActionType {
  */
 export interface ActorType {
     field?: FieldType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
     component?: ComponentType[],
     component_ref?: ComponentRefType[],
@@ -1090,6 +1093,7 @@ export interface Appinfo extends EntityAttribGrp {
 export interface BlockAssignmentType {
     component_ref?: ComponentRefType[],
     group_ref?: GroupRefType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
 }
 
@@ -1101,7 +1105,7 @@ export interface CategoryType extends EntityAttribGrp {
     include_file?: string,
     annotation?: Annotation,
     name: string,
-    section: string,
+    section?: string,
 }
 
 
@@ -1133,6 +1137,7 @@ export interface CodeType extends OidGrp, EntityAttribGrp {
 export interface ComponentRefType extends RefidGrp, EntityAttribGrp {
     /** Specifies a how a component or each group entry is populated (optional) */
     block_assignment?: BlockAssignmentType[],
+    /** Overrides presence when expression is true */
     presence?: string,
     /** Rule to tell when a conditionally require component */
     rule?: ComponentRuleType[],
@@ -1144,6 +1149,7 @@ export interface ComponentRefType extends RefidGrp, EntityAttribGrp {
 
 
 export interface ComponentRuleType {
+    /** A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send. */
     when: string,
     /** Overrides presence when expression is true */
     presence?: string,
@@ -1156,9 +1162,11 @@ export interface ComponentRuleType {
 export interface ComponentType extends EntityAttribGrp, OidGrp, ScenarioRefGrp {
     component_ref?: ComponentRefType[],
     group_ref?: GroupRefType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
     /** A hint to processes about how to interpret the element. Not validated. */
     rendering?: string,
+    /** Member selection within each group instance */
     which?: string,
     annotation?: Annotation,
     category?: string,
@@ -1169,6 +1177,7 @@ export interface ComponentType extends EntityAttribGrp, OidGrp, ScenarioRefGrp {
 export interface ConceptType {
     component_ref?: ComponentRefType[],
     group_ref?: GroupRefType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
     /** Send a message */
     message_ref?: MessageRefType[],
@@ -1215,6 +1224,7 @@ export interface UniqueInline {
 
 export interface FieldRuleType extends FieldAttribGrp {
     unique?: UniqueInline,
+    /** A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send. */
     when: string,
     /** Content of element holds an assignment expression for a message field or state variable. This can be used for field validation. */
     assign?: string[],
@@ -1264,7 +1274,9 @@ export interface FlowType {
 
 
 export interface GroupRefType extends ComponentRefType {
+    /** Lower bound of group instances (numInGroup) */
     impl_min_occurs?: number,
+    /** Upper bound of group instances (numInGroup) */
     impl_max_occurs?: string,
 }
 
@@ -1276,6 +1288,7 @@ export interface GroupType extends EntityAttribGrp, OidGrp, ScenarioRefGrp {
     num_in_group?: FieldRefType,
     component_ref?: ComponentRefType[],
     group_ref?: GroupRefType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
     /** A hint to processes about how to interpret the element. Not validated. */
     rendering?: string,
@@ -1342,6 +1355,7 @@ export interface MappedDatatype {
 export interface MessageRefType extends RefidGrp {
     identifiers?: IdentifiersType,
     msg_type?: string,
+    /** Lower bound of group instances (numInGroup) */
     impl_min_occurs?: number,
     /** The same message type may be sent one or more times */
     impl_max_occurs?: string,
@@ -1352,7 +1366,9 @@ export interface MessageRefType extends RefidGrp {
 export interface StructureInline {
     component_ref?: ComponentRefType[],
     group_ref?: GroupRefType[],
+    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
     field_ref?: FieldRefType[],
+    /** Member selection within each group instance */
     which?: string,
 }
 

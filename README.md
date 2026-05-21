@@ -4,6 +4,8 @@
 
 FIX Orchestra - LinkML Schema
 
+See [solution description](./docs/about.md) for details.
+
 ## Documentation Website
 
 [https://lmodel.github.io/fix-orchestra](https://lmodel.github.io/fix-orchestra)

@@ -51,7 +51,7 @@ _default: _status
 setup: _check-config _git-init install _git-add && _setup_part2
   git commit -m "Initialise git with minimal project" -a || true
 
-_setup_part2: gen-project gen-doc
+_setup_part2: gen-linkml gen-project gen-doc gen-proto-wire
   @echo
   @echo '=== Setup completed! ==='
   @echo 'Various model representations have been created under directory "project". By default'

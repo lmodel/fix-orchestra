@@ -535,8 +535,6 @@ subsets:
 
   fix_base_types:
     description: FIX base datatypes derived from the FIX Orchestra XML repository. Each type carries a proto_scalar annotation giving the recommended Protocol Buffers scalar type when encoding FIX wire-format messages.
-
-
 enums:
   CatComponentType:
     enum_uri: fixr:CatComponentType_t

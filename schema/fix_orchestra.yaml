@@ -132,9 +132,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - ComponentName_t
+    exact_mappings:
+    - fixr:ComponentName_t
     typeof: string
     base: str
-    uri: fixr:ComponentName_t
+    uri: fix_orchestra:ComponentName
   DatatypeStandard:
     name: DatatypeStandard
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DatatypeStandard
@@ -145,9 +147,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - datatypeStandard_t
+    exact_mappings:
+    - fixr:datatypeStandard_t
     typeof: string
     base: str
-    uri: fixr:datatypeStandard_t
+    uri: fix_orchestra:DatatypeStandard
   EP:
     name: EP
     definition_uri: https://w3id.org/lmodel/fix-orchestra/EP
@@ -156,9 +160,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - EP_t
+    exact_mappings:
+    - fixr:EP_t
     typeof: integer
     base: int
-    uri: fixr:EP_t
+    uri: fix_orchestra:EP
   ExpressionType:
     name: ExpressionType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ExpressionType
@@ -172,9 +178,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - expressionType
+    exact_mappings:
+    - fixr:expressionType
     typeof: string
     base: str
-    uri: fixr:expressionType
+    uri: fix_orchestra:ExpressionType
   Id:
     name: Id
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Id
@@ -183,9 +191,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - id_t
+    exact_mappings:
+    - fixr:id_t
     typeof: integer
     base: int
-    uri: fixr:id_t
+    uri: fix_orchestra:Id
   Language:
     name: Language
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Language
@@ -194,9 +204,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - language_t
+    exact_mappings:
+    - fixr:language_t
     typeof: string
     base: str
-    uri: fixr:language_t
+    uri: fix_orchestra:Language
   Mime:
     name: Mime
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Mime
@@ -210,9 +222,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - mime_t
+    exact_mappings:
+    - fixr:mime_t
     typeof: string
     base: str
-    uri: fixr:mime_t
+    uri: fix_orchestra:Mime
   MsgType:
     name: MsgType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/MsgType
@@ -228,9 +242,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - MsgType_t
+    exact_mappings:
+    - fixr:MsgType_t
     typeof: string
     base: str
-    uri: fixr:MsgType_t
+    uri: fix_orchestra:MsgType
   Name:
     name: Name
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Name
@@ -250,9 +266,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - Name_t
+    exact_mappings:
+    - fixr:Name_t
     typeof: string
     base: str
-    uri: fixr:Name_t
+    uri: fix_orchestra:Name
   Purpose:
     name: Purpose
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Purpose
@@ -262,9 +280,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - purpose_t
+    exact_mappings:
+    - fixr:purpose_t
     typeof: string
     base: str
-    uri: fixr:purpose_t
+    uri: fix_orchestra:Purpose
   UnboundedIntType:
     name: UnboundedIntType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/UnboundedIntType
@@ -274,9 +294,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - unboundedIntType
+    exact_mappings:
+    - fixr:unboundedIntType
     typeof: string
     base: str
-    uri: fixr:unboundedIntType
+    uri: fix_orchestra:UnboundedIntType
   Version:
     name: Version
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Version
@@ -285,9 +307,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - Version_t
+    exact_mappings:
+    - fixr:Version_t
     typeof: string
     base: str
-    uri: fixr:Version_t
+    uri: fix_orchestra:Version
   ProtocolName:
     name: ProtocolName
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ProtocolName
@@ -298,9 +322,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - protocolName_t
+    exact_mappings:
+    - fixi:protocolName_t
     typeof: string
     base: str
-    uri: fixi:protocolName_t
+    uri: fix_orchestra:ProtocolName
   InterfacePurpose:
     name: InterfacePurpose
     definition_uri: https://w3id.org/lmodel/fix-orchestra/InterfacePurpose
@@ -310,9 +336,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - purpose_t
+    exact_mappings:
+    - fixi:purpose_t
     typeof: string
     base: str
-    uri: fixi:purpose_t
+    uri: fix_orchestra:InterfacePurpose
   TransportUse:
     name: TransportUse
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TransportUse
@@ -322,9 +350,11 @@ types:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - transportUse_t
+    exact_mappings:
+    - fixi:transportUse_t
     typeof: string
     base: str
-    uri: fixi:transportUse_t
+    uri: fix_orchestra:TransportUse
   FIXInt:
     name: FIXInt
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXInt
@@ -340,9 +370,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:int
     typeof: integer
     base: int
-    uri: fixr:int
+    uri: fix_orchestra:FIXInt
   FIXLength:
     name: FIXLength
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXLength
@@ -355,9 +387,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Length
     typeof: integer
     base: int
-    uri: fixr:Length
+    uri: fix_orchestra:FIXLength
   FIXTagNum:
     name: FIXTagNum
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXTagNum
@@ -371,9 +405,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:TagNum
     typeof: integer
     base: int
-    uri: fixr:TagNum
+    uri: fix_orchestra:FIXTagNum
   FIXSeqNum:
     name: FIXSeqNum
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXSeqNum
@@ -386,9 +422,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:SeqNum
     typeof: integer
     base: int
-    uri: fixr:SeqNum
+    uri: fix_orchestra:FIXSeqNum
   FIXNumInGroup:
     name: FIXNumInGroup
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXNumInGroup
@@ -401,9 +439,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:NumInGroup
     typeof: string
     base: str
-    uri: fixr:NumInGroup
+    uri: fix_orchestra:FIXNumInGroup
   FIXDayOfMonth:
     name: FIXDayOfMonth
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXDayOfMonth
@@ -416,9 +456,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:DayOfMonth
     typeof: integer
     base: int
-    uri: fixr:DayOfMonth
+    uri: fix_orchestra:FIXDayOfMonth
   FIXFloat:
     name: FIXFloat
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXFloat
@@ -439,9 +481,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:float
     typeof: float
     base: float
-    uri: fixr:float
+    uri: fix_orchestra:FIXFloat
   FIXQty:
     name: FIXQty
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXQty
@@ -456,9 +500,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Qty
     typeof: float
     base: float
-    uri: fixr:Qty
+    uri: fix_orchestra:FIXQty
   FIXPrice:
     name: FIXPrice
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXPrice
@@ -474,9 +520,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Price
     typeof: float
     base: float
-    uri: fixr:Price
+    uri: fix_orchestra:FIXPrice
   FIXPriceOffset:
     name: FIXPriceOffset
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXPriceOffset
@@ -491,9 +539,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:PriceOffset
     typeof: float
     base: float
-    uri: fixr:PriceOffset
+    uri: fix_orchestra:FIXPriceOffset
   FIXAmt:
     name: FIXAmt
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXAmt
@@ -506,9 +556,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Amt
     typeof: float
     base: float
-    uri: fixr:Amt
+    uri: fix_orchestra:FIXAmt
   FIXPercentage:
     name: FIXPercentage
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXPercentage
@@ -522,9 +574,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Percentage
     typeof: float
     base: float
-    uri: fixr:Percentage
+    uri: fix_orchestra:FIXPercentage
   FIXChar:
     name: FIXChar
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXChar
@@ -538,9 +592,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:char
     typeof: string
     base: str
-    uri: fixr:char
+    uri: fix_orchestra:FIXChar
   FIXBoolean:
     name: FIXBoolean
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXBoolean
@@ -553,9 +609,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Boolean
     typeof: string
     base: str
-    uri: fixr:Boolean
+    uri: fix_orchestra:FIXBoolean
   FIXString:
     name: FIXString
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXString
@@ -569,9 +627,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:String
     typeof: string
     base: str
-    uri: fixr:String
+    uri: fix_orchestra:FIXString
   FIXMultipleCharValue:
     name: FIXMultipleCharValue
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXMultipleCharValue
@@ -584,9 +644,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:MultipleCharValue
     typeof: string
     base: str
-    uri: fixr:MultipleCharValue
+    uri: fix_orchestra:FIXMultipleCharValue
   FIXMultipleStringValue:
     name: FIXMultipleStringValue
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXMultipleStringValue
@@ -599,9 +661,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:MultipleStringValue
     typeof: string
     base: str
-    uri: fixr:MultipleStringValue
+    uri: fix_orchestra:FIXMultipleStringValue
   FIXCountry:
     name: FIXCountry
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXCountry
@@ -614,9 +678,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Country
     typeof: string
     base: str
-    uri: fixr:Country
+    uri: fix_orchestra:FIXCountry
   FIXCurrency:
     name: FIXCurrency
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXCurrency
@@ -630,9 +696,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Currency
     typeof: string
     base: str
-    uri: fixr:Currency
+    uri: fix_orchestra:FIXCurrency
   FIXExchange:
     name: FIXExchange
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXExchange
@@ -646,9 +714,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Exchange
     typeof: string
     base: str
-    uri: fixr:Exchange
+    uri: fix_orchestra:FIXExchange
   FIXMonthYear:
     name: FIXMonthYear
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXMonthYear
@@ -662,9 +732,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:MonthYear
     typeof: string
     base: str
-    uri: fixr:MonthYear
+    uri: fix_orchestra:FIXMonthYear
   FIXUTCTimestamp:
     name: FIXUTCTimestamp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXUTCTimestamp
@@ -679,9 +751,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:UTCTimestamp
     typeof: datetime
     base: XSDDateTime
-    uri: fixr:UTCTimestamp
+    uri: fix_orchestra:FIXUTCTimestamp
     repr: str
   FIXUTCTimeOnly:
     name: FIXUTCTimeOnly
@@ -698,9 +772,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:UTCTimeOnly
     typeof: string
     base: str
-    uri: fixr:UTCTimeOnly
+    uri: fix_orchestra:FIXUTCTimeOnly
   FIXUTCDateOnly:
     name: FIXUTCDateOnly
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXUTCDateOnly
@@ -715,9 +791,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:UTCDateOnly
     typeof: date
     base: XSDDate
-    uri: fixr:UTCDateOnly
+    uri: fix_orchestra:FIXUTCDateOnly
     repr: str
   FIXLocalMktDate:
     name: FIXLocalMktDate
@@ -732,9 +810,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:LocalMktDate
     typeof: date
     base: XSDDate
-    uri: fixr:LocalMktDate
+    uri: fix_orchestra:FIXLocalMktDate
     repr: str
   FIXTZTimeOnly:
     name: FIXTZTimeOnly
@@ -749,9 +829,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:TZTimeOnly
     typeof: string
     base: str
-    uri: fixr:TZTimeOnly
+    uri: fix_orchestra:FIXTZTimeOnly
   FIXTZTimestamp:
     name: FIXTZTimestamp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXTZTimestamp
@@ -766,9 +848,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:TZTimestamp
     typeof: datetime
     base: XSDDateTime
-    uri: fixr:TZTimestamp
+    uri: fix_orchestra:FIXTZTimestamp
     repr: str
   FIXData:
     name: FIXData
@@ -789,9 +873,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:data
     typeof: string
     base: str
-    uri: fixr:data
+    uri: fix_orchestra:FIXData
   FIXPattern:
     name: FIXPattern
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXPattern
@@ -808,9 +894,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Pattern
     typeof: string
     base: str
-    uri: fixr:Pattern
+    uri: fix_orchestra:FIXPattern
   FIXTenor:
     name: FIXTenor
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXTenor
@@ -825,9 +913,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Tenor
     typeof: string
     base: str
-    uri: fixr:Tenor
+    uri: fix_orchestra:FIXTenor
   FIXReserved100Plus:
     name: FIXReserved100Plus
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXReserved100Plus
@@ -840,9 +930,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Reserved100Plus
     typeof: integer
     base: int
-    uri: fixr:Reserved100Plus
+    uri: fix_orchestra:FIXReserved100Plus
   FIXReserved1000Plus:
     name: FIXReserved1000Plus
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXReserved1000Plus
@@ -855,9 +947,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Reserved1000Plus
     typeof: integer
     base: int
-    uri: fixr:Reserved1000Plus
+    uri: fix_orchestra:FIXReserved1000Plus
   FIXReserved4000Plus:
     name: FIXReserved4000Plus
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXReserved4000Plus
@@ -870,9 +964,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Reserved4000Plus
     typeof: integer
     base: int
-    uri: fixr:Reserved4000Plus
+    uri: fix_orchestra:FIXReserved4000Plus
   FIXXMLData:
     name: FIXXMLData
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXXMLData
@@ -887,9 +983,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:XMLData
     typeof: string
     base: str
-    uri: fixr:XMLData
+    uri: fix_orchestra:FIXXMLData
   FIXLanguage:
     name: FIXLanguage
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXLanguage
@@ -902,9 +1000,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:Language
     typeof: string
     base: str
-    uri: fixr:Language
+    uri: fix_orchestra:FIXLanguage
   FIXLocalMktTime:
     name: FIXLocalMktTime
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXLocalMktTime
@@ -919,9 +1019,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:LocalMktTime
     typeof: string
     base: str
-    uri: fixr:LocalMktTime
+    uri: fix_orchestra:FIXLocalMktTime
   FIXXID:
     name: FIXXID
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXXID
@@ -937,9 +1039,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:XID
     typeof: string
     base: str
-    uri: fixr:XID
+    uri: fix_orchestra:FIXXID
   FIXXIDREF:
     name: FIXXIDREF
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXXIDREF
@@ -952,9 +1056,11 @@ types:
     in_subset:
     - fix_base_types
     from_schema: https://w3id.org/lmodel/fix-orchestra
+    exact_mappings:
+    - fixr:XIDREF
     typeof: string
     base: str
-    uri: fixr:XIDREF
+    uri: fix_orchestra:FIXXIDREF
   string:
     name: string
     definition_uri: https://w3id.org/linkml/String
@@ -1254,7 +1360,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - CatComponentType_t
-    enum_uri: fixr:CatComponentType_t
+    exact_mappings:
+    - fixr:CatComponentType_t
+    enum_uri: fix_orchestra:CatComponentType
     permissible_values:
       Field:
         text: Field
@@ -1268,7 +1376,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - CatIncludeFile_t
-    enum_uri: fixr:CatIncludeFile_t
+    exact_mappings:
+    - fixr:CatIncludeFile_t
+    enum_uri: fix_orchestra:CatIncludeFile
     permissible_values:
       components:
         text: components
@@ -1282,7 +1392,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - changeType_t
-    enum_uri: fixr:changeType_t
+    exact_mappings:
+    - fixr:changeType_t
+    enum_uri: fix_orchestra:ChangeType
     permissible_values:
       Editorial:
         text: Editorial
@@ -1296,7 +1408,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - datatypeStandard_enum
-    enum_uri: fixr:datatypeStandard_enum
+    exact_mappings:
+    - fixr:datatypeStandard_enum
+    enum_uri: fix_orchestra:DatatypeStandardEnum
     permissible_values:
       ISO11404:
         text: ISO11404
@@ -1324,7 +1438,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - memberType
-    enum_uri: fixr:memberType
+    exact_mappings:
+    - fixr:memberType
+    enum_uri: fix_orchestra:MemberType
     permissible_values:
       oneOf:
         text: oneOf
@@ -1340,7 +1456,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - presence_t
-    enum_uri: fixr:presence_t
+    exact_mappings:
+    - fixr:presence_t
+    enum_uri: fix_orchestra:Presence
     permissible_values:
       optional:
         text: optional
@@ -1368,7 +1486,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - purpose_enum
-    enum_uri: fixr:purpose_enum
+    exact_mappings:
+    - fixr:purpose_enum
+    enum_uri: fix_orchestra:PurposeEnum
     permissible_values:
       SYNOPSIS:
         text: SYNOPSIS
@@ -1407,7 +1527,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - reliability_t
-    enum_uri: fixr:reliability_t
+    exact_mappings:
+    - fixr:reliability_t
+    enum_uri: fix_orchestra:Reliability
     permissible_values:
       bestEffort:
         text: bestEffort
@@ -1424,7 +1546,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - supportType
-    enum_uri: fixr:supportType
+    exact_mappings:
+    - fixr:supportType
+    enum_uri: fix_orchestra:SupportType
     permissible_values:
       supported:
         text: supported
@@ -1440,7 +1564,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - synchronization
-    enum_uri: fixr:synchronization
+    exact_mappings:
+    - fixr:synchronization
+    enum_uri: fix_orchestra:Synchronization
     permissible_values:
       asynchronous:
         text: asynchronous
@@ -1460,7 +1586,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - timerOperation
-    enum_uri: fixr:timerOperation
+    exact_mappings:
+    - fixr:timerOperation
+    enum_uri: fix_orchestra:TimerOperation
     permissible_values:
       START:
         text: START
@@ -1477,7 +1605,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - unbounded
-    enum_uri: fixr:unbounded
+    exact_mappings:
+    - fixr:unbounded
+    enum_uri: fix_orchestra:Unbounded
     permissible_values:
       unbounded:
         text: unbounded
@@ -1491,7 +1621,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - UnionDataType_t
-    enum_uri: fixr:UnionDataType_t
+    exact_mappings:
+    - fixr:UnionDataType_t
+    enum_uri: fix_orchestra:UnionDataType
     permissible_values:
       Qty:
         text: Qty
@@ -1511,7 +1643,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - layer_t
-    enum_uri: fixi:layer_t
+    exact_mappings:
+    - fixi:layer_t
+    enum_uri: fix_orchestra:Layer
     permissible_values:
       application:
         text: application
@@ -1529,7 +1663,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - messageCast_t
-    enum_uri: fixi:messageCast_t
+    exact_mappings:
+    - fixi:messageCast_t
+    enum_uri: fix_orchestra:MessageCast
     permissible_values:
       unicast:
         text: unicast
@@ -1546,7 +1682,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - protocolEnum_t
-    enum_uri: fixi:protocolEnum_t
+    exact_mappings:
+    - fixi:protocolEnum_t
+    enum_uri: fix_orchestra:ProtocolEnum
     permissible_values:
       FIX4:
         text: FIX4
@@ -1590,7 +1728,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - purpose_enum
-    enum_uri: fixi:purpose_enum
+    exact_mappings:
+    - fixi:purpose_enum
+    enum_uri: fix_orchestra:InterfacePurposeEnum
     permissible_values:
       SYNOPSIS:
         text: SYNOPSIS
@@ -1610,7 +1750,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - reliability_t
-    enum_uri: fixi:reliability_t
+    exact_mappings:
+    - fixi:reliability_t
+    enum_uri: fix_orchestra:InterfaceReliability
     permissible_values:
       bestEffort:
         text: bestEffort
@@ -1626,7 +1768,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - role_t
-    enum_uri: fixi:role_t
+    exact_mappings:
+    - fixi:role_t
+    enum_uri: fix_orchestra:Role
     permissible_values:
       initiator:
         text: initiator
@@ -1644,7 +1788,9 @@ enums:
     from_schema: https://w3id.org/lmodel/fix-orchestra
     aliases:
     - transportUse_enum
-    enum_uri: fixi:transportUse_enum
+    exact_mappings:
+    - fixi:transportUse_enum
+    enum_uri: fix_orchestra:TransportUseEnum
     permissible_values:
       primary:
         text: primary
@@ -1671,8 +1817,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/added
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:added
+    exact_mappings:
     - fixr:added
-    slot_uri: fixr:added
+    slot_uri: fix_orchestra:added
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1684,8 +1832,10 @@ slots:
     aliases:
     - addedEP
     mappings:
+    - fix_orchestra:added_ep
+    exact_mappings:
     - fixr:addedEP
-    slot_uri: fixr:addedEP
+    slot_uri: fix_orchestra:added_ep
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1697,8 +1847,10 @@ slots:
     aliases:
     - changeType
     mappings:
+    - fix_orchestra:change_type
+    exact_mappings:
     - fixr:changeType
-    slot_uri: fixr:changeType
+    slot_uri: fix_orchestra:change_type
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1710,8 +1862,10 @@ slots:
     aliases:
     - deprecatedEP
     mappings:
+    - fix_orchestra:deprecated_ep
+    exact_mappings:
     - fixr:deprecatedEP
-    slot_uri: fixr:deprecatedEP
+    slot_uri: fix_orchestra:deprecated_ep
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1721,8 +1875,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/issue
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:issue
+    exact_mappings:
     - fixr:issue
-    slot_uri: fixr:issue
+    slot_uri: fix_orchestra:issue
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1734,8 +1890,10 @@ slots:
     aliases:
     - lastModified
     mappings:
+    - fix_orchestra:last_modified
+    exact_mappings:
     - fixr:lastModified
-    slot_uri: fixr:lastModified
+    slot_uri: fix_orchestra:last_modified
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1745,8 +1903,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/replaced
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:replaced
+    exact_mappings:
     - fixr:replaced
-    slot_uri: fixr:replaced
+    slot_uri: fix_orchestra:replaced
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1758,8 +1918,10 @@ slots:
     aliases:
     - replacedEP
     mappings:
+    - fix_orchestra:replaced_ep
+    exact_mappings:
     - fixr:replacedEP
-    slot_uri: fixr:replacedEP
+    slot_uri: fix_orchestra:replaced_ep
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1771,8 +1933,10 @@ slots:
     aliases:
     - replacedByField
     mappings:
+    - fix_orchestra:replaced_by_field
+    exact_mappings:
     - fixr:replacedByField
-    slot_uri: fixr:replacedByField
+    slot_uri: fix_orchestra:replaced_by_field
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1782,8 +1946,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/supported
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:supported
+    exact_mappings:
     - fixr:supported
-    slot_uri: fixr:supported
+    slot_uri: fix_orchestra:supported
     ifabsent: string(supported)
     owner: EntityAttribGrp
     domain_of:
@@ -1794,8 +1960,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/updated
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:updated
+    exact_mappings:
     - fixr:updated
-    slot_uri: fixr:updated
+    slot_uri: fix_orchestra:updated
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1807,8 +1975,10 @@ slots:
     aliases:
     - updatedEP
     mappings:
+    - fix_orchestra:updated_ep
+    exact_mappings:
     - fixr:updatedEP
-    slot_uri: fixr:updatedEP
+    slot_uri: fix_orchestra:updated_ep
     owner: EntityAttribGrp
     domain_of:
     - EntityAttribGrp
@@ -1821,8 +1991,10 @@ slots:
     aliases:
     - minInclusive
     mappings:
+    - fix_orchestra:min_inclusive
+    exact_mappings:
     - fixr:minInclusive
-    slot_uri: fixr:minInclusive
+    slot_uri: fix_orchestra:min_inclusive
     owner: MappedDatatype
     domain_of:
     - FieldAttribGrp
@@ -1836,8 +2008,10 @@ slots:
     aliases:
     - maxInclusive
     mappings:
+    - fix_orchestra:max_inclusive
+    exact_mappings:
     - fixr:maxInclusive
-    slot_uri: fixr:maxInclusive
+    slot_uri: fix_orchestra:max_inclusive
     owner: MappedDatatype
     domain_of:
     - FieldAttribGrp
@@ -1851,8 +2025,10 @@ slots:
     aliases:
     - implLength
     mappings:
+    - fix_orchestra:impl_length
+    exact_mappings:
     - fixr:implLength
-    slot_uri: fixr:implLength
+    slot_uri: fix_orchestra:impl_length
     owner: FieldAttribGrp
     domain_of:
     - FieldAttribGrp
@@ -1864,8 +2040,10 @@ slots:
     aliases:
     - implMinLength
     mappings:
+    - fix_orchestra:impl_min_length
+    exact_mappings:
     - fixr:implMinLength
-    slot_uri: fixr:implMinLength
+    slot_uri: fix_orchestra:impl_min_length
     owner: FieldAttribGrp
     domain_of:
     - FieldAttribGrp
@@ -1877,8 +2055,10 @@ slots:
     aliases:
     - implMaxLength
     mappings:
+    - fix_orchestra:impl_max_length
+    exact_mappings:
     - fixr:implMaxLength
-    slot_uri: fixr:implMaxLength
+    slot_uri: fix_orchestra:impl_max_length
     owner: FieldAttribGrp
     domain_of:
     - FieldAttribGrp
@@ -1889,8 +2069,10 @@ slots:
     description: Overrides presence when expression is true
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:presence
+    exact_mappings:
     - fixr:presence
-    slot_uri: fixr:presence
+    slot_uri: fix_orchestra:presence
     ifabsent: string(optional)
     owner: ComponentRuleType
     domain_of:
@@ -1904,8 +2086,10 @@ slots:
     description: A hint to processes about how to interpret the element. Not validated.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:rendering
+    exact_mappings:
     - fixr:rendering
-    slot_uri: fixr:rendering
+    slot_uri: fix_orchestra:rendering
     owner: MessageType
     domain_of:
     - FieldAttribGrp
@@ -1920,8 +2104,10 @@ slots:
     aliases:
     - abbrName
     mappings:
+    - fix_orchestra:abbr_name
+    exact_mappings:
     - fixr:abbrName
-    slot_uri: fixr:abbrName
+    slot_uri: fix_orchestra:abbr_name
     owner: OidGrp
     domain_of:
     - OidGrp
@@ -1934,8 +2120,10 @@ slots:
     aliases:
     - scenarioId
     mappings:
+    - fix_orchestra:scenario_id
+    exact_mappings:
     - fixr:scenarioId
-    slot_uri: fixr:scenarioId
+    slot_uri: fix_orchestra:scenario_id
     ifabsent: string(1)
     owner: Datatype
     domain_of:
@@ -1952,8 +2140,10 @@ slots:
     aliases:
     - scenarioRefId
     mappings:
+    - fix_orchestra:scenario_ref_id
+    exact_mappings:
     - fixr:scenarioRefId
-    slot_uri: fixr:scenarioRefId
+    slot_uri: fix_orchestra:scenario_ref_id
     owner: ScenarioRefGrp
     domain_of:
     - ScenarioRefGrp
@@ -1967,8 +2157,10 @@ slots:
     aliases:
     - scenarioRef
     mappings:
+    - fix_orchestra:scenario_ref
+    exact_mappings:
     - fixr:scenarioRef
-    slot_uri: fixr:scenarioRef
+    slot_uri: fix_orchestra:scenario_ref
     owner: ScenarioRefGrp
     domain_of:
     - ScenarioRefGrp
@@ -1978,8 +2170,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/field
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:field
+    exact_mappings:
     - fixr:field
-    slot_uri: fixr:field
+    slot_uri: fix_orchestra:field
     owner: Fields
     domain_of:
     - ActionType
@@ -1998,8 +2192,10 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     owner: StructureInline
     domain_of:
     - ActionType
@@ -2019,8 +2215,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/component
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:component
+    exact_mappings:
     - fixr:component
-    slot_uri: fixr:component
+    slot_uri: fix_orchestra:component
     owner: Components
     domain_of:
     - ActionType
@@ -2037,8 +2235,10 @@ slots:
     aliases:
     - componentRef
     mappings:
+    - fix_orchestra:component_ref
+    exact_mappings:
     - fixr:componentRef
-    slot_uri: fixr:componentRef
+    slot_uri: fix_orchestra:component_ref
     owner: StructureInline
     domain_of:
     - ActionType
@@ -2059,8 +2259,10 @@ slots:
     aliases:
     - groupRef
     mappings:
+    - fix_orchestra:group_ref
+    exact_mappings:
     - fixr:groupRef
-    slot_uri: fixr:groupRef
+    slot_uri: fix_orchestra:group_ref
     owner: StructureInline
     domain_of:
     - ActionType
@@ -2082,8 +2284,10 @@ slots:
     aliases:
     - messageRef
     mappings:
+    - fix_orchestra:message_ref
+    exact_mappings:
     - fixr:messageRef
-    slot_uri: fixr:messageRef
+    slot_uri: fix_orchestra:message_ref
     owner: ConceptType
     domain_of:
     - ActionType
@@ -2098,8 +2302,10 @@ slots:
     description: Trigger a state transtion in a state machine
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:trigger
+    exact_mappings:
     - fixr:trigger
-    slot_uri: fixr:trigger
+    slot_uri: fix_orchestra:trigger
     owner: ActionType
     domain_of:
     - ActionType
@@ -2114,8 +2320,10 @@ slots:
     aliases:
     - timerSchedule
     mappings:
+    - fix_orchestra:timer_schedule
+    exact_mappings:
     - fixr:timerSchedule
-    slot_uri: fixr:timerSchedule
+    slot_uri: fix_orchestra:timer_schedule
     owner: ActionType
     domain_of:
     - ActionType
@@ -2128,8 +2336,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/states
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:states
+    exact_mappings:
     - fixr:states
-    slot_uri: fixr:states
+    slot_uri: fix_orchestra:states
     owner: ActorType
     domain_of:
     - ActorType
@@ -2142,8 +2352,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/timer
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:timer
+    exact_mappings:
     - fixr:timer
-    slot_uri: fixr:timer
+    slot_uri: fix_orchestra:timer
     owner: ActorType
     domain_of:
     - ActorType
@@ -2159,8 +2371,10 @@ slots:
     aliases:
     - specUrl
     mappings:
+    - fix_orchestra:spec_url
+    exact_mappings:
     - fixr:specUrl
-    slot_uri: fixr:specUrl
+    slot_uri: fix_orchestra:spec_url
     owner: Repository
     domain_of:
     - Appinfo
@@ -2191,8 +2405,10 @@ slots:
     aliases:
     - FIXMLFileName
     mappings:
+    - fix_orchestra:fixml_file_name
+    exact_mappings:
     - fixr:FIXMLFileName
-    slot_uri: fixr:FIXMLFileName
+    slot_uri: fix_orchestra:fixml_file_name
     owner: SectionType
     domain_of:
     - CategoryType
@@ -2205,8 +2421,10 @@ slots:
     aliases:
     - componentType
     mappings:
+    - fix_orchestra:component_type
+    exact_mappings:
     - fixr:componentType
-    slot_uri: fixr:componentType
+    slot_uri: fix_orchestra:component_type
     owner: CategoryType
     domain_of:
     - CategoryType
@@ -2218,8 +2436,10 @@ slots:
     aliases:
     - includeFile
     mappings:
+    - fix_orchestra:include_file
+    exact_mappings:
     - fixr:includeFile
-    slot_uri: fixr:includeFile
+    slot_uri: fix_orchestra:include_file
     owner: CategoryType
     domain_of:
     - CategoryType
@@ -2229,8 +2449,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/code
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:code
+    exact_mappings:
     - fixr:code
-    slot_uri: fixr:code
+    slot_uri: fix_orchestra:code
     owner: CodeSetType
     domain_of:
     - CodeSetType
@@ -2243,8 +2465,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/default
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:default
+    exact_mappings:
     - fixr:default
-    slot_uri: fixr:default
+    slot_uri: fix_orchestra:default
     owner: CodeSetType
     domain_of:
     - CodeSetType
@@ -2256,8 +2480,10 @@ slots:
     aliases:
     - unionDataType
     mappings:
+    - fix_orchestra:union_data_type
+    exact_mappings:
     - fixr:unionDataType
-    slot_uri: fixr:unionDataType
+    slot_uri: fix_orchestra:union_data_type
     owner: FieldType
     domain_of:
     - CodeSetType
@@ -2269,8 +2495,10 @@ slots:
     description: Sort and group may be used to organize visualization of a code set.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:sort
+    exact_mappings:
     - fixr:sort
-    slot_uri: fixr:sort
+    slot_uri: fix_orchestra:sort
     owner: CodeType
     domain_of:
     - CodeType
@@ -2283,8 +2511,10 @@ slots:
     aliases:
     - blockAssignment
     mappings:
+    - fix_orchestra:block_assignment
+    exact_mappings:
     - fixr:blockAssignment
-    slot_uri: fixr:blockAssignment
+    slot_uri: fix_orchestra:block_assignment
     owner: ComponentRefType
     domain_of:
     - ComponentRefType
@@ -2301,8 +2531,10 @@ slots:
       send.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:when
+    exact_mappings:
     - fixr:when
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
     owner: TransitionType
     domain_of:
     - ComponentRuleType
@@ -2317,8 +2549,10 @@ slots:
     description: Member selection within each group instance
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:which
+    exact_mappings:
     - fixr:which
-    slot_uri: fixr:which
+    slot_uri: fix_orchestra:which
     owner: StructureInline
     domain_of:
     - ComponentType
@@ -2333,8 +2567,10 @@ slots:
     aliases:
     - lengthId
     mappings:
+    - fix_orchestra:length_id
+    exact_mappings:
     - fixr:lengthId
-    slot_uri: fixr:lengthId
+    slot_uri: fix_orchestra:length_id
     owner: FieldType
     domain_of:
     - FieldRefType
@@ -2348,8 +2584,10 @@ slots:
     aliases:
     - nonEncodedFieldId
     mappings:
+    - fix_orchestra:non_encoded_field_id
+    exact_mappings:
     - fixr:nonEncodedFieldId
-    slot_uri: fixr:nonEncodedFieldId
+    slot_uri: fix_orchestra:non_encoded_field_id
     owner: FieldType
     domain_of:
     - FieldRefType
@@ -2360,8 +2598,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/unique
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:unique
+    exact_mappings:
     - fixr:unique
-    slot_uri: fixr:unique
+    slot_uri: fix_orchestra:unique
     owner: FieldRuleType
     domain_of:
     - FieldRuleType
@@ -2376,8 +2616,10 @@ slots:
     aliases:
     - discriminatorId
     mappings:
+    - fix_orchestra:discriminator_id
+    exact_mappings:
     - fixr:discriminatorId
-    slot_uri: fixr:discriminatorId
+    slot_uri: fix_orchestra:discriminator_id
     owner: FieldType
     domain_of:
     - FieldType
@@ -2389,8 +2631,10 @@ slots:
     aliases:
     - baseCategory
     mappings:
+    - fix_orchestra:base_category
+    exact_mappings:
     - fixr:baseCategory
-    slot_uri: fixr:baseCategory
+    slot_uri: fix_orchestra:base_category
     owner: FieldType
     domain_of:
     - FieldType
@@ -2402,8 +2646,10 @@ slots:
     aliases:
     - baseCategoryAbbrName
     mappings:
+    - fix_orchestra:base_category_abbr_name
+    exact_mappings:
     - fixr:baseCategoryAbbrName
-    slot_uri: fixr:baseCategoryAbbrName
+    slot_uri: fix_orchestra:base_category_abbr_name
     owner: FieldType
     domain_of:
     - FieldType
@@ -2414,8 +2660,10 @@ slots:
     description: Name of the actor that receives messages.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:destination
+    exact_mappings:
     - fixr:destination
-    slot_uri: fixr:destination
+    slot_uri: fix_orchestra:destination
     owner: FlowType
     domain_of:
     - FlowType
@@ -2429,8 +2677,10 @@ slots:
     aliases:
     - implMinOccurs
     mappings:
+    - fix_orchestra:impl_min_occurs
+    exact_mappings:
     - fixr:implMinOccurs
-    slot_uri: fixr:implMinOccurs
+    slot_uri: fix_orchestra:impl_min_occurs
     owner: MessageRefType
     domain_of:
     - GroupRefType
@@ -2445,8 +2695,10 @@ slots:
     aliases:
     - implMaxOccurs
     mappings:
+    - fix_orchestra:impl_max_occurs
+    exact_mappings:
     - fixr:implMaxOccurs
-    slot_uri: fixr:implMaxOccurs
+    slot_uri: fix_orchestra:impl_max_occurs
     ifabsent: string(unbounded)
     owner: MessageRefType
     domain_of:
@@ -2461,8 +2713,10 @@ slots:
     aliases:
     - numInGroup
     mappings:
+    - fix_orchestra:num_in_group
+    exact_mappings:
     - fixr:numInGroup
-    slot_uri: fixr:numInGroup
+    slot_uri: fix_orchestra:num_in_group
     owner: GroupType
     domain_of:
     - GroupType
@@ -2475,8 +2729,10 @@ slots:
     description: Correlated field IDs between two message types
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:correlate
+    exact_mappings:
     - fixr:correlate
-    slot_uri: fixr:correlate
+    slot_uri: fix_orchestra:correlate
     owner: IdentifiersType
     domain_of:
     - IdentifiersType
@@ -2491,8 +2747,10 @@ slots:
       to its encoding standard.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:extension
+    exact_mappings:
     - fixr:extension
-    slot_uri: fixr:extension
+    slot_uri: fix_orchestra:extension
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2504,8 +2762,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/standard
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:standard
+    exact_mappings:
     - fixr:standard
-    slot_uri: fixr:standard
+    slot_uri: fix_orchestra:standard
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2516,8 +2776,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/builtin
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:builtin
+    exact_mappings:
     - fixr:builtin
-    slot_uri: fixr:builtin
+    slot_uri: fix_orchestra:builtin
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2528,8 +2790,10 @@ slots:
     description: A lexical restriction from a base type
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:pattern
+    exact_mappings:
     - fixr:pattern
-    slot_uri: fixr:pattern
+    slot_uri: fix_orchestra:pattern
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2540,8 +2804,10 @@ slots:
     description: Element type of an aggregate type such as an array or sequence
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:element
+    exact_mappings:
     - fixr:element
-    slot_uri: fixr:element
+    slot_uri: fix_orchestra:element
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2553,8 +2819,10 @@ slots:
       elements.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:size
+    exact_mappings:
     - fixr:size
-    slot_uri: fixr:size
+    slot_uri: fix_orchestra:size
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2564,8 +2832,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/parameter
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:parameter
+    exact_mappings:
     - fixr:parameter
-    slot_uri: fixr:parameter
+    slot_uri: fix_orchestra:parameter
     owner: MappedDatatype
     domain_of:
     - MappedDatatype
@@ -2575,8 +2845,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/identifiers
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:identifiers
+    exact_mappings:
     - fixr:identifiers
-    slot_uri: fixr:identifiers
+    slot_uri: fix_orchestra:identifiers
     owner: MessageRefType
     domain_of:
     - MessageRefType
@@ -2590,8 +2862,10 @@ slots:
     aliases:
     - msgType
     mappings:
+    - fix_orchestra:msg_type
+    exact_mappings:
     - fixr:msgType
-    slot_uri: fixr:msgType
+    slot_uri: fix_orchestra:msg_type
     owner: MessageType
     domain_of:
     - MessageRefType
@@ -2603,8 +2877,10 @@ slots:
     description: Responses are evaluated and triggered in the order listed
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:response
+    exact_mappings:
     - fixr:response
-    slot_uri: fixr:response
+    slot_uri: fix_orchestra:response
     owner: ResponsesInline
     domain_of:
     - ResponsesInline
@@ -2618,8 +2894,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/structure
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:structure
+    exact_mappings:
     - fixr:structure
-    slot_uri: fixr:structure
+    slot_uri: fix_orchestra:structure
     owner: MessageType
     domain_of:
     - MessageType
@@ -2631,8 +2909,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/responses
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:responses
+    exact_mappings:
     - fixr:responses
-    slot_uri: fixr:responses
+    slot_uri: fix_orchestra:responses
     owner: MessageType
     domain_of:
     - MessageType
@@ -2644,8 +2924,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/sync
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:sync
+    exact_mappings:
     - fixr:sync
-    slot_uri: fixr:sync
+    slot_uri: fix_orchestra:sync
     owner: ResponseType
     domain_of:
     - ResponseType
@@ -2657,8 +2939,10 @@ slots:
     aliases:
     - displayOrder
     mappings:
+    - fix_orchestra:display_order
+    exact_mappings:
     - fixr:displayOrder
-    slot_uri: fixr:displayOrder
+    slot_uri: fix_orchestra:display_order
     owner: SectionType
     domain_of:
     - SectionType
@@ -2669,8 +2953,10 @@ slots:
     description: Initial state of a state machine
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:initial
+    exact_mappings:
     - fixr:initial
-    slot_uri: fixr:initial
+    slot_uri: fix_orchestra:initial
     owner: StateMachineType
     domain_of:
     - StateMachineType
@@ -2683,8 +2969,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/state
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:state
+    exact_mappings:
     - fixr:state
-    slot_uri: fixr:state
+    slot_uri: fix_orchestra:state
     owner: StateMachineType
     domain_of:
     - StateMachineType
@@ -2698,8 +2986,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/transition
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:transition
+    exact_mappings:
     - fixr:transition
-    slot_uri: fixr:transition
+    slot_uri: fix_orchestra:transition
     owner: StateType
     domain_of:
     - StateType
@@ -2713,8 +3003,10 @@ slots:
     description: Operation fired when entering a state.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:onentry
+    exact_mappings:
     - fixr:onentry
-    slot_uri: fixr:onentry
+    slot_uri: fix_orchestra:onentry
     owner: StateType
     domain_of:
     - StateType
@@ -2728,8 +3020,10 @@ slots:
       or earlier.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:activity
+    exact_mappings:
     - fixr:activity
-    slot_uri: fixr:activity
+    slot_uri: fix_orchestra:activity
     owner: TimerSchedule
     domain_of:
     - StateType
@@ -2743,8 +3037,10 @@ slots:
     description: Operation fired when exiting a state.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:onexit
+    exact_mappings:
     - fixr:onexit
-    slot_uri: fixr:onexit
+    slot_uri: fix_orchestra:onexit
     owner: StateType
     domain_of:
     - StateType
@@ -2756,8 +3052,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/operation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:operation
+    exact_mappings:
     - fixr:operation
-    slot_uri: fixr:operation
+    slot_uri: fix_orchestra:operation
     owner: TimerSchedule
     domain_of:
     - TimerSchedule
@@ -2768,8 +3066,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/interval
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:interval
+    exact_mappings:
     - fixr:interval
-    slot_uri: fixr:interval
+    slot_uri: fix_orchestra:interval
     owner: TimerSchedule
     domain_of:
     - TimerSchedule
@@ -2780,8 +3080,10 @@ slots:
     description: The target state of the transition
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:target
+    exact_mappings:
     - fixr:target
-    slot_uri: fixr:target
+    slot_uri: fix_orchestra:target
     owner: TransitionType
     domain_of:
     - TransitionType
@@ -2795,8 +3097,10 @@ slots:
     aliases:
     - stateMachine
     mappings:
+    - fix_orchestra:state_machine
+    exact_mappings:
     - fixr:stateMachine
-    slot_uri: fixr:stateMachine
+    slot_uri: fix_orchestra:state_machine
     owner: TriggerType
     domain_of:
     - TriggerType
@@ -2808,8 +3112,10 @@ slots:
     description: An application layer protocol with orchestration
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:service
+    exact_mappings:
     - fixi:service
-    slot_uri: fixi:service
+    slot_uri: fix_orchestra:service
     owner: BaseInterfaceType
     domain_of:
     - BaseInterfaceType
@@ -2824,8 +3130,10 @@ slots:
     aliases:
     - userInterface
     mappings:
+    - fix_orchestra:user_interface
+    exact_mappings:
     - fixi:userInterface
-    slot_uri: fixi:userInterface
+    slot_uri: fix_orchestra:user_interface
     owner: BaseInterfaceType
     domain_of:
     - BaseInterfaceType
@@ -2840,8 +3148,10 @@ slots:
     aliases:
     - sessionProtocol
     mappings:
+    - fix_orchestra:session_protocol
+    exact_mappings:
     - fixi:sessionProtocol
-    slot_uri: fixi:sessionProtocol
+    slot_uri: fix_orchestra:session_protocol
     owner: BaseInterfaceType
     domain_of:
     - BaseInterfaceType
@@ -2854,8 +3164,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/protocol
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:protocol
+    exact_mappings:
     - fixi:protocol
-    slot_uri: fixi:protocol
+    slot_uri: fix_orchestra:protocol
     owner: BaseInterfaceType
     domain_of:
     - BaseInterfaceType
@@ -2868,8 +3180,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/transport
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:transport
+    exact_mappings:
     - fixi:transport
-    slot_uri: fixi:transport
+    slot_uri: fix_orchestra:transport
     owner: BaseInterfaceType
     domain_of:
     - BaseInterfaceType
@@ -2882,8 +3196,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/session
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:session
+    exact_mappings:
     - fixi:session
-    slot_uri: fixi:session
+    slot_uri: fix_orchestra:session
     owner: SessionsInline
     domain_of:
     - SessionsInline
@@ -2897,8 +3213,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/sessions
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:sessions
+    exact_mappings:
     - fixi:sessions
-    slot_uri: fixi:sessions
+    slot_uri: fix_orchestra:sessions
     owner: InterfaceType
     domain_of:
     - InterfaceType
@@ -2913,8 +3231,10 @@ slots:
     aliases:
     - activationTime
     mappings:
+    - fix_orchestra:activation_time
+    exact_mappings:
     - fixi:activationTime
-    slot_uri: fixi:activationTime
+    slot_uri: fix_orchestra:activation_time
     owner: SessionType
     domain_of:
     - ProtocolType
@@ -2928,8 +3248,10 @@ slots:
     aliases:
     - deactivationTime
     mappings:
+    - fix_orchestra:deactivation_time
+    exact_mappings:
     - fixi:deactivationTime
-    slot_uri: fixi:deactivationTime
+    slot_uri: fix_orchestra:deactivation_time
     owner: SessionType
     domain_of:
     - ProtocolType
@@ -2940,8 +3262,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/layer
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:layer
+    exact_mappings:
     - fixi:layer
-    slot_uri: fixi:layer
+    slot_uri: fix_orchestra:layer
     owner: ProtocolType
     domain_of:
     - ProtocolType
@@ -2952,8 +3276,10 @@ slots:
     description: URI of Orchestra rules of engagement
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:orchestration
+    exact_mappings:
     - fixi:orchestration
-    slot_uri: fixi:orchestration
+    slot_uri: fix_orchestra:orchestration
     owner: ProtocolType
     domain_of:
     - ProtocolType
@@ -2963,8 +3289,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/role
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:role
+    exact_mappings:
     - fixi:role
-    slot_uri: fixi:role
+    slot_uri: fix_orchestra:role
     owner: SessionType
     domain_of:
     - SessionType
@@ -2977,8 +3305,10 @@ slots:
     aliases:
     - securityKeys
     mappings:
+    - fix_orchestra:security_keys
+    exact_mappings:
     - fixi:securityKeys
-    slot_uri: fixi:securityKeys
+    slot_uri: fix_orchestra:security_keys
     owner: SessionType
     domain_of:
     - SessionType
@@ -2988,8 +3318,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/address
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:address
+    exact_mappings:
     - fixi:address
-    slot_uri: fixi:address
+    slot_uri: fix_orchestra:address
     owner: TransportProtocolType
     domain_of:
     - TransportProtocolType
@@ -3001,8 +3333,10 @@ slots:
     aliases:
     - messageCast
     mappings:
+    - fix_orchestra:message_cast
+    exact_mappings:
     - fixi:messageCast
-    slot_uri: fixi:messageCast
+    slot_uri: fix_orchestra:message_cast
     ifabsent: string(unicast)
     owner: TransportProtocolType
     domain_of:
@@ -3013,8 +3347,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/use
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:use
+    exact_mappings:
     - fixi:use
-    slot_uri: fixi:use
+    slot_uri: fix_orchestra:use
     owner: TransportProtocolType
     domain_of:
     - TransportProtocolType
@@ -3026,8 +3362,10 @@ slots:
     aliases:
     - mappedDatatype
     mappings:
+    - fix_orchestra:mapped_datatype
+    exact_mappings:
     - fixr:mappedDatatype
-    slot_uri: fixr:mappedDatatype
+    slot_uri: fix_orchestra:mapped_datatype
     owner: Datatype
     domain_of:
     - Datatype
@@ -3042,8 +3380,10 @@ slots:
     aliases:
     - baseType
     mappings:
+    - fix_orchestra:base_type
+    exact_mappings:
     - fixr:baseType
-    slot_uri: fixr:baseType
+    slot_uri: fix_orchestra:base_type
     owner: Datatype
     domain_of:
     - Datatype
@@ -3053,8 +3393,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/concept
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:concept
+    exact_mappings:
     - fixr:concept
-    slot_uri: fixr:concept
+    slot_uri: fix_orchestra:concept
     owner: Concepts
     domain_of:
     - Concepts
@@ -3067,8 +3409,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/datatype
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:datatype
+    exact_mappings:
     - fixr:datatype
-    slot_uri: fixr:datatype
+    slot_uri: fix_orchestra:datatype
     owner: Datatypes
     domain_of:
     - Datatypes
@@ -3081,8 +3425,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/message
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:message
+    exact_mappings:
     - fixr:message
-    slot_uri: fixr:message
+    slot_uri: fix_orchestra:message
     owner: Messages
     domain_of:
     - Messages
@@ -3095,8 +3441,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/metadata
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:metadata
+    exact_mappings:
     - fixr:metadata
-    slot_uri: fixr:metadata
+    slot_uri: fix_orchestra:metadata
     owner: Interfaces
     domain_of:
     - Repository
@@ -3110,8 +3458,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/categories
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:categories
+    exact_mappings:
     - fixr:categories
-    slot_uri: fixr:categories
+    slot_uri: fix_orchestra:categories
     owner: Repository
     domain_of:
     - Repository
@@ -3123,8 +3473,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/sections
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:sections
+    exact_mappings:
     - fixr:sections
-    slot_uri: fixr:sections
+    slot_uri: fix_orchestra:sections
     owner: Repository
     domain_of:
     - Repository
@@ -3136,8 +3488,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/datatypes
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:datatypes
+    exact_mappings:
     - fixr:datatypes
-    slot_uri: fixr:datatypes
+    slot_uri: fix_orchestra:datatypes
     owner: Repository
     domain_of:
     - Repository
@@ -3152,8 +3506,10 @@ slots:
     aliases:
     - codeSets
     mappings:
+    - fix_orchestra:code_sets
+    exact_mappings:
     - fixr:codeSets
-    slot_uri: fixr:codeSets
+    slot_uri: fix_orchestra:code_sets
     owner: Repository
     domain_of:
     - Repository
@@ -3165,8 +3521,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/fields
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:fields
+    exact_mappings:
     - fixr:fields
-    slot_uri: fixr:fields
+    slot_uri: fix_orchestra:fields
     owner: Repository
     domain_of:
     - Repository
@@ -3179,8 +3537,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/actors
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:actors
+    exact_mappings:
     - fixr:actors
-    slot_uri: fixr:actors
+    slot_uri: fix_orchestra:actors
     owner: Repository
     domain_of:
     - Repository
@@ -3192,8 +3552,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/components
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:components
+    exact_mappings:
     - fixr:components
-    slot_uri: fixr:components
+    slot_uri: fix_orchestra:components
     owner: Repository
     domain_of:
     - Repository
@@ -3205,8 +3567,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/groups
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:groups
+    exact_mappings:
     - fixr:groups
-    slot_uri: fixr:groups
+    slot_uri: fix_orchestra:groups
     owner: Repository
     domain_of:
     - Repository
@@ -3218,8 +3582,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/messages
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:messages
+    exact_mappings:
     - fixr:messages
-    slot_uri: fixr:messages
+    slot_uri: fix_orchestra:messages
     owner: Repository
     domain_of:
     - Repository
@@ -3232,8 +3598,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/concepts
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:concepts
+    exact_mappings:
     - fixr:concepts
-    slot_uri: fixr:concepts
+    slot_uri: fix_orchestra:concepts
     owner: Repository
     domain_of:
     - Repository
@@ -3245,8 +3613,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/scenarios
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:scenarios
+    exact_mappings:
     - fixr:scenarios
-    slot_uri: fixr:scenarios
+    slot_uri: fix_orchestra:scenarios
     owner: Repository
     domain_of:
     - Repository
@@ -3258,8 +3628,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/guid
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:guid
+    exact_mappings:
     - fixr:guid
-    slot_uri: fixr:guid
+    slot_uri: fix_orchestra:guid
     owner: Repository
     domain_of:
     - Repository
@@ -3270,8 +3642,10 @@ slots:
     description: An associated namespace as URI
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:namespace
+    exact_mappings:
     - fixr:namespace
-    slot_uri: fixr:namespace
+    slot_uri: fix_orchestra:namespace
     owner: Repository
     domain_of:
     - Repository
@@ -3284,8 +3658,10 @@ slots:
     aliases:
     - expressionLanguage
     mappings:
+    - fix_orchestra:expression_language
+    exact_mappings:
     - fixr:expressionLanguage
-    slot_uri: fixr:expressionLanguage
+    slot_uri: fix_orchestra:expression_language
     ifabsent: string(Score)
     owner: Repository
     domain_of:
@@ -3296,8 +3672,10 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/interface
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:interface
+    exact_mappings:
     - fixi:interface
-    slot_uri: fixi:interface
+    slot_uri: fix_orchestra:interface
     owner: Interfaces
     domain_of:
     - Interfaces
@@ -4129,8 +4507,10 @@ slots:
     name: entityAttribGrp__deprecated
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:deprecated
+    exact_mappings:
     - fixr:deprecated
-    slot_uri: fixr:deprecated
+    slot_uri: fix_orchestra:deprecated
     alias: deprecated
     owner: EntityAttribGrp
     domain_of:
@@ -4141,8 +4521,10 @@ slots:
     description: Character encoding if other than US-ASCII
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:encoding
+    exact_mappings:
     - fixr:encoding
-    slot_uri: fixr:encoding
+    slot_uri: fix_orchestra:encoding
     alias: encoding
     owner: FieldAttribGrp
     domain_of:
@@ -4154,8 +4536,10 @@ slots:
       element type, e.g. unique field tag
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:id
+    exact_mappings:
     - fixr:id
-    slot_uri: fixr:id
+    slot_uri: fix_orchestra:id
     alias: id
     owner: OidGrp
     domain_of:
@@ -4166,8 +4550,10 @@ slots:
     name: oidGrp__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: OidGrp
     domain_of:
@@ -4180,8 +4566,10 @@ slots:
       etc.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:scenario
+    exact_mappings:
     - fixr:scenario
-    slot_uri: fixr:scenario
+    slot_uri: fix_orchestra:scenario
     ifabsent: string(base)
     alias: scenario
     owner: OidGrp
@@ -4194,8 +4582,10 @@ slots:
       element type, e.g. unique field tag
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:id
+    exact_mappings:
     - fixr:id
-    slot_uri: fixr:id
+    slot_uri: fix_orchestra:id
     alias: id
     owner: RefidGrp
     domain_of:
@@ -4210,8 +4600,10 @@ slots:
       used for the reference and the name of the referred object.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: RefidGrp
     domain_of:
@@ -4223,8 +4615,10 @@ slots:
       etc.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:scenario
+    exact_mappings:
     - fixr:scenario
-    slot_uri: fixr:scenario
+    slot_uri: fix_orchestra:scenario
     ifabsent: string(base)
     alias: scenario
     owner: RefidGrp
@@ -4235,8 +4629,10 @@ slots:
     name: actionType__group
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:group
+    exact_mappings:
     - fixr:group
-    slot_uri: fixr:group
+    slot_uri: fix_orchestra:group
     alias: group
     owner: ActionType
     domain_of:
@@ -4251,8 +4647,10 @@ slots:
       in the form '$actor.variable=value'
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:assign
+    exact_mappings:
     - fixr:assign
-    slot_uri: fixr:assign
+    slot_uri: fix_orchestra:assign
     alias: assign
     owner: ActionType
     domain_of:
@@ -4263,8 +4661,10 @@ slots:
     name: actorType__group
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:group
+    exact_mappings:
     - fixr:group
-    slot_uri: fixr:group
+    slot_uri: fix_orchestra:group
     alias: group
     owner: ActorType
     domain_of:
@@ -4277,8 +4677,10 @@ slots:
     name: actorType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ActorType
     domain_of:
@@ -4290,8 +4692,10 @@ slots:
     name: actorType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: ActorType
     domain_of:
@@ -4302,8 +4706,10 @@ slots:
     name: annotation__documentation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:documentation
+    exact_mappings:
     - fixr:documentation
-    slot_uri: fixr:documentation
+    slot_uri: fix_orchestra:documentation
     alias: documentation
     owner: Annotation
     domain_of:
@@ -4316,8 +4722,10 @@ slots:
     name: annotation__appinfo
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:appinfo
+    exact_mappings:
     - fixr:appinfo
-    slot_uri: fixr:appinfo
+    slot_uri: fix_orchestra:appinfo
     alias: appinfo
     owner: Annotation
     domain_of:
@@ -4332,8 +4740,10 @@ slots:
     aliases:
     - langId
     mappings:
+    - fix_orchestra:lang_id
+    exact_mappings:
     - fixr:langId
-    slot_uri: fixr:langId
+    slot_uri: fix_orchestra:lang_id
     alias: lang_id
     owner: Appinfo
     domain_of:
@@ -4343,8 +4753,10 @@ slots:
     name: appinfo__purpose
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:purpose
+    exact_mappings:
     - fixr:purpose
-    slot_uri: fixr:purpose
+    slot_uri: fix_orchestra:purpose
     alias: purpose
     owner: Appinfo
     domain_of:
@@ -4354,8 +4766,10 @@ slots:
     name: categoryType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: CategoryType
     domain_of:
@@ -4367,8 +4781,10 @@ slots:
     name: categoryType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: CategoryType
     domain_of:
@@ -4379,8 +4795,10 @@ slots:
     name: categoryType__section
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:section
+    exact_mappings:
     - fixr:section
-    slot_uri: fixr:section
+    slot_uri: fix_orchestra:section
     alias: section
     owner: CategoryType
     domain_of:
@@ -4390,8 +4808,10 @@ slots:
     name: codeSetType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: CodeSetType
     domain_of:
@@ -4404,8 +4824,10 @@ slots:
     description: Underlying FIX datatype of codes
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:type
+    exact_mappings:
     - fixr:type
-    slot_uri: fixr:type
+    slot_uri: fix_orchestra:type
     alias: type
     owner: CodeSetType
     domain_of:
@@ -4416,8 +4838,10 @@ slots:
     name: codeType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: CodeType
     domain_of:
@@ -4429,8 +4853,10 @@ slots:
     name: codeType__group
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:group
+    exact_mappings:
     - fixr:group
-    slot_uri: fixr:group
+    slot_uri: fix_orchestra:group
     alias: group
     owner: CodeType
     domain_of:
@@ -4441,8 +4867,10 @@ slots:
     description: Rule to tell when a conditionally require component
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:rule
+    exact_mappings:
     - fixr:rule
-    slot_uri: fixr:rule
+    slot_uri: fix_orchestra:rule
     alias: rule
     owner: ComponentRefType
     domain_of:
@@ -4455,8 +4883,10 @@ slots:
     name: componentRefType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ComponentRefType
     domain_of:
@@ -4472,8 +4902,10 @@ slots:
     aliases:
     - instanceName
     mappings:
+    - fix_orchestra:instance_name
+    exact_mappings:
     - fixr:instanceName
-    slot_uri: fixr:instanceName
+    slot_uri: fix_orchestra:instance_name
     alias: instance_name
     owner: ComponentRefType
     domain_of:
@@ -4484,8 +4916,10 @@ slots:
     description: Name of this rule
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: ComponentRuleType
     domain_of:
@@ -4495,8 +4929,10 @@ slots:
     name: componentType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ComponentType
     domain_of:
@@ -4508,8 +4944,10 @@ slots:
     name: componentType__category
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:category
+    exact_mappings:
     - fixr:category
-    slot_uri: fixr:category
+    slot_uri: fix_orchestra:category
     alias: category
     owner: ComponentType
     domain_of:
@@ -4519,8 +4957,10 @@ slots:
     name: conceptType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ConceptType
     domain_of:
@@ -4532,8 +4972,10 @@ slots:
     name: conceptType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: ConceptType
     domain_of:
@@ -4546,8 +4988,10 @@ slots:
     aliases:
     - langId
     mappings:
+    - fix_orchestra:lang_id
+    exact_mappings:
     - fixr:langId
-    slot_uri: fixr:langId
+    slot_uri: fix_orchestra:lang_id
     alias: lang_id
     owner: Documentation
     domain_of:
@@ -4557,8 +5001,10 @@ slots:
     name: documentation__purpose
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:purpose
+    exact_mappings:
     - fixr:purpose
-    slot_uri: fixr:purpose
+    slot_uri: fix_orchestra:purpose
     alias: purpose
     owner: Documentation
     domain_of:
@@ -4570,8 +5016,10 @@ slots:
     aliases:
     - contentType
     mappings:
+    - fix_orchestra:content_type
+    exact_mappings:
     - fixr:contentType
-    slot_uri: fixr:contentType
+    slot_uri: fix_orchestra:content_type
     ifabsent: string(text/plain)
     alias: content_type
     owner: Documentation
@@ -4584,8 +5032,10 @@ slots:
       to override other attributes, or perform validation.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:rule
+    exact_mappings:
     - fixr:rule
-    slot_uri: fixr:rule
+    slot_uri: fix_orchestra:rule
     alias: rule
     owner: FieldRefType
     domain_of:
@@ -4600,8 +5050,10 @@ slots:
       or state variable
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:assign
+    exact_mappings:
     - fixr:assign
-    slot_uri: fixr:assign
+    slot_uri: fix_orchestra:assign
     alias: assign
     owner: FieldRefType
     domain_of:
@@ -4611,8 +5063,10 @@ slots:
     name: fieldRefType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: FieldRefType
     domain_of:
@@ -4628,8 +5082,10 @@ slots:
     aliases:
     - instanceName
     mappings:
+    - fix_orchestra:instance_name
+    exact_mappings:
     - fixr:instanceName
-    slot_uri: fixr:instanceName
+    slot_uri: fix_orchestra:instance_name
     alias: instance_name
     owner: FieldRefType
     domain_of:
@@ -4641,8 +5097,10 @@ slots:
       or state variable. This can be used for field validation.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:assign
+    exact_mappings:
     - fixr:assign
-    slot_uri: fixr:assign
+    slot_uri: fix_orchestra:assign
     alias: assign
     owner: FieldRuleType
     domain_of:
@@ -4654,8 +5112,10 @@ slots:
     description: Name of this rule
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: FieldRuleType
     domain_of:
@@ -4666,8 +5126,10 @@ slots:
     description: Overrides the type of the referenced field.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:type
+    exact_mappings:
     - fixr:type
-    slot_uri: fixr:type
+    slot_uri: fix_orchestra:type
     alias: type
     owner: FieldRuleType
     domain_of:
@@ -4679,8 +5141,10 @@ slots:
       to override other attributes, or perform validation.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:rule
+    exact_mappings:
     - fixr:rule
-    slot_uri: fixr:rule
+    slot_uri: fix_orchestra:rule
     alias: rule
     owner: FieldType
     domain_of:
@@ -4695,8 +5159,10 @@ slots:
       or state variable
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:assign
+    exact_mappings:
     - fixr:assign
-    slot_uri: fixr:assign
+    slot_uri: fix_orchestra:assign
     alias: assign
     owner: FieldType
     domain_of:
@@ -4706,8 +5172,10 @@ slots:
     name: fieldType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: FieldType
     domain_of:
@@ -4720,8 +5188,10 @@ slots:
     description: Attribute type refers to a datatype name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:type
+    exact_mappings:
     - fixr:type
-    slot_uri: fixr:type
+    slot_uri: fix_orchestra:type
     alias: type
     owner: FieldType
     domain_of:
@@ -4734,8 +5204,10 @@ slots:
     aliases:
     - codeSet
     mappings:
+    - fix_orchestra:code_set
+    exact_mappings:
     - fixr:codeSet
-    slot_uri: fixr:codeSet
+    slot_uri: fix_orchestra:code_set
     alias: code_set
     owner: FieldType
     domain_of:
@@ -4745,8 +5217,10 @@ slots:
     name: flowType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: FlowType
     domain_of:
@@ -4758,8 +5232,10 @@ slots:
     name: flowType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: FlowType
     domain_of:
@@ -4770,8 +5246,10 @@ slots:
     name: flowType__reliability
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:reliability
+    exact_mappings:
     - fixr:reliability
-    slot_uri: fixr:reliability
+    slot_uri: fix_orchestra:reliability
     alias: reliability
     owner: FlowType
     domain_of:
@@ -4781,8 +5259,10 @@ slots:
     name: groupType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: GroupType
     domain_of:
@@ -4794,8 +5274,10 @@ slots:
     name: groupType__category
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:category
+    exact_mappings:
     - fixr:category
-    slot_uri: fixr:category
+    slot_uri: fix_orchestra:category
     alias: category
     owner: GroupType
     domain_of:
@@ -4806,8 +5288,10 @@ slots:
     description: Field ID assigned
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:assign
+    exact_mappings:
     - fixr:assign
-    slot_uri: fixr:assign
+    slot_uri: fix_orchestra:assign
     alias: assign
     owner: IdentifiersType
     domain_of:
@@ -4820,8 +5304,10 @@ slots:
     name: identifiersType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: IdentifiersType
     domain_of:
@@ -4833,8 +5319,10 @@ slots:
     name: identifierType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixi:name
-    slot_uri: fixi:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: IdentifierType
     domain_of:
@@ -4844,8 +5332,10 @@ slots:
     name: mappedDatatype__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: MappedDatatype
     domain_of:
@@ -4859,8 +5349,10 @@ slots:
       type is created by a generator
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: MappedDatatype
     domain_of:
@@ -4870,8 +5362,10 @@ slots:
     name: messageType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: MessageType
     domain_of:
@@ -4883,8 +5377,10 @@ slots:
     name: messageType__category
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:category
+    exact_mappings:
     - fixr:category
-    slot_uri: fixr:category
+    slot_uri: fix_orchestra:category
     alias: category
     owner: MessageType
     domain_of:
@@ -4894,8 +5390,10 @@ slots:
     name: messageType__flow
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:flow
+    exact_mappings:
     - fixr:flow
-    slot_uri: fixr:flow
+    slot_uri: fix_orchestra:flow
     alias: flow
     owner: MessageType
     domain_of:
@@ -4905,8 +5403,10 @@ slots:
     name: responseType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ResponseType
     domain_of:
@@ -4918,8 +5418,10 @@ slots:
     name: responseType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: ResponseType
     domain_of:
@@ -4929,8 +5431,10 @@ slots:
     name: scenarioType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ScenarioType
     domain_of:
@@ -4943,8 +5447,10 @@ slots:
     description: Unique numeric identifier. Default is '1' is for base scenario.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:id
+    exact_mappings:
     - fixr:id
-    slot_uri: fixr:id
+    slot_uri: fix_orchestra:id
     ifabsent: string(1)
     alias: id
     owner: ScenarioType
@@ -4956,8 +5462,10 @@ slots:
     description: Unique name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     ifabsent: string(base)
     alias: name
     owner: ScenarioType
@@ -4968,8 +5476,10 @@ slots:
     name: sectionType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: SectionType
     domain_of:
@@ -4981,8 +5491,10 @@ slots:
     name: sectionType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: SectionType
     domain_of:
@@ -4993,8 +5505,10 @@ slots:
     name: stateMachineType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: StateMachineType
     domain_of:
@@ -5006,8 +5520,10 @@ slots:
     name: stateMachineType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: StateMachineType
     domain_of:
@@ -5018,8 +5534,10 @@ slots:
     name: stateType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: StateType
     domain_of:
@@ -5031,8 +5549,10 @@ slots:
     name: stateType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: StateType
     domain_of:
@@ -5044,8 +5564,10 @@ slots:
     description: Name of the actor that owns the timer
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:actor
+    exact_mappings:
     - fixr:actor
-    slot_uri: fixr:actor
+    slot_uri: fix_orchestra:actor
     alias: actor
     owner: TimerSchedule
     domain_of:
@@ -5057,8 +5579,10 @@ slots:
     description: Name of the timer
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: TimerSchedule
     domain_of:
@@ -5069,8 +5593,10 @@ slots:
     name: timerType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: TimerType
     domain_of:
@@ -5081,8 +5607,10 @@ slots:
     name: transitionType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: TransitionType
     domain_of:
@@ -5094,8 +5622,10 @@ slots:
     name: transitionType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: TransitionType
     domain_of:
@@ -5107,8 +5637,10 @@ slots:
     description: Name of the actor that owns the state machine
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:actor
+    exact_mappings:
     - fixr:actor
-    slot_uri: fixr:actor
+    slot_uri: fix_orchestra:actor
     alias: actor
     owner: TriggerType
     domain_of:
@@ -5120,8 +5652,10 @@ slots:
     description: Name of the transition to invoke
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: TriggerType
     domain_of:
@@ -5132,8 +5666,10 @@ slots:
     name: interfaceAnnotation__documentation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:documentation
+    exact_mappings:
     - fixi:documentation
-    slot_uri: fixi:documentation
+    slot_uri: fix_orchestra:documentation
     alias: documentation
     owner: InterfaceAnnotation
     domain_of:
@@ -5146,8 +5682,10 @@ slots:
     name: interfaceAnnotation__appinfo
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:appinfo
+    exact_mappings:
     - fixi:appinfo
-    slot_uri: fixi:appinfo
+    slot_uri: fix_orchestra:appinfo
     alias: appinfo
     owner: InterfaceAnnotation
     domain_of:
@@ -5162,8 +5700,10 @@ slots:
     aliases:
     - langId
     mappings:
+    - fix_orchestra:lang_id
+    exact_mappings:
     - fixi:langId
-    slot_uri: fixi:langId
+    slot_uri: fix_orchestra:lang_id
     alias: lang_id
     owner: InterfaceAppinfo
     domain_of:
@@ -5173,8 +5713,10 @@ slots:
     name: interfaceAppinfo__purpose
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:purpose
+    exact_mappings:
     - fixi:purpose
-    slot_uri: fixi:purpose
+    slot_uri: fix_orchestra:purpose
     alias: purpose
     owner: InterfaceAppinfo
     domain_of:
@@ -5184,8 +5726,10 @@ slots:
     name: baseInterfaceType__encoding
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:encoding
+    exact_mappings:
     - fixi:encoding
-    slot_uri: fixi:encoding
+    slot_uri: fix_orchestra:encoding
     alias: encoding
     owner: BaseInterfaceType
     domain_of:
@@ -5198,8 +5742,10 @@ slots:
     name: baseInterfaceType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixi:annotation
-    slot_uri: fixi:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: BaseInterfaceType
     domain_of:
@@ -5211,8 +5757,10 @@ slots:
     name: baseInterfaceType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixi:name
-    slot_uri: fixi:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: BaseInterfaceType
     domain_of:
@@ -5225,8 +5773,10 @@ slots:
     aliases:
     - langId
     mappings:
+    - fix_orchestra:lang_id
+    exact_mappings:
     - fixi:langId
-    slot_uri: fixi:langId
+    slot_uri: fix_orchestra:lang_id
     alias: lang_id
     owner: InterfaceDocumentation
     domain_of:
@@ -5236,8 +5786,10 @@ slots:
     name: interfaceDocumentation__purpose
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:purpose
+    exact_mappings:
     - fixi:purpose
-    slot_uri: fixi:purpose
+    slot_uri: fix_orchestra:purpose
     alias: purpose
     owner: InterfaceDocumentation
     domain_of:
@@ -5249,8 +5801,10 @@ slots:
     aliases:
     - contentType
     mappings:
+    - fix_orchestra:content_type
+    exact_mappings:
     - fixi:contentType
-    slot_uri: fixi:contentType
+    slot_uri: fix_orchestra:content_type
     ifabsent: string(text/plain)
     alias: content_type
     owner: InterfaceDocumentation
@@ -5261,8 +5815,10 @@ slots:
     name: protocolType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixi:annotation
-    slot_uri: fixi:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: ProtocolType
     domain_of:
@@ -5274,8 +5830,10 @@ slots:
     name: protocolType__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixi:name
-    slot_uri: fixi:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: ProtocolType
     domain_of:
@@ -5285,8 +5843,10 @@ slots:
     name: protocolType__version
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:version
+    exact_mappings:
     - fixi:version
-    slot_uri: fixi:version
+    slot_uri: fix_orchestra:version
     alias: version
     owner: ProtocolType
     domain_of:
@@ -5298,8 +5858,10 @@ slots:
       future
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:deprecated
+    exact_mappings:
     - fixi:deprecated
-    slot_uri: fixi:deprecated
+    slot_uri: fix_orchestra:deprecated
     alias: deprecated
     owner: ProtocolType
     domain_of:
@@ -5311,8 +5873,10 @@ slots:
       layers
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:reliability
+    exact_mappings:
     - fixi:reliability
-    slot_uri: fixi:reliability
+    slot_uri: fix_orchestra:reliability
     alias: reliability
     owner: ProtocolType
     domain_of:
@@ -5322,8 +5886,10 @@ slots:
     name: sessionType__identifier
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:identifier
+    exact_mappings:
     - fixi:identifier
-    slot_uri: fixi:identifier
+    slot_uri: fix_orchestra:identifier
     alias: identifier
     owner: SessionType
     domain_of:
@@ -5336,8 +5902,10 @@ slots:
     name: datatype__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Datatype
     domain_of:
@@ -5349,8 +5917,10 @@ slots:
     name: datatype__name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: Datatype
     domain_of:
@@ -5362,8 +5932,10 @@ slots:
     description: The use case of a datatype by name
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:scenario
+    exact_mappings:
     - fixr:scenario
-    slot_uri: fixr:scenario
+    slot_uri: fix_orchestra:scenario
     ifabsent: string(base)
     alias: scenario
     owner: Datatype
@@ -5374,8 +5946,10 @@ slots:
     name: actors__actor
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:actor
+    exact_mappings:
     - fixr:actor
-    slot_uri: fixr:actor
+    slot_uri: fix_orchestra:actor
     alias: actor
     owner: Actors
     domain_of:
@@ -5388,8 +5962,10 @@ slots:
     name: actors__flow
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:flow
+    exact_mappings:
     - fixr:flow
-    slot_uri: fixr:flow
+    slot_uri: fix_orchestra:flow
     alias: flow
     owner: Actors
     domain_of:
@@ -5402,8 +5978,10 @@ slots:
     name: actors__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Actors
     domain_of:
@@ -5415,8 +5993,10 @@ slots:
     name: actors__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Actors
     domain_of:
@@ -5427,8 +6007,10 @@ slots:
     description: A business process category, a subcategory of a businessArea
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:category
+    exact_mappings:
     - fixr:category
-    slot_uri: fixr:category
+    slot_uri: fix_orchestra:category
     alias: category
     owner: Categories
     domain_of:
@@ -5441,8 +6023,10 @@ slots:
     name: categories__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Categories
     domain_of:
@@ -5454,8 +6038,10 @@ slots:
     name: categories__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Categories
     domain_of:
@@ -5467,8 +6053,10 @@ slots:
     aliases:
     - codeSet
     mappings:
+    - fix_orchestra:code_set
+    exact_mappings:
     - fixr:codeSet
-    slot_uri: fixr:codeSet
+    slot_uri: fix_orchestra:code_set
     alias: code_set
     owner: CodeSets
     domain_of:
@@ -5481,8 +6069,10 @@ slots:
     name: codeSets__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: CodeSets
     domain_of:
@@ -5494,8 +6084,10 @@ slots:
     name: codeSets__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: CodeSets
     domain_of:
@@ -5505,8 +6097,10 @@ slots:
     name: components__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Components
     domain_of:
@@ -5518,8 +6112,10 @@ slots:
     name: components__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Components
     domain_of:
@@ -5529,8 +6125,10 @@ slots:
     name: concepts__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Concepts
     domain_of:
@@ -5542,8 +6140,10 @@ slots:
     name: concepts__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Concepts
     domain_of:
@@ -5553,8 +6153,10 @@ slots:
     name: datatypes__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Datatypes
     domain_of:
@@ -5566,8 +6168,10 @@ slots:
     name: datatypes__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Datatypes
     domain_of:
@@ -5577,8 +6181,10 @@ slots:
     name: fields__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Fields
     domain_of:
@@ -5590,8 +6196,10 @@ slots:
     name: fields__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Fields
     domain_of:
@@ -5601,8 +6209,10 @@ slots:
     name: groups__group
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:group
+    exact_mappings:
     - fixr:group
-    slot_uri: fixr:group
+    slot_uri: fix_orchestra:group
     alias: group
     owner: Groups
     domain_of:
@@ -5615,8 +6225,10 @@ slots:
     name: groups__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Groups
     domain_of:
@@ -5628,8 +6240,10 @@ slots:
     name: groups__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Groups
     domain_of:
@@ -5639,8 +6253,10 @@ slots:
     name: messages__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Messages
     domain_of:
@@ -5652,8 +6268,10 @@ slots:
     name: messages__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Messages
     domain_of:
@@ -5663,8 +6281,10 @@ slots:
     name: repository__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Repository
     domain_of:
@@ -5677,8 +6297,10 @@ slots:
     description: Stable name that does not change with minor version updates
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:name
+    exact_mappings:
     - fixr:name
-    slot_uri: fixr:name
+    slot_uri: fix_orchestra:name
     alias: name
     owner: Repository
     domain_of:
@@ -5689,8 +6311,10 @@ slots:
     name: repository__version
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:version
+    exact_mappings:
     - fixr:version
-    slot_uri: fixr:version
+    slot_uri: fix_orchestra:version
     alias: version
     owner: Repository
     domain_of:
@@ -5701,8 +6325,10 @@ slots:
     name: scenarios__scenario
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:scenario
+    exact_mappings:
     - fixr:scenario
-    slot_uri: fixr:scenario
+    slot_uri: fix_orchestra:scenario
     alias: scenario
     owner: Scenarios
     domain_of:
@@ -5715,8 +6341,10 @@ slots:
     name: scenarios__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Scenarios
     domain_of:
@@ -5728,8 +6356,10 @@ slots:
     name: scenarios__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Scenarios
     domain_of:
@@ -5740,8 +6370,10 @@ slots:
     description: A large-grained business process category
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:section
+    exact_mappings:
     - fixr:section
-    slot_uri: fixr:section
+    slot_uri: fix_orchestra:section
     alias: section
     owner: Sections
     domain_of:
@@ -5754,8 +6386,10 @@ slots:
     name: sections__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:annotation
+    exact_mappings:
     - fixr:annotation
-    slot_uri: fixr:annotation
+    slot_uri: fix_orchestra:annotation
     alias: annotation
     owner: Sections
     domain_of:
@@ -5767,8 +6401,10 @@ slots:
     name: sections__base
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:base
+    exact_mappings:
     - fixr:base
-    slot_uri: fixr:base
+    slot_uri: fix_orchestra:base
     alias: base
     owner: Sections
     domain_of:
@@ -5943,10 +6579,12 @@ slots:
     description: Overrides presence when expression is true
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:presence
+    exact_mappings:
     - fixr:presence
     is_a: presence
     domain: FieldAttribGrp
-    slot_uri: fixr:presence
+    slot_uri: fix_orchestra:presence
     ifabsent: string(optional)
     alias: presence
     owner: FieldAttribGrp
@@ -5963,10 +6601,12 @@ slots:
       value.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
+    - fix_orchestra:value
+    exact_mappings:
     - fixr:value
     is_a: value
     domain: FieldAttribGrp
-    slot_uri: fixr:value
+    slot_uri: fix_orchestra:value
     alias: value
     owner: FieldAttribGrp
     domain_of:
@@ -5983,10 +6623,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: ActionType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: ActionType
     domain_of:
@@ -6006,10 +6648,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: ActorType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: ActorType
     domain_of:
@@ -6029,10 +6673,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: BlockAssignmentType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: BlockAssignmentType
     domain_of:
@@ -6051,10 +6697,12 @@ slots:
     aliases:
     - specUrl
     mappings:
+    - fix_orchestra:spec_url
+    exact_mappings:
     - fixr:specUrl
     is_a: spec_url
     domain: CodeSetType
-    slot_uri: fixr:specUrl
+    slot_uri: fix_orchestra:spec_url
     alias: spec_url
     owner: CodeSetType
     domain_of:
@@ -6070,10 +6718,12 @@ slots:
       are allowed. May be further restricted by an external style.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
+    - fix_orchestra:value
+    exact_mappings:
     - fixr:value
     is_a: value
     domain: CodeType
-    slot_uri: fixr:value
+    slot_uri: fix_orchestra:value
     alias: value
     owner: CodeType
     domain_of:
@@ -6088,10 +6738,12 @@ slots:
     description: Overrides presence when expression is true
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:presence
+    exact_mappings:
     - fixr:presence
     is_a: presence
     domain: ComponentRefType
-    slot_uri: fixr:presence
+    slot_uri: fix_orchestra:presence
     ifabsent: string(optional)
     alias: presence
     owner: ComponentRefType
@@ -6109,10 +6761,12 @@ slots:
       send.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:when
+    exact_mappings:
     - fixr:when
     is_a: when
     domain: ComponentRuleType
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
     alias: when
     owner: ComponentRuleType
     domain_of:
@@ -6127,10 +6781,12 @@ slots:
     description: Overrides presence when expression is true
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:presence
+    exact_mappings:
     - fixr:presence
     is_a: presence
     domain: ComponentRuleType
-    slot_uri: fixr:presence
+    slot_uri: fix_orchestra:presence
     ifabsent: string(optional)
     alias: presence
     owner: ComponentRuleType
@@ -6148,10 +6804,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: ComponentType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: ComponentType
     domain_of:
@@ -6168,10 +6826,12 @@ slots:
     description: Member selection within each group instance
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:which
+    exact_mappings:
     - fixr:which
     is_a: which
     domain: ComponentType
-    slot_uri: fixr:which
+    slot_uri: fix_orchestra:which
     alias: which
     owner: ComponentType
     domain_of:
@@ -6188,10 +6848,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: ConceptType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: ConceptType
     domain_of:
@@ -6210,10 +6872,12 @@ slots:
     aliases:
     - messageRef
     mappings:
+    - fix_orchestra:message_ref
+    exact_mappings:
     - fixr:messageRef
     is_a: message_ref
     domain: ConceptType
-    slot_uri: fixr:messageRef
+    slot_uri: fix_orchestra:message_ref
     alias: message_ref
     owner: ConceptType
     domain_of:
@@ -6233,10 +6897,12 @@ slots:
       send.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:when
+    exact_mappings:
     - fixr:when
     is_a: when
     domain: FieldRuleType
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
     alias: when
     owner: FieldRuleType
     domain_of:
@@ -6251,10 +6917,12 @@ slots:
     description: Name of the actor that originates messages
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
+    - fix_orchestra:source
+    exact_mappings:
     - fixr:source
     is_a: source
     domain: FlowType
-    slot_uri: fixr:source
+    slot_uri: fix_orchestra:source
     alias: source
     owner: FlowType
     domain_of:
@@ -6271,10 +6939,12 @@ slots:
     aliases:
     - implMinOccurs
     mappings:
+    - fix_orchestra:impl_min_occurs
+    exact_mappings:
     - fixr:implMinOccurs
     is_a: impl_min_occurs
     domain: GroupRefType
-    slot_uri: fixr:implMinOccurs
+    slot_uri: fix_orchestra:impl_min_occurs
     alias: impl_min_occurs
     owner: GroupRefType
     domain_of:
@@ -6290,10 +6960,12 @@ slots:
     aliases:
     - implMaxOccurs
     mappings:
+    - fix_orchestra:impl_max_occurs
+    exact_mappings:
     - fixr:implMaxOccurs
     is_a: impl_max_occurs
     domain: GroupRefType
-    slot_uri: fixr:implMaxOccurs
+    slot_uri: fix_orchestra:impl_max_occurs
     ifabsent: string(unbounded)
     alias: impl_max_occurs
     owner: GroupRefType
@@ -6311,10 +6983,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: GroupType
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: GroupType
     domain_of:
@@ -6333,10 +7007,12 @@ slots:
     aliases:
     - implMaxOccurs
     mappings:
+    - fix_orchestra:impl_max_occurs
+    exact_mappings:
     - fixr:implMaxOccurs
     is_a: impl_max_occurs
     domain: GroupType
-    slot_uri: fixr:implMaxOccurs
+    slot_uri: fix_orchestra:impl_max_occurs
     ifabsent: string(unbounded)
     alias: impl_max_occurs
     owner: GroupType
@@ -6353,10 +7029,12 @@ slots:
     aliases:
     - minInclusive
     mappings:
+    - fix_orchestra:min_inclusive
+    exact_mappings:
     - fixr:minInclusive
     is_a: min_inclusive
     domain: MappedDatatype
-    slot_uri: fixr:minInclusive
+    slot_uri: fix_orchestra:min_inclusive
     alias: min_inclusive
     owner: MappedDatatype
     domain_of:
@@ -6372,10 +7050,12 @@ slots:
     aliases:
     - maxInclusive
     mappings:
+    - fix_orchestra:max_inclusive
+    exact_mappings:
     - fixr:maxInclusive
     is_a: max_inclusive
     domain: MappedDatatype
-    slot_uri: fixr:maxInclusive
+    slot_uri: fix_orchestra:max_inclusive
     alias: max_inclusive
     owner: MappedDatatype
     domain_of:
@@ -6391,10 +7071,12 @@ slots:
     aliases:
     - implMinOccurs
     mappings:
+    - fix_orchestra:impl_min_occurs
+    exact_mappings:
     - fixr:implMinOccurs
     is_a: impl_min_occurs
     domain: MessageRefType
-    slot_uri: fixr:implMinOccurs
+    slot_uri: fix_orchestra:impl_min_occurs
     ifabsent: string(1)
     alias: impl_min_occurs
     owner: MessageRefType
@@ -6411,10 +7093,12 @@ slots:
     aliases:
     - implMaxOccurs
     mappings:
+    - fix_orchestra:impl_max_occurs
+    exact_mappings:
     - fixr:implMaxOccurs
     is_a: impl_max_occurs
     domain: MessageRefType
-    slot_uri: fixr:implMaxOccurs
+    slot_uri: fix_orchestra:impl_max_occurs
     ifabsent: string(unbounded)
     alias: impl_max_occurs
     owner: MessageRefType
@@ -6432,10 +7116,12 @@ slots:
     aliases:
     - fieldRef
     mappings:
+    - fix_orchestra:field_ref
+    exact_mappings:
     - fixr:fieldRef
     is_a: field_ref
     domain: StructureInline
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
     alias: field_ref
     owner: StructureInline
     domain_of:
@@ -6452,10 +7138,12 @@ slots:
     description: Member selection within each group instance
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:which
+    exact_mappings:
     - fixr:which
     is_a: which
     domain: StructureInline
-    slot_uri: fixr:which
+    slot_uri: fix_orchestra:which
     alias: which
     owner: StructureInline
     domain_of:
@@ -6470,10 +7158,12 @@ slots:
       the actions are invoked. If 'when' is not present, the actions are unconditional.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:when
+    exact_mappings:
     - fixr:when
     is_a: when
     domain: ResponseType
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
     alias: when
     owner: ResponseType
     domain_of:
@@ -6487,10 +7177,12 @@ slots:
     description: Action to take when a timer expires
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:activity
+    exact_mappings:
     - fixr:activity
     is_a: activity
     domain: TimerSchedule
-    slot_uri: fixr:activity
+    slot_uri: fix_orchestra:activity
     alias: activity
     owner: TimerSchedule
     domain_of:
@@ -6508,10 +7200,12 @@ slots:
       evaluates true. If not present, the transition is unconditional.
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:when
+    exact_mappings:
     - fixr:when
     is_a: when
     domain: TransitionType
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
     alias: when
     owner: TransitionType
     domain_of:
@@ -6527,10 +7221,12 @@ slots:
     aliases:
     - specUrl
     mappings:
+    - fix_orchestra:spec_url
+    exact_mappings:
     - fixi:specUrl
     is_a: spec_url
     domain: InterfaceAppinfo
-    slot_uri: fixi:specUrl
+    slot_uri: fix_orchestra:spec_url
     alias: spec_url
     owner: InterfaceAppinfo
     domain_of:
@@ -6546,10 +7242,12 @@ slots:
     aliases:
     - activationTime
     mappings:
+    - fix_orchestra:activation_time
+    exact_mappings:
     - fixi:activationTime
     is_a: activation_time
     domain: SessionType
-    slot_uri: fixi:activationTime
+    slot_uri: fix_orchestra:activation_time
     alias: activation_time
     owner: SessionType
     domain_of:
@@ -6565,10 +7263,12 @@ slots:
     aliases:
     - deactivationTime
     mappings:
+    - fix_orchestra:deactivation_time
+    exact_mappings:
     - fixi:deactivationTime
     is_a: deactivation_time
     domain: SessionType
-    slot_uri: fixi:deactivationTime
+    slot_uri: fix_orchestra:deactivation_time
     alias: deactivation_time
     owner: SessionType
     domain_of:
@@ -6581,10 +7281,12 @@ slots:
     definition_uri: https://w3id.org/lmodel/fix-orchestra/metadata
     from_schema: https://w3id.org/lmodel/fix-orchestra
     mappings:
+    - fix_orchestra:metadata
+    exact_mappings:
     - fixi:metadata
     is_a: metadata
     domain: Interfaces
-    slot_uri: fixi:metadata
+    slot_uri: fix_orchestra:metadata
     alias: metadata
     owner: Interfaces
     domain_of:
@@ -6605,6 +7307,8 @@ classes:
     aliases:
     - entityAttribGrp
     mappings:
+    - fix_orchestra:EntityAttribGrp
+    exact_mappings:
     - fixr:entityAttribGrp
     mixin: true
     slots:
@@ -6624,9 +7328,11 @@ classes:
     attributes:
       deprecated:
         name: deprecated
-        slot_uri: fixr:deprecated
+        exact_mappings:
+        - fixr:deprecated
+        slot_uri: fix_orchestra:deprecated
         range: Version
-    class_uri: fixr:entityAttribGrp
+    class_uri: fix_orchestra:EntityAttribGrp
   FieldAttribGrp:
     name: FieldAttribGrp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FieldAttribGrp
@@ -6637,6 +7343,8 @@ classes:
     aliases:
     - fieldAttribGrp
     mappings:
+    - fix_orchestra:FieldAttribGrp
+    exact_mappings:
     - fixr:fieldAttribGrp
     mixin: true
     slots:
@@ -6657,14 +7365,18 @@ classes:
         description: If presence is optional, then it represents a default when the
           sender does not provide the field. If presence is constant, then it is the
           constant value.
-        slot_uri: fixr:value
+        exact_mappings:
+        - fixr:value
+        slot_uri: fix_orchestra:value
     attributes:
       encoding:
         name: encoding
         description: Character encoding if other than US-ASCII
-        slot_uri: fixr:encoding
+        exact_mappings:
+        - fixr:encoding
+        slot_uri: fix_orchestra:encoding
         range: string
-    class_uri: fixr:fieldAttribGrp
+    class_uri: fix_orchestra:FieldAttribGrp
   OidGrp:
     name: OidGrp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/OidGrp
@@ -6675,6 +7387,8 @@ classes:
     aliases:
     - oidGrp
     mappings:
+    - fix_orchestra:OidGrp
+    exact_mappings:
     - fixr:oidGrp
     mixin: true
     slots:
@@ -6688,22 +7402,28 @@ classes:
         name: id
         description: Numeric identifier generally must be unique within a file for
           an element type, e.g. unique field tag
-        slot_uri: fixr:id
+        exact_mappings:
+        - fixr:id
+        slot_uri: fix_orchestra:id
         range: Id
         required: true
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
       scenario:
         name: scenario
         description: The use case of an element, distinguished by workflow, asset
           class, etc.
-        slot_uri: fixr:scenario
+        exact_mappings:
+        - fixr:scenario
+        slot_uri: fix_orchestra:scenario
         ifabsent: string(base)
         range: Name
-    class_uri: fixr:oidGrp
+    class_uri: fix_orchestra:OidGrp
   RefidGrp:
     name: RefidGrp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/RefidGrp
@@ -6714,6 +7434,8 @@ classes:
     aliases:
     - refidGrp
     mappings:
+    - fix_orchestra:RefidGrp
+    exact_mappings:
     - fixr:refidGrp
     mixin: true
     slots:
@@ -6726,7 +7448,9 @@ classes:
         name: id
         description: Numeric identifier generally must be unique within a file for
           an element type, e.g. unique field tag
-        slot_uri: fixr:id
+        exact_mappings:
+        - fixr:id
+        slot_uri: fix_orchestra:id
         range: Id
         required: true
       name:
@@ -6735,16 +7459,20 @@ classes:
           It is not enforced by referential integrity. However, the name of the referred
           object is authoritative. A validator may check the consistency between the
           name used for the reference and the name of the referred object.
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
       scenario:
         name: scenario
         description: The use case of an element, distinguished by workflow, asset
           class, etc.
-        slot_uri: fixr:scenario
+        exact_mappings:
+        - fixr:scenario
+        slot_uri: fix_orchestra:scenario
         ifabsent: string(base)
         range: Name
-    class_uri: fixr:refidGrp
+    class_uri: fix_orchestra:RefidGrp
   ScenarioRefGrp:
     name: ScenarioRefGrp
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ScenarioRefGrp
@@ -6756,12 +7484,14 @@ classes:
     aliases:
     - scenarioRefGrp
     mappings:
+    - fix_orchestra:ScenarioRefGrp
+    exact_mappings:
     - fixr:scenarioRefGrp
     mixin: true
     slots:
     - scenario_ref_id
     - scenario_ref
-    class_uri: fixr:scenarioRefGrp
+    class_uri: fix_orchestra:ScenarioRefGrp
   ActionType:
     name: ActionType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ActionType
@@ -6775,6 +7505,8 @@ classes:
     aliases:
     - actionType
     mappings:
+    - fix_orchestra:ActionType
+    exact_mappings:
     - fixr:actionType
     slots:
     - field
@@ -6793,7 +7525,9 @@ classes:
     attributes:
       group:
         name: group
-        slot_uri: fixr:group
+        exact_mappings:
+        - fixr:group
+        slot_uri: fix_orchestra:group
         range: GroupType
         multivalued: true
         inlined: true
@@ -6802,10 +7536,12 @@ classes:
         name: assign
         description: Content of element holds an assignment expression for a state
           variable in the form '$actor.variable=value'
-        slot_uri: fixr:assign
+        exact_mappings:
+        - fixr:assign
+        slot_uri: fix_orchestra:assign
         range: ExpressionType
         multivalued: true
-    class_uri: fixr:actionType
+    class_uri: fix_orchestra:ActionType
   ActorType:
     name: ActorType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ActorType
@@ -6820,6 +7556,8 @@ classes:
     aliases:
     - actorType
     mappings:
+    - fix_orchestra:ActorType
+    exact_mappings:
     - fixr:actorType
     slots:
     - field
@@ -6838,21 +7576,27 @@ classes:
     attributes:
       group:
         name: group
-        slot_uri: fixr:group
+        exact_mappings:
+        - fixr:group
+        slot_uri: fix_orchestra:group
         range: GroupType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:actorType
+    class_uri: fix_orchestra:ActorType
   Annotation:
     name: Annotation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Annotation
@@ -6866,6 +7610,8 @@ classes:
     aliases:
     - annotation
     mappings:
+    - fix_orchestra:Annotation
+    exact_mappings:
     - fixr:annotation
     mixins:
     - EntityAttribGrp
@@ -6888,19 +7634,23 @@ classes:
     attributes:
       documentation:
         name: documentation
-        slot_uri: fixr:documentation
+        exact_mappings:
+        - fixr:documentation
+        slot_uri: fix_orchestra:documentation
         range: Documentation
         multivalued: true
         inlined: true
         inlined_as_list: true
       appinfo:
         name: appinfo
-        slot_uri: fixr:appinfo
+        exact_mappings:
+        - fixr:appinfo
+        slot_uri: fix_orchestra:appinfo
         range: Appinfo
         multivalued: true
         inlined: true
         inlined_as_list: true
-    class_uri: fixr:annotation
+    class_uri: fix_orchestra:Annotation
   Appinfo:
     name: Appinfo
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Appinfo
@@ -6919,6 +7669,8 @@ classes:
     aliases:
     - appinfo
     mappings:
+    - fix_orchestra:Appinfo
+    exact_mappings:
     - fixr:appinfo
     mixins:
     - EntityAttribGrp
@@ -6947,13 +7699,17 @@ classes:
         name: lang_id
         aliases:
         - langId
-        slot_uri: fixr:langId
+        exact_mappings:
+        - fixr:langId
+        slot_uri: fix_orchestra:lang_id
         range: Language
       purpose:
         name: purpose
-        slot_uri: fixr:purpose
+        exact_mappings:
+        - fixr:purpose
+        slot_uri: fix_orchestra:purpose
         range: Purpose
-    class_uri: fixr:appinfo
+    class_uri: fix_orchestra:Appinfo
   BlockAssignmentType:
     name: BlockAssignmentType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/BlockAssignmentType
@@ -6967,6 +7723,8 @@ classes:
     aliases:
     - blockAssignmentType
     mappings:
+    - fix_orchestra:BlockAssignmentType
+    exact_mappings:
     - fixr:blockAssignmentType
     slots:
     - component_ref
@@ -6975,7 +7733,7 @@ classes:
     slot_usage:
       field_ref:
         name: field_ref
-    class_uri: fixr:blockAssignmentType
+    class_uri: fix_orchestra:BlockAssignmentType
   CategoryType:
     name: CategoryType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/CategoryType
@@ -6989,6 +7747,8 @@ classes:
     aliases:
     - categoryType
     mappings:
+    - fix_orchestra:CategoryType
+    exact_mappings:
     - fixr:categoryType
     mixins:
     - EntityAttribGrp
@@ -7015,18 +7775,24 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
       section:
         name: section
-        slot_uri: fixr:section
+        exact_mappings:
+        - fixr:section
+        slot_uri: fix_orchestra:section
         range: Name
-    class_uri: fixr:categoryType
+    class_uri: fix_orchestra:CategoryType
   CodeSetType:
     name: CodeSetType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/CodeSetType
@@ -7040,6 +7806,8 @@ classes:
     aliases:
     - codeSetType
     mappings:
+    - fix_orchestra:CodeSetType
+    exact_mappings:
     - fixr:codeSetType
     mixins:
     - OidGrp
@@ -7079,15 +7847,19 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       type:
         name: type
         description: Underlying FIX datatype of codes
-        slot_uri: fixr:type
+        exact_mappings:
+        - fixr:type
+        slot_uri: fix_orchestra:type
         range: Name
         required: true
-    class_uri: fixr:codeSetType
+    class_uri: fix_orchestra:CodeSetType
   CodeType:
     name: CodeType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/CodeType
@@ -7101,6 +7873,8 @@ classes:
     aliases:
     - codeType
     mappings:
+    - fix_orchestra:CodeType
+    exact_mappings:
     - fixr:codeType
     mixins:
     - OidGrp
@@ -7134,18 +7908,24 @@ classes:
         description: The XML processor will remove line feeds, carriage returns, tabs,
           leading and trailing spaces, and multiple spaces. However, single internal
           spaces are allowed. May be further restricted by an external style.
-        slot_uri: fixr:value
+        exact_mappings:
+        - fixr:value
+        slot_uri: fix_orchestra:value
         required: true
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       group:
         name: group
-        slot_uri: fixr:group
+        exact_mappings:
+        - fixr:group
+        slot_uri: fix_orchestra:group
         range: string
-    class_uri: fixr:codeType
+    class_uri: fix_orchestra:CodeType
   ComponentRefType:
     name: ComponentRefType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ComponentRefType
@@ -7159,6 +7939,8 @@ classes:
     aliases:
     - componentRefType
     mappings:
+    - fix_orchestra:ComponentRefType
+    exact_mappings:
     - fixr:componentRefType
     mixins:
     - RefidGrp
@@ -7193,14 +7975,18 @@ classes:
       rule:
         name: rule
         description: Rule to tell when a conditionally require component
-        slot_uri: fixr:rule
+        exact_mappings:
+        - fixr:rule
+        slot_uri: fix_orchestra:rule
         range: ComponentRuleType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       instance_name:
         name: instance_name
@@ -7208,9 +7994,11 @@ classes:
           and the like. Allows more than one instance of a component in a message.
         aliases:
         - instanceName
-        slot_uri: fixr:instanceName
+        exact_mappings:
+        - fixr:instanceName
+        slot_uri: fix_orchestra:instance_name
         range: ComponentName
-    class_uri: fixr:componentRefType
+    class_uri: fix_orchestra:ComponentRefType
   ComponentRuleType:
     name: ComponentRuleType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ComponentRuleType
@@ -7224,6 +8012,8 @@ classes:
     aliases:
     - componentRuleType
     mappings:
+    - fix_orchestra:ComponentRuleType
+    exact_mappings:
     - fixr:componentRuleType
     slots:
     - ComponentRuleType_when
@@ -7239,9 +8029,11 @@ classes:
       name:
         name: name
         description: Name of this rule
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
-    class_uri: fixr:componentRuleType
+    class_uri: fix_orchestra:ComponentRuleType
   ComponentType:
     name: ComponentType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ComponentType
@@ -7255,6 +8047,8 @@ classes:
     aliases:
     - componentType
     mappings:
+    - fix_orchestra:ComponentType
+    exact_mappings:
     - fixr:componentType
     mixins:
     - EntityAttribGrp
@@ -7296,13 +8090,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       category:
         name: category
-        slot_uri: fixr:category
+        exact_mappings:
+        - fixr:category
+        slot_uri: fix_orchestra:category
         range: Name
-    class_uri: fixr:componentType
+    class_uri: fix_orchestra:ComponentType
   ConceptType:
     name: ConceptType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ConceptType
@@ -7316,6 +8114,8 @@ classes:
     aliases:
     - conceptType
     mappings:
+    - fix_orchestra:ConceptType
+    exact_mappings:
     - fixr:conceptType
     slots:
     - component_ref
@@ -7332,14 +8132,18 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:conceptType
+    class_uri: fix_orchestra:ConceptType
   Documentation:
     name: Documentation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Documentation
@@ -7353,6 +8157,8 @@ classes:
     aliases:
     - documentation
     mappings:
+    - fix_orchestra:Documentation
+    exact_mappings:
     - fixr:documentation
     mixins:
     - EntityAttribGrp
@@ -7380,20 +8186,26 @@ classes:
         name: lang_id
         aliases:
         - langId
-        slot_uri: fixr:langId
+        exact_mappings:
+        - fixr:langId
+        slot_uri: fix_orchestra:lang_id
         range: Language
       purpose:
         name: purpose
-        slot_uri: fixr:purpose
+        exact_mappings:
+        - fixr:purpose
+        slot_uri: fix_orchestra:purpose
         range: Purpose
       content_type:
         name: content_type
         aliases:
         - contentType
-        slot_uri: fixr:contentType
+        exact_mappings:
+        - fixr:contentType
+        slot_uri: fix_orchestra:content_type
         ifabsent: string(text/plain)
         range: Mime
-    class_uri: fixr:documentation
+    class_uri: fix_orchestra:Documentation
   FieldRefType:
     name: FieldRefType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FieldRefType
@@ -7407,6 +8219,8 @@ classes:
     aliases:
     - fieldRefType
     mappings:
+    - fix_orchestra:FieldRefType
+    exact_mappings:
     - fixr:fieldRefType
     mixins:
     - RefidGrp
@@ -7450,7 +8264,9 @@ classes:
         name: rule
         description: Rule to tell when a conditionally require field is required or
           forbidden, to override other attributes, or perform validation.
-        slot_uri: fixr:rule
+        exact_mappings:
+        - fixr:rule
+        slot_uri: fix_orchestra:rule
         range: FieldRuleType
         multivalued: true
         inlined: true
@@ -7459,11 +8275,15 @@ classes:
         name: assign
         description: Content of element holds an assignment expression for a message
           field or state variable
-        slot_uri: fixr:assign
+        exact_mappings:
+        - fixr:assign
+        slot_uri: fix_orchestra:assign
         range: ExpressionType
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       instance_name:
         name: instance_name
@@ -7471,9 +8291,11 @@ classes:
           and the like. Allows more than one instance of a field in a message or component.
         aliases:
         - instanceName
-        slot_uri: fixr:instanceName
+        exact_mappings:
+        - fixr:instanceName
+        slot_uri: fix_orchestra:instance_name
         range: Name
-    class_uri: fixr:fieldRefType
+    class_uri: fix_orchestra:FieldRefType
   UniqueInline:
     name: UniqueInline
     definition_uri: https://w3id.org/lmodel/fix-orchestra/UniqueInline
@@ -7500,6 +8322,8 @@ classes:
     aliases:
     - fieldRuleType
     mappings:
+    - fix_orchestra:FieldRuleType
+    exact_mappings:
     - fixr:fieldRuleType
     mixins:
     - FieldAttribGrp
@@ -7527,20 +8351,26 @@ classes:
         name: assign
         description: Content of element holds an assignment expression for a message
           field or state variable. This can be used for field validation.
-        slot_uri: fixr:assign
+        exact_mappings:
+        - fixr:assign
+        slot_uri: fix_orchestra:assign
         range: ExpressionType
         multivalued: true
       name:
         name: name
         description: Name of this rule
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
       type:
         name: type
         description: Overrides the type of the referenced field.
-        slot_uri: fixr:type
+        exact_mappings:
+        - fixr:type
+        slot_uri: fix_orchestra:type
         range: Name
-    class_uri: fixr:fieldRuleType
+    class_uri: fix_orchestra:FieldRuleType
   FieldType:
     name: FieldType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FieldType
@@ -7554,6 +8384,8 @@ classes:
     aliases:
     - fieldType
     mappings:
+    - fix_orchestra:FieldType
+    exact_mappings:
     - fixr:fieldType
     mixins:
     - OidGrp
@@ -7603,7 +8435,9 @@ classes:
         name: rule
         description: Rule to tell when a conditionally require field is required or
           forbidden, to override other attributes, or perform validation.
-        slot_uri: fixr:rule
+        exact_mappings:
+        - fixr:rule
+        slot_uri: fix_orchestra:rule
         range: FieldRuleType
         multivalued: true
         inlined: true
@@ -7612,25 +8446,33 @@ classes:
         name: assign
         description: Content of element holds an assignment expression for a message
           field or state variable
-        slot_uri: fixr:assign
+        exact_mappings:
+        - fixr:assign
+        slot_uri: fix_orchestra:assign
         range: ExpressionType
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       type:
         name: type
         description: Attribute type refers to a datatype name
-        slot_uri: fixr:type
+        exact_mappings:
+        - fixr:type
+        slot_uri: fix_orchestra:type
         range: Name
       code_set:
         name: code_set
         description: Attribute codeSet refers to a codeSet name
         aliases:
         - codeSet
-        slot_uri: fixr:codeSet
+        exact_mappings:
+        - fixr:codeSet
+        slot_uri: fix_orchestra:code_set
         range: Name
-    class_uri: fixr:fieldType
+    class_uri: fix_orchestra:FieldType
   FlowType:
     name: FlowType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/FlowType
@@ -7645,6 +8487,8 @@ classes:
     aliases:
     - flowType
     mappings:
+    - fix_orchestra:FlowType
+    exact_mappings:
     - fixr:flowType
     slots:
     - FlowType_source
@@ -7656,23 +8500,31 @@ classes:
       source:
         name: source
         description: Name of the actor that originates messages
-        slot_uri: fixr:source
+        exact_mappings:
+        - fixr:source
+        slot_uri: fix_orchestra:source
         required: true
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
       reliability:
         name: reliability
-        slot_uri: fixr:reliability
+        exact_mappings:
+        - fixr:reliability
+        slot_uri: fix_orchestra:reliability
         range: Reliability
-    class_uri: fixr:flowType
+    class_uri: fix_orchestra:FlowType
   GroupRefType:
     name: GroupRefType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/GroupRefType
@@ -7686,6 +8538,8 @@ classes:
     aliases:
     - groupRefType
     mappings:
+    - fix_orchestra:GroupRefType
+    exact_mappings:
     - fixr:groupRefType
     is_a: ComponentRefType
     slots:
@@ -7718,7 +8572,7 @@ classes:
         name: impl_min_occurs
       impl_max_occurs:
         name: impl_max_occurs
-    class_uri: fixr:groupRefType
+    class_uri: fix_orchestra:GroupRefType
   GroupType:
     name: GroupType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/GroupType
@@ -7734,6 +8588,8 @@ classes:
     aliases:
     - groupType
     mappings:
+    - fix_orchestra:GroupType
+    exact_mappings:
     - fixr:groupType
     mixins:
     - EntityAttribGrp
@@ -7778,13 +8634,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       category:
         name: category
-        slot_uri: fixr:category
+        exact_mappings:
+        - fixr:category
+        slot_uri: fix_orchestra:category
         range: Name
-    class_uri: fixr:groupType
+    class_uri: fix_orchestra:GroupType
   IdentifiersType:
     name: IdentifiersType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/IdentifiersType
@@ -7798,6 +8658,8 @@ classes:
     aliases:
     - identifiersType
     mappings:
+    - fix_orchestra:IdentifiersType
+    exact_mappings:
     - fixr:identifiersType
     slots:
     - correlate
@@ -7807,16 +8669,20 @@ classes:
       assign:
         name: assign
         description: Field ID assigned
-        slot_uri: fixr:assign
+        exact_mappings:
+        - fixr:assign
+        slot_uri: fix_orchestra:assign
         range: IdentifierType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
-    class_uri: fixr:identifiersType
+    class_uri: fix_orchestra:IdentifiersType
   IdentifierType:
     name: IdentifierType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/IdentifierType
@@ -7830,6 +8696,8 @@ classes:
     aliases:
     - identifierType
     mappings:
+    - fix_orchestra:IdentifierType
+    exact_mappings:
     - fixi:identifierType
     slots:
     - value
@@ -7837,9 +8705,11 @@ classes:
     attributes:
       name:
         name: name
-        slot_uri: fixi:name
+        exact_mappings:
+        - fixi:name
+        slot_uri: fix_orchestra:name
         range: string
-    class_uri: fixi:identifierType
+    class_uri: fix_orchestra:IdentifierType
   ExtensionInline:
     name: ExtensionInline
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ExtensionInline
@@ -7866,6 +8736,8 @@ classes:
     aliases:
     - mappedDatatype
     mappings:
+    - fix_orchestra:MappedDatatype
+    exact_mappings:
     - fixr:mappedDatatype
     slots:
     - extension
@@ -7889,15 +8761,19 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
         description: A datatype from which a subtype is created by restriction or
           a derived type is created by a generator
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:mappedDatatype
+    class_uri: fix_orchestra:MappedDatatype
   MessageRefType:
     name: MessageRefType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/MessageRefType
@@ -7911,6 +8787,8 @@ classes:
     aliases:
     - messageRefType
     mappings:
+    - fix_orchestra:MessageRefType
+    exact_mappings:
     - fixr:messageRefType
     mixins:
     - RefidGrp
@@ -7930,7 +8808,7 @@ classes:
       impl_max_occurs:
         name: impl_max_occurs
         description: The same message type may be sent one or more times
-    class_uri: fixr:messageRefType
+    class_uri: fix_orchestra:MessageRefType
   StructureInline:
     name: StructureInline
     definition_uri: https://w3id.org/lmodel/fix-orchestra/StructureInline
@@ -7978,6 +8856,8 @@ classes:
     aliases:
     - messageType
     mappings:
+    - fix_orchestra:MessageType
+    exact_mappings:
     - fixr:messageType
     mixins:
     - OidGrp
@@ -8015,17 +8895,23 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       category:
         name: category
-        slot_uri: fixr:category
+        exact_mappings:
+        - fixr:category
+        slot_uri: fix_orchestra:category
         range: Name
       flow:
         name: flow
-        slot_uri: fixr:flow
+        exact_mappings:
+        - fixr:flow
+        slot_uri: fix_orchestra:flow
         range: Name
-    class_uri: fixr:messageType
+    class_uri: fix_orchestra:MessageType
   ResponseType:
     name: ResponseType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ResponseType
@@ -8041,6 +8927,8 @@ classes:
     aliases:
     - responseType
     mappings:
+    - fix_orchestra:ResponseType
+    exact_mappings:
     - fixr:responseType
     is_a: ActionType
     slots:
@@ -8067,13 +8955,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
-    class_uri: fixr:responseType
+    class_uri: fix_orchestra:ResponseType
   ScenarioType:
     name: ScenarioType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ScenarioType
@@ -8089,6 +8981,8 @@ classes:
     aliases:
     - scenarioType
     mappings:
+    - fix_orchestra:ScenarioType
+    exact_mappings:
     - fixr:scenarioType
     slots:
     - scenarioType__annotation
@@ -8097,21 +8991,27 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       id:
         name: id
         description: Unique numeric identifier. Default is '1' is for base scenario.
-        slot_uri: fixr:id
+        exact_mappings:
+        - fixr:id
+        slot_uri: fix_orchestra:id
         ifabsent: string(1)
         range: Id
       name:
         name: name
         description: Unique name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         ifabsent: string(base)
         range: Name
-    class_uri: fixr:scenarioType
+    class_uri: fix_orchestra:ScenarioType
   SectionType:
     name: SectionType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/SectionType
@@ -8125,6 +9025,8 @@ classes:
     aliases:
     - sectionType
     mappings:
+    - fix_orchestra:SectionType
+    exact_mappings:
     - fixr:sectionType
     mixins:
     - EntityAttribGrp
@@ -8149,14 +9051,18 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:sectionType
+    class_uri: fix_orchestra:SectionType
   StateMachineType:
     name: StateMachineType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/StateMachineType
@@ -8170,6 +9076,8 @@ classes:
     aliases:
     - stateMachineType
     mappings:
+    - fix_orchestra:StateMachineType
+    exact_mappings:
     - fixr:stateMachineType
     slots:
     - initial
@@ -8179,14 +9087,18 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:stateMachineType
+    class_uri: fix_orchestra:StateMachineType
   StateType:
     name: StateType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/StateType
@@ -8202,6 +9114,8 @@ classes:
     aliases:
     - stateType
     mappings:
+    - fix_orchestra:StateType
+    exact_mappings:
     - fixr:stateType
     slots:
     - transition
@@ -8213,14 +9127,18 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:stateType
+    class_uri: fix_orchestra:StateType
   TimerSchedule:
     name: TimerSchedule
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TimerSchedule
@@ -8234,6 +9152,8 @@ classes:
     aliases:
     - timerSchedule
     mappings:
+    - fix_orchestra:TimerSchedule
+    exact_mappings:
     - fixr:timerSchedule
     slots:
     - TimerSchedule_activity
@@ -8250,16 +9170,20 @@ classes:
       actor:
         name: actor
         description: Name of the actor that owns the timer
-        slot_uri: fixr:actor
+        exact_mappings:
+        - fixr:actor
+        slot_uri: fix_orchestra:actor
         range: Name
         required: true
       name:
         name: name
         description: Name of the timer
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:timerSchedule
+    class_uri: fix_orchestra:TimerSchedule
   TimerType:
     name: TimerType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TimerType
@@ -8273,16 +9197,20 @@ classes:
     aliases:
     - timerType
     mappings:
+    - fix_orchestra:TimerType
+    exact_mappings:
     - fixr:timerType
     slots:
     - timerType__name
     attributes:
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:timerType
+    class_uri: fix_orchestra:TimerType
   TransitionType:
     name: TransitionType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TransitionType
@@ -8296,6 +9224,8 @@ classes:
     aliases:
     - transitionType
     mappings:
+    - fix_orchestra:TransitionType
+    exact_mappings:
     - fixr:transitionType
     slots:
     - TransitionType_when
@@ -8310,14 +9240,18 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:transitionType
+    class_uri: fix_orchestra:TransitionType
   TriggerType:
     name: TriggerType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TriggerType
@@ -8331,6 +9265,8 @@ classes:
     aliases:
     - triggerType
     mappings:
+    - fix_orchestra:TriggerType
+    exact_mappings:
     - fixr:triggerType
     slots:
     - state_machine
@@ -8340,16 +9276,20 @@ classes:
       actor:
         name: actor
         description: Name of the actor that owns the state machine
-        slot_uri: fixr:actor
+        exact_mappings:
+        - fixr:actor
+        slot_uri: fix_orchestra:actor
         range: Name
         required: true
       name:
         name: name
         description: Name of the transition to invoke
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
-    class_uri: fixr:triggerType
+    class_uri: fix_orchestra:TriggerType
   InterfaceAnnotation:
     name: InterfaceAnnotation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/InterfaceAnnotation
@@ -8363,6 +9303,8 @@ classes:
     aliases:
     - annotation
     mappings:
+    - fix_orchestra:InterfaceAnnotation
+    exact_mappings:
     - fixi:annotation
     slots:
     - interfaceAnnotation__documentation
@@ -8370,19 +9312,23 @@ classes:
     attributes:
       documentation:
         name: documentation
-        slot_uri: fixi:documentation
+        exact_mappings:
+        - fixi:documentation
+        slot_uri: fix_orchestra:documentation
         range: InterfaceDocumentation
         multivalued: true
         inlined: true
         inlined_as_list: true
       appinfo:
         name: appinfo
-        slot_uri: fixi:appinfo
+        exact_mappings:
+        - fixi:appinfo
+        slot_uri: fix_orchestra:appinfo
         range: InterfaceAppinfo
         multivalued: true
         inlined: true
         inlined_as_list: true
-    class_uri: fixi:annotation
+    class_uri: fix_orchestra:InterfaceAnnotation
   InterfaceAppinfo:
     name: InterfaceAppinfo
     definition_uri: https://w3id.org/lmodel/fix-orchestra/InterfaceAppinfo
@@ -8401,6 +9347,8 @@ classes:
     aliases:
     - appinfo
     mappings:
+    - fix_orchestra:InterfaceAppinfo
+    exact_mappings:
     - fixi:appinfo
     slots:
     - InterfaceAppinfo_spec_url
@@ -8412,19 +9360,24 @@ classes:
     slot_usage:
       spec_url:
         name: spec_url
-        slot_uri: fixi:specUrl
+        exact_mappings:
+        - fixi:specUrl
     attributes:
       lang_id:
         name: lang_id
         aliases:
         - langId
-        slot_uri: fixi:langId
+        exact_mappings:
+        - fixi:langId
+        slot_uri: fix_orchestra:lang_id
         range: string
       purpose:
         name: purpose
-        slot_uri: fixi:purpose
+        exact_mappings:
+        - fixi:purpose
+        slot_uri: fix_orchestra:purpose
         range: InterfacePurpose
-    class_uri: fixi:appinfo
+    class_uri: fix_orchestra:InterfaceAppinfo
   BaseInterfaceType:
     name: BaseInterfaceType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/BaseInterfaceType
@@ -8441,6 +9394,8 @@ classes:
     aliases:
     - baseInterfaceType
     mappings:
+    - fix_orchestra:BaseInterfaceType
+    exact_mappings:
     - fixi:baseInterfaceType
     abstract: true
     slots:
@@ -8456,21 +9411,27 @@ classes:
     attributes:
       encoding:
         name: encoding
-        slot_uri: fixi:encoding
+        exact_mappings:
+        - fixi:encoding
+        slot_uri: fix_orchestra:encoding
         range: EncodingType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixi:annotation
+        exact_mappings:
+        - fixi:annotation
+        slot_uri: fix_orchestra:annotation
         range: InterfaceAnnotation
       name:
         name: name
-        slot_uri: fixi:name
+        exact_mappings:
+        - fixi:name
+        slot_uri: fix_orchestra:name
         range: string
         required: true
-    class_uri: fixi:baseInterfaceType
+    class_uri: fix_orchestra:BaseInterfaceType
   InterfaceDocumentation:
     name: InterfaceDocumentation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/InterfaceDocumentation
@@ -8484,6 +9445,8 @@ classes:
     aliases:
     - documentation
     mappings:
+    - fix_orchestra:InterfaceDocumentation
+    exact_mappings:
     - fixi:documentation
     slots:
     - value
@@ -8496,20 +9459,26 @@ classes:
         name: lang_id
         aliases:
         - langId
-        slot_uri: fixi:langId
+        exact_mappings:
+        - fixi:langId
+        slot_uri: fix_orchestra:lang_id
         range: string
       purpose:
         name: purpose
-        slot_uri: fixi:purpose
+        exact_mappings:
+        - fixi:purpose
+        slot_uri: fix_orchestra:purpose
         range: InterfacePurpose
       content_type:
         name: content_type
         aliases:
         - contentType
-        slot_uri: fixi:contentType
+        exact_mappings:
+        - fixi:contentType
+        slot_uri: fix_orchestra:content_type
         ifabsent: string(text/plain)
         range: string
-    class_uri: fixi:documentation
+    class_uri: fix_orchestra:InterfaceDocumentation
   EncodingType:
     name: EncodingType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/EncodingType
@@ -8523,6 +9492,8 @@ classes:
     aliases:
     - encodingType
     mappings:
+    - fix_orchestra:EncodingType
+    exact_mappings:
     - fixi:encodingType
     is_a: ProtocolType
     slots:
@@ -8536,7 +9507,7 @@ classes:
     - protocolType__version
     - protocolType__deprecated
     - protocolType__reliability
-    class_uri: fixi:encodingType
+    class_uri: fix_orchestra:EncodingType
   SessionsInline:
     name: SessionsInline
     definition_uri: https://w3id.org/lmodel/fix-orchestra/SessionsInline
@@ -8563,6 +9534,8 @@ classes:
     aliases:
     - interfaceType
     mappings:
+    - fix_orchestra:InterfaceType
+    exact_mappings:
     - fixi:interfaceType
     is_a: BaseInterfaceType
     slots:
@@ -8576,7 +9549,7 @@ classes:
     - baseInterfaceType__annotation
     - baseInterfaceType__name
     - sessions
-    class_uri: fixi:interfaceType
+    class_uri: fix_orchestra:InterfaceType
   ProtocolType:
     name: ProtocolType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ProtocolType
@@ -8593,6 +9566,8 @@ classes:
     aliases:
     - protocolType
     mappings:
+    - fix_orchestra:ProtocolType
+    exact_mappings:
     - fixi:protocolType
     slots:
     - activation_time
@@ -8608,29 +9583,39 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixi:annotation
+        exact_mappings:
+        - fixi:annotation
+        slot_uri: fix_orchestra:annotation
         range: InterfaceAnnotation
       name:
         name: name
-        slot_uri: fixi:name
+        exact_mappings:
+        - fixi:name
+        slot_uri: fix_orchestra:name
         range: ProtocolName
       version:
         name: version
-        slot_uri: fixi:version
+        exact_mappings:
+        - fixi:version
+        slot_uri: fix_orchestra:version
         range: string
       deprecated:
         name: deprecated
         description: When this version was deprecated; may be replaced or removed
           in the future
-        slot_uri: fixi:deprecated
+        exact_mappings:
+        - fixi:deprecated
+        slot_uri: fix_orchestra:deprecated
         range: datetime
       reliability:
         name: reliability
         description: Reliability can be implemented at transport, session, or application
           layers
-        slot_uri: fixi:reliability
+        exact_mappings:
+        - fixi:reliability
+        slot_uri: fix_orchestra:reliability
         range: InterfaceReliability
-    class_uri: fixi:protocolType
+    class_uri: fix_orchestra:ProtocolType
   ServiceType:
     name: ServiceType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/ServiceType
@@ -8644,6 +9629,8 @@ classes:
     aliases:
     - serviceType
     mappings:
+    - fix_orchestra:ServiceType
+    exact_mappings:
     - fixi:serviceType
     is_a: ProtocolType
     slots:
@@ -8657,7 +9644,7 @@ classes:
     - protocolType__version
     - protocolType__deprecated
     - protocolType__reliability
-    class_uri: fixi:serviceType
+    class_uri: fix_orchestra:ServiceType
   SessionProtocolType:
     name: SessionProtocolType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/SessionProtocolType
@@ -8671,6 +9658,8 @@ classes:
     aliases:
     - sessionProtocolType
     mappings:
+    - fix_orchestra:SessionProtocolType
+    exact_mappings:
     - fixi:sessionProtocolType
     is_a: ProtocolType
     slots:
@@ -8684,7 +9673,7 @@ classes:
     - protocolType__version
     - protocolType__deprecated
     - protocolType__reliability
-    class_uri: fixi:sessionProtocolType
+    class_uri: fix_orchestra:SessionProtocolType
   SessionType:
     name: SessionType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/SessionType
@@ -8698,6 +9687,8 @@ classes:
     aliases:
     - sessionType
     mappings:
+    - fix_orchestra:SessionType
+    exact_mappings:
     - fixi:sessionType
     is_a: BaseInterfaceType
     slots:
@@ -8725,12 +9716,14 @@ classes:
     attributes:
       identifier:
         name: identifier
-        slot_uri: fixi:identifier
+        exact_mappings:
+        - fixi:identifier
+        slot_uri: fix_orchestra:identifier
         range: IdentifierType
         multivalued: true
         inlined: true
         inlined_as_list: true
-    class_uri: fixi:sessionType
+    class_uri: fix_orchestra:SessionType
   TransportProtocolType:
     name: TransportProtocolType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/TransportProtocolType
@@ -8747,6 +9740,8 @@ classes:
     aliases:
     - transportProtocolType
     mappings:
+    - fix_orchestra:TransportProtocolType
+    exact_mappings:
     - fixi:transportProtocolType
     is_a: ProtocolType
     slots:
@@ -8763,7 +9758,7 @@ classes:
     - message_cast
     - use
     - extra_attributes
-    class_uri: fixi:transportProtocolType
+    class_uri: fix_orchestra:TransportProtocolType
   UserInterfaceType:
     name: UserInterfaceType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/UserInterfaceType
@@ -8777,6 +9772,8 @@ classes:
     aliases:
     - userInterfaceType
     mappings:
+    - fix_orchestra:UserInterfaceType
+    exact_mappings:
     - fixi:userInterfaceType
     is_a: ProtocolType
     slots:
@@ -8790,7 +9787,7 @@ classes:
     - protocolType__version
     - protocolType__deprecated
     - protocolType__reliability
-    class_uri: fixi:userInterfaceType
+    class_uri: fix_orchestra:UserInterfaceType
   Datatype:
     name: Datatype
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Datatype
@@ -8804,6 +9801,8 @@ classes:
     aliases:
     - datatype
     mappings:
+    - fix_orchestra:Datatype
+    exact_mappings:
     - fixr:datatype
     mixins:
     - EntityAttribGrp
@@ -8830,20 +9829,26 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: Name
         required: true
       scenario:
         name: scenario
         description: The use case of a datatype by name
-        slot_uri: fixr:scenario
+        exact_mappings:
+        - fixr:scenario
+        slot_uri: fix_orchestra:scenario
         ifabsent: string(base)
         range: Name
-    class_uri: fixr:datatype
+    class_uri: fix_orchestra:Datatype
   Actors:
     name: Actors
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Actors
@@ -8862,6 +9867,8 @@ classes:
     aliases:
     - actors
     mappings:
+    - fix_orchestra:Actors
+    exact_mappings:
     - fixr:actors
     slots:
     - actors__actor
@@ -8871,27 +9878,35 @@ classes:
     attributes:
       actor:
         name: actor
-        slot_uri: fixr:actor
+        exact_mappings:
+        - fixr:actor
+        slot_uri: fix_orchestra:actor
         range: ActorType
         multivalued: true
         inlined: true
         inlined_as_list: true
       flow:
         name: flow
-        slot_uri: fixr:flow
+        exact_mappings:
+        - fixr:flow
+        slot_uri: fix_orchestra:flow
         range: FlowType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:actors
+    class_uri: fix_orchestra:Actors
     unique_keys:
       actor_key:
         unique_key_name: actor_key
@@ -8911,6 +9926,8 @@ classes:
     aliases:
     - categories
     mappings:
+    - fix_orchestra:Categories
+    exact_mappings:
     - fixr:categories
     slots:
     - categories__category
@@ -8920,20 +9937,26 @@ classes:
       category:
         name: category
         description: A business process category, a subcategory of a businessArea
-        slot_uri: fixr:category
+        exact_mappings:
+        - fixr:category
+        slot_uri: fix_orchestra:category
         range: CategoryType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:categories
+    class_uri: fix_orchestra:Categories
   CodeSets:
     name: CodeSets
     definition_uri: https://w3id.org/lmodel/fix-orchestra/CodeSets
@@ -8947,6 +9970,8 @@ classes:
     aliases:
     - codeSets
     mappings:
+    - fix_orchestra:CodeSets
+    exact_mappings:
     - fixr:codeSets
     slots:
     - codeSets__code_set
@@ -8957,20 +9982,26 @@ classes:
         name: code_set
         aliases:
         - codeSet
-        slot_uri: fixr:codeSet
+        exact_mappings:
+        - fixr:codeSet
+        slot_uri: fix_orchestra:code_set
         range: CodeSetType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:codeSets
+    class_uri: fix_orchestra:CodeSets
     unique_keys:
       code_set_name_key:
         unique_key_name: code_set_name_key
@@ -8997,6 +10028,8 @@ classes:
     aliases:
     - components
     mappings:
+    - fix_orchestra:Components
+    exact_mappings:
     - fixr:components
     slots:
     - component
@@ -9005,13 +10038,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:components
+    class_uri: fix_orchestra:Components
     unique_keys:
       component_name_key:
         unique_key_name: component_name_key
@@ -9038,6 +10075,8 @@ classes:
     aliases:
     - concepts
     mappings:
+    - fix_orchestra:Concepts
+    exact_mappings:
     - fixr:concepts
     slots:
     - concept
@@ -9046,13 +10085,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:concepts
+    class_uri: fix_orchestra:Concepts
     unique_keys:
       concept_key:
         unique_key_name: concept_key
@@ -9072,6 +10115,8 @@ classes:
     aliases:
     - datatypes
     mappings:
+    - fix_orchestra:Datatypes
+    exact_mappings:
     - fixr:datatypes
     slots:
     - datatype
@@ -9080,13 +10125,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:datatypes
+    class_uri: fix_orchestra:Datatypes
     unique_keys:
       datatype_key:
         unique_key_name: datatype_key
@@ -9107,6 +10156,8 @@ classes:
     aliases:
     - fields
     mappings:
+    - fix_orchestra:Fields
+    exact_mappings:
     - fixr:fields
     slots:
     - field
@@ -9115,13 +10166,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:fields
+    class_uri: fix_orchestra:Fields
     unique_keys:
       field_name_key:
         unique_key_name: field_name_key
@@ -9148,6 +10203,8 @@ classes:
     aliases:
     - groups
     mappings:
+    - fix_orchestra:Groups
+    exact_mappings:
     - fixr:groups
     slots:
     - groups__group
@@ -9156,20 +10213,26 @@ classes:
     attributes:
       group:
         name: group
-        slot_uri: fixr:group
+        exact_mappings:
+        - fixr:group
+        slot_uri: fix_orchestra:group
         range: GroupType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:groups
+    class_uri: fix_orchestra:Groups
     unique_keys:
       group_name_key:
         unique_key_name: group_name_key
@@ -9196,6 +10259,8 @@ classes:
     aliases:
     - messages
     mappings:
+    - fix_orchestra:Messages
+    exact_mappings:
     - fixr:messages
     slots:
     - message
@@ -9204,13 +10269,17 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:messages
+    class_uri: fix_orchestra:Messages
     unique_keys:
       message_name_key:
         unique_key_name: message_name_key
@@ -9247,6 +10316,8 @@ classes:
     aliases:
     - repository
     mappings:
+    - fix_orchestra:Repository
+    exact_mappings:
     - fixr:repository
     slots:
     - metadata
@@ -9271,20 +10342,26 @@ classes:
     attributes:
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       name:
         name: name
         description: Stable name that does not change with minor version updates
-        slot_uri: fixr:name
+        exact_mappings:
+        - fixr:name
+        slot_uri: fix_orchestra:name
         range: string
         required: true
       version:
         name: version
-        slot_uri: fixr:version
+        exact_mappings:
+        - fixr:version
+        slot_uri: fix_orchestra:version
         range: Version
         required: true
-    class_uri: fixr:repository
+    class_uri: fix_orchestra:Repository
     tree_root: true
     unique_keys:
       datatype_ref_key:
@@ -9323,6 +10400,8 @@ classes:
     aliases:
     - scenarios
     mappings:
+    - fix_orchestra:Scenarios
+    exact_mappings:
     - fixr:scenarios
     slots:
     - scenarios__scenario
@@ -9331,20 +10410,26 @@ classes:
     attributes:
       scenario:
         name: scenario
-        slot_uri: fixr:scenario
+        exact_mappings:
+        - fixr:scenario
+        slot_uri: fix_orchestra:scenario
         range: ScenarioType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:scenarios
+    class_uri: fix_orchestra:Scenarios
   Sections:
     name: Sections
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Sections
@@ -9358,6 +10443,8 @@ classes:
     aliases:
     - sections
     mappings:
+    - fix_orchestra:Sections
+    exact_mappings:
     - fixr:sections
     slots:
     - sections__section
@@ -9367,20 +10454,26 @@ classes:
       section:
         name: section
         description: A large-grained business process category
-        slot_uri: fixr:section
+        exact_mappings:
+        - fixr:section
+        slot_uri: fix_orchestra:section
         range: SectionType
         multivalued: true
         inlined: true
         inlined_as_list: true
       annotation:
         name: annotation
-        slot_uri: fixr:annotation
+        exact_mappings:
+        - fixr:annotation
+        slot_uri: fix_orchestra:annotation
         range: Annotation
       base:
         name: base
-        slot_uri: fixr:base
+        exact_mappings:
+        - fixr:base
+        slot_uri: fix_orchestra:base
         range: string
-    class_uri: fixr:sections
+    class_uri: fix_orchestra:Sections
   Interfaces:
     name: Interfaces
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Interfaces
@@ -9397,6 +10490,8 @@ classes:
     aliases:
     - interfaces
     mappings:
+    - fix_orchestra:Interfaces
+    exact_mappings:
     - fixi:interfaces
     slots:
     - Interfaces_metadata
@@ -9404,8 +10499,9 @@ classes:
     slot_usage:
       metadata:
         name: metadata
-        slot_uri: fixi:metadata
-    class_uri: fixi:interfaces
+        exact_mappings:
+        - fixi:metadata
+    class_uri: fix_orchestra:Interfaces
     tree_root: true
     unique_keys:
       interface_key:
@@ -11614,7 +12710,7 @@ classes:
     class_uri: xml:GlobalAttributes
 metamodel_version: 1.11.0
 source_file: fix_orchestra.yaml
-source_file_date: '2026-05-21T17:15:09'
-source_file_size: 82149
-generation_date: '2026-05-21T17:15:18'
+source_file_date: '2026-05-21T18:39:06'
+source_file_size: 102662
+generation_date: '2026-05-21T18:39:18'
 

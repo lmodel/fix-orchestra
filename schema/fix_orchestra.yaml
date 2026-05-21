@@ -3901,7 +3901,6 @@ slots:
     domain_of:
     - CategoryType
     range: Name
-    required: true
   codeSetType__annotation:
     name: codeSetType__annotation
     from_schema: https://w3id.org/lmodel/fix-orchestra
@@ -8362,7 +8361,6 @@ classes:
         name: section
         slot_uri: fixr:section
         range: Name
-        required: true
     class_uri: fixr:categoryType
   CodeSetType:
     name: CodeSetType
@@ -10755,7 +10753,7 @@ classes:
         description: From XSD <xs:key name="sessionKey"> with selector "fixi:interface/fixi:sessions/fixi:session".
 metamodel_version: 1.11.0
 source_file: fix_orchestra.yaml
-source_file_date: '2026-05-21T07:09:10'
-source_file_size: 103879
-generation_date: '2026-05-21T07:09:21'
+source_file_date: '2026-05-21T10:14:54'
+source_file_size: 103856
+generation_date: '2026-05-21T10:15:04'
 

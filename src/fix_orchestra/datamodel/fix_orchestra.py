@@ -1,5 +1,5 @@
 # Auto generated from fix_orchestra.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-21T18:02:06
+# Generation date: 2026-05-21T19:32:32
 # Schema: fix_orchestra
 #
 # id: https://w3id.org/lmodel/fix-orchestra
@@ -82,419 +82,419 @@ DEFAULT_ = FIX_ORCHESTRA
 
 # Types
 class ComponentName(String):
-    type_class_uri = FIXR["ComponentName_t"]
-    type_class_curie = "fixr:ComponentName_t"
+    type_class_uri = FIX_ORCHESTRA["ComponentName"]
+    type_class_curie = "fix_orchestra:ComponentName"
     type_name = "ComponentName"
     type_model_uri = FIX_ORCHESTRA.ComponentName
 
 
 class DatatypeStandard(String):
     """ Extensible datatype standards | Union of: fixr:datatypeStandard_enum, xs:string """
-    type_class_uri = FIXR["datatypeStandard_t"]
-    type_class_curie = "fixr:datatypeStandard_t"
+    type_class_uri = FIX_ORCHESTRA["DatatypeStandard"]
+    type_class_curie = "fix_orchestra:DatatypeStandard"
     type_name = "DatatypeStandard"
     type_model_uri = FIX_ORCHESTRA.DatatypeStandard
 
 
 class EP(Integer):
-    type_class_uri = FIXR["EP_t"]
-    type_class_curie = "fixr:EP_t"
+    type_class_uri = FIX_ORCHESTRA["EP"]
+    type_class_curie = "fix_orchestra:EP"
     type_name = "EP"
     type_model_uri = FIX_ORCHESTRA.EP
 
 
 class ExpressionType(String):
     """ Expressed in a Domain Specific Language """
-    type_class_uri = FIXR["expressionType"]
-    type_class_curie = "fixr:expressionType"
+    type_class_uri = FIX_ORCHESTRA["ExpressionType"]
+    type_class_curie = "fix_orchestra:ExpressionType"
     type_name = "ExpressionType"
     type_model_uri = FIX_ORCHESTRA.ExpressionType
 
 
 class Id(Integer):
-    type_class_uri = FIXR["id_t"]
-    type_class_curie = "fixr:id_t"
+    type_class_uri = FIX_ORCHESTRA["Id"]
+    type_class_curie = "fix_orchestra:Id"
     type_name = "Id"
     type_model_uri = FIX_ORCHESTRA.Id
 
 
 class Language(String):
-    type_class_uri = FIXR["language_t"]
-    type_class_curie = "fixr:language_t"
+    type_class_uri = FIX_ORCHESTRA["Language"]
+    type_class_curie = "fix_orchestra:Language"
     type_name = "Language"
     type_model_uri = FIX_ORCHESTRA.Language
 
 
 class Mime(String):
     """ Multipurpose Internet Mail Extensions (MIME) media type """
-    type_class_uri = FIXR["mime_t"]
-    type_class_curie = "fixr:mime_t"
+    type_class_uri = FIX_ORCHESTRA["Mime"]
+    type_class_curie = "fix_orchestra:Mime"
     type_name = "Mime"
     type_model_uri = FIX_ORCHESTRA.Mime
 
 
 class MsgType(String):
-    type_class_uri = FIXR["MsgType_t"]
-    type_class_curie = "fixr:MsgType_t"
+    type_class_uri = FIX_ORCHESTRA["MsgType"]
+    type_class_curie = "fix_orchestra:MsgType"
     type_name = "MsgType"
     type_model_uri = FIX_ORCHESTRA.MsgType
 
 
 class Name(String):
     """ Names are from 1-64 characters. The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. Single internal spaces are allowed by the schema but may be restricted by an external style. """
-    type_class_uri = FIXR["Name_t"]
-    type_class_curie = "fixr:Name_t"
+    type_class_uri = FIX_ORCHESTRA["Name"]
+    type_class_curie = "fix_orchestra:Name"
     type_name = "Name"
     type_model_uri = FIX_ORCHESTRA.Name
 
 
 class Purpose(String):
     """ Extensible annotation purposes | Union of: fixr:purpose_enum, xs:string """
-    type_class_uri = FIXR["purpose_t"]
-    type_class_curie = "fixr:purpose_t"
+    type_class_uri = FIX_ORCHESTRA["Purpose"]
+    type_class_curie = "fix_orchestra:Purpose"
     type_name = "Purpose"
     type_model_uri = FIX_ORCHESTRA.Purpose
 
 
 class UnboundedIntType(String):
     """ Union of: xs:nonNegativeInteger, fixr:unbounded """
-    type_class_uri = FIXR["unboundedIntType"]
-    type_class_curie = "fixr:unboundedIntType"
+    type_class_uri = FIX_ORCHESTRA["UnboundedIntType"]
+    type_class_curie = "fix_orchestra:UnboundedIntType"
     type_name = "UnboundedIntType"
     type_model_uri = FIX_ORCHESTRA.UnboundedIntType
 
 
 class Version(String):
-    type_class_uri = FIXR["Version_t"]
-    type_class_curie = "fixr:Version_t"
+    type_class_uri = FIX_ORCHESTRA["Version"]
+    type_class_curie = "fix_orchestra:Version"
     type_name = "Version"
     type_model_uri = FIX_ORCHESTRA.Version
 
 
 class ProtocolName(String):
     """ Protocol names are not constrained to FIX protocols | Union of: fixi:protocolEnum_t, xs:token """
-    type_class_uri = FIXI["protocolName_t"]
-    type_class_curie = "fixi:protocolName_t"
+    type_class_uri = FIX_ORCHESTRA["ProtocolName"]
+    type_class_curie = "fix_orchestra:ProtocolName"
     type_name = "ProtocolName"
     type_model_uri = FIX_ORCHESTRA.ProtocolName
 
 
 class InterfacePurpose(String):
     """ Extensible annotation purposes | Union of: fixi:purpose_enum, xs:token """
-    type_class_uri = FIXI["purpose_t"]
-    type_class_curie = "fixi:purpose_t"
+    type_class_uri = FIX_ORCHESTRA["InterfacePurpose"]
+    type_class_curie = "fix_orchestra:InterfacePurpose"
     type_name = "InterfacePurpose"
     type_model_uri = FIX_ORCHESTRA.InterfacePurpose
 
 
 class TransportUse(String):
     """ Extensible transport use | Union of: fixi:transportUse_enum, xs:token """
-    type_class_uri = FIXI["transportUse_t"]
-    type_class_curie = "fixi:transportUse_t"
+    type_class_uri = FIX_ORCHESTRA["TransportUse"]
+    type_class_curie = "fix_orchestra:TransportUse"
     type_name = "TransportUse"
     type_model_uri = FIX_ORCHESTRA.TransportUse
 
 
 class FIXInt(Integer):
     """ FIX int base datatype. Sequence of digits without commas or decimals and optional sign character (ASCII characters "-" and "0" - "9" ). The sign character utilizes one byte (i.e. positive int is "99999" while negative int is "-99999"). Note that int values may contain leading zeros (e.g. "00023" = "23"). """
-    type_class_uri = FIXR["int"]
-    type_class_curie = "fixr:int"
+    type_class_uri = FIX_ORCHESTRA["FIXInt"]
+    type_class_curie = "fix_orchestra:FIXInt"
     type_name = "FIXInt"
     type_model_uri = FIX_ORCHESTRA.FIXInt
 
 
 class FIXLength(Integer):
     """ FIX Length datatype (extends int). int field representing the length in bytes. Value must be positive. """
-    type_class_uri = FIXR["Length"]
-    type_class_curie = "fixr:Length"
+    type_class_uri = FIX_ORCHESTRA["FIXLength"]
+    type_class_curie = "fix_orchestra:FIXLength"
     type_name = "FIXLength"
     type_model_uri = FIX_ORCHESTRA.FIXLength
 
 
 class FIXTagNum(Integer):
     """ FIX TagNum datatype (extends int). int field representing a field's tag number when using FIX "Tag=Value" syntax. Value must be positive and may not contain leading zeros. """
-    type_class_uri = FIXR["TagNum"]
-    type_class_curie = "fixr:TagNum"
+    type_class_uri = FIX_ORCHESTRA["FIXTagNum"]
+    type_class_curie = "fix_orchestra:FIXTagNum"
     type_name = "FIXTagNum"
     type_model_uri = FIX_ORCHESTRA.FIXTagNum
 
 
 class FIXSeqNum(Integer):
     """ FIX SeqNum datatype (extends int). int field representing a message sequence number. Value must be positive. """
-    type_class_uri = FIXR["SeqNum"]
-    type_class_curie = "fixr:SeqNum"
+    type_class_uri = FIX_ORCHESTRA["FIXSeqNum"]
+    type_class_curie = "fix_orchestra:FIXSeqNum"
     type_name = "FIXSeqNum"
     type_model_uri = FIX_ORCHESTRA.FIXSeqNum
 
 
 class FIXNumInGroup(String):
     """ FIX NumInGroup datatype (extends int). int field representing the number of entries in a repeating group. Value must be positive. """
-    type_class_uri = FIXR["NumInGroup"]
-    type_class_curie = "fixr:NumInGroup"
+    type_class_uri = FIX_ORCHESTRA["FIXNumInGroup"]
+    type_class_curie = "fix_orchestra:FIXNumInGroup"
     type_name = "FIXNumInGroup"
     type_model_uri = FIX_ORCHESTRA.FIXNumInGroup
 
 
 class FIXDayOfMonth(Integer):
     """ FIX DayOfMonth datatype (extends int). int field representing a day during a particular month (values 1 to 31). """
-    type_class_uri = FIXR["DayOfMonth"]
-    type_class_curie = "fixr:DayOfMonth"
+    type_class_uri = FIX_ORCHESTRA["FIXDayOfMonth"]
+    type_class_curie = "fix_orchestra:FIXDayOfMonth"
     type_name = "FIXDayOfMonth"
     type_model_uri = FIX_ORCHESTRA.FIXDayOfMonth
 
 
 class FIXFloat(Float):
     """ FIX float base datatype. Sequence of digits with optional decimal point and sign character (ASCII characters "-", "0" - "9" and "."); the absence of the decimal point within the string will be interpreted as the float representation of an integer value. All float fields must accommodate up to fifteen significant digits. The number of decimal places used should be a factor of business/market needs and mutual agreement between counterparties. Note that float values may contain leading zeros (e.g. "00023.23" = "23.23") and may contain or omit trailing zeros after the decimal point (e.g. "23.0" = "23.0000" = "23" = "23."). Note that fields which are derived from float may contain negative values unless explicitly specified otherwise. """
-    type_class_uri = FIXR["float"]
-    type_class_curie = "fixr:float"
+    type_class_uri = FIX_ORCHESTRA["FIXFloat"]
+    type_class_curie = "fix_orchestra:FIXFloat"
     type_name = "FIXFloat"
     type_model_uri = FIX_ORCHESTRA.FIXFloat
 
 
 class FIXQty(Float):
     """ FIX Qty datatype (extends float). float field capable of storing either a whole number (no decimal places) of "shares" (securities denominated in whole units) or a decimal value containing decimal places for non-share quantity asset classes (securities denominated in fractional units). """
-    type_class_uri = FIXR["Qty"]
-    type_class_curie = "fixr:Qty"
+    type_class_uri = FIX_ORCHESTRA["FIXQty"]
+    type_class_curie = "fix_orchestra:FIXQty"
     type_name = "FIXQty"
     type_model_uri = FIX_ORCHESTRA.FIXQty
 
 
 class FIXPrice(Float):
     """ FIX Price datatype (extends float). float field representing a price. Note the number of decimal places may vary. For certain asset classes prices may be negative values. For example, prices for options strategies can be negative under certain market conditions. Refer to Volume 7: FIX Usage by Product for asset classes that support negative price values. """
-    type_class_uri = FIXR["Price"]
-    type_class_curie = "fixr:Price"
+    type_class_uri = FIX_ORCHESTRA["FIXPrice"]
+    type_class_curie = "fix_orchestra:FIXPrice"
     type_name = "FIXPrice"
     type_model_uri = FIX_ORCHESTRA.FIXPrice
 
 
 class FIXPriceOffset(Float):
     """ FIX PriceOffset datatype (extends float). float field representing a price offset, which can be mathematically added to a "Price". Note the number of decimal places may vary and some fields such as LastForwardPoints may be negative. """
-    type_class_uri = FIXR["PriceOffset"]
-    type_class_curie = "fixr:PriceOffset"
+    type_class_uri = FIX_ORCHESTRA["FIXPriceOffset"]
+    type_class_curie = "fix_orchestra:FIXPriceOffset"
     type_name = "FIXPriceOffset"
     type_model_uri = FIX_ORCHESTRA.FIXPriceOffset
 
 
 class FIXAmt(Float):
     """ FIX Amt datatype (extends float). float field typically representing a Price times a Qty """
-    type_class_uri = FIXR["Amt"]
-    type_class_curie = "fixr:Amt"
+    type_class_uri = FIX_ORCHESTRA["FIXAmt"]
+    type_class_curie = "fix_orchestra:FIXAmt"
     type_name = "FIXAmt"
     type_model_uri = FIX_ORCHESTRA.FIXAmt
 
 
 class FIXPercentage(Float):
     """ FIX Percentage datatype (extends float). float field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary. """
-    type_class_uri = FIXR["Percentage"]
-    type_class_curie = "fixr:Percentage"
+    type_class_uri = FIX_ORCHESTRA["FIXPercentage"]
+    type_class_curie = "fix_orchestra:FIXPercentage"
     type_name = "FIXPercentage"
     type_model_uri = FIX_ORCHESTRA.FIXPercentage
 
 
 class FIXChar(String):
     """ FIX char base datatype. Single character value, can include any alphanumeric character or punctuation except the delimiter. All char fields are case sensitive (i.e. m != M). """
-    type_class_uri = FIXR["char"]
-    type_class_curie = "fixr:char"
+    type_class_uri = FIX_ORCHESTRA["FIXChar"]
+    type_class_curie = "fix_orchestra:FIXChar"
     type_name = "FIXChar"
     type_model_uri = FIX_ORCHESTRA.FIXChar
 
 
 class FIXBoolean(String):
     """ FIX Boolean datatype (extends char). char field containing one of two values: """
-    type_class_uri = FIXR["Boolean"]
-    type_class_curie = "fixr:Boolean"
+    type_class_uri = FIX_ORCHESTRA["FIXBoolean"]
+    type_class_curie = "fix_orchestra:FIXBoolean"
     type_name = "FIXBoolean"
     type_model_uri = FIX_ORCHESTRA.FIXBoolean
 
 
 class FIXString(String):
     """ FIX String base datatype. Alpha-numeric free format strings, can include any character or punctuation except the delimiter. All String fields are case sensitive (i.e. morstatt != Morstatt). """
-    type_class_uri = FIXR["String"]
-    type_class_curie = "fixr:String"
+    type_class_uri = FIX_ORCHESTRA["FIXString"]
+    type_class_curie = "fix_orchestra:FIXString"
     type_name = "FIXString"
     type_model_uri = FIX_ORCHESTRA.FIXString
 
 
 class FIXMultipleCharValue(String):
     """ FIX MultipleCharValue datatype (extends String). string field containing one or more space delimited single character values (e.g. |18=2 A F| ). """
-    type_class_uri = FIXR["MultipleCharValue"]
-    type_class_curie = "fixr:MultipleCharValue"
+    type_class_uri = FIX_ORCHESTRA["FIXMultipleCharValue"]
+    type_class_curie = "fix_orchestra:FIXMultipleCharValue"
     type_name = "FIXMultipleCharValue"
     type_model_uri = FIX_ORCHESTRA.FIXMultipleCharValue
 
 
 class FIXMultipleStringValue(String):
     """ FIX MultipleStringValue datatype (extends String). string field containing one or more space delimited multiple character values (e.g. |277=AV AN A| ). """
-    type_class_uri = FIXR["MultipleStringValue"]
-    type_class_curie = "fixr:MultipleStringValue"
+    type_class_uri = FIX_ORCHESTRA["FIXMultipleStringValue"]
+    type_class_curie = "fix_orchestra:FIXMultipleStringValue"
     type_name = "FIXMultipleStringValue"
     type_model_uri = FIX_ORCHESTRA.FIXMultipleStringValue
 
 
 class FIXCountry(String):
     """ FIX Country datatype (extends String). string field representing a country using ISO 3166 Country code (2 character) values (see Appendix 6-B). """
-    type_class_uri = FIXR["Country"]
-    type_class_curie = "fixr:Country"
+    type_class_uri = FIX_ORCHESTRA["FIXCountry"]
+    type_class_curie = "fix_orchestra:FIXCountry"
     type_name = "FIXCountry"
     type_model_uri = FIX_ORCHESTRA.FIXCountry
 
 
 class FIXCurrency(String):
     """ FIX Currency datatype (extends String). string field representing a currency type using ISO 4217 Currency code (3 character) values (see Appendix 6-A). """
-    type_class_uri = FIXR["Currency"]
-    type_class_curie = "fixr:Currency"
+    type_class_uri = FIX_ORCHESTRA["FIXCurrency"]
+    type_class_curie = "fix_orchestra:FIXCurrency"
     type_name = "FIXCurrency"
     type_model_uri = FIX_ORCHESTRA.FIXCurrency
 
 
 class FIXExchange(String):
     """ FIX Exchange datatype (extends String). string field representing a market or exchange using ISO 10383 Market Identifier Code (MIC) values (see"Appendix 6-C). """
-    type_class_uri = FIXR["Exchange"]
-    type_class_curie = "fixr:Exchange"
+    type_class_uri = FIX_ORCHESTRA["FIXExchange"]
+    type_class_curie = "fix_orchestra:FIXExchange"
     type_name = "FIXExchange"
     type_model_uri = FIX_ORCHESTRA.FIXExchange
 
 
 class FIXMonthYear(String):
     """ FIX MonthYear datatype (extends String). string field representing month of a year. An optional day of the month can be appended or an optional week code. """
-    type_class_uri = FIXR["MonthYear"]
-    type_class_curie = "fixr:MonthYear"
+    type_class_uri = FIX_ORCHESTRA["FIXMonthYear"]
+    type_class_curie = "fix_orchestra:FIXMonthYear"
     type_name = "FIXMonthYear"
     type_model_uri = FIX_ORCHESTRA.FIXMonthYear
 
 
 class FIXUTCTimestamp(Datetime):
     """ FIX UTCTimestamp datatype (extends String). string field representing time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss* format, colons, dash, and period required. """
-    type_class_uri = FIXR["UTCTimestamp"]
-    type_class_curie = "fixr:UTCTimestamp"
+    type_class_uri = FIX_ORCHESTRA["FIXUTCTimestamp"]
+    type_class_curie = "fix_orchestra:FIXUTCTimestamp"
     type_name = "FIXUTCTimestamp"
     type_model_uri = FIX_ORCHESTRA.FIXUTCTimestamp
 
 
 class FIXUTCTimeOnly(String):
     """ FIX UTCTimeOnly datatype (extends String). string field representing time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss* (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. """
-    type_class_uri = FIXR["UTCTimeOnly"]
-    type_class_curie = "fixr:UTCTimeOnly"
+    type_class_uri = FIX_ORCHESTRA["FIXUTCTimeOnly"]
+    type_class_curie = "fix_orchestra:FIXUTCTimeOnly"
     type_name = "FIXUTCTimeOnly"
     type_model_uri = FIX_ORCHESTRA.FIXUTCTimeOnly
 
 
 class FIXUTCDateOnly(Date):
     """ FIX UTCDateOnly datatype (extends String). string field representing Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. """
-    type_class_uri = FIXR["UTCDateOnly"]
-    type_class_curie = "fixr:UTCDateOnly"
+    type_class_uri = FIX_ORCHESTRA["FIXUTCDateOnly"]
+    type_class_curie = "fix_orchestra:FIXUTCDateOnly"
     type_name = "FIXUTCDateOnly"
     type_model_uri = FIX_ORCHESTRA.FIXUTCDateOnly
 
 
 class FIXLocalMktDate(Date):
     """ FIX LocalMktDate datatype (extends String). string field representing a Date of Local Market (as opposed to UTC) in YYYYMMDD format. This is the "normal" date field used by the FIX Protocol. """
-    type_class_uri = FIXR["LocalMktDate"]
-    type_class_curie = "fixr:LocalMktDate"
+    type_class_uri = FIX_ORCHESTRA["FIXLocalMktDate"]
+    type_class_curie = "fix_orchestra:FIXLocalMktDate"
     type_name = "FIXLocalMktDate"
     type_model_uri = FIX_ORCHESTRA.FIXLocalMktDate
 
 
 class FIXTZTimeOnly(String):
     """ FIX TZTimeOnly datatype (extends String). string field representing the time represented based on ISO 8601. This is the time with a UTC offset to allow identification of local time and timezone of that time. """
-    type_class_uri = FIXR["TZTimeOnly"]
-    type_class_curie = "fixr:TZTimeOnly"
+    type_class_uri = FIX_ORCHESTRA["FIXTZTimeOnly"]
+    type_class_curie = "fix_orchestra:FIXTZTimeOnly"
     type_name = "FIXTZTimeOnly"
     type_model_uri = FIX_ORCHESTRA.FIXTZTimeOnly
 
 
 class FIXTZTimestamp(Datetime):
     """ FIX TZTimestamp datatype (extends String). string field representing a time/date combination representing local time with an offset to UTC to allow identification of local time and timezone offset of that time. The representation is based on ISO 8601. """
-    type_class_uri = FIXR["TZTimestamp"]
-    type_class_curie = "fixr:TZTimestamp"
+    type_class_uri = FIX_ORCHESTRA["FIXTZTimestamp"]
+    type_class_curie = "fix_orchestra:FIXTZTimestamp"
     type_name = "FIXTZTimestamp"
     type_model_uri = FIX_ORCHESTRA.FIXTZTimestamp
 
 
 class FIXData(String):
     """ FIX data base datatype. string field containing opaque or non-ASCII data with no format or content restrictions. Data fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). The number of bytes does not equal the number of characters when multibyte character sets are used. Caution: The value of these fields may contain the delimiter (SOH) character. Note that the value specified for these fields must be followed by the delimiter (SOH) character as all tag-value fields are terminated with an SOH. """
-    type_class_uri = FIXR["data"]
-    type_class_curie = "fixr:data"
+    type_class_uri = FIX_ORCHESTRA["FIXData"]
+    type_class_curie = "fix_orchestra:FIXData"
     type_name = "FIXData"
     type_model_uri = FIX_ORCHESTRA.FIXData
 
 
 class FIXPattern(String):
     """ FIX Pattern base datatype. Used to build on and provide some restrictions on what is allowed as valid values in fields that uses a base FIX data type and a pattern data type. The universe of allowable valid values for the field would then be the union of the base set of valid values and what is defined by the pattern data type. The pattern data type used by the field will retain its base FIX data type (e.g. String, int, char). """
-    type_class_uri = FIXR["Pattern"]
-    type_class_curie = "fixr:Pattern"
+    type_class_uri = FIX_ORCHESTRA["FIXPattern"]
+    type_class_curie = "fix_orchestra:FIXPattern"
     type_name = "FIXPattern"
     type_model_uri = FIX_ORCHESTRA.FIXPattern
 
 
 class FIXTenor(String):
     """ FIX Tenor datatype (extends Pattern). used to allow the expression of FX standard tenors in addition to the base valid enumerations defined for the field that uses this pattern data type. This pattern data type is defined as follows: """
-    type_class_uri = FIXR["Tenor"]
-    type_class_curie = "fixr:Tenor"
+    type_class_uri = FIX_ORCHESTRA["FIXTenor"]
+    type_class_curie = "fix_orchestra:FIXTenor"
     type_name = "FIXTenor"
     type_model_uri = FIX_ORCHESTRA.FIXTenor
 
 
 class FIXReserved100Plus(Integer):
     """ FIX Reserved100Plus datatype (extends Pattern). Values "100" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIXR["Reserved100Plus"]
-    type_class_curie = "fixr:Reserved100Plus"
+    type_class_uri = FIX_ORCHESTRA["FIXReserved100Plus"]
+    type_class_curie = "fix_orchestra:FIXReserved100Plus"
     type_name = "FIXReserved100Plus"
     type_model_uri = FIX_ORCHESTRA.FIXReserved100Plus
 
 
 class FIXReserved1000Plus(Integer):
     """ FIX Reserved1000Plus datatype (extends Pattern). Values "1000" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIXR["Reserved1000Plus"]
-    type_class_curie = "fixr:Reserved1000Plus"
+    type_class_uri = FIX_ORCHESTRA["FIXReserved1000Plus"]
+    type_class_curie = "fix_orchestra:FIXReserved1000Plus"
     type_name = "FIXReserved1000Plus"
     type_model_uri = FIX_ORCHESTRA.FIXReserved1000Plus
 
 
 class FIXReserved4000Plus(Integer):
     """ FIX Reserved4000Plus datatype (extends Pattern). Values "4000" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIXR["Reserved4000Plus"]
-    type_class_curie = "fixr:Reserved4000Plus"
+    type_class_uri = FIX_ORCHESTRA["FIXReserved4000Plus"]
+    type_class_curie = "fix_orchestra:FIXReserved4000Plus"
     type_name = "FIXReserved4000Plus"
     type_model_uri = FIX_ORCHESTRA.FIXReserved4000Plus
 
 
 class FIXXMLData(String):
     """ FIX XMLData datatype (extends String). Contains an XML document raw data with no format or content restrictions. XMLData fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). """
-    type_class_uri = FIXR["XMLData"]
-    type_class_curie = "fixr:XMLData"
+    type_class_uri = FIX_ORCHESTRA["FIXXMLData"]
+    type_class_curie = "fix_orchestra:FIXXMLData"
     type_name = "FIXXMLData"
     type_model_uri = FIX_ORCHESTRA.FIXXMLData
 
 
 class FIXLanguage(String):
     """ FIX Language datatype (extends String). Identifier for a national language - uses ISO 639-1 standard """
-    type_class_uri = FIXR["Language"]
-    type_class_curie = "fixr:Language"
+    type_class_uri = FIX_ORCHESTRA["FIXLanguage"]
+    type_class_curie = "fix_orchestra:FIXLanguage"
     type_name = "FIXLanguage"
     type_model_uri = FIX_ORCHESTRA.FIXLanguage
 
 
 class FIXLocalMktTime(String):
     """ FIX LocalMktTime datatype (extends String). string field representing the time local to a particular market center. Used where offset to UTC varies throughout the year and the defining market center is identified in a corresponding field. """
-    type_class_uri = FIXR["LocalMktTime"]
-    type_class_curie = "fixr:LocalMktTime"
+    type_class_uri = FIX_ORCHESTRA["FIXLocalMktTime"]
+    type_class_curie = "fix_orchestra:FIXLocalMktTime"
     type_name = "FIXLocalMktTime"
     type_model_uri = FIX_ORCHESTRA.FIXLocalMktTime
 
 
 class FIXXID(String):
     """ FIX XID datatype (extends String). The purpose of the XID datatype is to define a unique identifier that is global to a FIX message. An identifier defined using this datatype uniquely identifies its containing element, whatever its type and name is. The constraint added by this datatype is that the values of all the fields that have an XID datatype in a FIX message must be unique. """
-    type_class_uri = FIXR["XID"]
-    type_class_curie = "fixr:XID"
+    type_class_uri = FIX_ORCHESTRA["FIXXID"]
+    type_class_curie = "fix_orchestra:FIXXID"
     type_name = "FIXXID"
     type_model_uri = FIX_ORCHESTRA.FIXXID
 
 
 class FIXXIDREF(String):
     """ FIX XIDREF datatype (extends String). The XIDREF datatype defines a reference to an identifier defined by the XID datatype. """
-    type_class_uri = FIXR["XIDREF"]
-    type_class_curie = "fixr:XIDREF"
+    type_class_uri = FIX_ORCHESTRA["FIXXIDREF"]
+    type_class_curie = "fix_orchestra:FIXXIDREF"
     type_name = "FIXXIDREF"
     type_model_uri = FIX_ORCHESTRA.FIXXIDREF
 
@@ -523,8 +523,8 @@ class XmlLangType(String):
 class EntityAttribGrp(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["entityAttribGrp"]
-    class_class_curie: ClassVar[str] = "fixr:entityAttribGrp"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["EntityAttribGrp"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:EntityAttribGrp"
     class_name: ClassVar[str] = "EntityAttribGrp"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.EntityAttribGrp
 
@@ -592,8 +592,8 @@ class FieldAttribGrp(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["fieldAttribGrp"]
-    class_class_curie: ClassVar[str] = "fixr:fieldAttribGrp"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldAttribGrp"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FieldAttribGrp"
     class_name: ClassVar[str] = "FieldAttribGrp"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldAttribGrp
 
@@ -645,8 +645,8 @@ class OidGrp(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["oidGrp"]
-    class_class_curie: ClassVar[str] = "fixr:oidGrp"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OidGrp"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OidGrp"
     class_name: ClassVar[str] = "OidGrp"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OidGrp
 
@@ -686,8 +686,8 @@ class RefidGrp(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["refidGrp"]
-    class_class_curie: ClassVar[str] = "fixr:refidGrp"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["RefidGrp"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:RefidGrp"
     class_name: ClassVar[str] = "RefidGrp"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.RefidGrp
 
@@ -721,8 +721,8 @@ class ScenarioRefGrp(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["scenarioRefGrp"]
-    class_class_curie: ClassVar[str] = "fixr:scenarioRefGrp"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ScenarioRefGrp"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ScenarioRefGrp"
     class_name: ClassVar[str] = "ScenarioRefGrp"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ScenarioRefGrp
 
@@ -743,8 +743,8 @@ class ScenarioRefGrp(YAMLRoot):
 class ActionType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["actionType"]
-    class_class_curie: ClassVar[str] = "fixr:actionType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ActionType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ActionType"
     class_name: ClassVar[str] = "ActionType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ActionType
 
@@ -792,8 +792,8 @@ class ActorType(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["actorType"]
-    class_class_curie: ClassVar[str] = "fixr:actorType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ActorType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ActorType"
     class_name: ClassVar[str] = "ActorType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ActorType
 
@@ -840,8 +840,8 @@ class ActorType(YAMLRoot):
 class Annotation(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["annotation"]
-    class_class_curie: ClassVar[str] = "fixr:annotation"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Annotation"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Annotation"
     class_name: ClassVar[str] = "Annotation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Annotation
 
@@ -919,8 +919,8 @@ class Appinfo(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["appinfo"]
-    class_class_curie: ClassVar[str] = "fixr:appinfo"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Appinfo"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Appinfo"
     class_name: ClassVar[str] = "Appinfo"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Appinfo
 
@@ -1011,8 +1011,8 @@ class Appinfo(YAMLRoot):
 class BlockAssignmentType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["blockAssignmentType"]
-    class_class_curie: ClassVar[str] = "fixr:blockAssignmentType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["BlockAssignmentType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:BlockAssignmentType"
     class_name: ClassVar[str] = "BlockAssignmentType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.BlockAssignmentType
 
@@ -1034,8 +1034,8 @@ class BlockAssignmentType(YAMLRoot):
 class CategoryType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["categoryType"]
-    class_class_curie: ClassVar[str] = "fixr:categoryType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CategoryType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:CategoryType"
     class_name: ClassVar[str] = "CategoryType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CategoryType
 
@@ -1126,8 +1126,8 @@ class CategoryType(YAMLRoot):
 class CodeSetType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["codeSetType"]
-    class_class_curie: ClassVar[str] = "fixr:codeSetType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeSetType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:CodeSetType"
     class_name: ClassVar[str] = "CodeSetType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeSetType
 
@@ -1249,8 +1249,8 @@ class CodeSetType(YAMLRoot):
 class CodeType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["codeType"]
-    class_class_curie: ClassVar[str] = "fixr:codeType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:CodeType"
     class_name: ClassVar[str] = "CodeType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeType
 
@@ -1357,8 +1357,8 @@ class CodeType(YAMLRoot):
 class ComponentRefType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["componentRefType"]
-    class_class_curie: ClassVar[str] = "fixr:componentRefType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentRefType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentRefType"
     class_name: ClassVar[str] = "ComponentRefType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentRefType
 
@@ -1461,8 +1461,8 @@ class ComponentRefType(YAMLRoot):
 class ComponentRuleType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["componentRuleType"]
-    class_class_curie: ClassVar[str] = "fixr:componentRuleType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentRuleType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentRuleType"
     class_name: ClassVar[str] = "ComponentRuleType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentRuleType
 
@@ -1489,8 +1489,8 @@ class ComponentRuleType(YAMLRoot):
 class ComponentType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["componentType"]
-    class_class_curie: ClassVar[str] = "fixr:componentType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentType"
     class_name: ClassVar[str] = "ComponentType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentType
 
@@ -1612,8 +1612,8 @@ class ComponentType(YAMLRoot):
 class ConceptType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["conceptType"]
-    class_class_curie: ClassVar[str] = "fixr:conceptType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ConceptType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ConceptType"
     class_name: ClassVar[str] = "ConceptType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ConceptType
 
@@ -1648,8 +1648,8 @@ class ConceptType(YAMLRoot):
 class Documentation(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["documentation"]
-    class_class_curie: ClassVar[str] = "fixr:documentation"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Documentation"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Documentation"
     class_name: ClassVar[str] = "Documentation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Documentation
 
@@ -1735,8 +1735,8 @@ class Documentation(YAMLRoot):
 class FieldRefType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["fieldRefType"]
-    class_class_curie: ClassVar[str] = "fixr:fieldRefType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldRefType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FieldRefType"
     class_name: ClassVar[str] = "FieldRefType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldRefType
 
@@ -1895,8 +1895,8 @@ class UniqueInline(YAMLRoot):
 class FieldRuleType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["fieldRuleType"]
-    class_class_curie: ClassVar[str] = "fixr:fieldRuleType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldRuleType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FieldRuleType"
     class_name: ClassVar[str] = "FieldRuleType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldRuleType
 
@@ -1968,8 +1968,8 @@ class FieldRuleType(YAMLRoot):
 class FieldType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["fieldType"]
-    class_class_curie: ClassVar[str] = "fixr:fieldType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FieldType"
     class_name: ClassVar[str] = "FieldType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldType
 
@@ -2140,8 +2140,8 @@ class FlowType(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["flowType"]
-    class_class_curie: ClassVar[str] = "fixr:flowType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FlowType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FlowType"
     class_name: ClassVar[str] = "FlowType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FlowType
 
@@ -2180,8 +2180,8 @@ class FlowType(YAMLRoot):
 class GroupRefType(ComponentRefType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["groupRefType"]
-    class_class_curie: ClassVar[str] = "fixr:groupRefType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["GroupRefType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:GroupRefType"
     class_name: ClassVar[str] = "GroupRefType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.GroupRefType
 
@@ -2207,8 +2207,8 @@ class GroupType(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["groupType"]
-    class_class_curie: ClassVar[str] = "fixr:groupType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["GroupType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:GroupType"
     class_name: ClassVar[str] = "GroupType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.GroupType
 
@@ -2342,8 +2342,8 @@ class GroupType(YAMLRoot):
 class IdentifiersType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["identifiersType"]
-    class_class_curie: ClassVar[str] = "fixr:identifiersType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["IdentifiersType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:IdentifiersType"
     class_name: ClassVar[str] = "IdentifiersType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.IdentifiersType
 
@@ -2370,8 +2370,8 @@ class IdentifiersType(YAMLRoot):
 class IdentifierType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["identifierType"]
-    class_class_curie: ClassVar[str] = "fixi:identifierType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["IdentifierType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:IdentifierType"
     class_name: ClassVar[str] = "IdentifierType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.IdentifierType
 
@@ -2411,8 +2411,8 @@ class ExtensionInline(YAMLRoot):
 class MappedDatatype(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["mappedDatatype"]
-    class_class_curie: ClassVar[str] = "fixr:mappedDatatype"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MappedDatatype"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:MappedDatatype"
     class_name: ClassVar[str] = "MappedDatatype"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MappedDatatype
 
@@ -2471,8 +2471,8 @@ class MappedDatatype(YAMLRoot):
 class MessageRefType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["messageRefType"]
-    class_class_curie: ClassVar[str] = "fixr:messageRefType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MessageRefType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:MessageRefType"
     class_name: ClassVar[str] = "MessageRefType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MessageRefType
 
@@ -2567,8 +2567,8 @@ class ResponsesInline(YAMLRoot):
 class MessageType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["messageType"]
-    class_class_curie: ClassVar[str] = "fixr:messageType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MessageType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:MessageType"
     class_name: ClassVar[str] = "MessageType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MessageType
 
@@ -2700,8 +2700,8 @@ class ResponseType(ActionType):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["responseType"]
-    class_class_curie: ClassVar[str] = "fixr:responseType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ResponseType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ResponseType"
     class_name: ClassVar[str] = "ResponseType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ResponseType
 
@@ -2733,8 +2733,8 @@ class ScenarioType(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["scenarioType"]
-    class_class_curie: ClassVar[str] = "fixr:scenarioType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ScenarioType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ScenarioType"
     class_name: ClassVar[str] = "ScenarioType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ScenarioType
 
@@ -2759,8 +2759,8 @@ class ScenarioType(YAMLRoot):
 class SectionType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["sectionType"]
-    class_class_curie: ClassVar[str] = "fixr:sectionType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SectionType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:SectionType"
     class_name: ClassVar[str] = "SectionType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SectionType
 
@@ -2843,8 +2843,8 @@ class SectionType(YAMLRoot):
 class StateMachineType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["stateMachineType"]
-    class_class_curie: ClassVar[str] = "fixr:stateMachineType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["StateMachineType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:StateMachineType"
     class_name: ClassVar[str] = "StateMachineType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.StateMachineType
 
@@ -2881,8 +2881,8 @@ class StateType(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["stateType"]
-    class_class_curie: ClassVar[str] = "fixr:stateType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["StateType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:StateType"
     class_name: ClassVar[str] = "StateType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.StateType
 
@@ -2920,8 +2920,8 @@ class StateType(YAMLRoot):
 class TimerSchedule(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["timerSchedule"]
-    class_class_curie: ClassVar[str] = "fixr:timerSchedule"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TimerSchedule"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:TimerSchedule"
     class_name: ClassVar[str] = "TimerSchedule"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TimerSchedule
 
@@ -2962,8 +2962,8 @@ class TimerSchedule(YAMLRoot):
 class TimerType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["timerType"]
-    class_class_curie: ClassVar[str] = "fixr:timerType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TimerType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:TimerType"
     class_name: ClassVar[str] = "TimerType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TimerType
 
@@ -2982,8 +2982,8 @@ class TimerType(YAMLRoot):
 class TransitionType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["transitionType"]
-    class_class_curie: ClassVar[str] = "fixr:transitionType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TransitionType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:TransitionType"
     class_name: ClassVar[str] = "TransitionType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TransitionType
 
@@ -3016,8 +3016,8 @@ class TransitionType(YAMLRoot):
 class TriggerType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["triggerType"]
-    class_class_curie: ClassVar[str] = "fixr:triggerType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TriggerType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:TriggerType"
     class_name: ClassVar[str] = "TriggerType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TriggerType
 
@@ -3048,8 +3048,8 @@ class TriggerType(YAMLRoot):
 class InterfaceAnnotation(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["annotation"]
-    class_class_curie: ClassVar[str] = "fixi:annotation"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceAnnotation"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceAnnotation"
     class_name: ClassVar[str] = "InterfaceAnnotation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceAnnotation
 
@@ -3075,8 +3075,8 @@ class InterfaceAppinfo(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["appinfo"]
-    class_class_curie: ClassVar[str] = "fixi:appinfo"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceAppinfo"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceAppinfo"
     class_name: ClassVar[str] = "InterfaceAppinfo"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceAppinfo
 
@@ -3115,8 +3115,8 @@ class InterfaceAppinfo(YAMLRoot):
 class BaseInterfaceType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["baseInterfaceType"]
-    class_class_curie: ClassVar[str] = "fixi:baseInterfaceType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["BaseInterfaceType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:BaseInterfaceType"
     class_name: ClassVar[str] = "BaseInterfaceType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.BaseInterfaceType
 
@@ -3174,8 +3174,8 @@ class BaseInterfaceType(YAMLRoot):
 class InterfaceDocumentation(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["documentation"]
-    class_class_curie: ClassVar[str] = "fixi:documentation"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceDocumentation"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceDocumentation"
     class_name: ClassVar[str] = "InterfaceDocumentation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceDocumentation
 
@@ -3228,8 +3228,8 @@ class SessionsInline(YAMLRoot):
 class InterfaceType(BaseInterfaceType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["interfaceType"]
-    class_class_curie: ClassVar[str] = "fixi:interfaceType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceType"
     class_name: ClassVar[str] = "InterfaceType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceType
 
@@ -3247,8 +3247,8 @@ class InterfaceType(BaseInterfaceType):
 class ProtocolType(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["protocolType"]
-    class_class_curie: ClassVar[str] = "fixi:protocolType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ProtocolType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ProtocolType"
     class_name: ClassVar[str] = "ProtocolType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ProtocolType
 
@@ -3301,8 +3301,8 @@ class ProtocolType(YAMLRoot):
 class EncodingType(ProtocolType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["encodingType"]
-    class_class_curie: ClassVar[str] = "fixi:encodingType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["EncodingType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:EncodingType"
     class_name: ClassVar[str] = "EncodingType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.EncodingType
 
@@ -3310,8 +3310,8 @@ class EncodingType(ProtocolType):
 class ServiceType(ProtocolType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["serviceType"]
-    class_class_curie: ClassVar[str] = "fixi:serviceType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ServiceType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:ServiceType"
     class_name: ClassVar[str] = "ServiceType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ServiceType
 
@@ -3319,8 +3319,8 @@ class ServiceType(ProtocolType):
 class SessionProtocolType(ProtocolType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["sessionProtocolType"]
-    class_class_curie: ClassVar[str] = "fixi:sessionProtocolType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SessionProtocolType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:SessionProtocolType"
     class_name: ClassVar[str] = "SessionProtocolType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SessionProtocolType
 
@@ -3329,8 +3329,8 @@ class SessionProtocolType(ProtocolType):
 class SessionType(BaseInterfaceType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["sessionType"]
-    class_class_curie: ClassVar[str] = "fixi:sessionType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SessionType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:SessionType"
     class_name: ClassVar[str] = "SessionType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SessionType
 
@@ -3365,8 +3365,8 @@ class SessionType(BaseInterfaceType):
 class TransportProtocolType(ProtocolType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["transportProtocolType"]
-    class_class_curie: ClassVar[str] = "fixi:transportProtocolType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TransportProtocolType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:TransportProtocolType"
     class_name: ClassVar[str] = "TransportProtocolType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TransportProtocolType
 
@@ -3395,8 +3395,8 @@ class TransportProtocolType(ProtocolType):
 class UserInterfaceType(ProtocolType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["userInterfaceType"]
-    class_class_curie: ClassVar[str] = "fixi:userInterfaceType"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["UserInterfaceType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:UserInterfaceType"
     class_name: ClassVar[str] = "UserInterfaceType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.UserInterfaceType
 
@@ -3405,8 +3405,8 @@ class UserInterfaceType(ProtocolType):
 class Datatype(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["datatype"]
-    class_class_curie: ClassVar[str] = "fixr:datatype"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Datatype"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Datatype"
     class_name: ClassVar[str] = "Datatype"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Datatype
 
@@ -3499,8 +3499,8 @@ class Actors(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["actors"]
-    class_class_curie: ClassVar[str] = "fixr:actors"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Actors"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Actors"
     class_name: ClassVar[str] = "Actors"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Actors
 
@@ -3527,8 +3527,8 @@ class Actors(YAMLRoot):
 class Categories(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["categories"]
-    class_class_curie: ClassVar[str] = "fixr:categories"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Categories"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Categories"
     class_name: ClassVar[str] = "Categories"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Categories
 
@@ -3552,8 +3552,8 @@ class Categories(YAMLRoot):
 class CodeSets(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["codeSets"]
-    class_class_curie: ClassVar[str] = "fixr:codeSets"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeSets"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:CodeSets"
     class_name: ClassVar[str] = "CodeSets"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeSets
 
@@ -3577,8 +3577,8 @@ class CodeSets(YAMLRoot):
 class Components(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["components"]
-    class_class_curie: ClassVar[str] = "fixr:components"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Components"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Components"
     class_name: ClassVar[str] = "Components"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Components
 
@@ -3602,8 +3602,8 @@ class Components(YAMLRoot):
 class Concepts(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["concepts"]
-    class_class_curie: ClassVar[str] = "fixr:concepts"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Concepts"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Concepts"
     class_name: ClassVar[str] = "Concepts"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Concepts
 
@@ -3627,8 +3627,8 @@ class Concepts(YAMLRoot):
 class Datatypes(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["datatypes"]
-    class_class_curie: ClassVar[str] = "fixr:datatypes"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Datatypes"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Datatypes"
     class_name: ClassVar[str] = "Datatypes"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Datatypes
 
@@ -3652,8 +3652,8 @@ class Datatypes(YAMLRoot):
 class Fields(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["fields"]
-    class_class_curie: ClassVar[str] = "fixr:fields"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Fields"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Fields"
     class_name: ClassVar[str] = "Fields"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Fields
 
@@ -3677,8 +3677,8 @@ class Fields(YAMLRoot):
 class Groups(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["groups"]
-    class_class_curie: ClassVar[str] = "fixr:groups"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Groups"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Groups"
     class_name: ClassVar[str] = "Groups"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Groups
 
@@ -3702,8 +3702,8 @@ class Groups(YAMLRoot):
 class Messages(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["messages"]
-    class_class_curie: ClassVar[str] = "fixr:messages"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Messages"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Messages"
     class_name: ClassVar[str] = "Messages"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Messages
 
@@ -3727,8 +3727,8 @@ class Messages(YAMLRoot):
 class Repository(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["repository"]
-    class_class_curie: ClassVar[str] = "fixr:repository"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Repository"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Repository"
     class_name: ClassVar[str] = "Repository"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Repository
 
@@ -3832,8 +3832,8 @@ class Scenarios(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["scenarios"]
-    class_class_curie: ClassVar[str] = "fixr:scenarios"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Scenarios"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Scenarios"
     class_name: ClassVar[str] = "Scenarios"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Scenarios
 
@@ -3859,8 +3859,8 @@ class Scenarios(YAMLRoot):
 class Sections(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXR["sections"]
-    class_class_curie: ClassVar[str] = "fixr:sections"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Sections"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Sections"
     class_name: ClassVar[str] = "Sections"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Sections
 
@@ -3888,8 +3888,8 @@ class Interfaces(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIXI["interfaces"]
-    class_class_curie: ClassVar[str] = "fixi:interfaces"
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Interfaces"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:Interfaces"
     class_name: ClassVar[str] = "Interfaces"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Interfaces
 
@@ -5640,355 +5640,355 @@ class XmlSpaceType(EnumDefinitionImpl):
 class slots:
     pass
 
-slots.added = Slot(uri=FIXR.added, name="added", curie=FIXR.curie('added'),
+slots.added = Slot(uri=FIX_ORCHESTRA.added, name="added", curie=FIX_ORCHESTRA.curie('added'),
                    model_uri=FIX_ORCHESTRA.added, domain=None, range=Optional[Union[str, Version]])
 
-slots.added_ep = Slot(uri=FIXR.addedEP, name="added_ep", curie=FIXR.curie('addedEP'),
+slots.added_ep = Slot(uri=FIX_ORCHESTRA.added_ep, name="added_ep", curie=FIX_ORCHESTRA.curie('added_ep'),
                    model_uri=FIX_ORCHESTRA.added_ep, domain=None, range=Optional[Union[int, EP]])
 
-slots.change_type = Slot(uri=FIXR.changeType, name="change_type", curie=FIXR.curie('changeType'),
+slots.change_type = Slot(uri=FIX_ORCHESTRA.change_type, name="change_type", curie=FIX_ORCHESTRA.curie('change_type'),
                    model_uri=FIX_ORCHESTRA.change_type, domain=None, range=Optional[Union[str, "ChangeType"]])
 
-slots.deprecated_ep = Slot(uri=FIXR.deprecatedEP, name="deprecated_ep", curie=FIXR.curie('deprecatedEP'),
+slots.deprecated_ep = Slot(uri=FIX_ORCHESTRA.deprecated_ep, name="deprecated_ep", curie=FIX_ORCHESTRA.curie('deprecated_ep'),
                    model_uri=FIX_ORCHESTRA.deprecated_ep, domain=None, range=Optional[Union[int, EP]])
 
-slots.issue = Slot(uri=FIXR.issue, name="issue", curie=FIXR.curie('issue'),
+slots.issue = Slot(uri=FIX_ORCHESTRA.issue, name="issue", curie=FIX_ORCHESTRA.curie('issue'),
                    model_uri=FIX_ORCHESTRA.issue, domain=None, range=Optional[str])
 
-slots.last_modified = Slot(uri=FIXR.lastModified, name="last_modified", curie=FIXR.curie('lastModified'),
+slots.last_modified = Slot(uri=FIX_ORCHESTRA.last_modified, name="last_modified", curie=FIX_ORCHESTRA.curie('last_modified'),
                    model_uri=FIX_ORCHESTRA.last_modified, domain=None, range=Optional[Union[str, Version]])
 
-slots.replaced = Slot(uri=FIXR.replaced, name="replaced", curie=FIXR.curie('replaced'),
+slots.replaced = Slot(uri=FIX_ORCHESTRA.replaced, name="replaced", curie=FIX_ORCHESTRA.curie('replaced'),
                    model_uri=FIX_ORCHESTRA.replaced, domain=None, range=Optional[Union[str, Version]])
 
-slots.replaced_ep = Slot(uri=FIXR.replacedEP, name="replaced_ep", curie=FIXR.curie('replacedEP'),
+slots.replaced_ep = Slot(uri=FIX_ORCHESTRA.replaced_ep, name="replaced_ep", curie=FIX_ORCHESTRA.curie('replaced_ep'),
                    model_uri=FIX_ORCHESTRA.replaced_ep, domain=None, range=Optional[Union[int, EP]])
 
-slots.replaced_by_field = Slot(uri=FIXR.replacedByField, name="replaced_by_field", curie=FIXR.curie('replacedByField'),
+slots.replaced_by_field = Slot(uri=FIX_ORCHESTRA.replaced_by_field, name="replaced_by_field", curie=FIX_ORCHESTRA.curie('replaced_by_field'),
                    model_uri=FIX_ORCHESTRA.replaced_by_field, domain=None, range=Optional[Union[int, Id]])
 
-slots.supported = Slot(uri=FIXR.supported, name="supported", curie=FIXR.curie('supported'),
+slots.supported = Slot(uri=FIX_ORCHESTRA.supported, name="supported", curie=FIX_ORCHESTRA.curie('supported'),
                    model_uri=FIX_ORCHESTRA.supported, domain=None, range=Optional[Union[str, "SupportType"]])
 
-slots.updated = Slot(uri=FIXR.updated, name="updated", curie=FIXR.curie('updated'),
+slots.updated = Slot(uri=FIX_ORCHESTRA.updated, name="updated", curie=FIX_ORCHESTRA.curie('updated'),
                    model_uri=FIX_ORCHESTRA.updated, domain=None, range=Optional[Union[str, Version]])
 
-slots.updated_ep = Slot(uri=FIXR.updatedEP, name="updated_ep", curie=FIXR.curie('updatedEP'),
+slots.updated_ep = Slot(uri=FIX_ORCHESTRA.updated_ep, name="updated_ep", curie=FIX_ORCHESTRA.curie('updated_ep'),
                    model_uri=FIX_ORCHESTRA.updated_ep, domain=None, range=Optional[Union[int, EP]])
 
-slots.min_inclusive = Slot(uri=FIXR.minInclusive, name="min_inclusive", curie=FIXR.curie('minInclusive'),
+slots.min_inclusive = Slot(uri=FIX_ORCHESTRA.min_inclusive, name="min_inclusive", curie=FIX_ORCHESTRA.curie('min_inclusive'),
                    model_uri=FIX_ORCHESTRA.min_inclusive, domain=None, range=Optional[str])
 
-slots.max_inclusive = Slot(uri=FIXR.maxInclusive, name="max_inclusive", curie=FIXR.curie('maxInclusive'),
+slots.max_inclusive = Slot(uri=FIX_ORCHESTRA.max_inclusive, name="max_inclusive", curie=FIX_ORCHESTRA.curie('max_inclusive'),
                    model_uri=FIX_ORCHESTRA.max_inclusive, domain=None, range=Optional[str])
 
-slots.impl_length = Slot(uri=FIXR.implLength, name="impl_length", curie=FIXR.curie('implLength'),
+slots.impl_length = Slot(uri=FIX_ORCHESTRA.impl_length, name="impl_length", curie=FIX_ORCHESTRA.curie('impl_length'),
                    model_uri=FIX_ORCHESTRA.impl_length, domain=None, range=Optional[int])
 
-slots.impl_min_length = Slot(uri=FIXR.implMinLength, name="impl_min_length", curie=FIXR.curie('implMinLength'),
+slots.impl_min_length = Slot(uri=FIX_ORCHESTRA.impl_min_length, name="impl_min_length", curie=FIX_ORCHESTRA.curie('impl_min_length'),
                    model_uri=FIX_ORCHESTRA.impl_min_length, domain=None, range=Optional[int])
 
-slots.impl_max_length = Slot(uri=FIXR.implMaxLength, name="impl_max_length", curie=FIXR.curie('implMaxLength'),
+slots.impl_max_length = Slot(uri=FIX_ORCHESTRA.impl_max_length, name="impl_max_length", curie=FIX_ORCHESTRA.curie('impl_max_length'),
                    model_uri=FIX_ORCHESTRA.impl_max_length, domain=None, range=Optional[int])
 
-slots.presence = Slot(uri=FIXR.presence, name="presence", curie=FIXR.curie('presence'),
+slots.presence = Slot(uri=FIX_ORCHESTRA.presence, name="presence", curie=FIX_ORCHESTRA.curie('presence'),
                    model_uri=FIX_ORCHESTRA.presence, domain=None, range=Optional[Union[str, "Presence"]])
 
-slots.rendering = Slot(uri=FIXR.rendering, name="rendering", curie=FIXR.curie('rendering'),
+slots.rendering = Slot(uri=FIX_ORCHESTRA.rendering, name="rendering", curie=FIX_ORCHESTRA.curie('rendering'),
                    model_uri=FIX_ORCHESTRA.rendering, domain=None, range=Optional[str])
 
-slots.abbr_name = Slot(uri=FIXR.abbrName, name="abbr_name", curie=FIXR.curie('abbrName'),
+slots.abbr_name = Slot(uri=FIX_ORCHESTRA.abbr_name, name="abbr_name", curie=FIX_ORCHESTRA.curie('abbr_name'),
                    model_uri=FIX_ORCHESTRA.abbr_name, domain=None, range=Optional[Union[str, Name]])
 
-slots.scenario_id = Slot(uri=FIXR.scenarioId, name="scenario_id", curie=FIXR.curie('scenarioId'),
+slots.scenario_id = Slot(uri=FIX_ORCHESTRA.scenario_id, name="scenario_id", curie=FIX_ORCHESTRA.curie('scenario_id'),
                    model_uri=FIX_ORCHESTRA.scenario_id, domain=None, range=Optional[Union[int, Id]])
 
-slots.scenario_ref_id = Slot(uri=FIXR.scenarioRefId, name="scenario_ref_id", curie=FIXR.curie('scenarioRefId'),
+slots.scenario_ref_id = Slot(uri=FIX_ORCHESTRA.scenario_ref_id, name="scenario_ref_id", curie=FIX_ORCHESTRA.curie('scenario_ref_id'),
                    model_uri=FIX_ORCHESTRA.scenario_ref_id, domain=None, range=Optional[Union[int, Id]])
 
-slots.scenario_ref = Slot(uri=FIXR.scenarioRef, name="scenario_ref", curie=FIXR.curie('scenarioRef'),
+slots.scenario_ref = Slot(uri=FIX_ORCHESTRA.scenario_ref, name="scenario_ref", curie=FIX_ORCHESTRA.curie('scenario_ref'),
                    model_uri=FIX_ORCHESTRA.scenario_ref, domain=None, range=Optional[Union[str, Name]])
 
-slots.field = Slot(uri=FIXR.field, name="field", curie=FIXR.curie('field'),
+slots.field = Slot(uri=FIX_ORCHESTRA.field, name="field", curie=FIX_ORCHESTRA.curie('field'),
                    model_uri=FIX_ORCHESTRA.field, domain=None, range=Optional[Union[Union[dict, FieldType], list[Union[dict, FieldType]]]])
 
-slots.field_ref = Slot(uri=FIXR.fieldRef, name="field_ref", curie=FIXR.curie('fieldRef'),
+slots.field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.field_ref, domain=None, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
 
-slots.component = Slot(uri=FIXR.component, name="component", curie=FIXR.curie('component'),
+slots.component = Slot(uri=FIX_ORCHESTRA.component, name="component", curie=FIX_ORCHESTRA.curie('component'),
                    model_uri=FIX_ORCHESTRA.component, domain=None, range=Optional[Union[Union[dict, ComponentType], list[Union[dict, ComponentType]]]])
 
-slots.component_ref = Slot(uri=FIXR.componentRef, name="component_ref", curie=FIXR.curie('componentRef'),
+slots.component_ref = Slot(uri=FIX_ORCHESTRA.component_ref, name="component_ref", curie=FIX_ORCHESTRA.curie('component_ref'),
                    model_uri=FIX_ORCHESTRA.component_ref, domain=None, range=Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]])
 
-slots.group_ref = Slot(uri=FIXR.groupRef, name="group_ref", curie=FIXR.curie('groupRef'),
+slots.group_ref = Slot(uri=FIX_ORCHESTRA.group_ref, name="group_ref", curie=FIX_ORCHESTRA.curie('group_ref'),
                    model_uri=FIX_ORCHESTRA.group_ref, domain=None, range=Optional[Union[Union[dict, GroupRefType], list[Union[dict, GroupRefType]]]])
 
-slots.message_ref = Slot(uri=FIXR.messageRef, name="message_ref", curie=FIXR.curie('messageRef'),
+slots.message_ref = Slot(uri=FIX_ORCHESTRA.message_ref, name="message_ref", curie=FIX_ORCHESTRA.curie('message_ref'),
                    model_uri=FIX_ORCHESTRA.message_ref, domain=None, range=Optional[Union[Union[dict, MessageRefType], list[Union[dict, MessageRefType]]]])
 
-slots.trigger = Slot(uri=FIXR.trigger, name="trigger", curie=FIXR.curie('trigger'),
+slots.trigger = Slot(uri=FIX_ORCHESTRA.trigger, name="trigger", curie=FIX_ORCHESTRA.curie('trigger'),
                    model_uri=FIX_ORCHESTRA.trigger, domain=None, range=Optional[Union[Union[dict, TriggerType], list[Union[dict, TriggerType]]]])
 
-slots.timer_schedule = Slot(uri=FIXR.timerSchedule, name="timer_schedule", curie=FIXR.curie('timerSchedule'),
+slots.timer_schedule = Slot(uri=FIX_ORCHESTRA.timer_schedule, name="timer_schedule", curie=FIX_ORCHESTRA.curie('timer_schedule'),
                    model_uri=FIX_ORCHESTRA.timer_schedule, domain=None, range=Optional[Union[Union[dict, TimerSchedule], list[Union[dict, TimerSchedule]]]])
 
-slots.states = Slot(uri=FIXR.states, name="states", curie=FIXR.curie('states'),
+slots.states = Slot(uri=FIX_ORCHESTRA.states, name="states", curie=FIX_ORCHESTRA.curie('states'),
                    model_uri=FIX_ORCHESTRA.states, domain=None, range=Optional[Union[Union[dict, StateMachineType], list[Union[dict, StateMachineType]]]])
 
-slots.timer = Slot(uri=FIXR.timer, name="timer", curie=FIXR.curie('timer'),
+slots.timer = Slot(uri=FIX_ORCHESTRA.timer, name="timer", curie=FIX_ORCHESTRA.curie('timer'),
                    model_uri=FIX_ORCHESTRA.timer, domain=None, range=Optional[Union[Union[dict, TimerType], list[Union[dict, TimerType]]]])
 
-slots.spec_url = Slot(uri=FIXR.specUrl, name="spec_url", curie=FIXR.curie('specUrl'),
+slots.spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
                    model_uri=FIX_ORCHESTRA.spec_url, domain=None, range=Optional[Union[str, URI]])
 
 slots.extra_attributes = Slot(uri=FIX_ORCHESTRA.extra_attributes, name="extra_attributes", curie=FIX_ORCHESTRA.curie('extra_attributes'),
                    model_uri=FIX_ORCHESTRA.extra_attributes, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.fixml_file_name = Slot(uri=FIXR.FIXMLFileName, name="fixml_file_name", curie=FIXR.curie('FIXMLFileName'),
+slots.fixml_file_name = Slot(uri=FIX_ORCHESTRA.fixml_file_name, name="fixml_file_name", curie=FIX_ORCHESTRA.curie('fixml_file_name'),
                    model_uri=FIX_ORCHESTRA.fixml_file_name, domain=None, range=Optional[Union[str, Name]])
 
-slots.component_type = Slot(uri=FIXR.componentType, name="component_type", curie=FIXR.curie('componentType'),
+slots.component_type = Slot(uri=FIX_ORCHESTRA.component_type, name="component_type", curie=FIX_ORCHESTRA.curie('component_type'),
                    model_uri=FIX_ORCHESTRA.component_type, domain=None, range=Optional[Union[str, "CatComponentType"]])
 
-slots.include_file = Slot(uri=FIXR.includeFile, name="include_file", curie=FIXR.curie('includeFile'),
+slots.include_file = Slot(uri=FIX_ORCHESTRA.include_file, name="include_file", curie=FIX_ORCHESTRA.curie('include_file'),
                    model_uri=FIX_ORCHESTRA.include_file, domain=None, range=Optional[Union[str, "CatIncludeFile"]])
 
-slots.code = Slot(uri=FIXR.code, name="code", curie=FIXR.curie('code'),
+slots.code = Slot(uri=FIX_ORCHESTRA.code, name="code", curie=FIX_ORCHESTRA.curie('code'),
                    model_uri=FIX_ORCHESTRA.code, domain=None, range=Optional[Union[Union[dict, CodeType], list[Union[dict, CodeType]]]])
 
-slots.default = Slot(uri=FIXR.default, name="default", curie=FIXR.curie('default'),
+slots.default = Slot(uri=FIX_ORCHESTRA.default, name="default", curie=FIX_ORCHESTRA.curie('default'),
                    model_uri=FIX_ORCHESTRA.default, domain=None, range=Optional[str])
 
-slots.union_data_type = Slot(uri=FIXR.unionDataType, name="union_data_type", curie=FIXR.curie('unionDataType'),
+slots.union_data_type = Slot(uri=FIX_ORCHESTRA.union_data_type, name="union_data_type", curie=FIX_ORCHESTRA.curie('union_data_type'),
                    model_uri=FIX_ORCHESTRA.union_data_type, domain=None, range=Optional[Union[str, "UnionDataType"]])
 
-slots.sort = Slot(uri=FIXR.sort, name="sort", curie=FIXR.curie('sort'),
+slots.sort = Slot(uri=FIX_ORCHESTRA.sort, name="sort", curie=FIX_ORCHESTRA.curie('sort'),
                    model_uri=FIX_ORCHESTRA.sort, domain=None, range=Optional[int])
 
-slots.block_assignment = Slot(uri=FIXR.blockAssignment, name="block_assignment", curie=FIXR.curie('blockAssignment'),
+slots.block_assignment = Slot(uri=FIX_ORCHESTRA.block_assignment, name="block_assignment", curie=FIX_ORCHESTRA.curie('block_assignment'),
                    model_uri=FIX_ORCHESTRA.block_assignment, domain=None, range=Optional[Union[Union[dict, BlockAssignmentType], list[Union[dict, BlockAssignmentType]]]])
 
-slots.when = Slot(uri=FIXR.when, name="when", curie=FIXR.curie('when'),
+slots.when = Slot(uri=FIX_ORCHESTRA.when, name="when", curie=FIX_ORCHESTRA.curie('when'),
                    model_uri=FIX_ORCHESTRA.when, domain=None, range=Optional[Union[str, ExpressionType]])
 
-slots.which = Slot(uri=FIXR.which, name="which", curie=FIXR.curie('which'),
+slots.which = Slot(uri=FIX_ORCHESTRA.which, name="which", curie=FIX_ORCHESTRA.curie('which'),
                    model_uri=FIX_ORCHESTRA.which, domain=None, range=Optional[Union[str, "MemberType"]])
 
-slots.length_id = Slot(uri=FIXR.lengthId, name="length_id", curie=FIXR.curie('lengthId'),
+slots.length_id = Slot(uri=FIX_ORCHESTRA.length_id, name="length_id", curie=FIX_ORCHESTRA.curie('length_id'),
                    model_uri=FIX_ORCHESTRA.length_id, domain=None, range=Optional[Union[int, Id]])
 
-slots.non_encoded_field_id = Slot(uri=FIXR.nonEncodedFieldId, name="non_encoded_field_id", curie=FIXR.curie('nonEncodedFieldId'),
+slots.non_encoded_field_id = Slot(uri=FIX_ORCHESTRA.non_encoded_field_id, name="non_encoded_field_id", curie=FIX_ORCHESTRA.curie('non_encoded_field_id'),
                    model_uri=FIX_ORCHESTRA.non_encoded_field_id, domain=None, range=Optional[Union[int, Id]])
 
-slots.unique = Slot(uri=FIXR.unique, name="unique", curie=FIXR.curie('unique'),
+slots.unique = Slot(uri=FIX_ORCHESTRA.unique, name="unique", curie=FIX_ORCHESTRA.curie('unique'),
                    model_uri=FIX_ORCHESTRA.unique, domain=None, range=Optional[Union[dict, UniqueInline]])
 
-slots.discriminator_id = Slot(uri=FIXR.discriminatorId, name="discriminator_id", curie=FIXR.curie('discriminatorId'),
+slots.discriminator_id = Slot(uri=FIX_ORCHESTRA.discriminator_id, name="discriminator_id", curie=FIX_ORCHESTRA.curie('discriminator_id'),
                    model_uri=FIX_ORCHESTRA.discriminator_id, domain=None, range=Optional[Union[int, Id]])
 
-slots.base_category = Slot(uri=FIXR.baseCategory, name="base_category", curie=FIXR.curie('baseCategory'),
+slots.base_category = Slot(uri=FIX_ORCHESTRA.base_category, name="base_category", curie=FIX_ORCHESTRA.curie('base_category'),
                    model_uri=FIX_ORCHESTRA.base_category, domain=None, range=Optional[Union[str, Name]])
 
-slots.base_category_abbr_name = Slot(uri=FIXR.baseCategoryAbbrName, name="base_category_abbr_name", curie=FIXR.curie('baseCategoryAbbrName'),
+slots.base_category_abbr_name = Slot(uri=FIX_ORCHESTRA.base_category_abbr_name, name="base_category_abbr_name", curie=FIX_ORCHESTRA.curie('base_category_abbr_name'),
                    model_uri=FIX_ORCHESTRA.base_category_abbr_name, domain=None, range=Optional[Union[str, Name]])
 
-slots.destination = Slot(uri=FIXR.destination, name="destination", curie=FIXR.curie('destination'),
+slots.destination = Slot(uri=FIX_ORCHESTRA.destination, name="destination", curie=FIX_ORCHESTRA.curie('destination'),
                    model_uri=FIX_ORCHESTRA.destination, domain=None, range=str)
 
-slots.impl_min_occurs = Slot(uri=FIXR.implMinOccurs, name="impl_min_occurs", curie=FIXR.curie('implMinOccurs'),
+slots.impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
                    model_uri=FIX_ORCHESTRA.impl_min_occurs, domain=None, range=Optional[int])
 
-slots.impl_max_occurs = Slot(uri=FIXR.implMaxOccurs, name="impl_max_occurs", curie=FIXR.curie('implMaxOccurs'),
+slots.impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
                    model_uri=FIX_ORCHESTRA.impl_max_occurs, domain=None, range=Optional[Union[str, UnboundedIntType]])
 
-slots.num_in_group = Slot(uri=FIXR.numInGroup, name="num_in_group", curie=FIXR.curie('numInGroup'),
+slots.num_in_group = Slot(uri=FIX_ORCHESTRA.num_in_group, name="num_in_group", curie=FIX_ORCHESTRA.curie('num_in_group'),
                    model_uri=FIX_ORCHESTRA.num_in_group, domain=None, range=Optional[Union[dict, FieldRefType]])
 
-slots.correlate = Slot(uri=FIXR.correlate, name="correlate", curie=FIXR.curie('correlate'),
+slots.correlate = Slot(uri=FIX_ORCHESTRA.correlate, name="correlate", curie=FIX_ORCHESTRA.curie('correlate'),
                    model_uri=FIX_ORCHESTRA.correlate, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
 
-slots.extension = Slot(uri=FIXR.extension, name="extension", curie=FIXR.curie('extension'),
+slots.extension = Slot(uri=FIX_ORCHESTRA.extension, name="extension", curie=FIX_ORCHESTRA.curie('extension'),
                    model_uri=FIX_ORCHESTRA.extension, domain=None, range=Optional[Union[dict, ExtensionInline]])
 
-slots.standard = Slot(uri=FIXR.standard, name="standard", curie=FIXR.curie('standard'),
+slots.standard = Slot(uri=FIX_ORCHESTRA.standard, name="standard", curie=FIX_ORCHESTRA.curie('standard'),
                    model_uri=FIX_ORCHESTRA.standard, domain=None, range=Union[str, DatatypeStandard])
 
-slots.builtin = Slot(uri=FIXR.builtin, name="builtin", curie=FIXR.curie('builtin'),
+slots.builtin = Slot(uri=FIX_ORCHESTRA.builtin, name="builtin", curie=FIX_ORCHESTRA.curie('builtin'),
                    model_uri=FIX_ORCHESTRA.builtin, domain=None, range=Optional[Union[bool, Bool]])
 
-slots.pattern = Slot(uri=FIXR.pattern, name="pattern", curie=FIXR.curie('pattern'),
+slots.pattern = Slot(uri=FIX_ORCHESTRA.pattern, name="pattern", curie=FIX_ORCHESTRA.curie('pattern'),
                    model_uri=FIX_ORCHESTRA.pattern, domain=None, range=Optional[str])
 
-slots.element = Slot(uri=FIXR.element, name="element", curie=FIXR.curie('element'),
+slots.element = Slot(uri=FIX_ORCHESTRA.element, name="element", curie=FIX_ORCHESTRA.curie('element'),
                    model_uri=FIX_ORCHESTRA.element, domain=None, range=Optional[str])
 
-slots.size = Slot(uri=FIXR.size, name="size", curie=FIXR.curie('size'),
+slots.size = Slot(uri=FIX_ORCHESTRA.size, name="size", curie=FIX_ORCHESTRA.curie('size'),
                    model_uri=FIX_ORCHESTRA.size, domain=None, range=Optional[int])
 
-slots.parameter = Slot(uri=FIXR.parameter, name="parameter", curie=FIXR.curie('parameter'),
+slots.parameter = Slot(uri=FIX_ORCHESTRA.parameter, name="parameter", curie=FIX_ORCHESTRA.curie('parameter'),
                    model_uri=FIX_ORCHESTRA.parameter, domain=None, range=Optional[str])
 
-slots.identifiers = Slot(uri=FIXR.identifiers, name="identifiers", curie=FIXR.curie('identifiers'),
+slots.identifiers = Slot(uri=FIX_ORCHESTRA.identifiers, name="identifiers", curie=FIX_ORCHESTRA.curie('identifiers'),
                    model_uri=FIX_ORCHESTRA.identifiers, domain=None, range=Optional[Union[dict, IdentifiersType]])
 
-slots.msg_type = Slot(uri=FIXR.msgType, name="msg_type", curie=FIXR.curie('msgType'),
+slots.msg_type = Slot(uri=FIX_ORCHESTRA.msg_type, name="msg_type", curie=FIX_ORCHESTRA.curie('msg_type'),
                    model_uri=FIX_ORCHESTRA.msg_type, domain=None, range=Optional[Union[str, MsgType]])
 
-slots.response = Slot(uri=FIXR.response, name="response", curie=FIXR.curie('response'),
+slots.response = Slot(uri=FIX_ORCHESTRA.response, name="response", curie=FIX_ORCHESTRA.curie('response'),
                    model_uri=FIX_ORCHESTRA.response, domain=None, range=Union[Union[dict, ResponseType], list[Union[dict, ResponseType]]])
 
-slots.structure = Slot(uri=FIXR.structure, name="structure", curie=FIXR.curie('structure'),
+slots.structure = Slot(uri=FIX_ORCHESTRA.structure, name="structure", curie=FIX_ORCHESTRA.curie('structure'),
                    model_uri=FIX_ORCHESTRA.structure, domain=None, range=Optional[Union[dict, StructureInline]])
 
-slots.responses = Slot(uri=FIXR.responses, name="responses", curie=FIXR.curie('responses'),
+slots.responses = Slot(uri=FIX_ORCHESTRA.responses, name="responses", curie=FIX_ORCHESTRA.curie('responses'),
                    model_uri=FIX_ORCHESTRA.responses, domain=None, range=Optional[Union[dict, ResponsesInline]])
 
-slots.sync = Slot(uri=FIXR.sync, name="sync", curie=FIXR.curie('sync'),
+slots.sync = Slot(uri=FIX_ORCHESTRA.sync, name="sync", curie=FIX_ORCHESTRA.curie('sync'),
                    model_uri=FIX_ORCHESTRA.sync, domain=None, range=Optional[Union[str, "Synchronization"]])
 
-slots.display_order = Slot(uri=FIXR.displayOrder, name="display_order", curie=FIXR.curie('displayOrder'),
+slots.display_order = Slot(uri=FIX_ORCHESTRA.display_order, name="display_order", curie=FIX_ORCHESTRA.curie('display_order'),
                    model_uri=FIX_ORCHESTRA.display_order, domain=None, range=Optional[int])
 
-slots.initial = Slot(uri=FIXR.initial, name="initial", curie=FIXR.curie('initial'),
+slots.initial = Slot(uri=FIX_ORCHESTRA.initial, name="initial", curie=FIX_ORCHESTRA.curie('initial'),
                    model_uri=FIX_ORCHESTRA.initial, domain=None, range=Union[dict, StateType])
 
-slots.state = Slot(uri=FIXR.state, name="state", curie=FIXR.curie('state'),
+slots.state = Slot(uri=FIX_ORCHESTRA.state, name="state", curie=FIX_ORCHESTRA.curie('state'),
                    model_uri=FIX_ORCHESTRA.state, domain=None, range=Union[Union[dict, StateType], list[Union[dict, StateType]]])
 
-slots.transition = Slot(uri=FIXR.transition, name="transition", curie=FIXR.curie('transition'),
+slots.transition = Slot(uri=FIX_ORCHESTRA.transition, name="transition", curie=FIX_ORCHESTRA.curie('transition'),
                    model_uri=FIX_ORCHESTRA.transition, domain=None, range=Optional[Union[Union[dict, TransitionType], list[Union[dict, TransitionType]]]])
 
-slots.onentry = Slot(uri=FIXR.onentry, name="onentry", curie=FIXR.curie('onentry'),
+slots.onentry = Slot(uri=FIX_ORCHESTRA.onentry, name="onentry", curie=FIX_ORCHESTRA.curie('onentry'),
                    model_uri=FIX_ORCHESTRA.onentry, domain=None, range=Optional[Union[dict, ActionType]])
 
-slots.activity = Slot(uri=FIXR.activity, name="activity", curie=FIXR.curie('activity'),
+slots.activity = Slot(uri=FIX_ORCHESTRA.activity, name="activity", curie=FIX_ORCHESTRA.curie('activity'),
                    model_uri=FIX_ORCHESTRA.activity, domain=None, range=Optional[Union[dict, ActionType]])
 
-slots.onexit = Slot(uri=FIXR.onexit, name="onexit", curie=FIXR.curie('onexit'),
+slots.onexit = Slot(uri=FIX_ORCHESTRA.onexit, name="onexit", curie=FIX_ORCHESTRA.curie('onexit'),
                    model_uri=FIX_ORCHESTRA.onexit, domain=None, range=Optional[Union[dict, ActionType]])
 
-slots.operation = Slot(uri=FIXR.operation, name="operation", curie=FIXR.curie('operation'),
+slots.operation = Slot(uri=FIX_ORCHESTRA.operation, name="operation", curie=FIX_ORCHESTRA.curie('operation'),
                    model_uri=FIX_ORCHESTRA.operation, domain=None, range=Union[str, "TimerOperation"])
 
-slots.interval = Slot(uri=FIXR.interval, name="interval", curie=FIXR.curie('interval'),
+slots.interval = Slot(uri=FIX_ORCHESTRA.interval, name="interval", curie=FIX_ORCHESTRA.curie('interval'),
                    model_uri=FIX_ORCHESTRA.interval, domain=None, range=Optional[str])
 
-slots.target = Slot(uri=FIXR.target, name="target", curie=FIXR.curie('target'),
+slots.target = Slot(uri=FIX_ORCHESTRA.target, name="target", curie=FIX_ORCHESTRA.curie('target'),
                    model_uri=FIX_ORCHESTRA.target, domain=None, range=str)
 
-slots.state_machine = Slot(uri=FIXR.stateMachine, name="state_machine", curie=FIXR.curie('stateMachine'),
+slots.state_machine = Slot(uri=FIX_ORCHESTRA.state_machine, name="state_machine", curie=FIX_ORCHESTRA.curie('state_machine'),
                    model_uri=FIX_ORCHESTRA.state_machine, domain=None, range=str)
 
-slots.service = Slot(uri=FIXI.service, name="service", curie=FIXI.curie('service'),
+slots.service = Slot(uri=FIX_ORCHESTRA.service, name="service", curie=FIX_ORCHESTRA.curie('service'),
                    model_uri=FIX_ORCHESTRA.service, domain=None, range=Optional[Union[Union[dict, ServiceType], list[Union[dict, ServiceType]]]])
 
-slots.user_interface = Slot(uri=FIXI.userInterface, name="user_interface", curie=FIXI.curie('userInterface'),
+slots.user_interface = Slot(uri=FIX_ORCHESTRA.user_interface, name="user_interface", curie=FIX_ORCHESTRA.curie('user_interface'),
                    model_uri=FIX_ORCHESTRA.user_interface, domain=None, range=Optional[Union[Union[dict, UserInterfaceType], list[Union[dict, UserInterfaceType]]]])
 
-slots.session_protocol = Slot(uri=FIXI.sessionProtocol, name="session_protocol", curie=FIXI.curie('sessionProtocol'),
+slots.session_protocol = Slot(uri=FIX_ORCHESTRA.session_protocol, name="session_protocol", curie=FIX_ORCHESTRA.curie('session_protocol'),
                    model_uri=FIX_ORCHESTRA.session_protocol, domain=None, range=Optional[Union[Union[dict, SessionProtocolType], list[Union[dict, SessionProtocolType]]]])
 
-slots.protocol = Slot(uri=FIXI.protocol, name="protocol", curie=FIXI.curie('protocol'),
+slots.protocol = Slot(uri=FIX_ORCHESTRA.protocol, name="protocol", curie=FIX_ORCHESTRA.curie('protocol'),
                    model_uri=FIX_ORCHESTRA.protocol, domain=None, range=Optional[Union[Union[dict, ProtocolType], list[Union[dict, ProtocolType]]]])
 
-slots.transport = Slot(uri=FIXI.transport, name="transport", curie=FIXI.curie('transport'),
+slots.transport = Slot(uri=FIX_ORCHESTRA.transport, name="transport", curie=FIX_ORCHESTRA.curie('transport'),
                    model_uri=FIX_ORCHESTRA.transport, domain=None, range=Optional[Union[Union[dict, TransportProtocolType], list[Union[dict, TransportProtocolType]]]])
 
-slots.session = Slot(uri=FIXI.session, name="session", curie=FIXI.curie('session'),
+slots.session = Slot(uri=FIX_ORCHESTRA.session, name="session", curie=FIX_ORCHESTRA.curie('session'),
                    model_uri=FIX_ORCHESTRA.session, domain=None, range=Union[Union[dict, SessionType], list[Union[dict, SessionType]]])
 
-slots.sessions = Slot(uri=FIXI.sessions, name="sessions", curie=FIXI.curie('sessions'),
+slots.sessions = Slot(uri=FIX_ORCHESTRA.sessions, name="sessions", curie=FIX_ORCHESTRA.curie('sessions'),
                    model_uri=FIX_ORCHESTRA.sessions, domain=None, range=Optional[Union[dict, SessionsInline]])
 
-slots.activation_time = Slot(uri=FIXI.activationTime, name="activation_time", curie=FIXI.curie('activationTime'),
+slots.activation_time = Slot(uri=FIX_ORCHESTRA.activation_time, name="activation_time", curie=FIX_ORCHESTRA.curie('activation_time'),
                    model_uri=FIX_ORCHESTRA.activation_time, domain=None, range=Optional[Union[str, XSDDateTime]])
 
-slots.deactivation_time = Slot(uri=FIXI.deactivationTime, name="deactivation_time", curie=FIXI.curie('deactivationTime'),
+slots.deactivation_time = Slot(uri=FIX_ORCHESTRA.deactivation_time, name="deactivation_time", curie=FIX_ORCHESTRA.curie('deactivation_time'),
                    model_uri=FIX_ORCHESTRA.deactivation_time, domain=None, range=Optional[Union[str, XSDDateTime]])
 
-slots.layer = Slot(uri=FIXI.layer, name="layer", curie=FIXI.curie('layer'),
+slots.layer = Slot(uri=FIX_ORCHESTRA.layer, name="layer", curie=FIX_ORCHESTRA.curie('layer'),
                    model_uri=FIX_ORCHESTRA.layer, domain=None, range=Optional[Union[str, "Layer"]])
 
-slots.orchestration = Slot(uri=FIXI.orchestration, name="orchestration", curie=FIXI.curie('orchestration'),
+slots.orchestration = Slot(uri=FIX_ORCHESTRA.orchestration, name="orchestration", curie=FIX_ORCHESTRA.curie('orchestration'),
                    model_uri=FIX_ORCHESTRA.orchestration, domain=None, range=Optional[Union[str, URI]])
 
-slots.role = Slot(uri=FIXI.role, name="role", curie=FIXI.curie('role'),
+slots.role = Slot(uri=FIX_ORCHESTRA.role, name="role", curie=FIX_ORCHESTRA.curie('role'),
                    model_uri=FIX_ORCHESTRA.role, domain=None, range=Optional[Union[str, "Role"]])
 
-slots.security_keys = Slot(uri=FIXI.securityKeys, name="security_keys", curie=FIXI.curie('securityKeys'),
+slots.security_keys = Slot(uri=FIX_ORCHESTRA.security_keys, name="security_keys", curie=FIX_ORCHESTRA.curie('security_keys'),
                    model_uri=FIX_ORCHESTRA.security_keys, domain=None, range=Optional[str])
 
-slots.address = Slot(uri=FIXI.address, name="address", curie=FIXI.curie('address'),
+slots.address = Slot(uri=FIX_ORCHESTRA.address, name="address", curie=FIX_ORCHESTRA.curie('address'),
                    model_uri=FIX_ORCHESTRA.address, domain=None, range=Optional[str])
 
-slots.message_cast = Slot(uri=FIXI.messageCast, name="message_cast", curie=FIXI.curie('messageCast'),
+slots.message_cast = Slot(uri=FIX_ORCHESTRA.message_cast, name="message_cast", curie=FIX_ORCHESTRA.curie('message_cast'),
                    model_uri=FIX_ORCHESTRA.message_cast, domain=None, range=Optional[Union[str, "MessageCast"]])
 
-slots.use = Slot(uri=FIXI.use, name="use", curie=FIXI.curie('use'),
+slots.use = Slot(uri=FIX_ORCHESTRA.use, name="use", curie=FIX_ORCHESTRA.curie('use'),
                    model_uri=FIX_ORCHESTRA.use, domain=None, range=Optional[Union[str, TransportUse]])
 
-slots.mapped_datatype = Slot(uri=FIXR.mappedDatatype, name="mapped_datatype", curie=FIXR.curie('mappedDatatype'),
+slots.mapped_datatype = Slot(uri=FIX_ORCHESTRA.mapped_datatype, name="mapped_datatype", curie=FIX_ORCHESTRA.curie('mapped_datatype'),
                    model_uri=FIX_ORCHESTRA.mapped_datatype, domain=None, range=Optional[Union[Union[dict, MappedDatatype], list[Union[dict, MappedDatatype]]]])
 
-slots.base_type = Slot(uri=FIXR.baseType, name="base_type", curie=FIXR.curie('baseType'),
+slots.base_type = Slot(uri=FIX_ORCHESTRA.base_type, name="base_type", curie=FIX_ORCHESTRA.curie('base_type'),
                    model_uri=FIX_ORCHESTRA.base_type, domain=None, range=Optional[Union[str, Name]])
 
-slots.concept = Slot(uri=FIXR.concept, name="concept", curie=FIXR.curie('concept'),
+slots.concept = Slot(uri=FIX_ORCHESTRA.concept, name="concept", curie=FIX_ORCHESTRA.curie('concept'),
                    model_uri=FIX_ORCHESTRA.concept, domain=None, range=Optional[Union[Union[dict, ConceptType], list[Union[dict, ConceptType]]]])
 
-slots.datatype = Slot(uri=FIXR.datatype, name="datatype", curie=FIXR.curie('datatype'),
+slots.datatype = Slot(uri=FIX_ORCHESTRA.datatype, name="datatype", curie=FIX_ORCHESTRA.curie('datatype'),
                    model_uri=FIX_ORCHESTRA.datatype, domain=None, range=Optional[Union[Union[dict, Datatype], list[Union[dict, Datatype]]]])
 
-slots.message = Slot(uri=FIXR.message, name="message", curie=FIXR.curie('message'),
+slots.message = Slot(uri=FIX_ORCHESTRA.message, name="message", curie=FIX_ORCHESTRA.curie('message'),
                    model_uri=FIX_ORCHESTRA.message, domain=None, range=Optional[Union[Union[dict, MessageType], list[Union[dict, MessageType]]]])
 
-slots.metadata = Slot(uri=FIXR.metadata, name="metadata", curie=FIXR.curie('metadata'),
+slots.metadata = Slot(uri=FIX_ORCHESTRA.metadata, name="metadata", curie=FIX_ORCHESTRA.curie('metadata'),
                    model_uri=FIX_ORCHESTRA.metadata, domain=None, range=Union[dict, DctermsElementOrRefinementContainer])
 
-slots.categories = Slot(uri=FIXR.categories, name="categories", curie=FIXR.curie('categories'),
+slots.categories = Slot(uri=FIX_ORCHESTRA.categories, name="categories", curie=FIX_ORCHESTRA.curie('categories'),
                    model_uri=FIX_ORCHESTRA.categories, domain=None, range=Optional[Union[dict, Categories]])
 
-slots.sections = Slot(uri=FIXR.sections, name="sections", curie=FIXR.curie('sections'),
+slots.sections = Slot(uri=FIX_ORCHESTRA.sections, name="sections", curie=FIX_ORCHESTRA.curie('sections'),
                    model_uri=FIX_ORCHESTRA.sections, domain=None, range=Optional[Union[dict, Sections]])
 
-slots.datatypes = Slot(uri=FIXR.datatypes, name="datatypes", curie=FIXR.curie('datatypes'),
+slots.datatypes = Slot(uri=FIX_ORCHESTRA.datatypes, name="datatypes", curie=FIX_ORCHESTRA.curie('datatypes'),
                    model_uri=FIX_ORCHESTRA.datatypes, domain=None, range=Union[dict, Datatypes])
 
-slots.code_sets = Slot(uri=FIXR.codeSets, name="code_sets", curie=FIXR.curie('codeSets'),
+slots.code_sets = Slot(uri=FIX_ORCHESTRA.code_sets, name="code_sets", curie=FIX_ORCHESTRA.curie('code_sets'),
                    model_uri=FIX_ORCHESTRA.code_sets, domain=None, range=Optional[Union[dict, CodeSets]])
 
-slots.fields = Slot(uri=FIXR.fields, name="fields", curie=FIXR.curie('fields'),
+slots.fields = Slot(uri=FIX_ORCHESTRA.fields, name="fields", curie=FIX_ORCHESTRA.curie('fields'),
                    model_uri=FIX_ORCHESTRA.fields, domain=None, range=Union[dict, Fields])
 
-slots.actors = Slot(uri=FIXR.actors, name="actors", curie=FIXR.curie('actors'),
+slots.actors = Slot(uri=FIX_ORCHESTRA.actors, name="actors", curie=FIX_ORCHESTRA.curie('actors'),
                    model_uri=FIX_ORCHESTRA.actors, domain=None, range=Optional[Union[dict, Actors]])
 
-slots.components = Slot(uri=FIXR.components, name="components", curie=FIXR.curie('components'),
+slots.components = Slot(uri=FIX_ORCHESTRA.components, name="components", curie=FIX_ORCHESTRA.curie('components'),
                    model_uri=FIX_ORCHESTRA.components, domain=None, range=Optional[Union[dict, Components]])
 
-slots.groups = Slot(uri=FIXR.groups, name="groups", curie=FIXR.curie('groups'),
+slots.groups = Slot(uri=FIX_ORCHESTRA.groups, name="groups", curie=FIX_ORCHESTRA.curie('groups'),
                    model_uri=FIX_ORCHESTRA.groups, domain=None, range=Optional[Union[dict, Groups]])
 
-slots.messages = Slot(uri=FIXR.messages, name="messages", curie=FIXR.curie('messages'),
+slots.messages = Slot(uri=FIX_ORCHESTRA.messages, name="messages", curie=FIX_ORCHESTRA.curie('messages'),
                    model_uri=FIX_ORCHESTRA.messages, domain=None, range=Union[dict, Messages])
 
-slots.concepts = Slot(uri=FIXR.concepts, name="concepts", curie=FIXR.curie('concepts'),
+slots.concepts = Slot(uri=FIX_ORCHESTRA.concepts, name="concepts", curie=FIX_ORCHESTRA.curie('concepts'),
                    model_uri=FIX_ORCHESTRA.concepts, domain=None, range=Optional[Union[dict, Concepts]])
 
-slots.scenarios = Slot(uri=FIXR.scenarios, name="scenarios", curie=FIXR.curie('scenarios'),
+slots.scenarios = Slot(uri=FIX_ORCHESTRA.scenarios, name="scenarios", curie=FIX_ORCHESTRA.curie('scenarios'),
                    model_uri=FIX_ORCHESTRA.scenarios, domain=None, range=Optional[Union[dict, Scenarios]])
 
-slots.guid = Slot(uri=FIXR.guid, name="guid", curie=FIXR.curie('guid'),
+slots.guid = Slot(uri=FIX_ORCHESTRA.guid, name="guid", curie=FIX_ORCHESTRA.curie('guid'),
                    model_uri=FIX_ORCHESTRA.guid, domain=None, range=Optional[str])
 
-slots.namespace = Slot(uri=FIXR.namespace, name="namespace", curie=FIXR.curie('namespace'),
+slots.namespace = Slot(uri=FIX_ORCHESTRA.namespace, name="namespace", curie=FIX_ORCHESTRA.curie('namespace'),
                    model_uri=FIX_ORCHESTRA.namespace, domain=None, range=Optional[Union[str, URI]])
 
-slots.expression_language = Slot(uri=FIXR.expressionLanguage, name="expression_language", curie=FIXR.curie('expressionLanguage'),
+slots.expression_language = Slot(uri=FIX_ORCHESTRA.expression_language, name="expression_language", curie=FIX_ORCHESTRA.curie('expression_language'),
                    model_uri=FIX_ORCHESTRA.expression_language, domain=None, range=Optional[str])
 
-slots.interface = Slot(uri=FIXI.interface, name="interface", curie=FIXI.curie('interface'),
+slots.interface = Slot(uri=FIX_ORCHESTRA.interface, name="interface", curie=FIX_ORCHESTRA.curie('interface'),
                    model_uri=FIX_ORCHESTRA.interface, domain=None, range=Optional[Union[Union[dict, InterfaceType], list[Union[dict, InterfaceType]]]])
 
 slots.value = Slot(uri=FIX_ORCHESTRA.value, name="value", curie=FIX_ORCHESTRA.curie('value'),
@@ -6156,391 +6156,391 @@ slots.license = Slot(uri=DCT.license, name="license", curie=DCT.curie('license')
 slots.bibliographic_citation = Slot(uri=DCT.bibliographicCitation, name="bibliographic_citation", curie=DCT.curie('bibliographicCitation'),
                    model_uri=FIX_ORCHESTRA.bibliographic_citation, domain=None, range=Optional[str])
 
-slots.entityAttribGrp__deprecated = Slot(uri=FIXR.deprecated, name="entityAttribGrp__deprecated", curie=FIXR.curie('deprecated'),
+slots.entityAttribGrp__deprecated = Slot(uri=FIX_ORCHESTRA.deprecated, name="entityAttribGrp__deprecated", curie=FIX_ORCHESTRA.curie('deprecated'),
                    model_uri=FIX_ORCHESTRA.entityAttribGrp__deprecated, domain=None, range=Optional[Union[str, Version]])
 
-slots.fieldAttribGrp__encoding = Slot(uri=FIXR.encoding, name="fieldAttribGrp__encoding", curie=FIXR.curie('encoding'),
+slots.fieldAttribGrp__encoding = Slot(uri=FIX_ORCHESTRA.encoding, name="fieldAttribGrp__encoding", curie=FIX_ORCHESTRA.curie('encoding'),
                    model_uri=FIX_ORCHESTRA.fieldAttribGrp__encoding, domain=None, range=Optional[str])
 
-slots.oidGrp__id = Slot(uri=FIXR.id, name="oidGrp__id", curie=FIXR.curie('id'),
+slots.oidGrp__id = Slot(uri=FIX_ORCHESTRA.id, name="oidGrp__id", curie=FIX_ORCHESTRA.curie('id'),
                    model_uri=FIX_ORCHESTRA.oidGrp__id, domain=None, range=Union[int, Id])
 
-slots.oidGrp__name = Slot(uri=FIXR.name, name="oidGrp__name", curie=FIXR.curie('name'),
+slots.oidGrp__name = Slot(uri=FIX_ORCHESTRA.name, name="oidGrp__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.oidGrp__name, domain=None, range=Union[str, Name])
 
-slots.oidGrp__scenario = Slot(uri=FIXR.scenario, name="oidGrp__scenario", curie=FIXR.curie('scenario'),
+slots.oidGrp__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="oidGrp__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
                    model_uri=FIX_ORCHESTRA.oidGrp__scenario, domain=None, range=Optional[Union[str, Name]])
 
-slots.refidGrp__id = Slot(uri=FIXR.id, name="refidGrp__id", curie=FIXR.curie('id'),
+slots.refidGrp__id = Slot(uri=FIX_ORCHESTRA.id, name="refidGrp__id", curie=FIX_ORCHESTRA.curie('id'),
                    model_uri=FIX_ORCHESTRA.refidGrp__id, domain=None, range=Union[int, Id])
 
-slots.refidGrp__name = Slot(uri=FIXR.name, name="refidGrp__name", curie=FIXR.curie('name'),
+slots.refidGrp__name = Slot(uri=FIX_ORCHESTRA.name, name="refidGrp__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.refidGrp__name, domain=None, range=Optional[Union[str, Name]])
 
-slots.refidGrp__scenario = Slot(uri=FIXR.scenario, name="refidGrp__scenario", curie=FIXR.curie('scenario'),
+slots.refidGrp__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="refidGrp__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
                    model_uri=FIX_ORCHESTRA.refidGrp__scenario, domain=None, range=Optional[Union[str, Name]])
 
-slots.actionType__group = Slot(uri=FIXR.group, name="actionType__group", curie=FIXR.curie('group'),
+slots.actionType__group = Slot(uri=FIX_ORCHESTRA.group, name="actionType__group", curie=FIX_ORCHESTRA.curie('group'),
                    model_uri=FIX_ORCHESTRA.actionType__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
 
-slots.actionType__assign = Slot(uri=FIXR.assign, name="actionType__assign", curie=FIXR.curie('assign'),
+slots.actionType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="actionType__assign", curie=FIX_ORCHESTRA.curie('assign'),
                    model_uri=FIX_ORCHESTRA.actionType__assign, domain=None, range=Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]])
 
-slots.actorType__group = Slot(uri=FIXR.group, name="actorType__group", curie=FIXR.curie('group'),
+slots.actorType__group = Slot(uri=FIX_ORCHESTRA.group, name="actorType__group", curie=FIX_ORCHESTRA.curie('group'),
                    model_uri=FIX_ORCHESTRA.actorType__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
 
-slots.actorType__annotation = Slot(uri=FIXR.annotation, name="actorType__annotation", curie=FIXR.curie('annotation'),
+slots.actorType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="actorType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.actorType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.actorType__name = Slot(uri=FIXR.name, name="actorType__name", curie=FIXR.curie('name'),
+slots.actorType__name = Slot(uri=FIX_ORCHESTRA.name, name="actorType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.actorType__name, domain=None, range=Union[str, Name])
 
-slots.annotation__documentation = Slot(uri=FIXR.documentation, name="annotation__documentation", curie=FIXR.curie('documentation'),
+slots.annotation__documentation = Slot(uri=FIX_ORCHESTRA.documentation, name="annotation__documentation", curie=FIX_ORCHESTRA.curie('documentation'),
                    model_uri=FIX_ORCHESTRA.annotation__documentation, domain=None, range=Optional[Union[Union[dict, Documentation], list[Union[dict, Documentation]]]])
 
-slots.annotation__appinfo = Slot(uri=FIXR.appinfo, name="annotation__appinfo", curie=FIXR.curie('appinfo'),
+slots.annotation__appinfo = Slot(uri=FIX_ORCHESTRA.appinfo, name="annotation__appinfo", curie=FIX_ORCHESTRA.curie('appinfo'),
                    model_uri=FIX_ORCHESTRA.annotation__appinfo, domain=None, range=Optional[Union[Union[dict, Appinfo], list[Union[dict, Appinfo]]]])
 
-slots.appinfo__lang_id = Slot(uri=FIXR.langId, name="appinfo__lang_id", curie=FIXR.curie('langId'),
+slots.appinfo__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="appinfo__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
                    model_uri=FIX_ORCHESTRA.appinfo__lang_id, domain=None, range=Optional[Union[str, Language]])
 
-slots.appinfo__purpose = Slot(uri=FIXR.purpose, name="appinfo__purpose", curie=FIXR.curie('purpose'),
+slots.appinfo__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="appinfo__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
                    model_uri=FIX_ORCHESTRA.appinfo__purpose, domain=None, range=Optional[Union[str, Purpose]])
 
-slots.categoryType__annotation = Slot(uri=FIXR.annotation, name="categoryType__annotation", curie=FIXR.curie('annotation'),
+slots.categoryType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="categoryType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.categoryType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.categoryType__name = Slot(uri=FIXR.name, name="categoryType__name", curie=FIXR.curie('name'),
+slots.categoryType__name = Slot(uri=FIX_ORCHESTRA.name, name="categoryType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.categoryType__name, domain=None, range=Union[str, Name])
 
-slots.categoryType__section = Slot(uri=FIXR.section, name="categoryType__section", curie=FIXR.curie('section'),
+slots.categoryType__section = Slot(uri=FIX_ORCHESTRA.section, name="categoryType__section", curie=FIX_ORCHESTRA.curie('section'),
                    model_uri=FIX_ORCHESTRA.categoryType__section, domain=None, range=Optional[Union[str, Name]])
 
-slots.codeSetType__annotation = Slot(uri=FIXR.annotation, name="codeSetType__annotation", curie=FIXR.curie('annotation'),
+slots.codeSetType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeSetType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.codeSetType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.codeSetType__type = Slot(uri=FIXR.type, name="codeSetType__type", curie=FIXR.curie('type'),
+slots.codeSetType__type = Slot(uri=FIX_ORCHESTRA.type, name="codeSetType__type", curie=FIX_ORCHESTRA.curie('type'),
                    model_uri=FIX_ORCHESTRA.codeSetType__type, domain=None, range=Union[str, Name])
 
-slots.codeType__annotation = Slot(uri=FIXR.annotation, name="codeType__annotation", curie=FIXR.curie('annotation'),
+slots.codeType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.codeType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.codeType__group = Slot(uri=FIXR.group, name="codeType__group", curie=FIXR.curie('group'),
+slots.codeType__group = Slot(uri=FIX_ORCHESTRA.group, name="codeType__group", curie=FIX_ORCHESTRA.curie('group'),
                    model_uri=FIX_ORCHESTRA.codeType__group, domain=None, range=Optional[str])
 
-slots.componentRefType__rule = Slot(uri=FIXR.rule, name="componentRefType__rule", curie=FIXR.curie('rule'),
+slots.componentRefType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="componentRefType__rule", curie=FIX_ORCHESTRA.curie('rule'),
                    model_uri=FIX_ORCHESTRA.componentRefType__rule, domain=None, range=Optional[Union[Union[dict, ComponentRuleType], list[Union[dict, ComponentRuleType]]]])
 
-slots.componentRefType__annotation = Slot(uri=FIXR.annotation, name="componentRefType__annotation", curie=FIXR.curie('annotation'),
+slots.componentRefType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="componentRefType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.componentRefType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.componentRefType__instance_name = Slot(uri=FIXR.instanceName, name="componentRefType__instance_name", curie=FIXR.curie('instanceName'),
+slots.componentRefType__instance_name = Slot(uri=FIX_ORCHESTRA.instance_name, name="componentRefType__instance_name", curie=FIX_ORCHESTRA.curie('instance_name'),
                    model_uri=FIX_ORCHESTRA.componentRefType__instance_name, domain=None, range=Optional[Union[str, ComponentName]])
 
-slots.componentRuleType__name = Slot(uri=FIXR.name, name="componentRuleType__name", curie=FIXR.curie('name'),
+slots.componentRuleType__name = Slot(uri=FIX_ORCHESTRA.name, name="componentRuleType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.componentRuleType__name, domain=None, range=Optional[Union[str, Name]])
 
-slots.componentType__annotation = Slot(uri=FIXR.annotation, name="componentType__annotation", curie=FIXR.curie('annotation'),
+slots.componentType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="componentType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.componentType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.componentType__category = Slot(uri=FIXR.category, name="componentType__category", curie=FIXR.curie('category'),
+slots.componentType__category = Slot(uri=FIX_ORCHESTRA.category, name="componentType__category", curie=FIX_ORCHESTRA.curie('category'),
                    model_uri=FIX_ORCHESTRA.componentType__category, domain=None, range=Optional[Union[str, Name]])
 
-slots.conceptType__annotation = Slot(uri=FIXR.annotation, name="conceptType__annotation", curie=FIXR.curie('annotation'),
+slots.conceptType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="conceptType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.conceptType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.conceptType__name = Slot(uri=FIXR.name, name="conceptType__name", curie=FIXR.curie('name'),
+slots.conceptType__name = Slot(uri=FIX_ORCHESTRA.name, name="conceptType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.conceptType__name, domain=None, range=Union[str, Name])
 
-slots.documentation__lang_id = Slot(uri=FIXR.langId, name="documentation__lang_id", curie=FIXR.curie('langId'),
+slots.documentation__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="documentation__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
                    model_uri=FIX_ORCHESTRA.documentation__lang_id, domain=None, range=Optional[Union[str, Language]])
 
-slots.documentation__purpose = Slot(uri=FIXR.purpose, name="documentation__purpose", curie=FIXR.curie('purpose'),
+slots.documentation__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="documentation__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
                    model_uri=FIX_ORCHESTRA.documentation__purpose, domain=None, range=Optional[Union[str, Purpose]])
 
-slots.documentation__content_type = Slot(uri=FIXR.contentType, name="documentation__content_type", curie=FIXR.curie('contentType'),
+slots.documentation__content_type = Slot(uri=FIX_ORCHESTRA.content_type, name="documentation__content_type", curie=FIX_ORCHESTRA.curie('content_type'),
                    model_uri=FIX_ORCHESTRA.documentation__content_type, domain=None, range=Optional[Union[str, Mime]])
 
-slots.fieldRefType__rule = Slot(uri=FIXR.rule, name="fieldRefType__rule", curie=FIXR.curie('rule'),
+slots.fieldRefType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="fieldRefType__rule", curie=FIX_ORCHESTRA.curie('rule'),
                    model_uri=FIX_ORCHESTRA.fieldRefType__rule, domain=None, range=Optional[Union[Union[dict, FieldRuleType], list[Union[dict, FieldRuleType]]]])
 
-slots.fieldRefType__assign = Slot(uri=FIXR.assign, name="fieldRefType__assign", curie=FIXR.curie('assign'),
+slots.fieldRefType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldRefType__assign", curie=FIX_ORCHESTRA.curie('assign'),
                    model_uri=FIX_ORCHESTRA.fieldRefType__assign, domain=None, range=Optional[Union[str, ExpressionType]])
 
-slots.fieldRefType__annotation = Slot(uri=FIXR.annotation, name="fieldRefType__annotation", curie=FIXR.curie('annotation'),
+slots.fieldRefType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fieldRefType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.fieldRefType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.fieldRefType__instance_name = Slot(uri=FIXR.instanceName, name="fieldRefType__instance_name", curie=FIXR.curie('instanceName'),
+slots.fieldRefType__instance_name = Slot(uri=FIX_ORCHESTRA.instance_name, name="fieldRefType__instance_name", curie=FIX_ORCHESTRA.curie('instance_name'),
                    model_uri=FIX_ORCHESTRA.fieldRefType__instance_name, domain=None, range=Optional[Union[str, Name]])
 
-slots.fieldRuleType__assign = Slot(uri=FIXR.assign, name="fieldRuleType__assign", curie=FIXR.curie('assign'),
+slots.fieldRuleType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldRuleType__assign", curie=FIX_ORCHESTRA.curie('assign'),
                    model_uri=FIX_ORCHESTRA.fieldRuleType__assign, domain=None, range=Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]])
 
-slots.fieldRuleType__name = Slot(uri=FIXR.name, name="fieldRuleType__name", curie=FIXR.curie('name'),
+slots.fieldRuleType__name = Slot(uri=FIX_ORCHESTRA.name, name="fieldRuleType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.fieldRuleType__name, domain=None, range=Optional[Union[str, Name]])
 
-slots.fieldRuleType__type = Slot(uri=FIXR.type, name="fieldRuleType__type", curie=FIXR.curie('type'),
+slots.fieldRuleType__type = Slot(uri=FIX_ORCHESTRA.type, name="fieldRuleType__type", curie=FIX_ORCHESTRA.curie('type'),
                    model_uri=FIX_ORCHESTRA.fieldRuleType__type, domain=None, range=Optional[Union[str, Name]])
 
-slots.fieldType__rule = Slot(uri=FIXR.rule, name="fieldType__rule", curie=FIXR.curie('rule'),
+slots.fieldType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="fieldType__rule", curie=FIX_ORCHESTRA.curie('rule'),
                    model_uri=FIX_ORCHESTRA.fieldType__rule, domain=None, range=Optional[Union[Union[dict, FieldRuleType], list[Union[dict, FieldRuleType]]]])
 
-slots.fieldType__assign = Slot(uri=FIXR.assign, name="fieldType__assign", curie=FIXR.curie('assign'),
+slots.fieldType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldType__assign", curie=FIX_ORCHESTRA.curie('assign'),
                    model_uri=FIX_ORCHESTRA.fieldType__assign, domain=None, range=Optional[Union[str, ExpressionType]])
 
-slots.fieldType__annotation = Slot(uri=FIXR.annotation, name="fieldType__annotation", curie=FIXR.curie('annotation'),
+slots.fieldType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fieldType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.fieldType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.fieldType__type = Slot(uri=FIXR.type, name="fieldType__type", curie=FIXR.curie('type'),
+slots.fieldType__type = Slot(uri=FIX_ORCHESTRA.type, name="fieldType__type", curie=FIX_ORCHESTRA.curie('type'),
                    model_uri=FIX_ORCHESTRA.fieldType__type, domain=None, range=Optional[Union[str, Name]])
 
-slots.fieldType__code_set = Slot(uri=FIXR.codeSet, name="fieldType__code_set", curie=FIXR.curie('codeSet'),
+slots.fieldType__code_set = Slot(uri=FIX_ORCHESTRA.code_set, name="fieldType__code_set", curie=FIX_ORCHESTRA.curie('code_set'),
                    model_uri=FIX_ORCHESTRA.fieldType__code_set, domain=None, range=Optional[Union[str, Name]])
 
-slots.flowType__annotation = Slot(uri=FIXR.annotation, name="flowType__annotation", curie=FIXR.curie('annotation'),
+slots.flowType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="flowType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.flowType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.flowType__name = Slot(uri=FIXR.name, name="flowType__name", curie=FIXR.curie('name'),
+slots.flowType__name = Slot(uri=FIX_ORCHESTRA.name, name="flowType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.flowType__name, domain=None, range=Union[str, Name])
 
-slots.flowType__reliability = Slot(uri=FIXR.reliability, name="flowType__reliability", curie=FIXR.curie('reliability'),
+slots.flowType__reliability = Slot(uri=FIX_ORCHESTRA.reliability, name="flowType__reliability", curie=FIX_ORCHESTRA.curie('reliability'),
                    model_uri=FIX_ORCHESTRA.flowType__reliability, domain=None, range=Optional[Union[str, "Reliability"]])
 
-slots.groupType__annotation = Slot(uri=FIXR.annotation, name="groupType__annotation", curie=FIXR.curie('annotation'),
+slots.groupType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="groupType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.groupType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.groupType__category = Slot(uri=FIXR.category, name="groupType__category", curie=FIXR.curie('category'),
+slots.groupType__category = Slot(uri=FIX_ORCHESTRA.category, name="groupType__category", curie=FIX_ORCHESTRA.curie('category'),
                    model_uri=FIX_ORCHESTRA.groupType__category, domain=None, range=Optional[Union[str, Name]])
 
-slots.identifiersType__assign = Slot(uri=FIXR.assign, name="identifiersType__assign", curie=FIXR.curie('assign'),
+slots.identifiersType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="identifiersType__assign", curie=FIX_ORCHESTRA.curie('assign'),
                    model_uri=FIX_ORCHESTRA.identifiersType__assign, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
 
-slots.identifiersType__annotation = Slot(uri=FIXR.annotation, name="identifiersType__annotation", curie=FIXR.curie('annotation'),
+slots.identifiersType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="identifiersType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.identifiersType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.identifierType__name = Slot(uri=FIXI.name, name="identifierType__name", curie=FIXI.curie('name'),
+slots.identifierType__name = Slot(uri=FIX_ORCHESTRA.name, name="identifierType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.identifierType__name, domain=None, range=Optional[str])
 
-slots.mappedDatatype__annotation = Slot(uri=FIXR.annotation, name="mappedDatatype__annotation", curie=FIXR.curie('annotation'),
+slots.mappedDatatype__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="mappedDatatype__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.mappedDatatype__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.mappedDatatype__base = Slot(uri=FIXR.base, name="mappedDatatype__base", curie=FIXR.curie('base'),
+slots.mappedDatatype__base = Slot(uri=FIX_ORCHESTRA.base, name="mappedDatatype__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.mappedDatatype__base, domain=None, range=Optional[str])
 
-slots.messageType__annotation = Slot(uri=FIXR.annotation, name="messageType__annotation", curie=FIXR.curie('annotation'),
+slots.messageType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="messageType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.messageType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.messageType__category = Slot(uri=FIXR.category, name="messageType__category", curie=FIXR.curie('category'),
+slots.messageType__category = Slot(uri=FIX_ORCHESTRA.category, name="messageType__category", curie=FIX_ORCHESTRA.curie('category'),
                    model_uri=FIX_ORCHESTRA.messageType__category, domain=None, range=Optional[Union[str, Name]])
 
-slots.messageType__flow = Slot(uri=FIXR.flow, name="messageType__flow", curie=FIXR.curie('flow'),
+slots.messageType__flow = Slot(uri=FIX_ORCHESTRA.flow, name="messageType__flow", curie=FIX_ORCHESTRA.curie('flow'),
                    model_uri=FIX_ORCHESTRA.messageType__flow, domain=None, range=Optional[Union[str, Name]])
 
-slots.responseType__annotation = Slot(uri=FIXR.annotation, name="responseType__annotation", curie=FIXR.curie('annotation'),
+slots.responseType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="responseType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.responseType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.responseType__name = Slot(uri=FIXR.name, name="responseType__name", curie=FIXR.curie('name'),
+slots.responseType__name = Slot(uri=FIX_ORCHESTRA.name, name="responseType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.responseType__name, domain=None, range=Optional[Union[str, Name]])
 
-slots.scenarioType__annotation = Slot(uri=FIXR.annotation, name="scenarioType__annotation", curie=FIXR.curie('annotation'),
+slots.scenarioType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="scenarioType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.scenarioType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.scenarioType__id = Slot(uri=FIXR.id, name="scenarioType__id", curie=FIXR.curie('id'),
+slots.scenarioType__id = Slot(uri=FIX_ORCHESTRA.id, name="scenarioType__id", curie=FIX_ORCHESTRA.curie('id'),
                    model_uri=FIX_ORCHESTRA.scenarioType__id, domain=None, range=Optional[Union[int, Id]])
 
-slots.scenarioType__name = Slot(uri=FIXR.name, name="scenarioType__name", curie=FIXR.curie('name'),
+slots.scenarioType__name = Slot(uri=FIX_ORCHESTRA.name, name="scenarioType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.scenarioType__name, domain=None, range=Optional[Union[str, Name]])
 
-slots.sectionType__annotation = Slot(uri=FIXR.annotation, name="sectionType__annotation", curie=FIXR.curie('annotation'),
+slots.sectionType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="sectionType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.sectionType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.sectionType__name = Slot(uri=FIXR.name, name="sectionType__name", curie=FIXR.curie('name'),
+slots.sectionType__name = Slot(uri=FIX_ORCHESTRA.name, name="sectionType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.sectionType__name, domain=None, range=Union[str, Name])
 
-slots.stateMachineType__annotation = Slot(uri=FIXR.annotation, name="stateMachineType__annotation", curie=FIXR.curie('annotation'),
+slots.stateMachineType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="stateMachineType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.stateMachineType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.stateMachineType__name = Slot(uri=FIXR.name, name="stateMachineType__name", curie=FIXR.curie('name'),
+slots.stateMachineType__name = Slot(uri=FIX_ORCHESTRA.name, name="stateMachineType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.stateMachineType__name, domain=None, range=Union[str, Name])
 
-slots.stateType__annotation = Slot(uri=FIXR.annotation, name="stateType__annotation", curie=FIXR.curie('annotation'),
+slots.stateType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="stateType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.stateType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.stateType__name = Slot(uri=FIXR.name, name="stateType__name", curie=FIXR.curie('name'),
+slots.stateType__name = Slot(uri=FIX_ORCHESTRA.name, name="stateType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.stateType__name, domain=None, range=Union[str, Name])
 
-slots.timerSchedule__actor = Slot(uri=FIXR.actor, name="timerSchedule__actor", curie=FIXR.curie('actor'),
+slots.timerSchedule__actor = Slot(uri=FIX_ORCHESTRA.actor, name="timerSchedule__actor", curie=FIX_ORCHESTRA.curie('actor'),
                    model_uri=FIX_ORCHESTRA.timerSchedule__actor, domain=None, range=Union[str, Name])
 
-slots.timerSchedule__name = Slot(uri=FIXR.name, name="timerSchedule__name", curie=FIXR.curie('name'),
+slots.timerSchedule__name = Slot(uri=FIX_ORCHESTRA.name, name="timerSchedule__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.timerSchedule__name, domain=None, range=Union[str, Name])
 
-slots.timerType__name = Slot(uri=FIXR.name, name="timerType__name", curie=FIXR.curie('name'),
+slots.timerType__name = Slot(uri=FIX_ORCHESTRA.name, name="timerType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.timerType__name, domain=None, range=Union[str, Name])
 
-slots.transitionType__annotation = Slot(uri=FIXR.annotation, name="transitionType__annotation", curie=FIXR.curie('annotation'),
+slots.transitionType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="transitionType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.transitionType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.transitionType__name = Slot(uri=FIXR.name, name="transitionType__name", curie=FIXR.curie('name'),
+slots.transitionType__name = Slot(uri=FIX_ORCHESTRA.name, name="transitionType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.transitionType__name, domain=None, range=Union[str, Name])
 
-slots.triggerType__actor = Slot(uri=FIXR.actor, name="triggerType__actor", curie=FIXR.curie('actor'),
+slots.triggerType__actor = Slot(uri=FIX_ORCHESTRA.actor, name="triggerType__actor", curie=FIX_ORCHESTRA.curie('actor'),
                    model_uri=FIX_ORCHESTRA.triggerType__actor, domain=None, range=Union[str, Name])
 
-slots.triggerType__name = Slot(uri=FIXR.name, name="triggerType__name", curie=FIXR.curie('name'),
+slots.triggerType__name = Slot(uri=FIX_ORCHESTRA.name, name="triggerType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.triggerType__name, domain=None, range=Union[str, Name])
 
-slots.interfaceAnnotation__documentation = Slot(uri=FIXI.documentation, name="interfaceAnnotation__documentation", curie=FIXI.curie('documentation'),
+slots.interfaceAnnotation__documentation = Slot(uri=FIX_ORCHESTRA.documentation, name="interfaceAnnotation__documentation", curie=FIX_ORCHESTRA.curie('documentation'),
                    model_uri=FIX_ORCHESTRA.interfaceAnnotation__documentation, domain=None, range=Optional[Union[Union[dict, InterfaceDocumentation], list[Union[dict, InterfaceDocumentation]]]])
 
-slots.interfaceAnnotation__appinfo = Slot(uri=FIXI.appinfo, name="interfaceAnnotation__appinfo", curie=FIXI.curie('appinfo'),
+slots.interfaceAnnotation__appinfo = Slot(uri=FIX_ORCHESTRA.appinfo, name="interfaceAnnotation__appinfo", curie=FIX_ORCHESTRA.curie('appinfo'),
                    model_uri=FIX_ORCHESTRA.interfaceAnnotation__appinfo, domain=None, range=Optional[Union[Union[dict, InterfaceAppinfo], list[Union[dict, InterfaceAppinfo]]]])
 
-slots.interfaceAppinfo__lang_id = Slot(uri=FIXI.langId, name="interfaceAppinfo__lang_id", curie=FIXI.curie('langId'),
+slots.interfaceAppinfo__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="interfaceAppinfo__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
                    model_uri=FIX_ORCHESTRA.interfaceAppinfo__lang_id, domain=None, range=Optional[str])
 
-slots.interfaceAppinfo__purpose = Slot(uri=FIXI.purpose, name="interfaceAppinfo__purpose", curie=FIXI.curie('purpose'),
+slots.interfaceAppinfo__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="interfaceAppinfo__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
                    model_uri=FIX_ORCHESTRA.interfaceAppinfo__purpose, domain=None, range=Optional[Union[str, InterfacePurpose]])
 
-slots.baseInterfaceType__encoding = Slot(uri=FIXI.encoding, name="baseInterfaceType__encoding", curie=FIXI.curie('encoding'),
+slots.baseInterfaceType__encoding = Slot(uri=FIX_ORCHESTRA.encoding, name="baseInterfaceType__encoding", curie=FIX_ORCHESTRA.curie('encoding'),
                    model_uri=FIX_ORCHESTRA.baseInterfaceType__encoding, domain=None, range=Optional[Union[Union[dict, EncodingType], list[Union[dict, EncodingType]]]])
 
-slots.baseInterfaceType__annotation = Slot(uri=FIXI.annotation, name="baseInterfaceType__annotation", curie=FIXI.curie('annotation'),
+slots.baseInterfaceType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="baseInterfaceType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.baseInterfaceType__annotation, domain=None, range=Optional[Union[dict, InterfaceAnnotation]])
 
-slots.baseInterfaceType__name = Slot(uri=FIXI.name, name="baseInterfaceType__name", curie=FIXI.curie('name'),
+slots.baseInterfaceType__name = Slot(uri=FIX_ORCHESTRA.name, name="baseInterfaceType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.baseInterfaceType__name, domain=None, range=str)
 
-slots.interfaceDocumentation__lang_id = Slot(uri=FIXI.langId, name="interfaceDocumentation__lang_id", curie=FIXI.curie('langId'),
+slots.interfaceDocumentation__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="interfaceDocumentation__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
                    model_uri=FIX_ORCHESTRA.interfaceDocumentation__lang_id, domain=None, range=Optional[str])
 
-slots.interfaceDocumentation__purpose = Slot(uri=FIXI.purpose, name="interfaceDocumentation__purpose", curie=FIXI.curie('purpose'),
+slots.interfaceDocumentation__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="interfaceDocumentation__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
                    model_uri=FIX_ORCHESTRA.interfaceDocumentation__purpose, domain=None, range=Optional[Union[str, InterfacePurpose]])
 
-slots.interfaceDocumentation__content_type = Slot(uri=FIXI.contentType, name="interfaceDocumentation__content_type", curie=FIXI.curie('contentType'),
+slots.interfaceDocumentation__content_type = Slot(uri=FIX_ORCHESTRA.content_type, name="interfaceDocumentation__content_type", curie=FIX_ORCHESTRA.curie('content_type'),
                    model_uri=FIX_ORCHESTRA.interfaceDocumentation__content_type, domain=None, range=Optional[str])
 
-slots.protocolType__annotation = Slot(uri=FIXI.annotation, name="protocolType__annotation", curie=FIXI.curie('annotation'),
+slots.protocolType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="protocolType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.protocolType__annotation, domain=None, range=Optional[Union[dict, InterfaceAnnotation]])
 
-slots.protocolType__name = Slot(uri=FIXI.name, name="protocolType__name", curie=FIXI.curie('name'),
+slots.protocolType__name = Slot(uri=FIX_ORCHESTRA.name, name="protocolType__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.protocolType__name, domain=None, range=Optional[Union[str, ProtocolName]])
 
-slots.protocolType__version = Slot(uri=FIXI.version, name="protocolType__version", curie=FIXI.curie('version'),
+slots.protocolType__version = Slot(uri=FIX_ORCHESTRA.version, name="protocolType__version", curie=FIX_ORCHESTRA.curie('version'),
                    model_uri=FIX_ORCHESTRA.protocolType__version, domain=None, range=Optional[str])
 
-slots.protocolType__deprecated = Slot(uri=FIXI.deprecated, name="protocolType__deprecated", curie=FIXI.curie('deprecated'),
+slots.protocolType__deprecated = Slot(uri=FIX_ORCHESTRA.deprecated, name="protocolType__deprecated", curie=FIX_ORCHESTRA.curie('deprecated'),
                    model_uri=FIX_ORCHESTRA.protocolType__deprecated, domain=None, range=Optional[Union[str, XSDDateTime]])
 
-slots.protocolType__reliability = Slot(uri=FIXI.reliability, name="protocolType__reliability", curie=FIXI.curie('reliability'),
+slots.protocolType__reliability = Slot(uri=FIX_ORCHESTRA.reliability, name="protocolType__reliability", curie=FIX_ORCHESTRA.curie('reliability'),
                    model_uri=FIX_ORCHESTRA.protocolType__reliability, domain=None, range=Optional[Union[str, "InterfaceReliability"]])
 
-slots.sessionType__identifier = Slot(uri=FIXI.identifier, name="sessionType__identifier", curie=FIXI.curie('identifier'),
+slots.sessionType__identifier = Slot(uri=FIX_ORCHESTRA.identifier, name="sessionType__identifier", curie=FIX_ORCHESTRA.curie('identifier'),
                    model_uri=FIX_ORCHESTRA.sessionType__identifier, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
 
-slots.datatype__annotation = Slot(uri=FIXR.annotation, name="datatype__annotation", curie=FIXR.curie('annotation'),
+slots.datatype__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="datatype__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.datatype__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.datatype__name = Slot(uri=FIXR.name, name="datatype__name", curie=FIXR.curie('name'),
+slots.datatype__name = Slot(uri=FIX_ORCHESTRA.name, name="datatype__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.datatype__name, domain=None, range=Union[str, Name])
 
-slots.datatype__scenario = Slot(uri=FIXR.scenario, name="datatype__scenario", curie=FIXR.curie('scenario'),
+slots.datatype__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="datatype__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
                    model_uri=FIX_ORCHESTRA.datatype__scenario, domain=None, range=Optional[Union[str, Name]])
 
-slots.actors__actor = Slot(uri=FIXR.actor, name="actors__actor", curie=FIXR.curie('actor'),
+slots.actors__actor = Slot(uri=FIX_ORCHESTRA.actor, name="actors__actor", curie=FIX_ORCHESTRA.curie('actor'),
                    model_uri=FIX_ORCHESTRA.actors__actor, domain=None, range=Optional[Union[Union[dict, ActorType], list[Union[dict, ActorType]]]])
 
-slots.actors__flow = Slot(uri=FIXR.flow, name="actors__flow", curie=FIXR.curie('flow'),
+slots.actors__flow = Slot(uri=FIX_ORCHESTRA.flow, name="actors__flow", curie=FIX_ORCHESTRA.curie('flow'),
                    model_uri=FIX_ORCHESTRA.actors__flow, domain=None, range=Optional[Union[Union[dict, FlowType], list[Union[dict, FlowType]]]])
 
-slots.actors__annotation = Slot(uri=FIXR.annotation, name="actors__annotation", curie=FIXR.curie('annotation'),
+slots.actors__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="actors__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.actors__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.actors__base = Slot(uri=FIXR.base, name="actors__base", curie=FIXR.curie('base'),
+slots.actors__base = Slot(uri=FIX_ORCHESTRA.base, name="actors__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.actors__base, domain=None, range=Optional[str])
 
-slots.categories__category = Slot(uri=FIXR.category, name="categories__category", curie=FIXR.curie('category'),
+slots.categories__category = Slot(uri=FIX_ORCHESTRA.category, name="categories__category", curie=FIX_ORCHESTRA.curie('category'),
                    model_uri=FIX_ORCHESTRA.categories__category, domain=None, range=Optional[Union[Union[dict, CategoryType], list[Union[dict, CategoryType]]]])
 
-slots.categories__annotation = Slot(uri=FIXR.annotation, name="categories__annotation", curie=FIXR.curie('annotation'),
+slots.categories__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="categories__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.categories__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.categories__base = Slot(uri=FIXR.base, name="categories__base", curie=FIXR.curie('base'),
+slots.categories__base = Slot(uri=FIX_ORCHESTRA.base, name="categories__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.categories__base, domain=None, range=Optional[str])
 
-slots.codeSets__code_set = Slot(uri=FIXR.codeSet, name="codeSets__code_set", curie=FIXR.curie('codeSet'),
+slots.codeSets__code_set = Slot(uri=FIX_ORCHESTRA.code_set, name="codeSets__code_set", curie=FIX_ORCHESTRA.curie('code_set'),
                    model_uri=FIX_ORCHESTRA.codeSets__code_set, domain=None, range=Optional[Union[Union[dict, CodeSetType], list[Union[dict, CodeSetType]]]])
 
-slots.codeSets__annotation = Slot(uri=FIXR.annotation, name="codeSets__annotation", curie=FIXR.curie('annotation'),
+slots.codeSets__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeSets__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.codeSets__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.codeSets__base = Slot(uri=FIXR.base, name="codeSets__base", curie=FIXR.curie('base'),
+slots.codeSets__base = Slot(uri=FIX_ORCHESTRA.base, name="codeSets__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.codeSets__base, domain=None, range=Optional[str])
 
-slots.components__annotation = Slot(uri=FIXR.annotation, name="components__annotation", curie=FIXR.curie('annotation'),
+slots.components__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="components__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.components__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.components__base = Slot(uri=FIXR.base, name="components__base", curie=FIXR.curie('base'),
+slots.components__base = Slot(uri=FIX_ORCHESTRA.base, name="components__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.components__base, domain=None, range=Optional[str])
 
-slots.concepts__annotation = Slot(uri=FIXR.annotation, name="concepts__annotation", curie=FIXR.curie('annotation'),
+slots.concepts__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="concepts__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.concepts__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.concepts__base = Slot(uri=FIXR.base, name="concepts__base", curie=FIXR.curie('base'),
+slots.concepts__base = Slot(uri=FIX_ORCHESTRA.base, name="concepts__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.concepts__base, domain=None, range=Optional[str])
 
-slots.datatypes__annotation = Slot(uri=FIXR.annotation, name="datatypes__annotation", curie=FIXR.curie('annotation'),
+slots.datatypes__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="datatypes__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.datatypes__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.datatypes__base = Slot(uri=FIXR.base, name="datatypes__base", curie=FIXR.curie('base'),
+slots.datatypes__base = Slot(uri=FIX_ORCHESTRA.base, name="datatypes__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.datatypes__base, domain=None, range=Optional[str])
 
-slots.fields__annotation = Slot(uri=FIXR.annotation, name="fields__annotation", curie=FIXR.curie('annotation'),
+slots.fields__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fields__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.fields__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.fields__base = Slot(uri=FIXR.base, name="fields__base", curie=FIXR.curie('base'),
+slots.fields__base = Slot(uri=FIX_ORCHESTRA.base, name="fields__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.fields__base, domain=None, range=Optional[str])
 
-slots.groups__group = Slot(uri=FIXR.group, name="groups__group", curie=FIXR.curie('group'),
+slots.groups__group = Slot(uri=FIX_ORCHESTRA.group, name="groups__group", curie=FIX_ORCHESTRA.curie('group'),
                    model_uri=FIX_ORCHESTRA.groups__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
 
-slots.groups__annotation = Slot(uri=FIXR.annotation, name="groups__annotation", curie=FIXR.curie('annotation'),
+slots.groups__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="groups__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.groups__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.groups__base = Slot(uri=FIXR.base, name="groups__base", curie=FIXR.curie('base'),
+slots.groups__base = Slot(uri=FIX_ORCHESTRA.base, name="groups__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.groups__base, domain=None, range=Optional[str])
 
-slots.messages__annotation = Slot(uri=FIXR.annotation, name="messages__annotation", curie=FIXR.curie('annotation'),
+slots.messages__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="messages__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.messages__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.messages__base = Slot(uri=FIXR.base, name="messages__base", curie=FIXR.curie('base'),
+slots.messages__base = Slot(uri=FIX_ORCHESTRA.base, name="messages__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.messages__base, domain=None, range=Optional[str])
 
-slots.repository__annotation = Slot(uri=FIXR.annotation, name="repository__annotation", curie=FIXR.curie('annotation'),
+slots.repository__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="repository__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.repository__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.repository__name = Slot(uri=FIXR.name, name="repository__name", curie=FIXR.curie('name'),
+slots.repository__name = Slot(uri=FIX_ORCHESTRA.name, name="repository__name", curie=FIX_ORCHESTRA.curie('name'),
                    model_uri=FIX_ORCHESTRA.repository__name, domain=None, range=str)
 
-slots.repository__version = Slot(uri=FIXR.version, name="repository__version", curie=FIXR.curie('version'),
+slots.repository__version = Slot(uri=FIX_ORCHESTRA.version, name="repository__version", curie=FIX_ORCHESTRA.curie('version'),
                    model_uri=FIX_ORCHESTRA.repository__version, domain=None, range=Union[str, Version])
 
-slots.scenarios__scenario = Slot(uri=FIXR.scenario, name="scenarios__scenario", curie=FIXR.curie('scenario'),
+slots.scenarios__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="scenarios__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
                    model_uri=FIX_ORCHESTRA.scenarios__scenario, domain=None, range=Optional[Union[Union[dict, ScenarioType], list[Union[dict, ScenarioType]]]])
 
-slots.scenarios__annotation = Slot(uri=FIXR.annotation, name="scenarios__annotation", curie=FIXR.curie('annotation'),
+slots.scenarios__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="scenarios__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.scenarios__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.scenarios__base = Slot(uri=FIXR.base, name="scenarios__base", curie=FIXR.curie('base'),
+slots.scenarios__base = Slot(uri=FIX_ORCHESTRA.base, name="scenarios__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.scenarios__base, domain=None, range=Optional[str])
 
-slots.sections__section = Slot(uri=FIXR.section, name="sections__section", curie=FIXR.curie('section'),
+slots.sections__section = Slot(uri=FIX_ORCHESTRA.section, name="sections__section", curie=FIX_ORCHESTRA.curie('section'),
                    model_uri=FIX_ORCHESTRA.sections__section, domain=None, range=Optional[Union[Union[dict, SectionType], list[Union[dict, SectionType]]]])
 
-slots.sections__annotation = Slot(uri=FIXR.annotation, name="sections__annotation", curie=FIXR.curie('annotation'),
+slots.sections__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="sections__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
                    model_uri=FIX_ORCHESTRA.sections__annotation, domain=None, range=Optional[Union[dict, Annotation]])
 
-slots.sections__base = Slot(uri=FIXR.base, name="sections__base", curie=FIXR.curie('base'),
+slots.sections__base = Slot(uri=FIX_ORCHESTRA.base, name="sections__base", curie=FIX_ORCHESTRA.curie('base'),
                    model_uri=FIX_ORCHESTRA.sections__base, domain=None, range=Optional[str])
 
 slots.dcSimpleLiteral__lang = Slot(uri=FIX_ORCHESTRA.lang, name="dcSimpleLiteral__lang", curie=FIX_ORCHESTRA.curie('lang'),
@@ -6582,101 +6582,101 @@ slots.xmlGlobalAttributes__base = Slot(uri=XML.base, name="xmlGlobalAttributes__
 slots.xmlGlobalAttributes__id = Slot(uri=XML.id, name="xmlGlobalAttributes__id", curie=XML.curie('id'),
                    model_uri=FIX_ORCHESTRA.xmlGlobalAttributes__id, domain=None, range=Optional[str])
 
-slots.FieldAttribGrp_presence = Slot(uri=FIXR.presence, name="FieldAttribGrp_presence", curie=FIXR.curie('presence'),
+slots.FieldAttribGrp_presence = Slot(uri=FIX_ORCHESTRA.presence, name="FieldAttribGrp_presence", curie=FIX_ORCHESTRA.curie('presence'),
                    model_uri=FIX_ORCHESTRA.FieldAttribGrp_presence, domain=None, range=Optional[Union[str, "Presence"]])
 
-slots.FieldAttribGrp_value = Slot(uri=FIXR.value, name="FieldAttribGrp_value", curie=FIXR.curie('value'),
+slots.FieldAttribGrp_value = Slot(uri=FIX_ORCHESTRA.value, name="FieldAttribGrp_value", curie=FIX_ORCHESTRA.curie('value'),
                    model_uri=FIX_ORCHESTRA.FieldAttribGrp_value, domain=None, range=Optional[str])
 
-slots.ActionType_field_ref = Slot(uri=FIXR.fieldRef, name="ActionType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.ActionType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ActionType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.ActionType_field_ref, domain=ActionType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
 
-slots.ActorType_field_ref = Slot(uri=FIXR.fieldRef, name="ActorType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.ActorType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ActorType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.ActorType_field_ref, domain=ActorType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
 
-slots.BlockAssignmentType_field_ref = Slot(uri=FIXR.fieldRef, name="BlockAssignmentType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.BlockAssignmentType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="BlockAssignmentType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.BlockAssignmentType_field_ref, domain=BlockAssignmentType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
 
-slots.CodeSetType_spec_url = Slot(uri=FIXR.specUrl, name="CodeSetType_spec_url", curie=FIXR.curie('specUrl'),
+slots.CodeSetType_spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="CodeSetType_spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
                    model_uri=FIX_ORCHESTRA.CodeSetType_spec_url, domain=CodeSetType, range=Optional[Union[str, URI]])
 
-slots.CodeType_value = Slot(uri=FIXR.value, name="CodeType_value", curie=FIXR.curie('value'),
+slots.CodeType_value = Slot(uri=FIX_ORCHESTRA.value, name="CodeType_value", curie=FIX_ORCHESTRA.curie('value'),
                    model_uri=FIX_ORCHESTRA.CodeType_value, domain=CodeType, range=str)
 
-slots.ComponentRefType_presence = Slot(uri=FIXR.presence, name="ComponentRefType_presence", curie=FIXR.curie('presence'),
+slots.ComponentRefType_presence = Slot(uri=FIX_ORCHESTRA.presence, name="ComponentRefType_presence", curie=FIX_ORCHESTRA.curie('presence'),
                    model_uri=FIX_ORCHESTRA.ComponentRefType_presence, domain=ComponentRefType, range=Optional[Union[str, "Presence"]])
 
-slots.ComponentRuleType_when = Slot(uri=FIXR.when, name="ComponentRuleType_when", curie=FIXR.curie('when'),
+slots.ComponentRuleType_when = Slot(uri=FIX_ORCHESTRA.when, name="ComponentRuleType_when", curie=FIX_ORCHESTRA.curie('when'),
                    model_uri=FIX_ORCHESTRA.ComponentRuleType_when, domain=ComponentRuleType, range=Union[str, ExpressionType])
 
-slots.ComponentRuleType_presence = Slot(uri=FIXR.presence, name="ComponentRuleType_presence", curie=FIXR.curie('presence'),
+slots.ComponentRuleType_presence = Slot(uri=FIX_ORCHESTRA.presence, name="ComponentRuleType_presence", curie=FIX_ORCHESTRA.curie('presence'),
                    model_uri=FIX_ORCHESTRA.ComponentRuleType_presence, domain=ComponentRuleType, range=Optional[Union[str, "Presence"]])
 
-slots.ComponentType_field_ref = Slot(uri=FIXR.fieldRef, name="ComponentType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.ComponentType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ComponentType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.ComponentType_field_ref, domain=ComponentType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
 
-slots.ComponentType_which = Slot(uri=FIXR.which, name="ComponentType_which", curie=FIXR.curie('which'),
+slots.ComponentType_which = Slot(uri=FIX_ORCHESTRA.which, name="ComponentType_which", curie=FIX_ORCHESTRA.curie('which'),
                    model_uri=FIX_ORCHESTRA.ComponentType_which, domain=ComponentType, range=Optional[Union[str, "MemberType"]])
 
-slots.ConceptType_field_ref = Slot(uri=FIXR.fieldRef, name="ConceptType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.ConceptType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ConceptType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.ConceptType_field_ref, domain=ConceptType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
 
-slots.ConceptType_message_ref = Slot(uri=FIXR.messageRef, name="ConceptType_message_ref", curie=FIXR.curie('messageRef'),
+slots.ConceptType_message_ref = Slot(uri=FIX_ORCHESTRA.message_ref, name="ConceptType_message_ref", curie=FIX_ORCHESTRA.curie('message_ref'),
                    model_uri=FIX_ORCHESTRA.ConceptType_message_ref, domain=ConceptType, range=Optional[Union[Union[dict, "MessageRefType"], list[Union[dict, "MessageRefType"]]]])
 
-slots.FieldRuleType_when = Slot(uri=FIXR.when, name="FieldRuleType_when", curie=FIXR.curie('when'),
+slots.FieldRuleType_when = Slot(uri=FIX_ORCHESTRA.when, name="FieldRuleType_when", curie=FIX_ORCHESTRA.curie('when'),
                    model_uri=FIX_ORCHESTRA.FieldRuleType_when, domain=FieldRuleType, range=Union[str, ExpressionType])
 
-slots.FlowType_source = Slot(uri=FIXR.source, name="FlowType_source", curie=FIXR.curie('source'),
+slots.FlowType_source = Slot(uri=FIX_ORCHESTRA.source, name="FlowType_source", curie=FIX_ORCHESTRA.curie('source'),
                    model_uri=FIX_ORCHESTRA.FlowType_source, domain=FlowType, range=str)
 
-slots.GroupRefType_impl_min_occurs = Slot(uri=FIXR.implMinOccurs, name="GroupRefType_impl_min_occurs", curie=FIXR.curie('implMinOccurs'),
+slots.GroupRefType_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="GroupRefType_impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
                    model_uri=FIX_ORCHESTRA.GroupRefType_impl_min_occurs, domain=GroupRefType, range=Optional[int])
 
-slots.GroupRefType_impl_max_occurs = Slot(uri=FIXR.implMaxOccurs, name="GroupRefType_impl_max_occurs", curie=FIXR.curie('implMaxOccurs'),
+slots.GroupRefType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="GroupRefType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
                    model_uri=FIX_ORCHESTRA.GroupRefType_impl_max_occurs, domain=GroupRefType, range=Optional[Union[str, UnboundedIntType]])
 
-slots.GroupType_field_ref = Slot(uri=FIXR.fieldRef, name="GroupType_field_ref", curie=FIXR.curie('fieldRef'),
+slots.GroupType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="GroupType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.GroupType_field_ref, domain=GroupType, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
 
-slots.GroupType_impl_max_occurs = Slot(uri=FIXR.implMaxOccurs, name="GroupType_impl_max_occurs", curie=FIXR.curie('implMaxOccurs'),
+slots.GroupType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="GroupType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
                    model_uri=FIX_ORCHESTRA.GroupType_impl_max_occurs, domain=GroupType, range=Optional[Union[str, UnboundedIntType]])
 
-slots.MappedDatatype_min_inclusive = Slot(uri=FIXR.minInclusive, name="MappedDatatype_min_inclusive", curie=FIXR.curie('minInclusive'),
+slots.MappedDatatype_min_inclusive = Slot(uri=FIX_ORCHESTRA.min_inclusive, name="MappedDatatype_min_inclusive", curie=FIX_ORCHESTRA.curie('min_inclusive'),
                    model_uri=FIX_ORCHESTRA.MappedDatatype_min_inclusive, domain=MappedDatatype, range=Optional[str])
 
-slots.MappedDatatype_max_inclusive = Slot(uri=FIXR.maxInclusive, name="MappedDatatype_max_inclusive", curie=FIXR.curie('maxInclusive'),
+slots.MappedDatatype_max_inclusive = Slot(uri=FIX_ORCHESTRA.max_inclusive, name="MappedDatatype_max_inclusive", curie=FIX_ORCHESTRA.curie('max_inclusive'),
                    model_uri=FIX_ORCHESTRA.MappedDatatype_max_inclusive, domain=MappedDatatype, range=Optional[str])
 
-slots.MessageRefType_impl_min_occurs = Slot(uri=FIXR.implMinOccurs, name="MessageRefType_impl_min_occurs", curie=FIXR.curie('implMinOccurs'),
+slots.MessageRefType_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="MessageRefType_impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
                    model_uri=FIX_ORCHESTRA.MessageRefType_impl_min_occurs, domain=MessageRefType, range=Optional[int])
 
-slots.MessageRefType_impl_max_occurs = Slot(uri=FIXR.implMaxOccurs, name="MessageRefType_impl_max_occurs", curie=FIXR.curie('implMaxOccurs'),
+slots.MessageRefType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="MessageRefType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
                    model_uri=FIX_ORCHESTRA.MessageRefType_impl_max_occurs, domain=MessageRefType, range=Optional[Union[str, UnboundedIntType]])
 
-slots.StructureInline_field_ref = Slot(uri=FIXR.fieldRef, name="StructureInline_field_ref", curie=FIXR.curie('fieldRef'),
+slots.StructureInline_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="StructureInline_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
                    model_uri=FIX_ORCHESTRA.StructureInline_field_ref, domain=StructureInline, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
 
-slots.StructureInline_which = Slot(uri=FIXR.which, name="StructureInline_which", curie=FIXR.curie('which'),
+slots.StructureInline_which = Slot(uri=FIX_ORCHESTRA.which, name="StructureInline_which", curie=FIX_ORCHESTRA.curie('which'),
                    model_uri=FIX_ORCHESTRA.StructureInline_which, domain=StructureInline, range=Optional[Union[str, "MemberType"]])
 
-slots.ResponseType_when = Slot(uri=FIXR.when, name="ResponseType_when", curie=FIXR.curie('when'),
+slots.ResponseType_when = Slot(uri=FIX_ORCHESTRA.when, name="ResponseType_when", curie=FIX_ORCHESTRA.curie('when'),
                    model_uri=FIX_ORCHESTRA.ResponseType_when, domain=ResponseType, range=Optional[Union[str, ExpressionType]])
 
-slots.TimerSchedule_activity = Slot(uri=FIXR.activity, name="TimerSchedule_activity", curie=FIXR.curie('activity'),
+slots.TimerSchedule_activity = Slot(uri=FIX_ORCHESTRA.activity, name="TimerSchedule_activity", curie=FIX_ORCHESTRA.curie('activity'),
                    model_uri=FIX_ORCHESTRA.TimerSchedule_activity, domain=TimerSchedule, range=Union[dict, ActionType])
 
-slots.TransitionType_when = Slot(uri=FIXR.when, name="TransitionType_when", curie=FIXR.curie('when'),
+slots.TransitionType_when = Slot(uri=FIX_ORCHESTRA.when, name="TransitionType_when", curie=FIX_ORCHESTRA.curie('when'),
                    model_uri=FIX_ORCHESTRA.TransitionType_when, domain=TransitionType, range=Optional[Union[str, ExpressionType]])
 
-slots.InterfaceAppinfo_spec_url = Slot(uri=FIXI.specUrl, name="InterfaceAppinfo_spec_url", curie=FIXI.curie('specUrl'),
+slots.InterfaceAppinfo_spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="InterfaceAppinfo_spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
                    model_uri=FIX_ORCHESTRA.InterfaceAppinfo_spec_url, domain=InterfaceAppinfo, range=Optional[Union[str, URI]])
 
-slots.SessionType_activation_time = Slot(uri=FIXI.activationTime, name="SessionType_activation_time", curie=FIXI.curie('activationTime'),
+slots.SessionType_activation_time = Slot(uri=FIX_ORCHESTRA.activation_time, name="SessionType_activation_time", curie=FIX_ORCHESTRA.curie('activation_time'),
                    model_uri=FIX_ORCHESTRA.SessionType_activation_time, domain=SessionType, range=Optional[Union[str, XSDDateTime]])
 
-slots.SessionType_deactivation_time = Slot(uri=FIXI.deactivationTime, name="SessionType_deactivation_time", curie=FIXI.curie('deactivationTime'),
+slots.SessionType_deactivation_time = Slot(uri=FIX_ORCHESTRA.deactivation_time, name="SessionType_deactivation_time", curie=FIX_ORCHESTRA.curie('deactivation_time'),
                    model_uri=FIX_ORCHESTRA.SessionType_deactivation_time, domain=SessionType, range=Optional[Union[str, XSDDateTime]])
 
-slots.Interfaces_metadata = Slot(uri=FIXI.metadata, name="Interfaces_metadata", curie=FIXI.curie('metadata'),
+slots.Interfaces_metadata = Slot(uri=FIX_ORCHESTRA.metadata, name="Interfaces_metadata", curie=FIX_ORCHESTRA.curie('metadata'),
                    model_uri=FIX_ORCHESTRA.Interfaces_metadata, domain=Interfaces, range=Union[dict, "DctermsElementOrRefinementContainer"])

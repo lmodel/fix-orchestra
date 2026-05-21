@@ -16,8 +16,8 @@
       "xml": "http://www.w3.org/XML/1998/namespace#",
       "@vocab": "https://w3id.org/lmodel/fix-orchestra/",
       "abbr_name": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:abbrName"
+         "@type": "fix_orchestra:Name",
+         "@id": "abbr_name"
       },
       "abstract": {
          "@id": "dct:abstract"
@@ -36,71 +36,71 @@
       },
       "assign": {
          "@type": "@id",
-         "@id": "fixr:assign"
+         "@id": "assign"
       },
       "group": {
          "@type": "@id",
-         "@id": "fixr:group"
+         "@id": "group"
       },
       "activation_time": {
          "@type": "xsd:dateTime",
-         "@id": "fixi:activationTime"
+         "@id": "activation_time"
       },
       "activity": {
          "@type": "@id",
-         "@id": "fixr:activity"
+         "@id": "activity"
       },
       "actors": {
          "@type": "@id",
-         "@id": "fixr:actors"
+         "@id": "actors"
       },
       "actor": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:actor"
+         "@type": "fix_orchestra:Name",
+         "@id": "actor"
       },
       "annotation": {
          "@type": "@id",
-         "@id": "fixr:annotation"
+         "@id": "annotation"
       },
       "base": {
          "@id": "base"
       },
       "flow": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:flow"
+         "@type": "fix_orchestra:Name",
+         "@id": "flow"
       },
       "name": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:name"
+         "@type": "fix_orchestra:Name",
+         "@id": "name"
       },
       "added": {
-         "@type": "fixr:Version_t",
-         "@id": "fixr:added"
+         "@type": "fix_orchestra:Version",
+         "@id": "added"
       },
       "added_ep": {
-         "@type": "fixr:EP_t",
-         "@id": "fixr:addedEP"
+         "@type": "fix_orchestra:EP",
+         "@id": "added_ep"
       },
       "address": {
-         "@id": "fixi:address"
+         "@id": "address"
       },
       "alternative": {
          "@id": "dct:alternative"
       },
       "appinfo": {
          "@type": "@id",
-         "@id": "fixi:appinfo"
+         "@id": "appinfo"
       },
       "documentation": {
          "@type": "@id",
-         "@id": "fixi:documentation"
+         "@id": "documentation"
       },
       "lang_id": {
-         "@id": "fixi:langId"
+         "@id": "lang_id"
       },
       "purpose": {
-         "@type": "fixi:purpose_t",
-         "@id": "fixi:purpose"
+         "@type": "fix_orchestra:InterfacePurpose",
+         "@id": "purpose"
       },
       "audience": {
          "@id": "dct:audience"
@@ -109,42 +109,42 @@
          "@id": "dct:available"
       },
       "base_category": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:baseCategory"
+         "@type": "fix_orchestra:Name",
+         "@id": "base_category"
       },
       "base_category_abbr_name": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:baseCategoryAbbrName"
+         "@type": "fix_orchestra:Name",
+         "@id": "base_category_abbr_name"
       },
       "base_type": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:baseType"
+         "@type": "fix_orchestra:Name",
+         "@id": "base_type"
       },
       "encoding": {
-         "@id": "fixr:encoding"
+         "@id": "encoding"
       },
       "bibliographic_citation": {
          "@id": "dct:bibliographicCitation"
       },
       "block_assignment": {
          "@type": "@id",
-         "@id": "fixr:blockAssignment"
+         "@id": "block_assignment"
       },
       "builtin": {
          "@type": "xsd:boolean",
-         "@id": "fixr:builtin"
+         "@id": "builtin"
       },
       "categories": {
          "@type": "@id",
-         "@id": "fixr:categories"
+         "@id": "categories"
       },
       "category": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:category"
+         "@type": "fix_orchestra:Name",
+         "@id": "category"
       },
       "section": {
          "@type": "@id",
-         "@id": "fixr:section"
+         "@id": "section"
       },
       "change_type": {
          "@context": {
@@ -152,31 +152,31 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:changeType"
+         "@id": "change_type"
       },
       "code": {
          "@type": "@id",
-         "@id": "fixr:code"
+         "@id": "code"
       },
       "code_sets": {
          "@type": "@id",
-         "@id": "fixr:codeSets"
+         "@id": "code_sets"
       },
       "code_set": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:codeSet"
+         "@type": "fix_orchestra:Name",
+         "@id": "code_set"
       },
       "type": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:type"
+         "@type": "fix_orchestra:Name",
+         "@id": "type"
       },
       "component": {
          "@type": "@id",
-         "@id": "fixr:component"
+         "@id": "component"
       },
       "component_ref": {
          "@type": "@id",
-         "@id": "fixr:componentRef"
+         "@id": "component_ref"
       },
       "component_type": {
          "@context": {
@@ -184,27 +184,27 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:componentType"
+         "@id": "component_type"
       },
       "instance_name": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:instanceName"
+         "@type": "fix_orchestra:Name",
+         "@id": "instance_name"
       },
       "rule": {
          "@type": "@id",
-         "@id": "fixr:rule"
+         "@id": "rule"
       },
       "components": {
          "@type": "@id",
-         "@id": "fixr:components"
+         "@id": "components"
       },
       "concept": {
          "@type": "@id",
-         "@id": "fixr:concept"
+         "@id": "concept"
       },
       "concepts": {
          "@type": "@id",
-         "@id": "fixr:concepts"
+         "@id": "concepts"
       },
       "conforms_to": {
          "@id": "dct:conformsTo"
@@ -217,7 +217,7 @@
       },
       "correlate": {
          "@type": "@id",
-         "@id": "fixr:correlate"
+         "@id": "correlate"
       },
       "coverage": {
          "@id": "dct:coverage"
@@ -230,15 +230,15 @@
       },
       "datatype": {
          "@type": "@id",
-         "@id": "fixr:datatype"
+         "@id": "datatype"
       },
       "scenario": {
          "@type": "@id",
-         "@id": "fixr:scenario"
+         "@id": "scenario"
       },
       "datatypes": {
          "@type": "@id",
-         "@id": "fixr:datatypes"
+         "@id": "datatypes"
       },
       "date": {
          "@id": "dct:date"
@@ -254,55 +254,55 @@
       },
       "identifier": {
          "@type": "@id",
-         "@id": "fixi:identifier"
+         "@id": "identifier"
       },
       "lang": {
          "@id": "lang"
       },
       "deactivation_time": {
          "@type": "xsd:dateTime",
-         "@id": "fixi:deactivationTime"
+         "@id": "deactivation_time"
       },
       "default": {
-         "@id": "fixr:default"
+         "@id": "default"
       },
       "deprecated_ep": {
-         "@type": "fixr:EP_t",
-         "@id": "fixr:deprecatedEP"
+         "@type": "fix_orchestra:EP",
+         "@id": "deprecated_ep"
       },
       "description": {
          "@id": "dct:description"
       },
       "destination": {
-         "@id": "fixr:destination"
+         "@id": "destination"
       },
       "discriminator_id": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:discriminatorId"
+         "@type": "fix_orchestra:Id",
+         "@id": "discriminator_id"
       },
       "display_order": {
          "@type": "xsd:integer",
-         "@id": "fixr:displayOrder"
+         "@id": "display_order"
       },
       "content_type": {
-         "@id": "fixi:contentType"
+         "@id": "content_type"
       },
       "education_level": {
          "@id": "dct:educationLevel"
       },
       "element": {
-         "@id": "fixr:element"
+         "@id": "element"
       },
       "deprecated": {
          "@type": "xsd:dateTime",
-         "@id": "fixi:deprecated"
+         "@id": "deprecated"
       },
       "expression_language": {
-         "@id": "fixr:expressionLanguage"
+         "@id": "expression_language"
       },
       "extension": {
          "@type": "@id",
-         "@id": "fixr:extension"
+         "@id": "extension"
       },
       "extent": {
          "@id": "dct:extent"
@@ -312,19 +312,19 @@
       },
       "field": {
          "@type": "@id",
-         "@id": "fixr:field"
+         "@id": "field"
       },
       "field_ref": {
          "@type": "@id",
-         "@id": "fixr:fieldRef"
+         "@id": "field_ref"
       },
       "fields": {
          "@type": "@id",
-         "@id": "fixr:fields"
+         "@id": "fields"
       },
       "fixml_file_name": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:FIXMLFileName"
+         "@type": "fix_orchestra:Name",
+         "@id": "fixml_file_name"
       },
       "reliability": {
          "@context": {
@@ -332,21 +332,21 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixi:reliability"
+         "@id": "reliability"
       },
       "format": {
          "@id": "dct:format"
       },
       "group_ref": {
          "@type": "@id",
-         "@id": "fixr:groupRef"
+         "@id": "group_ref"
       },
       "groups": {
          "@type": "@id",
-         "@id": "fixr:groups"
+         "@id": "groups"
       },
       "guid": {
-         "@id": "fixr:guid"
+         "@id": "guid"
       },
       "has_format": {
          "@id": "dct:hasFormat"
@@ -359,27 +359,27 @@
       },
       "identifiers": {
          "@type": "@id",
-         "@id": "fixr:identifiers"
+         "@id": "identifiers"
       },
       "impl_length": {
          "@type": "xsd:integer",
-         "@id": "fixr:implLength"
+         "@id": "impl_length"
       },
       "impl_max_length": {
          "@type": "xsd:integer",
-         "@id": "fixr:implMaxLength"
+         "@id": "impl_max_length"
       },
       "impl_max_occurs": {
-         "@type": "fixr:unboundedIntType",
-         "@id": "fixr:implMaxOccurs"
+         "@type": "fix_orchestra:UnboundedIntType",
+         "@id": "impl_max_occurs"
       },
       "impl_min_length": {
          "@type": "xsd:integer",
-         "@id": "fixr:implMinLength"
+         "@id": "impl_min_length"
       },
       "impl_min_occurs": {
          "@type": "xsd:integer",
-         "@id": "fixr:implMinOccurs"
+         "@id": "impl_min_occurs"
       },
       "include_file": {
          "@context": {
@@ -387,21 +387,21 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:includeFile"
+         "@id": "include_file"
       },
       "initial": {
          "@type": "@id",
-         "@id": "fixr:initial"
+         "@id": "initial"
       },
       "instructional_method": {
          "@id": "dct:instructionalMethod"
       },
       "interface": {
          "@type": "@id",
-         "@id": "fixi:interface"
+         "@id": "interface"
       },
       "interval": {
-         "@id": "fixr:interval"
+         "@id": "interval"
       },
       "is_format_of": {
          "@id": "dct:isFormatOf"
@@ -422,7 +422,7 @@
          "@id": "dct:isVersionOf"
       },
       "issue": {
-         "@id": "fixr:issue"
+         "@id": "issue"
       },
       "issued": {
          "@id": "dct:issued"
@@ -431,8 +431,8 @@
          "@id": "dct:language"
       },
       "last_modified": {
-         "@type": "fixr:Version_t",
-         "@id": "fixr:lastModified"
+         "@type": "fix_orchestra:Version",
+         "@id": "last_modified"
       },
       "layer": {
          "@context": {
@@ -440,21 +440,21 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixi:layer"
+         "@id": "layer"
       },
       "length_id": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:lengthId"
+         "@type": "fix_orchestra:Id",
+         "@id": "length_id"
       },
       "license": {
          "@id": "dct:license"
       },
       "mapped_datatype": {
          "@type": "@id",
-         "@id": "fixr:mappedDatatype"
+         "@id": "mapped_datatype"
       },
       "max_inclusive": {
-         "@id": "fixr:maxInclusive"
+         "@id": "max_inclusive"
       },
       "mediator": {
          "@id": "dct:mediator"
@@ -464,7 +464,7 @@
       },
       "message": {
          "@type": "@id",
-         "@id": "fixr:message"
+         "@id": "message"
       },
       "message_cast": {
          "@context": {
@@ -472,52 +472,52 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixi:messageCast"
+         "@id": "message_cast"
       },
       "message_ref": {
          "@type": "@id",
-         "@id": "fixr:messageRef"
+         "@id": "message_ref"
       },
       "messages": {
          "@type": "@id",
-         "@id": "fixr:messages"
+         "@id": "messages"
       },
       "metadata": {
          "@type": "@id",
-         "@id": "fixr:metadata"
+         "@id": "metadata"
       },
       "min_inclusive": {
-         "@id": "fixr:minInclusive"
+         "@id": "min_inclusive"
       },
       "modified": {
          "@id": "dct:modified"
       },
       "msg_type": {
-         "@type": "fixr:MsgType_t",
-         "@id": "fixr:msgType"
+         "@type": "fix_orchestra:MsgType",
+         "@id": "msg_type"
       },
       "namespace": {
          "@type": "xsd:anyURI",
-         "@id": "fixr:namespace"
+         "@id": "namespace"
       },
       "non_encoded_field_id": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:nonEncodedFieldId"
+         "@type": "fix_orchestra:Id",
+         "@id": "non_encoded_field_id"
       },
       "num_in_group": {
          "@type": "@id",
-         "@id": "fixr:numInGroup"
+         "@id": "num_in_group"
       },
       "id": {
          "@id": "id"
       },
       "onentry": {
          "@type": "@id",
-         "@id": "fixr:onentry"
+         "@id": "onentry"
       },
       "onexit": {
          "@type": "@id",
-         "@id": "fixr:onexit"
+         "@id": "onexit"
       },
       "operation": {
          "@context": {
@@ -525,17 +525,17 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:operation"
+         "@id": "operation"
       },
       "orchestration": {
          "@type": "xsd:anyURI",
-         "@id": "fixi:orchestration"
+         "@id": "orchestration"
       },
       "parameter": {
-         "@id": "fixr:parameter"
+         "@id": "parameter"
       },
       "pattern": {
-         "@id": "fixr:pattern"
+         "@id": "pattern"
       },
       "presence": {
          "@context": {
@@ -543,15 +543,15 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:presence"
+         "@id": "presence"
       },
       "protocol": {
          "@type": "@id",
-         "@id": "fixi:protocol"
+         "@id": "protocol"
       },
       "version": {
-         "@type": "fixr:Version_t",
-         "@id": "fixr:version"
+         "@type": "fix_orchestra:Version",
+         "@id": "version"
       },
       "provenance": {
          "@id": "dct:provenance"
@@ -566,19 +566,19 @@
          "@id": "dct:relation"
       },
       "rendering": {
-         "@id": "fixr:rendering"
+         "@id": "rendering"
       },
       "replaced": {
-         "@type": "fixr:Version_t",
-         "@id": "fixr:replaced"
+         "@type": "fix_orchestra:Version",
+         "@id": "replaced"
       },
       "replaced_by_field": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:replacedByField"
+         "@type": "fix_orchestra:Id",
+         "@id": "replaced_by_field"
       },
       "replaced_ep": {
-         "@type": "fixr:EP_t",
-         "@id": "fixr:replacedEP"
+         "@type": "fix_orchestra:EP",
+         "@id": "replaced_ep"
       },
       "replaces": {
          "@id": "dct:replaces"
@@ -588,11 +588,11 @@
       },
       "response": {
          "@type": "@id",
-         "@id": "fixr:response"
+         "@id": "response"
       },
       "responses": {
          "@type": "@id",
-         "@id": "fixr:responses"
+         "@id": "responses"
       },
       "rights": {
          "@id": "dct:rights"
@@ -606,54 +606,54 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixi:role"
+         "@id": "role"
       },
       "scenario_id": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:scenarioId"
+         "@type": "fix_orchestra:Id",
+         "@id": "scenario_id"
       },
       "scenario_ref": {
-         "@type": "fixr:Name_t",
-         "@id": "fixr:scenarioRef"
+         "@type": "fix_orchestra:Name",
+         "@id": "scenario_ref"
       },
       "scenario_ref_id": {
-         "@type": "fixr:id_t",
-         "@id": "fixr:scenarioRefId"
+         "@type": "fix_orchestra:Id",
+         "@id": "scenario_ref_id"
       },
       "scenarios": {
          "@type": "@id",
-         "@id": "fixr:scenarios"
+         "@id": "scenarios"
       },
       "sections": {
          "@type": "@id",
-         "@id": "fixr:sections"
+         "@id": "sections"
       },
       "security_keys": {
-         "@id": "fixi:securityKeys"
+         "@id": "security_keys"
       },
       "service": {
          "@type": "@id",
-         "@id": "fixi:service"
+         "@id": "service"
       },
       "session": {
          "@type": "@id",
-         "@id": "fixi:session"
+         "@id": "session"
       },
       "session_protocol": {
          "@type": "@id",
-         "@id": "fixi:sessionProtocol"
+         "@id": "session_protocol"
       },
       "sessions": {
          "@type": "@id",
-         "@id": "fixi:sessions"
+         "@id": "sessions"
       },
       "size": {
          "@type": "xsd:integer",
-         "@id": "fixr:size"
+         "@id": "size"
       },
       "sort": {
          "@type": "xsd:integer",
-         "@id": "fixr:sort"
+         "@id": "sort"
       },
       "source": {
          "@id": "dct:source"
@@ -663,26 +663,26 @@
       },
       "spec_url": {
          "@type": "xsd:anyURI",
-         "@id": "fixr:specUrl"
+         "@id": "spec_url"
       },
       "standard": {
-         "@type": "fixr:datatypeStandard_t",
-         "@id": "fixr:standard"
+         "@type": "fix_orchestra:DatatypeStandard",
+         "@id": "standard"
       },
       "state": {
          "@type": "@id",
-         "@id": "fixr:state"
+         "@id": "state"
       },
       "state_machine": {
-         "@id": "fixr:stateMachine"
+         "@id": "state_machine"
       },
       "states": {
          "@type": "@id",
-         "@id": "fixr:states"
+         "@id": "states"
       },
       "structure": {
          "@type": "@id",
-         "@id": "fixr:structure"
+         "@id": "structure"
       },
       "subject": {
          "@id": "dct:subject"
@@ -693,7 +693,7 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:supported"
+         "@id": "supported"
       },
       "sync": {
          "@context": {
@@ -701,39 +701,39 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:sync"
+         "@id": "sync"
       },
       "table_of_contents": {
          "@id": "dct:tableOfContents"
       },
       "target": {
-         "@id": "fixr:target"
+         "@id": "target"
       },
       "temporal": {
          "@id": "dct:temporal"
       },
       "timer": {
          "@type": "@id",
-         "@id": "fixr:timer"
+         "@id": "timer"
       },
       "timer_schedule": {
          "@type": "@id",
-         "@id": "fixr:timerSchedule"
+         "@id": "timer_schedule"
       },
       "title": {
          "@id": "dct:title"
       },
       "transition": {
          "@type": "@id",
-         "@id": "fixr:transition"
+         "@id": "transition"
       },
       "transport": {
          "@type": "@id",
-         "@id": "fixi:transport"
+         "@id": "transport"
       },
       "trigger": {
          "@type": "@id",
-         "@id": "fixr:trigger"
+         "@id": "trigger"
       },
       "union_data_type": {
          "@context": {
@@ -741,27 +741,27 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:unionDataType"
+         "@id": "union_data_type"
       },
       "unique": {
          "@type": "@id",
-         "@id": "fixr:unique"
+         "@id": "unique"
       },
       "updated": {
-         "@type": "fixr:Version_t",
-         "@id": "fixr:updated"
+         "@type": "fix_orchestra:Version",
+         "@id": "updated"
       },
       "updated_ep": {
-         "@type": "fixr:EP_t",
-         "@id": "fixr:updatedEP"
+         "@type": "fix_orchestra:EP",
+         "@id": "updated_ep"
       },
       "use": {
-         "@type": "fixi:transportUse_t",
-         "@id": "fixi:use"
+         "@type": "fix_orchestra:TransportUse",
+         "@id": "use"
       },
       "user_interface": {
          "@type": "@id",
-         "@id": "fixi:userInterface"
+         "@id": "user_interface"
       },
       "valid": {
          "@id": "dct:valid"
@@ -770,8 +770,8 @@
          "@id": "value"
       },
       "when": {
-         "@type": "fixr:expressionType",
-         "@id": "fixr:when"
+         "@type": "fix_orchestra:ExpressionType",
+         "@id": "when"
       },
       "which": {
          "@context": {
@@ -779,70 +779,70 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "fixr:which"
+         "@id": "which"
       },
       "space": {
          "@id": "space"
       },
       "ActionType": {
-         "@id": "fixr:actionType"
+         "@id": "ActionType"
       },
       "Actors": {
-         "@id": "fixr:actors"
+         "@id": "Actors"
       },
       "ActorType": {
-         "@id": "fixr:actorType"
+         "@id": "ActorType"
       },
       "Annotation": {
-         "@id": "fixr:annotation"
+         "@id": "Annotation"
       },
       "Appinfo": {
-         "@id": "fixr:appinfo"
+         "@id": "Appinfo"
       },
       "BaseInterfaceType": {
-         "@id": "fixi:baseInterfaceType"
+         "@id": "BaseInterfaceType"
       },
       "BlockAssignmentType": {
-         "@id": "fixr:blockAssignmentType"
+         "@id": "BlockAssignmentType"
       },
       "Categories": {
-         "@id": "fixr:categories"
+         "@id": "Categories"
       },
       "CategoryType": {
-         "@id": "fixr:categoryType"
+         "@id": "CategoryType"
       },
       "CodeSets": {
-         "@id": "fixr:codeSets"
+         "@id": "CodeSets"
       },
       "CodeSetType": {
-         "@id": "fixr:codeSetType"
+         "@id": "CodeSetType"
       },
       "CodeType": {
-         "@id": "fixr:codeType"
+         "@id": "CodeType"
       },
       "ComponentRefType": {
-         "@id": "fixr:componentRefType"
+         "@id": "ComponentRefType"
       },
       "ComponentRuleType": {
-         "@id": "fixr:componentRuleType"
+         "@id": "ComponentRuleType"
       },
       "Components": {
-         "@id": "fixr:components"
+         "@id": "Components"
       },
       "ComponentType": {
-         "@id": "fixr:componentType"
+         "@id": "ComponentType"
       },
       "Concepts": {
-         "@id": "fixr:concepts"
+         "@id": "Concepts"
       },
       "ConceptType": {
-         "@id": "fixr:conceptType"
+         "@id": "ConceptType"
       },
       "Datatype": {
-         "@id": "fixr:datatype"
+         "@id": "Datatype"
       },
       "Datatypes": {
-         "@id": "fixr:datatypes"
+         "@id": "Datatypes"
       },
       "DcAny": {
          "@id": "dc:any"
@@ -1130,151 +1130,151 @@
          "@id": "dc:type"
       },
       "Documentation": {
-         "@id": "fixr:documentation"
+         "@id": "Documentation"
       },
       "EncodingType": {
-         "@id": "fixi:encodingType"
+         "@id": "EncodingType"
       },
       "EntityAttribGrp": {
-         "@id": "fixr:entityAttribGrp"
+         "@id": "EntityAttribGrp"
       },
       "ExtensionInline": {
          "@id": "ExtensionInline"
       },
       "FieldAttribGrp": {
-         "@id": "fixr:fieldAttribGrp"
+         "@id": "FieldAttribGrp"
       },
       "FieldRefType": {
-         "@id": "fixr:fieldRefType"
+         "@id": "FieldRefType"
       },
       "FieldRuleType": {
-         "@id": "fixr:fieldRuleType"
+         "@id": "FieldRuleType"
       },
       "Fields": {
-         "@id": "fixr:fields"
+         "@id": "Fields"
       },
       "FieldType": {
-         "@id": "fixr:fieldType"
+         "@id": "FieldType"
       },
       "FlowType": {
-         "@id": "fixr:flowType"
+         "@id": "FlowType"
       },
       "GroupRefType": {
-         "@id": "fixr:groupRefType"
+         "@id": "GroupRefType"
       },
       "Groups": {
-         "@id": "fixr:groups"
+         "@id": "Groups"
       },
       "GroupType": {
-         "@id": "fixr:groupType"
+         "@id": "GroupType"
       },
       "IdentifiersType": {
-         "@id": "fixr:identifiersType"
+         "@id": "IdentifiersType"
       },
       "IdentifierType": {
-         "@id": "fixi:identifierType"
+         "@id": "IdentifierType"
       },
       "InterfaceAnnotation": {
-         "@id": "fixi:annotation"
+         "@id": "InterfaceAnnotation"
       },
       "InterfaceAppinfo": {
-         "@id": "fixi:appinfo"
+         "@id": "InterfaceAppinfo"
       },
       "InterfaceDocumentation": {
-         "@id": "fixi:documentation"
+         "@id": "InterfaceDocumentation"
       },
       "Interfaces": {
-         "@id": "fixi:interfaces"
+         "@id": "Interfaces"
       },
       "InterfaceType": {
-         "@id": "fixi:interfaceType"
+         "@id": "InterfaceType"
       },
       "MappedDatatype": {
-         "@id": "fixr:mappedDatatype"
+         "@id": "MappedDatatype"
       },
       "MessageRefType": {
-         "@id": "fixr:messageRefType"
+         "@id": "MessageRefType"
       },
       "Messages": {
-         "@id": "fixr:messages"
+         "@id": "Messages"
       },
       "MessageType": {
-         "@id": "fixr:messageType"
+         "@id": "MessageType"
       },
       "OidGrp": {
-         "@id": "fixr:oidGrp"
+         "@id": "OidGrp"
       },
       "ProtocolType": {
-         "@id": "fixi:protocolType"
+         "@id": "ProtocolType"
       },
       "RefidGrp": {
-         "@id": "fixr:refidGrp"
+         "@id": "RefidGrp"
       },
       "Repository": {
-         "@id": "fixr:repository"
+         "@id": "Repository"
       },
       "ResponsesInline": {
          "@id": "ResponsesInline"
       },
       "ResponseType": {
-         "@id": "fixr:responseType"
+         "@id": "ResponseType"
       },
       "ScenarioRefGrp": {
-         "@id": "fixr:scenarioRefGrp"
+         "@id": "ScenarioRefGrp"
       },
       "Scenarios": {
-         "@id": "fixr:scenarios"
+         "@id": "Scenarios"
       },
       "ScenarioType": {
-         "@id": "fixr:scenarioType"
+         "@id": "ScenarioType"
       },
       "Sections": {
-         "@id": "fixr:sections"
+         "@id": "Sections"
       },
       "SectionType": {
-         "@id": "fixr:sectionType"
+         "@id": "SectionType"
       },
       "ServiceType": {
-         "@id": "fixi:serviceType"
+         "@id": "ServiceType"
       },
       "SessionProtocolType": {
-         "@id": "fixi:sessionProtocolType"
+         "@id": "SessionProtocolType"
       },
       "SessionsInline": {
          "@id": "SessionsInline"
       },
       "SessionType": {
-         "@id": "fixi:sessionType"
+         "@id": "SessionType"
       },
       "StateMachineType": {
-         "@id": "fixr:stateMachineType"
+         "@id": "StateMachineType"
       },
       "StateType": {
-         "@id": "fixr:stateType"
+         "@id": "StateType"
       },
       "StructureInline": {
          "@id": "StructureInline"
       },
       "TimerSchedule": {
-         "@id": "fixr:timerSchedule"
+         "@id": "TimerSchedule"
       },
       "TimerType": {
-         "@id": "fixr:timerType"
+         "@id": "TimerType"
       },
       "TransitionType": {
-         "@id": "fixr:transitionType"
+         "@id": "TransitionType"
       },
       "TransportProtocolType": {
-         "@id": "fixi:transportProtocolType"
+         "@id": "TransportProtocolType"
       },
       "TriggerType": {
-         "@id": "fixr:triggerType"
+         "@id": "TriggerType"
       },
       "UniqueInline": {
          "@id": "UniqueInline"
       },
       "UserInterfaceType": {
-         "@id": "fixi:userInterfaceType"
+         "@id": "UserInterfaceType"
       },
       "XmlGlobalAttributes": {
          "@id": "xml:GlobalAttributes"

@@ -45,7 +45,9 @@ imports:
 types:
   ComponentName:
     typeof: string
-    uri: fixr:ComponentName_t
+    uri: fix_orchestra:ComponentName
+    exact_mappings:
+    - fixr:ComponentName_t
     aliases:
     - ComponentName_t
     in_subset:
@@ -54,7 +56,9 @@ types:
   DatatypeStandard:
     description: 'Extensible datatype standards | Union of: fixr:datatypeStandard_enum, xs:string'
     typeof: string
-    uri: fixr:datatypeStandard_t
+    uri: fix_orchestra:DatatypeStandard
+    exact_mappings:
+    - fixr:datatypeStandard_t
     aliases:
     - datatypeStandard_t
     in_subset:
@@ -62,7 +66,9 @@ types:
 
   EP:
     typeof: integer
-    uri: fixr:EP_t
+    uri: fix_orchestra:EP
+    exact_mappings:
+    - fixr:EP_t
     aliases:
     - EP_t
     in_subset:
@@ -71,7 +77,9 @@ types:
   ExpressionType:
     description: Expressed in a Domain Specific Language
     typeof: string
-    uri: fixr:expressionType
+    uri: fix_orchestra:ExpressionType
+    exact_mappings:
+    - fixr:expressionType
     aliases:
     - expressionType
     in_subset:
@@ -81,7 +89,9 @@ types:
 
   Id:
     typeof: integer
-    uri: fixr:id_t
+    uri: fix_orchestra:Id
+    exact_mappings:
+    - fixr:id_t
     aliases:
     - id_t
     in_subset:
@@ -89,7 +99,9 @@ types:
 
   Language:
     typeof: string
-    uri: fixr:language_t
+    uri: fix_orchestra:Language
+    exact_mappings:
+    - fixr:language_t
     aliases:
     - language_t
     in_subset:
@@ -98,7 +110,9 @@ types:
   Mime:
     description: Multipurpose Internet Mail Extensions (MIME) media type
     typeof: string
-    uri: fixr:mime_t
+    uri: fix_orchestra:Mime
+    exact_mappings:
+    - fixr:mime_t
     aliases:
     - mime_t
     in_subset:
@@ -108,7 +122,9 @@ types:
 
   MsgType:
     typeof: string
-    uri: fixr:MsgType_t
+    uri: fix_orchestra:MsgType
+    exact_mappings:
+    - fixr:MsgType_t
     aliases:
     - MsgType_t
     in_subset:
@@ -120,7 +136,9 @@ types:
   Name:
     description: Names are from 1-64 characters. The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. Single internal spaces are allowed by the schema but may be restricted by an external style.
     typeof: string
-    uri: fixr:Name_t
+    uri: fix_orchestra:Name
+    exact_mappings:
+    - fixr:Name_t
     aliases:
     - Name_t
     in_subset:
@@ -132,7 +150,9 @@ types:
   Purpose:
     description: 'Extensible annotation purposes | Union of: fixr:purpose_enum, xs:string'
     typeof: string
-    uri: fixr:purpose_t
+    uri: fix_orchestra:Purpose
+    exact_mappings:
+    - fixr:purpose_t
     aliases:
     - purpose_t
     in_subset:
@@ -141,7 +161,9 @@ types:
   UnboundedIntType:
     description: 'Union of: xs:nonNegativeInteger, fixr:unbounded'
     typeof: string
-    uri: fixr:unboundedIntType
+    uri: fix_orchestra:UnboundedIntType
+    exact_mappings:
+    - fixr:unboundedIntType
     aliases:
     - unboundedIntType
     in_subset:
@@ -149,7 +171,9 @@ types:
 
   Version:
     typeof: string
-    uri: fixr:Version_t
+    uri: fix_orchestra:Version
+    exact_mappings:
+    - fixr:Version_t
     aliases:
     - Version_t
     in_subset:
@@ -158,7 +182,9 @@ types:
   ProtocolName:
     description: 'Protocol names are not constrained to FIX protocols | Union of: fixi:protocolEnum_t, xs:token'
     typeof: string
-    uri: fixi:protocolName_t
+    uri: fix_orchestra:ProtocolName
+    exact_mappings:
+    - fixi:protocolName_t
     aliases:
     - protocolName_t
     in_subset:
@@ -167,7 +193,9 @@ types:
   InterfacePurpose:
     description: 'Extensible annotation purposes | Union of: fixi:purpose_enum, xs:token'
     typeof: string
-    uri: fixi:purpose_t
+    uri: fix_orchestra:InterfacePurpose
+    exact_mappings:
+    - fixi:purpose_t
     aliases:
     - purpose_t
     in_subset:
@@ -176,7 +204,9 @@ types:
   TransportUse:
     description: 'Extensible transport use | Union of: fixi:transportUse_enum, xs:token'
     typeof: string
-    uri: fixi:transportUse_t
+    uri: fix_orchestra:TransportUse
+    exact_mappings:
+    - fixi:transportUse_t
     aliases:
     - transportUse_t
     in_subset:
@@ -185,7 +215,9 @@ types:
   FIXInt:
     description: FIX int base datatype. Sequence of digits without commas or decimals and optional sign character (ASCII characters "-" and "0" - "9" ). The sign character utilizes one byte (i.e. positive int is "99999" while negative int is "-99999"). Note that int values may contain leading zeros (e.g. "00023" = "23").
     typeof: integer
-    uri: fixr:int
+    uri: fix_orchestra:FIXInt
+    exact_mappings:
+    - fixr:int
     in_subset:
     - fix_base_types
     annotations:
@@ -194,7 +226,9 @@ types:
   FIXLength:
     description: FIX Length datatype (extends int). int field representing the length in bytes. Value must be positive.
     typeof: integer
-    uri: fixr:Length
+    uri: fix_orchestra:FIXLength
+    exact_mappings:
+    - fixr:Length
     in_subset:
     - fix_base_types
     annotations:
@@ -203,7 +237,9 @@ types:
   FIXTagNum:
     description: FIX TagNum datatype (extends int). int field representing a field's tag number when using FIX "Tag=Value" syntax. Value must be positive and may not contain leading zeros.
     typeof: integer
-    uri: fixr:TagNum
+    uri: fix_orchestra:FIXTagNum
+    exact_mappings:
+    - fixr:TagNum
     in_subset:
     - fix_base_types
     annotations:
@@ -212,7 +248,9 @@ types:
   FIXSeqNum:
     description: FIX SeqNum datatype (extends int). int field representing a message sequence number. Value must be positive.
     typeof: integer
-    uri: fixr:SeqNum
+    uri: fix_orchestra:FIXSeqNum
+    exact_mappings:
+    - fixr:SeqNum
     in_subset:
     - fix_base_types
     annotations:
@@ -221,7 +259,9 @@ types:
   FIXNumInGroup:
     description: FIX NumInGroup datatype (extends int). int field representing the number of entries in a repeating group. Value must be positive.
     typeof: string
-    uri: fixr:NumInGroup
+    uri: fix_orchestra:FIXNumInGroup
+    exact_mappings:
+    - fixr:NumInGroup
     in_subset:
     - fix_base_types
     annotations:
@@ -230,7 +270,9 @@ types:
   FIXDayOfMonth:
     description: FIX DayOfMonth datatype (extends int). int field representing a day during a particular month (values 1 to 31).
     typeof: integer
-    uri: fixr:DayOfMonth
+    uri: fix_orchestra:FIXDayOfMonth
+    exact_mappings:
+    - fixr:DayOfMonth
     in_subset:
     - fix_base_types
     annotations:
@@ -239,7 +281,9 @@ types:
   FIXFloat:
     description: FIX float base datatype. Sequence of digits with optional decimal point and sign character (ASCII characters "-", "0" - "9" and "."); the absence of the decimal point within the string will be interpreted as the float representation of an integer value. All float fields must accommodate up to fifteen significant digits. The number of decimal places used should be a factor of business/market needs and mutual agreement between counterparties. Note that float values may contain leading zeros (e.g. "00023.23" = "23.23") and may contain or omit trailing zeros after the decimal point (e.g. "23.0" = "23.0000" = "23" = "23."). Note that fields which are derived from float may contain negative values unless explicitly specified otherwise.
     typeof: float
-    uri: fixr:float
+    uri: fix_orchestra:FIXFloat
+    exact_mappings:
+    - fixr:float
     in_subset:
     - fix_base_types
     annotations:
@@ -248,7 +292,9 @@ types:
   FIXQty:
     description: FIX Qty datatype (extends float). float field capable of storing either a whole number (no decimal places) of "shares" (securities denominated in whole units) or a decimal value containing decimal places for non-share quantity asset classes (securities denominated in fractional units).
     typeof: float
-    uri: fixr:Qty
+    uri: fix_orchestra:FIXQty
+    exact_mappings:
+    - fixr:Qty
     in_subset:
     - fix_base_types
     annotations:
@@ -257,7 +303,9 @@ types:
   FIXPrice:
     description: 'FIX Price datatype (extends float). float field representing a price. Note the number of decimal places may vary. For certain asset classes prices may be negative values. For example, prices for options strategies can be negative under certain market conditions. Refer to Volume 7: FIX Usage by Product for asset classes that support negative price values.'
     typeof: float
-    uri: fixr:Price
+    uri: fix_orchestra:FIXPrice
+    exact_mappings:
+    - fixr:Price
     in_subset:
     - fix_base_types
     annotations:
@@ -266,7 +314,9 @@ types:
   FIXPriceOffset:
     description: FIX PriceOffset datatype (extends float). float field representing a price offset, which can be mathematically added to a "Price". Note the number of decimal places may vary and some fields such as LastForwardPoints may be negative.
     typeof: float
-    uri: fixr:PriceOffset
+    uri: fix_orchestra:FIXPriceOffset
+    exact_mappings:
+    - fixr:PriceOffset
     in_subset:
     - fix_base_types
     annotations:
@@ -275,7 +325,9 @@ types:
   FIXAmt:
     description: FIX Amt datatype (extends float). float field typically representing a Price times a Qty
     typeof: float
-    uri: fixr:Amt
+    uri: fix_orchestra:FIXAmt
+    exact_mappings:
+    - fixr:Amt
     in_subset:
     - fix_base_types
     annotations:
@@ -284,7 +336,9 @@ types:
   FIXPercentage:
     description: FIX Percentage datatype (extends float). float field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary.
     typeof: float
-    uri: fixr:Percentage
+    uri: fix_orchestra:FIXPercentage
+    exact_mappings:
+    - fixr:Percentage
     in_subset:
     - fix_base_types
     annotations:
@@ -293,7 +347,9 @@ types:
   FIXChar:
     description: FIX char base datatype. Single character value, can include any alphanumeric character or punctuation except the delimiter. All char fields are case sensitive (i.e. m != M).
     typeof: string
-    uri: fixr:char
+    uri: fix_orchestra:FIXChar
+    exact_mappings:
+    - fixr:char
     in_subset:
     - fix_base_types
     annotations:
@@ -302,7 +358,9 @@ types:
   FIXBoolean:
     description: 'FIX Boolean datatype (extends char). char field containing one of two values:'
     typeof: string
-    uri: fixr:Boolean
+    uri: fix_orchestra:FIXBoolean
+    exact_mappings:
+    - fixr:Boolean
     in_subset:
     - fix_base_types
     annotations:
@@ -311,7 +369,9 @@ types:
   FIXString:
     description: FIX String base datatype. Alpha-numeric free format strings, can include any character or punctuation except the delimiter. All String fields are case sensitive (i.e. morstatt != Morstatt).
     typeof: string
-    uri: fixr:String
+    uri: fix_orchestra:FIXString
+    exact_mappings:
+    - fixr:String
     in_subset:
     - fix_base_types
     annotations:
@@ -320,7 +380,9 @@ types:
   FIXMultipleCharValue:
     description: FIX MultipleCharValue datatype (extends String). string field containing one or more space delimited single character values (e.g. |18=2 A F| ).
     typeof: string
-    uri: fixr:MultipleCharValue
+    uri: fix_orchestra:FIXMultipleCharValue
+    exact_mappings:
+    - fixr:MultipleCharValue
     in_subset:
     - fix_base_types
     annotations:
@@ -329,7 +391,9 @@ types:
   FIXMultipleStringValue:
     description: FIX MultipleStringValue datatype (extends String). string field containing one or more space delimited multiple character values (e.g. |277=AV AN A| ).
     typeof: string
-    uri: fixr:MultipleStringValue
+    uri: fix_orchestra:FIXMultipleStringValue
+    exact_mappings:
+    - fixr:MultipleStringValue
     in_subset:
     - fix_base_types
     annotations:
@@ -338,7 +402,9 @@ types:
   FIXCountry:
     description: FIX Country datatype (extends String). string field representing a country using ISO 3166 Country code (2 character) values (see Appendix 6-B).
     typeof: string
-    uri: fixr:Country
+    uri: fix_orchestra:FIXCountry
+    exact_mappings:
+    - fixr:Country
     in_subset:
     - fix_base_types
     annotations:
@@ -347,7 +413,9 @@ types:
   FIXCurrency:
     description: FIX Currency datatype (extends String). string field representing a currency type using ISO 4217 Currency code (3 character) values (see Appendix 6-A).
     typeof: string
-    uri: fixr:Currency
+    uri: fix_orchestra:FIXCurrency
+    exact_mappings:
+    - fixr:Currency
     in_subset:
     - fix_base_types
     annotations:
@@ -356,7 +424,9 @@ types:
   FIXExchange:
     description: FIX Exchange datatype (extends String). string field representing a market or exchange using ISO 10383 Market Identifier Code (MIC) values (see"Appendix 6-C).
     typeof: string
-    uri: fixr:Exchange
+    uri: fix_orchestra:FIXExchange
+    exact_mappings:
+    - fixr:Exchange
     in_subset:
     - fix_base_types
     annotations:
@@ -365,7 +435,9 @@ types:
   FIXMonthYear:
     description: FIX MonthYear datatype (extends String). string field representing month of a year. An optional day of the month can be appended or an optional week code.
     typeof: string
-    uri: fixr:MonthYear
+    uri: fix_orchestra:FIXMonthYear
+    exact_mappings:
+    - fixr:MonthYear
     in_subset:
     - fix_base_types
     annotations:
@@ -374,7 +446,9 @@ types:
   FIXUTCTimestamp:
     description: FIX UTCTimestamp datatype (extends String). string field representing time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss* format, colons, dash, and period required.
     typeof: datetime
-    uri: fixr:UTCTimestamp
+    uri: fix_orchestra:FIXUTCTimestamp
+    exact_mappings:
+    - fixr:UTCTimestamp
     in_subset:
     - fix_base_types
     annotations:
@@ -383,7 +457,9 @@ types:
   FIXUTCTimeOnly:
     description: FIX UTCTimeOnly datatype (extends String). string field representing time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss* (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.
     typeof: string
-    uri: fixr:UTCTimeOnly
+    uri: fix_orchestra:FIXUTCTimeOnly
+    exact_mappings:
+    - fixr:UTCTimeOnly
     in_subset:
     - fix_base_types
     annotations:
@@ -392,7 +468,9 @@ types:
   FIXUTCDateOnly:
     description: FIX UTCDateOnly datatype (extends String). string field representing Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.
     typeof: date
-    uri: fixr:UTCDateOnly
+    uri: fix_orchestra:FIXUTCDateOnly
+    exact_mappings:
+    - fixr:UTCDateOnly
     in_subset:
     - fix_base_types
     annotations:
@@ -401,7 +479,9 @@ types:
   FIXLocalMktDate:
     description: FIX LocalMktDate datatype (extends String). string field representing a Date of Local Market (as opposed to UTC) in YYYYMMDD format. This is the "normal" date field used by the FIX Protocol.
     typeof: date
-    uri: fixr:LocalMktDate
+    uri: fix_orchestra:FIXLocalMktDate
+    exact_mappings:
+    - fixr:LocalMktDate
     in_subset:
     - fix_base_types
     annotations:
@@ -410,7 +490,9 @@ types:
   FIXTZTimeOnly:
     description: FIX TZTimeOnly datatype (extends String). string field representing the time represented based on ISO 8601. This is the time with a UTC offset to allow identification of local time and timezone of that time.
     typeof: string
-    uri: fixr:TZTimeOnly
+    uri: fix_orchestra:FIXTZTimeOnly
+    exact_mappings:
+    - fixr:TZTimeOnly
     in_subset:
     - fix_base_types
     annotations:
@@ -419,7 +501,9 @@ types:
   FIXTZTimestamp:
     description: FIX TZTimestamp datatype (extends String). string field representing a time/date combination representing local time with an offset to UTC to allow identification of local time and timezone offset of that time. The representation is based on ISO 8601.
     typeof: datetime
-    uri: fixr:TZTimestamp
+    uri: fix_orchestra:FIXTZTimestamp
+    exact_mappings:
+    - fixr:TZTimestamp
     in_subset:
     - fix_base_types
     annotations:
@@ -428,7 +512,9 @@ types:
   FIXData:
     description: 'FIX data base datatype. string field containing opaque or non-ASCII data with no format or content restrictions. Data fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). The number of bytes does not equal the number of characters when multibyte character sets are used. Caution: The value of these fields may contain the delimiter (SOH) character. Note that the value specified for these fields must be followed by the delimiter (SOH) character as all tag-value fields are terminated with an SOH.'
     typeof: string
-    uri: fixr:data
+    uri: fix_orchestra:FIXData
+    exact_mappings:
+    - fixr:data
     in_subset:
     - fix_base_types
     annotations:
@@ -437,7 +523,9 @@ types:
   FIXPattern:
     description: FIX Pattern base datatype. Used to build on and provide some restrictions on what is allowed as valid values in fields that uses a base FIX data type and a pattern data type. The universe of allowable valid values for the field would then be the union of the base set of valid values and what is defined by the pattern data type. The pattern data type used by the field will retain its base FIX data type (e.g. String, int, char).
     typeof: string
-    uri: fixr:Pattern
+    uri: fix_orchestra:FIXPattern
+    exact_mappings:
+    - fixr:Pattern
     in_subset:
     - fix_base_types
     annotations:
@@ -446,7 +534,9 @@ types:
   FIXTenor:
     description: 'FIX Tenor datatype (extends Pattern). used to allow the expression of FX standard tenors in addition to the base valid enumerations defined for the field that uses this pattern data type. This pattern data type is defined as follows:'
     typeof: string
-    uri: fixr:Tenor
+    uri: fix_orchestra:FIXTenor
+    exact_mappings:
+    - fixr:Tenor
     in_subset:
     - fix_base_types
     annotations:
@@ -455,7 +545,9 @@ types:
   FIXReserved100Plus:
     description: FIX Reserved100Plus datatype (extends Pattern). Values "100" and above are reserved for bilaterally agreed upon user defined enumerations.
     typeof: integer
-    uri: fixr:Reserved100Plus
+    uri: fix_orchestra:FIXReserved100Plus
+    exact_mappings:
+    - fixr:Reserved100Plus
     in_subset:
     - fix_base_types
     annotations:
@@ -464,7 +556,9 @@ types:
   FIXReserved1000Plus:
     description: FIX Reserved1000Plus datatype (extends Pattern). Values "1000" and above are reserved for bilaterally agreed upon user defined enumerations.
     typeof: integer
-    uri: fixr:Reserved1000Plus
+    uri: fix_orchestra:FIXReserved1000Plus
+    exact_mappings:
+    - fixr:Reserved1000Plus
     in_subset:
     - fix_base_types
     annotations:
@@ -473,7 +567,9 @@ types:
   FIXReserved4000Plus:
     description: FIX Reserved4000Plus datatype (extends Pattern). Values "4000" and above are reserved for bilaterally agreed upon user defined enumerations.
     typeof: integer
-    uri: fixr:Reserved4000Plus
+    uri: fix_orchestra:FIXReserved4000Plus
+    exact_mappings:
+    - fixr:Reserved4000Plus
     in_subset:
     - fix_base_types
     annotations:
@@ -482,7 +578,9 @@ types:
   FIXXMLData:
     description: FIX XMLData datatype (extends String). Contains an XML document raw data with no format or content restrictions. XMLData fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH).
     typeof: string
-    uri: fixr:XMLData
+    uri: fix_orchestra:FIXXMLData
+    exact_mappings:
+    - fixr:XMLData
     in_subset:
     - fix_base_types
     annotations:
@@ -491,7 +589,9 @@ types:
   FIXLanguage:
     description: FIX Language datatype (extends String). Identifier for a national language - uses ISO 639-1 standard
     typeof: string
-    uri: fixr:Language
+    uri: fix_orchestra:FIXLanguage
+    exact_mappings:
+    - fixr:Language
     in_subset:
     - fix_base_types
     annotations:
@@ -500,7 +600,9 @@ types:
   FIXLocalMktTime:
     description: FIX LocalMktTime datatype (extends String). string field representing the time local to a particular market center. Used where offset to UTC varies throughout the year and the defining market center is identified in a corresponding field.
     typeof: string
-    uri: fixr:LocalMktTime
+    uri: fix_orchestra:FIXLocalMktTime
+    exact_mappings:
+    - fixr:LocalMktTime
     in_subset:
     - fix_base_types
     annotations:
@@ -509,7 +611,9 @@ types:
   FIXXID:
     description: FIX XID datatype (extends String). The purpose of the XID datatype is to define a unique identifier that is global to a FIX message. An identifier defined using this datatype uniquely identifies its containing element, whatever its type and name is. The constraint added by this datatype is that the values of all the fields that have an XID datatype in a FIX message must be unique.
     typeof: string
-    uri: fixr:XID
+    uri: fix_orchestra:FIXXID
+    exact_mappings:
+    - fixr:XID
     in_subset:
     - fix_base_types
     annotations:
@@ -518,7 +622,9 @@ types:
   FIXXIDREF:
     description: FIX XIDREF datatype (extends String). The XIDREF datatype defines a reference to an identifier defined by the XID datatype.
     typeof: string
-    uri: fixr:XIDREF
+    uri: fix_orchestra:FIXXIDREF
+    exact_mappings:
+    - fixr:XIDREF
     in_subset:
     - fix_base_types
     annotations:
@@ -537,7 +643,9 @@ subsets:
     description: FIX base datatypes derived from the FIX Orchestra XML repository. Each type carries a proto_scalar annotation giving the recommended Protocol Buffers scalar type when encoding FIX wire-format messages.
 enums:
   CatComponentType:
-    enum_uri: fixr:CatComponentType_t
+    enum_uri: fix_orchestra:CatComponentType
+    exact_mappings:
+    - fixr:CatComponentType_t
     aliases:
     - CatComponentType_t
     in_subset:
@@ -547,7 +655,9 @@ enums:
       Message:
 
   CatIncludeFile:
-    enum_uri: fixr:CatIncludeFile_t
+    enum_uri: fix_orchestra:CatIncludeFile
+    exact_mappings:
+    - fixr:CatIncludeFile_t
     aliases:
     - CatIncludeFile_t
     in_subset:
@@ -557,7 +667,9 @@ enums:
       fields:
 
   ChangeType:
-    enum_uri: fixr:changeType_t
+    enum_uri: fix_orchestra:ChangeType
+    exact_mappings:
+    - fixr:changeType_t
     aliases:
     - changeType_t
     in_subset:
@@ -567,7 +679,9 @@ enums:
       Definitional:
 
   DatatypeStandardEnum:
-    enum_uri: fixr:datatypeStandard_enum
+    enum_uri: fix_orchestra:DatatypeStandardEnum
+    exact_mappings:
+    - fixr:datatypeStandard_enum
     aliases:
     - datatypeStandard_enum
     in_subset:
@@ -587,7 +701,9 @@ enums:
         description: FIX classic encoding
 
   MemberType:
-    enum_uri: fixr:memberType
+    enum_uri: fix_orchestra:MemberType
+    exact_mappings:
+    - fixr:memberType
     aliases:
     - memberType
     in_subset:
@@ -599,7 +715,9 @@ enums:
         description: At least one of the members must be present.
 
   Presence:
-    enum_uri: fixr:presence_t
+    enum_uri: fix_orchestra:Presence
+    exact_mappings:
+    - fixr:presence_t
     aliases:
     - presence_t
     in_subset:
@@ -618,7 +736,9 @@ enums:
 
   PurposeEnum:
     description: Recommended annotation purposes
-    enum_uri: fixr:purpose_enum
+    enum_uri: fix_orchestra:PurposeEnum
+    exact_mappings:
+    - fixr:purpose_enum
     aliases:
     - purpose_enum
     in_subset:
@@ -641,7 +761,9 @@ enums:
 
   Reliability:
     description: Message delivery gurantee
-    enum_uri: fixr:reliability_t
+    enum_uri: fix_orchestra:Reliability
+    exact_mappings:
+    - fixr:reliability_t
     aliases:
     - reliability_t
     in_subset:
@@ -653,7 +775,9 @@ enums:
 
   SupportType:
     description: Support level
-    enum_uri: fixr:supportType
+    enum_uri: fix_orchestra:SupportType
+    exact_mappings:
+    - fixr:supportType
     aliases:
     - supportType
     in_subset:
@@ -664,7 +788,9 @@ enums:
       ignored:
 
   Synchronization:
-    enum_uri: fixr:synchronization
+    enum_uri: fix_orchestra:Synchronization
+    exact_mappings:
+    - fixr:synchronization
     aliases:
     - synchronization
     in_subset:
@@ -678,7 +804,9 @@ enums:
         description: Response timing is dependent on a request, but multiple requests can be in-flight
 
   TimerOperation:
-    enum_uri: fixr:timerOperation
+    enum_uri: fix_orchestra:TimerOperation
+    exact_mappings:
+    - fixr:timerOperation
     aliases:
     - timerOperation
     in_subset:
@@ -690,7 +818,9 @@ enums:
         description: Cancel and restart
 
   Unbounded:
-    enum_uri: fixr:unbounded
+    enum_uri: fix_orchestra:Unbounded
+    exact_mappings:
+    - fixr:unbounded
     aliases:
     - unbounded
     in_subset:
@@ -700,7 +830,9 @@ enums:
 
   UnionDataType:
     description: A second domain of valid values. The 'Reserved' types should only be applied Code Sets.
-    enum_uri: fixr:UnionDataType_t
+    enum_uri: fix_orchestra:UnionDataType
+    exact_mappings:
+    - fixr:UnionDataType_t
     aliases:
     - UnionDataType_t
     in_subset:
@@ -713,7 +845,9 @@ enums:
       Tenor:
 
   Layer:
-    enum_uri: fixi:layer_t
+    enum_uri: fix_orchestra:Layer
+    exact_mappings:
+    - fixi:layer_t
     aliases:
     - layer_t
     in_subset:
@@ -725,7 +859,9 @@ enums:
       transport:
 
   MessageCast:
-    enum_uri: fixi:messageCast_t
+    enum_uri: fix_orchestra:MessageCast
+    exact_mappings:
+    - fixi:messageCast_t
     aliases:
     - messageCast_t
     in_subset:
@@ -737,7 +873,9 @@ enums:
 
   ProtocolEnum:
     description: List of FIX protocols to standardize spelling
-    enum_uri: fixi:protocolEnum_t
+    enum_uri: fix_orchestra:ProtocolEnum
+    exact_mappings:
+    - fixi:protocolEnum_t
     aliases:
     - protocolEnum_t
     in_subset:
@@ -768,7 +906,9 @@ enums:
 
   InterfacePurposeEnum:
     description: Recommended annotation purposes
-    enum_uri: fixi:purpose_enum
+    enum_uri: fix_orchestra:InterfacePurposeEnum
+    exact_mappings:
+    - fixi:purpose_enum
     aliases:
     - purpose_enum
     in_subset:
@@ -781,7 +921,9 @@ enums:
         description: For UI when different from canonical name; may have multi-language displays
 
   InterfaceReliability:
-    enum_uri: fixi:reliability_t
+    enum_uri: fix_orchestra:InterfaceReliability
+    exact_mappings:
+    - fixi:reliability_t
     aliases:
     - reliability_t
     in_subset:
@@ -792,7 +934,9 @@ enums:
       recoverable:
 
   Role:
-    enum_uri: fixi:role_t
+    enum_uri: fix_orchestra:Role
+    exact_mappings:
+    - fixi:role_t
     aliases:
     - role_t
     in_subset:
@@ -804,7 +948,9 @@ enums:
       server:
 
   TransportUseEnum:
-    enum_uri: fixi:transportUse_enum
+    enum_uri: fix_orchestra:TransportUseEnum
+    exact_mappings:
+    - fixi:transportUse_enum
     aliases:
     - transportUse_enum
     in_subset:
@@ -816,7 +962,9 @@ enums:
 classes:
   EntityAttribGrp:
     mixin: true
-    class_uri: fixr:entityAttribGrp
+    class_uri: fix_orchestra:EntityAttribGrp
+    exact_mappings:
+    - fixr:entityAttribGrp
     aliases:
     - entityAttribGrp
     in_subset:
@@ -824,7 +972,9 @@ classes:
     attributes:
       deprecated:
         range: Version
-        slot_uri: fixr:deprecated
+        slot_uri: fix_orchestra:deprecated
+        exact_mappings:
+        - fixr:deprecated
     slots:
     - added
     - added_ep
@@ -842,7 +992,9 @@ classes:
   FieldAttribGrp:
     description: Attributes of a field that be overridden by a rule
     mixin: true
-    class_uri: fixr:fieldAttribGrp
+    class_uri: fix_orchestra:FieldAttribGrp
+    exact_mappings:
+    - fixr:fieldAttribGrp
     aliases:
     - fieldAttribGrp
     in_subset:
@@ -851,7 +1003,9 @@ classes:
       encoding:
         range: string
         description: Character encoding if other than US-ASCII
-        slot_uri: fixr:encoding
+        slot_uri: fix_orchestra:encoding
+        exact_mappings:
+        - fixr:encoding
     slots:
     - min_inclusive
     - max_inclusive
@@ -866,12 +1020,16 @@ classes:
         description:
       value:
         description: If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.
-        slot_uri: fixr:value
+        slot_uri: fix_orchestra:value
+        exact_mappings:
+        - fixr:value
 
   OidGrp:
     description: The identifiers of a message element
     mixin: true
-    class_uri: fixr:oidGrp
+    class_uri: fix_orchestra:OidGrp
+    exact_mappings:
+    - fixr:oidGrp
     aliases:
     - oidGrp
     in_subset:
@@ -881,18 +1039,24 @@ classes:
         range: Id
         description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
         required: true
-        slot_uri: fixr:id
+        slot_uri: fix_orchestra:id
+        exact_mappings:
+        - fixr:id
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       scenario:
         range: Name
         description: The use case of an element, distinguished by workflow, asset class, etc.
         ifabsent: string(base)
-        slot_uri: fixr:scenario
+        slot_uri: fix_orchestra:scenario
+        exact_mappings:
+        - fixr:scenario
     slots:
     - abbr_name
     - scenario_id
@@ -900,7 +1064,9 @@ classes:
   RefidGrp:
     description: A reference to a message element by its key identifiers
     mixin: true
-    class_uri: fixr:refidGrp
+    class_uri: fix_orchestra:RefidGrp
+    exact_mappings:
+    - fixr:refidGrp
     aliases:
     - refidGrp
     in_subset:
@@ -910,25 +1076,33 @@ classes:
         range: Id
         description: Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag
         required: true
-        slot_uri: fixr:id
+        slot_uri: fix_orchestra:id
+        exact_mappings:
+        - fixr:id
 
       name:
         range: Name
         description: The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       scenario:
         range: Name
         description: The use case of an element, distinguished by workflow, asset class, etc.
         ifabsent: string(base)
-        slot_uri: fixr:scenario
+        slot_uri: fix_orchestra:scenario
+        exact_mappings:
+        - fixr:scenario
     slots:
     - scenario_id
 
   ScenarioRefGrp:
     description: A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
     mixin: true
-    class_uri: fixr:scenarioRefGrp
+    class_uri: fix_orchestra:ScenarioRefGrp
+    exact_mappings:
+    - fixr:scenarioRefGrp
     aliases:
     - scenarioRefGrp
     in_subset:
@@ -938,7 +1112,9 @@ classes:
     - scenario_ref
 
   ActionType:
-    class_uri: fixr:actionType
+    class_uri: fix_orchestra:ActionType
+    exact_mappings:
+    - fixr:actionType
     aliases:
     - actionType
     in_subset:
@@ -949,13 +1125,17 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:group
+        slot_uri: fix_orchestra:group
+        exact_mappings:
+        - fixr:group
 
       assign:
         range: ExpressionType
         description: Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'
         multivalued: true
-        slot_uri: fixr:assign
+        slot_uri: fix_orchestra:assign
+        exact_mappings:
+        - fixr:assign
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -973,7 +1153,9 @@ classes:
 
   ActorType:
     description: Represents a class of participants
-    class_uri: fixr:actorType
+    class_uri: fix_orchestra:ActorType
+    exact_mappings:
+    - fixr:actorType
     aliases:
     - actorType
     in_subset:
@@ -984,16 +1166,22 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:group
+        slot_uri: fix_orchestra:group
+        exact_mappings:
+        - fixr:group
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1011,7 +1199,9 @@ classes:
   Annotation:
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:annotation
+    class_uri: fix_orchestra:Annotation
+    exact_mappings:
+    - fixr:annotation
     aliases:
     - annotation
     in_subset:
@@ -1022,14 +1212,18 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:documentation
+        slot_uri: fix_orchestra:documentation
+        exact_mappings:
+        - fixr:documentation
 
       appinfo:
         range: Appinfo
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:appinfo
+        slot_uri: fix_orchestra:appinfo
+        exact_mappings:
+        - fixr:appinfo
     annotations:
       xsd_source: repositorytypes.xsd
 
@@ -1037,7 +1231,9 @@ classes:
     description: Usage specific annotation, optionally with link to an external reference or standard
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:appinfo
+    class_uri: fix_orchestra:Appinfo
+    exact_mappings:
+    - fixr:appinfo
     aliases:
     - appinfo
     in_subset:
@@ -1045,13 +1241,17 @@ classes:
     attributes:
       lang_id:
         range: Language
-        slot_uri: fixr:langId
+        slot_uri: fix_orchestra:lang_id
+        exact_mappings:
+        - fixr:langId
         aliases:
         - langId
 
       purpose:
         range: Purpose
-        slot_uri: fixr:purpose
+        slot_uri: fix_orchestra:purpose
+        exact_mappings:
+        - fixr:purpose
     annotations:
       xsd_source: repositorytypes.xsd
       xsd_any_attribute: true
@@ -1062,7 +1262,9 @@ classes:
     - extra_attributes
 
   BlockAssignmentType:
-    class_uri: fixr:blockAssignmentType
+    class_uri: fix_orchestra:BlockAssignmentType
+    exact_mappings:
+    - fixr:blockAssignmentType
     aliases:
     - blockAssignmentType
     in_subset:
@@ -1080,7 +1282,9 @@ classes:
   CategoryType:
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:categoryType
+    class_uri: fix_orchestra:CategoryType
+    exact_mappings:
+    - fixr:categoryType
     aliases:
     - categoryType
     in_subset:
@@ -1088,16 +1292,22 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       section:
         range: Name
-        slot_uri: fixr:section
+        slot_uri: fix_orchestra:section
+        exact_mappings:
+        - fixr:section
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1110,7 +1320,9 @@ classes:
     - OidGrp
     - ScenarioRefGrp
     - EntityAttribGrp
-    class_uri: fixr:codeSetType
+    class_uri: fix_orchestra:CodeSetType
+    exact_mappings:
+    - fixr:codeSetType
     aliases:
     - codeSetType
     in_subset:
@@ -1118,13 +1330,17 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       type:
         range: Name
         description: Underlying FIX datatype of codes
         required: true
-        slot_uri: fixr:type
+        slot_uri: fix_orchestra:type
+        exact_mappings:
+        - fixr:type
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1140,7 +1356,9 @@ classes:
     mixins:
     - OidGrp
     - EntityAttribGrp
-    class_uri: fixr:codeType
+    class_uri: fix_orchestra:CodeType
+    exact_mappings:
+    - fixr:codeType
     aliases:
     - codeType
     in_subset:
@@ -1148,11 +1366,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       group:
         range: string
-        slot_uri: fixr:group
+        slot_uri: fix_orchestra:group
+        exact_mappings:
+        - fixr:group
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1162,13 +1384,17 @@ classes:
       value:
         description: The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. However, single internal spaces are allowed. May be further restricted by an external style.
         required: true
-        slot_uri: fixr:value
+        slot_uri: fix_orchestra:value
+        exact_mappings:
+        - fixr:value
 
   ComponentRefType:
     mixins:
     - RefidGrp
     - EntityAttribGrp
-    class_uri: fixr:componentRefType
+    class_uri: fix_orchestra:ComponentRefType
+    exact_mappings:
+    - fixr:componentRefType
     aliases:
     - componentRefType
     in_subset:
@@ -1180,16 +1406,22 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:rule
+        slot_uri: fix_orchestra:rule
+        exact_mappings:
+        - fixr:rule
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       instance_name:
         range: ComponentName
         description: Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.
-        slot_uri: fixr:instanceName
+        slot_uri: fix_orchestra:instance_name
+        exact_mappings:
+        - fixr:instanceName
         aliases:
         - instanceName
     annotations:
@@ -1202,7 +1434,9 @@ classes:
         description:
 
   ComponentRuleType:
-    class_uri: fixr:componentRuleType
+    class_uri: fix_orchestra:ComponentRuleType
+    exact_mappings:
+    - fixr:componentRuleType
     aliases:
     - componentRuleType
     in_subset:
@@ -1211,7 +1445,9 @@ classes:
       name:
         range: Name
         description: Name of this rule
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1229,7 +1465,9 @@ classes:
     - EntityAttribGrp
     - OidGrp
     - ScenarioRefGrp
-    class_uri: fixr:componentType
+    class_uri: fix_orchestra:ComponentType
+    exact_mappings:
+    - fixr:componentType
     aliases:
     - componentType
     in_subset:
@@ -1237,11 +1475,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       category:
         range: Name
-        slot_uri: fixr:category
+        slot_uri: fix_orchestra:category
+        exact_mappings:
+        - fixr:category
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1257,7 +1499,9 @@ classes:
         description:
 
   ConceptType:
-    class_uri: fixr:conceptType
+    class_uri: fix_orchestra:ConceptType
+    exact_mappings:
+    - fixr:conceptType
     aliases:
     - conceptType
     in_subset:
@@ -1265,12 +1509,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1287,7 +1535,9 @@ classes:
   Documentation:
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:documentation
+    class_uri: fix_orchestra:Documentation
+    exact_mappings:
+    - fixr:documentation
     aliases:
     - documentation
     in_subset:
@@ -1295,18 +1545,24 @@ classes:
     attributes:
       lang_id:
         range: Language
-        slot_uri: fixr:langId
+        slot_uri: fix_orchestra:lang_id
+        exact_mappings:
+        - fixr:langId
         aliases:
         - langId
 
       purpose:
         range: Purpose
-        slot_uri: fixr:purpose
+        slot_uri: fix_orchestra:purpose
+        exact_mappings:
+        - fixr:purpose
 
       content_type:
         range: Mime
         ifabsent: string(text/plain)
-        slot_uri: fixr:contentType
+        slot_uri: fix_orchestra:content_type
+        exact_mappings:
+        - fixr:contentType
         aliases:
         - contentType
     annotations:
@@ -1320,7 +1576,9 @@ classes:
     - RefidGrp
     - EntityAttribGrp
     - FieldAttribGrp
-    class_uri: fixr:fieldRefType
+    class_uri: fix_orchestra:FieldRefType
+    exact_mappings:
+    - fixr:fieldRefType
     aliases:
     - fieldRefType
     in_subset:
@@ -1332,21 +1590,29 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:rule
+        slot_uri: fix_orchestra:rule
+        exact_mappings:
+        - fixr:rule
 
       assign:
         range: ExpressionType
         description: Content of element holds an assignment expression for a message field or state variable
-        slot_uri: fixr:assign
+        slot_uri: fix_orchestra:assign
+        exact_mappings:
+        - fixr:assign
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       instance_name:
         range: Name
         description: Override the field name for this instance, for code generation and the like. Allows more than one instance of a field in a message or component.
-        slot_uri: fixr:instanceName
+        slot_uri: fix_orchestra:instance_name
+        exact_mappings:
+        - fixr:instanceName
         aliases:
         - instanceName
     annotations:
@@ -1366,7 +1632,9 @@ classes:
   FieldRuleType:
     mixins:
     - FieldAttribGrp
-    class_uri: fixr:fieldRuleType
+    class_uri: fix_orchestra:FieldRuleType
+    exact_mappings:
+    - fixr:fieldRuleType
     aliases:
     - fieldRuleType
     in_subset:
@@ -1376,17 +1644,23 @@ classes:
         range: ExpressionType
         description: Content of element holds an assignment expression for a message field or state variable. This can be used for field validation.
         multivalued: true
-        slot_uri: fixr:assign
+        slot_uri: fix_orchestra:assign
+        exact_mappings:
+        - fixr:assign
 
       name:
         range: Name
         description: Name of this rule
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       type:
         range: Name
         description: Overrides the type of the referenced field.
-        slot_uri: fixr:type
+        slot_uri: fix_orchestra:type
+        exact_mappings:
+        - fixr:type
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1402,7 +1676,9 @@ classes:
     - OidGrp
     - EntityAttribGrp
     - FieldAttribGrp
-    class_uri: fixr:fieldType
+    class_uri: fix_orchestra:FieldType
+    exact_mappings:
+    - fixr:fieldType
     aliases:
     - fieldType
     in_subset:
@@ -1414,26 +1690,36 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:rule
+        slot_uri: fix_orchestra:rule
+        exact_mappings:
+        - fixr:rule
 
       assign:
         range: ExpressionType
         description: Content of element holds an assignment expression for a message field or state variable
-        slot_uri: fixr:assign
+        slot_uri: fix_orchestra:assign
+        exact_mappings:
+        - fixr:assign
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       type:
         range: Name
         description: Attribute type refers to a datatype name
-        slot_uri: fixr:type
+        slot_uri: fix_orchestra:type
+        exact_mappings:
+        - fixr:type
 
       code_set:
         range: Name
         description: Attribute codeSet refers to a codeSet name
-        slot_uri: fixr:codeSet
+        slot_uri: fix_orchestra:code_set
+        exact_mappings:
+        - fixr:codeSet
         aliases:
         - codeSet
     annotations:
@@ -1448,7 +1734,9 @@ classes:
 
   FlowType:
     description: A stream of messages in one direction
-    class_uri: fixr:flowType
+    class_uri: fix_orchestra:FlowType
+    exact_mappings:
+    - fixr:flowType
     aliases:
     - flowType
     in_subset:
@@ -1456,16 +1744,22 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       reliability:
         range: Reliability
-        slot_uri: fixr:reliability
+        slot_uri: fix_orchestra:reliability
+        exact_mappings:
+        - fixr:reliability
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1475,11 +1769,15 @@ classes:
       source:
         description: Name of the actor that originates messages
         required: true
-        slot_uri: fixr:source
+        slot_uri: fix_orchestra:source
+        exact_mappings:
+        - fixr:source
 
   GroupRefType:
     is_a: ComponentRefType
-    class_uri: fixr:groupRefType
+    class_uri: fix_orchestra:GroupRefType
+    exact_mappings:
+    - fixr:groupRefType
     aliases:
     - groupRefType
     in_subset:
@@ -1501,7 +1799,9 @@ classes:
     - EntityAttribGrp
     - OidGrp
     - ScenarioRefGrp
-    class_uri: fixr:groupType
+    class_uri: fix_orchestra:GroupType
+    exact_mappings:
+    - fixr:groupType
     aliases:
     - groupType
     in_subset:
@@ -1509,11 +1809,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       category:
         range: Name
-        slot_uri: fixr:category
+        slot_uri: fix_orchestra:category
+        exact_mappings:
+        - fixr:category
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1532,7 +1836,9 @@ classes:
         ifabsent:
 
   IdentifiersType:
-    class_uri: fixr:identifiersType
+    class_uri: fix_orchestra:IdentifiersType
+    exact_mappings:
+    - fixr:identifiersType
     aliases:
     - identifiersType
     in_subset:
@@ -1544,18 +1850,24 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:assign
+        slot_uri: fix_orchestra:assign
+        exact_mappings:
+        - fixr:assign
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
     - correlate
 
   IdentifierType:
-    class_uri: fixi:identifierType
+    class_uri: fix_orchestra:IdentifierType
+    exact_mappings:
+    - fixi:identifierType
     aliases:
     - identifierType
     in_subset:
@@ -1563,7 +1875,9 @@ classes:
     attributes:
       name:
         range: string
-        slot_uri: fixi:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixi:name
     annotations:
       xsd_source: interfaces.xsd
     slots:
@@ -1578,7 +1892,9 @@ classes:
     - content
 
   MappedDatatype:
-    class_uri: fixr:mappedDatatype
+    class_uri: fix_orchestra:MappedDatatype
+    exact_mappings:
+    - fixr:mappedDatatype
     aliases:
     - mappedDatatype
     in_subset:
@@ -1586,12 +1902,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
         description: A datatype from which a subtype is created by restriction or a derived type is created by a generator
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1613,7 +1933,9 @@ classes:
   MessageRefType:
     mixins:
     - RefidGrp
-    class_uri: fixr:messageRefType
+    class_uri: fix_orchestra:MessageRefType
+    exact_mappings:
+    - fixr:messageRefType
     aliases:
     - messageRefType
     in_subset:
@@ -1661,7 +1983,9 @@ classes:
     - OidGrp
     - ScenarioRefGrp
     - EntityAttribGrp
-    class_uri: fixr:messageType
+    class_uri: fix_orchestra:MessageType
+    exact_mappings:
+    - fixr:messageType
     aliases:
     - messageType
     in_subset:
@@ -1669,15 +1993,21 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       category:
         range: Name
-        slot_uri: fixr:category
+        slot_uri: fix_orchestra:category
+        exact_mappings:
+        - fixr:category
 
       flow:
         range: Name
-        slot_uri: fixr:flow
+        slot_uri: fix_orchestra:flow
+        exact_mappings:
+        - fixr:flow
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1690,7 +2020,9 @@ classes:
   ResponseType:
     description: Any number of action behaviors can be triggered by the same 'when' condition
     is_a: ActionType
-    class_uri: fixr:responseType
+    class_uri: fix_orchestra:ResponseType
+    exact_mappings:
+    - fixr:responseType
     aliases:
     - responseType
     in_subset:
@@ -1698,11 +2030,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1714,7 +2050,9 @@ classes:
 
   ScenarioType:
     description: The use case of an element, distinguished by workflow, asset class, etc.
-    class_uri: fixr:scenarioType
+    class_uri: fix_orchestra:ScenarioType
+    exact_mappings:
+    - fixr:scenarioType
     aliases:
     - scenarioType
     in_subset:
@@ -1722,26 +2060,34 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       id:
         range: Id
         description: Unique numeric identifier. Default is '1' is for base scenario.
         ifabsent: string(1)
-        slot_uri: fixr:id
+        slot_uri: fix_orchestra:id
+        exact_mappings:
+        - fixr:id
 
       name:
         range: Name
         description: Unique name
         ifabsent: string(base)
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
 
   SectionType:
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:sectionType
+    class_uri: fix_orchestra:SectionType
+    exact_mappings:
+    - fixr:sectionType
     aliases:
     - sectionType
     in_subset:
@@ -1749,12 +2095,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1762,7 +2112,9 @@ classes:
     - fixml_file_name
 
   StateMachineType:
-    class_uri: fixr:stateMachineType
+    class_uri: fix_orchestra:StateMachineType
+    exact_mappings:
+    - fixr:stateMachineType
     aliases:
     - stateMachineType
     in_subset:
@@ -1770,12 +2122,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1784,7 +2140,9 @@ classes:
 
   StateType:
     description: A state of a state machine. If it has no transitions, then it is a final state.
-    class_uri: fixr:stateType
+    class_uri: fix_orchestra:StateType
+    exact_mappings:
+    - fixr:stateType
     aliases:
     - stateType
     in_subset:
@@ -1792,12 +2150,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1807,7 +2169,9 @@ classes:
     - onexit
 
   TimerSchedule:
-    class_uri: fixr:timerSchedule
+    class_uri: fix_orchestra:TimerSchedule
+    exact_mappings:
+    - fixr:timerSchedule
     aliases:
     - timerSchedule
     in_subset:
@@ -1817,13 +2181,17 @@ classes:
         range: Name
         description: Name of the actor that owns the timer
         required: true
-        slot_uri: fixr:actor
+        slot_uri: fix_orchestra:actor
+        exact_mappings:
+        - fixr:actor
 
       name:
         range: Name
         description: Name of the timer
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1836,7 +2204,9 @@ classes:
         required: true
 
   TimerType:
-    class_uri: fixr:timerType
+    class_uri: fix_orchestra:TimerType
+    exact_mappings:
+    - fixr:timerType
     aliases:
     - timerType
     in_subset:
@@ -1845,12 +2215,16 @@ classes:
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
 
   TransitionType:
-    class_uri: fixr:transitionType
+    class_uri: fix_orchestra:TransitionType
+    exact_mappings:
+    - fixr:transitionType
     aliases:
     - transitionType
     in_subset:
@@ -1858,12 +2232,16 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -1874,7 +2252,9 @@ classes:
         description: Optional guard condition. The transition is allowed if the condition evaluates true. If not present, the transition is unconditional.
 
   TriggerType:
-    class_uri: fixr:triggerType
+    class_uri: fix_orchestra:TriggerType
+    exact_mappings:
+    - fixr:triggerType
     aliases:
     - triggerType
     in_subset:
@@ -1884,20 +2264,26 @@ classes:
         range: Name
         description: Name of the actor that owns the state machine
         required: true
-        slot_uri: fixr:actor
+        slot_uri: fix_orchestra:actor
+        exact_mappings:
+        - fixr:actor
 
       name:
         range: Name
         description: Name of the transition to invoke
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
     - state_machine
 
   InterfaceAnnotation:
-    class_uri: fixi:annotation
+    class_uri: fix_orchestra:InterfaceAnnotation
+    exact_mappings:
+    - fixi:annotation
     aliases:
     - annotation
     in_subset:
@@ -1908,20 +2294,26 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixi:documentation
+        slot_uri: fix_orchestra:documentation
+        exact_mappings:
+        - fixi:documentation
 
       appinfo:
         range: InterfaceAppinfo
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixi:appinfo
+        slot_uri: fix_orchestra:appinfo
+        exact_mappings:
+        - fixi:appinfo
     annotations:
       xsd_source: interfaces.xsd
 
   InterfaceAppinfo:
     description: Usage specific annotation, optionally with link to an external reference or standard
-    class_uri: fixi:appinfo
+    class_uri: fix_orchestra:InterfaceAppinfo
+    exact_mappings:
+    - fixi:appinfo
     aliases:
     - appinfo
     in_subset:
@@ -1929,13 +2321,17 @@ classes:
     attributes:
       lang_id:
         range: string
-        slot_uri: fixi:langId
+        slot_uri: fix_orchestra:lang_id
+        exact_mappings:
+        - fixi:langId
         aliases:
         - langId
 
       purpose:
         range: InterfacePurpose
-        slot_uri: fixi:purpose
+        slot_uri: fix_orchestra:purpose
+        exact_mappings:
+        - fixi:purpose
     annotations:
       xsd_source: interfaces.xsd
       xsd_any_attribute: true
@@ -1946,11 +2342,14 @@ classes:
     - extra_attributes
     slot_usage:
       spec_url:
-        slot_uri: fixi:specUrl
+        exact_mappings:
+        - fixi:specUrl
 
   BaseInterfaceType:
     abstract: true
-    class_uri: fixi:baseInterfaceType
+    class_uri: fix_orchestra:BaseInterfaceType
+    exact_mappings:
+    - fixi:baseInterfaceType
     aliases:
     - baseInterfaceType
     in_subset:
@@ -1961,16 +2360,22 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixi:encoding
+        slot_uri: fix_orchestra:encoding
+        exact_mappings:
+        - fixi:encoding
 
       annotation:
         range: InterfaceAnnotation
-        slot_uri: fixi:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixi:annotation
 
       name:
         range: string
         required: true
-        slot_uri: fixi:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixi:name
     annotations:
       xsd_source: interfaces.xsd
       xsd_any_attribute: true
@@ -1983,7 +2388,9 @@ classes:
     - extra_attributes
 
   InterfaceDocumentation:
-    class_uri: fixi:documentation
+    class_uri: fix_orchestra:InterfaceDocumentation
+    exact_mappings:
+    - fixi:documentation
     aliases:
     - documentation
     in_subset:
@@ -1991,18 +2398,24 @@ classes:
     attributes:
       lang_id:
         range: string
-        slot_uri: fixi:langId
+        slot_uri: fix_orchestra:lang_id
+        exact_mappings:
+        - fixi:langId
         aliases:
         - langId
 
       purpose:
         range: InterfacePurpose
-        slot_uri: fixi:purpose
+        slot_uri: fix_orchestra:purpose
+        exact_mappings:
+        - fixi:purpose
 
       content_type:
         range: string
         ifabsent: string(text/plain)
-        slot_uri: fixi:contentType
+        slot_uri: fix_orchestra:content_type
+        exact_mappings:
+        - fixi:contentType
         aliases:
         - contentType
     annotations:
@@ -2013,7 +2426,9 @@ classes:
 
   EncodingType:
     is_a: ProtocolType
-    class_uri: fixi:encodingType
+    class_uri: fix_orchestra:EncodingType
+    exact_mappings:
+    - fixi:encodingType
     aliases:
     - encodingType
     in_subset:
@@ -2031,7 +2446,9 @@ classes:
 
   InterfaceType:
     is_a: BaseInterfaceType
-    class_uri: fixi:interfaceType
+    class_uri: fix_orchestra:InterfaceType
+    exact_mappings:
+    - fixi:interfaceType
     aliases:
     - interfaceType
     in_subset:
@@ -2042,7 +2459,9 @@ classes:
     - sessions
 
   ProtocolType:
-    class_uri: fixi:protocolType
+    class_uri: fix_orchestra:ProtocolType
+    exact_mappings:
+    - fixi:protocolType
     aliases:
     - protocolType
     in_subset:
@@ -2050,25 +2469,35 @@ classes:
     attributes:
       annotation:
         range: InterfaceAnnotation
-        slot_uri: fixi:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixi:annotation
 
       name:
         range: ProtocolName
-        slot_uri: fixi:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixi:name
 
       version:
         range: string
-        slot_uri: fixi:version
+        slot_uri: fix_orchestra:version
+        exact_mappings:
+        - fixi:version
 
       deprecated:
         range: datetime
         description: When this version was deprecated; may be replaced or removed in the future
-        slot_uri: fixi:deprecated
+        slot_uri: fix_orchestra:deprecated
+        exact_mappings:
+        - fixi:deprecated
 
       reliability:
         range: InterfaceReliability
         description: Reliability can be implemented at transport, session, or application layers
-        slot_uri: fixi:reliability
+        slot_uri: fix_orchestra:reliability
+        exact_mappings:
+        - fixi:reliability
     annotations:
       xsd_source: interfaces.xsd
       xsd_any_attribute: true
@@ -2081,7 +2510,9 @@ classes:
 
   ServiceType:
     is_a: ProtocolType
-    class_uri: fixi:serviceType
+    class_uri: fix_orchestra:ServiceType
+    exact_mappings:
+    - fixi:serviceType
     aliases:
     - serviceType
     in_subset:
@@ -2091,7 +2522,9 @@ classes:
 
   SessionProtocolType:
     is_a: ProtocolType
-    class_uri: fixi:sessionProtocolType
+    class_uri: fix_orchestra:SessionProtocolType
+    exact_mappings:
+    - fixi:sessionProtocolType
     aliases:
     - sessionProtocolType
     in_subset:
@@ -2101,7 +2534,9 @@ classes:
 
   SessionType:
     is_a: BaseInterfaceType
-    class_uri: fixi:sessionType
+    class_uri: fix_orchestra:SessionType
+    exact_mappings:
+    - fixi:sessionType
     aliases:
     - sessionType
     in_subset:
@@ -2112,7 +2547,9 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixi:identifier
+        slot_uri: fix_orchestra:identifier
+        exact_mappings:
+        - fixi:identifier
     annotations:
       xsd_source: interfaces.xsd
     slots:
@@ -2128,7 +2565,9 @@ classes:
 
   TransportProtocolType:
     is_a: ProtocolType
-    class_uri: fixi:transportProtocolType
+    class_uri: fix_orchestra:TransportProtocolType
+    exact_mappings:
+    - fixi:transportProtocolType
     aliases:
     - transportProtocolType
     in_subset:
@@ -2144,7 +2583,9 @@ classes:
 
   UserInterfaceType:
     is_a: ProtocolType
-    class_uri: fixi:userInterfaceType
+    class_uri: fix_orchestra:UserInterfaceType
+    exact_mappings:
+    - fixi:userInterfaceType
     aliases:
     - userInterfaceType
     in_subset:
@@ -2155,7 +2596,9 @@ classes:
   Datatype:
     mixins:
     - EntityAttribGrp
-    class_uri: fixr:datatype
+    class_uri: fix_orchestra:Datatype
+    exact_mappings:
+    - fixr:datatype
     aliases:
     - datatype
     in_subset:
@@ -2163,18 +2606,24 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: Name
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       scenario:
         range: Name
         description: The use case of a datatype by name
         ifabsent: string(base)
-        slot_uri: fixr:scenario
+        slot_uri: fix_orchestra:scenario
+        exact_mappings:
+        - fixr:scenario
     annotations:
       xsd_source: repositorytypes.xsd
     slots:
@@ -2183,7 +2632,9 @@ classes:
     - base_type
 
   Actors:
-    class_uri: fixr:actors
+    class_uri: fix_orchestra:Actors
+    exact_mappings:
+    - fixr:actors
     aliases:
     - actors
     in_subset:
@@ -2194,22 +2645,30 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:actor
+        slot_uri: fix_orchestra:actor
+        exact_mappings:
+        - fixr:actor
 
       flow:
         range: FlowType
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:flow
+        slot_uri: fix_orchestra:flow
+        exact_mappings:
+        - fixr:flow
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       actor_key:
         description: From XSD <xs:key name="actorKey"> with selector "fixr:actor".
@@ -2221,7 +2680,9 @@ classes:
     description: Participants and the message flows between them
 
   Categories:
-    class_uri: fixr:categories
+    class_uri: fix_orchestra:Categories
+    exact_mappings:
+    - fixr:categories
     aliases:
     - categories
     in_subset:
@@ -2233,20 +2694,28 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:category
+        slot_uri: fix_orchestra:category
+        exact_mappings:
+        - fixr:category
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     annotations:
       xsd_source: repository.xsd
 
   CodeSets:
-    class_uri: fixr:codeSets
+    class_uri: fix_orchestra:CodeSets
+    exact_mappings:
+    - fixr:codeSets
     aliases:
     - codeSets
     in_subset:
@@ -2257,17 +2726,23 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:codeSet
+        slot_uri: fix_orchestra:code_set
+        exact_mappings:
+        - fixr:codeSet
         aliases:
         - codeSet
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       code_set_name_key:
         description: From XSD <xs:key name="codeSetNameKey"> with selector "fixr:codeSet".
@@ -2284,7 +2759,9 @@ classes:
       xsd_source: repository.xsd
 
   Components:
-    class_uri: fixr:components
+    class_uri: fix_orchestra:Components
+    exact_mappings:
+    - fixr:components
     aliases:
     - components
     in_subset:
@@ -2292,11 +2769,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       component_name_key:
         description: From XSD <xs:key name="componentNameKey"> with selector "fixr:component".
@@ -2315,7 +2796,9 @@ classes:
     - component
 
   Concepts:
-    class_uri: fixr:concepts
+    class_uri: fix_orchestra:Concepts
+    exact_mappings:
+    - fixr:concepts
     aliases:
     - concepts
     in_subset:
@@ -2323,11 +2806,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       concept_key:
         description: From XSD <xs:key name="conceptKey"> with selector "fixr:concept".
@@ -2339,7 +2826,9 @@ classes:
     - concept
 
   Datatypes:
-    class_uri: fixr:datatypes
+    class_uri: fix_orchestra:Datatypes
+    exact_mappings:
+    - fixr:datatypes
     aliases:
     - datatypes
     in_subset:
@@ -2347,11 +2836,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       datatype_key:
         description: From XSD <xs:key name="datatypeKey"> with selector "fixr:datatype".
@@ -2364,7 +2857,9 @@ classes:
     - datatype
 
   Fields:
-    class_uri: fixr:fields
+    class_uri: fix_orchestra:Fields
+    exact_mappings:
+    - fixr:fields
     aliases:
     - fields
     in_subset:
@@ -2372,11 +2867,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       field_name_key:
         description: From XSD <xs:key name="fieldNameKey"> with selector "fixr:field".
@@ -2395,7 +2894,9 @@ classes:
     - field
 
   Groups:
-    class_uri: fixr:groups
+    class_uri: fix_orchestra:Groups
+    exact_mappings:
+    - fixr:groups
     aliases:
     - groups
     in_subset:
@@ -2406,15 +2907,21 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:group
+        slot_uri: fix_orchestra:group
+        exact_mappings:
+        - fixr:group
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       group_name_key:
         description: From XSD <xs:key name="groupNameKey"> with selector "fixr:group".
@@ -2431,7 +2938,9 @@ classes:
       xsd_source: repository.xsd
 
   Messages:
-    class_uri: fixr:messages
+    class_uri: fix_orchestra:Messages
+    exact_mappings:
+    - fixr:messages
     aliases:
     - messages
     in_subset:
@@ -2439,11 +2948,15 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     unique_keys:
       message_name_key:
         description: From XSD <xs:key name="messageNameKey"> with selector "fixr:message".
@@ -2463,7 +2976,9 @@ classes:
 
   Repository:
     tree_root: true
-    class_uri: fixr:repository
+    class_uri: fix_orchestra:Repository
+    exact_mappings:
+    - fixr:repository
     aliases:
     - repository
     in_subset:
@@ -2471,18 +2986,24 @@ classes:
     attributes:
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       name:
         range: string
         description: Stable name that does not change with minor version updates
         required: true
-        slot_uri: fixr:name
+        slot_uri: fix_orchestra:name
+        exact_mappings:
+        - fixr:name
 
       version:
         range: Version
         required: true
-        slot_uri: fixr:version
+        slot_uri: fix_orchestra:version
+        exact_mappings:
+        - fixr:version
     unique_keys:
       datatype_ref_key:
         description: From XSD <xs:key name="datatypeRefKey"> with selector "fixr:datatypes/fixr:datatype".
@@ -2527,7 +3048,9 @@ classes:
     - expression_language
 
   Scenarios:
-    class_uri: fixr:scenarios
+    class_uri: fix_orchestra:Scenarios
+    exact_mappings:
+    - fixr:scenarios
     aliases:
     - scenarios
     in_subset:
@@ -2538,21 +3061,29 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:scenario
+        slot_uri: fix_orchestra:scenario
+        exact_mappings:
+        - fixr:scenario
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     annotations:
       xsd_source: repository.xsd
     description: The default scenario is id='1' name='base'.
 
   Sections:
-    class_uri: fixr:sections
+    class_uri: fix_orchestra:Sections
+    exact_mappings:
+    - fixr:sections
     aliases:
     - sections
     in_subset:
@@ -2564,21 +3095,29 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        slot_uri: fixr:section
+        slot_uri: fix_orchestra:section
+        exact_mappings:
+        - fixr:section
 
       annotation:
         range: Annotation
-        slot_uri: fixr:annotation
+        slot_uri: fix_orchestra:annotation
+        exact_mappings:
+        - fixr:annotation
 
       base:
         range: string
-        slot_uri: fixr:base
+        slot_uri: fix_orchestra:base
+        exact_mappings:
+        - fixr:base
     annotations:
       xsd_source: repository.xsd
 
   Interfaces:
     tree_root: true
-    class_uri: fixi:interfaces
+    class_uri: fix_orchestra:Interfaces
+    exact_mappings:
+    - fixi:interfaces
     aliases:
     - interfaces
     in_subset:
@@ -2601,118 +3140,159 @@ classes:
     - interface
     slot_usage:
       metadata:
-        slot_uri: fixi:metadata
+        exact_mappings:
+        - fixi:metadata
 slots:
   added:
     range: Version
-    slot_uri: fixr:added
+    slot_uri: fix_orchestra:added
+    exact_mappings:
+    - fixr:added
 
   added_ep:
     range: EP
-    slot_uri: fixr:addedEP
+    slot_uri: fix_orchestra:added_ep
+    exact_mappings:
+    - fixr:addedEP
     aliases:
     - addedEP
 
   change_type:
     range: ChangeType
-    slot_uri: fixr:changeType
+    slot_uri: fix_orchestra:change_type
+    exact_mappings:
+    - fixr:changeType
     aliases:
     - changeType
 
   deprecated_ep:
     range: EP
-    slot_uri: fixr:deprecatedEP
+    slot_uri: fix_orchestra:deprecated_ep
+    exact_mappings:
+    - fixr:deprecatedEP
     aliases:
     - deprecatedEP
 
   issue:
     range: string
-    slot_uri: fixr:issue
+    slot_uri: fix_orchestra:issue
+    exact_mappings:
+    - fixr:issue
 
   last_modified:
     range: Version
-    slot_uri: fixr:lastModified
+    slot_uri: fix_orchestra:last_modified
+    exact_mappings:
+    - fixr:lastModified
     aliases:
     - lastModified
 
   replaced:
     range: Version
-    slot_uri: fixr:replaced
+    slot_uri: fix_orchestra:replaced
+    exact_mappings:
+    - fixr:replaced
 
   replaced_ep:
     range: EP
-    slot_uri: fixr:replacedEP
+    slot_uri: fix_orchestra:replaced_ep
+    exact_mappings:
+    - fixr:replacedEP
     aliases:
     - replacedEP
 
   replaced_by_field:
     range: Id
-    slot_uri: fixr:replacedByField
+    slot_uri: fix_orchestra:replaced_by_field
+    exact_mappings:
+    - fixr:replacedByField
     aliases:
     - replacedByField
 
   supported:
     range: SupportType
     ifabsent: string(supported)
-    slot_uri: fixr:supported
+    slot_uri: fix_orchestra:supported
+    exact_mappings:
+    - fixr:supported
 
   updated:
     range: Version
-    slot_uri: fixr:updated
+    slot_uri: fix_orchestra:updated
+    exact_mappings:
+    - fixr:updated
 
   updated_ep:
     range: EP
-    slot_uri: fixr:updatedEP
+    slot_uri: fix_orchestra:updated_ep
+    exact_mappings:
+    - fixr:updatedEP
     aliases:
     - updatedEP
 
   min_inclusive:
     range: string
     description: Inclusive lower bound
-    slot_uri: fixr:minInclusive
+    slot_uri: fix_orchestra:min_inclusive
+    exact_mappings:
+    - fixr:minInclusive
     aliases:
     - minInclusive
 
   max_inclusive:
     range: string
     description: Inclusive upper bound
-    slot_uri: fixr:maxInclusive
+    slot_uri: fix_orchestra:max_inclusive
+    exact_mappings:
+    - fixr:maxInclusive
     aliases:
     - maxInclusive
 
   impl_length:
     range: integer
     description: Fixed length
-    slot_uri: fixr:implLength
+    slot_uri: fix_orchestra:impl_length
+    exact_mappings:
+    - fixr:implLength
     aliases:
     - implLength
 
   impl_min_length:
     range: integer
-    slot_uri: fixr:implMinLength
+    slot_uri: fix_orchestra:impl_min_length
+    exact_mappings:
+    - fixr:implMinLength
     aliases:
     - implMinLength
 
   impl_max_length:
     range: integer
-    slot_uri: fixr:implMaxLength
+    slot_uri: fix_orchestra:impl_max_length
+    exact_mappings:
+    - fixr:implMaxLength
     aliases:
     - implMaxLength
 
   presence:
     range: Presence
     ifabsent: string(optional)
-    slot_uri: fixr:presence
+    slot_uri: fix_orchestra:presence
+    exact_mappings:
+    - fixr:presence
     description: Overrides presence when expression is true
 
   rendering:
     range: string
     description: A hint to processes about how to interpret the element. Not validated.
-    slot_uri: fixr:rendering
+    slot_uri: fix_orchestra:rendering
+    exact_mappings:
+    - fixr:rendering
 
   abbr_name:
     range: Name
-    slot_uri: fixr:abbrName
+    slot_uri: fix_orchestra:abbr_name
+    exact_mappings:
+    - fixr:abbrName
     aliases:
     - abbrName
 
@@ -2720,21 +3300,27 @@ slots:
     range: Id
     description: Unique identifier of a scenario. Default is '1' for base scenario.
     ifabsent: string(1)
-    slot_uri: fixr:scenarioId
+    slot_uri: fix_orchestra:scenario_id
+    exact_mappings:
+    - fixr:scenarioId
     aliases:
     - scenarioId
 
   scenario_ref_id:
     range: Id
     description: Unique identifier of a scenario. The identifier is required when referencing another scenario.
-    slot_uri: fixr:scenarioRefId
+    slot_uri: fix_orchestra:scenario_ref_id
+    exact_mappings:
+    - fixr:scenarioRefId
     aliases:
     - scenarioRefId
 
   scenario_ref:
     range: Name
     description: Name of a scenario. The name is optional as part of a reference and only for convenience.
-    slot_uri: fixr:scenarioRef
+    slot_uri: fix_orchestra:scenario_ref
+    exact_mappings:
+    - fixr:scenarioRef
     aliases:
     - scenarioRef
 
@@ -2743,14 +3329,18 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:field
+    slot_uri: fix_orchestra:field
+    exact_mappings:
+    - fixr:field
 
   field_ref:
     range: FieldRefType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:fieldRef
+    slot_uri: fix_orchestra:field_ref
+    exact_mappings:
+    - fixr:fieldRef
     aliases:
     - fieldRef
     description: Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.
@@ -2760,14 +3350,18 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:component
+    slot_uri: fix_orchestra:component
+    exact_mappings:
+    - fixr:component
 
   component_ref:
     range: ComponentRefType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:componentRef
+    slot_uri: fix_orchestra:component_ref
+    exact_mappings:
+    - fixr:componentRef
     aliases:
     - componentRef
 
@@ -2776,7 +3370,9 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:groupRef
+    slot_uri: fix_orchestra:group_ref
+    exact_mappings:
+    - fixr:groupRef
     aliases:
     - groupRef
 
@@ -2786,7 +3382,9 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:messageRef
+    slot_uri: fix_orchestra:message_ref
+    exact_mappings:
+    - fixr:messageRef
     aliases:
     - messageRef
 
@@ -2796,14 +3394,18 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:trigger
+    slot_uri: fix_orchestra:trigger
+    exact_mappings:
+    - fixr:trigger
 
   timer_schedule:
     range: TimerSchedule
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:timerSchedule
+    slot_uri: fix_orchestra:timer_schedule
+    exact_mappings:
+    - fixr:timerSchedule
     aliases:
     - timerSchedule
 
@@ -2812,19 +3414,25 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:states
+    slot_uri: fix_orchestra:states
+    exact_mappings:
+    - fixr:states
 
   timer:
     range: TimerType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:timer
+    slot_uri: fix_orchestra:timer
+    exact_mappings:
+    - fixr:timer
 
   spec_url:
     range: uri
     description: Reference documentation
-    slot_uri: fixr:specUrl
+    slot_uri: fix_orchestra:spec_url
+    exact_mappings:
+    - fixr:specUrl
     aliases:
     - specUrl
 
@@ -2835,19 +3443,25 @@ slots:
 
   fixml_file_name:
     range: Name
-    slot_uri: fixr:FIXMLFileName
+    slot_uri: fix_orchestra:fixml_file_name
+    exact_mappings:
+    - fixr:FIXMLFileName
     aliases:
     - FIXMLFileName
 
   component_type:
     range: CatComponentType
-    slot_uri: fixr:componentType
+    slot_uri: fix_orchestra:component_type
+    exact_mappings:
+    - fixr:componentType
     aliases:
     - componentType
 
   include_file:
     range: CatIncludeFile
-    slot_uri: fixr:includeFile
+    slot_uri: fix_orchestra:include_file
+    exact_mappings:
+    - fixr:includeFile
     aliases:
     - includeFile
 
@@ -2856,22 +3470,30 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:code
+    slot_uri: fix_orchestra:code
+    exact_mappings:
+    - fixr:code
 
   default:
     range: string
-    slot_uri: fixr:default
+    slot_uri: fix_orchestra:default
+    exact_mappings:
+    - fixr:default
 
   union_data_type:
     range: UnionDataType
-    slot_uri: fixr:unionDataType
+    slot_uri: fix_orchestra:union_data_type
+    exact_mappings:
+    - fixr:unionDataType
     aliases:
     - unionDataType
 
   sort:
     range: integer
     description: Sort and group may be used to organize visualization of a code set.
-    slot_uri: fixr:sort
+    slot_uri: fix_orchestra:sort
+    exact_mappings:
+    - fixr:sort
 
   block_assignment:
     range: BlockAssignmentType
@@ -2879,54 +3501,72 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:blockAssignment
+    slot_uri: fix_orchestra:block_assignment
+    exact_mappings:
+    - fixr:blockAssignment
     aliases:
     - blockAssignment
 
   when:
     range: ExpressionType
-    slot_uri: fixr:when
+    slot_uri: fix_orchestra:when
+    exact_mappings:
+    - fixr:when
     description: A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.
 
   which:
     range: MemberType
-    slot_uri: fixr:which
+    slot_uri: fix_orchestra:which
+    exact_mappings:
+    - fixr:which
     description: Member selection within each group instance
 
   length_id:
     range: Id
     description: Identifies a field used as a length prefix
-    slot_uri: fixr:lengthId
+    slot_uri: fix_orchestra:length_id
+    exact_mappings:
+    - fixr:lengthId
     aliases:
     - lengthId
 
   non_encoded_field_id:
     range: Id
     description: Identifies a non-encoded field related to an encoded field
-    slot_uri: fixr:nonEncodedFieldId
+    slot_uri: fix_orchestra:non_encoded_field_id
+    exact_mappings:
+    - fixr:nonEncodedFieldId
     aliases:
     - nonEncodedFieldId
 
   unique:
     range: UniqueInline
-    slot_uri: fixr:unique
+    slot_uri: fix_orchestra:unique
+    exact_mappings:
+    - fixr:unique
 
   discriminator_id:
     range: Id
     description: Identifies a field used as a discriminator for this field's domain
-    slot_uri: fixr:discriminatorId
+    slot_uri: fix_orchestra:discriminator_id
+    exact_mappings:
+    - fixr:discriminatorId
     aliases:
     - discriminatorId
 
   base_category:
     range: Name
-    slot_uri: fixr:baseCategory
+    slot_uri: fix_orchestra:base_category
+    exact_mappings:
+    - fixr:baseCategory
     aliases:
     - baseCategory
 
   base_category_abbr_name:
     range: Name
-    slot_uri: fixr:baseCategoryAbbrName
+    slot_uri: fix_orchestra:base_category_abbr_name
+    exact_mappings:
+    - fixr:baseCategoryAbbrName
     aliases:
     - baseCategoryAbbrName
 
@@ -2934,11 +3574,15 @@ slots:
     range: string
     description: Name of the actor that receives messages.
     required: true
-    slot_uri: fixr:destination
+    slot_uri: fix_orchestra:destination
+    exact_mappings:
+    - fixr:destination
 
   impl_min_occurs:
     range: integer
-    slot_uri: fixr:implMinOccurs
+    slot_uri: fix_orchestra:impl_min_occurs
+    exact_mappings:
+    - fixr:implMinOccurs
     aliases:
     - implMinOccurs
     description: Lower bound of group instances (numInGroup)
@@ -2946,14 +3590,18 @@ slots:
   impl_max_occurs:
     range: UnboundedIntType
     ifabsent: string(unbounded)
-    slot_uri: fixr:implMaxOccurs
+    slot_uri: fix_orchestra:impl_max_occurs
+    exact_mappings:
+    - fixr:implMaxOccurs
     aliases:
     - implMaxOccurs
     description: Upper bound of group instances (numInGroup)
 
   num_in_group:
     range: FieldRefType
-    slot_uri: fixr:numInGroup
+    slot_uri: fix_orchestra:num_in_group
+    exact_mappings:
+    - fixr:numInGroup
     aliases:
     - numInGroup
 
@@ -2963,48 +3611,68 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:correlate
+    slot_uri: fix_orchestra:correlate
+    exact_mappings:
+    - fixr:correlate
 
   extension:
     range: ExtensionInline
     description: A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard.
-    slot_uri: fixr:extension
+    slot_uri: fix_orchestra:extension
+    exact_mappings:
+    - fixr:extension
 
   standard:
     range: DatatypeStandard
     required: true
-    slot_uri: fixr:standard
+    slot_uri: fix_orchestra:standard
+    exact_mappings:
+    - fixr:standard
 
   builtin:
     range: boolean
-    slot_uri: fixr:builtin
+    slot_uri: fix_orchestra:builtin
+    exact_mappings:
+    - fixr:builtin
 
   pattern:
     range: string
     description: A lexical restriction from a base type
-    slot_uri: fixr:pattern
+    slot_uri: fix_orchestra:pattern
+    exact_mappings:
+    - fixr:pattern
 
   element:
     range: string
     description: Element type of an aggregate type such as an array or sequence
-    slot_uri: fixr:element
+    slot_uri: fix_orchestra:element
+    exact_mappings:
+    - fixr:element
 
   size:
     range: integer
     description: Size of an aggregate type such as an array. That is, the number of elements.
-    slot_uri: fixr:size
+    slot_uri: fix_orchestra:size
+    exact_mappings:
+    - fixr:size
 
   parameter:
     range: string
-    slot_uri: fixr:parameter
+    slot_uri: fix_orchestra:parameter
+    exact_mappings:
+    - fixr:parameter
 
   identifiers:
     range: IdentifiersType
-    slot_uri: fixr:identifiers
+    slot_uri: fix_orchestra:identifiers
+    exact_mappings:
+    - fixr:identifiers
 
   msg_type:
     range: MsgType
-    slot_uri: fixr:msgType
+    slot_uri: fix_orchestra:msg_type
+    exact_mappings:
+    - fixr:msgType
     aliases:
     - msgType
 
@@ -3015,23 +3683,33 @@ slots:
     inlined: true
     inlined_as_list: true
     required: true
-    slot_uri: fixr:response
+    slot_uri: fix_orchestra:response
+    exact_mappings:
+    - fixr:response
 
   structure:
     range: StructureInline
-    slot_uri: fixr:structure
+    slot_uri: fix_orchestra:structure
+    exact_mappings:
+    - fixr:structure
 
   responses:
     range: ResponsesInline
-    slot_uri: fixr:responses
+    slot_uri: fix_orchestra:responses
+    exact_mappings:
+    - fixr:responses
 
   sync:
     range: Synchronization
-    slot_uri: fixr:sync
+    slot_uri: fix_orchestra:sync
+    exact_mappings:
+    - fixr:sync
 
   display_order:
     range: integer
-    slot_uri: fixr:displayOrder
+    slot_uri: fix_orchestra:display_order
+    exact_mappings:
+    - fixr:displayOrder
     aliases:
     - displayOrder
 
@@ -3039,7 +3717,9 @@ slots:
     range: StateType
     description: Initial state of a state machine
     required: true
-    slot_uri: fixr:initial
+    slot_uri: fix_orchestra:initial
+    exact_mappings:
+    - fixr:initial
 
   state:
     range: StateType
@@ -3047,50 +3727,68 @@ slots:
     inlined: true
     inlined_as_list: true
     required: true
-    slot_uri: fixr:state
+    slot_uri: fix_orchestra:state
+    exact_mappings:
+    - fixr:state
 
   transition:
     range: TransitionType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:transition
+    slot_uri: fix_orchestra:transition
+    exact_mappings:
+    - fixr:transition
 
   onentry:
     range: ActionType
     description: Operation fired when entering a state.
-    slot_uri: fixr:onentry
+    slot_uri: fix_orchestra:onentry
+    exact_mappings:
+    - fixr:onentry
 
   activity:
     range: ActionType
     description: Operation fired when entering a state and completing when exiting or earlier.
-    slot_uri: fixr:activity
+    slot_uri: fix_orchestra:activity
+    exact_mappings:
+    - fixr:activity
 
   onexit:
     range: ActionType
     description: Operation fired when exiting a state.
-    slot_uri: fixr:onexit
+    slot_uri: fix_orchestra:onexit
+    exact_mappings:
+    - fixr:onexit
 
   operation:
     range: TimerOperation
     required: true
-    slot_uri: fixr:operation
+    slot_uri: fix_orchestra:operation
+    exact_mappings:
+    - fixr:operation
 
   interval:
     range: string
-    slot_uri: fixr:interval
+    slot_uri: fix_orchestra:interval
+    exact_mappings:
+    - fixr:interval
 
   target:
     range: string
     description: The target state of the transition
     required: true
-    slot_uri: fixr:target
+    slot_uri: fix_orchestra:target
+    exact_mappings:
+    - fixr:target
 
   state_machine:
     range: string
     description: Name of the state machine
     required: true
-    slot_uri: fixr:stateMachine
+    slot_uri: fix_orchestra:state_machine
+    exact_mappings:
+    - fixr:stateMachine
     aliases:
     - stateMachine
 
@@ -3100,14 +3798,18 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:service
+    slot_uri: fix_orchestra:service
+    exact_mappings:
+    - fixi:service
 
   user_interface:
     range: UserInterfaceType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:userInterface
+    slot_uri: fix_orchestra:user_interface
+    exact_mappings:
+    - fixi:userInterface
     aliases:
     - userInterface
 
@@ -3116,7 +3818,9 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:sessionProtocol
+    slot_uri: fix_orchestra:session_protocol
+    exact_mappings:
+    - fixi:sessionProtocol
     aliases:
     - sessionProtocol
 
@@ -3125,14 +3829,18 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:protocol
+    slot_uri: fix_orchestra:protocol
+    exact_mappings:
+    - fixi:protocol
 
   transport:
     range: TransportProtocolType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:transport
+    slot_uri: fix_orchestra:transport
+    exact_mappings:
+    - fixi:transport
 
   session:
     range: SessionType
@@ -3140,73 +3848,99 @@ slots:
     inlined: true
     inlined_as_list: true
     required: true
-    slot_uri: fixi:session
+    slot_uri: fix_orchestra:session
+    exact_mappings:
+    - fixi:session
 
   sessions:
     range: SessionsInline
-    slot_uri: fixi:sessions
+    slot_uri: fix_orchestra:sessions
+    exact_mappings:
+    - fixi:sessions
 
   activation_time:
     range: datetime
     description: When this version becomes effective
-    slot_uri: fixi:activationTime
+    slot_uri: fix_orchestra:activation_time
+    exact_mappings:
+    - fixi:activationTime
     aliases:
     - activationTime
 
   deactivation_time:
     range: datetime
     description: When this version is no longer effective
-    slot_uri: fixi:deactivationTime
+    slot_uri: fix_orchestra:deactivation_time
+    exact_mappings:
+    - fixi:deactivationTime
     aliases:
     - deactivationTime
 
   layer:
     range: Layer
-    slot_uri: fixi:layer
+    slot_uri: fix_orchestra:layer
+    exact_mappings:
+    - fixi:layer
 
   orchestration:
     range: uri
     description: URI of Orchestra rules of engagement
-    slot_uri: fixi:orchestration
+    slot_uri: fix_orchestra:orchestration
+    exact_mappings:
+    - fixi:orchestration
 
   role:
     range: Role
-    slot_uri: fixi:role
+    slot_uri: fix_orchestra:role
+    exact_mappings:
+    - fixi:role
 
   security_keys:
     range: string
     description: Textual encoding as specified by IETF RFC 7468
-    slot_uri: fixi:securityKeys
+    slot_uri: fix_orchestra:security_keys
+    exact_mappings:
+    - fixi:securityKeys
     aliases:
     - securityKeys
 
   address:
     range: string
-    slot_uri: fixi:address
+    slot_uri: fix_orchestra:address
+    exact_mappings:
+    - fixi:address
 
   message_cast:
     range: MessageCast
     ifabsent: string(unicast)
-    slot_uri: fixi:messageCast
+    slot_uri: fix_orchestra:message_cast
+    exact_mappings:
+    - fixi:messageCast
     aliases:
     - messageCast
 
   use:
     range: TransportUse
-    slot_uri: fixi:use
+    slot_uri: fix_orchestra:use
+    exact_mappings:
+    - fixi:use
 
   mapped_datatype:
     range: MappedDatatype
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:mappedDatatype
+    slot_uri: fix_orchestra:mapped_datatype
+    exact_mappings:
+    - fixr:mappedDatatype
     aliases:
     - mappedDatatype
 
   base_type:
     range: Name
-    slot_uri: fixr:baseType
+    slot_uri: fix_orchestra:base_type
+    exact_mappings:
+    - fixr:baseType
     aliases:
     - baseType
 
@@ -3215,90 +3949,126 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:concept
+    slot_uri: fix_orchestra:concept
+    exact_mappings:
+    - fixr:concept
 
   datatype:
     range: Datatype
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:datatype
+    slot_uri: fix_orchestra:datatype
+    exact_mappings:
+    - fixr:datatype
 
   message:
     range: MessageType
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixr:message
+    slot_uri: fix_orchestra:message
+    exact_mappings:
+    - fixr:message
 
   metadata:
     range: DctermsElementOrRefinementContainer
     required: true
-    slot_uri: fixr:metadata
+    slot_uri: fix_orchestra:metadata
+    exact_mappings:
+    - fixr:metadata
 
   categories:
     range: Categories
-    slot_uri: fixr:categories
+    slot_uri: fix_orchestra:categories
+    exact_mappings:
+    - fixr:categories
 
   sections:
     range: Sections
-    slot_uri: fixr:sections
+    slot_uri: fix_orchestra:sections
+    exact_mappings:
+    - fixr:sections
 
   datatypes:
     range: Datatypes
     required: true
-    slot_uri: fixr:datatypes
+    slot_uri: fix_orchestra:datatypes
+    exact_mappings:
+    - fixr:datatypes
 
   code_sets:
     range: CodeSets
-    slot_uri: fixr:codeSets
+    slot_uri: fix_orchestra:code_sets
+    exact_mappings:
+    - fixr:codeSets
     aliases:
     - codeSets
 
   fields:
     range: Fields
     required: true
-    slot_uri: fixr:fields
+    slot_uri: fix_orchestra:fields
+    exact_mappings:
+    - fixr:fields
 
   actors:
     range: Actors
-    slot_uri: fixr:actors
+    slot_uri: fix_orchestra:actors
+    exact_mappings:
+    - fixr:actors
 
   components:
     range: Components
-    slot_uri: fixr:components
+    slot_uri: fix_orchestra:components
+    exact_mappings:
+    - fixr:components
 
   groups:
     range: Groups
-    slot_uri: fixr:groups
+    slot_uri: fix_orchestra:groups
+    exact_mappings:
+    - fixr:groups
 
   messages:
     range: Messages
     required: true
-    slot_uri: fixr:messages
+    slot_uri: fix_orchestra:messages
+    exact_mappings:
+    - fixr:messages
 
   concepts:
     range: Concepts
-    slot_uri: fixr:concepts
+    slot_uri: fix_orchestra:concepts
+    exact_mappings:
+    - fixr:concepts
 
   scenarios:
     range: Scenarios
-    slot_uri: fixr:scenarios
+    slot_uri: fix_orchestra:scenarios
+    exact_mappings:
+    - fixr:scenarios
 
   guid:
     range: string
-    slot_uri: fixr:guid
+    slot_uri: fix_orchestra:guid
+    exact_mappings:
+    - fixr:guid
 
   namespace:
     range: uri
     description: An associated namespace as URI
-    slot_uri: fixr:namespace
+    slot_uri: fix_orchestra:namespace
+    exact_mappings:
+    - fixr:namespace
 
   expression_language:
     range: string
     description: The syntax of 'expressionType'
     ifabsent: string(Score)
-    slot_uri: fixr:expressionLanguage
+    slot_uri: fix_orchestra:expression_language
+    exact_mappings:
+    - fixr:expressionLanguage
     aliases:
     - expressionLanguage
 
@@ -3307,4 +4077,6 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-    slot_uri: fixi:interface
+    slot_uri: fix_orchestra:interface
+    exact_mappings:
+    - fixi:interface

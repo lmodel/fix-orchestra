@@ -151,57 +151,63 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                       'name': 'repository_types'}},
      'title': 'FIX Orchestra',
      'types': {'ComponentName': {'aliases': ['ComponentName_t'],
+                                 'exact_mappings': ['fixr:ComponentName_t'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                  'in_subset': ['repository_types'],
                                  'name': 'ComponentName',
                                  'typeof': 'string',
-                                 'uri': 'fixr:ComponentName_t'},
+                                 'uri': 'fix_orchestra:ComponentName'},
                'DatatypeStandard': {'aliases': ['datatypeStandard_t'],
                                     'description': 'Extensible datatype standards '
                                                    '| Union of: '
                                                    'fixr:datatypeStandard_enum, '
                                                    'xs:string',
+                                    'exact_mappings': ['fixr:datatypeStandard_t'],
                                     'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                     'in_subset': ['repository_types'],
                                     'name': 'DatatypeStandard',
                                     'typeof': 'string',
-                                    'uri': 'fixr:datatypeStandard_t'},
+                                    'uri': 'fix_orchestra:DatatypeStandard'},
                'EP': {'aliases': ['EP_t'],
+                      'exact_mappings': ['fixr:EP_t'],
                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                       'in_subset': ['repository_types'],
                       'name': 'EP',
                       'typeof': 'integer',
-                      'uri': 'fixr:EP_t'},
+                      'uri': 'fix_orchestra:EP'},
                'ExpressionType': {'aliases': ['expressionType'],
                                   'annotations': {'xsd_max_length': {'tag': 'xsd_max_length',
                                                                      'value': 1024}},
                                   'description': 'Expressed in a Domain Specific '
                                                  'Language',
+                                  'exact_mappings': ['fixr:expressionType'],
                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                   'in_subset': ['repository_types'],
                                   'name': 'ExpressionType',
                                   'typeof': 'string',
-                                  'uri': 'fixr:expressionType'},
+                                  'uri': 'fix_orchestra:ExpressionType'},
                'FIXAmt': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                            'value': 'Decimal64'}},
                           'description': 'FIX Amt datatype (extends float). float '
                                          'field typically representing a Price '
                                          'times a Qty',
+                          'exact_mappings': ['fixr:Amt'],
                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                           'in_subset': ['fix_base_types'],
                           'name': 'FIXAmt',
                           'typeof': 'float',
-                          'uri': 'fixr:Amt'},
+                          'uri': 'fix_orchestra:FIXAmt'},
                'FIXBoolean': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                'value': 'bool'}},
                               'description': 'FIX Boolean datatype (extends char). '
                                              'char field containing one of two '
                                              'values:',
+                              'exact_mappings': ['fixr:Boolean'],
                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                               'in_subset': ['fix_base_types'],
                               'name': 'FIXBoolean',
                               'typeof': 'string',
-                              'uri': 'fixr:Boolean'},
+                              'uri': 'fix_orchestra:FIXBoolean'},
                'FIXChar': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                             'value': 'string'}},
                            'description': 'FIX char base datatype. Single '
@@ -209,11 +215,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                           'alphanumeric character or punctuation '
                                           'except the delimiter. All char fields '
                                           'are case sensitive (i.e. m != M).',
+                           'exact_mappings': ['fixr:char'],
                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                            'in_subset': ['fix_base_types'],
                            'name': 'FIXChar',
                            'typeof': 'string',
-                           'uri': 'fixr:char'},
+                           'uri': 'fix_orchestra:FIXChar'},
                'FIXCountry': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                'value': 'string'}},
                               'description': 'FIX Country datatype (extends '
@@ -221,11 +228,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                              'country using ISO 3166 Country code '
                                              '(2 character) values (see Appendix '
                                              '6-B).',
+                              'exact_mappings': ['fixr:Country'],
                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                               'in_subset': ['fix_base_types'],
                               'name': 'FIXCountry',
                               'typeof': 'string',
-                              'uri': 'fixr:Country'},
+                              'uri': 'fix_orchestra:FIXCountry'},
                'FIXCurrency': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                 'value': 'string'}},
                                'description': 'FIX Currency datatype (extends '
@@ -233,11 +241,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                               'a currency type using ISO 4217 '
                                               'Currency code (3 character) values '
                                               '(see Appendix 6-A).',
+                               'exact_mappings': ['fixr:Currency'],
                                'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                'in_subset': ['fix_base_types'],
                                'name': 'FIXCurrency',
                                'typeof': 'string',
-                               'uri': 'fixr:Currency'},
+                               'uri': 'fix_orchestra:FIXCurrency'},
                'FIXData': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                             'value': 'bytes'}},
                            'description': 'FIX data base datatype. string field '
@@ -258,22 +267,24 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                           'delimiter (SOH) character as all '
                                           'tag-value fields are terminated with an '
                                           'SOH.',
+                           'exact_mappings': ['fixr:data'],
                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                            'in_subset': ['fix_base_types'],
                            'name': 'FIXData',
                            'typeof': 'string',
-                           'uri': 'fixr:data'},
+                           'uri': 'fix_orchestra:FIXData'},
                'FIXDayOfMonth': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                   'value': 'fixed32'}},
                                  'description': 'FIX DayOfMonth datatype (extends '
                                                 'int). int field representing a '
                                                 'day during a particular month '
                                                 '(values 1 to 31).',
+                                 'exact_mappings': ['fixr:DayOfMonth'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                  'in_subset': ['fix_base_types'],
                                  'name': 'FIXDayOfMonth',
                                  'typeof': 'integer',
-                                 'uri': 'fixr:DayOfMonth'},
+                                 'uri': 'fix_orchestra:FIXDayOfMonth'},
                'FIXExchange': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                 'value': 'string'}},
                                'description': 'FIX Exchange datatype (extends '
@@ -281,11 +292,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                               'a market or exchange using ISO '
                                               '10383 Market Identifier Code (MIC) '
                                               'values (see"Appendix 6-C).',
+                               'exact_mappings': ['fixr:Exchange'],
                                'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                'in_subset': ['fix_base_types'],
                                'name': 'FIXExchange',
                                'typeof': 'string',
-                               'uri': 'fixr:Exchange'},
+                               'uri': 'fix_orchestra:FIXExchange'},
                'FIXFloat': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                              'value': 'double'}},
                             'description': 'FIX float base datatype. Sequence of '
@@ -309,11 +321,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                            'which are derived from float may '
                                            'contain negative values unless '
                                            'explicitly specified otherwise.',
+                            'exact_mappings': ['fixr:float'],
                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                             'in_subset': ['fix_base_types'],
                             'name': 'FIXFloat',
                             'typeof': 'float',
-                            'uri': 'fixr:float'},
+                            'uri': 'fix_orchestra:FIXFloat'},
                'FIXInt': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                            'value': 'fixed32'}},
                           'description': 'FIX int base datatype. Sequence of '
@@ -325,31 +338,34 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                          'int is "-99999"). Note that int values '
                                          'may contain leading zeros (e.g. "00023" '
                                          '= "23").',
+                          'exact_mappings': ['fixr:int'],
                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                           'in_subset': ['fix_base_types'],
                           'name': 'FIXInt',
                           'typeof': 'integer',
-                          'uri': 'fixr:int'},
+                          'uri': 'fix_orchestra:FIXInt'},
                'FIXLanguage': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                 'value': 'string'}},
                                'description': 'FIX Language datatype (extends '
                                               'String). Identifier for a national '
                                               'language - uses ISO 639-1 standard',
+                               'exact_mappings': ['fixr:Language'],
                                'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                'in_subset': ['fix_base_types'],
                                'name': 'FIXLanguage',
                                'typeof': 'string',
-                               'uri': 'fixr:Language'},
+                               'uri': 'fix_orchestra:FIXLanguage'},
                'FIXLength': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                               'value': 'fixed32'}},
                              'description': 'FIX Length datatype (extends int). '
                                             'int field representing the length in '
                                             'bytes. Value must be positive.',
+                             'exact_mappings': ['fixr:Length'],
                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                              'in_subset': ['fix_base_types'],
                              'name': 'FIXLength',
                              'typeof': 'integer',
-                             'uri': 'fixr:Length'},
+                             'uri': 'fix_orchestra:FIXLength'},
                'FIXLocalMktDate': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                     'value': 'string'}},
                                    'description': 'FIX LocalMktDate datatype '
@@ -359,11 +375,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                   'YYYYMMDD format. This is the '
                                                   '"normal" date field used by the '
                                                   'FIX Protocol.',
+                                   'exact_mappings': ['fixr:LocalMktDate'],
                                    'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                    'in_subset': ['fix_base_types'],
                                    'name': 'FIXLocalMktDate',
                                    'typeof': 'date',
-                                   'uri': 'fixr:LocalMktDate'},
+                                   'uri': 'fix_orchestra:FIXLocalMktDate'},
                'FIXLocalMktTime': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                     'value': 'TimeOnly'}},
                                    'description': 'FIX LocalMktTime datatype '
@@ -375,11 +392,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                   'defining market center is '
                                                   'identified in a corresponding '
                                                   'field.',
+                                   'exact_mappings': ['fixr:LocalMktTime'],
                                    'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                    'in_subset': ['fix_base_types'],
                                    'name': 'FIXLocalMktTime',
                                    'typeof': 'string',
-                                   'uri': 'fixr:LocalMktTime'},
+                                   'uri': 'fix_orchestra:FIXLocalMktTime'},
                'FIXMonthYear': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                  'value': 'string'}},
                                 'description': 'FIX MonthYear datatype (extends '
@@ -387,11 +405,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                'month of a year. An optional day '
                                                'of the month can be appended or an '
                                                'optional week code.',
+                                'exact_mappings': ['fixr:MonthYear'],
                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                 'in_subset': ['fix_base_types'],
                                 'name': 'FIXMonthYear',
                                 'typeof': 'string',
-                                'uri': 'fixr:MonthYear'},
+                                'uri': 'fix_orchestra:FIXMonthYear'},
                'FIXMultipleCharValue': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                          'value': 'string'}},
                                         'description': 'FIX MultipleCharValue '
@@ -400,11 +419,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                        'one or more space '
                                                        'delimited single character '
                                                        'values (e.g. |18=2 A F| ).',
+                                        'exact_mappings': ['fixr:MultipleCharValue'],
                                         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                         'in_subset': ['fix_base_types'],
                                         'name': 'FIXMultipleCharValue',
                                         'typeof': 'string',
-                                        'uri': 'fixr:MultipleCharValue'},
+                                        'uri': 'fix_orchestra:FIXMultipleCharValue'},
                'FIXMultipleStringValue': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                            'value': 'string'}},
                                           'description': 'FIX MultipleStringValue '
@@ -414,22 +434,24 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                          'space delimited multiple '
                                                          'character values (e.g. '
                                                          '|277=AV AN A| ).',
+                                          'exact_mappings': ['fixr:MultipleStringValue'],
                                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                           'in_subset': ['fix_base_types'],
                                           'name': 'FIXMultipleStringValue',
                                           'typeof': 'string',
-                                          'uri': 'fixr:MultipleStringValue'},
+                                          'uri': 'fix_orchestra:FIXMultipleStringValue'},
                'FIXNumInGroup': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                   'value': 'fixed32'}},
                                  'description': 'FIX NumInGroup datatype (extends '
                                                 'int). int field representing the '
                                                 'number of entries in a repeating '
                                                 'group. Value must be positive.',
+                                 'exact_mappings': ['fixr:NumInGroup'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                  'in_subset': ['fix_base_types'],
                                  'name': 'FIXNumInGroup',
                                  'typeof': 'string',
-                                 'uri': 'fixr:NumInGroup'},
+                                 'uri': 'fix_orchestra:FIXNumInGroup'},
                'FIXPattern': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                'value': 'string'}},
                               'description': 'FIX Pattern base datatype. Used to '
@@ -445,11 +467,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                              'data type used by the field will '
                                              'retain its base FIX data type (e.g. '
                                              'String, int, char).',
+                              'exact_mappings': ['fixr:Pattern'],
                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                               'in_subset': ['fix_base_types'],
                               'name': 'FIXPattern',
                               'typeof': 'string',
-                              'uri': 'fixr:Pattern'},
+                              'uri': 'fix_orchestra:FIXPattern'},
                'FIXPercentage': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                   'value': 'double'}},
                                  'description': 'FIX Percentage datatype (extends '
@@ -459,11 +482,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                 'represents 95.25%). Note the '
                                                 'number of decimal places may '
                                                 'vary.',
+                                 'exact_mappings': ['fixr:Percentage'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                  'in_subset': ['fix_base_types'],
                                  'name': 'FIXPercentage',
                                  'typeof': 'float',
-                                 'uri': 'fixr:Percentage'},
+                                 'uri': 'fix_orchestra:FIXPercentage'},
                'FIXPrice': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                              'value': 'Decimal64'}},
                             'description': 'FIX Price datatype (extends float). '
@@ -476,11 +500,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                            'conditions. Refer to Volume 7: FIX '
                                            'Usage by Product for asset classes '
                                            'that support negative price values.',
+                            'exact_mappings': ['fixr:Price'],
                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                             'in_subset': ['fix_base_types'],
                             'name': 'FIXPrice',
                             'typeof': 'float',
-                            'uri': 'fixr:Price'},
+                            'uri': 'fix_orchestra:FIXPrice'},
                'FIXPriceOffset': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                    'value': 'Decimal64'}},
                                   'description': 'FIX PriceOffset datatype '
@@ -492,11 +517,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                  'vary and some fields such as '
                                                  'LastForwardPoints may be '
                                                  'negative.',
+                                  'exact_mappings': ['fixr:PriceOffset'],
                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                   'in_subset': ['fix_base_types'],
                                   'name': 'FIXPriceOffset',
                                   'typeof': 'float',
-                                  'uri': 'fixr:PriceOffset'},
+                                  'uri': 'fix_orchestra:FIXPriceOffset'},
                'FIXQty': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                            'value': 'Decimal64'}},
                           'description': 'FIX Qty datatype (extends float). float '
@@ -507,11 +533,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                          'places for non-share quantity asset '
                                          'classes (securities denominated in '
                                          'fractional units).',
+                          'exact_mappings': ['fixr:Qty'],
                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                           'in_subset': ['fix_base_types'],
                           'name': 'FIXQty',
                           'typeof': 'float',
-                          'uri': 'fixr:Qty'},
+                          'uri': 'fix_orchestra:FIXQty'},
                'FIXReserved1000Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                         'value': 'fixed32'}},
                                        'description': 'FIX Reserved1000Plus '
@@ -520,11 +547,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                       'reserved for bilaterally '
                                                       'agreed upon user defined '
                                                       'enumerations.',
+                                       'exact_mappings': ['fixr:Reserved1000Plus'],
                                        'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                        'in_subset': ['fix_base_types'],
                                        'name': 'FIXReserved1000Plus',
                                        'typeof': 'integer',
-                                       'uri': 'fixr:Reserved1000Plus'},
+                                       'uri': 'fix_orchestra:FIXReserved1000Plus'},
                'FIXReserved100Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                        'value': 'fixed32'}},
                                       'description': 'FIX Reserved100Plus datatype '
@@ -532,11 +560,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                      '"100" and above are reserved '
                                                      'for bilaterally agreed upon '
                                                      'user defined enumerations.',
+                                      'exact_mappings': ['fixr:Reserved100Plus'],
                                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                       'in_subset': ['fix_base_types'],
                                       'name': 'FIXReserved100Plus',
                                       'typeof': 'integer',
-                                      'uri': 'fixr:Reserved100Plus'},
+                                      'uri': 'fix_orchestra:FIXReserved100Plus'},
                'FIXReserved4000Plus': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                         'value': 'fixed32'}},
                                        'description': 'FIX Reserved4000Plus '
@@ -545,22 +574,24 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                       'reserved for bilaterally '
                                                       'agreed upon user defined '
                                                       'enumerations.',
+                                       'exact_mappings': ['fixr:Reserved4000Plus'],
                                        'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                        'in_subset': ['fix_base_types'],
                                        'name': 'FIXReserved4000Plus',
                                        'typeof': 'integer',
-                                       'uri': 'fixr:Reserved4000Plus'},
+                                       'uri': 'fix_orchestra:FIXReserved4000Plus'},
                'FIXSeqNum': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                               'value': 'fixed32'}},
                              'description': 'FIX SeqNum datatype (extends int). '
                                             'int field representing a message '
                                             'sequence number. Value must be '
                                             'positive.',
+                             'exact_mappings': ['fixr:SeqNum'],
                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                              'in_subset': ['fix_base_types'],
                              'name': 'FIXSeqNum',
                              'typeof': 'integer',
-                             'uri': 'fixr:SeqNum'},
+                             'uri': 'fix_orchestra:FIXSeqNum'},
                'FIXString': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                               'value': 'string'}},
                              'description': 'FIX String base datatype. '
@@ -569,11 +600,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                             'punctuation except the delimiter. All '
                                             'String fields are case sensitive '
                                             '(i.e. morstatt != Morstatt).',
+                             'exact_mappings': ['fixr:String'],
                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                              'in_subset': ['fix_base_types'],
                              'name': 'FIXString',
                              'typeof': 'string',
-                             'uri': 'fixr:String'},
+                             'uri': 'fix_orchestra:FIXString'},
                'FIXTZTimeOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                   'value': 'TimeOnly'}},
                                  'description': 'FIX TZTimeOnly datatype (extends '
@@ -583,11 +615,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                 'time with a UTC offset to allow '
                                                 'identification of local time and '
                                                 'timezone of that time.',
+                                 'exact_mappings': ['fixr:TZTimeOnly'],
                                  'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                  'in_subset': ['fix_base_types'],
                                  'name': 'FIXTZTimeOnly',
                                  'typeof': 'string',
-                                 'uri': 'fixr:TZTimeOnly'},
+                                 'uri': 'fix_orchestra:FIXTZTimeOnly'},
                'FIXTZTimestamp': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                    'value': 'Timestamp'}},
                                   'description': 'FIX TZTimestamp datatype '
@@ -599,11 +632,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                  'time and timezone offset of that '
                                                  'time. The representation is '
                                                  'based on ISO 8601.',
+                                  'exact_mappings': ['fixr:TZTimestamp'],
                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                   'in_subset': ['fix_base_types'],
                                   'name': 'FIXTZTimestamp',
                                   'typeof': 'datetime',
-                                  'uri': 'fixr:TZTimestamp'},
+                                  'uri': 'fix_orchestra:FIXTZTimestamp'},
                'FIXTagNum': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                               'value': 'fixed32'}},
                              'description': 'FIX TagNum datatype (extends int). '
@@ -611,11 +645,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                             'number when using FIX "Tag=Value" '
                                             'syntax. Value must be positive and '
                                             'may not contain leading zeros.',
+                             'exact_mappings': ['fixr:TagNum'],
                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                              'in_subset': ['fix_base_types'],
                              'name': 'FIXTagNum',
                              'typeof': 'integer',
-                             'uri': 'fixr:TagNum'},
+                             'uri': 'fix_orchestra:FIXTagNum'},
                'FIXTenor': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                              'value': 'Tenor'}},
                             'description': 'FIX Tenor datatype (extends Pattern). '
@@ -625,11 +660,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                            'the field that uses this pattern data '
                                            'type. This pattern data type is '
                                            'defined as follows:',
+                            'exact_mappings': ['fixr:Tenor'],
                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                             'in_subset': ['fix_base_types'],
                             'name': 'FIXTenor',
                             'typeof': 'string',
-                            'uri': 'fixr:Tenor'},
+                            'uri': 'fix_orchestra:FIXTenor'},
                'FIXUTCDateOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                    'value': 'string'}},
                                   'description': 'FIX UTCDateOnly datatype '
@@ -642,11 +678,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                  'to form a proper UTCTimestamp '
                                                  'for bandwidth-sensitive '
                                                  'messages.',
+                                  'exact_mappings': ['fixr:UTCDateOnly'],
                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                   'in_subset': ['fix_base_types'],
                                   'name': 'FIXUTCDateOnly',
                                   'typeof': 'date',
-                                  'uri': 'fixr:UTCDateOnly'},
+                                  'uri': 'fix_orchestra:FIXUTCDateOnly'},
                'FIXUTCTimeOnly': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                    'value': 'TimeOnly'}},
                                   'description': 'FIX UTCTimeOnly datatype '
@@ -662,11 +699,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                  'with UTCDateOnly to form a '
                                                  'proper UTCTimestamp for '
                                                  'bandwidth-sensitive messages.',
+                                  'exact_mappings': ['fixr:UTCTimeOnly'],
                                   'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                   'in_subset': ['fix_base_types'],
                                   'name': 'FIXUTCTimeOnly',
                                   'typeof': 'string',
-                                  'uri': 'fixr:UTCTimeOnly'},
+                                  'uri': 'fix_orchestra:FIXUTCTimeOnly'},
                'FIXUTCTimestamp': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                     'value': 'Timestamp'}},
                                    'description': 'FIX UTCTimestamp datatype '
@@ -680,11 +718,12 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                                   'YYYYMMDD-HH:MM:SS.sss* format, '
                                                   'colons, dash, and period '
                                                   'required.',
+                                   'exact_mappings': ['fixr:UTCTimestamp'],
                                    'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                    'in_subset': ['fix_base_types'],
                                    'name': 'FIXUTCTimestamp',
                                    'typeof': 'datetime',
-                                   'uri': 'fixr:UTCTimestamp'},
+                                   'uri': 'fix_orchestra:FIXUTCTimestamp'},
                'FIXXID': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                            'value': 'string'}},
                           'description': 'FIX XID datatype (extends String). The '
@@ -697,22 +736,24 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                          'this datatype is that the values of all '
                                          'the fields that have an XID datatype in '
                                          'a FIX message must be unique.',
+                          'exact_mappings': ['fixr:XID'],
                           'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                           'in_subset': ['fix_base_types'],
                           'name': 'FIXXID',
                           'typeof': 'string',
-                          'uri': 'fixr:XID'},
+                          'uri': 'fix_orchestra:FIXXID'},
                'FIXXIDREF': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                               'value': 'string'}},
                              'description': 'FIX XIDREF datatype (extends String). '
                                             'The XIDREF datatype defines a '
                                             'reference to an identifier defined by '
                                             'the XID datatype.',
+                             'exact_mappings': ['fixr:XIDREF'],
                              'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                              'in_subset': ['fix_base_types'],
                              'name': 'FIXXIDREF',
                              'typeof': 'string',
-                             'uri': 'fixr:XIDREF'},
+                             'uri': 'fix_orchestra:FIXXIDREF'},
                'FIXXMLData': {'annotations': {'proto_scalar': {'tag': 'proto_scalar',
                                                                'value': 'string'}},
                               'description': 'FIX XMLData datatype (extends '
@@ -725,52 +766,58 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                              'of the value of the data field (up '
                                              'to but not including the terminating '
                                              'SOH).',
+                              'exact_mappings': ['fixr:XMLData'],
                               'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                               'in_subset': ['fix_base_types'],
                               'name': 'FIXXMLData',
                               'typeof': 'string',
-                              'uri': 'fixr:XMLData'},
+                              'uri': 'fix_orchestra:FIXXMLData'},
                'Id': {'aliases': ['id_t'],
+                      'exact_mappings': ['fixr:id_t'],
                       'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                       'in_subset': ['repository_types'],
                       'name': 'Id',
                       'typeof': 'integer',
-                      'uri': 'fixr:id_t'},
+                      'uri': 'fix_orchestra:Id'},
                'InterfacePurpose': {'aliases': ['purpose_t'],
                                     'description': 'Extensible annotation purposes '
                                                    '| Union of: fixi:purpose_enum, '
                                                    'xs:token',
+                                    'exact_mappings': ['fixi:purpose_t'],
                                     'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                     'in_subset': ['interfaces'],
                                     'name': 'InterfacePurpose',
                                     'typeof': 'string',
-                                    'uri': 'fixi:purpose_t'},
+                                    'uri': 'fix_orchestra:InterfacePurpose'},
                'Language': {'aliases': ['language_t'],
+                            'exact_mappings': ['fixr:language_t'],
                             'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                             'in_subset': ['repository_types'],
                             'name': 'Language',
                             'typeof': 'string',
-                            'uri': 'fixr:language_t'},
+                            'uri': 'fix_orchestra:Language'},
                'Mime': {'aliases': ['mime_t'],
                         'annotations': {'xsd_min_length': {'tag': 'xsd_min_length',
                                                            'value': 3}},
                         'description': 'Multipurpose Internet Mail Extensions '
                                        '(MIME) media type',
+                        'exact_mappings': ['fixr:mime_t'],
                         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                         'in_subset': ['repository_types'],
                         'name': 'Mime',
                         'typeof': 'string',
-                        'uri': 'fixr:mime_t'},
+                        'uri': 'fix_orchestra:Mime'},
                'MsgType': {'aliases': ['MsgType_t'],
                            'annotations': {'xsd_max_length': {'tag': 'xsd_max_length',
                                                               'value': 6},
                                            'xsd_min_length': {'tag': 'xsd_min_length',
                                                               'value': 1}},
+                           'exact_mappings': ['fixr:MsgType_t'],
                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                            'in_subset': ['repository_types'],
                            'name': 'MsgType',
                            'typeof': 'string',
-                           'uri': 'fixr:MsgType_t'},
+                           'uri': 'fix_orchestra:MsgType'},
                'Name': {'aliases': ['Name_t'],
                         'annotations': {'xsd_max_length': {'tag': 'xsd_max_length',
                                                            'value': 64},
@@ -783,52 +830,58 @@ linkml_meta = LinkMLMeta({'annotations': {'xsd_sources': {'tag': 'xsd_sources',
                                        'internal spaces are allowed by the schema '
                                        'but may be restricted by an external '
                                        'style.',
+                        'exact_mappings': ['fixr:Name_t'],
                         'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                         'in_subset': ['repository_types'],
                         'name': 'Name',
                         'typeof': 'string',
-                        'uri': 'fixr:Name_t'},
+                        'uri': 'fix_orchestra:Name'},
                'ProtocolName': {'aliases': ['protocolName_t'],
                                 'description': 'Protocol names are not constrained '
                                                'to FIX protocols | Union of: '
                                                'fixi:protocolEnum_t, xs:token',
+                                'exact_mappings': ['fixi:protocolName_t'],
                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                 'in_subset': ['interfaces'],
                                 'name': 'ProtocolName',
                                 'typeof': 'string',
-                                'uri': 'fixi:protocolName_t'},
+                                'uri': 'fix_orchestra:ProtocolName'},
                'Purpose': {'aliases': ['purpose_t'],
                            'description': 'Extensible annotation purposes | Union '
                                           'of: fixr:purpose_enum, xs:string',
+                           'exact_mappings': ['fixr:purpose_t'],
                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                            'in_subset': ['repository_types'],
                            'name': 'Purpose',
                            'typeof': 'string',
-                           'uri': 'fixr:purpose_t'},
+                           'uri': 'fix_orchestra:Purpose'},
                'TransportUse': {'aliases': ['transportUse_t'],
                                 'description': 'Extensible transport use | Union '
                                                'of: fixi:transportUse_enum, '
                                                'xs:token',
+                                'exact_mappings': ['fixi:transportUse_t'],
                                 'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                 'in_subset': ['interfaces'],
                                 'name': 'TransportUse',
                                 'typeof': 'string',
-                                'uri': 'fixi:transportUse_t'},
+                                'uri': 'fix_orchestra:TransportUse'},
                'UnboundedIntType': {'aliases': ['unboundedIntType'],
                                     'description': 'Union of: '
                                                    'xs:nonNegativeInteger, '
                                                    'fixr:unbounded',
+                                    'exact_mappings': ['fixr:unboundedIntType'],
                                     'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                                     'in_subset': ['repository_types'],
                                     'name': 'UnboundedIntType',
                                     'typeof': 'string',
-                                    'uri': 'fixr:unboundedIntType'},
+                                    'uri': 'fix_orchestra:UnboundedIntType'},
                'Version': {'aliases': ['Version_t'],
+                           'exact_mappings': ['fixr:Version_t'],
                            'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
                            'in_subset': ['repository_types'],
                            'name': 'Version',
                            'typeof': 'string',
-                           'uri': 'fixr:Version_t'}}} )
+                           'uri': 'fix_orchestra:Version'}}} )
 
 class XmlSpaceType(str, Enum):
     """
@@ -3732,41 +3785,59 @@ class XmlGlobalAttributes(ConfiguredBaseModel):
 
 class EntityAttribGrp(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['entityAttribGrp'],
-         'class_uri': 'fixr:entityAttribGrp',
+         'class_uri': 'fix_orchestra:EntityAttribGrp',
+         'exact_mappings': ['fixr:entityAttribGrp'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True})
 
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class FieldAttribGrp(ConfiguredBaseModel):
@@ -3774,7 +3845,8 @@ class FieldAttribGrp(ConfiguredBaseModel):
     Attributes of a field that be overridden by a rule
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['fieldAttribGrp'],
-         'class_uri': 'fixr:fieldAttribGrp',
+         'class_uri': 'fix_orchestra:FieldAttribGrp',
+         'exact_mappings': ['fixr:fieldAttribGrp'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True,
@@ -3784,27 +3856,34 @@ class FieldAttribGrp(ConfiguredBaseModel):
                                                  'does not provide the field. If '
                                                  'presence is constant, then it is the '
                                                  'constant value.',
+                                  'exact_mappings': ['fixr:value'],
                                   'name': 'value',
-                                  'slot_uri': 'fixr:value'}}})
+                                  'slot_uri': 'fix_orchestra:value'}}})
 
     min_inclusive: Optional[str] = Field(default=None, description="""Inclusive lower bound""", json_schema_extra = { "linkml_meta": {'aliases': ['minInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:minInclusive'} })
+         'exact_mappings': ['fixr:minInclusive'],
+         'slot_uri': 'fix_orchestra:min_inclusive'} })
     max_inclusive: Optional[str] = Field(default=None, description="""Inclusive upper bound""", json_schema_extra = { "linkml_meta": {'aliases': ['maxInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:maxInclusive'} })
+         'exact_mappings': ['fixr:maxInclusive'],
+         'slot_uri': 'fix_orchestra:max_inclusive'} })
     impl_length: Optional[int] = Field(default=None, description="""Fixed length""", json_schema_extra = { "linkml_meta": {'aliases': ['implLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implLength'} })
+         'exact_mappings': ['fixr:implLength'],
+         'slot_uri': 'fix_orchestra:impl_length'} })
     impl_min_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMinLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMinLength'} })
+         'exact_mappings': ['fixr:implMinLength'],
+         'slot_uri': 'fix_orchestra:impl_min_length'} })
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMaxLength'} })
+         'exact_mappings': ['fixr:implMaxLength'],
+         'slot_uri': 'fix_orchestra:impl_max_length'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -3813,11 +3892,14 @@ class FieldAttribGrp(ConfiguredBaseModel):
                        'IdentifierType',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:value'} })
+         'exact_mappings': ['fixr:value'],
+         'slot_uri': 'fix_orchestra:value'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     encoding: Optional[str] = Field(default=None, description="""Character encoding if other than US-ASCII""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixr:encoding'} })
+         'exact_mappings': ['fixr:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
 
 
 class OidGrp(ConfiguredBaseModel):
@@ -3825,22 +3907,28 @@ class OidGrp(ConfiguredBaseModel):
     The identifiers of a message element
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['oidGrp'],
-         'class_uri': 'fixr:oidGrp',
+         'class_uri': 'fix_orchestra:OidGrp',
+         'exact_mappings': ['fixr:oidGrp'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True})
 
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -3863,10 +3951,12 @@ class OidGrp(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
 
 
 class RefidGrp(ConfiguredBaseModel):
@@ -3874,21 +3964,24 @@ class RefidGrp(ConfiguredBaseModel):
     A reference to a message element by its key identifiers
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['refidGrp'],
-         'class_uri': 'fixr:refidGrp',
+         'class_uri': 'fix_orchestra:RefidGrp',
+         'exact_mappings': ['fixr:refidGrp'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True})
 
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default=None, description="""The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -3911,10 +4004,12 @@ class RefidGrp(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
 
 
 class ScenarioRefGrp(ConfiguredBaseModel):
@@ -3922,29 +4017,35 @@ class ScenarioRefGrp(ConfiguredBaseModel):
     A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['scenarioRefGrp'],
-         'class_uri': 'fixr:scenarioRefGrp',
+         'class_uri': 'fix_orchestra:ScenarioRefGrp',
+         'exact_mappings': ['fixr:scenarioRefGrp'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixin': True})
 
     scenario_ref_id: Optional[int] = Field(default=None, description="""Unique identifier of a scenario. The identifier is required when referencing another scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRefId'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRefId'} })
+         'exact_mappings': ['fixr:scenarioRefId'],
+         'slot_uri': 'fix_orchestra:scenario_ref_id'} })
     scenario_ref: Optional[str] = Field(default=None, description="""Name of a scenario. The name is optional as part of a reference and only for convenience.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRef'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRef'} })
+         'exact_mappings': ['fixr:scenarioRef'],
+         'slot_uri': 'fix_orchestra:scenario_ref'} })
 
 
 class ActionType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['actionType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:actionType',
+         'class_uri': 'fix_orchestra:ActionType',
+         'exact_mappings': ['fixr:actionType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'field_ref': {'name': 'field_ref'}}})
 
-    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
+    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'],
+         'exact_mappings': ['fixr:field'],
+         'slot_uri': 'fix_orchestra:field'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -3954,9 +4055,11 @@ class ActionType(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     component: Optional[list[ComponentType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Components'],
-         'slot_uri': 'fixr:component'} })
+         'exact_mappings': ['fixr:component'],
+         'slot_uri': 'fix_orchestra:component'} })
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -3965,7 +4068,8 @@ class ActionType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -3974,22 +4078,29 @@ class ActionType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     message_ref: Optional[list[MessageRefType]] = Field(default=None, description="""Send a message""", json_schema_extra = { "linkml_meta": {'aliases': ['messageRef'],
          'domain_of': ['ActionType', 'ConceptType'],
-         'slot_uri': 'fixr:messageRef'} })
-    trigger: Optional[list[TriggerType]] = Field(default=None, description="""Trigger a state transtion in a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType'], 'slot_uri': 'fixr:trigger'} })
+         'exact_mappings': ['fixr:messageRef'],
+         'slot_uri': 'fix_orchestra:message_ref'} })
+    trigger: Optional[list[TriggerType]] = Field(default=None, description="""Trigger a state transtion in a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType'],
+         'exact_mappings': ['fixr:trigger'],
+         'slot_uri': 'fix_orchestra:trigger'} })
     timer_schedule: Optional[list[TimerSchedule]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['timerSchedule'],
          'domain_of': ['ActionType'],
-         'slot_uri': 'fixr:timerSchedule'} })
+         'exact_mappings': ['fixr:timerSchedule'],
+         'slot_uri': 'fix_orchestra:timer_schedule'} })
     group: Optional[list[GroupType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'CodeType', 'Groups'],
-         'slot_uri': 'fixr:group'} })
+         'exact_mappings': ['fixr:group'],
+         'slot_uri': 'fix_orchestra:group'} })
     assign: Optional[list[str]] = Field(default=None, description="""Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
 
 
 class ActorType(ConfiguredBaseModel):
@@ -3999,12 +4110,15 @@ class ActorType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['actorType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:actorType',
+         'class_uri': 'fix_orchestra:ActorType',
+         'exact_mappings': ['fixr:actorType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'field_ref': {'name': 'field_ref'}}})
 
-    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
+    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'],
+         'exact_mappings': ['fixr:field'],
+         'slot_uri': 'fix_orchestra:field'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4014,9 +4128,11 @@ class ActorType(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     component: Optional[list[ComponentType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Components'],
-         'slot_uri': 'fixr:component'} })
+         'exact_mappings': ['fixr:component'],
+         'slot_uri': 'fix_orchestra:component'} })
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4025,7 +4141,8 @@ class ActorType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4034,11 +4151,17 @@ class ActorType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
-    states: Optional[list[StateMachineType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType'], 'slot_uri': 'fixr:states'} })
-    timer: Optional[list[TimerType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType'], 'slot_uri': 'fixr:timer'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
+    states: Optional[list[StateMachineType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType'],
+         'exact_mappings': ['fixr:states'],
+         'slot_uri': 'fix_orchestra:states'} })
+    timer: Optional[list[TimerType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType'],
+         'exact_mappings': ['fixr:timer'],
+         'slot_uri': 'fix_orchestra:timer'} })
     group: Optional[list[GroupType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'CodeType', 'Groups'],
-         'slot_uri': 'fixr:group'} })
+         'exact_mappings': ['fixr:group'],
+         'slot_uri': 'fix_orchestra:group'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4074,7 +4197,8 @@ class ActorType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4097,51 +4221,73 @@ class ActorType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class Annotation(EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['annotation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:annotation',
+         'class_uri': 'fix_orchestra:Annotation',
+         'exact_mappings': ['fixr:annotation'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
 
     documentation: Optional[list[Documentation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'],
-         'slot_uri': 'fixr:documentation'} })
-    appinfo: Optional[list[Appinfo]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'], 'slot_uri': 'fixr:appinfo'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:documentation'],
+         'slot_uri': 'fix_orchestra:documentation'} })
+    appinfo: Optional[list[Appinfo]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'],
+         'exact_mappings': ['fixr:appinfo'],
+         'slot_uri': 'fix_orchestra:appinfo'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class Appinfo(EntityAttribGrp):
@@ -4153,14 +4299,16 @@ class Appinfo(EntityAttribGrp):
                                                'value': True},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:appinfo',
+         'class_uri': 'fix_orchestra:Appinfo',
+         'exact_mappings': ['fixr:appinfo'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
 
     spec_url: Optional[str] = Field(default=None, description="""Reference documentation""", json_schema_extra = { "linkml_meta": {'aliases': ['specUrl'],
          'domain_of': ['Appinfo', 'CodeSetType', 'InterfaceAppinfo', 'Repository'],
-         'slot_uri': 'fixr:specUrl'} })
+         'exact_mappings': ['fixr:specUrl'],
+         'slot_uri': 'fix_orchestra:spec_url'} })
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -4185,49 +4333,69 @@ class Appinfo(EntityAttribGrp):
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:langId'} })
+         'exact_mappings': ['fixr:langId'],
+         'slot_uri': 'fix_orchestra:lang_id'} })
     purpose: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:purpose'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:purpose'],
+         'slot_uri': 'fix_orchestra:purpose'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class BlockAssignmentType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['blockAssignmentType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:blockAssignmentType',
+         'class_uri': 'fix_orchestra:BlockAssignmentType',
+         'exact_mappings': ['fixr:blockAssignmentType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'field_ref': {'name': 'field_ref'}}})
@@ -4240,7 +4408,8 @@ class BlockAssignmentType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4249,7 +4418,8 @@ class BlockAssignmentType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4259,27 +4429,32 @@ class BlockAssignmentType(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
 
 
 class CategoryType(EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['categoryType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:categoryType',
+         'class_uri': 'fix_orchestra:CategoryType',
+         'exact_mappings': ['fixr:categoryType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
 
     fixml_file_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['FIXMLFileName'],
          'domain_of': ['CategoryType', 'SectionType'],
-         'slot_uri': 'fixr:FIXMLFileName'} })
+         'exact_mappings': ['fixr:FIXMLFileName'],
+         'slot_uri': 'fix_orchestra:fixml_file_name'} })
     component_type: Optional[CatComponentType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentType'],
          'domain_of': ['CategoryType'],
-         'slot_uri': 'fixr:componentType'} })
+         'exact_mappings': ['fixr:componentType'],
+         'slot_uri': 'fix_orchestra:component_type'} })
     include_file: Optional[CatIncludeFile] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['includeFile'],
          'domain_of': ['CategoryType'],
-         'slot_uri': 'fixr:includeFile'} })
+         'exact_mappings': ['fixr:includeFile'],
+         'slot_uri': 'fix_orchestra:include_file'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4315,7 +4490,8 @@ class CategoryType(EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4338,45 +4514,66 @@ class CategoryType(EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
-    section: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CategoryType', 'Sections'], 'slot_uri': 'fixr:section'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    section: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CategoryType', 'Sections'],
+         'exact_mappings': ['fixr:section'],
+         'slot_uri': 'fix_orchestra:section'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class CodeSetType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['codeSetType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:codeSetType',
+         'class_uri': 'fix_orchestra:CodeSetType',
+         'exact_mappings': ['fixr:codeSetType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['OidGrp', 'ScenarioRefGrp', 'EntityAttribGrp'],
@@ -4384,14 +4581,20 @@ class CodeSetType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                                                     'external code set',
                                      'name': 'spec_url'}}})
 
-    code: Optional[list[CodeType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CodeSetType'], 'slot_uri': 'fixr:code'} })
-    default: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CodeSetType'], 'slot_uri': 'fixr:default'} })
+    code: Optional[list[CodeType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CodeSetType'],
+         'exact_mappings': ['fixr:code'],
+         'slot_uri': 'fix_orchestra:code'} })
+    default: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CodeSetType'],
+         'exact_mappings': ['fixr:default'],
+         'slot_uri': 'fix_orchestra:default'} })
     spec_url: Optional[str] = Field(default=None, description="""Reference documentation for an external code set""", json_schema_extra = { "linkml_meta": {'aliases': ['specUrl'],
          'domain_of': ['Appinfo', 'CodeSetType', 'InterfaceAppinfo', 'Repository'],
-         'slot_uri': 'fixr:specUrl'} })
+         'exact_mappings': ['fixr:specUrl'],
+         'slot_uri': 'fix_orchestra:spec_url'} })
     union_data_type: Optional[UnionDataType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['unionDataType'],
          'domain_of': ['CodeSetType', 'FieldType'],
-         'slot_uri': 'fixr:unionDataType'} })
+         'exact_mappings': ['fixr:unionDataType'],
+         'slot_uri': 'fix_orchestra:union_data_type'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4427,24 +4630,31 @@ class CodeSetType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     type: str = Field(default=..., description="""Underlying FIX datatype of codes""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer',
                        'DctermsElementOrRefinementContainer',
                        'CodeSetType',
                        'FieldRuleType',
                        'FieldType'],
-         'slot_uri': 'fixr:type'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:type'],
+         'slot_uri': 'fix_orchestra:type'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4467,53 +4677,75 @@ class CodeSetType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
     scenario_ref_id: Optional[int] = Field(default=None, description="""Unique identifier of a scenario. The identifier is required when referencing another scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRefId'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRefId'} })
+         'exact_mappings': ['fixr:scenarioRefId'],
+         'slot_uri': 'fix_orchestra:scenario_ref_id'} })
     scenario_ref: Optional[str] = Field(default=None, description="""Name of a scenario. The name is optional as part of a reference and only for convenience.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRef'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRef'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:scenarioRef'],
+         'slot_uri': 'fix_orchestra:scenario_ref'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class CodeType(OidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['codeType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:codeType',
+         'class_uri': 'fix_orchestra:CodeType',
+         'exact_mappings': ['fixr:codeType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['OidGrp', 'EntityAttribGrp'],
@@ -4524,9 +4756,10 @@ class CodeType(OidGrp, EntityAttribGrp):
                                                  'internal spaces are allowed. May be '
                                                  'further restricted by an external '
                                                  'style.',
+                                  'exact_mappings': ['fixr:value'],
                                   'name': 'value',
                                   'required': True,
-                                  'slot_uri': 'fixr:value'}}})
+                                  'slot_uri': 'fix_orchestra:value'}}})
 
     value: str = Field(default=..., description="""The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. However, single internal spaces are allowed. May be further restricted by an external style.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
@@ -4536,8 +4769,11 @@ class CodeType(OidGrp, EntityAttribGrp):
                        'IdentifierType',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:value'} })
-    sort: Optional[int] = Field(default=None, description="""Sort and group may be used to organize visualization of a code set.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeType'], 'slot_uri': 'fixr:sort'} })
+         'exact_mappings': ['fixr:value'],
+         'slot_uri': 'fix_orchestra:value'} })
+    sort: Optional[int] = Field(default=None, description="""Sort and group may be used to organize visualization of a code set.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeType'],
+         'exact_mappings': ['fixr:sort'],
+         'slot_uri': 'fix_orchestra:sort'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4573,20 +4809,27 @@ class CodeType(OidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     group: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'CodeType', 'Groups'],
-         'slot_uri': 'fixr:group'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:group'],
+         'slot_uri': 'fix_orchestra:group'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4609,47 +4852,67 @@ class CodeType(OidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class ComponentRefType(RefidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['componentRefType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:componentRefType',
+         'class_uri': 'fix_orchestra:ComponentRefType',
+         'exact_mappings': ['fixr:componentRefType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['RefidGrp', 'EntityAttribGrp'],
@@ -4657,12 +4920,15 @@ class ComponentRefType(RefidGrp, EntityAttribGrp):
 
     block_assignment: Optional[list[BlockAssignmentType]] = Field(default=None, description="""Specifies a how a component or each group entry is populated (optional)""", json_schema_extra = { "linkml_meta": {'aliases': ['blockAssignment'],
          'domain_of': ['ComponentRefType'],
-         'slot_uri': 'fixr:blockAssignment'} })
+         'exact_mappings': ['fixr:blockAssignment'],
+         'slot_uri': 'fix_orchestra:block_assignment'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     rule: Optional[list[ComponentRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require component""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:rule'} })
+         'exact_mappings': ['fixr:rule'],
+         'slot_uri': 'fix_orchestra:rule'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4698,20 +4964,24 @@ class ComponentRefType(RefidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     instance_name: Optional[str] = Field(default=None, description="""Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.""", json_schema_extra = { "linkml_meta": {'aliases': ['instanceName'],
          'domain_of': ['ComponentRefType', 'FieldRefType'],
-         'slot_uri': 'fixr:instanceName'} })
+         'exact_mappings': ['fixr:instanceName'],
+         'slot_uri': 'fix_orchestra:instance_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default=None, description="""The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4734,47 +5004,67 @@ class ComponentRefType(RefidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class ComponentRuleType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['componentRuleType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:componentRuleType',
+         'class_uri': 'fix_orchestra:ComponentRuleType',
+         'exact_mappings': ['fixr:componentRuleType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'presence': {'name': 'presence'},
@@ -4785,10 +5075,12 @@ class ComponentRuleType(ConfiguredBaseModel):
                        'MessageType',
                        'ResponseType',
                        'TransitionType'],
-         'slot_uri': 'fixr:when'} })
+         'exact_mappings': ['fixr:when'],
+         'slot_uri': 'fix_orchestra:when'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     name: Optional[str] = Field(default=None, description="""Name of this rule""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4811,14 +5103,16 @@ class ComponentRuleType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['componentType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:componentType',
+         'class_uri': 'fix_orchestra:ComponentType',
+         'exact_mappings': ['fixr:componentType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp', 'OidGrp', 'ScenarioRefGrp'],
@@ -4832,7 +5126,8 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4841,7 +5136,8 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4851,11 +5147,14 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     which: Optional[MemberType] = Field(default=None, description="""Member selection within each group instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
-         'slot_uri': 'fixr:which'} })
+         'exact_mappings': ['fixr:which'],
+         'slot_uri': 'fix_orchestra:which'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -4891,50 +5190,74 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     category: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'MessageType', 'Categories'],
-         'slot_uri': 'fixr:category'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:category'],
+         'slot_uri': 'fix_orchestra:category'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -4957,23 +5280,28 @@ class ComponentType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
     scenario_ref_id: Optional[int] = Field(default=None, description="""Unique identifier of a scenario. The identifier is required when referencing another scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRefId'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRefId'} })
+         'exact_mappings': ['fixr:scenarioRefId'],
+         'slot_uri': 'fix_orchestra:scenario_ref_id'} })
     scenario_ref: Optional[str] = Field(default=None, description="""Name of a scenario. The name is optional as part of a reference and only for convenience.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRef'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRef'} })
+         'exact_mappings': ['fixr:scenarioRef'],
+         'slot_uri': 'fix_orchestra:scenario_ref'} })
 
 
 class ConceptType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['conceptType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:conceptType',
+         'class_uri': 'fix_orchestra:ConceptType',
+         'exact_mappings': ['fixr:conceptType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'field_ref': {'name': 'field_ref'},
@@ -4987,7 +5315,8 @@ class ConceptType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -4996,7 +5325,8 @@ class ConceptType(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -5006,10 +5336,12 @@ class ConceptType(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     message_ref: Optional[list[MessageRefType]] = Field(default=None, description="""Send a message""", json_schema_extra = { "linkml_meta": {'aliases': ['messageRef'],
          'domain_of': ['ActionType', 'ConceptType'],
-         'slot_uri': 'fixr:messageRef'} })
+         'exact_mappings': ['fixr:messageRef'],
+         'slot_uri': 'fix_orchestra:message_ref'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5045,7 +5377,8 @@ class ConceptType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5068,14 +5401,16 @@ class ConceptType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class Documentation(EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['documentation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:documentation',
+         'class_uri': 'fix_orchestra:Documentation',
+         'exact_mappings': ['fixr:documentation'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
@@ -5099,71 +5434,96 @@ class Documentation(EntityAttribGrp):
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:langId'} })
+         'exact_mappings': ['fixr:langId'],
+         'slot_uri': 'fix_orchestra:lang_id'} })
     purpose: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:purpose'} })
+         'exact_mappings': ['fixr:purpose'],
+         'slot_uri': 'fix_orchestra:purpose'} })
     content_type: Optional[str] = Field(default="text/plain", json_schema_extra = { "linkml_meta": {'aliases': ['contentType'],
          'domain_of': ['Documentation', 'InterfaceDocumentation'],
+         'exact_mappings': ['fixr:contentType'],
          'ifabsent': 'string(text/plain)',
-         'slot_uri': 'fixr:contentType'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:content_type'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class FieldRefType(RefidGrp, FieldAttribGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['fieldRefType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:fieldRefType',
+         'class_uri': 'fix_orchestra:FieldRefType',
+         'exact_mappings': ['fixr:fieldRefType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['RefidGrp', 'EntityAttribGrp', 'FieldAttribGrp']})
 
     length_id: Optional[int] = Field(default=None, description="""Identifies a field used as a length prefix""", json_schema_extra = { "linkml_meta": {'aliases': ['lengthId'],
          'domain_of': ['FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:lengthId'} })
+         'exact_mappings': ['fixr:lengthId'],
+         'slot_uri': 'fix_orchestra:length_id'} })
     non_encoded_field_id: Optional[int] = Field(default=None, description="""Identifies a non-encoded field related to an encoded field""", json_schema_extra = { "linkml_meta": {'aliases': ['nonEncodedFieldId'],
          'domain_of': ['FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:nonEncodedFieldId'} })
+         'exact_mappings': ['fixr:nonEncodedFieldId'],
+         'slot_uri': 'fix_orchestra:non_encoded_field_id'} })
     rule: Optional[list[FieldRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require field is required or forbidden, to override other attributes, or perform validation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:rule'} })
+         'exact_mappings': ['fixr:rule'],
+         'slot_uri': 'fix_orchestra:rule'} })
     assign: Optional[str] = Field(default=None, description="""Content of element holds an assignment expression for a message field or state variable""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5199,20 +5559,24 @@ class FieldRefType(RefidGrp, FieldAttribGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     instance_name: Optional[str] = Field(default=None, description="""Override the field name for this instance, for code generation and the like. Allows more than one instance of a field in a message or component.""", json_schema_extra = { "linkml_meta": {'aliases': ['instanceName'],
          'domain_of': ['ComponentRefType', 'FieldRefType'],
-         'slot_uri': 'fixr:instanceName'} })
+         'exact_mappings': ['fixr:instanceName'],
+         'slot_uri': 'fix_orchestra:instance_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default=None, description="""The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5235,58 +5599,83 @@ class FieldRefType(RefidGrp, FieldAttribGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
     min_inclusive: Optional[str] = Field(default=None, description="""Inclusive lower bound""", json_schema_extra = { "linkml_meta": {'aliases': ['minInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:minInclusive'} })
+         'exact_mappings': ['fixr:minInclusive'],
+         'slot_uri': 'fix_orchestra:min_inclusive'} })
     max_inclusive: Optional[str] = Field(default=None, description="""Inclusive upper bound""", json_schema_extra = { "linkml_meta": {'aliases': ['maxInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:maxInclusive'} })
+         'exact_mappings': ['fixr:maxInclusive'],
+         'slot_uri': 'fix_orchestra:max_inclusive'} })
     impl_length: Optional[int] = Field(default=None, description="""Fixed length""", json_schema_extra = { "linkml_meta": {'aliases': ['implLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implLength'} })
+         'exact_mappings': ['fixr:implLength'],
+         'slot_uri': 'fix_orchestra:impl_length'} })
     impl_min_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMinLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMinLength'} })
+         'exact_mappings': ['fixr:implMinLength'],
+         'slot_uri': 'fix_orchestra:impl_min_length'} })
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMaxLength'} })
+         'exact_mappings': ['fixr:implMaxLength'],
+         'slot_uri': 'fix_orchestra:impl_max_length'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -5295,11 +5684,14 @@ class FieldRefType(RefidGrp, FieldAttribGrp, EntityAttribGrp):
                        'IdentifierType',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:value'} })
+         'exact_mappings': ['fixr:value'],
+         'slot_uri': 'fix_orchestra:value'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     encoding: Optional[str] = Field(default=None, description="""Character encoding if other than US-ASCII""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixr:encoding'} })
+         'exact_mappings': ['fixr:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
 
 
 class UniqueInline(ConfiguredBaseModel):
@@ -5317,32 +5709,38 @@ class UniqueInline(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
 
 
 class FieldRuleType(FieldAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['fieldRuleType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:fieldRuleType',
+         'class_uri': 'fix_orchestra:FieldRuleType',
+         'exact_mappings': ['fixr:fieldRuleType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['FieldAttribGrp'],
          'slot_usage': {'when': {'name': 'when', 'required': True}}})
 
-    unique: Optional[UniqueInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldRuleType'], 'slot_uri': 'fixr:unique'} })
+    unique: Optional[UniqueInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldRuleType'],
+         'exact_mappings': ['fixr:unique'],
+         'slot_uri': 'fix_orchestra:unique'} })
     when: str = Field(default=..., description="""A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
                        'FieldRuleType',
                        'MessageType',
                        'ResponseType',
                        'TransitionType'],
-         'slot_uri': 'fixr:when'} })
+         'exact_mappings': ['fixr:when'],
+         'slot_uri': 'fix_orchestra:when'} })
     assign: Optional[list[str]] = Field(default=None, description="""Content of element holds an assignment expression for a message field or state variable. This can be used for field validation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
     name: Optional[str] = Field(default=None, description="""Name of this rule""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5365,31 +5763,39 @@ class FieldRuleType(FieldAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     type: Optional[str] = Field(default=None, description="""Overrides the type of the referenced field.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer',
                        'DctermsElementOrRefinementContainer',
                        'CodeSetType',
                        'FieldRuleType',
                        'FieldType'],
-         'slot_uri': 'fixr:type'} })
+         'exact_mappings': ['fixr:type'],
+         'slot_uri': 'fix_orchestra:type'} })
     min_inclusive: Optional[str] = Field(default=None, description="""Inclusive lower bound""", json_schema_extra = { "linkml_meta": {'aliases': ['minInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:minInclusive'} })
+         'exact_mappings': ['fixr:minInclusive'],
+         'slot_uri': 'fix_orchestra:min_inclusive'} })
     max_inclusive: Optional[str] = Field(default=None, description="""Inclusive upper bound""", json_schema_extra = { "linkml_meta": {'aliases': ['maxInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:maxInclusive'} })
+         'exact_mappings': ['fixr:maxInclusive'],
+         'slot_uri': 'fix_orchestra:max_inclusive'} })
     impl_length: Optional[int] = Field(default=None, description="""Fixed length""", json_schema_extra = { "linkml_meta": {'aliases': ['implLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implLength'} })
+         'exact_mappings': ['fixr:implLength'],
+         'slot_uri': 'fix_orchestra:impl_length'} })
     impl_min_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMinLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMinLength'} })
+         'exact_mappings': ['fixr:implMinLength'],
+         'slot_uri': 'fix_orchestra:impl_min_length'} })
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMaxLength'} })
+         'exact_mappings': ['fixr:implMaxLength'],
+         'slot_uri': 'fix_orchestra:impl_max_length'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -5398,48 +5804,60 @@ class FieldRuleType(FieldAttribGrp):
                        'IdentifierType',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:value'} })
+         'exact_mappings': ['fixr:value'],
+         'slot_uri': 'fix_orchestra:value'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     encoding: Optional[str] = Field(default=None, description="""Character encoding if other than US-ASCII""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixr:encoding'} })
+         'exact_mappings': ['fixr:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
 
 
 class FieldType(OidGrp, FieldAttribGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['fieldType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:fieldType',
+         'class_uri': 'fix_orchestra:FieldType',
+         'exact_mappings': ['fixr:fieldType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['OidGrp', 'EntityAttribGrp', 'FieldAttribGrp']})
 
     length_id: Optional[int] = Field(default=None, description="""Identifies a field used as a length prefix""", json_schema_extra = { "linkml_meta": {'aliases': ['lengthId'],
          'domain_of': ['FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:lengthId'} })
+         'exact_mappings': ['fixr:lengthId'],
+         'slot_uri': 'fix_orchestra:length_id'} })
     non_encoded_field_id: Optional[int] = Field(default=None, description="""Identifies a non-encoded field related to an encoded field""", json_schema_extra = { "linkml_meta": {'aliases': ['nonEncodedFieldId'],
          'domain_of': ['FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:nonEncodedFieldId'} })
+         'exact_mappings': ['fixr:nonEncodedFieldId'],
+         'slot_uri': 'fix_orchestra:non_encoded_field_id'} })
     discriminator_id: Optional[int] = Field(default=None, description="""Identifies a field used as a discriminator for this field's domain""", json_schema_extra = { "linkml_meta": {'aliases': ['discriminatorId'],
          'domain_of': ['FieldType'],
-         'slot_uri': 'fixr:discriminatorId'} })
+         'exact_mappings': ['fixr:discriminatorId'],
+         'slot_uri': 'fix_orchestra:discriminator_id'} })
     base_category: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['baseCategory'],
          'domain_of': ['FieldType'],
-         'slot_uri': 'fixr:baseCategory'} })
+         'exact_mappings': ['fixr:baseCategory'],
+         'slot_uri': 'fix_orchestra:base_category'} })
     base_category_abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['baseCategoryAbbrName'],
          'domain_of': ['FieldType'],
-         'slot_uri': 'fixr:baseCategoryAbbrName'} })
+         'exact_mappings': ['fixr:baseCategoryAbbrName'],
+         'slot_uri': 'fix_orchestra:base_category_abbr_name'} })
     union_data_type: Optional[UnionDataType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['unionDataType'],
          'domain_of': ['CodeSetType', 'FieldType'],
-         'slot_uri': 'fixr:unionDataType'} })
+         'exact_mappings': ['fixr:unionDataType'],
+         'slot_uri': 'fix_orchestra:union_data_type'} })
     rule: Optional[list[FieldRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require field is required or forbidden, to override other attributes, or perform validation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:rule'} })
+         'exact_mappings': ['fixr:rule'],
+         'slot_uri': 'fix_orchestra:rule'} })
     assign: Optional[str] = Field(default=None, description="""Content of element holds an assignment expression for a message field or state variable""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5475,27 +5893,35 @@ class FieldType(OidGrp, FieldAttribGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     type: Optional[str] = Field(default=None, description="""Attribute type refers to a datatype name""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer',
                        'DctermsElementOrRefinementContainer',
                        'CodeSetType',
                        'FieldRuleType',
                        'FieldType'],
-         'slot_uri': 'fixr:type'} })
+         'exact_mappings': ['fixr:type'],
+         'slot_uri': 'fix_orchestra:type'} })
     code_set: Optional[str] = Field(default=None, description="""Attribute codeSet refers to a codeSet name""", json_schema_extra = { "linkml_meta": {'aliases': ['codeSet'],
          'domain_of': ['FieldType', 'CodeSets'],
-         'slot_uri': 'fixr:codeSet'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:codeSet'],
+         'slot_uri': 'fix_orchestra:code_set'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5518,58 +5944,83 @@ class FieldType(OidGrp, FieldAttribGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
     min_inclusive: Optional[str] = Field(default=None, description="""Inclusive lower bound""", json_schema_extra = { "linkml_meta": {'aliases': ['minInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:minInclusive'} })
+         'exact_mappings': ['fixr:minInclusive'],
+         'slot_uri': 'fix_orchestra:min_inclusive'} })
     max_inclusive: Optional[str] = Field(default=None, description="""Inclusive upper bound""", json_schema_extra = { "linkml_meta": {'aliases': ['maxInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:maxInclusive'} })
+         'exact_mappings': ['fixr:maxInclusive'],
+         'slot_uri': 'fix_orchestra:max_inclusive'} })
     impl_length: Optional[int] = Field(default=None, description="""Fixed length""", json_schema_extra = { "linkml_meta": {'aliases': ['implLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implLength'} })
+         'exact_mappings': ['fixr:implLength'],
+         'slot_uri': 'fix_orchestra:impl_length'} })
     impl_min_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMinLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMinLength'} })
+         'exact_mappings': ['fixr:implMinLength'],
+         'slot_uri': 'fix_orchestra:impl_min_length'} })
     impl_max_length: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['implMaxLength'],
          'domain_of': ['FieldAttribGrp'],
-         'slot_uri': 'fixr:implMaxLength'} })
+         'exact_mappings': ['fixr:implMaxLength'],
+         'slot_uri': 'fix_orchestra:impl_max_length'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     value: Optional[str] = Field(default=None, description="""If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -5578,11 +6029,14 @@ class FieldType(OidGrp, FieldAttribGrp, EntityAttribGrp):
                        'IdentifierType',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixr:value'} })
+         'exact_mappings': ['fixr:value'],
+         'slot_uri': 'fix_orchestra:value'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     encoding: Optional[str] = Field(default=None, description="""Character encoding if other than US-ASCII""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixr:encoding'} })
+         'exact_mappings': ['fixr:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
 
 
 class FlowType(ConfiguredBaseModel):
@@ -5592,20 +6046,25 @@ class FlowType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['flowType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:flowType',
+         'class_uri': 'fix_orchestra:FlowType',
+         'exact_mappings': ['fixr:flowType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'source': {'description': 'Name of the actor that originates '
                                                   'messages',
+                                   'exact_mappings': ['fixr:source'],
                                    'name': 'source',
                                    'required': True,
-                                   'slot_uri': 'fixr:source'}}})
+                                   'slot_uri': 'fix_orchestra:source'}}})
 
     source: str = Field(default=..., description="""Name of the actor that originates messages""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer',
                        'DctermsElementOrRefinementContainer',
                        'FlowType'],
-         'slot_uri': 'fixr:source'} })
-    destination: str = Field(default=..., description="""Name of the actor that receives messages.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType'], 'slot_uri': 'fixr:destination'} })
+         'exact_mappings': ['fixr:source'],
+         'slot_uri': 'fix_orchestra:source'} })
+    destination: str = Field(default=..., description="""Name of the actor that receives messages.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType'],
+         'exact_mappings': ['fixr:destination'],
+         'slot_uri': 'fix_orchestra:destination'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5641,7 +6100,8 @@ class FlowType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5664,15 +6124,19 @@ class FlowType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
-    reliability: Optional[Reliability] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixr:reliability'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    reliability: Optional[Reliability] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixr:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class GroupRefType(ComponentRefType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['groupRefType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:groupRefType',
+         'class_uri': 'fix_orchestra:GroupRefType',
+         'exact_mappings': ['fixr:groupRefType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'impl_max_occurs': {'name': 'impl_max_occurs'},
@@ -5680,19 +6144,24 @@ class GroupRefType(ComponentRefType):
 
     impl_min_occurs: Optional[int] = Field(default=None, description="""Lower bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
-         'slot_uri': 'fixr:implMinOccurs'} })
+         'exact_mappings': ['fixr:implMinOccurs'],
+         'slot_uri': 'fix_orchestra:impl_min_occurs'} })
     impl_max_occurs: Optional[str] = Field(default="unbounded", description="""Upper bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMaxOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
+         'exact_mappings': ['fixr:implMaxOccurs'],
          'ifabsent': 'string(unbounded)',
-         'slot_uri': 'fixr:implMaxOccurs'} })
+         'slot_uri': 'fix_orchestra:impl_max_occurs'} })
     block_assignment: Optional[list[BlockAssignmentType]] = Field(default=None, description="""Specifies a how a component or each group entry is populated (optional)""", json_schema_extra = { "linkml_meta": {'aliases': ['blockAssignment'],
          'domain_of': ['ComponentRefType'],
-         'slot_uri': 'fixr:blockAssignment'} })
+         'exact_mappings': ['fixr:blockAssignment'],
+         'slot_uri': 'fix_orchestra:block_assignment'} })
     presence: Optional[Presence] = Field(default=Presence.optional, description="""Overrides presence when expression is true""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentRefType', 'ComponentRuleType'],
+         'exact_mappings': ['fixr:presence'],
          'ifabsent': 'string(optional)',
-         'slot_uri': 'fixr:presence'} })
+         'slot_uri': 'fix_orchestra:presence'} })
     rule: Optional[list[ComponentRuleType]] = Field(default=None, description="""Rule to tell when a conditionally require component""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRefType', 'FieldRefType', 'FieldType'],
-         'slot_uri': 'fixr:rule'} })
+         'exact_mappings': ['fixr:rule'],
+         'slot_uri': 'fix_orchestra:rule'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5728,20 +6197,24 @@ class GroupRefType(ComponentRefType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     instance_name: Optional[str] = Field(default=None, description="""Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message.""", json_schema_extra = { "linkml_meta": {'aliases': ['instanceName'],
          'domain_of': ['ComponentRefType', 'FieldRefType'],
-         'slot_uri': 'fixr:instanceName'} })
+         'exact_mappings': ['fixr:instanceName'],
+         'slot_uri': 'fix_orchestra:instance_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default=None, description="""The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5764,40 +6237,59 @@ class GroupRefType(ComponentRefType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
@@ -5807,7 +6299,8 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['groupType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:groupType',
+         'class_uri': 'fix_orchestra:GroupType',
+         'exact_mappings': ['fixr:groupType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp', 'OidGrp', 'ScenarioRefGrp'],
@@ -5816,7 +6309,8 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
 
     num_in_group: Optional[FieldRefType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['numInGroup'],
          'domain_of': ['GroupType'],
-         'slot_uri': 'fixr:numInGroup'} })
+         'exact_mappings': ['fixr:numInGroup'],
+         'slot_uri': 'fix_orchestra:num_in_group'} })
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -5825,7 +6319,8 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -5834,7 +6329,8 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -5844,18 +6340,23 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     impl_min_occurs: Optional[int] = Field(default=None, description="""Lower bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
-         'slot_uri': 'fixr:implMinOccurs'} })
+         'exact_mappings': ['fixr:implMinOccurs'],
+         'slot_uri': 'fix_orchestra:impl_min_occurs'} })
     impl_max_occurs: Optional[str] = Field(default="unbounded", description="""Upper bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMaxOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
+         'exact_mappings': ['fixr:implMaxOccurs'],
          'ifabsent': 'string(unbounded)',
-         'slot_uri': 'fixr:implMaxOccurs'} })
+         'slot_uri': 'fix_orchestra:impl_max_occurs'} })
     which: Optional[MemberType] = Field(default=None, description="""Member selection within each group instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
-         'slot_uri': 'fixr:which'} })
+         'exact_mappings': ['fixr:which'],
+         'slot_uri': 'fix_orchestra:which'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -5891,50 +6392,74 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     category: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'MessageType', 'Categories'],
-         'slot_uri': 'fixr:category'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:category'],
+         'slot_uri': 'fix_orchestra:category'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -5957,33 +6482,41 @@ class GroupType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
     scenario_ref_id: Optional[int] = Field(default=None, description="""Unique identifier of a scenario. The identifier is required when referencing another scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRefId'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRefId'} })
+         'exact_mappings': ['fixr:scenarioRefId'],
+         'slot_uri': 'fix_orchestra:scenario_ref_id'} })
     scenario_ref: Optional[str] = Field(default=None, description="""Name of a scenario. The name is optional as part of a reference and only for convenience.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRef'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRef'} })
+         'exact_mappings': ['fixr:scenarioRef'],
+         'slot_uri': 'fix_orchestra:scenario_ref'} })
 
 
 class IdentifiersType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['identifiersType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:identifiersType',
+         'class_uri': 'fix_orchestra:IdentifiersType',
+         'exact_mappings': ['fixr:identifiersType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
-    correlate: Optional[list[IdentifierType]] = Field(default=None, description="""Correlated field IDs between two message types""", json_schema_extra = { "linkml_meta": {'domain_of': ['IdentifiersType'], 'slot_uri': 'fixr:correlate'} })
+    correlate: Optional[list[IdentifierType]] = Field(default=None, description="""Correlated field IDs between two message types""", json_schema_extra = { "linkml_meta": {'domain_of': ['IdentifiersType'],
+         'exact_mappings': ['fixr:correlate'],
+         'slot_uri': 'fix_orchestra:correlate'} })
     assign: Optional[list[IdentifierType]] = Field(default=None, description="""Field ID assigned""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6019,14 +6552,16 @@ class IdentifiersType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
 
 
 class IdentifierType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['identifierType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:identifierType',
+         'class_uri': 'fix_orchestra:IdentifierType',
+         'exact_mappings': ['fixi:identifierType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
@@ -6060,7 +6595,8 @@ class IdentifierType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class ExtensionInline(ConfiguredBaseModel):
@@ -6081,7 +6617,8 @@ class MappedDatatype(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['mappedDatatype'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:mappedDatatype',
+         'class_uri': 'fix_orchestra:MappedDatatype',
+         'exact_mappings': ['fixr:mappedDatatype'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'max_inclusive': {'description': 'Inclusive upper bound of '
@@ -6091,19 +6628,35 @@ class MappedDatatype(ConfiguredBaseModel):
                                                          'values',
                                           'name': 'min_inclusive'}}})
 
-    extension: Optional[ExtensionInline] = Field(default=None, description="""A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:extension'} })
-    standard: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:standard'} })
-    builtin: Optional[bool] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:builtin'} })
-    pattern: Optional[str] = Field(default=None, description="""A lexical restriction from a base type""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:pattern'} })
-    element: Optional[str] = Field(default=None, description="""Element type of an aggregate type such as an array or sequence""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:element'} })
-    size: Optional[int] = Field(default=None, description="""Size of an aggregate type such as an array. That is, the number of elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:size'} })
-    parameter: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'], 'slot_uri': 'fixr:parameter'} })
+    extension: Optional[ExtensionInline] = Field(default=None, description="""A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:extension'],
+         'slot_uri': 'fix_orchestra:extension'} })
+    standard: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:standard'],
+         'slot_uri': 'fix_orchestra:standard'} })
+    builtin: Optional[bool] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:builtin'],
+         'slot_uri': 'fix_orchestra:builtin'} })
+    pattern: Optional[str] = Field(default=None, description="""A lexical restriction from a base type""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:pattern'],
+         'slot_uri': 'fix_orchestra:pattern'} })
+    element: Optional[str] = Field(default=None, description="""Element type of an aggregate type such as an array or sequence""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:element'],
+         'slot_uri': 'fix_orchestra:element'} })
+    size: Optional[int] = Field(default=None, description="""Size of an aggregate type such as an array. That is, the number of elements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:size'],
+         'slot_uri': 'fix_orchestra:size'} })
+    parameter: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MappedDatatype'],
+         'exact_mappings': ['fixr:parameter'],
+         'slot_uri': 'fix_orchestra:parameter'} })
     min_inclusive: Optional[str] = Field(default=None, description="""Inclusive lower bound of values""", json_schema_extra = { "linkml_meta": {'aliases': ['minInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:minInclusive'} })
+         'exact_mappings': ['fixr:minInclusive'],
+         'slot_uri': 'fix_orchestra:min_inclusive'} })
     max_inclusive: Optional[str] = Field(default=None, description="""Inclusive upper bound of values""", json_schema_extra = { "linkml_meta": {'aliases': ['maxInclusive'],
          'domain_of': ['FieldAttribGrp', 'MappedDatatype'],
-         'slot_uri': 'fixr:maxInclusive'} })
+         'exact_mappings': ['fixr:maxInclusive'],
+         'slot_uri': 'fix_orchestra:max_inclusive'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6139,7 +6692,8 @@ class MappedDatatype(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, description="""A datatype from which a subtype is created by restriction or a derived type is created by a generator""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -6154,14 +6708,16 @@ class MappedDatatype(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class MessageRefType(RefidGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['messageRefType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:messageRefType',
+         'class_uri': 'fix_orchestra:MessageRefType',
+         'exact_mappings': ['fixr:messageRefType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['RefidGrp'],
@@ -6171,28 +6727,35 @@ class MessageRefType(RefidGrp):
                         'impl_min_occurs': {'ifabsent': 'string(1)',
                                             'name': 'impl_min_occurs'}}})
 
-    identifiers: Optional[IdentifiersType] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageRefType'], 'slot_uri': 'fixr:identifiers'} })
+    identifiers: Optional[IdentifiersType] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageRefType'],
+         'exact_mappings': ['fixr:identifiers'],
+         'slot_uri': 'fix_orchestra:identifiers'} })
     msg_type: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['msgType'],
          'domain_of': ['MessageRefType', 'MessageType'],
-         'slot_uri': 'fixr:msgType'} })
+         'exact_mappings': ['fixr:msgType'],
+         'slot_uri': 'fix_orchestra:msg_type'} })
     impl_min_occurs: Optional[int] = Field(default=1, description="""Lower bound of group instances (numInGroup)""", json_schema_extra = { "linkml_meta": {'aliases': ['implMinOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
+         'exact_mappings': ['fixr:implMinOccurs'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:implMinOccurs'} })
+         'slot_uri': 'fix_orchestra:impl_min_occurs'} })
     impl_max_occurs: Optional[str] = Field(default="unbounded", description="""The same message type may be sent one or more times""", json_schema_extra = { "linkml_meta": {'aliases': ['implMaxOccurs'],
          'domain_of': ['GroupRefType', 'GroupType', 'MessageRefType'],
+         'exact_mappings': ['fixr:implMaxOccurs'],
          'ifabsent': 'string(unbounded)',
-         'slot_uri': 'fixr:implMaxOccurs'} })
+         'slot_uri': 'fix_orchestra:impl_max_occurs'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default=None, description="""The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6215,10 +6778,12 @@ class MessageRefType(RefidGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
 
 
 class StructureInline(ConfiguredBaseModel):
@@ -6236,7 +6801,8 @@ class StructureInline(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -6245,7 +6811,8 @@ class StructureInline(ConfiguredBaseModel):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -6255,9 +6822,11 @@ class StructureInline(ConfiguredBaseModel):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     which: Optional[MemberType] = Field(default=None, description="""Member selection within each group instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'StructureInline'],
-         'slot_uri': 'fixr:which'} })
+         'exact_mappings': ['fixr:which'],
+         'slot_uri': 'fix_orchestra:which'} })
 
 
 class ResponsesInline(ConfiguredBaseModel):
@@ -6266,31 +6835,41 @@ class ResponsesInline(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
-    response: list[ResponseType] = Field(default=..., description="""Responses are evaluated and triggered in the order listed""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResponsesInline'], 'slot_uri': 'fixr:response'} })
+    response: list[ResponseType] = Field(default=..., description="""Responses are evaluated and triggered in the order listed""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResponsesInline'],
+         'exact_mappings': ['fixr:response'],
+         'slot_uri': 'fix_orchestra:response'} })
 
 
 class MessageType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['messageType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:messageType',
+         'class_uri': 'fix_orchestra:MessageType',
+         'exact_mappings': ['fixr:messageType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['OidGrp', 'ScenarioRefGrp', 'EntityAttribGrp']})
 
-    structure: Optional[StructureInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType'], 'slot_uri': 'fixr:structure'} })
+    structure: Optional[StructureInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType'],
+         'exact_mappings': ['fixr:structure'],
+         'slot_uri': 'fix_orchestra:structure'} })
     when: Optional[str] = Field(default=None, description="""A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentRuleType',
                        'FieldRuleType',
                        'MessageType',
                        'ResponseType',
                        'TransitionType'],
-         'slot_uri': 'fixr:when'} })
-    responses: Optional[ResponsesInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType'], 'slot_uri': 'fixr:responses'} })
+         'exact_mappings': ['fixr:when'],
+         'slot_uri': 'fix_orchestra:when'} })
+    responses: Optional[ResponsesInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType'],
+         'exact_mappings': ['fixr:responses'],
+         'slot_uri': 'fix_orchestra:responses'} })
     msg_type: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['msgType'],
          'domain_of': ['MessageRefType', 'MessageType'],
-         'slot_uri': 'fixr:msgType'} })
+         'exact_mappings': ['fixr:msgType'],
+         'slot_uri': 'fix_orchestra:msg_type'} })
     rendering: Optional[str] = Field(default=None, description="""A hint to processes about how to interpret the element. Not validated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'ComponentType', 'GroupType', 'MessageType'],
-         'slot_uri': 'fixr:rendering'} })
+         'exact_mappings': ['fixr:rendering'],
+         'slot_uri': 'fix_orchestra:rendering'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6326,21 +6905,30 @@ class MessageType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     category: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'MessageType', 'Categories'],
-         'slot_uri': 'fixr:category'} })
-    flow: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType', 'Actors'], 'slot_uri': 'fixr:flow'} })
-    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'], 'domain_of': ['OidGrp'], 'slot_uri': 'fixr:abbrName'} })
+         'exact_mappings': ['fixr:category'],
+         'slot_uri': 'fix_orchestra:category'} })
+    flow: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType', 'Actors'],
+         'exact_mappings': ['fixr:flow'],
+         'slot_uri': 'fix_orchestra:flow'} })
+    abbr_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['abbrName'],
+         'domain_of': ['OidGrp'],
+         'exact_mappings': ['fixr:abbrName'],
+         'slot_uri': 'fix_orchestra:abbr_name'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     id: int = Field(default=..., description="""Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
-         'slot_uri': 'fixr:id'} })
+         'exact_mappings': ['fixr:id'],
+         'slot_uri': 'fix_orchestra:id'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6363,46 +6951,67 @@ class MessageType(ScenarioRefGrp, OidGrp, EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of an element, distinguished by workflow, asset class, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
     scenario_ref_id: Optional[int] = Field(default=None, description="""Unique identifier of a scenario. The identifier is required when referencing another scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRefId'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRefId'} })
+         'exact_mappings': ['fixr:scenarioRefId'],
+         'slot_uri': 'fix_orchestra:scenario_ref_id'} })
     scenario_ref: Optional[str] = Field(default=None, description="""Name of a scenario. The name is optional as part of a reference and only for convenience.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioRef'],
          'domain_of': ['ScenarioRefGrp'],
-         'slot_uri': 'fixr:scenarioRef'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:scenarioRef'],
+         'slot_uri': 'fix_orchestra:scenario_ref'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class ResponseType(ActionType):
@@ -6412,7 +7021,8 @@ class ResponseType(ActionType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['responseType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:responseType',
+         'class_uri': 'fix_orchestra:ResponseType',
+         'exact_mappings': ['fixr:responseType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'when': {'description': 'A common condition for all of the '
@@ -6427,8 +7037,11 @@ class ResponseType(ActionType):
                        'MessageType',
                        'ResponseType',
                        'TransitionType'],
-         'slot_uri': 'fixr:when'} })
-    sync: Optional[Synchronization] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ResponseType'], 'slot_uri': 'fixr:sync'} })
+         'exact_mappings': ['fixr:when'],
+         'slot_uri': 'fix_orchestra:when'} })
+    sync: Optional[Synchronization] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ResponseType'],
+         'exact_mappings': ['fixr:sync'],
+         'slot_uri': 'fix_orchestra:sync'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6464,7 +7077,8 @@ class ResponseType(ActionType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6487,8 +7101,11 @@ class ResponseType(ActionType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
-    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'],
+         'exact_mappings': ['fixr:field'],
+         'slot_uri': 'fix_orchestra:field'} })
     field_ref: Optional[list[FieldRefType]] = Field(default=None, description="""Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique.""", json_schema_extra = { "linkml_meta": {'aliases': ['fieldRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -6498,9 +7115,11 @@ class ResponseType(ActionType):
                        'UniqueInline',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:fieldRef'} })
+         'exact_mappings': ['fixr:fieldRef'],
+         'slot_uri': 'fix_orchestra:field_ref'} })
     component: Optional[list[ComponentType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Components'],
-         'slot_uri': 'fixr:component'} })
+         'exact_mappings': ['fixr:component'],
+         'slot_uri': 'fix_orchestra:component'} })
     component_ref: Optional[list[ComponentRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['componentRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -6509,7 +7128,8 @@ class ResponseType(ActionType):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:componentRef'} })
+         'exact_mappings': ['fixr:componentRef'],
+         'slot_uri': 'fix_orchestra:component_ref'} })
     group_ref: Optional[list[GroupRefType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['groupRef'],
          'domain_of': ['ActionType',
                        'ActorType',
@@ -6518,22 +7138,29 @@ class ResponseType(ActionType):
                        'ConceptType',
                        'GroupType',
                        'StructureInline'],
-         'slot_uri': 'fixr:groupRef'} })
+         'exact_mappings': ['fixr:groupRef'],
+         'slot_uri': 'fix_orchestra:group_ref'} })
     message_ref: Optional[list[MessageRefType]] = Field(default=None, description="""Send a message""", json_schema_extra = { "linkml_meta": {'aliases': ['messageRef'],
          'domain_of': ['ActionType', 'ConceptType'],
-         'slot_uri': 'fixr:messageRef'} })
-    trigger: Optional[list[TriggerType]] = Field(default=None, description="""Trigger a state transtion in a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType'], 'slot_uri': 'fixr:trigger'} })
+         'exact_mappings': ['fixr:messageRef'],
+         'slot_uri': 'fix_orchestra:message_ref'} })
+    trigger: Optional[list[TriggerType]] = Field(default=None, description="""Trigger a state transtion in a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType'],
+         'exact_mappings': ['fixr:trigger'],
+         'slot_uri': 'fix_orchestra:trigger'} })
     timer_schedule: Optional[list[TimerSchedule]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['timerSchedule'],
          'domain_of': ['ActionType'],
-         'slot_uri': 'fixr:timerSchedule'} })
+         'exact_mappings': ['fixr:timerSchedule'],
+         'slot_uri': 'fix_orchestra:timer_schedule'} })
     group: Optional[list[GroupType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'CodeType', 'Groups'],
-         'slot_uri': 'fixr:group'} })
+         'exact_mappings': ['fixr:group'],
+         'slot_uri': 'fix_orchestra:group'} })
     assign: Optional[list[str]] = Field(default=None, description="""Content of element holds an assignment expression for a state variable in the form '$actor.variable=value'""", json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType',
                        'FieldRefType',
                        'FieldRuleType',
                        'FieldType',
                        'IdentifiersType'],
-         'slot_uri': 'fixr:assign'} })
+         'exact_mappings': ['fixr:assign'],
+         'slot_uri': 'fix_orchestra:assign'} })
 
 
 class ScenarioType(ConfiguredBaseModel):
@@ -6543,7 +7170,8 @@ class ScenarioType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['scenarioType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:scenarioType',
+         'class_uri': 'fix_orchestra:ScenarioType',
+         'exact_mappings': ['fixr:scenarioType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
@@ -6582,14 +7210,16 @@ class ScenarioType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     id: Optional[int] = Field(default=1, description="""Unique numeric identifier. Default is '1' is for base scenario.""", json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'OidGrp',
                        'RefidGrp',
                        'ScenarioType'],
+         'exact_mappings': ['fixr:id'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:id'} })
+         'slot_uri': 'fix_orchestra:id'} })
     name: Optional[str] = Field(default="base", description="""Unique name""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6612,25 +7242,29 @@ class ScenarioType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
+         'exact_mappings': ['fixr:name'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:name'} })
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class SectionType(EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['sectionType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:sectionType',
+         'class_uri': 'fix_orchestra:SectionType',
+         'exact_mappings': ['fixr:sectionType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
 
     display_order: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['displayOrder'],
          'domain_of': ['SectionType'],
-         'slot_uri': 'fixr:displayOrder'} })
+         'exact_mappings': ['fixr:displayOrder'],
+         'slot_uri': 'fix_orchestra:display_order'} })
     fixml_file_name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['FIXMLFileName'],
          'domain_of': ['CategoryType', 'SectionType'],
-         'slot_uri': 'fixr:FIXMLFileName'} })
+         'exact_mappings': ['fixr:FIXMLFileName'],
+         'slot_uri': 'fix_orchestra:fixml_file_name'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6666,7 +7300,8 @@ class SectionType(EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6689,49 +7324,72 @@ class SectionType(EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class StateMachineType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['stateMachineType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:stateMachineType',
+         'class_uri': 'fix_orchestra:StateMachineType',
+         'exact_mappings': ['fixr:stateMachineType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
-    initial: StateType = Field(default=..., description="""Initial state of a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateMachineType'], 'slot_uri': 'fixr:initial'} })
-    state: list[StateType] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['StateMachineType'], 'slot_uri': 'fixr:state'} })
+    initial: StateType = Field(default=..., description="""Initial state of a state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateMachineType'],
+         'exact_mappings': ['fixr:initial'],
+         'slot_uri': 'fix_orchestra:initial'} })
+    state: list[StateType] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['StateMachineType'],
+         'exact_mappings': ['fixr:state'],
+         'slot_uri': 'fix_orchestra:state'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6767,7 +7425,8 @@ class StateMachineType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6790,7 +7449,8 @@ class StateMachineType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class StateType(ConfiguredBaseModel):
@@ -6800,14 +7460,23 @@ class StateType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['stateType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:stateType',
+         'class_uri': 'fix_orchestra:StateType',
+         'exact_mappings': ['fixr:stateType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
-    transition: Optional[list[TransitionType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'], 'slot_uri': 'fixr:transition'} })
-    onentry: Optional[ActionType] = Field(default=None, description="""Operation fired when entering a state.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'], 'slot_uri': 'fixr:onentry'} })
-    activity: Optional[ActionType] = Field(default=None, description="""Operation fired when entering a state and completing when exiting or earlier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType', 'TimerSchedule'], 'slot_uri': 'fixr:activity'} })
-    onexit: Optional[ActionType] = Field(default=None, description="""Operation fired when exiting a state.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'], 'slot_uri': 'fixr:onexit'} })
+    transition: Optional[list[TransitionType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'],
+         'exact_mappings': ['fixr:transition'],
+         'slot_uri': 'fix_orchestra:transition'} })
+    onentry: Optional[ActionType] = Field(default=None, description="""Operation fired when entering a state.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'],
+         'exact_mappings': ['fixr:onentry'],
+         'slot_uri': 'fix_orchestra:onentry'} })
+    activity: Optional[ActionType] = Field(default=None, description="""Operation fired when entering a state and completing when exiting or earlier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType', 'TimerSchedule'],
+         'exact_mappings': ['fixr:activity'],
+         'slot_uri': 'fix_orchestra:activity'} })
+    onexit: Optional[ActionType] = Field(default=None, description="""Operation fired when exiting a state.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType'],
+         'exact_mappings': ['fixr:onexit'],
+         'slot_uri': 'fix_orchestra:onexit'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -6843,7 +7512,8 @@ class StateType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6866,14 +7536,16 @@ class StateType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class TimerSchedule(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['timerSchedule'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:timerSchedule',
+         'class_uri': 'fix_orchestra:TimerSchedule',
+         'exact_mappings': ['fixr:timerSchedule'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'activity': {'description': 'Action to take when a timer '
@@ -6881,11 +7553,18 @@ class TimerSchedule(ConfiguredBaseModel):
                                      'name': 'activity',
                                      'required': True}}})
 
-    activity: ActionType = Field(default=..., description="""Action to take when a timer expires""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType', 'TimerSchedule'], 'slot_uri': 'fixr:activity'} })
-    operation: TimerOperation = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule'], 'slot_uri': 'fixr:operation'} })
-    interval: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule'], 'slot_uri': 'fixr:interval'} })
+    activity: ActionType = Field(default=..., description="""Action to take when a timer expires""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateType', 'TimerSchedule'],
+         'exact_mappings': ['fixr:activity'],
+         'slot_uri': 'fix_orchestra:activity'} })
+    operation: TimerOperation = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule'],
+         'exact_mappings': ['fixr:operation'],
+         'slot_uri': 'fix_orchestra:operation'} })
+    interval: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule'],
+         'exact_mappings': ['fixr:interval'],
+         'slot_uri': 'fix_orchestra:interval'} })
     actor: str = Field(default=..., description="""Name of the actor that owns the timer""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule', 'TriggerType', 'Actors'],
-         'slot_uri': 'fixr:actor'} })
+         'exact_mappings': ['fixr:actor'],
+         'slot_uri': 'fix_orchestra:actor'} })
     name: str = Field(default=..., description="""Name of the timer""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -6908,14 +7587,16 @@ class TimerSchedule(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class TimerType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['timerType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:timerType',
+         'class_uri': 'fix_orchestra:TimerType',
+         'exact_mappings': ['fixr:timerType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
@@ -6941,14 +7622,16 @@ class TimerType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class TransitionType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['transitionType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:transitionType',
+         'class_uri': 'fix_orchestra:TransitionType',
+         'exact_mappings': ['fixr:transitionType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'slot_usage': {'when': {'description': 'Optional guard condition. The '
@@ -6963,8 +7646,11 @@ class TransitionType(ConfiguredBaseModel):
                        'MessageType',
                        'ResponseType',
                        'TransitionType'],
-         'slot_uri': 'fixr:when'} })
-    target: str = Field(default=..., description="""The target state of the transition""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransitionType'], 'slot_uri': 'fixr:target'} })
+         'exact_mappings': ['fixr:when'],
+         'slot_uri': 'fix_orchestra:when'} })
+    target: str = Field(default=..., description="""The target state of the transition""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransitionType'],
+         'exact_mappings': ['fixr:target'],
+         'slot_uri': 'fix_orchestra:target'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -7000,7 +7686,8 @@ class TransitionType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7023,22 +7710,26 @@ class TransitionType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class TriggerType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['triggerType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:triggerType',
+         'class_uri': 'fix_orchestra:TriggerType',
+         'exact_mappings': ['fixr:triggerType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types']})
 
     state_machine: str = Field(default=..., description="""Name of the state machine""", json_schema_extra = { "linkml_meta": {'aliases': ['stateMachine'],
          'domain_of': ['TriggerType'],
-         'slot_uri': 'fixr:stateMachine'} })
+         'exact_mappings': ['fixr:stateMachine'],
+         'slot_uri': 'fix_orchestra:state_machine'} })
     actor: str = Field(default=..., description="""Name of the actor that owns the state machine""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule', 'TriggerType', 'Actors'],
-         'slot_uri': 'fixr:actor'} })
+         'exact_mappings': ['fixr:actor'],
+         'slot_uri': 'fix_orchestra:actor'} })
     name: str = Field(default=..., description="""Name of the transition to invoke""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7061,20 +7752,25 @@ class TriggerType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class InterfaceAnnotation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['annotation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:annotation',
+         'class_uri': 'fix_orchestra:InterfaceAnnotation',
+         'exact_mappings': ['fixi:annotation'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     documentation: Optional[list[InterfaceDocumentation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'],
-         'slot_uri': 'fixi:documentation'} })
-    appinfo: Optional[list[InterfaceAppinfo]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'], 'slot_uri': 'fixi:appinfo'} })
+         'exact_mappings': ['fixi:documentation'],
+         'slot_uri': 'fix_orchestra:documentation'} })
+    appinfo: Optional[list[InterfaceAppinfo]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Annotation', 'InterfaceAnnotation'],
+         'exact_mappings': ['fixi:appinfo'],
+         'slot_uri': 'fix_orchestra:appinfo'} })
 
 
 class InterfaceAppinfo(ConfiguredBaseModel):
@@ -7086,14 +7782,17 @@ class InterfaceAppinfo(ConfiguredBaseModel):
                                                'value': True},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:appinfo',
+         'class_uri': 'fix_orchestra:InterfaceAppinfo',
+         'exact_mappings': ['fixi:appinfo'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces'],
-         'slot_usage': {'spec_url': {'name': 'spec_url', 'slot_uri': 'fixi:specUrl'}}})
+         'slot_usage': {'spec_url': {'exact_mappings': ['fixi:specUrl'],
+                                     'name': 'spec_url'}}})
 
     spec_url: Optional[str] = Field(default=None, description="""Reference documentation""", json_schema_extra = { "linkml_meta": {'aliases': ['specUrl'],
          'domain_of': ['Appinfo', 'CodeSetType', 'InterfaceAppinfo', 'Repository'],
-         'slot_uri': 'fixi:specUrl'} })
+         'exact_mappings': ['fixi:specUrl'],
+         'slot_uri': 'fix_orchestra:spec_url'} })
     value: Optional[str] = Field(default=None, description="""Mixed text content of the element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DcSimpleLiteral',
                        'FieldAttribGrp',
                        'Appinfo',
@@ -7118,12 +7817,14 @@ class InterfaceAppinfo(ConfiguredBaseModel):
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixi:langId'} })
+         'exact_mappings': ['fixi:langId'],
+         'slot_uri': 'fix_orchestra:lang_id'} })
     purpose: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixi:purpose'} })
+         'exact_mappings': ['fixi:purpose'],
+         'slot_uri': 'fix_orchestra:purpose'} })
 
 
 class BaseInterfaceType(ConfiguredBaseModel):
@@ -7133,26 +7834,36 @@ class BaseInterfaceType(ConfiguredBaseModel):
                                                'value': True},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:baseInterfaceType',
+         'class_uri': 'fix_orchestra:BaseInterfaceType',
+         'exact_mappings': ['fixi:baseInterfaceType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
-    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:service'} })
+    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:service'],
+         'slot_uri': 'fix_orchestra:service'} })
     user_interface: Optional[list[UserInterfaceType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['userInterface'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:userInterface'} })
+         'exact_mappings': ['fixi:userInterface'],
+         'slot_uri': 'fix_orchestra:user_interface'} })
     session_protocol: Optional[list[SessionProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['sessionProtocol'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:sessionProtocol'} })
-    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:protocol'} })
-    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:transport'} })
+         'exact_mappings': ['fixi:sessionProtocol'],
+         'slot_uri': 'fix_orchestra:session_protocol'} })
+    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:protocol'],
+         'slot_uri': 'fix_orchestra:protocol'} })
+    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:transport'],
+         'slot_uri': 'fix_orchestra:transport'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
                        'ProtocolType',
                        'TransportProtocolType']} })
     encoding: Optional[list[EncodingType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixi:encoding'} })
+         'exact_mappings': ['fixi:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
     annotation: Optional[InterfaceAnnotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -7188,7 +7899,8 @@ class BaseInterfaceType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7211,14 +7923,16 @@ class BaseInterfaceType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class InterfaceDocumentation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['documentation'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:documentation',
+         'class_uri': 'fix_orchestra:InterfaceDocumentation',
+         'exact_mappings': ['fixi:documentation'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
@@ -7241,16 +7955,19 @@ class InterfaceDocumentation(ConfiguredBaseModel):
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixi:langId'} })
+         'exact_mappings': ['fixi:langId'],
+         'slot_uri': 'fix_orchestra:lang_id'} })
     purpose: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'Documentation',
                        'InterfaceAppinfo',
                        'InterfaceDocumentation'],
-         'slot_uri': 'fixi:purpose'} })
+         'exact_mappings': ['fixi:purpose'],
+         'slot_uri': 'fix_orchestra:purpose'} })
     content_type: Optional[str] = Field(default="text/plain", json_schema_extra = { "linkml_meta": {'aliases': ['contentType'],
          'domain_of': ['Documentation', 'InterfaceDocumentation'],
+         'exact_mappings': ['fixi:contentType'],
          'ifabsent': 'string(text/plain)',
-         'slot_uri': 'fixi:contentType'} })
+         'slot_uri': 'fix_orchestra:content_type'} })
 
 
 class SessionsInline(ConfiguredBaseModel):
@@ -7259,34 +7976,48 @@ class SessionsInline(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
-    session: list[SessionType] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SessionsInline'], 'slot_uri': 'fixi:session'} })
+    session: list[SessionType] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SessionsInline'],
+         'exact_mappings': ['fixi:session'],
+         'slot_uri': 'fix_orchestra:session'} })
 
 
 class InterfaceType(BaseInterfaceType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['interfaceType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:interfaceType',
+         'class_uri': 'fix_orchestra:InterfaceType',
+         'exact_mappings': ['fixi:interfaceType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
-    sessions: Optional[SessionsInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['InterfaceType'], 'slot_uri': 'fixi:sessions'} })
-    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:service'} })
+    sessions: Optional[SessionsInline] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['InterfaceType'],
+         'exact_mappings': ['fixi:sessions'],
+         'slot_uri': 'fix_orchestra:sessions'} })
+    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:service'],
+         'slot_uri': 'fix_orchestra:service'} })
     user_interface: Optional[list[UserInterfaceType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['userInterface'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:userInterface'} })
+         'exact_mappings': ['fixi:userInterface'],
+         'slot_uri': 'fix_orchestra:user_interface'} })
     session_protocol: Optional[list[SessionProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['sessionProtocol'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:sessionProtocol'} })
-    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:protocol'} })
-    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:transport'} })
+         'exact_mappings': ['fixi:sessionProtocol'],
+         'slot_uri': 'fix_orchestra:session_protocol'} })
+    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:protocol'],
+         'slot_uri': 'fix_orchestra:protocol'} })
+    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:transport'],
+         'slot_uri': 'fix_orchestra:transport'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
                        'ProtocolType',
                        'TransportProtocolType']} })
     encoding: Optional[list[EncodingType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixi:encoding'} })
+         'exact_mappings': ['fixi:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
     annotation: Optional[InterfaceAnnotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -7322,7 +8053,8 @@ class InterfaceType(BaseInterfaceType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7345,7 +8077,8 @@ class InterfaceType(BaseInterfaceType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class ProtocolType(ConfiguredBaseModel):
@@ -7354,18 +8087,25 @@ class ProtocolType(ConfiguredBaseModel):
                                                'value': True},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:protocolType',
+         'class_uri': 'fix_orchestra:ProtocolType',
+         'exact_mappings': ['fixi:protocolType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7406,7 +8146,8 @@ class ProtocolType(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7429,29 +8170,42 @@ class ProtocolType(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class EncodingType(ProtocolType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['encodingType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:encodingType',
+         'class_uri': 'fix_orchestra:EncodingType',
+         'exact_mappings': ['fixi:encodingType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7492,7 +8246,8 @@ class EncodingType(ProtocolType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7515,29 +8270,42 @@ class EncodingType(ProtocolType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class ServiceType(ProtocolType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['serviceType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:serviceType',
+         'class_uri': 'fix_orchestra:ServiceType',
+         'exact_mappings': ['fixi:serviceType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7578,7 +8346,8 @@ class ServiceType(ProtocolType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7601,29 +8370,42 @@ class ServiceType(ProtocolType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class SessionProtocolType(ProtocolType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['sessionProtocolType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:sessionProtocolType',
+         'class_uri': 'fix_orchestra:SessionProtocolType',
+         'exact_mappings': ['fixi:sessionProtocolType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7664,7 +8446,8 @@ class SessionProtocolType(ProtocolType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7687,18 +8470,25 @@ class SessionProtocolType(ProtocolType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class SessionType(BaseInterfaceType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['sessionType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:sessionType',
+         'class_uri': 'fix_orchestra:SessionType',
+         'exact_mappings': ['fixi:sessionType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces'],
          'slot_usage': {'activation_time': {'description': 'When this session becomes '
@@ -7708,36 +8498,51 @@ class SessionType(BaseInterfaceType):
                                                              'longer effective',
                                               'name': 'deactivation_time'}}})
 
-    role: Optional[Role] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['SessionType'], 'slot_uri': 'fixi:role'} })
+    role: Optional[Role] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['SessionType'],
+         'exact_mappings': ['fixi:role'],
+         'slot_uri': 'fix_orchestra:role'} })
     security_keys: Optional[str] = Field(default=None, description="""Textual encoding as specified by IETF RFC 7468""", json_schema_extra = { "linkml_meta": {'aliases': ['securityKeys'],
          'domain_of': ['SessionType'],
-         'slot_uri': 'fixi:securityKeys'} })
+         'exact_mappings': ['fixi:securityKeys'],
+         'slot_uri': 'fix_orchestra:security_keys'} })
     activation_time: Optional[datetime ] = Field(default=None, description="""When this session becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this session is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
     identifier: Optional[list[IdentifierType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['DcElementContainer',
                        'DctermsElementOrRefinementContainer',
                        'SessionType'],
-         'slot_uri': 'fixi:identifier'} })
-    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:service'} })
+         'exact_mappings': ['fixi:identifier'],
+         'slot_uri': 'fix_orchestra:identifier'} })
+    service: Optional[list[ServiceType]] = Field(default=None, description="""An application layer protocol with orchestration""", json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:service'],
+         'slot_uri': 'fix_orchestra:service'} })
     user_interface: Optional[list[UserInterfaceType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['userInterface'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:userInterface'} })
+         'exact_mappings': ['fixi:userInterface'],
+         'slot_uri': 'fix_orchestra:user_interface'} })
     session_protocol: Optional[list[SessionProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['sessionProtocol'],
          'domain_of': ['BaseInterfaceType'],
-         'slot_uri': 'fixi:sessionProtocol'} })
-    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:protocol'} })
-    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'], 'slot_uri': 'fixi:transport'} })
+         'exact_mappings': ['fixi:sessionProtocol'],
+         'slot_uri': 'fix_orchestra:session_protocol'} })
+    protocol: Optional[list[ProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:protocol'],
+         'slot_uri': 'fix_orchestra:protocol'} })
+    transport: Optional[list[TransportProtocolType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['BaseInterfaceType'],
+         'exact_mappings': ['fixi:transport'],
+         'slot_uri': 'fix_orchestra:transport'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
                        'ProtocolType',
                        'TransportProtocolType']} })
     encoding: Optional[list[EncodingType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldAttribGrp', 'BaseInterfaceType'],
-         'slot_uri': 'fixi:encoding'} })
+         'exact_mappings': ['fixi:encoding'],
+         'slot_uri': 'fix_orchestra:encoding'} })
     annotation: Optional[InterfaceAnnotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -7773,7 +8578,8 @@ class SessionType(BaseInterfaceType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7796,7 +8602,8 @@ class SessionType(BaseInterfaceType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
 
 
 class TransportProtocolType(ProtocolType):
@@ -7805,16 +8612,22 @@ class TransportProtocolType(ProtocolType):
                                                'value': True},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:transportProtocolType',
+         'class_uri': 'fix_orchestra:TransportProtocolType',
+         'exact_mappings': ['fixi:transportProtocolType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
-    address: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TransportProtocolType'], 'slot_uri': 'fixi:address'} })
+    address: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TransportProtocolType'],
+         'exact_mappings': ['fixi:address'],
+         'slot_uri': 'fix_orchestra:address'} })
     message_cast: Optional[MessageCast] = Field(default=MessageCast.unicast, json_schema_extra = { "linkml_meta": {'aliases': ['messageCast'],
          'domain_of': ['TransportProtocolType'],
+         'exact_mappings': ['fixi:messageCast'],
          'ifabsent': 'string(unicast)',
-         'slot_uri': 'fixi:messageCast'} })
-    use: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TransportProtocolType'], 'slot_uri': 'fixi:use'} })
+         'slot_uri': 'fix_orchestra:message_cast'} })
+    use: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TransportProtocolType'],
+         'exact_mappings': ['fixi:use'],
+         'slot_uri': 'fix_orchestra:use'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7822,12 +8635,18 @@ class TransportProtocolType(ProtocolType):
                        'TransportProtocolType']} })
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     annotation: Optional[InterfaceAnnotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -7863,7 +8682,8 @@ class TransportProtocolType(ProtocolType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7886,29 +8706,42 @@ class TransportProtocolType(ProtocolType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class UserInterfaceType(ProtocolType):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['userInterfaceType'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:userInterfaceType',
+         'class_uri': 'fix_orchestra:UserInterfaceType',
+         'exact_mappings': ['fixi:userInterfaceType'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces']})
 
     activation_time: Optional[datetime ] = Field(default=None, description="""When this version becomes effective""", json_schema_extra = { "linkml_meta": {'aliases': ['activationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:activationTime'} })
+         'exact_mappings': ['fixi:activationTime'],
+         'slot_uri': 'fix_orchestra:activation_time'} })
     deactivation_time: Optional[datetime ] = Field(default=None, description="""When this version is no longer effective""", json_schema_extra = { "linkml_meta": {'aliases': ['deactivationTime'],
          'domain_of': ['ProtocolType', 'SessionType'],
-         'slot_uri': 'fixi:deactivationTime'} })
-    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:layer'} })
-    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'], 'slot_uri': 'fixi:orchestration'} })
+         'exact_mappings': ['fixi:deactivationTime'],
+         'slot_uri': 'fix_orchestra:deactivation_time'} })
+    layer: Optional[Layer] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:layer'],
+         'slot_uri': 'fix_orchestra:layer'} })
+    orchestration: Optional[str] = Field(default=None, description="""URI of Orchestra rules of engagement""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType'],
+         'exact_mappings': ['fixi:orchestration'],
+         'slot_uri': 'fix_orchestra:orchestration'} })
     extra_attributes: Optional[list[str]] = Field(default=None, description="""Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Appinfo',
                        'InterfaceAppinfo',
                        'BaseInterfaceType',
@@ -7949,7 +8782,8 @@ class UserInterfaceType(ProtocolType):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixi:annotation'} })
+         'exact_mappings': ['fixi:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -7972,32 +8806,42 @@ class UserInterfaceType(ProtocolType):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixi:name'} })
-    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixi:version'} })
+         'exact_mappings': ['fixi:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixi:version'],
+         'slot_uri': 'fix_orchestra:version'} })
     deprecated: Optional[datetime ] = Field(default=None, description="""When this version was deprecated; may be replaced or removed in the future""", json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixi:deprecated'} })
-    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'], 'slot_uri': 'fixi:reliability'} })
+         'exact_mappings': ['fixi:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
+    reliability: Optional[InterfaceReliability] = Field(default=None, description="""Reliability can be implemented at transport, session, or application layers""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlowType', 'ProtocolType'],
+         'exact_mappings': ['fixi:reliability'],
+         'slot_uri': 'fix_orchestra:reliability'} })
 
 
 class Datatype(EntityAttribGrp):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['datatype'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repositorytypes.xsd'}},
-         'class_uri': 'fixr:datatype',
+         'class_uri': 'fix_orchestra:Datatype',
+         'exact_mappings': ['fixr:datatype'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository_types'],
          'mixins': ['EntityAttribGrp']})
 
     mapped_datatype: Optional[list[MappedDatatype]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['mappedDatatype'],
          'domain_of': ['Datatype'],
-         'slot_uri': 'fixr:mappedDatatype'} })
+         'exact_mappings': ['fixr:mappedDatatype'],
+         'slot_uri': 'fix_orchestra:mapped_datatype'} })
     scenario_id: Optional[int] = Field(default=1, description="""Unique identifier of a scenario. Default is '1' for base scenario.""", json_schema_extra = { "linkml_meta": {'aliases': ['scenarioId'],
          'domain_of': ['OidGrp', 'RefidGrp', 'Datatype'],
+         'exact_mappings': ['fixr:scenarioId'],
          'ifabsent': 'string(1)',
-         'slot_uri': 'fixr:scenarioId'} })
+         'slot_uri': 'fix_orchestra:scenario_id'} })
     base_type: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['baseType'],
          'domain_of': ['Datatype'],
-         'slot_uri': 'fixr:baseType'} })
+         'exact_mappings': ['fixr:baseType'],
+         'slot_uri': 'fix_orchestra:base_type'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8033,7 +8877,8 @@ class Datatype(EntityAttribGrp):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -8056,40 +8901,59 @@ class Datatype(EntityAttribGrp):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
     scenario: Optional[str] = Field(default="base", description="""The use case of a datatype by name""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
+         'exact_mappings': ['fixr:scenario'],
          'ifabsent': 'string(base)',
-         'slot_uri': 'fixr:scenario'} })
-    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:added'} })
+         'slot_uri': 'fix_orchestra:scenario'} })
+    added: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:added'],
+         'slot_uri': 'fix_orchestra:added'} })
     added_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['addedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:addedEP'} })
+         'exact_mappings': ['fixr:addedEP'],
+         'slot_uri': 'fix_orchestra:added_ep'} })
     change_type: Optional[ChangeType] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['changeType'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:changeType'} })
+         'exact_mappings': ['fixr:changeType'],
+         'slot_uri': 'fix_orchestra:change_type'} })
     deprecated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['deprecatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:deprecatedEP'} })
-    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:issue'} })
+         'exact_mappings': ['fixr:deprecatedEP'],
+         'slot_uri': 'fix_orchestra:deprecated_ep'} })
+    issue: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:issue'],
+         'slot_uri': 'fix_orchestra:issue'} })
     last_modified: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['lastModified'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:lastModified'} })
-    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:replaced'} })
+         'exact_mappings': ['fixr:lastModified'],
+         'slot_uri': 'fix_orchestra:last_modified'} })
+    replaced: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:replaced'],
+         'slot_uri': 'fix_orchestra:replaced'} })
     replaced_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedEP'} })
+         'exact_mappings': ['fixr:replacedEP'],
+         'slot_uri': 'fix_orchestra:replaced_ep'} })
     replaced_by_field: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['replacedByField'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:replacedByField'} })
+         'exact_mappings': ['fixr:replacedByField'],
+         'slot_uri': 'fix_orchestra:replaced_by_field'} })
     supported: Optional[SupportType] = Field(default=SupportType.supported, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:supported'],
          'ifabsent': 'string(supported)',
-         'slot_uri': 'fixr:supported'} })
-    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'], 'slot_uri': 'fixr:updated'} })
+         'slot_uri': 'fix_orchestra:supported'} })
+    updated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp'],
+         'exact_mappings': ['fixr:updated'],
+         'slot_uri': 'fix_orchestra:updated'} })
     updated_ep: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['updatedEP'],
          'domain_of': ['EntityAttribGrp'],
-         'slot_uri': 'fixr:updatedEP'} })
+         'exact_mappings': ['fixr:updatedEP'],
+         'slot_uri': 'fix_orchestra:updated_ep'} })
     deprecated: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EntityAttribGrp', 'ProtocolType'],
-         'slot_uri': 'fixr:deprecated'} })
+         'exact_mappings': ['fixr:deprecated'],
+         'slot_uri': 'fix_orchestra:deprecated'} })
 
 
 class Actors(ConfiguredBaseModel):
@@ -8106,7 +8970,8 @@ class Actors(ConfiguredBaseModel):
                                                   'fields=[@destination])'},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:actors',
+         'class_uri': 'fix_orchestra:Actors',
+         'exact_mappings': ['fixr:actors'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'actor_key': {'description': 'From XSD <xs:key '
@@ -8116,8 +8981,11 @@ class Actors(ConfiguredBaseModel):
                                        'unique_key_slots': ['name']}}})
 
     actor: Optional[list[ActorType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TimerSchedule', 'TriggerType', 'Actors'],
-         'slot_uri': 'fixr:actor'} })
-    flow: Optional[list[FlowType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType', 'Actors'], 'slot_uri': 'fixr:flow'} })
+         'exact_mappings': ['fixr:actor'],
+         'slot_uri': 'fix_orchestra:actor'} })
+    flow: Optional[list[FlowType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['MessageType', 'Actors'],
+         'exact_mappings': ['fixr:flow'],
+         'slot_uri': 'fix_orchestra:flow'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8153,7 +9021,8 @@ class Actors(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8168,19 +9037,22 @@ class Actors(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Categories(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['categories'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:categories',
+         'class_uri': 'fix_orchestra:Categories',
+         'exact_mappings': ['fixr:categories'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository']})
 
     category: Optional[list[CategoryType]] = Field(default=None, description="""A business process category, a subcategory of a businessArea""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComponentType', 'GroupType', 'MessageType', 'Categories'],
-         'slot_uri': 'fixr:category'} })
+         'exact_mappings': ['fixr:category'],
+         'slot_uri': 'fix_orchestra:category'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8216,7 +9088,8 @@ class Categories(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8231,14 +9104,16 @@ class Categories(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class CodeSets(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['codeSets'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:codeSets',
+         'class_uri': 'fix_orchestra:CodeSets',
+         'exact_mappings': ['fixr:codeSets'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'code_set_id_key': {'description': 'From XSD <xs:key '
@@ -8256,7 +9131,8 @@ class CodeSets(ConfiguredBaseModel):
 
     code_set: Optional[list[CodeSetType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['codeSet'],
          'domain_of': ['FieldType', 'CodeSets'],
-         'slot_uri': 'fixr:codeSet'} })
+         'exact_mappings': ['fixr:codeSet'],
+         'slot_uri': 'fix_orchestra:code_set'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8292,7 +9168,8 @@ class CodeSets(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8307,14 +9184,16 @@ class CodeSets(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Components(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['components'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:components',
+         'class_uri': 'fix_orchestra:Components',
+         'exact_mappings': ['fixr:components'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'component_id_key': {'description': 'From XSD <xs:key '
@@ -8333,7 +9212,8 @@ class Components(ConfiguredBaseModel):
                                                                      'scenario']}}})
 
     component: Optional[list[ComponentType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Components'],
-         'slot_uri': 'fixr:component'} })
+         'exact_mappings': ['fixr:component'],
+         'slot_uri': 'fix_orchestra:component'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8369,7 +9249,8 @@ class Components(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8384,14 +9265,16 @@ class Components(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Concepts(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['concepts'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:concepts',
+         'class_uri': 'fix_orchestra:Concepts',
+         'exact_mappings': ['fixr:concepts'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'concept_key': {'description': 'From XSD <xs:key '
@@ -8400,7 +9283,9 @@ class Concepts(ConfiguredBaseModel):
                                          'unique_key_name': 'concept_key',
                                          'unique_key_slots': ['name']}}})
 
-    concept: Optional[list[ConceptType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Concepts'], 'slot_uri': 'fixr:concept'} })
+    concept: Optional[list[ConceptType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Concepts'],
+         'exact_mappings': ['fixr:concept'],
+         'slot_uri': 'fix_orchestra:concept'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8436,7 +9321,8 @@ class Concepts(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8451,14 +9337,16 @@ class Concepts(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Datatypes(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['datatypes'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:datatypes',
+         'class_uri': 'fix_orchestra:Datatypes',
+         'exact_mappings': ['fixr:datatypes'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'datatype_key': {'description': 'From XSD <xs:key '
@@ -8467,7 +9355,9 @@ class Datatypes(ConfiguredBaseModel):
                                           'unique_key_name': 'datatype_key',
                                           'unique_key_slots': ['name', 'scenario_id']}}})
 
-    datatype: Optional[list[Datatype]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Datatypes'], 'slot_uri': 'fixr:datatype'} })
+    datatype: Optional[list[Datatype]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Datatypes'],
+         'exact_mappings': ['fixr:datatype'],
+         'slot_uri': 'fix_orchestra:datatype'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8503,7 +9393,8 @@ class Datatypes(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8518,14 +9409,16 @@ class Datatypes(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Fields(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['fields'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:fields',
+         'class_uri': 'fix_orchestra:Fields',
+         'exact_mappings': ['fixr:fields'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'field_id_key': {'description': 'From XSD <xs:key '
@@ -8539,7 +9432,9 @@ class Fields(ConfiguredBaseModel):
                                             'unique_key_name': 'field_name_key',
                                             'unique_key_slots': ['name', 'scenario']}}})
 
-    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'], 'slot_uri': 'fixr:field'} })
+    field: Optional[list[FieldType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'Fields'],
+         'exact_mappings': ['fixr:field'],
+         'slot_uri': 'fix_orchestra:field'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8575,7 +9470,8 @@ class Fields(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8590,14 +9486,16 @@ class Fields(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Groups(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['groups'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:groups',
+         'class_uri': 'fix_orchestra:Groups',
+         'exact_mappings': ['fixr:groups'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'group_id_key': {'description': 'From XSD <xs:key '
@@ -8612,7 +9510,8 @@ class Groups(ConfiguredBaseModel):
                                             'unique_key_slots': ['name', 'scenario']}}})
 
     group: Optional[list[GroupType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActionType', 'ActorType', 'CodeType', 'Groups'],
-         'slot_uri': 'fixr:group'} })
+         'exact_mappings': ['fixr:group'],
+         'slot_uri': 'fix_orchestra:group'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8648,7 +9547,8 @@ class Groups(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8663,14 +9563,16 @@ class Groups(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Messages(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['messages'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:messages',
+         'class_uri': 'fix_orchestra:Messages',
+         'exact_mappings': ['fixr:messages'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'unique_keys': {'message_id_key': {'description': 'From XSD <xs:key '
@@ -8686,7 +9588,9 @@ class Messages(ConfiguredBaseModel):
                                               'unique_key_slots': ['name',
                                                                    'scenario']}}})
 
-    message: Optional[list[MessageType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Messages'], 'slot_uri': 'fixr:message'} })
+    message: Optional[list[MessageType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Messages'],
+         'exact_mappings': ['fixr:message'],
+         'slot_uri': 'fix_orchestra:message'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8722,7 +9626,8 @@ class Messages(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8737,7 +9642,8 @@ class Messages(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Repository(ConfiguredBaseModel):
@@ -8766,7 +9672,8 @@ class Repository(ConfiguredBaseModel):
                                                   'fields=[@scenarioId])'},
                          'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:repository',
+         'class_uri': 'fix_orchestra:Repository',
+         'exact_mappings': ['fixr:repository'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository'],
          'tree_root': True,
@@ -8797,29 +9704,58 @@ class Repository(ConfiguredBaseModel):
                                                'unique_key_name': 'scenario_name_key',
                                                'unique_key_slots': ['name']}}})
 
-    metadata: DctermsElementOrRefinementContainer = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository', 'Interfaces'], 'slot_uri': 'fixr:metadata'} })
-    categories: Optional[Categories] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:categories'} })
-    sections: Optional[Sections] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:sections'} })
-    datatypes: Datatypes = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:datatypes'} })
+    metadata: DctermsElementOrRefinementContainer = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository', 'Interfaces'],
+         'exact_mappings': ['fixr:metadata'],
+         'slot_uri': 'fix_orchestra:metadata'} })
+    categories: Optional[Categories] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:categories'],
+         'slot_uri': 'fix_orchestra:categories'} })
+    sections: Optional[Sections] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:sections'],
+         'slot_uri': 'fix_orchestra:sections'} })
+    datatypes: Datatypes = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:datatypes'],
+         'slot_uri': 'fix_orchestra:datatypes'} })
     code_sets: Optional[CodeSets] = Field(default=None, json_schema_extra = { "linkml_meta": {'aliases': ['codeSets'],
          'domain_of': ['Repository'],
-         'slot_uri': 'fixr:codeSets'} })
-    fields: Fields = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:fields'} })
-    actors: Optional[Actors] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:actors'} })
-    components: Optional[Components] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:components'} })
-    groups: Optional[Groups] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:groups'} })
-    messages: Messages = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:messages'} })
-    concepts: Optional[Concepts] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:concepts'} })
-    scenarios: Optional[Scenarios] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:scenarios'} })
-    guid: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:guid'} })
+         'exact_mappings': ['fixr:codeSets'],
+         'slot_uri': 'fix_orchestra:code_sets'} })
+    fields: Fields = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:fields'],
+         'slot_uri': 'fix_orchestra:fields'} })
+    actors: Optional[Actors] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:actors'],
+         'slot_uri': 'fix_orchestra:actors'} })
+    components: Optional[Components] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:components'],
+         'slot_uri': 'fix_orchestra:components'} })
+    groups: Optional[Groups] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:groups'],
+         'slot_uri': 'fix_orchestra:groups'} })
+    messages: Messages = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:messages'],
+         'slot_uri': 'fix_orchestra:messages'} })
+    concepts: Optional[Concepts] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:concepts'],
+         'slot_uri': 'fix_orchestra:concepts'} })
+    scenarios: Optional[Scenarios] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:scenarios'],
+         'slot_uri': 'fix_orchestra:scenarios'} })
+    guid: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:guid'],
+         'slot_uri': 'fix_orchestra:guid'} })
     spec_url: Optional[str] = Field(default=None, description="""Reference documentation""", json_schema_extra = { "linkml_meta": {'aliases': ['specUrl'],
          'domain_of': ['Appinfo', 'CodeSetType', 'InterfaceAppinfo', 'Repository'],
-         'slot_uri': 'fixr:specUrl'} })
-    namespace: Optional[str] = Field(default=None, description="""An associated namespace as URI""", json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'], 'slot_uri': 'fixr:namespace'} })
+         'exact_mappings': ['fixr:specUrl'],
+         'slot_uri': 'fix_orchestra:spec_url'} })
+    namespace: Optional[str] = Field(default=None, description="""An associated namespace as URI""", json_schema_extra = { "linkml_meta": {'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:namespace'],
+         'slot_uri': 'fix_orchestra:namespace'} })
     expression_language: Optional[str] = Field(default="Score", description="""The syntax of 'expressionType'""", json_schema_extra = { "linkml_meta": {'aliases': ['expressionLanguage'],
          'domain_of': ['Repository'],
+         'exact_mappings': ['fixr:expressionLanguage'],
          'ifabsent': 'string(Score)',
-         'slot_uri': 'fixr:expressionLanguage'} })
+         'slot_uri': 'fix_orchestra:expression_language'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8855,7 +9791,8 @@ class Repository(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     name: str = Field(default=..., description="""Stable name that does not change with minor version updates""", json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp',
                        'RefidGrp',
                        'ActorType',
@@ -8878,8 +9815,11 @@ class Repository(ConfiguredBaseModel):
                        'ProtocolType',
                        'Datatype',
                        'Repository'],
-         'slot_uri': 'fixr:name'} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'], 'slot_uri': 'fixr:version'} })
+         'exact_mappings': ['fixr:name'],
+         'slot_uri': 'fix_orchestra:name'} })
+    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['ProtocolType', 'Repository'],
+         'exact_mappings': ['fixr:version'],
+         'slot_uri': 'fix_orchestra:version'} })
 
 
 class Scenarios(ConfiguredBaseModel):
@@ -8889,12 +9829,14 @@ class Scenarios(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['scenarios'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:scenarios',
+         'class_uri': 'fix_orchestra:Scenarios',
+         'exact_mappings': ['fixr:scenarios'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository']})
 
     scenario: Optional[list[ScenarioType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['OidGrp', 'RefidGrp', 'Datatype', 'Scenarios'],
-         'slot_uri': 'fixr:scenario'} })
+         'exact_mappings': ['fixr:scenario'],
+         'slot_uri': 'fix_orchestra:scenario'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8930,7 +9872,8 @@ class Scenarios(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -8945,18 +9888,22 @@ class Scenarios(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Sections(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['sections'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'repository.xsd'}},
-         'class_uri': 'fixr:sections',
+         'class_uri': 'fix_orchestra:Sections',
+         'exact_mappings': ['fixr:sections'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['repository']})
 
-    section: Optional[list[SectionType]] = Field(default=None, description="""A large-grained business process category""", json_schema_extra = { "linkml_meta": {'domain_of': ['CategoryType', 'Sections'], 'slot_uri': 'fixr:section'} })
+    section: Optional[list[SectionType]] = Field(default=None, description="""A large-grained business process category""", json_schema_extra = { "linkml_meta": {'domain_of': ['CategoryType', 'Sections'],
+         'exact_mappings': ['fixr:section'],
+         'slot_uri': 'fix_orchestra:section'} })
     annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ActorType',
                        'CategoryType',
                        'CodeSetType',
@@ -8992,7 +9939,8 @@ class Sections(ConfiguredBaseModel):
                        'Repository',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:annotation'} })
+         'exact_mappings': ['fixr:annotation'],
+         'slot_uri': 'fix_orchestra:annotation'} })
     base: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['XmlSpecialAttrs',
                        'XmlGlobalAttributes',
                        'MappedDatatype',
@@ -9007,7 +9955,8 @@ class Sections(ConfiguredBaseModel):
                        'Messages',
                        'Scenarios',
                        'Sections'],
-         'slot_uri': 'fixr:base'} })
+         'exact_mappings': ['fixr:base'],
+         'slot_uri': 'fix_orchestra:base'} })
 
 
 class Interfaces(ConfiguredBaseModel):
@@ -9017,10 +9966,12 @@ class Interfaces(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['interfaces'],
          'annotations': {'xsd_source': {'tag': 'xsd_source',
                                         'value': 'interfaces.xsd'}},
-         'class_uri': 'fixi:interfaces',
+         'class_uri': 'fix_orchestra:Interfaces',
+         'exact_mappings': ['fixi:interfaces'],
          'from_schema': 'https://w3id.org/lmodel/fix-orchestra',
          'in_subset': ['interfaces'],
-         'slot_usage': {'metadata': {'name': 'metadata', 'slot_uri': 'fixi:metadata'}},
+         'slot_usage': {'metadata': {'exact_mappings': ['fixi:metadata'],
+                                     'name': 'metadata'}},
          'tree_root': True,
          'unique_keys': {'interface_key': {'description': 'From XSD <xs:key '
                                                           'name="interfaceKey"> with '
@@ -9034,8 +9985,12 @@ class Interfaces(ConfiguredBaseModel):
                                          'unique_key_name': 'session_key',
                                          'unique_key_slots': ['name']}}})
 
-    metadata: DctermsElementOrRefinementContainer = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository', 'Interfaces'], 'slot_uri': 'fixi:metadata'} })
-    interface: Optional[list[InterfaceType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Interfaces'], 'slot_uri': 'fixi:interface'} })
+    metadata: DctermsElementOrRefinementContainer = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Repository', 'Interfaces'],
+         'exact_mappings': ['fixi:metadata'],
+         'slot_uri': 'fix_orchestra:metadata'} })
+    interface: Optional[list[InterfaceType]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Interfaces'],
+         'exact_mappings': ['fixi:interface'],
+         'slot_uri': 'fix_orchestra:interface'} })
 
 
 # Model rebuild

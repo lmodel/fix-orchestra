@@ -1474,7 +1474,8 @@ def _enrich_fix_datatypes(
         out: OrderedDict = OrderedDict()
         out["description"] = " ".join(desc_parts)
         out["typeof"] = linkml_typeof
-        out["uri"] = f"fixr:{name}"
+        out["uri"] = f"fix_orchestra:{linkml_name}"
+        out["exact_mappings"] = [f"fixr:{name}"]
         out["in_subset"] = ["fix_base_types"]
         proto_scalar = _FIX_DATATYPE_TO_PROTO.get(name)
         if proto_scalar:
@@ -1676,9 +1677,19 @@ def convert(
         return "fixr"
 
     def class_uri_for(src_name: str, in_interfaces: bool) -> str:
-        return f"{src_prefix(None, in_interfaces)}:{src_name}"
+        # Use the project's own w3id namespace so the URI rendered by gen-doc
+        # resolves through https://w3id.org/lmodel/fix-orchestra/ (which
+        # redirects to the published doc site) instead of the upstream FIX
+        # targetNamespace (fixprotocol.io -> 404). The upstream identity is
+        # preserved via ``exact_mappings`` on each entity.
+        ln = pascal(iface_name(src_name)) if in_interfaces else pascal(src_name)
+        return f"fix_orchestra:{ln}"
 
     def slot_uri_for(src_name: str, in_interfaces: bool) -> str:
+        return f"fix_orchestra:{snake(src_name)}"
+
+    def fix_upstream_curie(src_name: str, in_interfaces: bool) -> str:
+        """Upstream FIX CURIE (``fixr:`` / ``fixi:``) preserved as exact_mapping."""
         return f"{src_prefix(None, in_interfaces)}:{src_name}"
 
     def unique_slot_name(existing: dict, name: str) -> str:
@@ -1742,6 +1753,7 @@ def convert(
             if el["min_occurs"] >= 1:
                 body["required"] = True
             body["slot_uri"] = slot_uri_for(xsd_name, in_interfaces)
+            body["exact_mappings"] = [fix_upstream_curie(xsd_name, in_interfaces)]
             if slot_name != xsd_name:
                 body["aliases"] = [xsd_name]
             attrs[unique_slot_name(attrs, slot_name)] = body
@@ -1764,6 +1776,7 @@ def convert(
             elif a.get("default") is not None:
                 body["ifabsent"] = f"string({a['default']})"
             body["slot_uri"] = slot_uri_for(xsd_name, in_interfaces)
+            body["exact_mappings"] = [fix_upstream_curie(xsd_name, in_interfaces)]
             if slot_name != xsd_name:
                 body["aliases"] = [xsd_name]
             attrs[unique_slot_name(attrs, slot_name)] = body
@@ -1803,6 +1816,7 @@ def convert(
             out["description"] = info["doc"]
         out["mixin"] = True
         out["class_uri"] = class_uri_for(src_name, in_interfaces=False)
+        out["exact_mappings"] = [fix_upstream_curie(src_name, in_interfaces=False)]
         if src_name != ln:
             out["aliases"] = [src_name]
         out["in_subset"] = ["repository_types"]
@@ -1826,7 +1840,8 @@ def convert(
         out: OrderedDict = OrderedDict()
         if info["doc"]:
             out["description"] = info["doc"]
-        out["enum_uri"] = f"{src_prefix(None, in_interfaces)}:{src_name}"
+        out["enum_uri"] = f"fix_orchestra:{ln}"
+        out["exact_mappings"] = [fix_upstream_curie(src_name, in_interfaces)]
         if src_name != ln:
             out["aliases"] = [src_name]
         out["in_subset"] = ["interfaces" if in_interfaces else "repository_types"]
@@ -1868,7 +1883,8 @@ def convert(
         if descs:
             out["description"] = " | ".join(descs)
         out["typeof"] = base_range
-        out["uri"] = f"{src_prefix(None, in_interfaces)}:{src_name}"
+        out["uri"] = f"fix_orchestra:{ln}"
+        out["exact_mappings"] = [fix_upstream_curie(src_name, in_interfaces)]
         if src_name != ln:
             out["aliases"] = [src_name]
         out["in_subset"] = ["interfaces" if in_interfaces else "repository_types"]
@@ -1968,6 +1984,7 @@ def convert(
         if mixins:
             out["mixins"] = mixins
         out["class_uri"] = class_uri_for(src_name, in_interfaces=in_interfaces)
+        out["exact_mappings"] = [fix_upstream_curie(src_name, in_interfaces)]
         if src_name != ln:
             out["aliases"] = [src_name]
         out["in_subset"] = [
@@ -2057,6 +2074,7 @@ def convert(
             if tree_root:
                 out["tree_root"] = True
             out["class_uri"] = class_uri_for(src_name, in_interfaces=in_interfaces)
+            out["exact_mappings"] = [fix_upstream_curie(src_name, in_interfaces)]
             if src_name != ln:
                 out["aliases"] = [src_name]
             out["in_subset"] = [

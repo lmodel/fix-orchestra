@@ -83,6 +83,7 @@
 --     * Slot: updated_ep
 --     * Slot: deprecated
 --     * Slot: Annotation_id Description: Autocreated FK slot
+--     * Slot: fixml_encoding_id Description: FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType> payloads embedded in <fixr:appinfo purpose="FIXML">.
 -- # Class: BlockAssignmentType
 --     * Slot: id
 --     * Slot: ComponentRefType_uid Description: Autocreated FK slot
@@ -792,6 +793,10 @@
 -- # Class: Interfaces Description: This represents the current state of service and session configurations. Changes to configuration can represented with patch operations. See IETF RFC 5261
 --     * Slot: id
 --     * Slot: metadata_id
+-- # Class: FIXMLencodingType Description: FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.
+--     * Slot: id
+--     * Slot: inlined Description: If true, a component is inlined in a containing message or component
+--     * Slot: not_req_xml Description: If true, an element is ignored by FIXML generator
 -- # Class: DcSimpleLiteral Description: This is the default type for all of the DC elements. It permits text content only with optional xml:lang attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child elements.
 --     * Slot: id
 --     * Slot: value Description: Mixed text content of the element.
@@ -1280,7 +1285,7 @@
 --     * Slot: lang
 --     * Slot: space
 --     * Slot: id
--- # Class: XmlGlobalAttributes Description: Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
+-- # Class: XmlGlobalAttributes Description: Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
 --     * Slot: uid
 --     * Slot: lang Description: lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string.
 --     * Slot: space Description: space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification.
@@ -1968,6 +1973,14 @@ CREATE TABLE "SessionsInline" (
 	PRIMARY KEY (id)
 );
 CREATE INDEX "ix_SessionsInline_id" ON "SessionsInline" (id);
+
+CREATE TABLE "FIXMLencodingType" (
+	id INTEGER NOT NULL,
+	inlined BOOLEAN,
+	not_req_xml BOOLEAN,
+	PRIMARY KEY (id)
+);
+CREATE INDEX "ix_FIXMLencodingType_id" ON "FIXMLencodingType" (id);
 
 CREATE TABLE "DcSimpleLiteral" (
 	id INTEGER NOT NULL,
@@ -2871,8 +2884,10 @@ CREATE TABLE "Appinfo" (
 	updated_ep TEXT,
 	deprecated TEXT,
 	"Annotation_id" INTEGER,
+	fixml_encoding_id INTEGER,
 	PRIMARY KEY (id),
-	FOREIGN KEY("Annotation_id") REFERENCES "Annotation" (id)
+	FOREIGN KEY("Annotation_id") REFERENCES "Annotation" (id),
+	FOREIGN KEY(fixml_encoding_id) REFERENCES "FIXMLencodingType" (id)
 );
 CREATE INDEX "ix_Appinfo_id" ON "Appinfo" (id);
 
@@ -3118,8 +3133,8 @@ CREATE TABLE "ExtensionInline_content" (
 	PRIMARY KEY ("ExtensionInline_id", content),
 	FOREIGN KEY("ExtensionInline_id") REFERENCES "ExtensionInline" (id)
 );
-CREATE INDEX "ix_ExtensionInline_content_ExtensionInline_id" ON "ExtensionInline_content" ("ExtensionInline_id");
 CREATE INDEX "ix_ExtensionInline_content_content" ON "ExtensionInline_content" (content);
+CREATE INDEX "ix_ExtensionInline_content_ExtensionInline_id" ON "ExtensionInline_content" ("ExtensionInline_id");
 
 CREATE TABLE "DcSimpleLiteral_content" (
 	"DcSimpleLiteral_id" INTEGER,
@@ -3190,8 +3205,8 @@ CREATE TABLE "DcContributor_content" (
 	PRIMARY KEY ("DcContributor_id", content),
 	FOREIGN KEY("DcContributor_id") REFERENCES "DcContributor" (id)
 );
-CREATE INDEX "ix_DcContributor_content_DcContributor_id" ON "DcContributor_content" ("DcContributor_id");
 CREATE INDEX "ix_DcContributor_content_content" ON "DcContributor_content" (content);
+CREATE INDEX "ix_DcContributor_content_DcContributor_id" ON "DcContributor_content" ("DcContributor_id");
 
 CREATE TABLE "DcDate_content" (
 	"DcDate_id" INTEGER,
@@ -3217,8 +3232,8 @@ CREATE TABLE "DcFormat_content" (
 	PRIMARY KEY ("DcFormat_id", content),
 	FOREIGN KEY("DcFormat_id") REFERENCES "DcFormat" (id)
 );
-CREATE INDEX "ix_DcFormat_content_DcFormat_id" ON "DcFormat_content" ("DcFormat_id");
 CREATE INDEX "ix_DcFormat_content_content" ON "DcFormat_content" (content);
+CREATE INDEX "ix_DcFormat_content_DcFormat_id" ON "DcFormat_content" ("DcFormat_id");
 
 CREATE TABLE "DcIdentifier_content" (
 	"DcIdentifier_id" INTEGER,
@@ -3235,8 +3250,8 @@ CREATE TABLE "DcSource_content" (
 	PRIMARY KEY ("DcSource_id", content),
 	FOREIGN KEY("DcSource_id") REFERENCES "DcSource" (id)
 );
-CREATE INDEX "ix_DcSource_content_DcSource_id" ON "DcSource_content" ("DcSource_id");
 CREATE INDEX "ix_DcSource_content_content" ON "DcSource_content" (content);
+CREATE INDEX "ix_DcSource_content_DcSource_id" ON "DcSource_content" ("DcSource_id");
 
 CREATE TABLE "DcLanguage_content" (
 	"DcLanguage_id" INTEGER,
@@ -3262,8 +3277,8 @@ CREATE TABLE "DcCoverage_content" (
 	PRIMARY KEY ("DcCoverage_id", content),
 	FOREIGN KEY("DcCoverage_id") REFERENCES "DcCoverage" (id)
 );
-CREATE INDEX "ix_DcCoverage_content_content" ON "DcCoverage_content" (content);
 CREATE INDEX "ix_DcCoverage_content_DcCoverage_id" ON "DcCoverage_content" ("DcCoverage_id");
+CREATE INDEX "ix_DcCoverage_content_content" ON "DcCoverage_content" (content);
 
 CREATE TABLE "DcRights_content" (
 	"DcRights_id" INTEGER,
@@ -3298,8 +3313,8 @@ CREATE TABLE "DctermsDDC_content" (
 	PRIMARY KEY ("DctermsDDC_id", content),
 	FOREIGN KEY("DctermsDDC_id") REFERENCES "DctermsDDC" (id)
 );
-CREATE INDEX "ix_DctermsDDC_content_content" ON "DctermsDDC_content" (content);
 CREATE INDEX "ix_DctermsDDC_content_DctermsDDC_id" ON "DctermsDDC_content" ("DctermsDDC_id");
+CREATE INDEX "ix_DctermsDDC_content_content" ON "DctermsDDC_content" (content);
 
 CREATE TABLE "DctermsLCC_content" (
 	"DctermsLCC_id" INTEGER,
@@ -3325,8 +3340,8 @@ CREATE TABLE "DctermsPeriod_content" (
 	PRIMARY KEY ("DctermsPeriod_id", content),
 	FOREIGN KEY("DctermsPeriod_id") REFERENCES "DctermsPeriod" (id)
 );
-CREATE INDEX "ix_DctermsPeriod_content_DctermsPeriod_id" ON "DctermsPeriod_content" ("DctermsPeriod_id");
 CREATE INDEX "ix_DctermsPeriod_content_content" ON "DctermsPeriod_content" (content);
+CREATE INDEX "ix_DctermsPeriod_content_DctermsPeriod_id" ON "DctermsPeriod_content" ("DctermsPeriod_id");
 
 CREATE TABLE "DctermsW3CDTF_content" (
 	"DctermsW3CDTF_id" INTEGER,
@@ -3370,8 +3385,8 @@ CREATE TABLE "DctermsISO6392_content" (
 	PRIMARY KEY ("DctermsISO6392_id", content),
 	FOREIGN KEY("DctermsISO6392_id") REFERENCES "DctermsISO6392" (id)
 );
-CREATE INDEX "ix_DctermsISO6392_content_content" ON "DctermsISO6392_content" (content);
 CREATE INDEX "ix_DctermsISO6392_content_DctermsISO6392_id" ON "DctermsISO6392_content" ("DctermsISO6392_id");
+CREATE INDEX "ix_DctermsISO6392_content_content" ON "DctermsISO6392_content" (content);
 
 CREATE TABLE "DctermsISO6393_content" (
 	"DctermsISO6393_id" INTEGER,
@@ -3397,8 +3412,8 @@ CREATE TABLE "DctermsRFC3066_content" (
 	PRIMARY KEY ("DctermsRFC3066_id", content),
 	FOREIGN KEY("DctermsRFC3066_id") REFERENCES "DctermsRFC3066" (id)
 );
-CREATE INDEX "ix_DctermsRFC3066_content_DctermsRFC3066_id" ON "DctermsRFC3066_content" ("DctermsRFC3066_id");
 CREATE INDEX "ix_DctermsRFC3066_content_content" ON "DctermsRFC3066_content" (content);
+CREATE INDEX "ix_DctermsRFC3066_content_DctermsRFC3066_id" ON "DctermsRFC3066_content" ("DctermsRFC3066_id");
 
 CREATE TABLE "DctermsRFC4646_content" (
 	"DctermsRFC4646_id" INTEGER,
@@ -3406,8 +3421,8 @@ CREATE TABLE "DctermsRFC4646_content" (
 	PRIMARY KEY ("DctermsRFC4646_id", content),
 	FOREIGN KEY("DctermsRFC4646_id") REFERENCES "DctermsRFC4646" (id)
 );
-CREATE INDEX "ix_DctermsRFC4646_content_content" ON "DctermsRFC4646_content" (content);
 CREATE INDEX "ix_DctermsRFC4646_content_DctermsRFC4646_id" ON "DctermsRFC4646_content" ("DctermsRFC4646_id");
+CREATE INDEX "ix_DctermsRFC4646_content_content" ON "DctermsRFC4646_content" (content);
 
 CREATE TABLE "DctermsPoint_content" (
 	"DctermsPoint_id" INTEGER,
@@ -3415,8 +3430,8 @@ CREATE TABLE "DctermsPoint_content" (
 	PRIMARY KEY ("DctermsPoint_id", content),
 	FOREIGN KEY("DctermsPoint_id") REFERENCES "DctermsPoint" (id)
 );
-CREATE INDEX "ix_DctermsPoint_content_content" ON "DctermsPoint_content" (content);
 CREATE INDEX "ix_DctermsPoint_content_DctermsPoint_id" ON "DctermsPoint_content" ("DctermsPoint_id");
+CREATE INDEX "ix_DctermsPoint_content_content" ON "DctermsPoint_content" (content);
 
 CREATE TABLE "DctermsISO3166_content" (
 	"DctermsISO3166_id" INTEGER,
@@ -3433,8 +3448,8 @@ CREATE TABLE "DctermsBox_content" (
 	PRIMARY KEY ("DctermsBox_id", content),
 	FOREIGN KEY("DctermsBox_id") REFERENCES "DctermsBox" (id)
 );
-CREATE INDEX "ix_DctermsBox_content_DctermsBox_id" ON "DctermsBox_content" ("DctermsBox_id");
 CREATE INDEX "ix_DctermsBox_content_content" ON "DctermsBox_content" (content);
+CREATE INDEX "ix_DctermsBox_content_DctermsBox_id" ON "DctermsBox_content" ("DctermsBox_id");
 
 CREATE TABLE "DctermsTGN_content" (
 	"DctermsTGN_id" INTEGER,
@@ -3442,8 +3457,8 @@ CREATE TABLE "DctermsTGN_content" (
 	PRIMARY KEY ("DctermsTGN_id", content),
 	FOREIGN KEY("DctermsTGN_id") REFERENCES "DctermsTGN" (id)
 );
-CREATE INDEX "ix_DctermsTGN_content_DctermsTGN_id" ON "DctermsTGN_content" ("DctermsTGN_id");
 CREATE INDEX "ix_DctermsTGN_content_content" ON "DctermsTGN_content" (content);
+CREATE INDEX "ix_DctermsTGN_content_DctermsTGN_id" ON "DctermsTGN_content" ("DctermsTGN_id");
 
 CREATE TABLE "DctermsTitle_content" (
 	"DctermsTitle_id" INTEGER,
@@ -3460,8 +3475,8 @@ CREATE TABLE "DctermsCreator_content" (
 	PRIMARY KEY ("DctermsCreator_id", content),
 	FOREIGN KEY("DctermsCreator_id") REFERENCES "DctermsCreator" (id)
 );
-CREATE INDEX "ix_DctermsCreator_content_content" ON "DctermsCreator_content" (content);
 CREATE INDEX "ix_DctermsCreator_content_DctermsCreator_id" ON "DctermsCreator_content" ("DctermsCreator_id");
+CREATE INDEX "ix_DctermsCreator_content_content" ON "DctermsCreator_content" (content);
 
 CREATE TABLE "DctermsSubject_content" (
 	"DctermsSubject_id" INTEGER,
@@ -3478,8 +3493,8 @@ CREATE TABLE "DctermsDescription_content" (
 	PRIMARY KEY ("DctermsDescription_id", content),
 	FOREIGN KEY("DctermsDescription_id") REFERENCES "DctermsDescription" (id)
 );
-CREATE INDEX "ix_DctermsDescription_content_DctermsDescription_id" ON "DctermsDescription_content" ("DctermsDescription_id");
 CREATE INDEX "ix_DctermsDescription_content_content" ON "DctermsDescription_content" (content);
+CREATE INDEX "ix_DctermsDescription_content_DctermsDescription_id" ON "DctermsDescription_content" ("DctermsDescription_id");
 
 CREATE TABLE "DctermsPublisher_content" (
 	"DctermsPublisher_id" INTEGER,
@@ -3487,8 +3502,8 @@ CREATE TABLE "DctermsPublisher_content" (
 	PRIMARY KEY ("DctermsPublisher_id", content),
 	FOREIGN KEY("DctermsPublisher_id") REFERENCES "DctermsPublisher" (id)
 );
-CREATE INDEX "ix_DctermsPublisher_content_DctermsPublisher_id" ON "DctermsPublisher_content" ("DctermsPublisher_id");
 CREATE INDEX "ix_DctermsPublisher_content_content" ON "DctermsPublisher_content" (content);
+CREATE INDEX "ix_DctermsPublisher_content_DctermsPublisher_id" ON "DctermsPublisher_content" ("DctermsPublisher_id");
 
 CREATE TABLE "DctermsContributor_content" (
 	"DctermsContributor_id" INTEGER,
@@ -3505,8 +3520,8 @@ CREATE TABLE "DctermsDate_content" (
 	PRIMARY KEY ("DctermsDate_id", content),
 	FOREIGN KEY("DctermsDate_id") REFERENCES "DctermsDate" (id)
 );
-CREATE INDEX "ix_DctermsDate_content_DctermsDate_id" ON "DctermsDate_content" ("DctermsDate_id");
 CREATE INDEX "ix_DctermsDate_content_content" ON "DctermsDate_content" (content);
+CREATE INDEX "ix_DctermsDate_content_DctermsDate_id" ON "DctermsDate_content" ("DctermsDate_id");
 
 CREATE TABLE "DctermsType_content" (
 	"DctermsType_id" INTEGER,
@@ -3541,8 +3556,8 @@ CREATE TABLE "DctermsSource_content" (
 	PRIMARY KEY ("DctermsSource_id", content),
 	FOREIGN KEY("DctermsSource_id") REFERENCES "DctermsSource" (id)
 );
-CREATE INDEX "ix_DctermsSource_content_DctermsSource_id" ON "DctermsSource_content" ("DctermsSource_id");
 CREATE INDEX "ix_DctermsSource_content_content" ON "DctermsSource_content" (content);
+CREATE INDEX "ix_DctermsSource_content_DctermsSource_id" ON "DctermsSource_content" ("DctermsSource_id");
 
 CREATE TABLE "DctermsLanguage_content" (
 	"DctermsLanguage_id" INTEGER,
@@ -3577,8 +3592,8 @@ CREATE TABLE "DctermsRights_content" (
 	PRIMARY KEY ("DctermsRights_id", content),
 	FOREIGN KEY("DctermsRights_id") REFERENCES "DctermsRights" (id)
 );
-CREATE INDEX "ix_DctermsRights_content_DctermsRights_id" ON "DctermsRights_content" ("DctermsRights_id");
 CREATE INDEX "ix_DctermsRights_content_content" ON "DctermsRights_content" (content);
+CREATE INDEX "ix_DctermsRights_content_DctermsRights_id" ON "DctermsRights_content" ("DctermsRights_id");
 
 CREATE TABLE "DctermsAlternative_content" (
 	"DctermsAlternative_id" INTEGER,
@@ -3595,8 +3610,8 @@ CREATE TABLE "DctermsTableOfContents_content" (
 	PRIMARY KEY ("DctermsTableOfContents_id", content),
 	FOREIGN KEY("DctermsTableOfContents_id") REFERENCES "DctermsTableOfContents" (id)
 );
-CREATE INDEX "ix_DctermsTableOfContents_content_DctermsTableOfContents_id" ON "DctermsTableOfContents_content" ("DctermsTableOfContents_id");
 CREATE INDEX "ix_DctermsTableOfContents_content_content" ON "DctermsTableOfContents_content" (content);
+CREATE INDEX "ix_DctermsTableOfContents_content_DctermsTableOfContents_id" ON "DctermsTableOfContents_content" ("DctermsTableOfContents_id");
 
 CREATE TABLE "DctermsAbstract_content" (
 	"DctermsAbstract_id" INTEGER,
@@ -3631,8 +3646,8 @@ CREATE TABLE "DctermsAvailable_content" (
 	PRIMARY KEY ("DctermsAvailable_id", content),
 	FOREIGN KEY("DctermsAvailable_id") REFERENCES "DctermsAvailable" (id)
 );
-CREATE INDEX "ix_DctermsAvailable_content_DctermsAvailable_id" ON "DctermsAvailable_content" ("DctermsAvailable_id");
 CREATE INDEX "ix_DctermsAvailable_content_content" ON "DctermsAvailable_content" (content);
+CREATE INDEX "ix_DctermsAvailable_content_DctermsAvailable_id" ON "DctermsAvailable_content" ("DctermsAvailable_id");
 
 CREATE TABLE "DctermsIssued_content" (
 	"DctermsIssued_id" INTEGER,
@@ -3667,8 +3682,8 @@ CREATE TABLE "DctermsDateCopyrighted_content" (
 	PRIMARY KEY ("DctermsDateCopyrighted_id", content),
 	FOREIGN KEY("DctermsDateCopyrighted_id") REFERENCES "DctermsDateCopyrighted" (id)
 );
-CREATE INDEX "ix_DctermsDateCopyrighted_content_DctermsDateCopyrighted_id" ON "DctermsDateCopyrighted_content" ("DctermsDateCopyrighted_id");
 CREATE INDEX "ix_DctermsDateCopyrighted_content_content" ON "DctermsDateCopyrighted_content" (content);
+CREATE INDEX "ix_DctermsDateCopyrighted_content_DctermsDateCopyrighted_id" ON "DctermsDateCopyrighted_content" ("DctermsDateCopyrighted_id");
 
 CREATE TABLE "DctermsDateSubmitted_content" (
 	"DctermsDateSubmitted_id" INTEGER,
@@ -3703,8 +3718,8 @@ CREATE TABLE "DctermsIsVersionOf_content" (
 	PRIMARY KEY ("DctermsIsVersionOf_id", content),
 	FOREIGN KEY("DctermsIsVersionOf_id") REFERENCES "DctermsIsVersionOf" (id)
 );
-CREATE INDEX "ix_DctermsIsVersionOf_content_DctermsIsVersionOf_id" ON "DctermsIsVersionOf_content" ("DctermsIsVersionOf_id");
 CREATE INDEX "ix_DctermsIsVersionOf_content_content" ON "DctermsIsVersionOf_content" (content);
+CREATE INDEX "ix_DctermsIsVersionOf_content_DctermsIsVersionOf_id" ON "DctermsIsVersionOf_content" ("DctermsIsVersionOf_id");
 
 CREATE TABLE "DctermsHasVersion_content" (
 	"DctermsHasVersion_id" INTEGER,
@@ -3739,8 +3754,8 @@ CREATE TABLE "DctermsIsRequiredBy_content" (
 	PRIMARY KEY ("DctermsIsRequiredBy_id", content),
 	FOREIGN KEY("DctermsIsRequiredBy_id") REFERENCES "DctermsIsRequiredBy" (id)
 );
-CREATE INDEX "ix_DctermsIsRequiredBy_content_DctermsIsRequiredBy_id" ON "DctermsIsRequiredBy_content" ("DctermsIsRequiredBy_id");
 CREATE INDEX "ix_DctermsIsRequiredBy_content_content" ON "DctermsIsRequiredBy_content" (content);
+CREATE INDEX "ix_DctermsIsRequiredBy_content_DctermsIsRequiredBy_id" ON "DctermsIsRequiredBy_content" ("DctermsIsRequiredBy_id");
 
 CREATE TABLE "DctermsRequires_content" (
 	"DctermsRequires_id" INTEGER,
@@ -3775,8 +3790,8 @@ CREATE TABLE "DctermsIsReferencedBy_content" (
 	PRIMARY KEY ("DctermsIsReferencedBy_id", content),
 	FOREIGN KEY("DctermsIsReferencedBy_id") REFERENCES "DctermsIsReferencedBy" (id)
 );
-CREATE INDEX "ix_DctermsIsReferencedBy_content_DctermsIsReferencedBy_id" ON "DctermsIsReferencedBy_content" ("DctermsIsReferencedBy_id");
 CREATE INDEX "ix_DctermsIsReferencedBy_content_content" ON "DctermsIsReferencedBy_content" (content);
+CREATE INDEX "ix_DctermsIsReferencedBy_content_DctermsIsReferencedBy_id" ON "DctermsIsReferencedBy_content" ("DctermsIsReferencedBy_id");
 
 CREATE TABLE "DctermsReferences_content" (
 	"DctermsReferences_id" INTEGER,
@@ -3811,8 +3826,8 @@ CREATE TABLE "DctermsConformsTo_content" (
 	PRIMARY KEY ("DctermsConformsTo_id", content),
 	FOREIGN KEY("DctermsConformsTo_id") REFERENCES "DctermsConformsTo" (id)
 );
-CREATE INDEX "ix_DctermsConformsTo_content_DctermsConformsTo_id" ON "DctermsConformsTo_content" ("DctermsConformsTo_id");
 CREATE INDEX "ix_DctermsConformsTo_content_content" ON "DctermsConformsTo_content" (content);
+CREATE INDEX "ix_DctermsConformsTo_content_DctermsConformsTo_id" ON "DctermsConformsTo_content" ("DctermsConformsTo_id");
 
 CREATE TABLE "DctermsSpatial_content" (
 	"DctermsSpatial_id" INTEGER,
@@ -3847,8 +3862,8 @@ CREATE TABLE "DctermsAccrualMethod_content" (
 	PRIMARY KEY ("DctermsAccrualMethod_id", content),
 	FOREIGN KEY("DctermsAccrualMethod_id") REFERENCES "DctermsAccrualMethod" (id)
 );
-CREATE INDEX "ix_DctermsAccrualMethod_content_DctermsAccrualMethod_id" ON "DctermsAccrualMethod_content" ("DctermsAccrualMethod_id");
 CREATE INDEX "ix_DctermsAccrualMethod_content_content" ON "DctermsAccrualMethod_content" (content);
+CREATE INDEX "ix_DctermsAccrualMethod_content_DctermsAccrualMethod_id" ON "DctermsAccrualMethod_content" ("DctermsAccrualMethod_id");
 
 CREATE TABLE "DctermsAccrualPeriodicity_content" (
 	"DctermsAccrualPeriodicity_id" INTEGER,
@@ -3883,8 +3898,8 @@ CREATE TABLE "DctermsProvenance_content" (
 	PRIMARY KEY ("DctermsProvenance_id", content),
 	FOREIGN KEY("DctermsProvenance_id") REFERENCES "DctermsProvenance" (id)
 );
-CREATE INDEX "ix_DctermsProvenance_content_DctermsProvenance_id" ON "DctermsProvenance_content" ("DctermsProvenance_id");
 CREATE INDEX "ix_DctermsProvenance_content_content" ON "DctermsProvenance_content" (content);
+CREATE INDEX "ix_DctermsProvenance_content_DctermsProvenance_id" ON "DctermsProvenance_content" ("DctermsProvenance_id");
 
 CREATE TABLE "DctermsRightsHolder_content" (
 	"DctermsRightsHolder_id" INTEGER,
@@ -3919,8 +3934,8 @@ CREATE TABLE "DctermsAccessRights_content" (
 	PRIMARY KEY ("DctermsAccessRights_id", content),
 	FOREIGN KEY("DctermsAccessRights_id") REFERENCES "DctermsAccessRights" (id)
 );
-CREATE INDEX "ix_DctermsAccessRights_content_DctermsAccessRights_id" ON "DctermsAccessRights_content" ("DctermsAccessRights_id");
 CREATE INDEX "ix_DctermsAccessRights_content_content" ON "DctermsAccessRights_content" (content);
+CREATE INDEX "ix_DctermsAccessRights_content_DctermsAccessRights_id" ON "DctermsAccessRights_content" ("DctermsAccessRights_id");
 
 CREATE TABLE "DctermsLicense_content" (
 	"DctermsLicense_id" INTEGER,
@@ -4244,8 +4259,8 @@ CREATE TABLE "Appinfo_content" (
 	PRIMARY KEY ("Appinfo_id", content),
 	FOREIGN KEY("Appinfo_id") REFERENCES "Appinfo" (id)
 );
-CREATE INDEX "ix_Appinfo_content_content" ON "Appinfo_content" (content);
 CREATE INDEX "ix_Appinfo_content_Appinfo_id" ON "Appinfo_content" ("Appinfo_id");
+CREATE INDEX "ix_Appinfo_content_content" ON "Appinfo_content" (content);
 
 CREATE TABLE "Appinfo_extra_attributes" (
 	"Appinfo_id" INTEGER,
@@ -4262,8 +4277,8 @@ CREATE TABLE "Documentation_content" (
 	PRIMARY KEY ("Documentation_id", content),
 	FOREIGN KEY("Documentation_id") REFERENCES "Documentation" (id)
 );
-CREATE INDEX "ix_Documentation_content_content" ON "Documentation_content" (content);
 CREATE INDEX "ix_Documentation_content_Documentation_id" ON "Documentation_content" ("Documentation_id");
+CREATE INDEX "ix_Documentation_content_content" ON "Documentation_content" (content);
 
 CREATE TABLE "ResponseType_assign" (
 	"ResponseType_id" INTEGER,
@@ -4271,8 +4286,8 @@ CREATE TABLE "ResponseType_assign" (
 	PRIMARY KEY ("ResponseType_id", assign),
 	FOREIGN KEY("ResponseType_id") REFERENCES "ResponseType" (id)
 );
-CREATE INDEX "ix_ResponseType_assign_ResponseType_id" ON "ResponseType_assign" ("ResponseType_id");
 CREATE INDEX "ix_ResponseType_assign_assign" ON "ResponseType_assign" (assign);
+CREATE INDEX "ix_ResponseType_assign_ResponseType_id" ON "ResponseType_assign" ("ResponseType_id");
 
 CREATE TABLE "InterfaceAppinfo_content" (
 	"InterfaceAppinfo_id" INTEGER,
@@ -4280,8 +4295,8 @@ CREATE TABLE "InterfaceAppinfo_content" (
 	PRIMARY KEY ("InterfaceAppinfo_id", content),
 	FOREIGN KEY("InterfaceAppinfo_id") REFERENCES "InterfaceAppinfo" (id)
 );
-CREATE INDEX "ix_InterfaceAppinfo_content_content" ON "InterfaceAppinfo_content" (content);
 CREATE INDEX "ix_InterfaceAppinfo_content_InterfaceAppinfo_id" ON "InterfaceAppinfo_content" ("InterfaceAppinfo_id");
+CREATE INDEX "ix_InterfaceAppinfo_content_content" ON "InterfaceAppinfo_content" (content);
 
 CREATE TABLE "InterfaceAppinfo_extra_attributes" (
 	"InterfaceAppinfo_id" INTEGER,
@@ -4289,8 +4304,8 @@ CREATE TABLE "InterfaceAppinfo_extra_attributes" (
 	PRIMARY KEY ("InterfaceAppinfo_id", extra_attributes),
 	FOREIGN KEY("InterfaceAppinfo_id") REFERENCES "InterfaceAppinfo" (id)
 );
-CREATE INDEX "ix_InterfaceAppinfo_extra_attributes_extra_attributes" ON "InterfaceAppinfo_extra_attributes" (extra_attributes);
 CREATE INDEX "ix_InterfaceAppinfo_extra_attributes_InterfaceAppinfo_id" ON "InterfaceAppinfo_extra_attributes" ("InterfaceAppinfo_id");
+CREATE INDEX "ix_InterfaceAppinfo_extra_attributes_extra_attributes" ON "InterfaceAppinfo_extra_attributes" (extra_attributes);
 
 CREATE TABLE "BaseInterfaceType_extra_attributes" (
 	"BaseInterfaceType_id" INTEGER,
@@ -4307,8 +4322,8 @@ CREATE TABLE "InterfaceDocumentation_content" (
 	PRIMARY KEY ("InterfaceDocumentation_id", content),
 	FOREIGN KEY("InterfaceDocumentation_id") REFERENCES "InterfaceDocumentation" (id)
 );
-CREATE INDEX "ix_InterfaceDocumentation_content_InterfaceDocumentation_id" ON "InterfaceDocumentation_content" ("InterfaceDocumentation_id");
 CREATE INDEX "ix_InterfaceDocumentation_content_content" ON "InterfaceDocumentation_content" (content);
+CREATE INDEX "ix_InterfaceDocumentation_content_InterfaceDocumentation_id" ON "InterfaceDocumentation_content" ("InterfaceDocumentation_id");
 
 CREATE TABLE "SessionType_extra_attributes" (
 	"SessionType_id" INTEGER,
@@ -4316,8 +4331,8 @@ CREATE TABLE "SessionType_extra_attributes" (
 	PRIMARY KEY ("SessionType_id", extra_attributes),
 	FOREIGN KEY("SessionType_id") REFERENCES "SessionType" (id)
 );
-CREATE INDEX "ix_SessionType_extra_attributes_SessionType_id" ON "SessionType_extra_attributes" ("SessionType_id");
 CREATE INDEX "ix_SessionType_extra_attributes_extra_attributes" ON "SessionType_extra_attributes" (extra_attributes);
+CREATE INDEX "ix_SessionType_extra_attributes_SessionType_id" ON "SessionType_extra_attributes" ("SessionType_id");
 
 CREATE TABLE "CodeType" (
 	uid INTEGER NOT NULL,
@@ -4633,8 +4648,8 @@ CREATE TABLE "InterfaceType_extra_attributes" (
 	PRIMARY KEY ("InterfaceType_id", extra_attributes),
 	FOREIGN KEY("InterfaceType_id") REFERENCES "InterfaceType" (id)
 );
-CREATE INDEX "ix_InterfaceType_extra_attributes_extra_attributes" ON "InterfaceType_extra_attributes" (extra_attributes);
 CREATE INDEX "ix_InterfaceType_extra_attributes_InterfaceType_id" ON "InterfaceType_extra_attributes" ("InterfaceType_id");
+CREATE INDEX "ix_InterfaceType_extra_attributes_extra_attributes" ON "InterfaceType_extra_attributes" (extra_attributes);
 
 CREATE TABLE "FieldRuleType" (
 	id INTEGER NOT NULL,
@@ -4684,8 +4699,8 @@ CREATE TABLE "ServiceType_extra_attributes" (
 	PRIMARY KEY ("ServiceType_id", extra_attributes),
 	FOREIGN KEY("ServiceType_id") REFERENCES "ServiceType" (id)
 );
-CREATE INDEX "ix_ServiceType_extra_attributes_extra_attributes" ON "ServiceType_extra_attributes" (extra_attributes);
 CREATE INDEX "ix_ServiceType_extra_attributes_ServiceType_id" ON "ServiceType_extra_attributes" ("ServiceType_id");
+CREATE INDEX "ix_ServiceType_extra_attributes_extra_attributes" ON "ServiceType_extra_attributes" (extra_attributes);
 
 CREATE TABLE "SessionProtocolType_extra_attributes" (
 	"SessionProtocolType_id" INTEGER,
@@ -4693,8 +4708,8 @@ CREATE TABLE "SessionProtocolType_extra_attributes" (
 	PRIMARY KEY ("SessionProtocolType_id", extra_attributes),
 	FOREIGN KEY("SessionProtocolType_id") REFERENCES "SessionProtocolType" (id)
 );
-CREATE INDEX "ix_SessionProtocolType_extra_attributes_extra_attributes" ON "SessionProtocolType_extra_attributes" (extra_attributes);
 CREATE INDEX "ix_SessionProtocolType_extra_attributes_SessionProtocolType_id" ON "SessionProtocolType_extra_attributes" ("SessionProtocolType_id");
+CREATE INDEX "ix_SessionProtocolType_extra_attributes_extra_attributes" ON "SessionProtocolType_extra_attributes" (extra_attributes);
 
 CREATE TABLE "TransportProtocolType_extra_attributes" (
 	"TransportProtocolType_id" INTEGER,
@@ -4711,8 +4726,8 @@ CREATE TABLE "UserInterfaceType_extra_attributes" (
 	PRIMARY KEY ("UserInterfaceType_id", extra_attributes),
 	FOREIGN KEY("UserInterfaceType_id") REFERENCES "UserInterfaceType" (id)
 );
-CREATE INDEX "ix_UserInterfaceType_extra_attributes_extra_attributes" ON "UserInterfaceType_extra_attributes" (extra_attributes);
 CREATE INDEX "ix_UserInterfaceType_extra_attributes_UserInterfaceType_id" ON "UserInterfaceType_extra_attributes" ("UserInterfaceType_id");
+CREATE INDEX "ix_UserInterfaceType_extra_attributes_extra_attributes" ON "UserInterfaceType_extra_attributes" (extra_attributes);
 
 CREATE TABLE "FieldRuleType_assign" (
 	"FieldRuleType_id" INTEGER,

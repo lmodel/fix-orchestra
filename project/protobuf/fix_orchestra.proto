@@ -62,6 +62,7 @@ message Appinfo
   string value = 0
  repeated  string content = 0
  repeated  string extraAttributes = 0
+  fIXMLencodingType fixmlEncoding = 0
   language langId = 0
   purpose purpose = 0
   version added = 0
@@ -1078,6 +1079,12 @@ message FieldType
   string rendering = 0
   string encoding = 0
  }
+// FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.
+message FIXMLencodingType
+ {
+  boolean inlined = 0
+  boolean notReqXml = 0
+ }
 // A stream of messages in one direction
 message FlowType
  {
@@ -1495,7 +1502,7 @@ message UserInterfaceType
   datetime deprecated = 0
   interfaceReliability reliability = 0
  }
-// Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
+// Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
 message XmlGlobalAttributes
  {
   xmlLangType lang = 0

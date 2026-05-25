@@ -54,17 +54,14 @@ prefixes:
   dc:
     prefix_prefix: dc
     prefix_reference: http://purl.org/dc/elements/1.1/
-  dct:
-    prefix_prefix: dct
-    prefix_reference: http://purl.org/dc/terms/
   dcterms:
     prefix_prefix: dcterms
     prefix_reference: http://purl.org/dc/terms/
-  dcmitype:
-    prefix_prefix: dcmitype
+  dctypes:
+    prefix_prefix: dctypes
     prefix_reference: http://purl.org/dc/dcmitype/
-  xml:
-    prefix_prefix: xml
+  XML:
+    prefix_prefix: XML
     prefix_reference: http://www.w3.org/XML/1998/namespace#
   fixr:
     prefix_prefix: fixr
@@ -72,6 +69,9 @@ prefixes:
   fixi:
     prefix_prefix: fixi
     prefix_reference: http://fixprotocol.io/2024/orchestra/interfaces/
+  fixml:
+    prefix_prefix: fixml
+    prefix_reference: http://fixprotocol.io/2022/orchestra/appinfo/fixml#
 default_prefix: fix_orchestra
 default_range: string
 subsets:
@@ -1340,17 +1340,17 @@ types:
     - DCMIType
     typeof: string
     base: str
-    uri: dcmitype:DCMIType
+    uri: dctypes:DCMIType
   XmlLangType:
     name: XmlLangType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/XmlLangType
-    description: Anonymous simpleType for xml:lang (from xml.xsd).
+    description: Anonymous simpleType for XML:lang (from xml.xsd).
     in_subset:
     - xml_namespace
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     typeof: string
     base: str
-    uri: xml:lang_t
+    uri: XML:lang_t
 enums:
   CatComponentType:
     name: CatComponentType
@@ -1458,6 +1458,7 @@ enums:
     - presence_t
     exact_mappings:
     - fixr:presence_t
+    - fix_sbe:Presence
     enum_uri: fix_orchestra:Presence
     permissible_values:
       optional:
@@ -1801,11 +1802,11 @@ enums:
   XmlSpaceType:
     name: XmlSpaceType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/XmlSpaceType
-    description: Anonymous simpleType for xml:space (from xml.xsd).
+    description: Anonymous simpleType for XML:space (from xml.xsd).
     in_subset:
     - xml_namespace
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
-    enum_uri: xml:space_t
+    enum_uri: XML:space_t
     permissible_values:
       default:
         text: default
@@ -2398,6 +2399,24 @@ slots:
     - TransportProtocolType
     range: string
     multivalued: true
+  fixml_encoding:
+    name: fixml_encoding
+    definition_uri: https://w3id.org/lmodel/fix-orchestra/fixml_encoding
+    description: FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType>
+      payloads embedded in <fixr:appinfo purpose="FIXML">.
+    from_schema: https://w3id.org/lmodel/fix-orchestra
+    aliases:
+    - FIXMLencoding
+    - FIXMLencodingType
+    mappings:
+    - fix_orchestra:fixml_encoding
+    slot_uri: fix_orchestra:fixml_encoding
+    owner: Appinfo
+    domain_of:
+    - Appinfo
+    range: FIXMLencodingType
+    inlined: true
+    inlined_as_list: true
   fixml_file_name:
     name: fixml_file_name
     definition_uri: https://w3id.org/lmodel/fix-orchestra/fixml_file_name
@@ -3683,6 +3702,38 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  inlined:
+    name: inlined
+    definition_uri: https://w3id.org/lmodel/fix-orchestra/inlined
+    description: If true, a component is inlined in a containing message or component
+    from_schema: https://w3id.org/lmodel/fix-orchestra
+    mappings:
+    - fix_orchestra:inlined
+    exact_mappings:
+    - fixml:inlined
+    slot_uri: fix_orchestra:inlined
+    ifabsent: boolean(false)
+    owner: FIXMLencodingType
+    domain_of:
+    - FIXMLencodingType
+    range: boolean
+  not_req_xml:
+    name: not_req_xml
+    definition_uri: https://w3id.org/lmodel/fix-orchestra/not_req_xml
+    description: If true, an element is ignored by FIXML generator
+    from_schema: https://w3id.org/lmodel/fix-orchestra
+    aliases:
+    - notReqXML
+    mappings:
+    - fix_orchestra:not_req_xml
+    exact_mappings:
+    - fixml:notReqXML
+    slot_uri: fix_orchestra:not_req_xml
+    ifabsent: boolean(false)
+    owner: FIXMLencodingType
+    domain_of:
+    - FIXMLencodingType
+    range: boolean
   value:
     name: value
     definition_uri: https://w3id.org/lmodel/fix-orchestra/value
@@ -3723,8 +3774,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:title
-    slot_uri: dct:title
+    - dcterms:title
+    slot_uri: dcterms:title
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3737,8 +3788,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:description
-    slot_uri: dct:description
+    - dcterms:description
+    slot_uri: dcterms:description
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3751,8 +3802,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:creator
-    slot_uri: dct:creator
+    - dcterms:creator
+    slot_uri: dcterms:creator
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3765,8 +3816,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:rights
-    slot_uri: dct:rights
+    - dcterms:rights
+    slot_uri: dcterms:rights
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3779,8 +3830,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:date
-    slot_uri: dct:date
+    - dcterms:date
+    slot_uri: dcterms:date
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3793,8 +3844,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:publisher
-    slot_uri: dct:publisher
+    - dcterms:publisher
+    slot_uri: dcterms:publisher
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3807,8 +3858,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:subject
-    slot_uri: dct:subject
+    - dcterms:subject
+    slot_uri: dcterms:subject
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3821,8 +3872,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:contributor
-    slot_uri: dct:contributor
+    - dcterms:contributor
+    slot_uri: dcterms:contributor
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3835,8 +3886,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:format
-    slot_uri: dct:format
+    - dcterms:format
+    slot_uri: dcterms:format
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3849,8 +3900,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:source
-    slot_uri: dct:source
+    - dcterms:source
+    slot_uri: dcterms:source
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - FlowType
@@ -3864,8 +3915,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:language
-    slot_uri: dct:language
+    - dcterms:language
+    slot_uri: dcterms:language
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3878,8 +3929,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:relation
-    slot_uri: dct:relation
+    - dcterms:relation
+    slot_uri: dcterms:relation
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3892,8 +3943,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:coverage
-    slot_uri: dct:coverage
+    - dcterms:coverage
+    slot_uri: dcterms:coverage
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3906,8 +3957,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:alternative
-    slot_uri: dct:alternative
+    - dcterms:alternative
+    slot_uri: dcterms:alternative
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3922,8 +3973,8 @@ slots:
     aliases:
     - tableOfContents
     mappings:
-    - dct:tableOfContents
-    slot_uri: dct:tableOfContents
+    - dcterms:tableOfContents
+    slot_uri: dcterms:tableOfContents
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3936,8 +3987,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:abstract
-    slot_uri: dct:abstract
+    - dcterms:abstract
+    slot_uri: dcterms:abstract
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3950,8 +4001,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:created
-    slot_uri: dct:created
+    - dcterms:created
+    slot_uri: dcterms:created
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3964,8 +4015,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:valid
-    slot_uri: dct:valid
+    - dcterms:valid
+    slot_uri: dcterms:valid
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3978,8 +4029,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:available
-    slot_uri: dct:available
+    - dcterms:available
+    slot_uri: dcterms:available
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -3992,8 +4043,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:issued
-    slot_uri: dct:issued
+    - dcterms:issued
+    slot_uri: dcterms:issued
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4006,8 +4057,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:modified
-    slot_uri: dct:modified
+    - dcterms:modified
+    slot_uri: dcterms:modified
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4022,8 +4073,8 @@ slots:
     aliases:
     - dateAccepted
     mappings:
-    - dct:dateAccepted
-    slot_uri: dct:dateAccepted
+    - dcterms:dateAccepted
+    slot_uri: dcterms:dateAccepted
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4038,8 +4089,8 @@ slots:
     aliases:
     - dateCopyrighted
     mappings:
-    - dct:dateCopyrighted
-    slot_uri: dct:dateCopyrighted
+    - dcterms:dateCopyrighted
+    slot_uri: dcterms:dateCopyrighted
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4054,8 +4105,8 @@ slots:
     aliases:
     - dateSubmitted
     mappings:
-    - dct:dateSubmitted
-    slot_uri: dct:dateSubmitted
+    - dcterms:dateSubmitted
+    slot_uri: dcterms:dateSubmitted
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4068,8 +4119,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:extent
-    slot_uri: dct:extent
+    - dcterms:extent
+    slot_uri: dcterms:extent
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4082,8 +4133,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:medium
-    slot_uri: dct:medium
+    - dcterms:medium
+    slot_uri: dcterms:medium
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4098,8 +4149,8 @@ slots:
     aliases:
     - isVersionOf
     mappings:
-    - dct:isVersionOf
-    slot_uri: dct:isVersionOf
+    - dcterms:isVersionOf
+    slot_uri: dcterms:isVersionOf
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4114,8 +4165,8 @@ slots:
     aliases:
     - hasVersion
     mappings:
-    - dct:hasVersion
-    slot_uri: dct:hasVersion
+    - dcterms:hasVersion
+    slot_uri: dcterms:hasVersion
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4130,8 +4181,8 @@ slots:
     aliases:
     - isReplacedBy
     mappings:
-    - dct:isReplacedBy
-    slot_uri: dct:isReplacedBy
+    - dcterms:isReplacedBy
+    slot_uri: dcterms:isReplacedBy
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4144,8 +4195,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:replaces
-    slot_uri: dct:replaces
+    - dcterms:replaces
+    slot_uri: dcterms:replaces
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4160,8 +4211,8 @@ slots:
     aliases:
     - isRequiredBy
     mappings:
-    - dct:isRequiredBy
-    slot_uri: dct:isRequiredBy
+    - dcterms:isRequiredBy
+    slot_uri: dcterms:isRequiredBy
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4174,8 +4225,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:requires
-    slot_uri: dct:requires
+    - dcterms:requires
+    slot_uri: dcterms:requires
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4190,8 +4241,8 @@ slots:
     aliases:
     - isPartOf
     mappings:
-    - dct:isPartOf
-    slot_uri: dct:isPartOf
+    - dcterms:isPartOf
+    slot_uri: dcterms:isPartOf
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4206,8 +4257,8 @@ slots:
     aliases:
     - hasPart
     mappings:
-    - dct:hasPart
-    slot_uri: dct:hasPart
+    - dcterms:hasPart
+    slot_uri: dcterms:hasPart
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4222,8 +4273,8 @@ slots:
     aliases:
     - isReferencedBy
     mappings:
-    - dct:isReferencedBy
-    slot_uri: dct:isReferencedBy
+    - dcterms:isReferencedBy
+    slot_uri: dcterms:isReferencedBy
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4236,8 +4287,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:references
-    slot_uri: dct:references
+    - dcterms:references
+    slot_uri: dcterms:references
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4252,8 +4303,8 @@ slots:
     aliases:
     - isFormatOf
     mappings:
-    - dct:isFormatOf
-    slot_uri: dct:isFormatOf
+    - dcterms:isFormatOf
+    slot_uri: dcterms:isFormatOf
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4268,8 +4319,8 @@ slots:
     aliases:
     - hasFormat
     mappings:
-    - dct:hasFormat
-    slot_uri: dct:hasFormat
+    - dcterms:hasFormat
+    slot_uri: dcterms:hasFormat
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4284,8 +4335,8 @@ slots:
     aliases:
     - conformsTo
     mappings:
-    - dct:conformsTo
-    slot_uri: dct:conformsTo
+    - dcterms:conformsTo
+    slot_uri: dcterms:conformsTo
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4298,8 +4349,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:spatial
-    slot_uri: dct:spatial
+    - dcterms:spatial
+    slot_uri: dcterms:spatial
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4312,8 +4363,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:temporal
-    slot_uri: dct:temporal
+    - dcterms:temporal
+    slot_uri: dcterms:temporal
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4326,8 +4377,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:audience
-    slot_uri: dct:audience
+    - dcterms:audience
+    slot_uri: dcterms:audience
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4342,8 +4393,8 @@ slots:
     aliases:
     - accrualMethod
     mappings:
-    - dct:accrualMethod
-    slot_uri: dct:accrualMethod
+    - dcterms:accrualMethod
+    slot_uri: dcterms:accrualMethod
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4358,8 +4409,8 @@ slots:
     aliases:
     - accrualPeriodicity
     mappings:
-    - dct:accrualPeriodicity
-    slot_uri: dct:accrualPeriodicity
+    - dcterms:accrualPeriodicity
+    slot_uri: dcterms:accrualPeriodicity
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4374,8 +4425,8 @@ slots:
     aliases:
     - accrualPolicy
     mappings:
-    - dct:accrualPolicy
-    slot_uri: dct:accrualPolicy
+    - dcterms:accrualPolicy
+    slot_uri: dcterms:accrualPolicy
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4390,8 +4441,8 @@ slots:
     aliases:
     - instructionalMethod
     mappings:
-    - dct:instructionalMethod
-    slot_uri: dct:instructionalMethod
+    - dcterms:instructionalMethod
+    slot_uri: dcterms:instructionalMethod
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4404,8 +4455,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:provenance
-    slot_uri: dct:provenance
+    - dcterms:provenance
+    slot_uri: dcterms:provenance
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4420,8 +4471,8 @@ slots:
     aliases:
     - rightsHolder
     mappings:
-    - dct:rightsHolder
-    slot_uri: dct:rightsHolder
+    - dcterms:rightsHolder
+    slot_uri: dcterms:rightsHolder
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4434,8 +4485,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:mediator
-    slot_uri: dct:mediator
+    - dcterms:mediator
+    slot_uri: dcterms:mediator
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4450,8 +4501,8 @@ slots:
     aliases:
     - educationLevel
     mappings:
-    - dct:educationLevel
-    slot_uri: dct:educationLevel
+    - dcterms:educationLevel
+    slot_uri: dcterms:educationLevel
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4466,8 +4517,8 @@ slots:
     aliases:
     - accessRights
     mappings:
-    - dct:accessRights
-    slot_uri: dct:accessRights
+    - dcterms:accessRights
+    slot_uri: dcterms:accessRights
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4480,8 +4531,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:license
-    slot_uri: dct:license
+    - dcterms:license
+    slot_uri: dcterms:license
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -4496,8 +4547,8 @@ slots:
     aliases:
     - bibliographicCitation
     mappings:
-    - dct:bibliographicCitation
-    slot_uri: dct:bibliographicCitation
+    - dcterms:bibliographicCitation
+    slot_uri: dcterms:bibliographicCitation
     owner: DctermsElementOrRefinementContainer
     domain_of:
     - DcElementContainer
@@ -6425,8 +6476,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:type
-    slot_uri: dct:type
+    - dcterms:type
+    slot_uri: dcterms:type
     alias: type
     owner: DcElementContainer
     domain_of:
@@ -6438,8 +6489,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:identifier
-    slot_uri: dct:identifier
+    - dcterms:identifier
+    slot_uri: dcterms:identifier
     alias: identifier
     owner: DcElementContainer
     domain_of:
@@ -6451,8 +6502,8 @@ slots:
       from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:type
-    slot_uri: dct:type
+    - dcterms:type
+    slot_uri: dcterms:type
     alias: type
     owner: DctermsElementOrRefinementContainer
     domain_of:
@@ -6464,8 +6515,8 @@ slots:
       Expanded from the XSD substitutionGroup chain rooted at dc:any.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - dct:identifier
-    slot_uri: dct:identifier
+    - dcterms:identifier
+    slot_uri: dcterms:identifier
     alias: identifier
     owner: DctermsElementOrRefinementContainer
     domain_of:
@@ -6520,8 +6571,8 @@ slots:
       empty string.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - xml:lang
-    slot_uri: xml:lang
+    - XML:lang
+    slot_uri: XML:lang
     alias: lang
     owner: XmlGlobalAttributes
     domain_of:
@@ -6535,8 +6586,8 @@ slots:
       of its definition in the XML specification.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - xml:space
-    slot_uri: xml:space
+    - XML:space
+    slot_uri: XML:space
     alias: space
     owner: XmlGlobalAttributes
     domain_of:
@@ -6551,8 +6602,8 @@ slots:
       for information about this attribute.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - xml:base
-    slot_uri: xml:base
+    - XML:base
+    slot_uri: XML:base
     alias: base
     owner: XmlGlobalAttributes
     domain_of:
@@ -6566,8 +6617,8 @@ slots:
       for information about this attribute.
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - xml:id
-    slot_uri: xml:id
+    - XML:id
+    slot_uri: XML:id
     alias: id
     owner: XmlGlobalAttributes
     domain_of:
@@ -7310,6 +7361,8 @@ classes:
     - fix_orchestra:EntityAttribGrp
     exact_mappings:
     - fixr:entityAttribGrp
+    close_mappings:
+    - fix_sbe:VersionAttributes
     mixin: true
     slots:
     - added
@@ -7679,6 +7732,7 @@ classes:
     - value
     - content
     - extra_attributes
+    - fixml_encoding
     - appinfo__lang_id
     - appinfo__purpose
     - added
@@ -7809,6 +7863,11 @@ classes:
     - fix_orchestra:CodeSetType
     exact_mappings:
     - fixr:codeSetType
+    close_mappings:
+    - fix_sbe:EnumTypeV1
+    - fix_sbe:EnumTypeV2
+    - fix_sbe:SetTypeV1
+    - fix_sbe:SetTypeV2
     mixins:
     - OidGrp
     - ScenarioRefGrp
@@ -7876,6 +7935,9 @@ classes:
     - fix_orchestra:CodeType
     exact_mappings:
     - fixr:codeType
+    close_mappings:
+    - fix_sbe:Choice
+    - fix_sbe:ValidValue
     mixins:
     - OidGrp
     - EntityAttribGrp
@@ -8050,6 +8112,11 @@ classes:
     - fix_orchestra:ComponentType
     exact_mappings:
     - fixr:componentType
+    close_mappings:
+    - fix_sbe:BlockTypeV1
+    - fix_sbe:BlockTypeV2
+    - fix_sbe:GroupTypeV1
+    - fix_sbe:GroupTypeV2
     mixins:
     - EntityAttribGrp
     - OidGrp
@@ -8222,6 +8289,9 @@ classes:
     - fix_orchestra:FieldRefType
     exact_mappings:
     - fixr:fieldRefType
+    close_mappings:
+    - fix_sbe:RefTypeV1
+    - fix_sbe:RefTypeV2
     mixins:
     - RefidGrp
     - EntityAttribGrp
@@ -8387,6 +8457,8 @@ classes:
     - fix_orchestra:FieldType
     exact_mappings:
     - fixr:fieldType
+    - fix_sbe:FieldTypeV1
+    - fix_sbe:FieldTypeV2
     mixins:
     - OidGrp
     - EntityAttribGrp
@@ -8859,6 +8931,7 @@ classes:
     - fix_orchestra:MessageType
     exact_mappings:
     - fixr:messageType
+    - fix_sbe:MessageV1
     mixins:
     - OidGrp
     - ScenarioRefGrp
@@ -9804,6 +9877,16 @@ classes:
     - fix_orchestra:Datatype
     exact_mappings:
     - fixr:datatype
+    close_mappings:
+    - fix_sbe:CompositeDataTypeV1
+    - fix_sbe:CompositeDataTypeV2
+    - fix_sbe:EncodedDataTypeV1
+    - fix_sbe:SimpleDataTypeV2
+    narrow_mappings:
+    - fix_sbe:PrimitiveTypeV1
+    - fix_sbe:PrimitiveTypeV2
+    broad_mappings:
+    - fix_sbe:MemberDataTypeV2
     mixins:
     - EntityAttribGrp
     slots:
@@ -10118,6 +10201,7 @@ classes:
     - fix_orchestra:Datatypes
     exact_mappings:
     - fixr:datatypes
+    - fix_sbe:TypesV2
     slots:
     - datatype
     - datatypes__annotation
@@ -10262,6 +10346,7 @@ classes:
     - fix_orchestra:Messages
     exact_mappings:
     - fixr:messages
+    - fix_sbe:MessagesV2
     slots:
     - message
     - messages__annotation
@@ -10319,6 +10404,9 @@ classes:
     - fix_orchestra:Repository
     exact_mappings:
     - fixr:repository
+    close_mappings:
+    - fix_sbe:MessageSchemaV1
+    - fix_sbe:MessageSchemaV2
     slots:
     - metadata
     - categories
@@ -10514,6 +10602,29 @@ classes:
         unique_key_slots:
         - name
         description: From XSD <xs:key name="sessionKey"> with selector "fixi:interface/fixi:sessions/fixi:session".
+  FIXMLencodingType:
+    name: FIXMLencodingType
+    definition_uri: https://w3id.org/lmodel/fix-orchestra/FIXMLencodingType
+    annotations:
+      xsd_source:
+        tag: xsd_source
+        value: FIXMLappinfo.xsd
+    description: FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">.
+      Captures whether a component is inlined in its containing message and whether
+      an element is ignored by the FIXML generator.
+    in_subset:
+    - repository_types
+    from_schema: https://w3id.org/lmodel/fix-orchestra
+    aliases:
+    - FIXMLencoding
+    mappings:
+    - fix_orchestra:FIXMLencodingType
+    exact_mappings:
+    - fixml:FIXMLencodingType
+    slots:
+    - inlined
+    - not_req_xml
+    class_uri: fix_orchestra:FIXMLencodingType
   DcSimpleLiteral:
     name: DcSimpleLiteral
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DcSimpleLiteral
@@ -10622,13 +10733,13 @@ classes:
         name: type
         description: Free-text value of the Dublin Core element/refinement `type`.
           Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
+        slot_uri: dcterms:type
         range: string
       identifier:
         name: identifier
         description: Free-text value of the Dublin Core element/refinement `identifier`.
           Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
+        slot_uri: dcterms:identifier
         range: string
     class_uri: dc:elementContainer
   DcAny:
@@ -10989,13 +11100,13 @@ classes:
     aliases:
     - LCSH
     mappings:
-    - dct:LCSH
+    - dcterms:LCSH
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:LCSH
+    class_uri: dcterms:LCSH
   DctermsMESH:
     name: DctermsMESH
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsMESH
@@ -11012,13 +11123,13 @@ classes:
     aliases:
     - MESH
     mappings:
-    - dct:MESH
+    - dcterms:MESH
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:MESH
+    class_uri: dcterms:MESH
   DctermsDDC:
     name: DctermsDDC
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDDC
@@ -11035,13 +11146,13 @@ classes:
     aliases:
     - DDC
     mappings:
-    - dct:DDC
+    - dcterms:DDC
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:DDC
+    class_uri: dcterms:DDC
   DctermsLCC:
     name: DctermsLCC
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsLCC
@@ -11058,13 +11169,13 @@ classes:
     aliases:
     - LCC
     mappings:
-    - dct:LCC
+    - dcterms:LCC
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:LCC
+    class_uri: dcterms:LCC
   DctermsUDC:
     name: DctermsUDC
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsUDC
@@ -11081,13 +11192,13 @@ classes:
     aliases:
     - UDC
     mappings:
-    - dct:UDC
+    - dcterms:UDC
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:UDC
+    class_uri: dcterms:UDC
   DctermsPeriod:
     name: DctermsPeriod
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsPeriod
@@ -11104,13 +11215,13 @@ classes:
     aliases:
     - Period
     mappings:
-    - dct:Period
+    - dcterms:Period
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:Period
+    class_uri: dcterms:Period
   DctermsW3CDTF:
     name: DctermsW3CDTF
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsW3CDTF
@@ -11127,13 +11238,13 @@ classes:
     aliases:
     - W3CDTF
     mappings:
-    - dct:W3CDTF
+    - dcterms:W3CDTF
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:W3CDTF
+    class_uri: dcterms:W3CDTF
   DctermsDCMIType:
     name: DctermsDCMIType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDCMIType
@@ -11150,13 +11261,13 @@ classes:
     aliases:
     - DCMIType
     mappings:
-    - dct:DCMIType
+    - dcterms:DCMIType
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:DCMIType
+    class_uri: dcterms:DCMIType
   DctermsIMT:
     name: DctermsIMT
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIMT
@@ -11173,13 +11284,13 @@ classes:
     aliases:
     - IMT
     mappings:
-    - dct:IMT
+    - dcterms:IMT
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:IMT
+    class_uri: dcterms:IMT
   DctermsURI:
     name: DctermsURI
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsURI
@@ -11196,13 +11307,13 @@ classes:
     aliases:
     - URI
     mappings:
-    - dct:URI
+    - dcterms:URI
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:URI
+    class_uri: dcterms:URI
   DctermsISO6392:
     name: DctermsISO6392
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsISO6392
@@ -11219,13 +11330,13 @@ classes:
     aliases:
     - ISO639-2
     mappings:
-    - dct:ISO639-2
+    - dcterms:ISO639-2
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:ISO639-2
+    class_uri: dcterms:ISO639-2
   DctermsISO6393:
     name: DctermsISO6393
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsISO6393
@@ -11242,13 +11353,13 @@ classes:
     aliases:
     - ISO639-3
     mappings:
-    - dct:ISO639-3
+    - dcterms:ISO639-3
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:ISO639-3
+    class_uri: dcterms:ISO639-3
   DctermsRFC1766:
     name: DctermsRFC1766
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRFC1766
@@ -11265,13 +11376,13 @@ classes:
     aliases:
     - RFC1766
     mappings:
-    - dct:RFC1766
+    - dcterms:RFC1766
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:RFC1766
+    class_uri: dcterms:RFC1766
   DctermsRFC3066:
     name: DctermsRFC3066
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRFC3066
@@ -11288,13 +11399,13 @@ classes:
     aliases:
     - RFC3066
     mappings:
-    - dct:RFC3066
+    - dcterms:RFC3066
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:RFC3066
+    class_uri: dcterms:RFC3066
   DctermsRFC4646:
     name: DctermsRFC4646
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRFC4646
@@ -11311,13 +11422,13 @@ classes:
     aliases:
     - RFC4646
     mappings:
-    - dct:RFC4646
+    - dcterms:RFC4646
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:RFC4646
+    class_uri: dcterms:RFC4646
   DctermsPoint:
     name: DctermsPoint
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsPoint
@@ -11334,13 +11445,13 @@ classes:
     aliases:
     - Point
     mappings:
-    - dct:Point
+    - dcterms:Point
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:Point
+    class_uri: dcterms:Point
   DctermsISO3166:
     name: DctermsISO3166
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsISO3166
@@ -11357,13 +11468,13 @@ classes:
     aliases:
     - ISO3166
     mappings:
-    - dct:ISO3166
+    - dcterms:ISO3166
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:ISO3166
+    class_uri: dcterms:ISO3166
   DctermsBox:
     name: DctermsBox
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsBox
@@ -11380,13 +11491,13 @@ classes:
     aliases:
     - Box
     mappings:
-    - dct:Box
+    - dcterms:Box
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:Box
+    class_uri: dcterms:Box
   DctermsTGN:
     name: DctermsTGN
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsTGN
@@ -11403,13 +11514,13 @@ classes:
     aliases:
     - TGN
     mappings:
-    - dct:TGN
+    - dcterms:TGN
     is_a: DcSimpleLiteral
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:TGN
+    class_uri: dcterms:TGN
   DctermsElementOrRefinementContainer:
     name: DctermsElementOrRefinementContainer
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsElementOrRefinementContainer
@@ -11425,7 +11536,7 @@ classes:
     aliases:
     - elementOrRefinementContainer
     mappings:
-    - dct:elementOrRefinementContainer
+    - dcterms:elementOrRefinementContainer
     slots:
     - title
     - creator
@@ -11487,15 +11598,15 @@ classes:
         name: type
         description: Free-text value of the Dublin Core element/refinement `type`.
           Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
+        slot_uri: dcterms:type
         range: string
       identifier:
         name: identifier
         description: Free-text value of the Dublin Core element/refinement `identifier`.
           Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
+        slot_uri: dcterms:identifier
         range: string
-    class_uri: dct:elementOrRefinementContainer
+    class_uri: dcterms:elementOrRefinementContainer
   DctermsTitle:
     name: DctermsTitle
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsTitle
@@ -11509,13 +11620,13 @@ classes:
     aliases:
     - title
     mappings:
-    - dct:title
+    - dcterms:title
     is_a: DcTitle
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:title
+    class_uri: dcterms:title
   DctermsCreator:
     name: DctermsCreator
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsCreator
@@ -11529,13 +11640,13 @@ classes:
     aliases:
     - creator
     mappings:
-    - dct:creator
+    - dcterms:creator
     is_a: DcCreator
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:creator
+    class_uri: dcterms:creator
   DctermsSubject:
     name: DctermsSubject
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsSubject
@@ -11549,13 +11660,13 @@ classes:
     aliases:
     - subject
     mappings:
-    - dct:subject
+    - dcterms:subject
     is_a: DcSubject
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:subject
+    class_uri: dcterms:subject
   DctermsDescription:
     name: DctermsDescription
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDescription
@@ -11569,13 +11680,13 @@ classes:
     aliases:
     - description
     mappings:
-    - dct:description
+    - dcterms:description
     is_a: DcDescription
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:description
+    class_uri: dcterms:description
   DctermsPublisher:
     name: DctermsPublisher
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsPublisher
@@ -11589,13 +11700,13 @@ classes:
     aliases:
     - publisher
     mappings:
-    - dct:publisher
+    - dcterms:publisher
     is_a: DcPublisher
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:publisher
+    class_uri: dcterms:publisher
   DctermsContributor:
     name: DctermsContributor
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsContributor
@@ -11609,13 +11720,13 @@ classes:
     aliases:
     - contributor
     mappings:
-    - dct:contributor
+    - dcterms:contributor
     is_a: DcContributor
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:contributor
+    class_uri: dcterms:contributor
   DctermsDate:
     name: DctermsDate
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDate
@@ -11629,13 +11740,13 @@ classes:
     aliases:
     - date
     mappings:
-    - dct:date
+    - dcterms:date
     is_a: DcDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:date
+    class_uri: dcterms:date
   DctermsType:
     name: DctermsType
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsType
@@ -11649,13 +11760,13 @@ classes:
     aliases:
     - type
     mappings:
-    - dct:type
+    - dcterms:type
     is_a: DcType
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:type
+    class_uri: dcterms:type
   DctermsFormat:
     name: DctermsFormat
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsFormat
@@ -11669,13 +11780,13 @@ classes:
     aliases:
     - format
     mappings:
-    - dct:format
+    - dcterms:format
     is_a: DcFormat
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:format
+    class_uri: dcterms:format
   DctermsIdentifier:
     name: DctermsIdentifier
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIdentifier
@@ -11689,13 +11800,13 @@ classes:
     aliases:
     - identifier
     mappings:
-    - dct:identifier
+    - dcterms:identifier
     is_a: DcIdentifier
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:identifier
+    class_uri: dcterms:identifier
   DctermsSource:
     name: DctermsSource
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsSource
@@ -11709,13 +11820,13 @@ classes:
     aliases:
     - source
     mappings:
-    - dct:source
+    - dcterms:source
     is_a: DcSource
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:source
+    class_uri: dcterms:source
   DctermsLanguage:
     name: DctermsLanguage
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsLanguage
@@ -11729,13 +11840,13 @@ classes:
     aliases:
     - language
     mappings:
-    - dct:language
+    - dcterms:language
     is_a: DcLanguage
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:language
+    class_uri: dcterms:language
   DctermsRelation:
     name: DctermsRelation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRelation
@@ -11749,13 +11860,13 @@ classes:
     aliases:
     - relation
     mappings:
-    - dct:relation
+    - dcterms:relation
     is_a: DcRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:relation
+    class_uri: dcterms:relation
   DctermsCoverage:
     name: DctermsCoverage
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsCoverage
@@ -11769,13 +11880,13 @@ classes:
     aliases:
     - coverage
     mappings:
-    - dct:coverage
+    - dcterms:coverage
     is_a: DcCoverage
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:coverage
+    class_uri: dcterms:coverage
   DctermsRights:
     name: DctermsRights
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRights
@@ -11789,13 +11900,13 @@ classes:
     aliases:
     - rights
     mappings:
-    - dct:rights
+    - dcterms:rights
     is_a: DcRights
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:rights
+    class_uri: dcterms:rights
   DctermsAlternative:
     name: DctermsAlternative
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAlternative
@@ -11809,13 +11920,13 @@ classes:
     aliases:
     - alternative
     mappings:
-    - dct:alternative
+    - dcterms:alternative
     is_a: DctermsTitle
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:alternative
+    class_uri: dcterms:alternative
   DctermsTableOfContents:
     name: DctermsTableOfContents
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsTableOfContents
@@ -11829,13 +11940,13 @@ classes:
     aliases:
     - tableOfContents
     mappings:
-    - dct:tableOfContents
+    - dcterms:tableOfContents
     is_a: DctermsDescription
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:tableOfContents
+    class_uri: dcterms:tableOfContents
   DctermsAbstract:
     name: DctermsAbstract
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAbstract
@@ -11849,13 +11960,13 @@ classes:
     aliases:
     - abstract
     mappings:
-    - dct:abstract
+    - dcterms:abstract
     is_a: DctermsDescription
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:abstract
+    class_uri: dcterms:abstract
   DctermsCreated:
     name: DctermsCreated
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsCreated
@@ -11869,13 +11980,13 @@ classes:
     aliases:
     - created
     mappings:
-    - dct:created
+    - dcterms:created
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:created
+    class_uri: dcterms:created
   DctermsValid:
     name: DctermsValid
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsValid
@@ -11889,13 +12000,13 @@ classes:
     aliases:
     - valid
     mappings:
-    - dct:valid
+    - dcterms:valid
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:valid
+    class_uri: dcterms:valid
   DctermsAvailable:
     name: DctermsAvailable
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAvailable
@@ -11909,13 +12020,13 @@ classes:
     aliases:
     - available
     mappings:
-    - dct:available
+    - dcterms:available
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:available
+    class_uri: dcterms:available
   DctermsIssued:
     name: DctermsIssued
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIssued
@@ -11929,13 +12040,13 @@ classes:
     aliases:
     - issued
     mappings:
-    - dct:issued
+    - dcterms:issued
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:issued
+    class_uri: dcterms:issued
   DctermsModified:
     name: DctermsModified
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsModified
@@ -11949,13 +12060,13 @@ classes:
     aliases:
     - modified
     mappings:
-    - dct:modified
+    - dcterms:modified
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:modified
+    class_uri: dcterms:modified
   DctermsDateAccepted:
     name: DctermsDateAccepted
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDateAccepted
@@ -11969,13 +12080,13 @@ classes:
     aliases:
     - dateAccepted
     mappings:
-    - dct:dateAccepted
+    - dcterms:dateAccepted
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:dateAccepted
+    class_uri: dcterms:dateAccepted
   DctermsDateCopyrighted:
     name: DctermsDateCopyrighted
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDateCopyrighted
@@ -11989,13 +12100,13 @@ classes:
     aliases:
     - dateCopyrighted
     mappings:
-    - dct:dateCopyrighted
+    - dcterms:dateCopyrighted
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:dateCopyrighted
+    class_uri: dcterms:dateCopyrighted
   DctermsDateSubmitted:
     name: DctermsDateSubmitted
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsDateSubmitted
@@ -12009,13 +12120,13 @@ classes:
     aliases:
     - dateSubmitted
     mappings:
-    - dct:dateSubmitted
+    - dcterms:dateSubmitted
     is_a: DctermsDate
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:dateSubmitted
+    class_uri: dcterms:dateSubmitted
   DctermsExtent:
     name: DctermsExtent
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsExtent
@@ -12029,13 +12140,13 @@ classes:
     aliases:
     - extent
     mappings:
-    - dct:extent
+    - dcterms:extent
     is_a: DctermsFormat
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:extent
+    class_uri: dcterms:extent
   DctermsMedium:
     name: DctermsMedium
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsMedium
@@ -12049,13 +12160,13 @@ classes:
     aliases:
     - medium
     mappings:
-    - dct:medium
+    - dcterms:medium
     is_a: DctermsFormat
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:medium
+    class_uri: dcterms:medium
   DctermsIsVersionOf:
     name: DctermsIsVersionOf
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsVersionOf
@@ -12069,13 +12180,13 @@ classes:
     aliases:
     - isVersionOf
     mappings:
-    - dct:isVersionOf
+    - dcterms:isVersionOf
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isVersionOf
+    class_uri: dcterms:isVersionOf
   DctermsHasVersion:
     name: DctermsHasVersion
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsHasVersion
@@ -12089,13 +12200,13 @@ classes:
     aliases:
     - hasVersion
     mappings:
-    - dct:hasVersion
+    - dcterms:hasVersion
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:hasVersion
+    class_uri: dcterms:hasVersion
   DctermsIsReplacedBy:
     name: DctermsIsReplacedBy
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsReplacedBy
@@ -12109,13 +12220,13 @@ classes:
     aliases:
     - isReplacedBy
     mappings:
-    - dct:isReplacedBy
+    - dcterms:isReplacedBy
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isReplacedBy
+    class_uri: dcterms:isReplacedBy
   DctermsReplaces:
     name: DctermsReplaces
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsReplaces
@@ -12129,13 +12240,13 @@ classes:
     aliases:
     - replaces
     mappings:
-    - dct:replaces
+    - dcterms:replaces
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:replaces
+    class_uri: dcterms:replaces
   DctermsIsRequiredBy:
     name: DctermsIsRequiredBy
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsRequiredBy
@@ -12149,13 +12260,13 @@ classes:
     aliases:
     - isRequiredBy
     mappings:
-    - dct:isRequiredBy
+    - dcterms:isRequiredBy
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isRequiredBy
+    class_uri: dcterms:isRequiredBy
   DctermsRequires:
     name: DctermsRequires
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRequires
@@ -12169,13 +12280,13 @@ classes:
     aliases:
     - requires
     mappings:
-    - dct:requires
+    - dcterms:requires
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:requires
+    class_uri: dcterms:requires
   DctermsIsPartOf:
     name: DctermsIsPartOf
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsPartOf
@@ -12189,13 +12300,13 @@ classes:
     aliases:
     - isPartOf
     mappings:
-    - dct:isPartOf
+    - dcterms:isPartOf
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isPartOf
+    class_uri: dcterms:isPartOf
   DctermsHasPart:
     name: DctermsHasPart
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsHasPart
@@ -12209,13 +12320,13 @@ classes:
     aliases:
     - hasPart
     mappings:
-    - dct:hasPart
+    - dcterms:hasPart
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:hasPart
+    class_uri: dcterms:hasPart
   DctermsIsReferencedBy:
     name: DctermsIsReferencedBy
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsReferencedBy
@@ -12229,13 +12340,13 @@ classes:
     aliases:
     - isReferencedBy
     mappings:
-    - dct:isReferencedBy
+    - dcterms:isReferencedBy
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isReferencedBy
+    class_uri: dcterms:isReferencedBy
   DctermsReferences:
     name: DctermsReferences
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsReferences
@@ -12249,13 +12360,13 @@ classes:
     aliases:
     - references
     mappings:
-    - dct:references
+    - dcterms:references
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:references
+    class_uri: dcterms:references
   DctermsIsFormatOf:
     name: DctermsIsFormatOf
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsIsFormatOf
@@ -12269,13 +12380,13 @@ classes:
     aliases:
     - isFormatOf
     mappings:
-    - dct:isFormatOf
+    - dcterms:isFormatOf
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:isFormatOf
+    class_uri: dcterms:isFormatOf
   DctermsHasFormat:
     name: DctermsHasFormat
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsHasFormat
@@ -12289,13 +12400,13 @@ classes:
     aliases:
     - hasFormat
     mappings:
-    - dct:hasFormat
+    - dcterms:hasFormat
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:hasFormat
+    class_uri: dcterms:hasFormat
   DctermsConformsTo:
     name: DctermsConformsTo
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsConformsTo
@@ -12309,13 +12420,13 @@ classes:
     aliases:
     - conformsTo
     mappings:
-    - dct:conformsTo
+    - dcterms:conformsTo
     is_a: DctermsRelation
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:conformsTo
+    class_uri: dcterms:conformsTo
   DctermsSpatial:
     name: DctermsSpatial
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsSpatial
@@ -12329,13 +12440,13 @@ classes:
     aliases:
     - spatial
     mappings:
-    - dct:spatial
+    - dcterms:spatial
     is_a: DctermsCoverage
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:spatial
+    class_uri: dcterms:spatial
   DctermsTemporal:
     name: DctermsTemporal
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsTemporal
@@ -12349,13 +12460,13 @@ classes:
     aliases:
     - temporal
     mappings:
-    - dct:temporal
+    - dcterms:temporal
     is_a: DctermsCoverage
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:temporal
+    class_uri: dcterms:temporal
   DctermsAudience:
     name: DctermsAudience
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAudience
@@ -12369,13 +12480,13 @@ classes:
     aliases:
     - audience
     mappings:
-    - dct:audience
+    - dcterms:audience
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:audience
+    class_uri: dcterms:audience
   DctermsAccrualMethod:
     name: DctermsAccrualMethod
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAccrualMethod
@@ -12389,13 +12500,13 @@ classes:
     aliases:
     - accrualMethod
     mappings:
-    - dct:accrualMethod
+    - dcterms:accrualMethod
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:accrualMethod
+    class_uri: dcterms:accrualMethod
   DctermsAccrualPeriodicity:
     name: DctermsAccrualPeriodicity
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAccrualPeriodicity
@@ -12409,13 +12520,13 @@ classes:
     aliases:
     - accrualPeriodicity
     mappings:
-    - dct:accrualPeriodicity
+    - dcterms:accrualPeriodicity
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:accrualPeriodicity
+    class_uri: dcterms:accrualPeriodicity
   DctermsAccrualPolicy:
     name: DctermsAccrualPolicy
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAccrualPolicy
@@ -12429,13 +12540,13 @@ classes:
     aliases:
     - accrualPolicy
     mappings:
-    - dct:accrualPolicy
+    - dcterms:accrualPolicy
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:accrualPolicy
+    class_uri: dcterms:accrualPolicy
   DctermsInstructionalMethod:
     name: DctermsInstructionalMethod
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsInstructionalMethod
@@ -12449,13 +12560,13 @@ classes:
     aliases:
     - instructionalMethod
     mappings:
-    - dct:instructionalMethod
+    - dcterms:instructionalMethod
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:instructionalMethod
+    class_uri: dcterms:instructionalMethod
   DctermsProvenance:
     name: DctermsProvenance
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsProvenance
@@ -12469,13 +12580,13 @@ classes:
     aliases:
     - provenance
     mappings:
-    - dct:provenance
+    - dcterms:provenance
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:provenance
+    class_uri: dcterms:provenance
   DctermsRightsHolder:
     name: DctermsRightsHolder
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsRightsHolder
@@ -12489,13 +12600,13 @@ classes:
     aliases:
     - rightsHolder
     mappings:
-    - dct:rightsHolder
+    - dcterms:rightsHolder
     is_a: DcAny
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:rightsHolder
+    class_uri: dcterms:rightsHolder
   DctermsMediator:
     name: DctermsMediator
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsMediator
@@ -12509,13 +12620,13 @@ classes:
     aliases:
     - mediator
     mappings:
-    - dct:mediator
+    - dcterms:mediator
     is_a: DctermsAudience
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:mediator
+    class_uri: dcterms:mediator
   DctermsEducationLevel:
     name: DctermsEducationLevel
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsEducationLevel
@@ -12529,13 +12640,13 @@ classes:
     aliases:
     - educationLevel
     mappings:
-    - dct:educationLevel
+    - dcterms:educationLevel
     is_a: DctermsAudience
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:educationLevel
+    class_uri: dcterms:educationLevel
   DctermsAccessRights:
     name: DctermsAccessRights
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsAccessRights
@@ -12549,13 +12660,13 @@ classes:
     aliases:
     - accessRights
     mappings:
-    - dct:accessRights
+    - dcterms:accessRights
     is_a: DctermsRights
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:accessRights
+    class_uri: dcterms:accessRights
   DctermsLicense:
     name: DctermsLicense
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsLicense
@@ -12569,13 +12680,13 @@ classes:
     aliases:
     - license
     mappings:
-    - dct:license
+    - dcterms:license
     is_a: DctermsRights
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:license
+    class_uri: dcterms:license
   DctermsBibliographicCitation:
     name: DctermsBibliographicCitation
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsBibliographicCitation
@@ -12589,13 +12700,13 @@ classes:
     aliases:
     - bibliographicCitation
     mappings:
-    - dct:bibliographicCitation
+    - dcterms:bibliographicCitation
     is_a: DctermsIdentifier
     slots:
     - value
     - content
     - dcSimpleLiteral__lang
-    class_uri: dct:bibliographicCitation
+    class_uri: dcterms:bibliographicCitation
   DctermsElementsAndRefinementsGroup:
     name: DctermsElementsAndRefinementsGroup
     definition_uri: https://w3id.org/lmodel/fix-orchestra/DctermsElementsAndRefinementsGroup
@@ -12616,9 +12727,9 @@ classes:
     aliases:
     - elementsAndRefinementsGroup
     mappings:
-    - dct:elementsAndRefinementsGroup
+    - dcterms:elementsAndRefinementsGroup
     mixin: true
-    class_uri: dct:elementsAndRefinementsGroup
+    class_uri: dcterms:elementsAndRefinementsGroup
   XmlSpecialAttrs:
     name: XmlSpecialAttrs
     definition_uri: https://w3id.org/lmodel/fix-orchestra/XmlSpecialAttrs
@@ -12628,7 +12739,7 @@ classes:
     aliases:
     - specialAttrs
     mappings:
-    - xml:specialAttrs
+    - XML:specialAttrs
     mixin: true
     slots:
     - xmlSpecialAttrs__base
@@ -12648,7 +12759,7 @@ classes:
       id:
         name: id
         range: string
-    class_uri: xml:specialAttrs
+    class_uri: XML:specialAttrs
   XmlGlobalAttributes:
     name: XmlGlobalAttributes
     definition_uri: https://w3id.org/lmodel/fix-orchestra/XmlGlobalAttributes
@@ -12657,12 +12768,12 @@ classes:
         tag: xsd_source
         value: xml.xsd
     description: Container for the global <xs:attribute> declarations defined in xml.xsd.
-      Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
+      Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
     in_subset:
     - xml_namespace
     from_schema: https://w3id.org/lmodel/fix-orchestra/dc
     mappings:
-    - xml:GlobalAttributes
+    - XML:GlobalAttributes
     slots:
     - xmlGlobalAttributes__lang
     - xmlGlobalAttributes__space
@@ -12680,7 +12791,7 @@ classes:
           and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry
           for further information. The union allows for the 'un-declaration' of xml:lang
           with the empty string.
-        slot_uri: xml:lang
+        slot_uri: XML:lang
         range: XmlLangType
       space:
         name: space
@@ -12688,7 +12799,7 @@ classes:
           is a keyword indicating what whitespace processing discipline is intended
           for the content of the element; its value is inherited. This name is reserved
           by virtue of its definition in the XML specification.
-        slot_uri: xml:space
+        slot_uri: XML:space
         range: XmlSpaceType
       base:
         name: base
@@ -12697,7 +12808,7 @@ classes:
           in the scope of the element on which it appears; its value is inherited.
           This name is reserved by virtue of its definition in the XML Base specification.
           See http://www.w3.org/TR/xmlbase/ for information about this attribute.
-        slot_uri: xml:base
+        slot_uri: XML:base
         range: uri
       id:
         name: id
@@ -12705,12 +12816,12 @@ classes:
           be interpreted as if declared to be of type ID. This name is reserved by
           virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/
           for information about this attribute.
-        slot_uri: xml:id
+        slot_uri: XML:id
         range: string
-    class_uri: xml:GlobalAttributes
+    class_uri: XML:GlobalAttributes
 metamodel_version: 1.11.0
 source_file: fix_orchestra.yaml
-source_file_date: '2026-05-21T19:31:36'
-source_file_size: 102662
-generation_date: '2026-05-21T19:37:04'
+source_file_date: '2026-05-25T15:13:57'
+source_file_size: 104936
+generation_date: '2026-05-25T15:14:18'
 

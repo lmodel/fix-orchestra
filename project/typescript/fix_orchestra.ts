@@ -1,5 +1,5 @@
 /**
-* Anonymous simpleType for xml:space (from xml.xsd).
+* Anonymous simpleType for XML:space (from xml.xsd).
 */
 export enum XmlSpaceType {
     
@@ -932,7 +932,7 @@ export interface XmlSpecialAttrs {
 
 
 /**
- * Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
+ * Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
  */
 export interface XmlGlobalAttributes {
     /** lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string. */
@@ -1084,6 +1084,8 @@ export interface Appinfo extends EntityAttribGrp {
     content?: string[],
     /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
     extra_attributes?: string[],
+    /** FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType> payloads embedded in <fixr:appinfo purpose="FIXML">. */
+    fixml_encoding?: FIXMLencodingType,
     lang_id?: string,
     purpose?: string,
 }
@@ -1765,6 +1767,17 @@ export interface Sections {
 export interface Interfaces {
     metadata: DctermsElementOrRefinementContainer,
     interface?: InterfaceType[],
+}
+
+
+/**
+ * FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.
+ */
+export interface FIXMLencodingType {
+    /** If true, a component is inlined in a containing message or component */
+    inlined?: boolean,
+    /** If true, an element is ignored by FIXML generator */
+    not_req_xml?: boolean,
 }
 
 

@@ -1,5 +1,5 @@
 # Auto generated from fix_orchestra.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-21T19:32:32
+# Generation date: 2026-05-25T15:14:41
 # Schema: fix_orchestra
 #
 # id: https://w3id.org/lmodel/fix-orchestra
@@ -63,19 +63,20 @@ metamodel_version = "1.11.0"
 version = "1.1-rc2"
 
 # Namespaces
+XML = CurieNamespace('XML', 'http://www.w3.org/XML/1998/namespace#')
 DC = CurieNamespace('dc', 'http://purl.org/dc/elements/1.1/')
-DCMITYPE = CurieNamespace('dcmitype', 'http://purl.org/dc/dcmitype/')
-DCT = CurieNamespace('dct', 'http://purl.org/dc/terms/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
+DCTYPES = CurieNamespace('dctypes', 'http://purl.org/dc/dcmitype/')
 FIX_ORCHESTRA = CurieNamespace('fix_orchestra', 'https://w3id.org/lmodel/fix-orchestra/')
+FIX_SBE = CurieNamespace('fix_sbe', 'http://example.org/UNKNOWN/fix_sbe/')
 FIXI = CurieNamespace('fixi', 'http://fixprotocol.io/2024/orchestra/interfaces/')
+FIXML = CurieNamespace('fixml', 'http://fixprotocol.io/2022/orchestra/appinfo/fixml#')
 FIXR = CurieNamespace('fixr', 'http://fixprotocol.io/2024/orchestra/repository/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
-XML = CurieNamespace('xml', 'http://www.w3.org/XML/1998/namespace#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = FIX_ORCHESTRA
 
@@ -501,16 +502,16 @@ class FIXXIDREF(String):
 
 class DcmitypeDCMIType(String):
     """ Union of:  """
-    type_class_uri = DCMITYPE["DCMIType"]
-    type_class_curie = "dcmitype:DCMIType"
+    type_class_uri = DCTYPES["DCMIType"]
+    type_class_curie = "dctypes:DCMIType"
     type_name = "DcmitypeDCMIType"
     type_model_uri = FIX_ORCHESTRA.DcmitypeDCMIType
 
 
 class XmlLangType(String):
-    """ Anonymous simpleType for xml:lang (from xml.xsd). """
+    """ Anonymous simpleType for XML:lang (from xml.xsd). """
     type_class_uri = XML["lang_t"]
-    type_class_curie = "xml:lang_t"
+    type_class_curie = "XML:lang_t"
     type_name = "XmlLangType"
     type_model_uri = FIX_ORCHESTRA.XmlLangType
 
@@ -928,6 +929,7 @@ class Appinfo(YAMLRoot):
     value: Optional[str] = None
     content: Optional[Union[str, list[str]]] = empty_list()
     extra_attributes: Optional[Union[str, list[str]]] = empty_list()
+    fixml_encoding: Optional[Union[dict, "FIXMLencodingType"]] = None
     lang_id: Optional[Union[str, Language]] = None
     purpose: Optional[Union[str, Purpose]] = None
     added: Optional[Union[str, Version]] = None
@@ -958,6 +960,9 @@ class Appinfo(YAMLRoot):
         if not isinstance(self.extra_attributes, list):
             self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
         self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
+
+        if self.fixml_encoding is not None and not isinstance(self.fixml_encoding, FIXMLencodingType):
+            self.fixml_encoding = FIXMLencodingType(**as_dict(self.fixml_encoding))
 
         if self.lang_id is not None and not isinstance(self.lang_id, Language):
             self.lang_id = Language(self.lang_id)
@@ -3908,6 +3913,32 @@ class Interfaces(YAMLRoot):
 
 
 @dataclass(repr=False)
+class FIXMLencodingType(YAMLRoot):
+    """
+    FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in
+    its containing message and whether an element is ignored by the FIXML generator.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FIXMLencodingType"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:FIXMLencodingType"
+    class_name: ClassVar[str] = "FIXMLencodingType"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FIXMLencodingType
+
+    inlined: Optional[Union[bool, Bool]] = False
+    not_req_xml: Optional[Union[bool, Bool]] = False
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.inlined is not None and not isinstance(self.inlined, Bool):
+            self.inlined = Bool(self.inlined)
+
+        if self.not_req_xml is not None and not isinstance(self.not_req_xml, Bool):
+            self.not_req_xml = Bool(self.not_req_xml)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class DcSimpleLiteral(YAMLRoot):
     """
     This is the default type for all of the DC elements. It permits text content only with optional xml:lang
@@ -4338,8 +4369,8 @@ class DcElementsGroup(YAMLRoot):
 class DctermsLCSH(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["LCSH"]
-    class_class_curie: ClassVar[str] = "dct:LCSH"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["LCSH"]
+    class_class_curie: ClassVar[str] = "dcterms:LCSH"
     class_name: ClassVar[str] = "DctermsLCSH"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLCSH
 
@@ -4347,8 +4378,8 @@ class DctermsLCSH(DcSimpleLiteral):
 class DctermsMESH(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["MESH"]
-    class_class_curie: ClassVar[str] = "dct:MESH"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["MESH"]
+    class_class_curie: ClassVar[str] = "dcterms:MESH"
     class_name: ClassVar[str] = "DctermsMESH"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMESH
 
@@ -4356,8 +4387,8 @@ class DctermsMESH(DcSimpleLiteral):
 class DctermsDDC(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["DDC"]
-    class_class_curie: ClassVar[str] = "dct:DDC"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["DDC"]
+    class_class_curie: ClassVar[str] = "dcterms:DDC"
     class_name: ClassVar[str] = "DctermsDDC"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDDC
 
@@ -4365,8 +4396,8 @@ class DctermsDDC(DcSimpleLiteral):
 class DctermsLCC(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["LCC"]
-    class_class_curie: ClassVar[str] = "dct:LCC"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["LCC"]
+    class_class_curie: ClassVar[str] = "dcterms:LCC"
     class_name: ClassVar[str] = "DctermsLCC"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLCC
 
@@ -4374,8 +4405,8 @@ class DctermsLCC(DcSimpleLiteral):
 class DctermsUDC(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["UDC"]
-    class_class_curie: ClassVar[str] = "dct:UDC"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["UDC"]
+    class_class_curie: ClassVar[str] = "dcterms:UDC"
     class_name: ClassVar[str] = "DctermsUDC"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsUDC
 
@@ -4383,8 +4414,8 @@ class DctermsUDC(DcSimpleLiteral):
 class DctermsPeriod(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["Period"]
-    class_class_curie: ClassVar[str] = "dct:Period"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["Period"]
+    class_class_curie: ClassVar[str] = "dcterms:Period"
     class_name: ClassVar[str] = "DctermsPeriod"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPeriod
 
@@ -4392,8 +4423,8 @@ class DctermsPeriod(DcSimpleLiteral):
 class DctermsW3CDTF(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["W3CDTF"]
-    class_class_curie: ClassVar[str] = "dct:W3CDTF"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["W3CDTF"]
+    class_class_curie: ClassVar[str] = "dcterms:W3CDTF"
     class_name: ClassVar[str] = "DctermsW3CDTF"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsW3CDTF
 
@@ -4401,8 +4432,8 @@ class DctermsW3CDTF(DcSimpleLiteral):
 class DctermsDCMIType(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["DCMIType"]
-    class_class_curie: ClassVar[str] = "dct:DCMIType"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["DCMIType"]
+    class_class_curie: ClassVar[str] = "dcterms:DCMIType"
     class_name: ClassVar[str] = "DctermsDCMIType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDCMIType
 
@@ -4410,8 +4441,8 @@ class DctermsDCMIType(DcSimpleLiteral):
 class DctermsIMT(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["IMT"]
-    class_class_curie: ClassVar[str] = "dct:IMT"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["IMT"]
+    class_class_curie: ClassVar[str] = "dcterms:IMT"
     class_name: ClassVar[str] = "DctermsIMT"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIMT
 
@@ -4419,8 +4450,8 @@ class DctermsIMT(DcSimpleLiteral):
 class DctermsURI(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["URI"]
-    class_class_curie: ClassVar[str] = "dct:URI"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["URI"]
+    class_class_curie: ClassVar[str] = "dcterms:URI"
     class_name: ClassVar[str] = "DctermsURI"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsURI
 
@@ -4428,8 +4459,8 @@ class DctermsURI(DcSimpleLiteral):
 class DctermsISO6392(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["ISO639-2"]
-    class_class_curie: ClassVar[str] = "dct:ISO639-2"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO639-2"]
+    class_class_curie: ClassVar[str] = "dcterms:ISO639-2"
     class_name: ClassVar[str] = "DctermsISO6392"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO6392
 
@@ -4437,8 +4468,8 @@ class DctermsISO6392(DcSimpleLiteral):
 class DctermsISO6393(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["ISO639-3"]
-    class_class_curie: ClassVar[str] = "dct:ISO639-3"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO639-3"]
+    class_class_curie: ClassVar[str] = "dcterms:ISO639-3"
     class_name: ClassVar[str] = "DctermsISO6393"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO6393
 
@@ -4446,8 +4477,8 @@ class DctermsISO6393(DcSimpleLiteral):
 class DctermsRFC1766(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["RFC1766"]
-    class_class_curie: ClassVar[str] = "dct:RFC1766"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC1766"]
+    class_class_curie: ClassVar[str] = "dcterms:RFC1766"
     class_name: ClassVar[str] = "DctermsRFC1766"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC1766
 
@@ -4455,8 +4486,8 @@ class DctermsRFC1766(DcSimpleLiteral):
 class DctermsRFC3066(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["RFC3066"]
-    class_class_curie: ClassVar[str] = "dct:RFC3066"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC3066"]
+    class_class_curie: ClassVar[str] = "dcterms:RFC3066"
     class_name: ClassVar[str] = "DctermsRFC3066"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC3066
 
@@ -4464,8 +4495,8 @@ class DctermsRFC3066(DcSimpleLiteral):
 class DctermsRFC4646(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["RFC4646"]
-    class_class_curie: ClassVar[str] = "dct:RFC4646"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC4646"]
+    class_class_curie: ClassVar[str] = "dcterms:RFC4646"
     class_name: ClassVar[str] = "DctermsRFC4646"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC4646
 
@@ -4473,8 +4504,8 @@ class DctermsRFC4646(DcSimpleLiteral):
 class DctermsPoint(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["Point"]
-    class_class_curie: ClassVar[str] = "dct:Point"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["Point"]
+    class_class_curie: ClassVar[str] = "dcterms:Point"
     class_name: ClassVar[str] = "DctermsPoint"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPoint
 
@@ -4482,8 +4513,8 @@ class DctermsPoint(DcSimpleLiteral):
 class DctermsISO3166(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["ISO3166"]
-    class_class_curie: ClassVar[str] = "dct:ISO3166"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO3166"]
+    class_class_curie: ClassVar[str] = "dcterms:ISO3166"
     class_name: ClassVar[str] = "DctermsISO3166"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO3166
 
@@ -4491,8 +4522,8 @@ class DctermsISO3166(DcSimpleLiteral):
 class DctermsBox(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["Box"]
-    class_class_curie: ClassVar[str] = "dct:Box"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["Box"]
+    class_class_curie: ClassVar[str] = "dcterms:Box"
     class_name: ClassVar[str] = "DctermsBox"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsBox
 
@@ -4500,8 +4531,8 @@ class DctermsBox(DcSimpleLiteral):
 class DctermsTGN(DcSimpleLiteral):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["TGN"]
-    class_class_curie: ClassVar[str] = "dct:TGN"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["TGN"]
+    class_class_curie: ClassVar[str] = "dcterms:TGN"
     class_name: ClassVar[str] = "DctermsTGN"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTGN
 
@@ -4514,8 +4545,8 @@ class DctermsElementOrRefinementContainer(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["elementOrRefinementContainer"]
-    class_class_curie: ClassVar[str] = "dct:elementOrRefinementContainer"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["elementOrRefinementContainer"]
+    class_class_curie: ClassVar[str] = "dcterms:elementOrRefinementContainer"
     class_name: ClassVar[str] = "DctermsElementOrRefinementContainer"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsElementOrRefinementContainer
 
@@ -4747,8 +4778,8 @@ class DctermsElementOrRefinementContainer(YAMLRoot):
 class DctermsTitle(DcTitle):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["title"]
-    class_class_curie: ClassVar[str] = "dct:title"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["title"]
+    class_class_curie: ClassVar[str] = "dcterms:title"
     class_name: ClassVar[str] = "DctermsTitle"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTitle
 
@@ -4756,8 +4787,8 @@ class DctermsTitle(DcTitle):
 class DctermsCreator(DcCreator):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["creator"]
-    class_class_curie: ClassVar[str] = "dct:creator"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["creator"]
+    class_class_curie: ClassVar[str] = "dcterms:creator"
     class_name: ClassVar[str] = "DctermsCreator"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCreator
 
@@ -4765,8 +4796,8 @@ class DctermsCreator(DcCreator):
 class DctermsSubject(DcSubject):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["subject"]
-    class_class_curie: ClassVar[str] = "dct:subject"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["subject"]
+    class_class_curie: ClassVar[str] = "dcterms:subject"
     class_name: ClassVar[str] = "DctermsSubject"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSubject
 
@@ -4774,8 +4805,8 @@ class DctermsSubject(DcSubject):
 class DctermsDescription(DcDescription):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["description"]
-    class_class_curie: ClassVar[str] = "dct:description"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["description"]
+    class_class_curie: ClassVar[str] = "dcterms:description"
     class_name: ClassVar[str] = "DctermsDescription"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDescription
 
@@ -4783,8 +4814,8 @@ class DctermsDescription(DcDescription):
 class DctermsPublisher(DcPublisher):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["publisher"]
-    class_class_curie: ClassVar[str] = "dct:publisher"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["publisher"]
+    class_class_curie: ClassVar[str] = "dcterms:publisher"
     class_name: ClassVar[str] = "DctermsPublisher"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPublisher
 
@@ -4792,8 +4823,8 @@ class DctermsPublisher(DcPublisher):
 class DctermsContributor(DcContributor):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["contributor"]
-    class_class_curie: ClassVar[str] = "dct:contributor"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["contributor"]
+    class_class_curie: ClassVar[str] = "dcterms:contributor"
     class_name: ClassVar[str] = "DctermsContributor"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsContributor
 
@@ -4801,8 +4832,8 @@ class DctermsContributor(DcContributor):
 class DctermsDate(DcDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["date"]
-    class_class_curie: ClassVar[str] = "dct:date"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["date"]
+    class_class_curie: ClassVar[str] = "dcterms:date"
     class_name: ClassVar[str] = "DctermsDate"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDate
 
@@ -4810,8 +4841,8 @@ class DctermsDate(DcDate):
 class DctermsType(DcType):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["type"]
-    class_class_curie: ClassVar[str] = "dct:type"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["type"]
+    class_class_curie: ClassVar[str] = "dcterms:type"
     class_name: ClassVar[str] = "DctermsType"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsType
 
@@ -4819,8 +4850,8 @@ class DctermsType(DcType):
 class DctermsFormat(DcFormat):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["format"]
-    class_class_curie: ClassVar[str] = "dct:format"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["format"]
+    class_class_curie: ClassVar[str] = "dcterms:format"
     class_name: ClassVar[str] = "DctermsFormat"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsFormat
 
@@ -4828,8 +4859,8 @@ class DctermsFormat(DcFormat):
 class DctermsIdentifier(DcIdentifier):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["identifier"]
-    class_class_curie: ClassVar[str] = "dct:identifier"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["identifier"]
+    class_class_curie: ClassVar[str] = "dcterms:identifier"
     class_name: ClassVar[str] = "DctermsIdentifier"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIdentifier
 
@@ -4837,8 +4868,8 @@ class DctermsIdentifier(DcIdentifier):
 class DctermsSource(DcSource):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["source"]
-    class_class_curie: ClassVar[str] = "dct:source"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["source"]
+    class_class_curie: ClassVar[str] = "dcterms:source"
     class_name: ClassVar[str] = "DctermsSource"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSource
 
@@ -4846,8 +4877,8 @@ class DctermsSource(DcSource):
 class DctermsLanguage(DcLanguage):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["language"]
-    class_class_curie: ClassVar[str] = "dct:language"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["language"]
+    class_class_curie: ClassVar[str] = "dcterms:language"
     class_name: ClassVar[str] = "DctermsLanguage"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLanguage
 
@@ -4855,8 +4886,8 @@ class DctermsLanguage(DcLanguage):
 class DctermsRelation(DcRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["relation"]
-    class_class_curie: ClassVar[str] = "dct:relation"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["relation"]
+    class_class_curie: ClassVar[str] = "dcterms:relation"
     class_name: ClassVar[str] = "DctermsRelation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRelation
 
@@ -4864,8 +4895,8 @@ class DctermsRelation(DcRelation):
 class DctermsCoverage(DcCoverage):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["coverage"]
-    class_class_curie: ClassVar[str] = "dct:coverage"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["coverage"]
+    class_class_curie: ClassVar[str] = "dcterms:coverage"
     class_name: ClassVar[str] = "DctermsCoverage"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCoverage
 
@@ -4873,8 +4904,8 @@ class DctermsCoverage(DcCoverage):
 class DctermsRights(DcRights):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["rights"]
-    class_class_curie: ClassVar[str] = "dct:rights"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["rights"]
+    class_class_curie: ClassVar[str] = "dcterms:rights"
     class_name: ClassVar[str] = "DctermsRights"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRights
 
@@ -4882,8 +4913,8 @@ class DctermsRights(DcRights):
 class DctermsAlternative(DctermsTitle):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["alternative"]
-    class_class_curie: ClassVar[str] = "dct:alternative"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["alternative"]
+    class_class_curie: ClassVar[str] = "dcterms:alternative"
     class_name: ClassVar[str] = "DctermsAlternative"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAlternative
 
@@ -4891,8 +4922,8 @@ class DctermsAlternative(DctermsTitle):
 class DctermsTableOfContents(DctermsDescription):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["tableOfContents"]
-    class_class_curie: ClassVar[str] = "dct:tableOfContents"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["tableOfContents"]
+    class_class_curie: ClassVar[str] = "dcterms:tableOfContents"
     class_name: ClassVar[str] = "DctermsTableOfContents"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTableOfContents
 
@@ -4900,8 +4931,8 @@ class DctermsTableOfContents(DctermsDescription):
 class DctermsAbstract(DctermsDescription):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["abstract"]
-    class_class_curie: ClassVar[str] = "dct:abstract"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["abstract"]
+    class_class_curie: ClassVar[str] = "dcterms:abstract"
     class_name: ClassVar[str] = "DctermsAbstract"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAbstract
 
@@ -4909,8 +4940,8 @@ class DctermsAbstract(DctermsDescription):
 class DctermsCreated(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["created"]
-    class_class_curie: ClassVar[str] = "dct:created"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["created"]
+    class_class_curie: ClassVar[str] = "dcterms:created"
     class_name: ClassVar[str] = "DctermsCreated"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCreated
 
@@ -4918,8 +4949,8 @@ class DctermsCreated(DctermsDate):
 class DctermsValid(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["valid"]
-    class_class_curie: ClassVar[str] = "dct:valid"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["valid"]
+    class_class_curie: ClassVar[str] = "dcterms:valid"
     class_name: ClassVar[str] = "DctermsValid"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsValid
 
@@ -4927,8 +4958,8 @@ class DctermsValid(DctermsDate):
 class DctermsAvailable(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["available"]
-    class_class_curie: ClassVar[str] = "dct:available"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["available"]
+    class_class_curie: ClassVar[str] = "dcterms:available"
     class_name: ClassVar[str] = "DctermsAvailable"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAvailable
 
@@ -4936,8 +4967,8 @@ class DctermsAvailable(DctermsDate):
 class DctermsIssued(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["issued"]
-    class_class_curie: ClassVar[str] = "dct:issued"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["issued"]
+    class_class_curie: ClassVar[str] = "dcterms:issued"
     class_name: ClassVar[str] = "DctermsIssued"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIssued
 
@@ -4945,8 +4976,8 @@ class DctermsIssued(DctermsDate):
 class DctermsModified(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["modified"]
-    class_class_curie: ClassVar[str] = "dct:modified"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["modified"]
+    class_class_curie: ClassVar[str] = "dcterms:modified"
     class_name: ClassVar[str] = "DctermsModified"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsModified
 
@@ -4954,8 +4985,8 @@ class DctermsModified(DctermsDate):
 class DctermsDateAccepted(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["dateAccepted"]
-    class_class_curie: ClassVar[str] = "dct:dateAccepted"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["dateAccepted"]
+    class_class_curie: ClassVar[str] = "dcterms:dateAccepted"
     class_name: ClassVar[str] = "DctermsDateAccepted"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateAccepted
 
@@ -4963,8 +4994,8 @@ class DctermsDateAccepted(DctermsDate):
 class DctermsDateCopyrighted(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["dateCopyrighted"]
-    class_class_curie: ClassVar[str] = "dct:dateCopyrighted"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["dateCopyrighted"]
+    class_class_curie: ClassVar[str] = "dcterms:dateCopyrighted"
     class_name: ClassVar[str] = "DctermsDateCopyrighted"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateCopyrighted
 
@@ -4972,8 +5003,8 @@ class DctermsDateCopyrighted(DctermsDate):
 class DctermsDateSubmitted(DctermsDate):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["dateSubmitted"]
-    class_class_curie: ClassVar[str] = "dct:dateSubmitted"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["dateSubmitted"]
+    class_class_curie: ClassVar[str] = "dcterms:dateSubmitted"
     class_name: ClassVar[str] = "DctermsDateSubmitted"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateSubmitted
 
@@ -4981,8 +5012,8 @@ class DctermsDateSubmitted(DctermsDate):
 class DctermsExtent(DctermsFormat):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["extent"]
-    class_class_curie: ClassVar[str] = "dct:extent"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["extent"]
+    class_class_curie: ClassVar[str] = "dcterms:extent"
     class_name: ClassVar[str] = "DctermsExtent"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsExtent
 
@@ -4990,8 +5021,8 @@ class DctermsExtent(DctermsFormat):
 class DctermsMedium(DctermsFormat):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["medium"]
-    class_class_curie: ClassVar[str] = "dct:medium"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["medium"]
+    class_class_curie: ClassVar[str] = "dcterms:medium"
     class_name: ClassVar[str] = "DctermsMedium"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMedium
 
@@ -4999,8 +5030,8 @@ class DctermsMedium(DctermsFormat):
 class DctermsIsVersionOf(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isVersionOf"]
-    class_class_curie: ClassVar[str] = "dct:isVersionOf"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isVersionOf"]
+    class_class_curie: ClassVar[str] = "dcterms:isVersionOf"
     class_name: ClassVar[str] = "DctermsIsVersionOf"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsVersionOf
 
@@ -5008,8 +5039,8 @@ class DctermsIsVersionOf(DctermsRelation):
 class DctermsHasVersion(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["hasVersion"]
-    class_class_curie: ClassVar[str] = "dct:hasVersion"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["hasVersion"]
+    class_class_curie: ClassVar[str] = "dcterms:hasVersion"
     class_name: ClassVar[str] = "DctermsHasVersion"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasVersion
 
@@ -5017,8 +5048,8 @@ class DctermsHasVersion(DctermsRelation):
 class DctermsIsReplacedBy(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isReplacedBy"]
-    class_class_curie: ClassVar[str] = "dct:isReplacedBy"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isReplacedBy"]
+    class_class_curie: ClassVar[str] = "dcterms:isReplacedBy"
     class_name: ClassVar[str] = "DctermsIsReplacedBy"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsReplacedBy
 
@@ -5026,8 +5057,8 @@ class DctermsIsReplacedBy(DctermsRelation):
 class DctermsReplaces(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["replaces"]
-    class_class_curie: ClassVar[str] = "dct:replaces"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["replaces"]
+    class_class_curie: ClassVar[str] = "dcterms:replaces"
     class_name: ClassVar[str] = "DctermsReplaces"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsReplaces
 
@@ -5035,8 +5066,8 @@ class DctermsReplaces(DctermsRelation):
 class DctermsIsRequiredBy(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isRequiredBy"]
-    class_class_curie: ClassVar[str] = "dct:isRequiredBy"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isRequiredBy"]
+    class_class_curie: ClassVar[str] = "dcterms:isRequiredBy"
     class_name: ClassVar[str] = "DctermsIsRequiredBy"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsRequiredBy
 
@@ -5044,8 +5075,8 @@ class DctermsIsRequiredBy(DctermsRelation):
 class DctermsRequires(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["requires"]
-    class_class_curie: ClassVar[str] = "dct:requires"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["requires"]
+    class_class_curie: ClassVar[str] = "dcterms:requires"
     class_name: ClassVar[str] = "DctermsRequires"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRequires
 
@@ -5053,8 +5084,8 @@ class DctermsRequires(DctermsRelation):
 class DctermsIsPartOf(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isPartOf"]
-    class_class_curie: ClassVar[str] = "dct:isPartOf"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isPartOf"]
+    class_class_curie: ClassVar[str] = "dcterms:isPartOf"
     class_name: ClassVar[str] = "DctermsIsPartOf"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsPartOf
 
@@ -5062,8 +5093,8 @@ class DctermsIsPartOf(DctermsRelation):
 class DctermsHasPart(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["hasPart"]
-    class_class_curie: ClassVar[str] = "dct:hasPart"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["hasPart"]
+    class_class_curie: ClassVar[str] = "dcterms:hasPart"
     class_name: ClassVar[str] = "DctermsHasPart"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasPart
 
@@ -5071,8 +5102,8 @@ class DctermsHasPart(DctermsRelation):
 class DctermsIsReferencedBy(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isReferencedBy"]
-    class_class_curie: ClassVar[str] = "dct:isReferencedBy"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isReferencedBy"]
+    class_class_curie: ClassVar[str] = "dcterms:isReferencedBy"
     class_name: ClassVar[str] = "DctermsIsReferencedBy"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsReferencedBy
 
@@ -5080,8 +5111,8 @@ class DctermsIsReferencedBy(DctermsRelation):
 class DctermsReferences(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["references"]
-    class_class_curie: ClassVar[str] = "dct:references"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["references"]
+    class_class_curie: ClassVar[str] = "dcterms:references"
     class_name: ClassVar[str] = "DctermsReferences"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsReferences
 
@@ -5089,8 +5120,8 @@ class DctermsReferences(DctermsRelation):
 class DctermsIsFormatOf(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["isFormatOf"]
-    class_class_curie: ClassVar[str] = "dct:isFormatOf"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["isFormatOf"]
+    class_class_curie: ClassVar[str] = "dcterms:isFormatOf"
     class_name: ClassVar[str] = "DctermsIsFormatOf"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsFormatOf
 
@@ -5098,8 +5129,8 @@ class DctermsIsFormatOf(DctermsRelation):
 class DctermsHasFormat(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["hasFormat"]
-    class_class_curie: ClassVar[str] = "dct:hasFormat"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["hasFormat"]
+    class_class_curie: ClassVar[str] = "dcterms:hasFormat"
     class_name: ClassVar[str] = "DctermsHasFormat"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasFormat
 
@@ -5107,8 +5138,8 @@ class DctermsHasFormat(DctermsRelation):
 class DctermsConformsTo(DctermsRelation):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["conformsTo"]
-    class_class_curie: ClassVar[str] = "dct:conformsTo"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["conformsTo"]
+    class_class_curie: ClassVar[str] = "dcterms:conformsTo"
     class_name: ClassVar[str] = "DctermsConformsTo"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsConformsTo
 
@@ -5116,8 +5147,8 @@ class DctermsConformsTo(DctermsRelation):
 class DctermsSpatial(DctermsCoverage):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["spatial"]
-    class_class_curie: ClassVar[str] = "dct:spatial"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["spatial"]
+    class_class_curie: ClassVar[str] = "dcterms:spatial"
     class_name: ClassVar[str] = "DctermsSpatial"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSpatial
 
@@ -5125,8 +5156,8 @@ class DctermsSpatial(DctermsCoverage):
 class DctermsTemporal(DctermsCoverage):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["temporal"]
-    class_class_curie: ClassVar[str] = "dct:temporal"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["temporal"]
+    class_class_curie: ClassVar[str] = "dcterms:temporal"
     class_name: ClassVar[str] = "DctermsTemporal"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTemporal
 
@@ -5134,8 +5165,8 @@ class DctermsTemporal(DctermsCoverage):
 class DctermsAudience(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["audience"]
-    class_class_curie: ClassVar[str] = "dct:audience"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["audience"]
+    class_class_curie: ClassVar[str] = "dcterms:audience"
     class_name: ClassVar[str] = "DctermsAudience"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAudience
 
@@ -5143,8 +5174,8 @@ class DctermsAudience(DcAny):
 class DctermsAccrualMethod(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["accrualMethod"]
-    class_class_curie: ClassVar[str] = "dct:accrualMethod"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualMethod"]
+    class_class_curie: ClassVar[str] = "dcterms:accrualMethod"
     class_name: ClassVar[str] = "DctermsAccrualMethod"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualMethod
 
@@ -5152,8 +5183,8 @@ class DctermsAccrualMethod(DcAny):
 class DctermsAccrualPeriodicity(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["accrualPeriodicity"]
-    class_class_curie: ClassVar[str] = "dct:accrualPeriodicity"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualPeriodicity"]
+    class_class_curie: ClassVar[str] = "dcterms:accrualPeriodicity"
     class_name: ClassVar[str] = "DctermsAccrualPeriodicity"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualPeriodicity
 
@@ -5161,8 +5192,8 @@ class DctermsAccrualPeriodicity(DcAny):
 class DctermsAccrualPolicy(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["accrualPolicy"]
-    class_class_curie: ClassVar[str] = "dct:accrualPolicy"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualPolicy"]
+    class_class_curie: ClassVar[str] = "dcterms:accrualPolicy"
     class_name: ClassVar[str] = "DctermsAccrualPolicy"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualPolicy
 
@@ -5170,8 +5201,8 @@ class DctermsAccrualPolicy(DcAny):
 class DctermsInstructionalMethod(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["instructionalMethod"]
-    class_class_curie: ClassVar[str] = "dct:instructionalMethod"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["instructionalMethod"]
+    class_class_curie: ClassVar[str] = "dcterms:instructionalMethod"
     class_name: ClassVar[str] = "DctermsInstructionalMethod"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsInstructionalMethod
 
@@ -5179,8 +5210,8 @@ class DctermsInstructionalMethod(DcAny):
 class DctermsProvenance(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["provenance"]
-    class_class_curie: ClassVar[str] = "dct:provenance"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["provenance"]
+    class_class_curie: ClassVar[str] = "dcterms:provenance"
     class_name: ClassVar[str] = "DctermsProvenance"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsProvenance
 
@@ -5188,8 +5219,8 @@ class DctermsProvenance(DcAny):
 class DctermsRightsHolder(DcAny):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["rightsHolder"]
-    class_class_curie: ClassVar[str] = "dct:rightsHolder"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["rightsHolder"]
+    class_class_curie: ClassVar[str] = "dcterms:rightsHolder"
     class_name: ClassVar[str] = "DctermsRightsHolder"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRightsHolder
 
@@ -5197,8 +5228,8 @@ class DctermsRightsHolder(DcAny):
 class DctermsMediator(DctermsAudience):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["mediator"]
-    class_class_curie: ClassVar[str] = "dct:mediator"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["mediator"]
+    class_class_curie: ClassVar[str] = "dcterms:mediator"
     class_name: ClassVar[str] = "DctermsMediator"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMediator
 
@@ -5206,8 +5237,8 @@ class DctermsMediator(DctermsAudience):
 class DctermsEducationLevel(DctermsAudience):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["educationLevel"]
-    class_class_curie: ClassVar[str] = "dct:educationLevel"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["educationLevel"]
+    class_class_curie: ClassVar[str] = "dcterms:educationLevel"
     class_name: ClassVar[str] = "DctermsEducationLevel"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsEducationLevel
 
@@ -5215,8 +5246,8 @@ class DctermsEducationLevel(DctermsAudience):
 class DctermsAccessRights(DctermsRights):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["accessRights"]
-    class_class_curie: ClassVar[str] = "dct:accessRights"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["accessRights"]
+    class_class_curie: ClassVar[str] = "dcterms:accessRights"
     class_name: ClassVar[str] = "DctermsAccessRights"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccessRights
 
@@ -5224,8 +5255,8 @@ class DctermsAccessRights(DctermsRights):
 class DctermsLicense(DctermsRights):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["license"]
-    class_class_curie: ClassVar[str] = "dct:license"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["license"]
+    class_class_curie: ClassVar[str] = "dcterms:license"
     class_name: ClassVar[str] = "DctermsLicense"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLicense
 
@@ -5233,8 +5264,8 @@ class DctermsLicense(DctermsRights):
 class DctermsBibliographicCitation(DctermsIdentifier):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["bibliographicCitation"]
-    class_class_curie: ClassVar[str] = "dct:bibliographicCitation"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["bibliographicCitation"]
+    class_class_curie: ClassVar[str] = "dcterms:bibliographicCitation"
     class_name: ClassVar[str] = "DctermsBibliographicCitation"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsBibliographicCitation
 
@@ -5247,8 +5278,8 @@ class DctermsElementsAndRefinementsGroup(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCT["elementsAndRefinementsGroup"]
-    class_class_curie: ClassVar[str] = "dct:elementsAndRefinementsGroup"
+    class_class_uri: ClassVar[URIRef] = DCTERMS["elementsAndRefinementsGroup"]
+    class_class_curie: ClassVar[str] = "dcterms:elementsAndRefinementsGroup"
     class_name: ClassVar[str] = "DctermsElementsAndRefinementsGroup"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsElementsAndRefinementsGroup
 
@@ -5258,7 +5289,7 @@ class XmlSpecialAttrs(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = XML["specialAttrs"]
-    class_class_curie: ClassVar[str] = "xml:specialAttrs"
+    class_class_curie: ClassVar[str] = "XML:specialAttrs"
     class_name: ClassVar[str] = "XmlSpecialAttrs"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.XmlSpecialAttrs
 
@@ -5287,12 +5318,12 @@ class XmlSpecialAttrs(YAMLRoot):
 class XmlGlobalAttributes(YAMLRoot):
     """
     Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from
-    other XSDs via ``ref="xml:<name>"``.
+    other XSDs via ``ref="XML:<name>"``.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = XML["GlobalAttributes"]
-    class_class_curie: ClassVar[str] = "xml:GlobalAttributes"
+    class_class_curie: ClassVar[str] = "XML:GlobalAttributes"
     class_name: ClassVar[str] = "XmlGlobalAttributes"
     class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.XmlGlobalAttributes
 
@@ -5626,14 +5657,14 @@ class TransportUseEnum(EnumDefinitionImpl):
 
 class XmlSpaceType(EnumDefinitionImpl):
     """
-    Anonymous simpleType for xml:space (from xml.xsd).
+    Anonymous simpleType for XML:space (from xml.xsd).
     """
     default = PermissibleValue(text="default")
     preserve = PermissibleValue(text="preserve")
 
     _defn = EnumDefinition(
         name="XmlSpaceType",
-        description="Anonymous simpleType for xml:space (from xml.xsd).",
+        description="Anonymous simpleType for XML:space (from xml.xsd).",
     )
 
 # Slots
@@ -5744,6 +5775,9 @@ slots.spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="spec_url", curie=FIX_ORC
 
 slots.extra_attributes = Slot(uri=FIX_ORCHESTRA.extra_attributes, name="extra_attributes", curie=FIX_ORCHESTRA.curie('extra_attributes'),
                    model_uri=FIX_ORCHESTRA.extra_attributes, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.fixml_encoding = Slot(uri=FIX_ORCHESTRA.fixml_encoding, name="fixml_encoding", curie=FIX_ORCHESTRA.curie('fixml_encoding'),
+                   model_uri=FIX_ORCHESTRA.fixml_encoding, domain=None, range=Optional[Union[dict, FIXMLencodingType]])
 
 slots.fixml_file_name = Slot(uri=FIX_ORCHESTRA.fixml_file_name, name="fixml_file_name", curie=FIX_ORCHESTRA.curie('fixml_file_name'),
                    model_uri=FIX_ORCHESTRA.fixml_file_name, domain=None, range=Optional[Union[str, Name]])
@@ -5991,169 +6025,175 @@ slots.expression_language = Slot(uri=FIX_ORCHESTRA.expression_language, name="ex
 slots.interface = Slot(uri=FIX_ORCHESTRA.interface, name="interface", curie=FIX_ORCHESTRA.curie('interface'),
                    model_uri=FIX_ORCHESTRA.interface, domain=None, range=Optional[Union[Union[dict, InterfaceType], list[Union[dict, InterfaceType]]]])
 
+slots.inlined = Slot(uri=FIX_ORCHESTRA.inlined, name="inlined", curie=FIX_ORCHESTRA.curie('inlined'),
+                   model_uri=FIX_ORCHESTRA.inlined, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.not_req_xml = Slot(uri=FIX_ORCHESTRA.not_req_xml, name="not_req_xml", curie=FIX_ORCHESTRA.curie('not_req_xml'),
+                   model_uri=FIX_ORCHESTRA.not_req_xml, domain=None, range=Optional[Union[bool, Bool]])
+
 slots.value = Slot(uri=FIX_ORCHESTRA.value, name="value", curie=FIX_ORCHESTRA.curie('value'),
                    model_uri=FIX_ORCHESTRA.value, domain=None, range=Optional[str])
 
 slots.content = Slot(uri=FIX_ORCHESTRA.content, name="content", curie=FIX_ORCHESTRA.curie('content'),
                    model_uri=FIX_ORCHESTRA.content, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.title = Slot(uri=DCT.title, name="title", curie=DCT.curie('title'),
+slots.title = Slot(uri=DCTERMS.title, name="title", curie=DCTERMS.curie('title'),
                    model_uri=FIX_ORCHESTRA.title, domain=None, range=Optional[str])
 
-slots.description = Slot(uri=DCT.description, name="description", curie=DCT.curie('description'),
+slots.description = Slot(uri=DCTERMS.description, name="description", curie=DCTERMS.curie('description'),
                    model_uri=FIX_ORCHESTRA.description, domain=None, range=Optional[str])
 
-slots.creator = Slot(uri=DCT.creator, name="creator", curie=DCT.curie('creator'),
+slots.creator = Slot(uri=DCTERMS.creator, name="creator", curie=DCTERMS.curie('creator'),
                    model_uri=FIX_ORCHESTRA.creator, domain=None, range=Optional[str])
 
-slots.rights = Slot(uri=DCT.rights, name="rights", curie=DCT.curie('rights'),
+slots.rights = Slot(uri=DCTERMS.rights, name="rights", curie=DCTERMS.curie('rights'),
                    model_uri=FIX_ORCHESTRA.rights, domain=None, range=Optional[str])
 
-slots.date = Slot(uri=DCT.date, name="date", curie=DCT.curie('date'),
+slots.date = Slot(uri=DCTERMS.date, name="date", curie=DCTERMS.curie('date'),
                    model_uri=FIX_ORCHESTRA.date, domain=None, range=Optional[str])
 
-slots.publisher = Slot(uri=DCT.publisher, name="publisher", curie=DCT.curie('publisher'),
+slots.publisher = Slot(uri=DCTERMS.publisher, name="publisher", curie=DCTERMS.curie('publisher'),
                    model_uri=FIX_ORCHESTRA.publisher, domain=None, range=Optional[str])
 
-slots.subject = Slot(uri=DCT.subject, name="subject", curie=DCT.curie('subject'),
+slots.subject = Slot(uri=DCTERMS.subject, name="subject", curie=DCTERMS.curie('subject'),
                    model_uri=FIX_ORCHESTRA.subject, domain=None, range=Optional[str])
 
-slots.contributor = Slot(uri=DCT.contributor, name="contributor", curie=DCT.curie('contributor'),
+slots.contributor = Slot(uri=DCTERMS.contributor, name="contributor", curie=DCTERMS.curie('contributor'),
                    model_uri=FIX_ORCHESTRA.contributor, domain=None, range=Optional[str])
 
-slots.format = Slot(uri=DCT.format, name="format", curie=DCT.curie('format'),
+slots.format = Slot(uri=DCTERMS.format, name="format", curie=DCTERMS.curie('format'),
                    model_uri=FIX_ORCHESTRA.format, domain=None, range=Optional[str])
 
-slots.source = Slot(uri=DCT.source, name="source", curie=DCT.curie('source'),
+slots.source = Slot(uri=DCTERMS.source, name="source", curie=DCTERMS.curie('source'),
                    model_uri=FIX_ORCHESTRA.source, domain=None, range=Optional[str])
 
-slots.language = Slot(uri=DCT.language, name="language", curie=DCT.curie('language'),
+slots.language = Slot(uri=DCTERMS.language, name="language", curie=DCTERMS.curie('language'),
                    model_uri=FIX_ORCHESTRA.language, domain=None, range=Optional[str])
 
-slots.relation = Slot(uri=DCT.relation, name="relation", curie=DCT.curie('relation'),
+slots.relation = Slot(uri=DCTERMS.relation, name="relation", curie=DCTERMS.curie('relation'),
                    model_uri=FIX_ORCHESTRA.relation, domain=None, range=Optional[str])
 
-slots.coverage = Slot(uri=DCT.coverage, name="coverage", curie=DCT.curie('coverage'),
+slots.coverage = Slot(uri=DCTERMS.coverage, name="coverage", curie=DCTERMS.curie('coverage'),
                    model_uri=FIX_ORCHESTRA.coverage, domain=None, range=Optional[str])
 
-slots.alternative = Slot(uri=DCT.alternative, name="alternative", curie=DCT.curie('alternative'),
+slots.alternative = Slot(uri=DCTERMS.alternative, name="alternative", curie=DCTERMS.curie('alternative'),
                    model_uri=FIX_ORCHESTRA.alternative, domain=None, range=Optional[str])
 
-slots.table_of_contents = Slot(uri=DCT.tableOfContents, name="table_of_contents", curie=DCT.curie('tableOfContents'),
+slots.table_of_contents = Slot(uri=DCTERMS.tableOfContents, name="table_of_contents", curie=DCTERMS.curie('tableOfContents'),
                    model_uri=FIX_ORCHESTRA.table_of_contents, domain=None, range=Optional[str])
 
-slots.abstract = Slot(uri=DCT.abstract, name="abstract", curie=DCT.curie('abstract'),
+slots.abstract = Slot(uri=DCTERMS.abstract, name="abstract", curie=DCTERMS.curie('abstract'),
                    model_uri=FIX_ORCHESTRA.abstract, domain=None, range=Optional[str])
 
-slots.created = Slot(uri=DCT.created, name="created", curie=DCT.curie('created'),
+slots.created = Slot(uri=DCTERMS.created, name="created", curie=DCTERMS.curie('created'),
                    model_uri=FIX_ORCHESTRA.created, domain=None, range=Optional[str])
 
-slots.valid = Slot(uri=DCT.valid, name="valid", curie=DCT.curie('valid'),
+slots.valid = Slot(uri=DCTERMS.valid, name="valid", curie=DCTERMS.curie('valid'),
                    model_uri=FIX_ORCHESTRA.valid, domain=None, range=Optional[str])
 
-slots.available = Slot(uri=DCT.available, name="available", curie=DCT.curie('available'),
+slots.available = Slot(uri=DCTERMS.available, name="available", curie=DCTERMS.curie('available'),
                    model_uri=FIX_ORCHESTRA.available, domain=None, range=Optional[str])
 
-slots.issued = Slot(uri=DCT.issued, name="issued", curie=DCT.curie('issued'),
+slots.issued = Slot(uri=DCTERMS.issued, name="issued", curie=DCTERMS.curie('issued'),
                    model_uri=FIX_ORCHESTRA.issued, domain=None, range=Optional[str])
 
-slots.modified = Slot(uri=DCT.modified, name="modified", curie=DCT.curie('modified'),
+slots.modified = Slot(uri=DCTERMS.modified, name="modified", curie=DCTERMS.curie('modified'),
                    model_uri=FIX_ORCHESTRA.modified, domain=None, range=Optional[str])
 
-slots.date_accepted = Slot(uri=DCT.dateAccepted, name="date_accepted", curie=DCT.curie('dateAccepted'),
+slots.date_accepted = Slot(uri=DCTERMS.dateAccepted, name="date_accepted", curie=DCTERMS.curie('dateAccepted'),
                    model_uri=FIX_ORCHESTRA.date_accepted, domain=None, range=Optional[str])
 
-slots.date_copyrighted = Slot(uri=DCT.dateCopyrighted, name="date_copyrighted", curie=DCT.curie('dateCopyrighted'),
+slots.date_copyrighted = Slot(uri=DCTERMS.dateCopyrighted, name="date_copyrighted", curie=DCTERMS.curie('dateCopyrighted'),
                    model_uri=FIX_ORCHESTRA.date_copyrighted, domain=None, range=Optional[str])
 
-slots.date_submitted = Slot(uri=DCT.dateSubmitted, name="date_submitted", curie=DCT.curie('dateSubmitted'),
+slots.date_submitted = Slot(uri=DCTERMS.dateSubmitted, name="date_submitted", curie=DCTERMS.curie('dateSubmitted'),
                    model_uri=FIX_ORCHESTRA.date_submitted, domain=None, range=Optional[str])
 
-slots.extent = Slot(uri=DCT.extent, name="extent", curie=DCT.curie('extent'),
+slots.extent = Slot(uri=DCTERMS.extent, name="extent", curie=DCTERMS.curie('extent'),
                    model_uri=FIX_ORCHESTRA.extent, domain=None, range=Optional[str])
 
-slots.medium = Slot(uri=DCT.medium, name="medium", curie=DCT.curie('medium'),
+slots.medium = Slot(uri=DCTERMS.medium, name="medium", curie=DCTERMS.curie('medium'),
                    model_uri=FIX_ORCHESTRA.medium, domain=None, range=Optional[str])
 
-slots.is_version_of = Slot(uri=DCT.isVersionOf, name="is_version_of", curie=DCT.curie('isVersionOf'),
+slots.is_version_of = Slot(uri=DCTERMS.isVersionOf, name="is_version_of", curie=DCTERMS.curie('isVersionOf'),
                    model_uri=FIX_ORCHESTRA.is_version_of, domain=None, range=Optional[str])
 
-slots.has_version = Slot(uri=DCT.hasVersion, name="has_version", curie=DCT.curie('hasVersion'),
+slots.has_version = Slot(uri=DCTERMS.hasVersion, name="has_version", curie=DCTERMS.curie('hasVersion'),
                    model_uri=FIX_ORCHESTRA.has_version, domain=None, range=Optional[str])
 
-slots.is_replaced_by = Slot(uri=DCT.isReplacedBy, name="is_replaced_by", curie=DCT.curie('isReplacedBy'),
+slots.is_replaced_by = Slot(uri=DCTERMS.isReplacedBy, name="is_replaced_by", curie=DCTERMS.curie('isReplacedBy'),
                    model_uri=FIX_ORCHESTRA.is_replaced_by, domain=None, range=Optional[str])
 
-slots.replaces = Slot(uri=DCT.replaces, name="replaces", curie=DCT.curie('replaces'),
+slots.replaces = Slot(uri=DCTERMS.replaces, name="replaces", curie=DCTERMS.curie('replaces'),
                    model_uri=FIX_ORCHESTRA.replaces, domain=None, range=Optional[str])
 
-slots.is_required_by = Slot(uri=DCT.isRequiredBy, name="is_required_by", curie=DCT.curie('isRequiredBy'),
+slots.is_required_by = Slot(uri=DCTERMS.isRequiredBy, name="is_required_by", curie=DCTERMS.curie('isRequiredBy'),
                    model_uri=FIX_ORCHESTRA.is_required_by, domain=None, range=Optional[str])
 
-slots.requires = Slot(uri=DCT.requires, name="requires", curie=DCT.curie('requires'),
+slots.requires = Slot(uri=DCTERMS.requires, name="requires", curie=DCTERMS.curie('requires'),
                    model_uri=FIX_ORCHESTRA.requires, domain=None, range=Optional[str])
 
-slots.is_part_of = Slot(uri=DCT.isPartOf, name="is_part_of", curie=DCT.curie('isPartOf'),
+slots.is_part_of = Slot(uri=DCTERMS.isPartOf, name="is_part_of", curie=DCTERMS.curie('isPartOf'),
                    model_uri=FIX_ORCHESTRA.is_part_of, domain=None, range=Optional[str])
 
-slots.has_part = Slot(uri=DCT.hasPart, name="has_part", curie=DCT.curie('hasPart'),
+slots.has_part = Slot(uri=DCTERMS.hasPart, name="has_part", curie=DCTERMS.curie('hasPart'),
                    model_uri=FIX_ORCHESTRA.has_part, domain=None, range=Optional[str])
 
-slots.is_referenced_by = Slot(uri=DCT.isReferencedBy, name="is_referenced_by", curie=DCT.curie('isReferencedBy'),
+slots.is_referenced_by = Slot(uri=DCTERMS.isReferencedBy, name="is_referenced_by", curie=DCTERMS.curie('isReferencedBy'),
                    model_uri=FIX_ORCHESTRA.is_referenced_by, domain=None, range=Optional[str])
 
-slots.references = Slot(uri=DCT.references, name="references", curie=DCT.curie('references'),
+slots.references = Slot(uri=DCTERMS.references, name="references", curie=DCTERMS.curie('references'),
                    model_uri=FIX_ORCHESTRA.references, domain=None, range=Optional[str])
 
-slots.is_format_of = Slot(uri=DCT.isFormatOf, name="is_format_of", curie=DCT.curie('isFormatOf'),
+slots.is_format_of = Slot(uri=DCTERMS.isFormatOf, name="is_format_of", curie=DCTERMS.curie('isFormatOf'),
                    model_uri=FIX_ORCHESTRA.is_format_of, domain=None, range=Optional[str])
 
-slots.has_format = Slot(uri=DCT.hasFormat, name="has_format", curie=DCT.curie('hasFormat'),
+slots.has_format = Slot(uri=DCTERMS.hasFormat, name="has_format", curie=DCTERMS.curie('hasFormat'),
                    model_uri=FIX_ORCHESTRA.has_format, domain=None, range=Optional[str])
 
-slots.conforms_to = Slot(uri=DCT.conformsTo, name="conforms_to", curie=DCT.curie('conformsTo'),
+slots.conforms_to = Slot(uri=DCTERMS.conformsTo, name="conforms_to", curie=DCTERMS.curie('conformsTo'),
                    model_uri=FIX_ORCHESTRA.conforms_to, domain=None, range=Optional[str])
 
-slots.spatial = Slot(uri=DCT.spatial, name="spatial", curie=DCT.curie('spatial'),
+slots.spatial = Slot(uri=DCTERMS.spatial, name="spatial", curie=DCTERMS.curie('spatial'),
                    model_uri=FIX_ORCHESTRA.spatial, domain=None, range=Optional[str])
 
-slots.temporal = Slot(uri=DCT.temporal, name="temporal", curie=DCT.curie('temporal'),
+slots.temporal = Slot(uri=DCTERMS.temporal, name="temporal", curie=DCTERMS.curie('temporal'),
                    model_uri=FIX_ORCHESTRA.temporal, domain=None, range=Optional[str])
 
-slots.audience = Slot(uri=DCT.audience, name="audience", curie=DCT.curie('audience'),
+slots.audience = Slot(uri=DCTERMS.audience, name="audience", curie=DCTERMS.curie('audience'),
                    model_uri=FIX_ORCHESTRA.audience, domain=None, range=Optional[str])
 
-slots.accrual_method = Slot(uri=DCT.accrualMethod, name="accrual_method", curie=DCT.curie('accrualMethod'),
+slots.accrual_method = Slot(uri=DCTERMS.accrualMethod, name="accrual_method", curie=DCTERMS.curie('accrualMethod'),
                    model_uri=FIX_ORCHESTRA.accrual_method, domain=None, range=Optional[str])
 
-slots.accrual_periodicity = Slot(uri=DCT.accrualPeriodicity, name="accrual_periodicity", curie=DCT.curie('accrualPeriodicity'),
+slots.accrual_periodicity = Slot(uri=DCTERMS.accrualPeriodicity, name="accrual_periodicity", curie=DCTERMS.curie('accrualPeriodicity'),
                    model_uri=FIX_ORCHESTRA.accrual_periodicity, domain=None, range=Optional[str])
 
-slots.accrual_policy = Slot(uri=DCT.accrualPolicy, name="accrual_policy", curie=DCT.curie('accrualPolicy'),
+slots.accrual_policy = Slot(uri=DCTERMS.accrualPolicy, name="accrual_policy", curie=DCTERMS.curie('accrualPolicy'),
                    model_uri=FIX_ORCHESTRA.accrual_policy, domain=None, range=Optional[str])
 
-slots.instructional_method = Slot(uri=DCT.instructionalMethod, name="instructional_method", curie=DCT.curie('instructionalMethod'),
+slots.instructional_method = Slot(uri=DCTERMS.instructionalMethod, name="instructional_method", curie=DCTERMS.curie('instructionalMethod'),
                    model_uri=FIX_ORCHESTRA.instructional_method, domain=None, range=Optional[str])
 
-slots.provenance = Slot(uri=DCT.provenance, name="provenance", curie=DCT.curie('provenance'),
+slots.provenance = Slot(uri=DCTERMS.provenance, name="provenance", curie=DCTERMS.curie('provenance'),
                    model_uri=FIX_ORCHESTRA.provenance, domain=None, range=Optional[str])
 
-slots.rights_holder = Slot(uri=DCT.rightsHolder, name="rights_holder", curie=DCT.curie('rightsHolder'),
+slots.rights_holder = Slot(uri=DCTERMS.rightsHolder, name="rights_holder", curie=DCTERMS.curie('rightsHolder'),
                    model_uri=FIX_ORCHESTRA.rights_holder, domain=None, range=Optional[str])
 
-slots.mediator = Slot(uri=DCT.mediator, name="mediator", curie=DCT.curie('mediator'),
+slots.mediator = Slot(uri=DCTERMS.mediator, name="mediator", curie=DCTERMS.curie('mediator'),
                    model_uri=FIX_ORCHESTRA.mediator, domain=None, range=Optional[str])
 
-slots.education_level = Slot(uri=DCT.educationLevel, name="education_level", curie=DCT.curie('educationLevel'),
+slots.education_level = Slot(uri=DCTERMS.educationLevel, name="education_level", curie=DCTERMS.curie('educationLevel'),
                    model_uri=FIX_ORCHESTRA.education_level, domain=None, range=Optional[str])
 
-slots.access_rights = Slot(uri=DCT.accessRights, name="access_rights", curie=DCT.curie('accessRights'),
+slots.access_rights = Slot(uri=DCTERMS.accessRights, name="access_rights", curie=DCTERMS.curie('accessRights'),
                    model_uri=FIX_ORCHESTRA.access_rights, domain=None, range=Optional[str])
 
-slots.license = Slot(uri=DCT.license, name="license", curie=DCT.curie('license'),
+slots.license = Slot(uri=DCTERMS.license, name="license", curie=DCTERMS.curie('license'),
                    model_uri=FIX_ORCHESTRA.license, domain=None, range=Optional[str])
 
-slots.bibliographic_citation = Slot(uri=DCT.bibliographicCitation, name="bibliographic_citation", curie=DCT.curie('bibliographicCitation'),
+slots.bibliographic_citation = Slot(uri=DCTERMS.bibliographicCitation, name="bibliographic_citation", curie=DCTERMS.curie('bibliographicCitation'),
                    model_uri=FIX_ORCHESTRA.bibliographic_citation, domain=None, range=Optional[str])
 
 slots.entityAttribGrp__deprecated = Slot(uri=FIX_ORCHESTRA.deprecated, name="entityAttribGrp__deprecated", curie=FIX_ORCHESTRA.curie('deprecated'),
@@ -6546,16 +6586,16 @@ slots.sections__base = Slot(uri=FIX_ORCHESTRA.base, name="sections__base", curie
 slots.dcSimpleLiteral__lang = Slot(uri=FIX_ORCHESTRA.lang, name="dcSimpleLiteral__lang", curie=FIX_ORCHESTRA.curie('lang'),
                    model_uri=FIX_ORCHESTRA.dcSimpleLiteral__lang, domain=None, range=Optional[str])
 
-slots.dcElementContainer__type = Slot(uri=DCT.type, name="dcElementContainer__type", curie=DCT.curie('type'),
+slots.dcElementContainer__type = Slot(uri=DCTERMS.type, name="dcElementContainer__type", curie=DCTERMS.curie('type'),
                    model_uri=FIX_ORCHESTRA.dcElementContainer__type, domain=None, range=Optional[str])
 
-slots.dcElementContainer__identifier = Slot(uri=DCT.identifier, name="dcElementContainer__identifier", curie=DCT.curie('identifier'),
+slots.dcElementContainer__identifier = Slot(uri=DCTERMS.identifier, name="dcElementContainer__identifier", curie=DCTERMS.curie('identifier'),
                    model_uri=FIX_ORCHESTRA.dcElementContainer__identifier, domain=None, range=Optional[str])
 
-slots.dctermsElementOrRefinementContainer__type = Slot(uri=DCT.type, name="dctermsElementOrRefinementContainer__type", curie=DCT.curie('type'),
+slots.dctermsElementOrRefinementContainer__type = Slot(uri=DCTERMS.type, name="dctermsElementOrRefinementContainer__type", curie=DCTERMS.curie('type'),
                    model_uri=FIX_ORCHESTRA.dctermsElementOrRefinementContainer__type, domain=None, range=Optional[str])
 
-slots.dctermsElementOrRefinementContainer__identifier = Slot(uri=DCT.identifier, name="dctermsElementOrRefinementContainer__identifier", curie=DCT.curie('identifier'),
+slots.dctermsElementOrRefinementContainer__identifier = Slot(uri=DCTERMS.identifier, name="dctermsElementOrRefinementContainer__identifier", curie=DCTERMS.curie('identifier'),
                    model_uri=FIX_ORCHESTRA.dctermsElementOrRefinementContainer__identifier, domain=None, range=Optional[str])
 
 slots.xmlSpecialAttrs__base = Slot(uri=FIX_ORCHESTRA.base, name="xmlSpecialAttrs__base", curie=FIX_ORCHESTRA.curie('base'),

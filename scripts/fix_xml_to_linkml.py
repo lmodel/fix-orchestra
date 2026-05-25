@@ -107,6 +107,7 @@ class SchemaIndex:
         self.types: dict[str, dict] = schema.get('types') or {}
         # Caches
         self._effective_attrs: dict[str, dict] = {}
+        self._alias_index: dict[str, dict[str, str]] = {}
 
     def effective_attributes(self, class_name: str) -> dict[str, dict]:
         """Return the merged slot map for a class including is_a + mixins."""
@@ -158,6 +159,30 @@ class SchemaIndex:
 
     def has_slot(self, class_name: str, slot_name: str) -> bool:
         return slot_name in self.effective_attributes(class_name)
+
+    def slot_for_xml_name(self, class_name: str, xml_name: str) -> str | None:
+        """Resolve an XML element/attribute local-name to a slot on a class.
+
+        Tries (in order): exact match, snake-cased name, then any slot whose
+        ``aliases:`` list contains the XML name. Used to recover slots whose
+        snake-casing diverges from the XSD element name — e.g. the FIXML
+        appinfo payload ``<fixml:FIXMLencodingType>`` maps to the
+        ``fixml_encoding`` slot via its alias.
+        """
+        attrs = self.effective_attributes(class_name)
+        if xml_name in attrs:
+            return xml_name
+        snaked = snake(xml_name)
+        if snaked in attrs:
+            return snaked
+        if class_name not in self._alias_index:
+            idx: dict[str, str] = {}
+            for slot_name, slot_def in attrs.items():
+                for alias in (slot_def or {}).get('aliases') or []:
+                    idx[alias] = slot_name
+                    idx[snake(alias)] = slot_name
+            self._alias_index[class_name] = idx
+        return self._alias_index[class_name].get(xml_name)
 
     def class_for_range(self, range_name: str) -> str | None:
         """Resolve a slot range to a class name (or None if scalar/enum/type)."""
@@ -245,13 +270,8 @@ def _convert_element(elt: ET.Element, class_name: str,
     children_by_slot: "OrderedDict[str, list[Any]]" = OrderedDict()
     for child in elt:
         cname = local_name(child.tag)
-        slot = snake(cname)
-        if slot not in attrs:
-            # Try the un-snaked form (matches LinkML aliases occasionally)
-            alt = cname
-            if alt in attrs:
-                slot = alt
-        if slot not in attrs:
+        slot = idx.slot_for_xml_name(class_name, cname)
+        if slot is None:
             # Drop unknown child elements (e.g. DC element refinements not in
             # the local class's attributes)
             continue

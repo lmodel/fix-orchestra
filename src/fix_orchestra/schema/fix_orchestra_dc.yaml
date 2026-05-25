@@ -15,10 +15,9 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   xsd: http://www.w3.org/2001/XMLSchema#
   dc: http://purl.org/dc/elements/1.1/
-  dct: http://purl.org/dc/terms/
   dcterms: http://purl.org/dc/terms/
-  dcmitype: http://purl.org/dc/dcmitype/
-  xml: http://www.w3.org/XML/1998/namespace#
+  dctypes: http://purl.org/dc/dcmitype/
+  XML: http://www.w3.org/XML/1998/namespace#
 default_prefix: fix_orchestra
 default_range: string
 imports:
@@ -27,16 +26,16 @@ types:
   DcmitypeDCMIType:
     description: 'Union of: '
     typeof: string
-    uri: dcmitype:DCMIType
+    uri: dctypes:DCMIType
     aliases:
     - DCMIType
     in_subset:
     - dcmitype
 
   XmlLangType:
-    description: Anonymous simpleType for xml:lang (from xml.xsd).
+    description: Anonymous simpleType for XML:lang (from xml.xsd).
     typeof: string
-    uri: xml:lang_t
+    uri: XML:lang_t
     in_subset:
     - xml_namespace
 subsets:
@@ -53,8 +52,8 @@ subsets:
     description: W3C XML namespace declarations (xml.xsd, namespace http://www.w3.org/XML/1998/namespace). Defines the well-known xml:base, xml:lang, xml:space, xml:id attributes.
 enums:
   XmlSpaceType:
-    description: Anonymous simpleType for xml:space (from xml.xsd).
-    enum_uri: xml:space_t
+    description: Anonymous simpleType for XML:space (from xml.xsd).
+    enum_uri: XML:space_t
     in_subset:
     - xml_namespace
     permissible_values:
@@ -91,12 +90,12 @@ classes:
       type:
         range: string
         description: Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
+        slot_uri: dcterms:type
 
       identifier:
         range: string
         description: Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
+        slot_uri: dcterms:identifier
     slots:
     - title
     - creator
@@ -327,7 +326,7 @@ classes:
 
   DctermsLCSH:
     is_a: DcSimpleLiteral
-    class_uri: dct:LCSH
+    class_uri: dcterms:LCSH
     aliases:
     - LCSH
     in_subset:
@@ -338,7 +337,7 @@ classes:
 
   DctermsMESH:
     is_a: DcSimpleLiteral
-    class_uri: dct:MESH
+    class_uri: dcterms:MESH
     aliases:
     - MESH
     in_subset:
@@ -349,7 +348,7 @@ classes:
 
   DctermsDDC:
     is_a: DcSimpleLiteral
-    class_uri: dct:DDC
+    class_uri: dcterms:DDC
     aliases:
     - DDC
     in_subset:
@@ -360,7 +359,7 @@ classes:
 
   DctermsLCC:
     is_a: DcSimpleLiteral
-    class_uri: dct:LCC
+    class_uri: dcterms:LCC
     aliases:
     - LCC
     in_subset:
@@ -371,7 +370,7 @@ classes:
 
   DctermsUDC:
     is_a: DcSimpleLiteral
-    class_uri: dct:UDC
+    class_uri: dcterms:UDC
     aliases:
     - UDC
     in_subset:
@@ -382,7 +381,7 @@ classes:
 
   DctermsPeriod:
     is_a: DcSimpleLiteral
-    class_uri: dct:Period
+    class_uri: dcterms:Period
     aliases:
     - Period
     in_subset:
@@ -393,7 +392,7 @@ classes:
 
   DctermsW3CDTF:
     is_a: DcSimpleLiteral
-    class_uri: dct:W3CDTF
+    class_uri: dcterms:W3CDTF
     aliases:
     - W3CDTF
     in_subset:
@@ -404,7 +403,7 @@ classes:
 
   DctermsDCMIType:
     is_a: DcSimpleLiteral
-    class_uri: dct:DCMIType
+    class_uri: dcterms:DCMIType
     aliases:
     - DCMIType
     in_subset:
@@ -415,7 +414,7 @@ classes:
 
   DctermsIMT:
     is_a: DcSimpleLiteral
-    class_uri: dct:IMT
+    class_uri: dcterms:IMT
     aliases:
     - IMT
     in_subset:
@@ -426,7 +425,7 @@ classes:
 
   DctermsURI:
     is_a: DcSimpleLiteral
-    class_uri: dct:URI
+    class_uri: dcterms:URI
     aliases:
     - URI
     in_subset:
@@ -437,7 +436,7 @@ classes:
 
   DctermsISO6392:
     is_a: DcSimpleLiteral
-    class_uri: dct:ISO639-2
+    class_uri: dcterms:ISO639-2
     aliases:
     - ISO639-2
     in_subset:
@@ -448,7 +447,7 @@ classes:
 
   DctermsISO6393:
     is_a: DcSimpleLiteral
-    class_uri: dct:ISO639-3
+    class_uri: dcterms:ISO639-3
     aliases:
     - ISO639-3
     in_subset:
@@ -459,7 +458,7 @@ classes:
 
   DctermsRFC1766:
     is_a: DcSimpleLiteral
-    class_uri: dct:RFC1766
+    class_uri: dcterms:RFC1766
     aliases:
     - RFC1766
     in_subset:
@@ -470,7 +469,7 @@ classes:
 
   DctermsRFC3066:
     is_a: DcSimpleLiteral
-    class_uri: dct:RFC3066
+    class_uri: dcterms:RFC3066
     aliases:
     - RFC3066
     in_subset:
@@ -481,7 +480,7 @@ classes:
 
   DctermsRFC4646:
     is_a: DcSimpleLiteral
-    class_uri: dct:RFC4646
+    class_uri: dcterms:RFC4646
     aliases:
     - RFC4646
     in_subset:
@@ -492,7 +491,7 @@ classes:
 
   DctermsPoint:
     is_a: DcSimpleLiteral
-    class_uri: dct:Point
+    class_uri: dcterms:Point
     aliases:
     - Point
     in_subset:
@@ -503,7 +502,7 @@ classes:
 
   DctermsISO3166:
     is_a: DcSimpleLiteral
-    class_uri: dct:ISO3166
+    class_uri: dcterms:ISO3166
     aliases:
     - ISO3166
     in_subset:
@@ -514,7 +513,7 @@ classes:
 
   DctermsBox:
     is_a: DcSimpleLiteral
-    class_uri: dct:Box
+    class_uri: dcterms:Box
     aliases:
     - Box
     in_subset:
@@ -525,7 +524,7 @@ classes:
 
   DctermsTGN:
     is_a: DcSimpleLiteral
-    class_uri: dct:TGN
+    class_uri: dcterms:TGN
     aliases:
     - TGN
     in_subset:
@@ -536,7 +535,7 @@ classes:
 
   DctermsElementOrRefinementContainer:
     description: This is included as a convenience for schema authors who need to define a root or container element for all of the DC elements and element refinements.
-    class_uri: dct:elementOrRefinementContainer
+    class_uri: dcterms:elementOrRefinementContainer
     aliases:
     - elementOrRefinementContainer
     in_subset:
@@ -547,12 +546,12 @@ classes:
       type:
         range: string
         description: Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:type
+        slot_uri: dcterms:type
 
       identifier:
         range: string
         description: Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-        slot_uri: dct:identifier
+        slot_uri: dcterms:identifier
     slots:
     - title
     - creator
@@ -610,7 +609,7 @@ classes:
 
   DctermsTitle:
     is_a: DcTitle
-    class_uri: dct:title
+    class_uri: dcterms:title
     aliases:
     - title
     in_subset:
@@ -620,7 +619,7 @@ classes:
 
   DctermsCreator:
     is_a: DcCreator
-    class_uri: dct:creator
+    class_uri: dcterms:creator
     aliases:
     - creator
     in_subset:
@@ -630,7 +629,7 @@ classes:
 
   DctermsSubject:
     is_a: DcSubject
-    class_uri: dct:subject
+    class_uri: dcterms:subject
     aliases:
     - subject
     in_subset:
@@ -640,7 +639,7 @@ classes:
 
   DctermsDescription:
     is_a: DcDescription
-    class_uri: dct:description
+    class_uri: dcterms:description
     aliases:
     - description
     in_subset:
@@ -650,7 +649,7 @@ classes:
 
   DctermsPublisher:
     is_a: DcPublisher
-    class_uri: dct:publisher
+    class_uri: dcterms:publisher
     aliases:
     - publisher
     in_subset:
@@ -660,7 +659,7 @@ classes:
 
   DctermsContributor:
     is_a: DcContributor
-    class_uri: dct:contributor
+    class_uri: dcterms:contributor
     aliases:
     - contributor
     in_subset:
@@ -670,7 +669,7 @@ classes:
 
   DctermsDate:
     is_a: DcDate
-    class_uri: dct:date
+    class_uri: dcterms:date
     aliases:
     - date
     in_subset:
@@ -680,7 +679,7 @@ classes:
 
   DctermsType:
     is_a: DcType
-    class_uri: dct:type
+    class_uri: dcterms:type
     aliases:
     - type
     in_subset:
@@ -690,7 +689,7 @@ classes:
 
   DctermsFormat:
     is_a: DcFormat
-    class_uri: dct:format
+    class_uri: dcterms:format
     aliases:
     - format
     in_subset:
@@ -700,7 +699,7 @@ classes:
 
   DctermsIdentifier:
     is_a: DcIdentifier
-    class_uri: dct:identifier
+    class_uri: dcterms:identifier
     aliases:
     - identifier
     in_subset:
@@ -710,7 +709,7 @@ classes:
 
   DctermsSource:
     is_a: DcSource
-    class_uri: dct:source
+    class_uri: dcterms:source
     aliases:
     - source
     in_subset:
@@ -720,7 +719,7 @@ classes:
 
   DctermsLanguage:
     is_a: DcLanguage
-    class_uri: dct:language
+    class_uri: dcterms:language
     aliases:
     - language
     in_subset:
@@ -730,7 +729,7 @@ classes:
 
   DctermsRelation:
     is_a: DcRelation
-    class_uri: dct:relation
+    class_uri: dcterms:relation
     aliases:
     - relation
     in_subset:
@@ -740,7 +739,7 @@ classes:
 
   DctermsCoverage:
     is_a: DcCoverage
-    class_uri: dct:coverage
+    class_uri: dcterms:coverage
     aliases:
     - coverage
     in_subset:
@@ -750,7 +749,7 @@ classes:
 
   DctermsRights:
     is_a: DcRights
-    class_uri: dct:rights
+    class_uri: dcterms:rights
     aliases:
     - rights
     in_subset:
@@ -760,7 +759,7 @@ classes:
 
   DctermsAlternative:
     is_a: DctermsTitle
-    class_uri: dct:alternative
+    class_uri: dcterms:alternative
     aliases:
     - alternative
     in_subset:
@@ -770,7 +769,7 @@ classes:
 
   DctermsTableOfContents:
     is_a: DctermsDescription
-    class_uri: dct:tableOfContents
+    class_uri: dcterms:tableOfContents
     aliases:
     - tableOfContents
     in_subset:
@@ -780,7 +779,7 @@ classes:
 
   DctermsAbstract:
     is_a: DctermsDescription
-    class_uri: dct:abstract
+    class_uri: dcterms:abstract
     aliases:
     - abstract
     in_subset:
@@ -790,7 +789,7 @@ classes:
 
   DctermsCreated:
     is_a: DctermsDate
-    class_uri: dct:created
+    class_uri: dcterms:created
     aliases:
     - created
     in_subset:
@@ -800,7 +799,7 @@ classes:
 
   DctermsValid:
     is_a: DctermsDate
-    class_uri: dct:valid
+    class_uri: dcterms:valid
     aliases:
     - valid
     in_subset:
@@ -810,7 +809,7 @@ classes:
 
   DctermsAvailable:
     is_a: DctermsDate
-    class_uri: dct:available
+    class_uri: dcterms:available
     aliases:
     - available
     in_subset:
@@ -820,7 +819,7 @@ classes:
 
   DctermsIssued:
     is_a: DctermsDate
-    class_uri: dct:issued
+    class_uri: dcterms:issued
     aliases:
     - issued
     in_subset:
@@ -830,7 +829,7 @@ classes:
 
   DctermsModified:
     is_a: DctermsDate
-    class_uri: dct:modified
+    class_uri: dcterms:modified
     aliases:
     - modified
     in_subset:
@@ -840,7 +839,7 @@ classes:
 
   DctermsDateAccepted:
     is_a: DctermsDate
-    class_uri: dct:dateAccepted
+    class_uri: dcterms:dateAccepted
     aliases:
     - dateAccepted
     in_subset:
@@ -850,7 +849,7 @@ classes:
 
   DctermsDateCopyrighted:
     is_a: DctermsDate
-    class_uri: dct:dateCopyrighted
+    class_uri: dcterms:dateCopyrighted
     aliases:
     - dateCopyrighted
     in_subset:
@@ -860,7 +859,7 @@ classes:
 
   DctermsDateSubmitted:
     is_a: DctermsDate
-    class_uri: dct:dateSubmitted
+    class_uri: dcterms:dateSubmitted
     aliases:
     - dateSubmitted
     in_subset:
@@ -870,7 +869,7 @@ classes:
 
   DctermsExtent:
     is_a: DctermsFormat
-    class_uri: dct:extent
+    class_uri: dcterms:extent
     aliases:
     - extent
     in_subset:
@@ -880,7 +879,7 @@ classes:
 
   DctermsMedium:
     is_a: DctermsFormat
-    class_uri: dct:medium
+    class_uri: dcterms:medium
     aliases:
     - medium
     in_subset:
@@ -890,7 +889,7 @@ classes:
 
   DctermsIsVersionOf:
     is_a: DctermsRelation
-    class_uri: dct:isVersionOf
+    class_uri: dcterms:isVersionOf
     aliases:
     - isVersionOf
     in_subset:
@@ -900,7 +899,7 @@ classes:
 
   DctermsHasVersion:
     is_a: DctermsRelation
-    class_uri: dct:hasVersion
+    class_uri: dcterms:hasVersion
     aliases:
     - hasVersion
     in_subset:
@@ -910,7 +909,7 @@ classes:
 
   DctermsIsReplacedBy:
     is_a: DctermsRelation
-    class_uri: dct:isReplacedBy
+    class_uri: dcterms:isReplacedBy
     aliases:
     - isReplacedBy
     in_subset:
@@ -920,7 +919,7 @@ classes:
 
   DctermsReplaces:
     is_a: DctermsRelation
-    class_uri: dct:replaces
+    class_uri: dcterms:replaces
     aliases:
     - replaces
     in_subset:
@@ -930,7 +929,7 @@ classes:
 
   DctermsIsRequiredBy:
     is_a: DctermsRelation
-    class_uri: dct:isRequiredBy
+    class_uri: dcterms:isRequiredBy
     aliases:
     - isRequiredBy
     in_subset:
@@ -940,7 +939,7 @@ classes:
 
   DctermsRequires:
     is_a: DctermsRelation
-    class_uri: dct:requires
+    class_uri: dcterms:requires
     aliases:
     - requires
     in_subset:
@@ -950,7 +949,7 @@ classes:
 
   DctermsIsPartOf:
     is_a: DctermsRelation
-    class_uri: dct:isPartOf
+    class_uri: dcterms:isPartOf
     aliases:
     - isPartOf
     in_subset:
@@ -960,7 +959,7 @@ classes:
 
   DctermsHasPart:
     is_a: DctermsRelation
-    class_uri: dct:hasPart
+    class_uri: dcterms:hasPart
     aliases:
     - hasPart
     in_subset:
@@ -970,7 +969,7 @@ classes:
 
   DctermsIsReferencedBy:
     is_a: DctermsRelation
-    class_uri: dct:isReferencedBy
+    class_uri: dcterms:isReferencedBy
     aliases:
     - isReferencedBy
     in_subset:
@@ -980,7 +979,7 @@ classes:
 
   DctermsReferences:
     is_a: DctermsRelation
-    class_uri: dct:references
+    class_uri: dcterms:references
     aliases:
     - references
     in_subset:
@@ -990,7 +989,7 @@ classes:
 
   DctermsIsFormatOf:
     is_a: DctermsRelation
-    class_uri: dct:isFormatOf
+    class_uri: dcterms:isFormatOf
     aliases:
     - isFormatOf
     in_subset:
@@ -1000,7 +999,7 @@ classes:
 
   DctermsHasFormat:
     is_a: DctermsRelation
-    class_uri: dct:hasFormat
+    class_uri: dcterms:hasFormat
     aliases:
     - hasFormat
     in_subset:
@@ -1010,7 +1009,7 @@ classes:
 
   DctermsConformsTo:
     is_a: DctermsRelation
-    class_uri: dct:conformsTo
+    class_uri: dcterms:conformsTo
     aliases:
     - conformsTo
     in_subset:
@@ -1020,7 +1019,7 @@ classes:
 
   DctermsSpatial:
     is_a: DctermsCoverage
-    class_uri: dct:spatial
+    class_uri: dcterms:spatial
     aliases:
     - spatial
     in_subset:
@@ -1030,7 +1029,7 @@ classes:
 
   DctermsTemporal:
     is_a: DctermsCoverage
-    class_uri: dct:temporal
+    class_uri: dcterms:temporal
     aliases:
     - temporal
     in_subset:
@@ -1040,7 +1039,7 @@ classes:
 
   DctermsAudience:
     is_a: DcAny
-    class_uri: dct:audience
+    class_uri: dcterms:audience
     aliases:
     - audience
     in_subset:
@@ -1050,7 +1049,7 @@ classes:
 
   DctermsAccrualMethod:
     is_a: DcAny
-    class_uri: dct:accrualMethod
+    class_uri: dcterms:accrualMethod
     aliases:
     - accrualMethod
     in_subset:
@@ -1060,7 +1059,7 @@ classes:
 
   DctermsAccrualPeriodicity:
     is_a: DcAny
-    class_uri: dct:accrualPeriodicity
+    class_uri: dcterms:accrualPeriodicity
     aliases:
     - accrualPeriodicity
     in_subset:
@@ -1070,7 +1069,7 @@ classes:
 
   DctermsAccrualPolicy:
     is_a: DcAny
-    class_uri: dct:accrualPolicy
+    class_uri: dcterms:accrualPolicy
     aliases:
     - accrualPolicy
     in_subset:
@@ -1080,7 +1079,7 @@ classes:
 
   DctermsInstructionalMethod:
     is_a: DcAny
-    class_uri: dct:instructionalMethod
+    class_uri: dcterms:instructionalMethod
     aliases:
     - instructionalMethod
     in_subset:
@@ -1090,7 +1089,7 @@ classes:
 
   DctermsProvenance:
     is_a: DcAny
-    class_uri: dct:provenance
+    class_uri: dcterms:provenance
     aliases:
     - provenance
     in_subset:
@@ -1100,7 +1099,7 @@ classes:
 
   DctermsRightsHolder:
     is_a: DcAny
-    class_uri: dct:rightsHolder
+    class_uri: dcterms:rightsHolder
     aliases:
     - rightsHolder
     in_subset:
@@ -1110,7 +1109,7 @@ classes:
 
   DctermsMediator:
     is_a: DctermsAudience
-    class_uri: dct:mediator
+    class_uri: dcterms:mediator
     aliases:
     - mediator
     in_subset:
@@ -1120,7 +1119,7 @@ classes:
 
   DctermsEducationLevel:
     is_a: DctermsAudience
-    class_uri: dct:educationLevel
+    class_uri: dcterms:educationLevel
     aliases:
     - educationLevel
     in_subset:
@@ -1130,7 +1129,7 @@ classes:
 
   DctermsAccessRights:
     is_a: DctermsRights
-    class_uri: dct:accessRights
+    class_uri: dcterms:accessRights
     aliases:
     - accessRights
     in_subset:
@@ -1140,7 +1139,7 @@ classes:
 
   DctermsLicense:
     is_a: DctermsRights
-    class_uri: dct:license
+    class_uri: dcterms:license
     aliases:
     - license
     in_subset:
@@ -1150,7 +1149,7 @@ classes:
 
   DctermsBibliographicCitation:
     is_a: DctermsIdentifier
-    class_uri: dct:bibliographicCitation
+    class_uri: dcterms:bibliographicCitation
     aliases:
     - bibliographicCitation
     in_subset:
@@ -1161,7 +1160,7 @@ classes:
   DctermsElementsAndRefinementsGroup:
     description: This group is included as a convenience for schema authors who need to refer to all the DC elements and element refinements in the http://purl.org/dc/elements/1.1/ and http://purl.org/dc/terms namespaces. N.B. Refinements available via substitution groups.
     mixin: true
-    class_uri: dct:elementsAndRefinementsGroup
+    class_uri: dcterms:elementsAndRefinementsGroup
     aliases:
     - elementsAndRefinementsGroup
     in_subset:
@@ -1172,7 +1171,7 @@ classes:
 
   XmlSpecialAttrs:
     mixin: true
-    class_uri: xml:specialAttrs
+    class_uri: XML:specialAttrs
     aliases:
     - specialAttrs
     in_subset:
@@ -1191,8 +1190,8 @@ classes:
         range: string
 
   XmlGlobalAttributes:
-    description: Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="xml:<name>"``.
-    class_uri: xml:GlobalAttributes
+    description: Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
+    class_uri: XML:GlobalAttributes
     in_subset:
     - xml_namespace
     annotations:
@@ -1201,22 +1200,22 @@ classes:
       lang:
         range: XmlLangType
         description: lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string.
-        slot_uri: xml:lang
+        slot_uri: XML:lang
 
       space:
         range: XmlSpaceType
         description: space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification.
-        slot_uri: xml:space
+        slot_uri: XML:space
 
       base:
         range: uri
         description: base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute.
-        slot_uri: xml:base
+        slot_uri: XML:base
 
       id:
         range: string
         description: id (as an attribute name) denotes an attribute whose value should be interpreted as if declared to be of type ID. This name is reserved by virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/ for information about this attribute.
-        slot_uri: xml:id
+        slot_uri: XML:id
 slots:
   value:
     range: string
@@ -1230,308 +1229,308 @@ slots:
   title:
     range: string
     description: Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:title
+    slot_uri: dcterms:title
 
   description:
     range: string
     description: Free-text value of the Dublin Core element/refinement `description`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:description
+    slot_uri: dcterms:description
 
   creator:
     range: string
     description: Free-text value of the Dublin Core element/refinement `creator`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:creator
+    slot_uri: dcterms:creator
 
   rights:
     range: string
     description: Free-text value of the Dublin Core element/refinement `rights`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:rights
+    slot_uri: dcterms:rights
 
   date:
     range: string
     description: Free-text value of the Dublin Core element/refinement `date`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:date
+    slot_uri: dcterms:date
 
   publisher:
     range: string
     description: Free-text value of the Dublin Core element/refinement `publisher`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:publisher
+    slot_uri: dcterms:publisher
 
   subject:
     range: string
     description: Free-text value of the Dublin Core element/refinement `subject`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:subject
+    slot_uri: dcterms:subject
 
   contributor:
     range: string
     description: Free-text value of the Dublin Core element/refinement `contributor`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:contributor
+    slot_uri: dcterms:contributor
 
   format:
     range: string
     description: Free-text value of the Dublin Core element/refinement `format`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:format
+    slot_uri: dcterms:format
 
   source:
     range: string
     description: Free-text value of the Dublin Core element/refinement `source`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:source
+    slot_uri: dcterms:source
 
   language:
     range: string
     description: Free-text value of the Dublin Core element/refinement `language`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:language
+    slot_uri: dcterms:language
 
   relation:
     range: string
     description: Free-text value of the Dublin Core element/refinement `relation`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:relation
+    slot_uri: dcterms:relation
 
   coverage:
     range: string
     description: Free-text value of the Dublin Core element/refinement `coverage`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:coverage
+    slot_uri: dcterms:coverage
 
   alternative:
     range: string
     description: Free-text value of the Dublin Core element/refinement `alternative`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:alternative
+    slot_uri: dcterms:alternative
 
   table_of_contents:
     range: string
     description: Free-text value of the Dublin Core element/refinement `tableOfContents`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:tableOfContents
+    slot_uri: dcterms:tableOfContents
     aliases:
     - tableOfContents
 
   abstract:
     range: string
     description: Free-text value of the Dublin Core element/refinement `abstract`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:abstract
+    slot_uri: dcterms:abstract
 
   created:
     range: string
     description: Free-text value of the Dublin Core element/refinement `created`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:created
+    slot_uri: dcterms:created
 
   valid:
     range: string
     description: Free-text value of the Dublin Core element/refinement `valid`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:valid
+    slot_uri: dcterms:valid
 
   available:
     range: string
     description: Free-text value of the Dublin Core element/refinement `available`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:available
+    slot_uri: dcterms:available
 
   issued:
     range: string
     description: Free-text value of the Dublin Core element/refinement `issued`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:issued
+    slot_uri: dcterms:issued
 
   modified:
     range: string
     description: Free-text value of the Dublin Core element/refinement `modified`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:modified
+    slot_uri: dcterms:modified
 
   date_accepted:
     range: string
     description: Free-text value of the Dublin Core element/refinement `dateAccepted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateAccepted
+    slot_uri: dcterms:dateAccepted
     aliases:
     - dateAccepted
 
   date_copyrighted:
     range: string
     description: Free-text value of the Dublin Core element/refinement `dateCopyrighted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateCopyrighted
+    slot_uri: dcterms:dateCopyrighted
     aliases:
     - dateCopyrighted
 
   date_submitted:
     range: string
     description: Free-text value of the Dublin Core element/refinement `dateSubmitted`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:dateSubmitted
+    slot_uri: dcterms:dateSubmitted
     aliases:
     - dateSubmitted
 
   extent:
     range: string
     description: Free-text value of the Dublin Core element/refinement `extent`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:extent
+    slot_uri: dcterms:extent
 
   medium:
     range: string
     description: Free-text value of the Dublin Core element/refinement `medium`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:medium
+    slot_uri: dcterms:medium
 
   is_version_of:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isVersionOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isVersionOf
+    slot_uri: dcterms:isVersionOf
     aliases:
     - isVersionOf
 
   has_version:
     range: string
     description: Free-text value of the Dublin Core element/refinement `hasVersion`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasVersion
+    slot_uri: dcterms:hasVersion
     aliases:
     - hasVersion
 
   is_replaced_by:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isReplacedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isReplacedBy
+    slot_uri: dcterms:isReplacedBy
     aliases:
     - isReplacedBy
 
   replaces:
     range: string
     description: Free-text value of the Dublin Core element/refinement `replaces`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:replaces
+    slot_uri: dcterms:replaces
 
   is_required_by:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isRequiredBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isRequiredBy
+    slot_uri: dcterms:isRequiredBy
     aliases:
     - isRequiredBy
 
   requires:
     range: string
     description: Free-text value of the Dublin Core element/refinement `requires`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:requires
+    slot_uri: dcterms:requires
 
   is_part_of:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isPartOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isPartOf
+    slot_uri: dcterms:isPartOf
     aliases:
     - isPartOf
 
   has_part:
     range: string
     description: Free-text value of the Dublin Core element/refinement `hasPart`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasPart
+    slot_uri: dcterms:hasPart
     aliases:
     - hasPart
 
   is_referenced_by:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isReferencedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isReferencedBy
+    slot_uri: dcterms:isReferencedBy
     aliases:
     - isReferencedBy
 
   references:
     range: string
     description: Free-text value of the Dublin Core element/refinement `references`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:references
+    slot_uri: dcterms:references
 
   is_format_of:
     range: string
     description: Free-text value of the Dublin Core element/refinement `isFormatOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:isFormatOf
+    slot_uri: dcterms:isFormatOf
     aliases:
     - isFormatOf
 
   has_format:
     range: string
     description: Free-text value of the Dublin Core element/refinement `hasFormat`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:hasFormat
+    slot_uri: dcterms:hasFormat
     aliases:
     - hasFormat
 
   conforms_to:
     range: string
     description: Free-text value of the Dublin Core element/refinement `conformsTo`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:conformsTo
+    slot_uri: dcterms:conformsTo
     aliases:
     - conformsTo
 
   spatial:
     range: string
     description: Free-text value of the Dublin Core element/refinement `spatial`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:spatial
+    slot_uri: dcterms:spatial
 
   temporal:
     range: string
     description: Free-text value of the Dublin Core element/refinement `temporal`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:temporal
+    slot_uri: dcterms:temporal
 
   audience:
     range: string
     description: Free-text value of the Dublin Core element/refinement `audience`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:audience
+    slot_uri: dcterms:audience
 
   accrual_method:
     range: string
     description: Free-text value of the Dublin Core element/refinement `accrualMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualMethod
+    slot_uri: dcterms:accrualMethod
     aliases:
     - accrualMethod
 
   accrual_periodicity:
     range: string
     description: Free-text value of the Dublin Core element/refinement `accrualPeriodicity`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualPeriodicity
+    slot_uri: dcterms:accrualPeriodicity
     aliases:
     - accrualPeriodicity
 
   accrual_policy:
     range: string
     description: Free-text value of the Dublin Core element/refinement `accrualPolicy`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accrualPolicy
+    slot_uri: dcterms:accrualPolicy
     aliases:
     - accrualPolicy
 
   instructional_method:
     range: string
     description: Free-text value of the Dublin Core element/refinement `instructionalMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:instructionalMethod
+    slot_uri: dcterms:instructionalMethod
     aliases:
     - instructionalMethod
 
   provenance:
     range: string
     description: Free-text value of the Dublin Core element/refinement `provenance`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:provenance
+    slot_uri: dcterms:provenance
 
   rights_holder:
     range: string
     description: Free-text value of the Dublin Core element/refinement `rightsHolder`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:rightsHolder
+    slot_uri: dcterms:rightsHolder
     aliases:
     - rightsHolder
 
   mediator:
     range: string
     description: Free-text value of the Dublin Core element/refinement `mediator`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:mediator
+    slot_uri: dcterms:mediator
 
   education_level:
     range: string
     description: Free-text value of the Dublin Core element/refinement `educationLevel`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:educationLevel
+    slot_uri: dcterms:educationLevel
     aliases:
     - educationLevel
 
   access_rights:
     range: string
     description: Free-text value of the Dublin Core element/refinement `accessRights`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:accessRights
+    slot_uri: dcterms:accessRights
     aliases:
     - accessRights
 
   license:
     range: string
     description: Free-text value of the Dublin Core element/refinement `license`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:license
+    slot_uri: dcterms:license
 
   bibliographic_citation:
     range: string
     description: Free-text value of the Dublin Core element/refinement `bibliographicCitation`. Expanded from the XSD substitutionGroup chain rooted at dc:any.
-    slot_uri: dct:bibliographicCitation
+    slot_uri: dcterms:bibliographicCitation
     aliases:
     - bibliographicCitation

@@ -68,19 +68,15 @@
       "prefix_reference": "http://purl.org/dc/elements/1.1/"
     },
     {
-      "prefix_prefix": "dct",
-      "prefix_reference": "http://purl.org/dc/terms/"
-    },
-    {
       "prefix_prefix": "dcterms",
       "prefix_reference": "http://purl.org/dc/terms/"
     },
     {
-      "prefix_prefix": "dcmitype",
+      "prefix_prefix": "dctypes",
       "prefix_reference": "http://purl.org/dc/dcmitype/"
     },
     {
-      "prefix_prefix": "xml",
+      "prefix_prefix": "XML",
       "prefix_reference": "http://www.w3.org/XML/1998/namespace#"
     },
     {
@@ -90,6 +86,10 @@
     {
       "prefix_prefix": "fixi",
       "prefix_reference": "http://fixprotocol.io/2024/orchestra/interfaces/"
+    },
+    {
+      "prefix_prefix": "fixml",
+      "prefix_reference": "http://fixprotocol.io/2022/orchestra/appinfo/fixml#"
     }
   ],
   "default_prefix": "fix_orchestra",
@@ -1675,7 +1675,7 @@
     {
       "name": "XmlLangType",
       "definition_uri": "https://w3id.org/lmodel/fix-orchestra/XmlLangType",
-      "description": "Anonymous simpleType for xml:lang (from xml.xsd).",
+      "description": "Anonymous simpleType for XML:lang (from xml.xsd).",
       "in_subset": [
         "xml_namespace"
       ],
@@ -1833,7 +1833,8 @@
         "presence_t"
       ],
       "exact_mappings": [
-        "fixr:presence_t"
+        "fixr:presence_t",
+        "fix_sbe:Presence"
       ],
       "enum_uri": "fix_orchestra:Presence",
       "permissible_values": [
@@ -2300,12 +2301,12 @@
     {
       "name": "XmlSpaceType",
       "definition_uri": "https://w3id.org/lmodel/fix-orchestra/XmlSpaceType",
-      "description": "Anonymous simpleType for xml:space (from xml.xsd).",
+      "description": "Anonymous simpleType for XML:space (from xml.xsd).",
       "in_subset": [
         "xml_namespace"
       ],
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/dc",
-      "enum_uri": "xml:space_t",
+      "enum_uri": "XML:space_t",
       "permissible_values": [
         {
           "text": "default"
@@ -3092,6 +3093,28 @@
       ],
       "range": "string",
       "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fixml_encoding",
+      "definition_uri": "https://w3id.org/lmodel/fix-orchestra/fixml_encoding",
+      "description": "FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType> payloads embedded in <fixr:appinfo purpose=\"FIXML\">.",
+      "from_schema": "https://w3id.org/lmodel/fix-orchestra",
+      "aliases": [
+        "FIXMLencoding",
+        "FIXMLencodingType"
+      ],
+      "mappings": [
+        "https://w3id.org/lmodel/fix-orchestra/fixml_encoding"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixml_encoding",
+      "owner": "Appinfo",
+      "domain_of": [
+        "Appinfo"
+      ],
+      "range": "FIXMLencodingType",
+      "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4807,6 +4830,49 @@
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "inlined",
+      "definition_uri": "https://w3id.org/lmodel/fix-orchestra/inlined",
+      "description": "If true, a component is inlined in a containing message or component",
+      "from_schema": "https://w3id.org/lmodel/fix-orchestra",
+      "mappings": [
+        "https://w3id.org/lmodel/fix-orchestra/inlined"
+      ],
+      "exact_mappings": [
+        "http://fixprotocol.io/2022/orchestra/appinfo/fixml#inlined"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/fix-orchestra/inlined",
+      "ifabsent": "boolean(false)",
+      "owner": "FIXMLencodingType",
+      "domain_of": [
+        "FIXMLencodingType"
+      ],
+      "range": "boolean",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "not_req_xml",
+      "definition_uri": "https://w3id.org/lmodel/fix-orchestra/not_req_xml",
+      "description": "If true, an element is ignored by FIXML generator",
+      "from_schema": "https://w3id.org/lmodel/fix-orchestra",
+      "aliases": [
+        "notReqXML"
+      ],
+      "mappings": [
+        "https://w3id.org/lmodel/fix-orchestra/not_req_xml"
+      ],
+      "exact_mappings": [
+        "http://fixprotocol.io/2022/orchestra/appinfo/fixml#notReqXML"
+      ],
+      "slot_uri": "https://w3id.org/lmodel/fix-orchestra/not_req_xml",
+      "ifabsent": "boolean(false)",
+      "owner": "FIXMLencodingType",
+      "domain_of": [
+        "FIXMLencodingType"
+      ],
+      "range": "boolean",
       "@type": "SlotDefinition"
     },
     {
@@ -9455,6 +9521,9 @@
       "exact_mappings": [
         "fixr:entityAttribGrp"
       ],
+      "close_mappings": [
+        "fix_sbe:VersionAttributes"
+      ],
       "mixin": true,
       "slots": [
         "added",
@@ -9929,6 +9998,7 @@
         "value",
         "content",
         "extra_attributes",
+        "fixml_encoding",
         "appinfo__lang_id",
         "appinfo__purpose",
         "added",
@@ -10108,6 +10178,12 @@
       "exact_mappings": [
         "fixr:codeSetType"
       ],
+      "close_mappings": [
+        "fix_sbe:EnumTypeV1",
+        "fix_sbe:EnumTypeV2",
+        "fix_sbe:SetTypeV1",
+        "fix_sbe:SetTypeV2"
+      ],
       "mixins": [
         "OidGrp",
         "ScenarioRefGrp",
@@ -10189,6 +10265,10 @@
       ],
       "exact_mappings": [
         "fixr:codeType"
+      ],
+      "close_mappings": [
+        "fix_sbe:Choice",
+        "fix_sbe:ValidValue"
       ],
       "mixins": [
         "OidGrp",
@@ -10400,6 +10480,12 @@
       ],
       "exact_mappings": [
         "fixr:componentType"
+      ],
+      "close_mappings": [
+        "fix_sbe:BlockTypeV1",
+        "fix_sbe:BlockTypeV2",
+        "fix_sbe:GroupTypeV1",
+        "fix_sbe:GroupTypeV2"
       ],
       "mixins": [
         "EntityAttribGrp",
@@ -10624,6 +10710,10 @@
       "exact_mappings": [
         "fixr:fieldRefType"
       ],
+      "close_mappings": [
+        "fix_sbe:RefTypeV1",
+        "fix_sbe:RefTypeV2"
+      ],
       "mixins": [
         "RefidGrp",
         "EntityAttribGrp",
@@ -10835,7 +10925,9 @@
         "fix_orchestra:FieldType"
       ],
       "exact_mappings": [
-        "fixr:fieldType"
+        "fixr:fieldType",
+        "fix_sbe:FieldTypeV1",
+        "fix_sbe:FieldTypeV2"
       ],
       "mixins": [
         "OidGrp",
@@ -11433,7 +11525,8 @@
         "fix_orchestra:MessageType"
       ],
       "exact_mappings": [
-        "fixr:messageType"
+        "fixr:messageType",
+        "fix_sbe:MessageV1"
       ],
       "mixins": [
         "OidGrp",
@@ -12736,6 +12829,19 @@
       "exact_mappings": [
         "fixr:datatype"
       ],
+      "close_mappings": [
+        "fix_sbe:CompositeDataTypeV1",
+        "fix_sbe:CompositeDataTypeV2",
+        "fix_sbe:EncodedDataTypeV1",
+        "fix_sbe:SimpleDataTypeV2"
+      ],
+      "narrow_mappings": [
+        "fix_sbe:PrimitiveTypeV1",
+        "fix_sbe:PrimitiveTypeV2"
+      ],
+      "broad_mappings": [
+        "fix_sbe:MemberDataTypeV2"
+      ],
       "mixins": [
         "EntityAttribGrp"
       ],
@@ -13196,7 +13302,8 @@
         "fix_orchestra:Datatypes"
       ],
       "exact_mappings": [
-        "fixr:datatypes"
+        "fixr:datatypes",
+        "fix_sbe:TypesV2"
       ],
       "slots": [
         "datatype",
@@ -13415,7 +13522,8 @@
         "fix_orchestra:Messages"
       ],
       "exact_mappings": [
-        "fixr:messages"
+        "fixr:messages",
+        "fix_sbe:MessagesV2"
       ],
       "slots": [
         "message",
@@ -13493,6 +13601,10 @@
       ],
       "exact_mappings": [
         "fixr:repository"
+      ],
+      "close_mappings": [
+        "fix_sbe:MessageSchemaV1",
+        "fix_sbe:MessageSchemaV2"
       ],
       "slots": [
         "metadata",
@@ -13770,6 +13882,38 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "FIXMLencodingType",
+      "definition_uri": "https://w3id.org/lmodel/fix-orchestra/FIXMLencodingType",
+      "annotations": [
+        {
+          "tag": "xsd_source",
+          "value": "FIXMLappinfo.xsd",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "FIXML generator hints carried inside <fixr:appinfo purpose=\"FIXML\">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.",
+      "in_subset": [
+        "repository_types"
+      ],
+      "from_schema": "https://w3id.org/lmodel/fix-orchestra",
+      "aliases": [
+        "FIXMLencoding"
+      ],
+      "mappings": [
+        "fix_orchestra:FIXMLencodingType"
+      ],
+      "exact_mappings": [
+        "fixml:FIXMLencodingType"
+      ],
+      "slots": [
+        "inlined",
+        "not_req_xml"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/lmodel/fix-orchestra/FIXMLencodingType",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "DcSimpleLiteral",
       "definition_uri": "https://w3id.org/lmodel/fix-orchestra/DcSimpleLiteral",
       "annotations": [
@@ -13894,14 +14038,14 @@
         {
           "name": "type",
           "description": "Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.",
-          "slot_uri": "dct:type",
+          "slot_uri": "dcterms:type",
           "range": "string",
           "@type": "SlotDefinition"
         },
         {
           "name": "identifier",
           "description": "Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.",
-          "slot_uri": "dct:identifier",
+          "slot_uri": "dcterms:identifier",
           "range": "string",
           "@type": "SlotDefinition"
         }
@@ -14444,7 +14588,7 @@
         "LCSH"
       ],
       "mappings": [
-        "dct:LCSH"
+        "dcterms:LCSH"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14479,7 +14623,7 @@
         "MESH"
       ],
       "mappings": [
-        "dct:MESH"
+        "dcterms:MESH"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14514,7 +14658,7 @@
         "DDC"
       ],
       "mappings": [
-        "dct:DDC"
+        "dcterms:DDC"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14549,7 +14693,7 @@
         "LCC"
       ],
       "mappings": [
-        "dct:LCC"
+        "dcterms:LCC"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14584,7 +14728,7 @@
         "UDC"
       ],
       "mappings": [
-        "dct:UDC"
+        "dcterms:UDC"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14619,7 +14763,7 @@
         "Period"
       ],
       "mappings": [
-        "dct:Period"
+        "dcterms:Period"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14654,7 +14798,7 @@
         "W3CDTF"
       ],
       "mappings": [
-        "dct:W3CDTF"
+        "dcterms:W3CDTF"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14689,7 +14833,7 @@
         "DCMIType"
       ],
       "mappings": [
-        "dct:DCMIType"
+        "dcterms:DCMIType"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14724,7 +14868,7 @@
         "IMT"
       ],
       "mappings": [
-        "dct:IMT"
+        "dcterms:IMT"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14759,7 +14903,7 @@
         "URI"
       ],
       "mappings": [
-        "dct:URI"
+        "dcterms:URI"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14794,7 +14938,7 @@
         "ISO639-2"
       ],
       "mappings": [
-        "dct:ISO639-2"
+        "dcterms:ISO639-2"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14829,7 +14973,7 @@
         "ISO639-3"
       ],
       "mappings": [
-        "dct:ISO639-3"
+        "dcterms:ISO639-3"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14864,7 +15008,7 @@
         "RFC1766"
       ],
       "mappings": [
-        "dct:RFC1766"
+        "dcterms:RFC1766"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14899,7 +15043,7 @@
         "RFC3066"
       ],
       "mappings": [
-        "dct:RFC3066"
+        "dcterms:RFC3066"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14934,7 +15078,7 @@
         "RFC4646"
       ],
       "mappings": [
-        "dct:RFC4646"
+        "dcterms:RFC4646"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -14969,7 +15113,7 @@
         "Point"
       ],
       "mappings": [
-        "dct:Point"
+        "dcterms:Point"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -15004,7 +15148,7 @@
         "ISO3166"
       ],
       "mappings": [
-        "dct:ISO3166"
+        "dcterms:ISO3166"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -15039,7 +15183,7 @@
         "Box"
       ],
       "mappings": [
-        "dct:Box"
+        "dcterms:Box"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -15074,7 +15218,7 @@
         "TGN"
       ],
       "mappings": [
-        "dct:TGN"
+        "dcterms:TGN"
       ],
       "is_a": "DcSimpleLiteral",
       "slots": [
@@ -15105,7 +15249,7 @@
         "elementOrRefinementContainer"
       ],
       "mappings": [
-        "dct:elementOrRefinementContainer"
+        "dcterms:elementOrRefinementContainer"
       ],
       "slots": [
         "title",
@@ -15169,14 +15313,14 @@
         {
           "name": "type",
           "description": "Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any.",
-          "slot_uri": "dct:type",
+          "slot_uri": "dcterms:type",
           "range": "string",
           "@type": "SlotDefinition"
         },
         {
           "name": "identifier",
           "description": "Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any.",
-          "slot_uri": "dct:identifier",
+          "slot_uri": "dcterms:identifier",
           "range": "string",
           "@type": "SlotDefinition"
         }
@@ -15202,7 +15346,7 @@
         "title"
       ],
       "mappings": [
-        "dct:title"
+        "dcterms:title"
       ],
       "is_a": "DcTitle",
       "slots": [
@@ -15232,7 +15376,7 @@
         "creator"
       ],
       "mappings": [
-        "dct:creator"
+        "dcterms:creator"
       ],
       "is_a": "DcCreator",
       "slots": [
@@ -15262,7 +15406,7 @@
         "subject"
       ],
       "mappings": [
-        "dct:subject"
+        "dcterms:subject"
       ],
       "is_a": "DcSubject",
       "slots": [
@@ -15292,7 +15436,7 @@
         "description"
       ],
       "mappings": [
-        "dct:description"
+        "dcterms:description"
       ],
       "is_a": "DcDescription",
       "slots": [
@@ -15322,7 +15466,7 @@
         "publisher"
       ],
       "mappings": [
-        "dct:publisher"
+        "dcterms:publisher"
       ],
       "is_a": "DcPublisher",
       "slots": [
@@ -15352,7 +15496,7 @@
         "contributor"
       ],
       "mappings": [
-        "dct:contributor"
+        "dcterms:contributor"
       ],
       "is_a": "DcContributor",
       "slots": [
@@ -15382,7 +15526,7 @@
         "date"
       ],
       "mappings": [
-        "dct:date"
+        "dcterms:date"
       ],
       "is_a": "DcDate",
       "slots": [
@@ -15412,7 +15556,7 @@
         "type"
       ],
       "mappings": [
-        "dct:type"
+        "dcterms:type"
       ],
       "is_a": "DcType",
       "slots": [
@@ -15442,7 +15586,7 @@
         "format"
       ],
       "mappings": [
-        "dct:format"
+        "dcterms:format"
       ],
       "is_a": "DcFormat",
       "slots": [
@@ -15472,7 +15616,7 @@
         "identifier"
       ],
       "mappings": [
-        "dct:identifier"
+        "dcterms:identifier"
       ],
       "is_a": "DcIdentifier",
       "slots": [
@@ -15502,7 +15646,7 @@
         "source"
       ],
       "mappings": [
-        "dct:source"
+        "dcterms:source"
       ],
       "is_a": "DcSource",
       "slots": [
@@ -15532,7 +15676,7 @@
         "language"
       ],
       "mappings": [
-        "dct:language"
+        "dcterms:language"
       ],
       "is_a": "DcLanguage",
       "slots": [
@@ -15562,7 +15706,7 @@
         "relation"
       ],
       "mappings": [
-        "dct:relation"
+        "dcterms:relation"
       ],
       "is_a": "DcRelation",
       "slots": [
@@ -15592,7 +15736,7 @@
         "coverage"
       ],
       "mappings": [
-        "dct:coverage"
+        "dcterms:coverage"
       ],
       "is_a": "DcCoverage",
       "slots": [
@@ -15622,7 +15766,7 @@
         "rights"
       ],
       "mappings": [
-        "dct:rights"
+        "dcterms:rights"
       ],
       "is_a": "DcRights",
       "slots": [
@@ -15652,7 +15796,7 @@
         "alternative"
       ],
       "mappings": [
-        "dct:alternative"
+        "dcterms:alternative"
       ],
       "is_a": "DctermsTitle",
       "slots": [
@@ -15682,7 +15826,7 @@
         "tableOfContents"
       ],
       "mappings": [
-        "dct:tableOfContents"
+        "dcterms:tableOfContents"
       ],
       "is_a": "DctermsDescription",
       "slots": [
@@ -15712,7 +15856,7 @@
         "abstract"
       ],
       "mappings": [
-        "dct:abstract"
+        "dcterms:abstract"
       ],
       "is_a": "DctermsDescription",
       "slots": [
@@ -15742,7 +15886,7 @@
         "created"
       ],
       "mappings": [
-        "dct:created"
+        "dcterms:created"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15772,7 +15916,7 @@
         "valid"
       ],
       "mappings": [
-        "dct:valid"
+        "dcterms:valid"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15802,7 +15946,7 @@
         "available"
       ],
       "mappings": [
-        "dct:available"
+        "dcterms:available"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15832,7 +15976,7 @@
         "issued"
       ],
       "mappings": [
-        "dct:issued"
+        "dcterms:issued"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15862,7 +16006,7 @@
         "modified"
       ],
       "mappings": [
-        "dct:modified"
+        "dcterms:modified"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15892,7 +16036,7 @@
         "dateAccepted"
       ],
       "mappings": [
-        "dct:dateAccepted"
+        "dcterms:dateAccepted"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15922,7 +16066,7 @@
         "dateCopyrighted"
       ],
       "mappings": [
-        "dct:dateCopyrighted"
+        "dcterms:dateCopyrighted"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15952,7 +16096,7 @@
         "dateSubmitted"
       ],
       "mappings": [
-        "dct:dateSubmitted"
+        "dcterms:dateSubmitted"
       ],
       "is_a": "DctermsDate",
       "slots": [
@@ -15982,7 +16126,7 @@
         "extent"
       ],
       "mappings": [
-        "dct:extent"
+        "dcterms:extent"
       ],
       "is_a": "DctermsFormat",
       "slots": [
@@ -16012,7 +16156,7 @@
         "medium"
       ],
       "mappings": [
-        "dct:medium"
+        "dcterms:medium"
       ],
       "is_a": "DctermsFormat",
       "slots": [
@@ -16042,7 +16186,7 @@
         "isVersionOf"
       ],
       "mappings": [
-        "dct:isVersionOf"
+        "dcterms:isVersionOf"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16072,7 +16216,7 @@
         "hasVersion"
       ],
       "mappings": [
-        "dct:hasVersion"
+        "dcterms:hasVersion"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16102,7 +16246,7 @@
         "isReplacedBy"
       ],
       "mappings": [
-        "dct:isReplacedBy"
+        "dcterms:isReplacedBy"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16132,7 +16276,7 @@
         "replaces"
       ],
       "mappings": [
-        "dct:replaces"
+        "dcterms:replaces"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16162,7 +16306,7 @@
         "isRequiredBy"
       ],
       "mappings": [
-        "dct:isRequiredBy"
+        "dcterms:isRequiredBy"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16192,7 +16336,7 @@
         "requires"
       ],
       "mappings": [
-        "dct:requires"
+        "dcterms:requires"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16222,7 +16366,7 @@
         "isPartOf"
       ],
       "mappings": [
-        "dct:isPartOf"
+        "dcterms:isPartOf"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16252,7 +16396,7 @@
         "hasPart"
       ],
       "mappings": [
-        "dct:hasPart"
+        "dcterms:hasPart"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16282,7 +16426,7 @@
         "isReferencedBy"
       ],
       "mappings": [
-        "dct:isReferencedBy"
+        "dcterms:isReferencedBy"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16312,7 +16456,7 @@
         "references"
       ],
       "mappings": [
-        "dct:references"
+        "dcterms:references"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16342,7 +16486,7 @@
         "isFormatOf"
       ],
       "mappings": [
-        "dct:isFormatOf"
+        "dcterms:isFormatOf"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16372,7 +16516,7 @@
         "hasFormat"
       ],
       "mappings": [
-        "dct:hasFormat"
+        "dcterms:hasFormat"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16402,7 +16546,7 @@
         "conformsTo"
       ],
       "mappings": [
-        "dct:conformsTo"
+        "dcterms:conformsTo"
       ],
       "is_a": "DctermsRelation",
       "slots": [
@@ -16432,7 +16576,7 @@
         "spatial"
       ],
       "mappings": [
-        "dct:spatial"
+        "dcterms:spatial"
       ],
       "is_a": "DctermsCoverage",
       "slots": [
@@ -16462,7 +16606,7 @@
         "temporal"
       ],
       "mappings": [
-        "dct:temporal"
+        "dcterms:temporal"
       ],
       "is_a": "DctermsCoverage",
       "slots": [
@@ -16492,7 +16636,7 @@
         "audience"
       ],
       "mappings": [
-        "dct:audience"
+        "dcterms:audience"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16522,7 +16666,7 @@
         "accrualMethod"
       ],
       "mappings": [
-        "dct:accrualMethod"
+        "dcterms:accrualMethod"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16552,7 +16696,7 @@
         "accrualPeriodicity"
       ],
       "mappings": [
-        "dct:accrualPeriodicity"
+        "dcterms:accrualPeriodicity"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16582,7 +16726,7 @@
         "accrualPolicy"
       ],
       "mappings": [
-        "dct:accrualPolicy"
+        "dcterms:accrualPolicy"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16612,7 +16756,7 @@
         "instructionalMethod"
       ],
       "mappings": [
-        "dct:instructionalMethod"
+        "dcterms:instructionalMethod"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16642,7 +16786,7 @@
         "provenance"
       ],
       "mappings": [
-        "dct:provenance"
+        "dcterms:provenance"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16672,7 +16816,7 @@
         "rightsHolder"
       ],
       "mappings": [
-        "dct:rightsHolder"
+        "dcterms:rightsHolder"
       ],
       "is_a": "DcAny",
       "slots": [
@@ -16702,7 +16846,7 @@
         "mediator"
       ],
       "mappings": [
-        "dct:mediator"
+        "dcterms:mediator"
       ],
       "is_a": "DctermsAudience",
       "slots": [
@@ -16732,7 +16876,7 @@
         "educationLevel"
       ],
       "mappings": [
-        "dct:educationLevel"
+        "dcterms:educationLevel"
       ],
       "is_a": "DctermsAudience",
       "slots": [
@@ -16762,7 +16906,7 @@
         "accessRights"
       ],
       "mappings": [
-        "dct:accessRights"
+        "dcterms:accessRights"
       ],
       "is_a": "DctermsRights",
       "slots": [
@@ -16792,7 +16936,7 @@
         "license"
       ],
       "mappings": [
-        "dct:license"
+        "dcterms:license"
       ],
       "is_a": "DctermsRights",
       "slots": [
@@ -16822,7 +16966,7 @@
         "bibliographicCitation"
       ],
       "mappings": [
-        "dct:bibliographicCitation"
+        "dcterms:bibliographicCitation"
       ],
       "is_a": "DctermsIdentifier",
       "slots": [
@@ -16858,7 +17002,7 @@
         "elementsAndRefinementsGroup"
       ],
       "mappings": [
-        "dct:elementsAndRefinementsGroup"
+        "dcterms:elementsAndRefinementsGroup"
       ],
       "mixin": true,
       "slot_usage": {},
@@ -16876,7 +17020,7 @@
         "specialAttrs"
       ],
       "mappings": [
-        "xml:specialAttrs"
+        "XML:specialAttrs"
       ],
       "mixin": true,
       "slots": [
@@ -16921,13 +17065,13 @@
           "@type": "Annotation"
         }
       ],
-      "description": "Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref=\"xml:<name>\"``.",
+      "description": "Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref=\"XML:<name>\"``.",
       "in_subset": [
         "xml_namespace"
       ],
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/dc",
       "mappings": [
-        "xml:GlobalAttributes"
+        "XML:GlobalAttributes"
       ],
       "slots": [
         "xmlGlobalAttributes__lang",
@@ -16940,28 +17084,28 @@
         {
           "name": "lang",
           "description": "lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string.",
-          "slot_uri": "xml:lang",
+          "slot_uri": "XML:lang",
           "range": "XmlLangType",
           "@type": "SlotDefinition"
         },
         {
           "name": "space",
           "description": "space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification.",
-          "slot_uri": "xml:space",
+          "slot_uri": "XML:space",
           "range": "XmlSpaceType",
           "@type": "SlotDefinition"
         },
         {
           "name": "base",
           "description": "base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute.",
-          "slot_uri": "xml:base",
+          "slot_uri": "XML:base",
           "range": "uri",
           "@type": "SlotDefinition"
         },
         {
           "name": "id",
           "description": "id (as an attribute name) denotes an attribute whose value should be interpreted as if declared to be of type ID. This name is reserved by virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/ for information about this attribute.",
-          "slot_uri": "xml:id",
+          "slot_uri": "XML:id",
           "range": "string",
           "@type": "SlotDefinition"
         }
@@ -16972,9 +17116,9 @@
   ],
   "metamodel_version": "1.11.0",
   "source_file": "fix_orchestra.yaml",
-  "source_file_date": "2026-05-21T19:31:36",
-  "source_file_size": 102662,
-  "generation_date": "2026-05-21T19:31:38",
+  "source_file_date": "2026-05-25T15:13:57",
+  "source_file_size": 104936,
+  "generation_date": "2026-05-25T15:13:59",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/fix_orchestra.context.jsonld",

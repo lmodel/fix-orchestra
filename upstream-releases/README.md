@@ -32,6 +32,20 @@ These files complete the `<xs:import>` graph so the three XSDs above can be vali
 | `dcterms.xsd` | 13 KB | Dublin Core Terms (<http://purl.org/dc/terms/>) - imported by `repository.xsd` and `interfaces.xsd` via `<xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>`. |
 | `xml.xsd` | 9 KB | W3C XML namespace declarations (e.g. `xml:base`) - imported by `repository.xsd` and `interfaces.xsd`. |
 
+#### FIXML appinfo content model
+
+| File | Size | Origin |
+|---|---|---|
+| `FIXMLappinfo.xsd` | 1 KB | FIXML generator hints (`<fixml:FIXMLencoding>` with `notReqXML`, `inlined` attributes), namespace `http://fixprotocol.io/2022/orchestra/appinfo/fixml`. Copied byte-identical from [orchestra-transposer](https://github.com/FIXTradingCommunity/orchestra-transposer) (`orchestratransposer/orchestra/schemas/appinfo/FIXMLappinfo.xsd`). The canonical Orchestra XML corpus carries 500+ instances of this payload embedded in `<fixr:appinfo purpose="FIXML">` blocks; without this XSD the converter dropped the flags. |
+
+### Reference: FIX Orchestra transposer (Python)
+
+Vendored at `orchestra-transposer/` from <https://github.com/FIXTradingCommunity/orchestra-transposer> (Apache 2.0, FIX Trading Community). Pairwise converters between **Orchestra 1.0 ↔ SBE 1.0 ↔ FIX Unified Repository 2010** plus pythonic accessors for each schema. Not invoked at build time. Used as a source for:
+
+- `FIXMLappinfo.xsd` (above) — the only file currently lifted into LinkML generation.
+- Older Orchestra v1.0 XSDs (2020 namespace) — kept for historical comparison; superseded by the v1.1-RC2 XSDs already at the top of this directory.
+- Reference implementations for SBE and Unified Repository conversion — out of scope for the current LinkML pipeline but available if we expand into those formats.
+
 ### Reference implementation: FIX Orchestra -> Protobuf/Cap'n Proto
 
 Source: <https://github.com/FIXTradingCommunity/fix-orchestra-protobuf>  
@@ -47,8 +61,17 @@ Key files: `ProtobufModelFactory.java` (1015 lines, primary reference), `CapnpMo
 The LinkML schema at `src/fix_orchestra/schema/fix_orchestra.yaml` is derived from these XSDs. Re-run after any update:
 
 ```bash
-python3 scripts/schema_to_linkml.py
+just gen-linkml      # XSD -> schema, then SSSOM overlay
 ```
+
+`just gen-linkml` chains two steps:
+
+1. `python3 scripts/schema_to_linkml.py --orchestra-xml upstream-releases/OrchestraFIXLatest.xml` — parses the XSDs above (plus `FIXMLappinfo.xsd`) and writes `src/fix_orchestra/schema/fix_orchestra{,_dc}.yaml`. Pure XSD-driven content lives here.
+2. `python3 scripts/apply_sssom_overlay.py` — reads any `*.sssom.tsv` in `src/fix_orchestra/mappings/` and merges the cross-schema mapping CURIEs (currently Orchestra ↔ SBE) into the schema's `exact_mappings` / `close_mappings` / `broad_mappings` / `narrow_mappings` / `related_mappings` slots. Idempotent; rerunning produces no further changes.
+
+If only the SSSOM TSVs were edited (no XSD changes), `just overlay-sssom-mappings` runs step 2 alone.
+
+The mapping TSVs live under `src/fix_orchestra/mappings/`, not here — `upstream-releases/` is reserved for byte-identical copies of upstream vendor artefacts.
 
 ## Test data
 

@@ -223,6 +223,7 @@ type Appinfo implements EntityAttribGrp
     value: String
     content: [String]
     extraAttributes: [String]
+    fixmlEncoding: FIXMLencodingType
     langId: Language
     purpose: Purpose
     added: Version
@@ -1406,6 +1407,12 @@ type FieldType implements OidGrp, EntityAttribGrp, FieldAttribGrp
     value: String
     rendering: String
     encoding: String
+  }
+
+type FIXMLencodingType
+  {
+    inlined: Boolean
+    notReqXml: Boolean
   }
 
 type FlowType

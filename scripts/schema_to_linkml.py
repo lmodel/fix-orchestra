@@ -604,12 +604,16 @@ def emit_aux_xsds(
             pfx, nm = "", qname
         if pfx == "xs":
             return (PRIM.get(nm, "string"), False)
+        # Map both XSD-side prefixes (dct, dcmitype, xml) and the canonical
+        # output prefixes (dcterms, dctypes, XML) onto internal scope keys.
         scope = {
             "dc": "dc",
             "dct": "dct",
             "dcterms": "dct",
             "dcmitype": "dcmitype",
+            "dctypes": "dcmitype",
             "xml": "xml",
+            "XML": "xml",
         }.get(pfx)
         if scope:
             e = aux_registry.get((scope, nm))
@@ -726,14 +730,23 @@ def _expand_dc_container_attributes(parsed: dict, classes: OrderedDict) -> None:
                 f"`{n}`. Expanded from the XSD substitutionGroup chain "
                 f"rooted at dc:any."
             )
-            body["slot_uri"] = "dct:" + n if n in dct.get("elements", {}) else "dc:" + n
+            body["slot_uri"] = "dcterms:" + n if n in dct.get("elements", {}) else "dc:" + n
             if slot != n:
                 body["aliases"] = [n]
             attrs[slot] = body
 
 
 def _xsd_prefix_for_scope(scope_key: str) -> str:
-    return {"dc": "dc", "dct": "dct", "dcmitype": "dcmitype", "xml": "xml"}[scope_key]
+    """Map an internal aux-scope key to the canonical CURIE prefix emitted
+    into LinkML output (``slot_uri``, ``class_uri``, ``enum_uri``, type
+    ``uri``).
+
+    Canonical names follow linkml-lint's ``canonical_prefixes`` rule:
+    ``http://purl.org/dc/terms/`` -> ``dcterms`` (not ``dct``),
+    ``http://purl.org/dc/dcmitype/`` -> ``dctypes`` (not ``dcmitype``),
+    ``http://www.w3.org/XML/1998/namespace`` -> ``XML`` (not ``xml``).
+    """
+    return {"dc": "dc", "dct": "dcterms", "dcmitype": "dctypes", "xml": "XML"}[scope_key]
 
 
 def _qualify(qname: str | None, scope_key: str) -> str | None:
@@ -1130,7 +1143,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                 [
                     ("range", "string"),
                     ("description", "A name given to the resource."),
-                    ("slot_uri", "dct:title"),
+                    ("slot_uri", "dcterms:title"),
                 ]
             ),
         ),
@@ -1140,7 +1153,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                 [
                     ("range", "string"),
                     ("description", "An account of the resource."),
-                    ("slot_uri", "dct:description"),
+                    ("slot_uri", "dcterms:description"),
                 ]
             ),
         ),
@@ -1150,7 +1163,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                 [
                     ("range", "string"),
                     ("description", "An entity responsible for making the resource."),
-                    ("slot_uri", "dct:creator"),
+                    ("slot_uri", "dcterms:creator"),
                 ]
             ),
         ),
@@ -1163,7 +1176,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                         "description",
                         "Information about rights held in and over the resource.",
                     ),
-                    ("slot_uri", "dct:rights"),
+                    ("slot_uri", "dcterms:rights"),
                 ]
             ),
         ),
@@ -1176,7 +1189,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                         "description",
                         "A point or period of time associated with the resource.",
                     ),
-                    ("slot_uri", "dct:date"),
+                    ("slot_uri", "dcterms:date"),
                 ]
             ),
         ),
@@ -1189,7 +1202,7 @@ _DC_SLOT_DEFS: "OrderedDict[str, OrderedDict]" = OrderedDict(
                         "description",
                         "An entity responsible for making the resource available.",
                     ),
-                    ("slot_uri", "dct:publisher"),
+                    ("slot_uri", "dcterms:publisher"),
                 ]
             ),
         ),
@@ -1213,6 +1226,92 @@ def _inject_dc_slots(classes: "OrderedDict[str, OrderedDict]") -> None:
         if name not in existing:
             existing.insert(0, name)
     cls_def["slots"] = existing
+
+
+def _inject_fixml_appinfo(
+    upstream_dir: Path,
+    classes: "OrderedDict[str, OrderedDict]",
+) -> bool:
+    """Inject the FIXML appinfo content model from ``FIXMLappinfo.xsd``.
+
+    The canonical FIX Orchestra XML corpus carries 500+ instances of
+    ``<fixr:appinfo purpose="FIXML"><fixml:FIXMLencodingType notReqXML inlined/>
+    </fixr:appinfo>`` payloads. Without this hook the converter drops the
+    ``notReqXML`` / ``inlined`` flags. Reading the small ``FIXMLappinfo.xsd``
+    bundled by the FIX Trading Community lets us add a ``FIXMLencodingType``
+    class to the schema and wire it onto ``Appinfo`` via ``fixml_encoding``.
+
+    Returns ``True`` when the class was emitted, ``False`` if the XSD is
+    missing (the function is opt-in: callers degrade gracefully).
+    """
+    appinfo_xsd = upstream_dir / "FIXMLappinfo.xsd"
+    if not appinfo_xsd.is_file():
+        return False
+    root = ET.parse(appinfo_xsd).getroot()
+    cls_name = "FIXMLencodingType"
+    ct = next(
+        (
+            c
+            for c in root
+            if local(c.tag) == "complexType" and c.get("name") == cls_name
+        ),
+        None,
+    )
+    if ct is None:
+        return False
+    attrs: "OrderedDict[str, OrderedDict]" = OrderedDict()
+    for a in ct.findall(f"{XS}attribute"):
+        name = a.get("name")
+        if not name:
+            continue
+        body: "OrderedDict" = OrderedDict()
+        body["range"] = "boolean"
+        doc = doc_of(a)
+        if doc:
+            body["description"] = doc
+        default = a.get("default")
+        if default is not None:
+            truth = default.strip().lower() in ("1", "true")
+            body["ifabsent"] = f"boolean({'true' if truth else 'false'})"
+        slot = snake(name)
+        body["slot_uri"] = f"fix_orchestra:{slot}"
+        body["exact_mappings"] = [f"fixml:{name}"]
+        if slot != name:
+            body["aliases"] = [name]
+        attrs[slot] = body
+    cls_out: "OrderedDict" = OrderedDict()
+    cls_out["description"] = (
+        doc_of(ct)
+        or 'FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. '
+        "Captures whether a component is inlined in its containing message and "
+        "whether an element is ignored by the FIXML generator."
+    )
+    cls_out["class_uri"] = f"fix_orchestra:{cls_name}"
+    cls_out["exact_mappings"] = [f"fixml:{cls_name}"]
+    cls_out["aliases"] = ["FIXMLencoding"]
+    cls_out["in_subset"] = ["repository_types"]
+    cls_out["attributes"] = attrs
+    cls_out["annotations"] = OrderedDict([("xsd_source", "FIXMLappinfo.xsd")])
+    classes[cls_name] = cls_out
+    appinfo_cls = classes.get("Appinfo")
+    if appinfo_cls is not None:
+        appinfo_attrs = appinfo_cls.setdefault("attributes", OrderedDict())
+        if "fixml_encoding" not in appinfo_attrs:
+            appinfo_attrs["fixml_encoding"] = OrderedDict(
+                [
+                    ("range", cls_name),
+                    (
+                        "description",
+                        "FIXML generator hints. Surfaces "
+                        "<fixml:FIXMLencoding> / <fixml:FIXMLencodingType> "
+                        'payloads embedded in <fixr:appinfo purpose="FIXML">.',
+                    ),
+                    ("inlined", True),
+                    ("slot_uri", "fix_orchestra:fixml_encoding"),
+                    ("aliases", ["FIXMLencoding", "FIXMLencodingType"]),
+                ]
+            )
+    return True
 
 
 def _slot_diff(canonical: dict, other: dict) -> "OrderedDict":
@@ -2122,6 +2221,9 @@ def convert(
             src_xsd="interfaces.xsd",
         )
 
+    # ---- Inject FIXML appinfo content model (FIXMLappinfo.xsd) ---------------
+    _inject_fixml_appinfo(upstream_dir, classes)
+
     # ---- Inject DC property slots and promote shared attributes to schema slots --
     _inject_dc_slots(classes)
     promoted_slots = _promote_to_schema_slots(classes)
@@ -2209,10 +2311,9 @@ def convert(
             ("rdfs", "http://www.w3.org/2000/01/rdf-schema#"),
             ("xsd", "http://www.w3.org/2001/XMLSchema#"),
             ("dc", "http://purl.org/dc/elements/1.1/"),
-            ("dct", "http://purl.org/dc/terms/"),
             ("dcterms", "http://purl.org/dc/terms/"),
-            ("dcmitype", "http://purl.org/dc/dcmitype/"),
-            ("xml", "http://www.w3.org/XML/1998/namespace#"),
+            ("dctypes", "http://purl.org/dc/dcmitype/"),
+            ("XML", "http://www.w3.org/XML/1998/namespace#"),
         ]
     )
     dc_hdr["default_prefix"] = "fix_orchestra"
@@ -2303,12 +2404,12 @@ def convert(
             ("skos", "http://www.w3.org/2004/02/skos/core#"),
             ("schema", "http://schema.org/"),
             ("dc", "http://purl.org/dc/elements/1.1/"),
-            ("dct", "http://purl.org/dc/terms/"),
             ("dcterms", "http://purl.org/dc/terms/"),
-            ("dcmitype", "http://purl.org/dc/dcmitype/"),
-            ("xml", "http://www.w3.org/XML/1998/namespace#"),
+            ("dctypes", "http://purl.org/dc/dcmitype/"),
+            ("XML", "http://www.w3.org/XML/1998/namespace#"),
             ("fixr", "http://fixprotocol.io/2024/orchestra/repository/"),
             ("fixi", "http://fixprotocol.io/2024/orchestra/interfaces/"),
+            ("fixml", "http://fixprotocol.io/2022/orchestra/appinfo/fixml#"),
         ]
     )
     header["default_prefix"] = "fix_orchestra"

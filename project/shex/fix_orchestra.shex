@@ -2,12 +2,12 @@
 # version: 1.1-rc2
 BASE <https://w3id.org/lmodel/fix-orchestra/>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX xml1: <http://www.w3.org/XML/1998/namespace#>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+PREFIX XML: <http://www.w3.org/XML/1998/namespace#>
 
 
 <ComponentName> <ComponentName>
@@ -154,9 +154,9 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<DcmitypeDCMIType> dcmitype:DCMIType
+<DcmitypeDCMIType> dctypes:DCMIType
 
-<XmlLangType> xml1:lang_t
+<XmlLangType> XML:lang_t
 
 <ActionType>  (
     CLOSED {
@@ -235,6 +235,7 @@ linkml:Sparqlpath xsd:string
           <value> @linkml:String ? ;
           <content> @linkml:String * ;
           <extra_attributes> @linkml:String * ;
+          <fixml_encoding> @<FIXMLencodingType> ? ;
           <lang_id> @<Language> ? ;
           <purpose> @<Purpose> ? ;
           <added> @<Version> ? ;
@@ -1733,6 +1734,14 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<FIXMLencodingType> CLOSED {
+    (  $<FIXMLencodingType_tes> (  <inlined> @linkml:Boolean ? ;
+          <not_req_xml> @linkml:Boolean ?
+       ) ;
+       rdf:type [ <FIXMLencodingType> ] ?
+    )
+}
+
 <FlowType> CLOSED {
     (  $<FlowType_tes> (  <source> @linkml:String ;
           <destination> @linkml:String ;
@@ -2247,13 +2256,13 @@ linkml:Sparqlpath xsd:string
 }
 
 <XmlGlobalAttributes> CLOSED {
-    (  $<XmlGlobalAttributes_tes> (  xml1:lang @<XmlLangType> ? ;
-          xml1:space [ <https://w3id.org/lmodel/fix-orchestra/XmlSpaceType#default>
+    (  $<XmlGlobalAttributes_tes> (  XML:lang @<XmlLangType> ? ;
+          XML:space [ <https://w3id.org/lmodel/fix-orchestra/XmlSpaceType#default>
              <https://w3id.org/lmodel/fix-orchestra/XmlSpaceType#preserve> ] ? ;
-          xml1:base @linkml:Uri ? ;
-          xml1:id @linkml:String ?
+          XML:base @linkml:Uri ? ;
+          XML:id @linkml:String ?
        ) ;
-       rdf:type [ xml1:GlobalAttributes ] ?
+       rdf:type [ XML:GlobalAttributes ] ?
     )
 }
 
@@ -2263,6 +2272,6 @@ linkml:Sparqlpath xsd:string
           <space> @linkml:String ? ;
           <id> @linkml:String ?
        ) ;
-       rdf:type [ xml1:specialAttrs ] ?
+       rdf:type [ XML:specialAttrs ] ?
     )
 }

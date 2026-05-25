@@ -390,6 +390,17 @@
                         "null"
                     ]
                 },
+                "fixml_encoding": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FIXMLencodingType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType> payloads embedded in <fixr:appinfo purpose=\"FIXML\">."
+                },
                 "issue": {
                     "type": [
                         "string",
@@ -5669,6 +5680,28 @@
             "title": "ExtensionInline",
             "type": "object"
         },
+        "FIXMLencodingType": {
+            "additionalProperties": false,
+            "description": "FIXML generator hints carried inside <fixr:appinfo purpose=\"FIXML\">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.",
+            "properties": {
+                "inlined": {
+                    "description": "If true, a component is inlined in a containing message or component",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "not_req_xml": {
+                    "description": "If true, an element is ignored by FIXML generator",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "title": "FIXMLencodingType",
+            "type": "object"
+        },
         "FieldAttribGrp": {
             "additionalProperties": false,
             "description": "Attributes of a field that be overridden by a rule",
@@ -9055,7 +9088,7 @@
         },
         "XmlGlobalAttributes": {
             "additionalProperties": false,
-            "description": "Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref=\"xml:<name>\"``.",
+            "description": "Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref=\"XML:<name>\"``.",
             "properties": {
                 "base": {
                     "description": "base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute.",
@@ -9088,7 +9121,7 @@
             "type": "object"
         },
         "XmlSpaceType": {
-            "description": "Anonymous simpleType for xml:space (from xml.xsd).",
+            "description": "Anonymous simpleType for XML:space (from xml.xsd).",
             "enum": [
                 "default",
                 "preserve"

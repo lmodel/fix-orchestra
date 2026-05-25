@@ -20,6 +20,7 @@ public class Appinfo  {
   private String value;
   private List<String> content;
   private List<String> extraAttributes;
+  private FIXMLencodingType fixmlEncoding;
   private String langId;
   private String purpose;
   private String added;

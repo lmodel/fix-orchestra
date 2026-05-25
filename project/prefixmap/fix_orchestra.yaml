@@ -1,17 +1,18 @@
 {
+   "XML": "http://www.w3.org/XML/1998/namespace#",
    "dc": "http://purl.org/dc/elements/1.1/",
-   "dcmitype": "http://purl.org/dc/dcmitype/",
-   "dct": "http://purl.org/dc/terms/",
    "dcterms": "http://purl.org/dc/terms/",
+   "dctypes": "http://purl.org/dc/dcmitype/",
    "fix_orchestra": "https://w3id.org/lmodel/fix-orchestra/",
+   "fix_sbe": "http://example.org/UNKNOWN/fix_sbe/",
    "fixi": "http://fixprotocol.io/2024/orchestra/interfaces/",
+   "fixml": "http://fixprotocol.io/2022/orchestra/appinfo/fixml#",
    "fixr": "http://fixprotocol.io/2024/orchestra/repository/",
    "linkml": "https://w3id.org/linkml/",
    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
    "schema": "http://schema.org/",
    "skos": "http://www.w3.org/2004/02/skos/core#",
-   "xml": "http://www.w3.org/XML/1998/namespace#",
    "xsd": "http://www.w3.org/2001/XMLSchema#",
    "DcAny": {
       "@id": "dc:any"
@@ -65,232 +66,232 @@
       "@id": "dc:subject"
    },
    "DctermsAbstract": {
-      "@id": "dct:abstract"
+      "@id": "dcterms:abstract"
    },
    "DctermsAccessRights": {
-      "@id": "dct:accessRights"
+      "@id": "dcterms:accessRights"
    },
    "DctermsAccrualMethod": {
-      "@id": "dct:accrualMethod"
+      "@id": "dcterms:accrualMethod"
    },
    "DctermsAccrualPeriodicity": {
-      "@id": "dct:accrualPeriodicity"
+      "@id": "dcterms:accrualPeriodicity"
    },
    "DctermsAccrualPolicy": {
-      "@id": "dct:accrualPolicy"
+      "@id": "dcterms:accrualPolicy"
    },
    "DctermsAlternative": {
-      "@id": "dct:alternative"
+      "@id": "dcterms:alternative"
    },
    "DctermsAudience": {
-      "@id": "dct:audience"
+      "@id": "dcterms:audience"
    },
    "DctermsAvailable": {
-      "@id": "dct:available"
+      "@id": "dcterms:available"
    },
    "DctermsBibliographicCitation": {
-      "@id": "dct:bibliographicCitation"
+      "@id": "dcterms:bibliographicCitation"
    },
    "DctermsBox": {
-      "@id": "dct:Box"
+      "@id": "dcterms:Box"
    },
    "DctermsConformsTo": {
-      "@id": "dct:conformsTo"
+      "@id": "dcterms:conformsTo"
    },
    "DctermsContributor": {
-      "@id": "dct:contributor"
+      "@id": "dcterms:contributor"
    },
    "DctermsCoverage": {
-      "@id": "dct:coverage"
+      "@id": "dcterms:coverage"
    },
    "DctermsCreated": {
-      "@id": "dct:created"
+      "@id": "dcterms:created"
    },
    "DctermsCreator": {
-      "@id": "dct:creator"
+      "@id": "dcterms:creator"
    },
    "DctermsDate": {
-      "@id": "dct:date"
+      "@id": "dcterms:date"
    },
    "DctermsDateAccepted": {
-      "@id": "dct:dateAccepted"
+      "@id": "dcterms:dateAccepted"
    },
    "DctermsDateCopyrighted": {
-      "@id": "dct:dateCopyrighted"
+      "@id": "dcterms:dateCopyrighted"
    },
    "DctermsDateSubmitted": {
-      "@id": "dct:dateSubmitted"
+      "@id": "dcterms:dateSubmitted"
    },
    "DctermsDCMIType": {
-      "@id": "dct:DCMIType"
+      "@id": "dcterms:DCMIType"
    },
    "DctermsDDC": {
-      "@id": "dct:DDC"
+      "@id": "dcterms:DDC"
    },
    "DctermsDescription": {
-      "@id": "dct:description"
+      "@id": "dcterms:description"
    },
    "DctermsEducationLevel": {
-      "@id": "dct:educationLevel"
+      "@id": "dcterms:educationLevel"
    },
    "DctermsElementOrRefinementContainer": {
-      "@id": "dct:elementOrRefinementContainer"
+      "@id": "dcterms:elementOrRefinementContainer"
    },
    "DctermsElementsAndRefinementsGroup": {
-      "@id": "dct:elementsAndRefinementsGroup"
+      "@id": "dcterms:elementsAndRefinementsGroup"
    },
    "DctermsExtent": {
-      "@id": "dct:extent"
+      "@id": "dcterms:extent"
    },
    "DctermsFormat": {
-      "@id": "dct:format"
+      "@id": "dcterms:format"
    },
    "DctermsHasFormat": {
-      "@id": "dct:hasFormat"
+      "@id": "dcterms:hasFormat"
    },
    "DctermsHasPart": {
-      "@id": "dct:hasPart"
+      "@id": "dcterms:hasPart"
    },
    "DctermsHasVersion": {
-      "@id": "dct:hasVersion"
+      "@id": "dcterms:hasVersion"
    },
    "DctermsIdentifier": {
-      "@id": "dct:identifier"
+      "@id": "dcterms:identifier"
    },
    "DctermsIMT": {
-      "@id": "dct:IMT"
+      "@id": "dcterms:IMT"
    },
    "DctermsInstructionalMethod": {
-      "@id": "dct:instructionalMethod"
+      "@id": "dcterms:instructionalMethod"
    },
    "DctermsIsFormatOf": {
-      "@id": "dct:isFormatOf"
+      "@id": "dcterms:isFormatOf"
    },
    "DctermsISO3166": {
-      "@id": "dct:ISO3166"
+      "@id": "dcterms:ISO3166"
    },
    "DctermsISO6392": {
-      "@id": "dct:ISO639-2"
+      "@id": "dcterms:ISO639-2"
    },
    "DctermsISO6393": {
-      "@id": "dct:ISO639-3"
+      "@id": "dcterms:ISO639-3"
    },
    "DctermsIsPartOf": {
-      "@id": "dct:isPartOf"
+      "@id": "dcterms:isPartOf"
    },
    "DctermsIsReferencedBy": {
-      "@id": "dct:isReferencedBy"
+      "@id": "dcterms:isReferencedBy"
    },
    "DctermsIsReplacedBy": {
-      "@id": "dct:isReplacedBy"
+      "@id": "dcterms:isReplacedBy"
    },
    "DctermsIsRequiredBy": {
-      "@id": "dct:isRequiredBy"
+      "@id": "dcterms:isRequiredBy"
    },
    "DctermsIssued": {
-      "@id": "dct:issued"
+      "@id": "dcterms:issued"
    },
    "DctermsIsVersionOf": {
-      "@id": "dct:isVersionOf"
+      "@id": "dcterms:isVersionOf"
    },
    "DctermsLanguage": {
-      "@id": "dct:language"
+      "@id": "dcterms:language"
    },
    "DctermsLCC": {
-      "@id": "dct:LCC"
+      "@id": "dcterms:LCC"
    },
    "DctermsLCSH": {
-      "@id": "dct:LCSH"
+      "@id": "dcterms:LCSH"
    },
    "DctermsLicense": {
-      "@id": "dct:license"
+      "@id": "dcterms:license"
    },
    "DctermsMediator": {
-      "@id": "dct:mediator"
+      "@id": "dcterms:mediator"
    },
    "DctermsMedium": {
-      "@id": "dct:medium"
+      "@id": "dcterms:medium"
    },
    "DctermsMESH": {
-      "@id": "dct:MESH"
+      "@id": "dcterms:MESH"
    },
    "DctermsModified": {
-      "@id": "dct:modified"
+      "@id": "dcterms:modified"
    },
    "DctermsPeriod": {
-      "@id": "dct:Period"
+      "@id": "dcterms:Period"
    },
    "DctermsPoint": {
-      "@id": "dct:Point"
+      "@id": "dcterms:Point"
    },
    "DctermsProvenance": {
-      "@id": "dct:provenance"
+      "@id": "dcterms:provenance"
    },
    "DctermsPublisher": {
-      "@id": "dct:publisher"
+      "@id": "dcterms:publisher"
    },
    "DctermsReferences": {
-      "@id": "dct:references"
+      "@id": "dcterms:references"
    },
    "DctermsRelation": {
-      "@id": "dct:relation"
+      "@id": "dcterms:relation"
    },
    "DctermsReplaces": {
-      "@id": "dct:replaces"
+      "@id": "dcterms:replaces"
    },
    "DctermsRequires": {
-      "@id": "dct:requires"
+      "@id": "dcterms:requires"
    },
    "DctermsRFC1766": {
-      "@id": "dct:RFC1766"
+      "@id": "dcterms:RFC1766"
    },
    "DctermsRFC3066": {
-      "@id": "dct:RFC3066"
+      "@id": "dcterms:RFC3066"
    },
    "DctermsRFC4646": {
-      "@id": "dct:RFC4646"
+      "@id": "dcterms:RFC4646"
    },
    "DctermsRights": {
-      "@id": "dct:rights"
+      "@id": "dcterms:rights"
    },
    "DctermsRightsHolder": {
-      "@id": "dct:rightsHolder"
+      "@id": "dcterms:rightsHolder"
    },
    "DctermsSource": {
-      "@id": "dct:source"
+      "@id": "dcterms:source"
    },
    "DctermsSpatial": {
-      "@id": "dct:spatial"
+      "@id": "dcterms:spatial"
    },
    "DctermsSubject": {
-      "@id": "dct:subject"
+      "@id": "dcterms:subject"
    },
    "DctermsTableOfContents": {
-      "@id": "dct:tableOfContents"
+      "@id": "dcterms:tableOfContents"
    },
    "DctermsTemporal": {
-      "@id": "dct:temporal"
+      "@id": "dcterms:temporal"
    },
    "DctermsTGN": {
-      "@id": "dct:TGN"
+      "@id": "dcterms:TGN"
    },
    "DctermsTitle": {
-      "@id": "dct:title"
+      "@id": "dcterms:title"
    },
    "DctermsType": {
-      "@id": "dct:type"
+      "@id": "dcterms:type"
    },
    "DctermsUDC": {
-      "@id": "dct:UDC"
+      "@id": "dcterms:UDC"
    },
    "DctermsURI": {
-      "@id": "dct:URI"
+      "@id": "dcterms:URI"
    },
    "DctermsValid": {
-      "@id": "dct:valid"
+      "@id": "dcterms:valid"
    },
    "DctermsW3CDTF": {
-      "@id": "dct:W3CDTF"
+      "@id": "dcterms:W3CDTF"
    },
    "DcTitle": {
       "@id": "dc:title"
@@ -299,9 +300,9 @@
       "@id": "dc:type"
    },
    "XmlGlobalAttributes": {
-      "@id": "xml:GlobalAttributes"
+      "@id": "XML:GlobalAttributes"
    },
    "XmlSpecialAttrs": {
-      "@id": "xml:specialAttrs"
+      "@id": "XML:specialAttrs"
    }
 }

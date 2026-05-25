@@ -582,7 +582,7 @@
 <tr>
 <td>LinkML schema (FIX)</td>
 <td><code>src/fix_orchestra/schema/fix_orchestra.yaml</code></td>
-<td>69 classes, 53 types (38 FIX base), 20 enums, 117 slots — generated from the upstream XSDs; imports the DC companion</td>
+<td>70 classes, 53 types (38 FIX base), 20 enums, 120 slots — generated from the upstream XSDs; imports the DC companion</td>
 </tr>
 <tr>
 <td>LinkML schema (DC)</td>
@@ -592,7 +592,7 @@
 <tr>
 <td>XSD -&gt; schema converter</td>
 <td><code>scripts/schema_to_linkml.py</code></td>
-<td>Reads <code>repository.xsd</code>, <code>repositorytypes.xsd</code>, <code>interfaces.xsd</code>; opt-in <code>--orchestra-xml</code> flag enriches the 38 FIX base datatypes with <code>proto_scalar</code> annotations; emits both schema files</td>
+<td>Reads <code>repository.xsd</code>, <code>repositorytypes.xsd</code>, <code>interfaces.xsd</code>, and <code>FIXMLappinfo.xsd</code>; opt-in <code>--orchestra-xml</code> flag enriches the 38 FIX base datatypes with <code>proto_scalar</code> annotations; emits both schema files</td>
 </tr>
 <tr>
 <td>Wire-format proto generator</td>
@@ -603,6 +603,16 @@
 <td>Wire-format proto</td>
 <td><code>project/protobuf/fix_orchestra.wire.proto</code></td>
 <td>Generated from <code>OrchestraFIXLatest.xml</code> — 932 messages, 691 enums, 1.1 MB</td>
+</tr>
+<tr>
+<td>SSSOM mappings (Orchestra → SBE)</td>
+<td><code>src/fix_orchestra/mappings/fix-orchestra-to-fix-sbe.sssom.tsv</code></td>
+<td>28 manually-curated cross-schema mappings from FIX Orchestra entities to FIX Simple Binary Encoding (SBE) entities, using SKOS predicates (<code>exactMatch</code>, <code>closeMatch</code>, <code>broadMatch</code>, <code>narrowMatch</code>)</td>
+</tr>
+<tr>
+<td>SSSOM overlay</td>
+<td><code>scripts/apply_sssom_overlay.py</code></td>
+<td>Project-agnostic overlay: reads <code>*.sssom.tsv</code> files in a mappings dir, merges the predicate-mapped CURIEs into matching <code>exact_mappings</code> / <code>close_mappings</code> / <code>broad_mappings</code> / <code>narrow_mappings</code> / <code>related_mappings</code> slots on classes / enums / types. Idempotent; subject prefix autodetected from each schema's <code>default_prefix:</code></td>
 </tr>
 <tr>
 <td>Known issues</td>
@@ -622,7 +632,11 @@
 <tbody>
 <tr>
 <td><code>just gen-linkml</code></td>
-<td>Regenerate the LinkML schema enriched with FIX base datatype <code>proto_scalar</code> annotations</td>
+<td>Regenerate the LinkML schema enriched with FIX base datatype <code>proto_scalar</code> annotations, then chain into <code>overlay-sssom-mappings</code></td>
+</tr>
+<tr>
+<td><code>just overlay-sssom-mappings</code></td>
+<td>Apply <code>*.sssom.tsv</code> files in <code>src/fix_orchestra/mappings/</code> onto the generated schema YAMLs (callable standalone after editing a TSV without re-running <code>gen-linkml</code>)</td>
 </tr>
 <tr>
 <td><code>just gen-project</code></td>
@@ -713,9 +727,62 @@
 </li>
 <li>
 <p><strong>Resolvable element URIs</strong> — <code>class_uri</code>, <code>slot_uri</code>, <code>enum_uri</code>, and type <code>uri</code> on FIX-originated entities now use the project-owned <code>fix_orchestra:</code> prefix
-   (<code>https://w3id.org/lmodel/fix-orchestra/</code>) so URIs rendered by <code>gen-doc</code> resolve through the w3id redirect to the published documentation site. The upstream FIX target namespace is preserved as <code>exact_mappings: [fixr:&lt;original&gt;]</code> (or <code>[fixi:&lt;original&gt;]</code> for <code>interfaces.xsd</code>), keeping semantic identity intact for RDF/OWL generation. Dublin Core / DCterms / DCMIType / xml.xsd entities keep their canonical resolvable URIs (<code>dc:</code>, <code>dct:</code>, <code>dcmitype:</code>, <code>xml:</code>).</p>
+   (<code>https://w3id.org/lmodel/fix-orchestra/</code>) so URIs rendered by <code>gen-doc</code> resolve through the w3id redirect to the published documentation site. The upstream FIX target namespace is preserved as <code>exact_mappings: [fixr:&lt;original&gt;]</code> (or <code>[fixi:&lt;original&gt;]</code> for <code>interfaces.xsd</code>), keeping semantic identity intact for RDF/OWL generation. Dublin Core / DCterms / DCMIType / xml.xsd entities keep their canonical resolvable URIs using linkml-lint's canonical prefix names: <code>dc:</code>, <code>dcterms:</code>, <code>dctypes:</code>, <code>XML:</code> (formerly emitted as <code>dct:</code>, <code>dcmitype:</code>, <code>xml:</code> — renamed to clear the <code>canonical_prefixes</code> lint warnings).</p>
+</li>
+<li>
+<p><strong>FIXML appinfo content model</strong> — the canonical Orchestra XML corpus carries 500+ <code>&lt;fixr:appinfo purpose="FIXML"&gt;&lt;fixml:FIXMLencodingType notReqXML inlined/&gt;&lt;/fixr:appinfo&gt;</code> payloads that previous versions of the converter silently dropped. The generator now reads <code>upstream-releases/FIXMLappinfo.xsd</code> (vendored from <a href="https://github.com/FIXTradingCommunity/orchestra-transposer">orchestra-transposer</a>) and emits a <code>FIXMLencodingType</code> class with <code>inlined</code> and <code>not_req_xml</code> boolean attributes, wired onto <code>Appinfo</code> via a <code>fixml_encoding</code> slot (aliased to <code>FIXMLencoding</code>, <code>FIXMLencodingType</code> so the XML→YAML converter resolves the child element correctly):</p>
 </li>
 </ul>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">Appinfo</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">...</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">fixml_encoding</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">FIXMLencodingType</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fix_orchestra:FIXMLencodingType</span>
+<span class="w">    </span><span class="nt">exact_mappings</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">fixml</span><span class="p p-Indicator">:</span><span class="nv">FIXMLencodingType</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">inlined</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">not_req_xml</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<p>After this change, running <code>python3 scripts/fix_xml_to_linkml.py</code> against <code>OrchestraFIXLatest.xml</code> produces 1,142 <code>fixml_encoding</code> / <code>not_req_xml</code> lines in the YAML output, where previously there were zero. <code>scripts/fix_xml_to_linkml.py</code> was updated alongside: <code>SchemaIndex.slot_for_xml_name()</code> now consults each slot's <code>aliases:</code> list, so element local-names whose snake-casing diverges from the schema slot name (<code>FIXMLencodingType</code> → <code>fixml_encoding</code>) still resolve.</p>
+<ol>
+<li><strong>Cross-schema mappings via SSSOM overlay</strong> — manually-curated mappings from Orchestra entities to sister-format entities (currently FIX Simple Binary Encoding) are stored as <a href="https://mapping-commons.github.io/sssom/">SSSOM</a> TSV files under <code>src/fix_orchestra/mappings/</code>. After <code>schema_to_linkml.py</code> regenerates the schema, <code>scripts/apply_sssom_overlay.py</code> reads each <code>*.sssom.tsv</code>, picks out rows whose subject CURIE matches the schema's <code>default_prefix:</code> (autodetected — <code>fix_orchestra:</code> for this project), and merges the predicate-mapped object CURIEs into the matching mapping slot. SKOS predicate → LinkML slot:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>SSSOM predicate</th>
+<th>LinkML slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skos:exactMatch</code></td>
+<td><code>exact_mappings</code></td>
+</tr>
+<tr>
+<td><code>skos:closeMatch</code></td>
+<td><code>close_mappings</code></td>
+</tr>
+<tr>
+<td><code>skos:broadMatch</code></td>
+<td><code>broad_mappings</code></td>
+</tr>
+<tr>
+<td><code>skos:narrowMatch</code></td>
+<td><code>narrow_mappings</code></td>
+</tr>
+<tr>
+<td><code>skos:relatedMatch</code></td>
+<td><code>related_mappings</code></td>
+</tr>
+</tbody>
+</table>
+<p>The current Orchestra → SBE TSV adds 28 cross-schema mapping CURIEs to 12 Orchestra entities. Example result on <code>FieldType</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">FieldType</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fix_orchestra:FieldType</span>
+<span class="w">    </span><span class="nt">exact_mappings</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fixr:fieldType</span><span class="w">        </span><span class="c1"># XSD source (added by schema_to_linkml.py)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fix_sbe:FieldTypeV1</span><span class="w">   </span><span class="c1"># added by apply_sssom_overlay.py</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fix_sbe:FieldTypeV2</span><span class="w">   </span><span class="c1"># added by apply_sssom_overlay.py</span>
+</code></pre></div>
+<p>The overlay script is <strong>project-agnostic</strong> (autodetects subject side from the schema's <code>default_prefix:</code>) and <strong>idempotent</strong> (running twice produces no further changes). <code>just gen-linkml</code> chains into <code>just overlay-sssom-mappings</code> via just's <code>&amp;&amp;</code> post-dependency syntax, so editing a TSV and re-running <code>just gen-linkml</code> re-applies the overlay automatically. The overlay can also be invoked standalone (<code>just overlay-sssom-mappings</code>) when only TSV edits need pushing into the schema. Bidirectional mapping files can coexist in <code>src/fix_orchestra/mappings/</code> without cross-pollution: rows whose subject CURIE doesn't match the local schema's prefix are silently skipped.</p>
 <h2 id="known-issues">Known issues</h2>
 <p>See <a href="../upstream-releases/ISSUE.md"><code>upstream-releases/ISSUE.md</code></a> for documented bugs:</p>
 <ol>
@@ -732,6 +799,7 @@
 <ul>
 <li><a href="https://github.com/FIXTradingCommunity/fix-orchestra">Fix Orchestra</a></li>
 <li><a href="https://github.com/FIXTradingCommunity/fix-orchestra-spec">fix-orchestra-spec</a></li>
+<li><a href="https://github.com/FIXTradingCommunity/orchestra-transposer">orchestra-transposer</a></li>
 <li><a href="https://linkml.io/">LinkML</a></li>
 <li><a href="https://protobuf.dev/">Protocol Buffers</a></li>
 </ul>

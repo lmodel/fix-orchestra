@@ -647,16 +647,10 @@ class Edition:
             c for c in node if isinstance(c.tag, str) and c.tag == f"{XS}element"
         ]
         names = [e.get("name") or local(e.get("ref")) for e in elements]
-        repeated = node.get("maxOccurs") not in (None, "1")
-        if not repeated:
-            if len(elements) == 1 or node.get("minOccurs") == "0":
-                for element in elements:
-                    self.element(cls, base, element, xsd, optional=True)
-                return
-            # A single choice of elements: each is optional, and a rule says one.
-            for element in elements:
-                self.element(cls, base, element, xsd, optional=True)
-            return
+        if node.get("maxOccurs") in (None, "1"):
+            # Every choice in both editions repeats. A single choice would need a rule
+            # that exactly one of its elements is present, which nothing here writes.
+            raise SystemExit(f"{cls.name}: no rule for a choice that does not repeat")
         if len(names) != len(node):
             others = [c.tag for c in node if c.tag != f"{XS}element"]
             if set(others) - {f"{XS}annotation", f"{XS}group"}:

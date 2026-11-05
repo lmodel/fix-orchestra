@@ -82,6 +82,9 @@ quiet-level = 3
 linke = "linke"
 # ND is the NoDerivatives term of CC BY-ND 4.0, the licence FIX gives its XSDs.
 nd = "nd"
+# The v1.0 interfaces XSD names a type userIntefaceType, which the converter must
+# match as written.
+inteface = "inteface"
 
 [tool.typos.files]
 extend-exclude = [

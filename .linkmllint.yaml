@@ -1,0 +1,10 @@
+# linkml-lint reads this file from the directory `just lint` runs in. The recommended
+# rules apply, with one change: permissible values keep the XSDs' own spelling (bestEffort,
+# SYNOPSIS, TAG_VALUE, Reserved100Plus), so a value converts between an Orchestra file and
+# a record unchanged. Classes, slots and enums keep the rule's usual forms.
+extends: recommended
+rules:
+  standard_naming:
+    level: error
+    exclude_type:
+      - permissible_value

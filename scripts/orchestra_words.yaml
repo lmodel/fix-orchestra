@@ -1,0 +1,945 @@
+# The project's own words for every class, key and value list the schema renders
+# from the Orchestra XSDs. scripts/orchestra_xsd_to_linkml.py reads this file and
+# stops on any name it finds no words for. Each description is written from what
+# the element does, never from the XSDs' or the specification's text, which FIX
+# licenses under CC BY-ND 4.0; tests/test_own_words.py holds that no run of four
+# words is shared with the XSDs' documentation.
+#
+# A key's words come from the first of these that exists: "V10:Class.name" or
+# "V11:Class.name" for one edition, "fixr:Class.name" or "fixi:Class.name" for one
+# file, "Class.name" for one class, "fixr:name" for one file, and then "slots" by
+# XML name. A name that starts with # is a key with no XML name: the text of a
+# mixed element, the open XML of an xs:any, or the list of members of a repeated
+# choice.
+
+modules:
+  umbrella: >-
+    A LinkML model of FIX Orchestra, the FIX Trading Community's standard for rules
+    of engagement that a machine can read. It renders two editions from their XSDs,
+    the v1.0 Technical Standard and the v1.1 third release candidate, so that an
+    Orchestra repository or interfaces file of either edition converts to records
+    that validate here.
+  common: >-
+    The value lists that both editions of Orchestra share, the Dublin Core block
+    that heads an Orchestra file, and the two classes that hold XML the XSDs leave
+    open.
+  V10: >-
+    Orchestra v1.0, promoted to Technical Standard in February 2021, rendered from
+    its repository and interfaces XSDs. FIX Latest is published in this edition.
+  V11: >-
+    Orchestra v1.1 Release Candidate 3 of June 2026, rendered from the XSDs that
+    the fix-orchestra code repository tags v1.1-rc3. It adds scenarios, encoding
+    standards and encoding blocks, drops some of v1.0's attributes and narrows others,
+    so it is a module of its own.
+
+subsets:
+  fixr: Elements of an Orchestra repository file.
+  fixi: Elements of an Orchestra interfaces file.
+
+metadata:
+  title: Orchestra file metadata
+  description: >-
+    The Dublin Core description at the head of an Orchestra file. Each key holds
+    the values of one Dublin Core element or term.
+  dc: >-
+    The values the file gives for the Dublin Core element {term}.
+  dcterms: The values the file gives for the DCMI term {term}.
+
+xml:
+  element_title: Open XML element
+  element: >-
+    An XML element in a place where the XSDs accept any content, kept as written
+    so that the file converts back unchanged.
+  name: The name, with its namespace in braces when it has one.
+  attributes: The element's attributes.
+  text: The text before the first child element.
+  children: The child elements, in order.
+  tail: The text after the element and before its next sibling.
+  attribute_title: Open XML attribute
+  attribute: An XML attribute from another namespace, kept as written.
+  value: The attribute's value.
+
+classes:
+  Action:
+    title: Orchestra action
+    description: >-
+      Things that happen together, such as when a response fires or a state is entered:
+      messages sent, values set, transitions fired and timers scheduled, with their
+      inputs.
+  ActionParameter:
+    title: Orchestra action input
+    description: >-
+      One input to an action: a field, a component or a group, defined in place
+      or named by reference. It holds exactly one of these.
+  ActionStep:
+    title: Orchestra action step
+    description: >-
+      One thing an action does: send a message, set a value, fire a transition or
+      schedule a timer. It holds exactly one of these.
+  Actor:
+    title: Orchestra actor
+    description: >-
+      A kind of party in an exchange, such as a buy-side firm or a venue, with the
+      state it keeps: its variables, state machines and timers.
+  ActorMember:
+    title: Orchestra actor item
+    description: >-
+      One thing an actor keeps: a variable given as a field, component or group,
+      a state machine or a timer. It holds exactly one of these.
+  Actors:
+    title: Orchestra actors and flows
+    description: >-
+      The parties a repository describes and the one-way flows between them.
+  ActorsMember:
+    title: Orchestra actor or flow
+    description: >-
+      One entry of the actors list, an actor or a flow. It holds exactly one of
+      these.
+  Annotation:
+    title: Orchestra annotation
+    description: >-
+      Notes for readers and hints for software, attached to an element.
+  AnnotationMember:
+    title: Orchestra annotation part
+    description: >-
+      One part of an annotation, a piece of text or a hint for software. It holds
+      exactly one of these.
+  Appinfo:
+    title: Orchestra application hint
+    description: >-
+      A hint for a particular tool or encoding, such as how FIXML renders an element,
+      held as text and open XML.
+  BaseEncoding:
+    title: Orchestra encoding block
+    description: >-
+      What every encoding block shares: notes, and XML in another namespace that
+      says how an element is encoded.
+  BaseInterface:
+    title: Orchestra connection description
+    description: >-
+      What an interface and a session share: the services, encodings and protocols
+      that make up a connection, layer by layer.
+  BlockAssignment:
+    title: Orchestra block assignment
+    description: >-
+      How a single use of a component, or every entry of a group, gets its values:
+      the fields, components and groups it sets.
+  Categories:
+    title: Orchestra categories
+    description: >-
+      The categories a repository sorts its messages and fields into.
+  Category:
+    title: Orchestra category
+    description: >-
+      A business process grouping within a section, such as order handling or market
+      data.
+  Code:
+    title: Orchestra code
+    description: >-
+      One permitted value in a code set, with its name and what goes on the wire.
+  CodeSet:
+    title: Orchestra code set
+    description: >-
+      A named list of the values a field may take, each with a name of its own,
+      over one underlying datatype.
+  CodeSets:
+    title: Orchestra code sets
+    description: The code sets a repository defines.
+  Component:
+    title: Orchestra component
+    description: >-
+      A named block of fields, components and groups that messages and other blocks
+      include by reference.
+  ComponentRef:
+    title: Orchestra component use
+    description: >-
+      Where a message or block includes a component, by its number, with its presence
+      and any rules that make it conditional.
+  ComponentRule:
+    title: Orchestra component rule
+    description: >-
+      A condition under which a component's presence changes, such as when it becomes
+      required.
+  Components:
+    title: Orchestra components
+    description: The components a repository defines.
+  Concept:
+    title: Orchestra concept
+    description: >-
+      A named business idea that ties together the fields, components, groups and
+      messages that express it.
+  ConceptMember:
+    title: Orchestra concept item
+    description: >-
+      One element a concept ties together: a field, component, group or message,
+      by reference. It holds exactly one of these.
+  Concepts:
+    title: Orchestra concepts
+    description: The concepts a repository names.
+  Container:
+    title: Orchestra list marker
+    description: >-
+      The extension pack that a list of elements is up to date with.
+  Datatype:
+    title: Orchestra datatype
+    description: >-
+      A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types
+      of other standards.
+  DatatypeExtension:
+    title: Orchestra datatype extension
+    description: >-
+      XML from the target standard's own schema that a datatype mapping carries.
+  Datatypes:
+    title: Orchestra datatypes
+    description: The datatypes a repository uses.
+  Documentation:
+    title: Orchestra documentation
+    description: >-
+      Text about an element, with its language, purpose and media type.
+  Encoding:
+    title: Orchestra interface encoding
+    description: >-
+      An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+  EncodingStandard:
+    title: Orchestra encoding standard
+    description: >-
+      An encoding standard a repository uses, with a name to show and its general
+      encoding information.
+  EncodingStandards:
+    title: Orchestra encoding standards
+    description: >-
+      The encoding standards that a repository's encoding blocks name.
+  Encodings:
+    title: Orchestra encoding blocks
+    description: >-
+      The encoding blocks of one element, one for each encoding standard that needs
+      more information about it.
+  Field:
+    title: Orchestra field
+    description: >-
+      A FIX field: its tag number, name, datatype or code set, and the limits on
+      its value.
+  FieldConstraints:
+    title: Orchestra field limits
+    description: >-
+      The limits on a field's value that a field, a use of it or a rule may set:
+      range, length, presence, fixed or default value, character set and a display
+      hint.
+  FieldRef:
+    title: Orchestra field use
+    description: >-
+      Where a message or block includes a field, by its tag number, with its presence,
+      value limits and any rules.
+  FieldRule:
+    title: Orchestra field rule
+    description: >-
+      A condition under which a field's presence, datatype or limits change, or
+      a check its value must pass.
+  Fields:
+    title: Orchestra fields
+    description: The fields a repository defines.
+  Flow:
+    title: Orchestra flow
+    description: >-
+      A one-way flow of messages from one actor to another, with its delivery guarantee.
+  Group:
+    title: Orchestra repeating group
+    description: >-
+      A block whose entries repeat, each with the same fields, components and groups,
+      and whose count a NumInGroup field carries.
+  GroupRef:
+    title: Orchestra group use
+    description: >-
+      Where a message or block includes a repeating group, by its number, with how
+      many entries it may hold.
+  Groups:
+    title: Orchestra repeating groups
+    description: The repeating groups a repository defines.
+  Identifier:
+    title: Orchestra message identifier
+    description: >-
+      A field that a message sent by an action sets, or carries over from the message
+      received, by tag number.
+  Identifiers:
+    title: Orchestra message identifiers
+    description: The fields a message sent by an action sets or carries over.
+  IdentifiersMember:
+    title: Orchestra identifier entry
+    description: >-
+      One entry of a message's identifiers, a field carried over or a field set.
+      It holds exactly one of these.
+  Identity:
+    title: Orchestra element keys
+    description: >-
+      The keys of a defined element, its number, name, short name and scenario.
+  Interface:
+    title: Orchestra interface
+    description: >-
+      A named service offering and the sessions it carries, with the protocols on
+      each layer.
+  InterfaceAnnotation:
+    title: Orchestra interfaces annotation
+    description: >-
+      Notes for readers and hints for software, attached to an element of an interfaces
+      file.
+  InterfaceAnnotationMember:
+    title: Orchestra interfaces annotation part
+    description: >-
+      One part of an annotation in an interfaces file, a text or a hint for software.
+      It holds exactly one of these.
+  InterfaceAppinfo:
+    title: Orchestra interfaces application hint
+    description: >-
+      A hint for a particular tool on an element of an interfaces file.
+  InterfaceDocumentation:
+    title: Orchestra interfaces documentation
+    description: Text about an element of an interfaces file.
+  Interfaces:
+    title: Orchestra interfaces file
+    description: >-
+      A description of the services and sessions a party offers and how to reach
+      them, headed by its Dublin Core metadata.
+  MappedDatatype:
+    title: Orchestra datatype mapping
+    description: >-
+      How a FIX datatype is written in another standard, such as XML Schema or protocol
+      buffers.
+  Message:
+    title: Orchestra message
+    description: >-
+      A FIX message: its type code, the fields, components and groups it carries
+      in order, and the responses it can cause.
+  MessageRef:
+    title: Orchestra message sent
+    description: >-
+      A message an action sends, by its number and type code, with the fields it
+      sets or carries over.
+  MessageStructure:
+    title: Orchestra message layout
+    description: The ordered fields, components and groups of a message.
+  Messages:
+    title: Orchestra messages
+    description: The messages a repository defines.
+  NamedEncoding:
+    title: Orchestra encoding block for a standard
+    description: >-
+      An encoding block that names the encoding standard it is for.
+  Pedigree:
+    title: Orchestra pedigree
+    description: >-
+      When an element was added, changed, deprecated or replaced, by FIX version
+      and extension pack, and whether it is supported.
+  Protocol:
+    title: Orchestra protocol
+    description: >-
+      A protocol used on one layer of an interface or session, with its version,
+      layer and delivery guarantee.
+  Reference:
+    title: Orchestra reference keys
+    description: >-
+      The keys by which a use points at a defined element: its number, its scenario
+      and, as a convenience, its name.
+  Repository:
+    title: Orchestra repository
+    description: >-
+      A machine-readable set of rules of engagement: the datatypes, code sets, fields,
+      components, groups and messages it defines, and the actors and workflows that
+      use them.
+  Response:
+    title: Orchestra response
+    description: >-
+      What happens when a message arrives, under an optional condition: messages
+      sent, values set, transitions fired and timers scheduled.
+  Responses:
+    title: Orchestra responses
+    description: >-
+      The responses a message can cause, tried one after another as given.
+  Scenario:
+    title: Orchestra scenario
+    description: >-
+      A named variant of elements for one use case, such as a workflow or an asset
+      class.
+  ScenarioReference:
+    title: Orchestra scenario reference
+    description: >-
+      A pointer from an element to the scenario it belongs to, by number and, if
+      wanted, name.
+  Scenarios:
+    title: Orchestra scenarios
+    description: The scenarios a repository defines.
+  Section:
+    title: Orchestra section
+    description: >-
+      A broad business area, such as pre-trade or post-trade, that categories fall
+      under.
+  Sections:
+    title: Orchestra sections
+    description: The sections a repository defines.
+  Service:
+    title: Orchestra service
+    description: >-
+      An application-level service an interface offers, such as order routing, with
+      the Orchestra file that describes it.
+  Session:
+    title: Orchestra session
+    description: >-
+      One connection between two parties, with the identifiers, role, activation
+      times and security keys that set it up.
+  SessionIdentifier:
+    title: Orchestra session identifier
+    description: >-
+      A named value that picks out a session, such as a sender or target ID.
+  SessionProtocol:
+    title: Orchestra session protocol
+    description: >-
+      The session-level protocol of an interface or session, such as FIXT or FIXP.
+  Sessions:
+    title: Orchestra sessions
+    description: The sessions an interface carries.
+  State:
+    title: Orchestra state
+    description: >-
+      One of a state machine's states, with the transitions out of it and what happens
+      on entry, while active and on exit.
+  StateMachine:
+    title: Orchestra state machine
+    description: >-
+      A named set of states that an actor moves through, from an initial state.
+  StructureMember:
+    title: Orchestra structure item
+    description: >-
+      One item of an ordered structure, a component, a group or a field, by reference.
+      It holds exactly one of these.
+  Timer:
+    title: Orchestra timer
+    description: A named timer that an actor owns.
+  TimerSchedule:
+    title: Orchestra timer step
+    description: >-
+      A step that starts, stops or restarts an actor's timer, with its interval
+      and what to do when it runs out.
+  Transition:
+    title: Orchestra transition
+    description: >-
+      A move from one state to a named target state, with the condition that allows
+      it.
+  Transport:
+    title: Orchestra transport
+    description: >-
+      The transport-level protocol of an interface or session, with its address,
+      how messages are cast and its use.
+  Trigger:
+    title: Orchestra trigger
+    description: >-
+      A step that fires a named transition of an actor's state machine.
+  Unique:
+    title: Orchestra uniqueness check
+    description: >-
+      A check that a field's value is unique among the values that share the other
+      fields it names, or among all values when it names none.
+  UnnamedEncoding:
+    title: Orchestra encoding block in place
+    description: >-
+      An encoding block whose standard is clear from where it sits, so it names
+      none.
+  UserInterface:
+    title: Orchestra user interface
+    description: >-
+      A user interface an interface offers, such as a trading screen, described
+      as a protocol.
+
+slots:
+  '#text': The text the element holds, as written.
+  '#any': Child elements from other namespaces, kept as written.
+  '#other_attributes': Attributes from other namespaces, kept as written.
+  '#members': The members, in document order.
+  '#parameters': >-
+    The fields, components and groups the action takes as input, in order.
+  '#actions': >-
+    What the action does, in order: messages sent, values set, transitions fired
+    and timers scheduled.
+  id: >-
+    The element's number, unique among elements of its kind; for a field, its tag
+    number.
+  name: The element's name.
+  abbrName: A short form of the name, which FIXML uses for tags.
+  scenario: >-
+    The use case this variant of the element serves, such as a workflow or an asset
+    class; base when none is given.
+  added: The FIX version in which the element first appeared.
+  addedEP: The extension pack in which the element first appeared.
+  changeType: Whether the latest change was to wording only or to meaning.
+  deprecated: The FIX version from which the element is deprecated.
+  deprecatedEP: The extension pack from which the element is deprecated.
+  issue: The change request behind the element's latest change.
+  lastModified: The FIX version in which the element last changed.
+  replaced: >-
+    The FIX version in which another element took this one's place.
+  replacedEP: >-
+    The extension pack in which another element took this one's place.
+  replacedByField: The tag number of the field that takes this element's place.
+  supported: >-
+    Whether a party supports, refuses or ignores the element; supported when none
+    is given.
+  updated: The FIX version of the element's latest update.
+  updatedEP: The extension pack of the element's latest update.
+  minInclusive: The smallest value allowed.
+  maxInclusive: The largest value allowed.
+  implLength: The fixed length an implementation uses.
+  implMinLength: The shortest length an implementation accepts.
+  implMaxLength: The longest length an implementation accepts.
+  presence: >-
+    Whether the item must, may or must not appear, or has a fixed value; optional
+    when none is given.
+  encoding: The character set of the value, when it is not US-ASCII.
+  value: >-
+    The value a receiver assumes when an optional field is left out, or the fixed
+    value of a constant field.
+  rendering: >-
+    A hint for how a tool shows or reads the element, which no validator checks.
+  lengthId: The tag number of the field that gives this field's length.
+  instanceName: >-
+    A name for this use of the element, so that one message or block can hold it
+    more than once.
+  discriminatorId: >-
+    The tag number of the field whose value decides which values this field may
+    take.
+  baseCategory: The category the field belongs to in the base specification.
+  baseCategoryAbbrName: >-
+    The short name the field takes within its base category in FIXML.
+  unionDataType: >-
+    A datatype whose values the field may hold beside its codes, such as a range
+    kept for user-defined values.
+  type: The datatype that gives the element's values, by name.
+  codeSet: The code set that gives the field's values, by name.
+  nonEncodedFieldId: >-
+    The tag number of the plain field that this encoded field stands for.
+  source: The sending actor, by name.
+  destination: The receiving actor, by name.
+  reliability: The delivery guarantee, from best effort to recoverable.
+  implMinOccurs: The fewest entries an implementation accepts.
+  implMaxOccurs: The most entries an implementation accepts, or unbounded.
+  which: >-
+    Whether one member exactly, or one or more members, must appear.
+  msgType: The message's MsgType(35) code.
+  category: The category the element belongs to, by name.
+  flow: The flow that carries the message, by name.
+  sync: How the response's timing relates to the request it answers.
+  displayOrder: Where the section comes when all sections are shown.
+  FIXMLFileName: >-
+    The FIXML schema file that holds the elements of this section or category.
+  componentType: Whether the category sorts messages or fields.
+  section: The section the category belongs to, by name.
+  includeFile: >-
+    The shared FIXML file, of components or of fields, that the category's file
+    includes.
+  default: The code a receiver assumes when none is given.
+  specUrl: The address of a document that describes the element.
+  sort: A number that places the code when its set is shown.
+  group: >-
+    A label that places the code with others when its set is shown.
+  langId: The language of the text, as a language tag.
+  purpose: What the text is for, such as a summary or an example.
+  contentType: The media type of the text; text/plain when none is given.
+  standard: The standard the datatype is written in, such as XML or GPB.
+  builtin: >-
+    Whether the target standard has the type built in, rather than derived.
+  base: >-
+    The type in the target standard that the mapping narrows or builds on.
+  pattern: A pattern the value matches in the target standard.
+  element: >-
+    The type of each item when the target type is a list or array.
+  parameter: A setting of the target type, such as its precision.
+  size: The number of items when the target type is an array.
+  actor: The actor whose timer or state machine this is, by name.
+  operation: Whether to start, stop or restart the timer.
+  interval: How long the timer runs, as an XML Schema duration.
+  target: The state the transition leads to, by name.
+  stateMachine: The state machine whose transition fires, by name.
+  sourceId: >-
+    The tag number of the field in the message received that the value comes from;
+    the field's own tag number when none is given.
+  latestEP: The latest extension pack the list is up to date with.
+  version: The repository's version, such as FIX.Latest_EP312.
+  guid: A globally unique identifier for the repository.
+  namespace: A namespace address that goes with the repository.
+  applVerId: >-
+    The ApplVerID(1128) value of the FIX version the repository describes.
+  expressionLanguage: >-
+    The language the conditions and assignments are written in; Score when none
+    is given.
+  baseType: The datatype this one narrows, such as int for Length.
+  xml:base: >-
+    The base address for the list's relative links, which XInclude uses.
+  scenarioRef: >-
+    The scenario the element belongs to, by name, for readability.
+  scenarioRefId: The scenario the element belongs to, by number.
+  displayName: The standard's name as a reader sees it.
+  metadata: >-
+    The file's Dublin Core description, such as its title, publisher and date.
+  annotation: Notes for readers and hints for software about the element.
+  encodings: >-
+    More information that particular encodings need about the element.
+  categories: The repository's categories.
+  sections: The repository's sections.
+  datatypes: The repository's datatypes.
+  codeSets: The repository's code sets.
+  fields: The repository's fields.
+  actors: The repository's actors and flows.
+  components: The repository's components.
+  groups: The repository's repeating groups.
+  messages: The repository's messages.
+  concepts: The repository's concepts.
+  scenarios: The repository's scenarios.
+  encodingStandards: >-
+    The encoding standards the repository's encoding blocks name.
+  encodingStandard: The encoding standards.
+  datatype: The datatypes.
+  field: The fields.
+  component: The components.
+  message: The messages.
+  concept: The concepts.
+  code: The set's codes, in order.
+  fieldRef: A field used by reference.
+  componentRef: A component used by reference.
+  groupRef: A group used by reference.
+  messageRef: A message, by reference.
+  trigger: A transition to fire.
+  timerSchedule: A timer to start, stop or restart.
+  correlate: >-
+    A field whose value is carried over from the message received.
+  states: A state machine.
+  timer: A timer.
+  initial: The state the machine starts in.
+  state: The machine's other states.
+  transition: The moves out of this state.
+  onentry: What happens on entering the state.
+  onexit: What happens on leaving the state.
+  activity: What runs while the state is active.
+  when: >-
+    The condition under which the rule applies, written as an expression.
+  rule: >-
+    Rules that make the element's presence or limits depend on other values.
+  blockAssignment: >-
+    How the component, or every entry of the group, gets its values.
+  unique: A check that the field's value is unique.
+  numInGroup: The field that counts the group's entries.
+  structure: The message's fields, components and groups, in order.
+  responses: What can happen when the message arrives.
+  response: The responses, in order.
+  identifiers: The fields the message sets or carries over.
+  mappedDatatype: How the datatype is written in other standards.
+  extension: XML from the target standard's own schema.
+  documentation: A piece of text.
+  appinfo: A hint for software.
+  assign: An expression that sets the field's value.
+  activationTime: When the session takes effect.
+  deactivationTime: When the session stops having effect.
+  address: The address to connect to, such as a host and port.
+  messageCast: >-
+    Whether messages go to one, some or every receiver; unicast when none is given.
+  use: The transport's role, such as primary or alternate.
+  layer: The layer the protocol works on.
+  orchestration: >-
+    The address of the Orchestra file that describes the protocol's messages and
+    rules.
+  service: The application-level services offered.
+  userInterface: The user interfaces offered.
+  sessionProtocol: The session-level protocols used.
+  protocol: Other protocols used.
+  transport: The transports used.
+  identifier: The identifiers that pick out the session.
+  role: The party's role in the session.
+  securityKeys: Security keys for the session, as PEM text.
+  interface: The interfaces the file describes.
+  sessions: The sessions the interface carries.
+  session: The sessions.
+
+overrides:
+  Actor.#members: The actor's variables, state machines and timers, in order.
+  Actors.#members: The actors and flows, in order.
+  Annotation.#members: The texts and hints, in order.
+  InterfaceAnnotation.#members: The texts and hints, in order.
+  BlockAssignment.#members: >-
+    The fields, components and groups the assignment sets, in order.
+  Component.#members: >-
+    The fields, components and groups the component holds, in order.
+  Concept.#members: >-
+    The fields, components, groups and messages the concept ties together.
+  Group.#members: >-
+    The fields, components and groups that each entry holds, in order.
+  Identifiers.#members: The fields carried over or set, in order.
+  MessageStructure.#members: The message's fields, components and groups, in order.
+  SessionIdentifier.#text: The identifier's value.
+  Identifier.id: The tag number of the field that is set or carried over.
+  Reference.id: >-
+    The number of the element in use; for a field, its tag number.
+  Repository.name: >-
+    The repository's name, which stays the same across its minor versions.
+  Identity.name: >-
+    The element's name, unique among elements of its kind within one scenario.
+  Reference.name: >-
+    The element in use, by name, for readability; the number decides which element
+    is meant.
+  Identifier.name: >-
+    The field that is set or carried over, by name, for readability.
+  MessageRef.name: The message sent, by name.
+  ComponentRule.name: The rule's name.
+  FieldRule.name: The rule's name.
+  Flow.name: The flow's name.
+  Actor.name: The actor's name, unique among the repository's actors.
+  Category.name: The category's name.
+  Section.name: The section's name.
+  Concept.name: The concept's name, unique among the repository's concepts.
+  Datatype.name: The datatype's name, such as Price.
+  EncodingStandard.name: The encoding standard's name, which encoding blocks use.
+  Response.name: The response's name.
+  Scenario.name: The scenario's name; base when none is given.
+  State.name: The state's name.
+  StateMachine.name: The state machine's name.
+  Timer.name: The timer's name.
+  TimerSchedule.name: The timer to start, stop or restart, by name.
+  Transition.name: The transition's name.
+  Trigger.name: The transition to fire, by name.
+  Reference.scenario: The scenario of the element in use; base when none is given.
+  Scenarios.scenario: The scenarios.
+  Code.value: The value that goes on the wire for this code.
+  Code.group: >-
+    A label that places the code with others when its set is shown.
+  V10:Field.type: >-
+    The datatype or code set that gives the field's values, by name; a code set
+    brings its own datatype.
+  V11:Field.type: >-
+    The datatype that gives the field's values, by name, when no code set does.
+  CodeSet.type: The datatype of the set's values, by name.
+  FieldRule.type: >-
+    The datatype the field takes while the rule's condition holds.
+  CodeSets.codeSet: The code sets.
+  CodeSet.specUrl: >-
+    The address of the outside list, such as an ISO standard, that gives the codes.
+  CodeSet.unionDataType: >-
+    A datatype whose values a field of this set may hold beside its codes, such
+    as a range kept for user-defined values.
+  ComponentRule.presence: The presence that applies while the rule's condition holds.
+  Categories.category: The categories.
+  Sections.section: The sections.
+  Groups.group: The repeating groups.
+  ActorsMember.actor: An actor.
+  ActorsMember.flow: A flow.
+  ActionParameter.field: A field defined in place.
+  ActionParameter.component: A component defined in place.
+  ActionParameter.group: A repeating group defined in place.
+  ActorMember.field: A variable defined in place as a field.
+  ActorMember.fieldRef: A variable given by reference to a field.
+  ActorMember.component: A variable defined in place as a component.
+  ActorMember.componentRef: A variable given by reference to a component.
+  ActorMember.group: A variable defined in place as a repeating group.
+  ActorMember.groupRef: A variable given by reference to a repeating group.
+  Unique.fieldRef: The fields that scope the check, in order.
+  ActionStep.messageRef: A message to send.
+  ActionStep.assign: >-
+    An expression that gives an actor's variable a value, such as $actor.variable=value.
+  FieldRule.assign: >-
+    Expressions that set or check values while the rule's condition holds.
+  IdentifiersMember.assign: A field whose value the message sent sets.
+  TimerSchedule.activity: What happens when the timer runs out.
+  Transition.when: >-
+    The condition that allows the transition, written as an expression; the transition
+    is always allowed when none is given.
+  Response.when: >-
+    The condition under which the response fires, written as an expression; it always
+    fires when none is given.
+  Message.when: >-
+    The condition that tells this scenario of the message from its others.
+  ComponentRef.rule: >-
+    Rules that make the component's presence depend on other values.
+  Group.implMinOccurs: The fewest entries an implementation accepts.
+  MessageRef.implMinOccurs: >-
+    The fewest times the message is sent; once when none is given.
+  MessageRef.implMaxOccurs: The most times the message is sent, or unbounded.
+  MessageRef.msgType: The MsgType(35) code of the message sent.
+  Component.category: The category the component belongs to, by name.
+  Group.category: The category the group belongs to, by name.
+  Message.category: The category the message belongs to, by name.
+  Appinfo.purpose: What the hint is for, such as the encoding it concerns.
+  InterfaceAppinfo.purpose: What the hint is for, such as the tool it concerns.
+  NamedEncoding.standard: The encoding standard this block is for, by name.
+  EncodingStandard.encoding: General encoding information for this standard.
+  Encodings.encoding: The encoding blocks, one per standard.
+  MappedDatatype.encoding: Encoding information for this mapping.
+  Flow.reliability: >-
+    The delivery guarantee of the flow, from best effort to recoverable.
+  Protocol.reliability: >-
+    The delivery guarantee the protocol gives, which a transport, a session or an
+    application may provide.
+  fixi:Protocol.name: >-
+    The protocol's name, such as FIXT or SBE, or another name of the provider's
+    choice.
+  fixi:BaseInterface.name: The interface's or session's name, unique within the
+    file.
+  fixi:SessionIdentifier.name: What kind of identifier this is, such as SenderCompID.
+  fixi:Protocol.version: The protocol's version.
+  fixi:Protocol.deprecated: When this version of the protocol was deprecated.
+  fixi:Protocol.activationTime: When this version of the protocol takes effect.
+  fixi:Protocol.deactivationTime: When this version of the protocol stops having
+    effect.
+  fixi:BaseInterface.annotation: Notes for readers and hints for software.
+  fixi:Protocol.annotation: Notes for readers and hints for software.
+  fixi:BaseInterface.encoding: The encodings used.
+  fixi:InterfaceAppinfo.specUrl: The address of a document that describes the element.
+  fixi:InterfaceDocumentation.purpose: What the text is for, such as a summary or
+    an example.
+
+enums:
+  Presence:
+    title: Orchestra presence
+    description: Whether an item must, may or must not appear in a message.
+    values:
+      optional: May appear; a rule can make it required.
+      required: Must appear.
+      forbidden: Must not appear.
+      ignored: May appear, and is not checked.
+      constant: Has a fixed value, which some encodings leave off the wire.
+  Support:
+    title: Orchestra support level
+    description: How a party treats an element of the standard.
+    values:
+      supported: The party supports the element.
+      forbidden: The party refuses the element.
+      ignored: The party accepts the element and acts on none of it.
+  ChangeKind:
+    title: Orchestra change kind
+    description: How far an element's latest change reaches.
+    values:
+      Editorial: A change to wording only.
+      Definitional: A change to what the element means.
+  MemberSelection:
+    title: Orchestra member selection
+    description: How many of a block's members must appear.
+    values:
+      oneOf: Exactly one member appears.
+      anyOf: One or more members appear.
+  Reliability:
+    title: Orchestra delivery guarantee
+    description: >-
+      What a flow or protocol promises about delivering each message.
+    values:
+      bestEffort: No promise; a message may be lost.
+      idempotent: >-
+        Each message is acted on at most once; a lost one is not sent again.
+      recoverable: >-
+        Each message is acted on exactly once; a lost one can be sent again.
+  Synchronization:
+    title: Orchestra response timing
+    description: >-
+      How the timing of a response relates to the request it answers.
+    values:
+      asynchronous: The response's timing has no tie to the request's.
+      synchronous: A request waits until the one before it has its answer.
+      pipelined: >-
+        Each response follows its request, and several requests may wait for answers
+        at once.
+  TimerOperation:
+    title: Orchestra timer operation
+    description: What a step does to an actor's timer.
+    values:
+      START: Start the timer.
+      CANCEL: Stop the timer.
+      RESET: Stop the timer and start it again.
+  Purpose:
+    title: Orchestra text purpose
+    description: >-
+      The kinds of purpose the standard names for a text or hint. A file may give
+      another purpose of its own.
+    values:
+      SYNOPSIS: A short summary.
+      ELABORATION: A longer explanation.
+      EXAMPLE: An example of use.
+      DISPLAY: A name to show to people in place of the element's own.
+      CAPTION: A label for a table, a figure or a heading.
+      TOOLTIP: A short hint shown when a pointer rests on the element.
+      DEFINITION: A formal definition in one sentence.
+  CategoryContent:
+    title: Orchestra category content
+    description: What a category sorts, in v1.0.
+    values:
+      Field: The category sorts fields.
+      Message: The category sorts messages.
+  CategoryIncludeFile:
+    title: Orchestra category include file
+    description: >-
+      The shared FIXML file a category's own file includes, in v1.0.
+    values:
+      components: The shared file of components.
+      fields: The shared file of fields.
+  DatatypeStandard:
+    title: Orchestra datatype standard
+    description: >-
+      The standards v1.0 names for mapping a datatype. A file may give another standard
+      of its own.
+    values:
+      ISO11404: The general-purpose datatypes of ISO/IEC 11404.
+      GPB: Google's protocol buffers.
+      JSON: JSON Schema.
+      SBE: Simple Binary Encoding.
+      XML: XML Schema, as FIXML uses it.
+      TAG_VALUE: The classic tag=value encoding.
+  UnionDatatype:
+    title: Orchestra union datatype
+    description: >-
+      The datatypes v1.0 names whose values a field may hold beside its codes.
+    values:
+      Qty: Quantities.
+      Reserved100Plus: Values from 100 up, kept for user-defined codes.
+      Reserved1000Plus: Values from 1000 up, kept for user-defined codes.
+      Reserved4000Plus: Values from 4000 up, kept for user-defined codes.
+      Tenor: Tenors, such as 3M.
+  Layer:
+    title: Orchestra protocol layer
+    description: The layer of the communication stack a protocol works on.
+    values:
+      application: The application layer.
+      presentation: The presentation layer, where encodings sit.
+      session: The session layer.
+      transport: The transport layer.
+  MessageCast:
+    title: Orchestra message casting
+    description: How many receivers a transport sends each message to.
+    values:
+      unicast: One receiver.
+      multicast: A group of receivers.
+      broadcast: Every receiver.
+  Role:
+    title: Orchestra session role
+    description: A party's role in setting up a session.
+    values:
+      initiator: The party that opens a FIX session.
+      acceptor: The party that answers a request to open a FIX session.
+      client: The party that connects to a server.
+      server: The party that waits for clients to connect.
+  ProtocolName:
+    title: Orchestra protocol name
+    description: >-
+      The FIX protocols the interfaces file names, so that they are spelled one
+      way. A file may name another protocol.
+    values:
+      FIX4: The FIX 4 session layer.
+      FIXT: FIXT 1.1, the session protocol of FIX 5.
+      FIXP: FIXP, the FIX session protocol built for high performance.
+      tagvalue: Classic tag=value encoding.
+      FIXML: FIX in XML.
+      FAST: The FAST streaming encoding.
+      SBE: Simple Binary Encoding.
+      SOFH: The SOFH message framing header.
+      GPB: Google's protocol buffers.
+      JSON: JSON encoding.
+      FIXS: FIX over TLS.
+  TransportUse:
+    title: Orchestra transport use
+    description: >-
+      The roles the interfaces file names for a transport. A file may give another
+      role of its own.
+    values:
+      primary: The main connection.
+      secondary: The backup connection.
+      alternate: Another connection, used in turn or by choice.

@@ -1,0 +1,35 @@
+---
+id: https://w3id.org/lmodel/fix-orchestra
+name: fix_orchestra
+title: FIX Orchestra
+description: >-
+  A LinkML model of FIX Orchestra, the FIX Trading Community's standard for rules
+  of engagement that a machine can read. It renders two editions from their XSDs,
+  the v1.0 Technical Standard and the v1.1 third release candidate, so that an Orchestra
+  repository or interfaces file of either edition converts to records that validate
+  here.
+version: 1.0, 1.1-rc3
+source: https://github.com/FIXTradingCommunity/fix-orchestra-spec
+license: Apache-2.0
+see_also:
+  - https://lmodel.github.io/fix-orchestra
+  - https://github.com/FIXTradingCommunity/fix-orchestra-spec
+annotations:
+  edition_1.0: >-
+    fix-orchestra-spec v1.0 e2b65db8505244f2708c468fe7cad60855fa9834
+  edition_1.1-rc3: >-
+    fix-orchestra v1.1-rc3 eb4bb9de3bd8802c6e5e0aba06182407b22acc9b
+
+prefixes:
+  fix_orchestra: https://w3id.org/lmodel/fix-orchestra/
+  linkml: https://w3id.org/linkml/
+  dc: http://purl.org/dc/elements/1.1/
+  dcterms: http://purl.org/dc/terms/
+default_prefix: fix_orchestra
+default_range: string
+
+imports:
+  - linkml:types
+  - ./fix_orchestra_common
+  - ./fix_orchestra_v1_0
+  - ./fix_orchestra_v1_1

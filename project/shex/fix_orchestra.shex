@@ -1,0 +1,2611 @@
+# metamodel_version: 1.12.0
+# version: 1.0, 1.1-rc3
+BASE <https://w3id.org/lmodel/fix-orchestra/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<OrchestraActionParameterV10> CLOSED {
+    (  $<OrchestraActionParameterV10_tes> (  <fixr_field> @<OrchestraFieldV10> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV10> ? ;
+          <fixr_component> @<OrchestraComponentV10> ? ;
+          <fixr_component_ref> @<OrchestraComponentRefV10> ? ;
+          <fixr_group> @<OrchestraGroupV10> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV10> ?
+       ) ;
+       rdf:type [ <OrchestraActionParameterV10> ] ?
+    )
+}
+
+<OrchestraActionParameterV11> CLOSED {
+    (  $<OrchestraActionParameterV11_tes> (  <fixr_field> @<OrchestraFieldV11> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV11> ? ;
+          <fixr_component> @<OrchestraComponentV11> ? ;
+          <fixr_component_ref> @<OrchestraComponentRefV11> ? ;
+          <fixr_group> @<OrchestraGroupV11> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV11> ?
+       ) ;
+       rdf:type [ <OrchestraActionParameterV11> ] ?
+    )
+}
+
+<OrchestraActionStepV10> CLOSED {
+    (  $<OrchestraActionStepV10_tes> (  <fixr_message_ref> @<OrchestraMessageRefV10> ? ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_trigger> @<OrchestraTriggerV10> ? ;
+          <fixr_timer_schedule> @<OrchestraTimerScheduleV10> ?
+       ) ;
+       rdf:type [ <OrchestraActionStepV10> ] ?
+    )
+}
+
+<OrchestraActionStepV11> CLOSED {
+    (  $<OrchestraActionStepV11_tes> (  <fixr_message_ref> @<OrchestraMessageRefV11> ? ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_trigger> @<OrchestraTriggerV11> ? ;
+          <fixr_timer_schedule> @<OrchestraTimerScheduleV11> ?
+       ) ;
+       rdf:type [ <OrchestraActionStepV11> ] ?
+    )
+}
+
+<OrchestraActionV10>  (
+    CLOSED {
+       (  $<OrchestraActionV10_tes> (  <fixr_parameters> @<OrchestraActionParameterV10> * ;
+             <fixr_actions> @<OrchestraActionStepV10> +
+          ) ;
+          rdf:type [ <OrchestraActionV10> ] ?
+       )
+    } OR @<OrchestraResponseV10>
+)
+
+<OrchestraActionV11>  (
+    CLOSED {
+       (  $<OrchestraActionV11_tes> (  <fixr_parameters> @<OrchestraActionParameterV11> * ;
+             <fixr_actions> @<OrchestraActionStepV11> +
+          ) ;
+          rdf:type [ <OrchestraActionV11> ] ?
+       )
+    } OR @<OrchestraResponseV11>
+)
+
+<OrchestraActorMemberV10> CLOSED {
+    (  $<OrchestraActorMemberV10_tes> (  <fixr_field> @<OrchestraFieldV10> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV10> ? ;
+          <fixr_component> @<OrchestraComponentV10> ? ;
+          <fixr_component_ref> @<OrchestraComponentRefV10> ? ;
+          <fixr_group> @<OrchestraGroupV10> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV10> ? ;
+          <fixr_states> @<OrchestraStateMachineV10> ? ;
+          <fixr_timer> @<OrchestraTimerV10> ?
+       ) ;
+       rdf:type [ <OrchestraActorMemberV10> ] ?
+    )
+}
+
+<OrchestraActorMemberV11> CLOSED {
+    (  $<OrchestraActorMemberV11_tes> (  <fixr_field> @<OrchestraFieldV11> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV11> ? ;
+          <fixr_component> @<OrchestraComponentV11> ? ;
+          <fixr_component_ref> @<OrchestraComponentRefV11> ? ;
+          <fixr_group> @<OrchestraGroupV11> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV11> ? ;
+          <fixr_states> @<OrchestraStateMachineV11> ? ;
+          <fixr_timer> @<OrchestraTimerV11> ?
+       ) ;
+       rdf:type [ <OrchestraActorMemberV11> ] ?
+    )
+}
+
+<OrchestraActorsMemberV10> CLOSED {
+    (  $<OrchestraActorsMemberV10_tes> (  <fixr_actor> @<OrchestraActorV10> ? ;
+          <fixr_flow> @<OrchestraFlowV10> ?
+       ) ;
+       rdf:type [ <OrchestraActorsMemberV10> ] ?
+    )
+}
+
+<OrchestraActorsMemberV11> CLOSED {
+    (  $<OrchestraActorsMemberV11_tes> (  <fixr_actor> @<OrchestraActorV11> ? ;
+          <fixr_flow> @<OrchestraFlowV11> ?
+       ) ;
+       rdf:type [ <OrchestraActorsMemberV11> ] ?
+    )
+}
+
+<OrchestraActorsV10> CLOSED {
+    (  $<OrchestraActorsV10_tes> (  <fixr_members> @<OrchestraActorsMemberV10> + ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraActorsV10> ] ?
+    )
+}
+
+<OrchestraActorsV11> CLOSED {
+    (  $<OrchestraActorsV11_tes> (  <fixr_members> @<OrchestraActorsMemberV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraActorsV11> ] ?
+    )
+}
+
+<OrchestraActorV10> CLOSED {
+    (  $<OrchestraActorV10_tes> (  <fixr_members> @<OrchestraActorMemberV10> * ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraActorV10> ] ?
+    )
+}
+
+<OrchestraActorV11> CLOSED {
+    (  $<OrchestraActorV11_tes> (  <fixr_members> @<OrchestraActorMemberV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraActorV11> ] ?
+    )
+}
+
+<OrchestraAnnotationMemberV10> CLOSED {
+    (  $<OrchestraAnnotationMemberV10_tes> (  <fixr_documentation> @<OrchestraDocumentationV10> ? ;
+          <fixr_appinfo> @<OrchestraAppinfoV10> ?
+       ) ;
+       rdf:type [ <OrchestraAnnotationMemberV10> ] ?
+    )
+}
+
+<OrchestraAnnotationMemberV11> CLOSED {
+    (  $<OrchestraAnnotationMemberV11_tes> (  <fixr_documentation> @<OrchestraDocumentationV11> ? ;
+          <fixr_appinfo> @<OrchestraAppinfoV11> ?
+       ) ;
+       rdf:type [ <OrchestraAnnotationMemberV11> ] ?
+    )
+}
+
+<OrchestraAnnotationV10> CLOSED {
+    (  $<OrchestraAnnotationV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_members> @<OrchestraAnnotationMemberV10> + ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraAnnotationV10> ] ?
+    )
+}
+
+<OrchestraAnnotationV11> CLOSED {
+    (  $<OrchestraAnnotationV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_members> @<OrchestraAnnotationMemberV11> + ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraAnnotationV11> ] ?
+    )
+}
+
+<OrchestraAppinfoV10> CLOSED {
+    (  $<OrchestraAppinfoV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_text> @linkml:String ? ;
+          <fixr_any> @<OrchestraXmlElement> * ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_lang_id> @linkml:String ? ;
+          <fixr_purpose> @linkml:String ? ;
+          <fixr_other_attributes> @<OrchestraXmlAttribute> * ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraAppinfoV10> ] ?
+    )
+}
+
+<OrchestraAppinfoV11> CLOSED {
+    (  $<OrchestraAppinfoV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_text> @linkml:String ? ;
+          <fixr_any> @<OrchestraXmlElement> * ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_lang_id> @linkml:String ? ;
+          <fixr_purpose> @linkml:String ? ;
+          <fixr_other_attributes> @<OrchestraXmlAttribute> * ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraAppinfoV11> ] ?
+    )
+}
+
+<OrchestraBaseEncodingV11>  (
+    @<OrchestraNamedEncodingV11> OR @<OrchestraUnnamedEncodingV11>
+)
+
+<OrchestraBaseEncodingV11_struct> {
+    (  $<OrchestraBaseEncodingV11_tes> (  <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_any> @<OrchestraXmlElement> *
+       ) ;
+       rdf:type [ <OrchestraBaseEncodingV11> ] ?
+    )
+}
+
+<OrchestraBaseInterfaceV10>  (
+    @<OrchestraInterfaceV10> OR @<OrchestraSessionV10>
+)
+
+<OrchestraBaseInterfaceV10_struct> {
+    (  $<OrchestraBaseInterfaceV10_tes> (  <fixi_service> @<OrchestraServiceV10> * ;
+          <fixi_user_interface> @<OrchestraUserInterfaceV10> * ;
+          <fixi_encoding> @<OrchestraEncodingV10> * ;
+          <fixi_session_protocol> @<OrchestraSessionProtocolV10> * ;
+          <fixi_protocol> @<OrchestraProtocolV10> * ;
+          <fixi_transport> @<OrchestraTransportV10> * ;
+          <fixi_annotation> @<OrchestraInterfaceAnnotationV10> ? ;
+          <fixi_name> @linkml:String ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraBaseInterfaceV10> ] ?
+    )
+}
+
+<OrchestraBaseInterfaceV11>  (
+    @<OrchestraInterfaceV11> OR @<OrchestraSessionV11>
+)
+
+<OrchestraBaseInterfaceV11_struct> {
+    (  $<OrchestraBaseInterfaceV11_tes> (  <fixi_service> @<OrchestraServiceV11> * ;
+          <fixi_user_interface> @<OrchestraUserInterfaceV11> * ;
+          <fixi_encoding> @<OrchestraEncodingV11> * ;
+          <fixi_session_protocol> @<OrchestraSessionProtocolV11> * ;
+          <fixi_protocol> @<OrchestraProtocolV11> * ;
+          <fixi_transport> @<OrchestraTransportV11> * ;
+          <fixi_annotation> @<OrchestraInterfaceAnnotationV11> ? ;
+          <fixi_name> @linkml:String ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraBaseInterfaceV11> ] ?
+    )
+}
+
+<OrchestraBlockAssignmentV10> CLOSED {
+    (  $<OrchestraBlockAssignmentV10_tes> <fixr_members> @<OrchestraStructureMemberV10> + ;
+       rdf:type [ <OrchestraBlockAssignmentV10> ] ?
+    )
+}
+
+<OrchestraBlockAssignmentV11> CLOSED {
+    (  $<OrchestraBlockAssignmentV11_tes> <fixr_members> @<OrchestraStructureMemberV11> + ;
+       rdf:type [ <OrchestraBlockAssignmentV11> ] ?
+    )
+}
+
+<OrchestraCategoriesV10> CLOSED {
+    (  $<OrchestraCategoriesV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_category> @<OrchestraCategoryV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCategoriesV10> ] ?
+    )
+}
+
+<OrchestraCategoriesV11> CLOSED {
+    (  $<OrchestraCategoriesV11_tes> (  <fixr_category> @<OrchestraCategoryV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraCategoriesV11> ] ?
+    )
+}
+
+<OrchestraCategoryV10> CLOSED {
+    (  $<OrchestraCategoryV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_fixml_file_name> @linkml:String ? ;
+          <fixr_component_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraCategoryContentV10#Field>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraCategoryContentV10#Message> ] ? ;
+          <fixr_section> @linkml:String ? ;
+          <fixr_include_file> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraCategoryIncludeFileV10#components>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraCategoryIncludeFileV10#fields> ] ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCategoryV10> ] ?
+    )
+}
+
+<OrchestraCategoryV11> CLOSED {
+    (  $<OrchestraCategoryV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_section> @linkml:String ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCategoryV11> ] ?
+    )
+}
+
+<OrchestraCodeSetsV10> CLOSED {
+    (  $<OrchestraCodeSetsV10_tes> (  <fixr_code_set> @<OrchestraCodeSetV10> + ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraCodeSetsV10> ] ?
+    )
+}
+
+<OrchestraCodeSetsV11> CLOSED {
+    (  $<OrchestraCodeSetsV11_tes> (  <fixr_code_set> @<OrchestraCodeSetV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraCodeSetsV11> ] ?
+    )
+}
+
+<OrchestraCodeSetV10> CLOSED {
+    (  $<OrchestraCodeSetV10_tes> (  &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_code> @<OrchestraCodeV10> * ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_type> @linkml:String ;
+          <fixr_default> @linkml:String ? ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCodeSetV10> ] ?
+    )
+}
+
+<OrchestraCodeSetV11> CLOSED {
+    (  $<OrchestraCodeSetV11_tes> (  &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraScenarioReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraScenarioReferenceV11Mixin> ] ? ;
+          &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_code> @<OrchestraCodeV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_type> @linkml:String ;
+          <fixr_default> @linkml:String ? ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_union_data_type> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_scenario_ref_id> @linkml:Integer ? ;
+          <fixr_scenario_ref> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCodeSetV11> ] ?
+    )
+}
+
+<OrchestraCodeV10> CLOSED {
+    (  $<OrchestraCodeV10_tes> (  &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_value> @linkml:String ;
+          <fixr_sort> @linkml:String ? ;
+          <fixr_group> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCodeV10> ] ?
+    )
+}
+
+<OrchestraCodeV11> CLOSED {
+    (  $<OrchestraCodeV11_tes> (  &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_value> @linkml:String ;
+          <fixr_sort> @linkml:Integer ? ;
+          <fixr_group> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraCodeV11> ] ?
+    )
+}
+
+<OrchestraComponentRefV10>  (
+    CLOSED {
+       (  $<OrchestraComponentRefV10_tes> (  &<OrchestraReferenceV10Mixin_tes> ;
+             rdf:type [ <OrchestraReferenceV10Mixin> ] ? ;
+             &<OrchestraPedigreeV10Mixin_tes> ;
+             rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+             <fixr_block_assignment> @<OrchestraBlockAssignmentV10> * ;
+             <fixr_rule> @<OrchestraComponentRuleV10> * ;
+             <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+             <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+             <fixr_instance_name> @linkml:String ? ;
+             <fixr_id> @linkml:Integer ;
+             <fixr_scenario> @linkml:String ? ;
+             <fixr_added> @linkml:String ? ;
+             <fixr_added_ep> @linkml:Integer ? ;
+             <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+             <fixr_deprecated> @linkml:String ? ;
+             <fixr_deprecated_ep> @linkml:Integer ? ;
+             <fixr_issue> @linkml:String ? ;
+             <fixr_last_modified> @linkml:String ? ;
+             <fixr_replaced> @linkml:String ? ;
+             <fixr_replaced_ep> @linkml:Integer ? ;
+             <fixr_replaced_by_field> @linkml:Integer ? ;
+             <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+             <fixr_updated> @linkml:String ? ;
+             <fixr_updated_ep> @linkml:Integer ?
+          ) ;
+          rdf:type [ <OrchestraComponentRefV10> ] ?
+       )
+    } OR @<OrchestraGroupRefV10>
+)
+
+<OrchestraComponentRefV11>  (
+    CLOSED {
+       (  $<OrchestraComponentRefV11_tes> (  &<OrchestraReferenceV11Mixin_tes> ;
+             rdf:type [ <OrchestraReferenceV11Mixin> ] ? ;
+             &<OrchestraPedigreeV11Mixin_tes> ;
+             rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+             <fixr_block_assignment> @<OrchestraBlockAssignmentV11> * ;
+             <fixr_rule> @<OrchestraComponentRuleV11> * ;
+             <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+             <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+             <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+             <fixr_instance_name> @linkml:String ? ;
+             <fixr_id> @linkml:Integer ;
+             <fixr_name> @linkml:String ? ;
+             <fixr_scenario> @linkml:String ? ;
+             <fixr_added> @linkml:String ? ;
+             <fixr_added_ep> @linkml:Integer ? ;
+             <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+             <fixr_deprecated> @linkml:String ? ;
+             <fixr_deprecated_ep> @linkml:Integer ? ;
+             <fixr_issue> @linkml:String ? ;
+             <fixr_last_modified> @linkml:String ? ;
+             <fixr_replaced> @linkml:String ? ;
+             <fixr_replaced_ep> @linkml:Integer ? ;
+             <fixr_replaced_by_field> @linkml:Integer ? ;
+             <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+             <fixr_updated> @linkml:String ? ;
+             <fixr_updated_ep> @linkml:Integer ?
+          ) ;
+          rdf:type [ <OrchestraComponentRefV11> ] ?
+       )
+    } OR @<OrchestraGroupRefV11>
+)
+
+<OrchestraComponentRuleV10> CLOSED {
+    (  $<OrchestraComponentRuleV10_tes> (  <fixr_when> @linkml:String ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ?
+       ) ;
+       rdf:type [ <OrchestraComponentRuleV10> ] ?
+    )
+}
+
+<OrchestraComponentRuleV11> CLOSED {
+    (  $<OrchestraComponentRuleV11_tes> (  <fixr_when> @linkml:String ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ?
+       ) ;
+       rdf:type [ <OrchestraComponentRuleV11> ] ?
+    )
+}
+
+<OrchestraComponentsV10> CLOSED {
+    (  $<OrchestraComponentsV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_component> @<OrchestraComponentV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraComponentsV10> ] ?
+    )
+}
+
+<OrchestraComponentsV11> CLOSED {
+    (  $<OrchestraComponentsV11_tes> (  <fixr_component> @<OrchestraComponentV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraComponentsV11> ] ?
+    )
+}
+
+<OrchestraComponentV10> CLOSED {
+    (  $<OrchestraComponentV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          <fixr_members> @<OrchestraStructureMemberV10> + ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ? ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraComponentV10> ] ?
+    )
+}
+
+<OrchestraComponentV11> CLOSED {
+    (  $<OrchestraComponentV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraScenarioReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraScenarioReferenceV11Mixin> ] ? ;
+          <fixr_members> @<OrchestraStructureMemberV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ? ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_scenario_ref_id> @linkml:Integer ? ;
+          <fixr_scenario_ref> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraComponentV11> ] ?
+    )
+}
+
+<OrchestraConceptMemberV10> CLOSED {
+    (  $<OrchestraConceptMemberV10_tes> (  <fixr_component_ref> @<OrchestraComponentRefV10> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV10> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV10> ? ;
+          <fixr_message_ref> @<OrchestraMessageRefV10> ?
+       ) ;
+       rdf:type [ <OrchestraConceptMemberV10> ] ?
+    )
+}
+
+<OrchestraConceptMemberV11> CLOSED {
+    (  $<OrchestraConceptMemberV11_tes> (  <fixr_component_ref> @<OrchestraComponentRefV11> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV11> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV11> ? ;
+          <fixr_message_ref> @<OrchestraMessageRefV11> ?
+       ) ;
+       rdf:type [ <OrchestraConceptMemberV11> ] ?
+    )
+}
+
+<OrchestraConceptsV10> CLOSED {
+    (  $<OrchestraConceptsV10_tes> (  <fixr_concept> @<OrchestraConceptV10> + ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraConceptsV10> ] ?
+    )
+}
+
+<OrchestraConceptsV11> CLOSED {
+    (  $<OrchestraConceptsV11_tes> (  <fixr_concept> @<OrchestraConceptV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraConceptsV11> ] ?
+    )
+}
+
+<OrchestraConceptV10> CLOSED {
+    (  $<OrchestraConceptV10_tes> (  <fixr_members> @<OrchestraConceptMemberV10> + ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraConceptV10> ] ?
+    )
+}
+
+<OrchestraConceptV11> CLOSED {
+    (  $<OrchestraConceptV11_tes> (  <fixr_members> @<OrchestraConceptMemberV11> + ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraConceptV11> ] ?
+    )
+}
+
+<OrchestraContainerV10Mixin> {
+    (  $<OrchestraContainerV10Mixin_tes> <fixr_latest_ep> @linkml:Integer ? ;
+       rdf:type [ <OrchestraContainerV10Mixin> ] ?
+    )
+}
+
+<OrchestraDatatypeExtensionV10> CLOSED {
+    (  $<OrchestraDatatypeExtensionV10_tes> <fixr_any> @<OrchestraXmlElement> * ;
+       rdf:type [ <OrchestraDatatypeExtensionV10> ] ?
+    )
+}
+
+<OrchestraDatatypesV10> CLOSED {
+    (  $<OrchestraDatatypesV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_datatype> @<OrchestraDatatypeV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraDatatypesV10> ] ?
+    )
+}
+
+<OrchestraDatatypesV11> CLOSED {
+    (  $<OrchestraDatatypesV11_tes> (  <fixr_datatype> @<OrchestraDatatypeV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraDatatypesV11> ] ?
+    )
+}
+
+<OrchestraDatatypeV10> CLOSED {
+    (  $<OrchestraDatatypeV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_mapped_datatype> @<OrchestraMappedDatatypeV10> * ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_base_type> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraDatatypeV10> ] ?
+    )
+}
+
+<OrchestraDatatypeV11> CLOSED {
+    (  $<OrchestraDatatypeV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_mapped_datatype> @<OrchestraMappedDatatypeV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_base_type> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraDatatypeV11> ] ?
+    )
+}
+
+<OrchestraDocumentationV10> CLOSED {
+    (  $<OrchestraDocumentationV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_text> @linkml:String ? ;
+          <fixr_any> @<OrchestraXmlElement> * ;
+          <fixr_lang_id> @linkml:String ? ;
+          <fixr_purpose> @linkml:String ? ;
+          <fixr_content_type> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraDocumentationV10> ] ?
+    )
+}
+
+<OrchestraDocumentationV11> CLOSED {
+    (  $<OrchestraDocumentationV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_text> @linkml:String ? ;
+          <fixr_lang_id> @linkml:String ? ;
+          <fixr_purpose> @linkml:String ? ;
+          <fixr_content_type> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraDocumentationV11> ] ?
+    )
+}
+
+<OrchestraEncodingStandardsV11> CLOSED {
+    (  $<OrchestraEncodingStandardsV11_tes> (  <fixr_encoding_standard> @<OrchestraEncodingStandardV11> * ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraEncodingStandardsV11> ] ?
+    )
+}
+
+<OrchestraEncodingStandardV11> CLOSED {
+    (  $<OrchestraEncodingStandardV11_tes> (  <fixr_encoding> @<OrchestraUnnamedEncodingV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_display_name> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraEncodingStandardV11> ] ?
+    )
+}
+
+<OrchestraEncodingsV11> CLOSED {
+    (  $<OrchestraEncodingsV11_tes> <fixr_encoding> @<OrchestraNamedEncodingV11> * ;
+       rdf:type [ <OrchestraEncodingsV11> ] ?
+    )
+}
+
+<OrchestraEncodingV10> CLOSED {
+    (  $<OrchestraEncodingV10_tes> (  &<OrchestraProtocolV10_tes> ;
+          rdf:type [ <OrchestraProtocolV10> ] ?
+       ) ;
+       rdf:type [ <OrchestraEncodingV10> ] ?
+    )
+}
+
+<OrchestraEncodingV11> CLOSED {
+    (  $<OrchestraEncodingV11_tes> (  &<OrchestraProtocolV11_tes> ;
+          rdf:type [ <OrchestraProtocolV11> ] ?
+       ) ;
+       rdf:type [ <OrchestraEncodingV11> ] ?
+    )
+}
+
+<OrchestraFieldConstraintsV10Mixin> {
+    (  $<OrchestraFieldConstraintsV10Mixin_tes> (  <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldConstraintsV10Mixin> ] ?
+    )
+}
+
+<OrchestraFieldConstraintsV11Mixin> {
+    (  $<OrchestraFieldConstraintsV11Mixin_tes> (  <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldConstraintsV11Mixin> ] ?
+    )
+}
+
+<OrchestraFieldRefV10> CLOSED {
+    (  $<OrchestraFieldRefV10_tes> (  &<OrchestraReferenceV10Mixin_tes> ;
+          rdf:type [ <OrchestraReferenceV10Mixin> ] ? ;
+          &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          &<OrchestraFieldConstraintsV10Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV10Mixin> ] ? ;
+          <fixr_rule> @<OrchestraFieldRuleV10> * ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_length_id> @linkml:Integer ? ;
+          <fixr_instance_name> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldRefV10> ] ?
+    )
+}
+
+<OrchestraFieldRefV11> CLOSED {
+    (  $<OrchestraFieldRefV11_tes> (  &<OrchestraReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraReferenceV11Mixin> ] ? ;
+          &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          &<OrchestraFieldConstraintsV11Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV11Mixin> ] ? ;
+          <fixr_rule> @<OrchestraFieldRuleV11> * ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_length_id> @linkml:Integer ? ;
+          <fixr_non_encoded_field_id> @linkml:Integer ? ;
+          <fixr_instance_name> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldRefV11> ] ?
+    )
+}
+
+<OrchestraFieldRuleV10> CLOSED {
+    (  $<OrchestraFieldRuleV10_tes> (  &<OrchestraFieldConstraintsV10Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV10Mixin> ] ? ;
+          <fixr_unique> @<OrchestraUniqueV10> ? ;
+          <fixr_assign> @linkml:String * ;
+          <fixr_when> @linkml:String ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_type> @linkml:String ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldRuleV10> ] ?
+    )
+}
+
+<OrchestraFieldRuleV11> CLOSED {
+    (  $<OrchestraFieldRuleV11_tes> (  &<OrchestraFieldConstraintsV11Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV11Mixin> ] ? ;
+          <fixr_unique> @<OrchestraUniqueV11> ? ;
+          <fixr_assign> @linkml:String * ;
+          <fixr_when> @linkml:String ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_type> @linkml:String ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldRuleV11> ] ?
+    )
+}
+
+<OrchestraFieldsV10> CLOSED {
+    (  $<OrchestraFieldsV10_tes> (  <fixr_field> @<OrchestraFieldV10> + ;
+          <fixr_latest_ep> @linkml:Integer ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraFieldsV10> ] ?
+    )
+}
+
+<OrchestraFieldsV11> CLOSED {
+    (  $<OrchestraFieldsV11_tes> (  <fixr_field> @<OrchestraFieldV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraFieldsV11> ] ?
+    )
+}
+
+<OrchestraFieldV10> CLOSED {
+    (  $<OrchestraFieldV10_tes> (  &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          &<OrchestraFieldConstraintsV10Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV10Mixin> ] ? ;
+          <fixr_rule> @<OrchestraFieldRuleV10> * ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_type> @linkml:String ;
+          <fixr_length_id> @linkml:Integer ? ;
+          <fixr_discriminator_id> @linkml:Integer ? ;
+          <fixr_base_category> @linkml:String ? ;
+          <fixr_base_category_abbr_name> @linkml:String ? ;
+          <fixr_union_data_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraUnionDatatypeV10#Qty>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraUnionDatatypeV10#Reserved100Plus>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraUnionDatatypeV10#Reserved1000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraUnionDatatypeV10#Reserved4000Plus>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraUnionDatatypeV10#Tenor> ] ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldV10> ] ?
+    )
+}
+
+<OrchestraFieldV11> CLOSED {
+    (  $<OrchestraFieldV11_tes> (  &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          &<OrchestraFieldConstraintsV11Mixin_tes> ;
+          rdf:type [ <OrchestraFieldConstraintsV11Mixin> ] ? ;
+          <fixr_rule> @<OrchestraFieldRuleV11> * ;
+          <fixr_assign> @linkml:String ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_type> @linkml:String ? ;
+          <fixr_code_set> @linkml:String ? ;
+          <fixr_length_id> @linkml:Integer ? ;
+          <fixr_non_encoded_field_id> @linkml:Integer ? ;
+          <fixr_discriminator_id> @linkml:Integer ? ;
+          <fixr_base_category> @linkml:String ? ;
+          <fixr_base_category_abbr_name> @linkml:String ? ;
+          <fixr_union_data_type> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ? ;
+          <fixr_impl_length> @linkml:Integer ? ;
+          <fixr_impl_min_length> @linkml:Integer ? ;
+          <fixr_impl_max_length> @linkml:Integer ? ;
+          <fixr_presence> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#optional>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#required>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#ignored>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraPresence#constant> ] ? ;
+          <fixr_encoding> @linkml:String ? ;
+          <fixr_value> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraFieldV11> ] ?
+    )
+}
+
+<OrchestraFlowV10> CLOSED {
+    (  $<OrchestraFlowV10_tes> (  <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_source> @linkml:String ;
+          <fixr_destination> @linkml:String ;
+          <fixr_reliability> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#bestEffort>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#idempotent>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#recoverable> ] ?
+       ) ;
+       rdf:type [ <OrchestraFlowV10> ] ?
+    )
+}
+
+<OrchestraFlowV11> CLOSED {
+    (  $<OrchestraFlowV11_tes> (  <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_source> @linkml:String ;
+          <fixr_destination> @linkml:String ;
+          <fixr_reliability> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#bestEffort>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#idempotent>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#recoverable> ] ?
+       ) ;
+       rdf:type [ <OrchestraFlowV11> ] ?
+    )
+}
+
+<OrchestraGroupRefV10> CLOSED {
+    (  $<OrchestraGroupRefV10_tes> (  &<OrchestraComponentRefV10_tes> ;
+          rdf:type [ <OrchestraComponentRefV10> ] ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraGroupRefV10> ] ?
+    )
+}
+
+<OrchestraGroupRefV11> CLOSED {
+    (  $<OrchestraGroupRefV11_tes> (  &<OrchestraComponentRefV11_tes> ;
+          rdf:type [ <OrchestraComponentRefV11> ] ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraGroupRefV11> ] ?
+    )
+}
+
+<OrchestraGroupsV10> CLOSED {
+    (  $<OrchestraGroupsV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_group> @<OrchestraGroupV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraGroupsV10> ] ?
+    )
+}
+
+<OrchestraGroupsV11> CLOSED {
+    (  $<OrchestraGroupsV11_tes> (  <fixr_group> @<OrchestraGroupV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraGroupsV11> ] ?
+    )
+}
+
+<OrchestraGroupV10> CLOSED {
+    (  $<OrchestraGroupV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          <fixr_num_in_group> @<OrchestraFieldRefV10> ? ;
+          <fixr_members> @<OrchestraStructureMemberV10> + ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ? ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraGroupV10> ] ?
+    )
+}
+
+<OrchestraGroupV11> CLOSED {
+    (  $<OrchestraGroupV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraScenarioReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraScenarioReferenceV11Mixin> ] ? ;
+          <fixr_num_in_group> @<OrchestraFieldRefV11> ? ;
+          <fixr_members> @<OrchestraStructureMemberV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ? ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_scenario_ref_id> @linkml:Integer ? ;
+          <fixr_scenario_ref> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraGroupV11> ] ?
+    )
+}
+
+<OrchestraIdentifiersMemberV10> CLOSED {
+    (  $<OrchestraIdentifiersMemberV10_tes> (  <fixr_correlate> @<OrchestraIdentifierV10> ? ;
+          <fixr_assign> @<OrchestraIdentifierV10> ?
+       ) ;
+       rdf:type [ <OrchestraIdentifiersMemberV10> ] ?
+    )
+}
+
+<OrchestraIdentifiersMemberV11> CLOSED {
+    (  $<OrchestraIdentifiersMemberV11_tes> (  <fixr_correlate> @<OrchestraIdentifierV11> ? ;
+          <fixr_assign> @<OrchestraIdentifierV11> ?
+       ) ;
+       rdf:type [ <OrchestraIdentifiersMemberV11> ] ?
+    )
+}
+
+<OrchestraIdentifiersV10> CLOSED {
+    (  $<OrchestraIdentifiersV10_tes> (  <fixr_members> @<OrchestraIdentifiersMemberV10> + ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ?
+       ) ;
+       rdf:type [ <OrchestraIdentifiersV10> ] ?
+    )
+}
+
+<OrchestraIdentifiersV11> CLOSED {
+    (  $<OrchestraIdentifiersV11_tes> (  <fixr_members> @<OrchestraIdentifiersMemberV11> + ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ?
+       ) ;
+       rdf:type [ <OrchestraIdentifiersV11> ] ?
+    )
+}
+
+<OrchestraIdentifierV10> CLOSED {
+    (  $<OrchestraIdentifierV10_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_source_id> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraIdentifierV10> ] ?
+    )
+}
+
+<OrchestraIdentifierV11> CLOSED {
+    (  $<OrchestraIdentifierV11_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_source_id> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraIdentifierV11> ] ?
+    )
+}
+
+<OrchestraIdentityV10Mixin> {
+    (  $<OrchestraIdentityV10Mixin_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraIdentityV10Mixin> ] ?
+    )
+}
+
+<OrchestraIdentityV11Mixin> {
+    (  $<OrchestraIdentityV11Mixin_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraIdentityV11Mixin> ] ?
+    )
+}
+
+<OrchestraInterfaceAnnotationMemberV10> CLOSED {
+    (  $<OrchestraInterfaceAnnotationMemberV10_tes> (  <fixi_documentation> @<OrchestraInterfaceDocumentationV10> ? ;
+          <fixi_appinfo> @<OrchestraInterfaceAppinfoV10> ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceAnnotationMemberV10> ] ?
+    )
+}
+
+<OrchestraInterfaceAnnotationMemberV11> CLOSED {
+    (  $<OrchestraInterfaceAnnotationMemberV11_tes> (  <fixi_documentation> @<OrchestraInterfaceDocumentationV11> ? ;
+          <fixi_appinfo> @<OrchestraInterfaceAppinfoV11> ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceAnnotationMemberV11> ] ?
+    )
+}
+
+<OrchestraInterfaceAnnotationV10> CLOSED {
+    (  $<OrchestraInterfaceAnnotationV10_tes> <fixi_members> @<OrchestraInterfaceAnnotationMemberV10> + ;
+       rdf:type [ <OrchestraInterfaceAnnotationV10> ] ?
+    )
+}
+
+<OrchestraInterfaceAnnotationV11> CLOSED {
+    (  $<OrchestraInterfaceAnnotationV11_tes> <fixi_members> @<OrchestraInterfaceAnnotationMemberV11> + ;
+       rdf:type [ <OrchestraInterfaceAnnotationV11> ] ?
+    )
+}
+
+<OrchestraInterfaceAppinfoV10> CLOSED {
+    (  $<OrchestraInterfaceAppinfoV10_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_any> @<OrchestraXmlElement> * ;
+          <fixi_spec_url> @linkml:Uri ? ;
+          <fixi_lang_id> @linkml:String ? ;
+          <fixi_purpose> @linkml:String ? ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraInterfaceAppinfoV10> ] ?
+    )
+}
+
+<OrchestraInterfaceAppinfoV11> CLOSED {
+    (  $<OrchestraInterfaceAppinfoV11_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_any> @<OrchestraXmlElement> * ;
+          <fixi_spec_url> @linkml:Uri ? ;
+          <fixi_lang_id> @linkml:String ? ;
+          <fixi_purpose> @linkml:String ? ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraInterfaceAppinfoV11> ] ?
+    )
+}
+
+<OrchestraInterfaceDocumentationV10> CLOSED {
+    (  $<OrchestraInterfaceDocumentationV10_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_any> @<OrchestraXmlElement> * ;
+          <fixi_lang_id> @linkml:String ? ;
+          <fixi_purpose> @linkml:String ? ;
+          <fixi_content_type> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceDocumentationV10> ] ?
+    )
+}
+
+<OrchestraInterfaceDocumentationV11> CLOSED {
+    (  $<OrchestraInterfaceDocumentationV11_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_any> @<OrchestraXmlElement> * ;
+          <fixi_lang_id> @linkml:String ? ;
+          <fixi_purpose> @linkml:String ? ;
+          <fixi_content_type> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceDocumentationV11> ] ?
+    )
+}
+
+<OrchestraInterfacesV10> CLOSED {
+    (  $<OrchestraInterfacesV10_tes> (  <fixi_metadata> @<OrchestraMetadata> ;
+          <fixi_interface> @<OrchestraInterfaceV10> *
+       ) ;
+       rdf:type [ <OrchestraInterfacesV10> ] ?
+    )
+}
+
+<OrchestraInterfacesV11> CLOSED {
+    (  $<OrchestraInterfacesV11_tes> (  <fixi_metadata> @<OrchestraMetadata> ;
+          <fixi_interface> @<OrchestraInterfaceV11> *
+       ) ;
+       rdf:type [ <OrchestraInterfacesV11> ] ?
+    )
+}
+
+<OrchestraInterfaceV10> CLOSED {
+    (  $<OrchestraInterfaceV10_tes> (  &<OrchestraBaseInterfaceV10_tes> ;
+          rdf:type [ <OrchestraBaseInterfaceV10> ] ? ;
+          <fixi_sessions> @<OrchestraSessionsV10> ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceV10> ] ?
+    )
+}
+
+<OrchestraInterfaceV11> CLOSED {
+    (  $<OrchestraInterfaceV11_tes> (  &<OrchestraBaseInterfaceV11_tes> ;
+          rdf:type [ <OrchestraBaseInterfaceV11> ] ? ;
+          <fixi_sessions> @<OrchestraSessionsV11> ?
+       ) ;
+       rdf:type [ <OrchestraInterfaceV11> ] ?
+    )
+}
+
+<OrchestraMappedDatatypeV10> CLOSED {
+    (  $<OrchestraMappedDatatypeV10_tes> (  <fixr_extension> @<OrchestraDatatypeExtensionV10> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_standard> @linkml:String ;
+          <fixr_builtin> @linkml:Boolean ? ;
+          <fixr_base> @linkml:String ? ;
+          <fixr_pattern> @linkml:String ? ;
+          <fixr_element> @linkml:String ? ;
+          <fixr_parameter> @linkml:String ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraMappedDatatypeV10> ] ?
+    )
+}
+
+<OrchestraMappedDatatypeV11> CLOSED {
+    (  $<OrchestraMappedDatatypeV11_tes> (  <fixr_encoding> @<OrchestraUnnamedEncodingV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_standard> @linkml:String ;
+          <fixr_builtin> @linkml:Boolean ? ;
+          <fixr_base> @linkml:String ? ;
+          <fixr_pattern> @linkml:String ? ;
+          <fixr_element> @linkml:String ? ;
+          <fixr_size> @linkml:Integer ? ;
+          <fixr_parameter> @linkml:String ? ;
+          <fixr_min_inclusive> @linkml:String ? ;
+          <fixr_max_inclusive> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraMappedDatatypeV11> ] ?
+    )
+}
+
+<OrchestraMessageRefV10> CLOSED {
+    (  $<OrchestraMessageRefV10_tes> (  &<OrchestraReferenceV10Mixin_tes> ;
+          rdf:type [ <OrchestraReferenceV10Mixin> ] ? ;
+          <fixr_identifiers> @<OrchestraIdentifiersV10> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_msg_type> @linkml:String ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraMessageRefV10> ] ?
+    )
+}
+
+<OrchestraMessageRefV11> CLOSED {
+    (  $<OrchestraMessageRefV11_tes> (  &<OrchestraReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraReferenceV11Mixin> ] ? ;
+          <fixr_identifiers> @<OrchestraIdentifiersV11> ? ;
+          <fixr_msg_type> @linkml:String ? ;
+          <fixr_impl_min_occurs> @linkml:Integer ? ;
+          <fixr_impl_max_occurs> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraMessageRefV11> ] ?
+    )
+}
+
+<OrchestraMessageStructureV10> CLOSED {
+    (  $<OrchestraMessageStructureV10_tes> (  <fixr_members> @<OrchestraStructureMemberV10> + ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ?
+       ) ;
+       rdf:type [ <OrchestraMessageStructureV10> ] ?
+    )
+}
+
+<OrchestraMessageStructureV11> CLOSED {
+    (  $<OrchestraMessageStructureV11_tes> (  <fixr_members> @<OrchestraStructureMemberV11> * ;
+          <fixr_which> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#oneOf>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMemberSelection#anyOf> ] ?
+       ) ;
+       rdf:type [ <OrchestraMessageStructureV11> ] ?
+    )
+}
+
+<OrchestraMessagesV10> CLOSED {
+    (  $<OrchestraMessagesV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_message> @<OrchestraMessageV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraMessagesV10> ] ?
+    )
+}
+
+<OrchestraMessagesV11> CLOSED {
+    (  $<OrchestraMessagesV11_tes> (  <fixr_message> @<OrchestraMessageV11> * ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraMessagesV11> ] ?
+    )
+}
+
+<OrchestraMessageV10> CLOSED {
+    (  $<OrchestraMessageV10_tes> (  &<OrchestraIdentityV10Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV10Mixin> ] ? ;
+          &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_structure> @<OrchestraMessageStructureV10> ;
+          <fixr_responses> @<OrchestraResponsesV10> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_msg_type> @linkml:String ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_flow> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraMessageV10> ] ?
+    )
+}
+
+<OrchestraMessageV11> CLOSED {
+    (  $<OrchestraMessageV11_tes> (  &<OrchestraIdentityV11Mixin_tes> ;
+          rdf:type [ <OrchestraIdentityV11Mixin> ] ? ;
+          &<OrchestraScenarioReferenceV11Mixin_tes> ;
+          rdf:type [ <OrchestraScenarioReferenceV11Mixin> ] ? ;
+          &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_structure> @<OrchestraMessageStructureV11> ? ;
+          <fixr_when> @linkml:String ? ;
+          <fixr_responses> @<OrchestraResponsesV11> ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_msg_type> @linkml:String ? ;
+          <fixr_category> @linkml:String ? ;
+          <fixr_flow> @linkml:String ? ;
+          <fixr_rendering> @linkml:String ? ;
+          <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ;
+          <fixr_abbr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ? ;
+          <fixr_scenario_ref_id> @linkml:Integer ? ;
+          <fixr_scenario_ref> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraMessageV11> ] ?
+    )
+}
+
+<OrchestraMetadata> CLOSED {
+    (  $<OrchestraMetadata_tes> (  dc:title @linkml:String * ;
+          dc:creator @linkml:String * ;
+          dc:subject @linkml:String * ;
+          dc:description @linkml:String * ;
+          dc:publisher @linkml:String * ;
+          dc:contributor @linkml:String * ;
+          dc:date @linkml:String * ;
+          dc:type @linkml:String * ;
+          dc:format @linkml:String * ;
+          dc:identifier @linkml:String * ;
+          dc:source @linkml:String * ;
+          dc:language @linkml:String * ;
+          dc:relation @linkml:String * ;
+          dc:coverage @linkml:String * ;
+          dc:rights @linkml:String * ;
+          dcterms:title @linkml:String * ;
+          dcterms:creator @linkml:String * ;
+          dcterms:subject @linkml:String * ;
+          dcterms:description @linkml:String * ;
+          dcterms:publisher @linkml:String * ;
+          dcterms:contributor @linkml:String * ;
+          dcterms:date @linkml:String * ;
+          dcterms:type @linkml:String * ;
+          dcterms:format @linkml:String * ;
+          dcterms:identifier @linkml:String * ;
+          dcterms:source @linkml:String * ;
+          dcterms:language @linkml:String * ;
+          dcterms:relation @linkml:String * ;
+          dcterms:coverage @linkml:String * ;
+          dcterms:rights @linkml:String * ;
+          dcterms:alternative @linkml:String * ;
+          dcterms:tableOfContents @linkml:String * ;
+          dcterms:abstract @linkml:String * ;
+          dcterms:created @linkml:String * ;
+          dcterms:valid @linkml:String * ;
+          dcterms:available @linkml:String * ;
+          dcterms:issued @linkml:String * ;
+          dcterms:modified @linkml:String * ;
+          dcterms:dateAccepted @linkml:String * ;
+          dcterms:dateCopyrighted @linkml:String * ;
+          dcterms:dateSubmitted @linkml:String * ;
+          dcterms:extent @linkml:String * ;
+          dcterms:medium @linkml:String * ;
+          dcterms:isVersionOf @linkml:String * ;
+          dcterms:hasVersion @linkml:String * ;
+          dcterms:isReplacedBy @linkml:String * ;
+          dcterms:replaces @linkml:String * ;
+          dcterms:isRequiredBy @linkml:String * ;
+          dcterms:requires @linkml:String * ;
+          dcterms:isPartOf @linkml:String * ;
+          dcterms:hasPart @linkml:String * ;
+          dcterms:isReferencedBy @linkml:String * ;
+          dcterms:references @linkml:String * ;
+          dcterms:isFormatOf @linkml:String * ;
+          dcterms:hasFormat @linkml:String * ;
+          dcterms:conformsTo @linkml:String * ;
+          dcterms:spatial @linkml:String * ;
+          dcterms:temporal @linkml:String * ;
+          dcterms:audience @linkml:String * ;
+          dcterms:accrualMethod @linkml:String * ;
+          dcterms:accrualPeriodicity @linkml:String * ;
+          dcterms:accrualPolicy @linkml:String * ;
+          dcterms:instructionalMethod @linkml:String * ;
+          dcterms:provenance @linkml:String * ;
+          dcterms:rightsHolder @linkml:String * ;
+          dcterms:mediator @linkml:String * ;
+          dcterms:educationLevel @linkml:String * ;
+          dcterms:accessRights @linkml:String * ;
+          dcterms:license @linkml:String * ;
+          dcterms:bibliographicCitation @linkml:String *
+       ) ;
+       rdf:type [ <OrchestraMetadata> ] ?
+    )
+}
+
+<OrchestraNamedEncodingV11> CLOSED {
+    (  $<OrchestraNamedEncodingV11_tes> (  &<OrchestraBaseEncodingV11_tes> ;
+          rdf:type [ <OrchestraBaseEncodingV11> ] ? ;
+          <fixr_standard> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraNamedEncodingV11> ] ?
+    )
+}
+
+<OrchestraPedigreeV10Mixin> {
+    (  $<OrchestraPedigreeV10Mixin_tes> (  <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraPedigreeV10Mixin> ] ?
+    )
+}
+
+<OrchestraPedigreeV11Mixin> {
+    (  $<OrchestraPedigreeV11Mixin_tes> (  <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraPedigreeV11Mixin> ] ?
+    )
+}
+
+<OrchestraProtocolV10>  (
+    CLOSED {
+       (  $<OrchestraProtocolV10_tes> (  <fixi_annotation> @<OrchestraInterfaceAnnotationV10> ? ;
+             <fixi_name> @linkml:String ? ;
+             <fixi_version> @linkml:String ? ;
+             <fixi_layer> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#application>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#presentation>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#session>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#transport> ] ? ;
+             <fixi_reliability> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#bestEffort>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#idempotent>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#recoverable> ] ? ;
+             <fixi_orchestration> @linkml:Uri ? ;
+             <fixi_other_attributes> @<OrchestraXmlAttribute> *
+          ) ;
+          rdf:type [ <OrchestraProtocolV10> ] ?
+       )
+    } OR @<OrchestraEncodingV10> OR @<OrchestraServiceV10> OR @<OrchestraSessionProtocolV10> OR @<OrchestraTransportV10> OR
+    @<OrchestraUserInterfaceV10>
+)
+
+<OrchestraProtocolV11>  (
+    CLOSED {
+       (  $<OrchestraProtocolV11_tes> (  <fixi_annotation> @<OrchestraInterfaceAnnotationV11> ? ;
+             <fixi_name> @linkml:String ? ;
+             <fixi_version> @linkml:String ? ;
+             <fixi_activation_time> @linkml:String ? ;
+             <fixi_deactivation_time> @linkml:String ? ;
+             <fixi_deprecated> @linkml:String ? ;
+             <fixi_layer> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#application>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#presentation>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#session>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraLayer#transport> ] ? ;
+             <fixi_reliability> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#bestEffort>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#idempotent>
+                <https://w3id.org/lmodel/fix-orchestra/OrchestraReliability#recoverable> ] ? ;
+             <fixi_orchestration> @linkml:Uri ? ;
+             <fixi_other_attributes> @<OrchestraXmlAttribute> *
+          ) ;
+          rdf:type [ <OrchestraProtocolV11> ] ?
+       )
+    } OR @<OrchestraEncodingV11> OR @<OrchestraServiceV11> OR @<OrchestraSessionProtocolV11> OR @<OrchestraTransportV11> OR
+    @<OrchestraUserInterfaceV11>
+)
+
+<OrchestraReferenceV10Mixin> {
+    (  $<OrchestraReferenceV10Mixin_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraReferenceV10Mixin> ] ?
+    )
+}
+
+<OrchestraReferenceV11Mixin> {
+    (  $<OrchestraReferenceV11Mixin_tes> (  <fixr_id> @linkml:Integer ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_scenario> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraReferenceV11Mixin> ] ?
+    )
+}
+
+<OrchestraRepositoryV10> CLOSED {
+    (  $<OrchestraRepositoryV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_metadata> @<OrchestraMetadata> ;
+          <fixr_categories> @<OrchestraCategoriesV10> ? ;
+          <fixr_sections> @<OrchestraSectionsV10> ? ;
+          <fixr_datatypes> @<OrchestraDatatypesV10> ;
+          <fixr_code_sets> @<OrchestraCodeSetsV10> ;
+          <fixr_fields> @<OrchestraFieldsV10> ;
+          <fixr_actors> @<OrchestraActorsV10> ? ;
+          <fixr_components> @<OrchestraComponentsV10> ? ;
+          <fixr_groups> @<OrchestraGroupsV10> ? ;
+          <fixr_messages> @<OrchestraMessagesV10> ;
+          <fixr_concepts> @<OrchestraConceptsV10> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_version> @linkml:String ;
+          <fixr_guid> @linkml:String ? ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_namespace> @linkml:Uri ? ;
+          <fixr_appl_ver_id> @linkml:String ? ;
+          <fixr_expression_language> @linkml:String ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraRepositoryV10> ] ?
+    )
+}
+
+<OrchestraRepositoryV11> CLOSED {
+    (  $<OrchestraRepositoryV11_tes> (  <fixr_metadata> @<OrchestraMetadata> ;
+          <fixr_categories> @<OrchestraCategoriesV11> ? ;
+          <fixr_sections> @<OrchestraSectionsV11> ? ;
+          <fixr_encoding_standards> @<OrchestraEncodingStandardsV11> ? ;
+          <fixr_datatypes> @<OrchestraDatatypesV11> ? ;
+          <fixr_code_sets> @<OrchestraCodeSetsV11> ? ;
+          <fixr_fields> @<OrchestraFieldsV11> ? ;
+          <fixr_actors> @<OrchestraActorsV11> ? ;
+          <fixr_components> @<OrchestraComponentsV11> ? ;
+          <fixr_groups> @<OrchestraGroupsV11> ? ;
+          <fixr_messages> @<OrchestraMessagesV11> ? ;
+          <fixr_concepts> @<OrchestraConceptsV11> ? ;
+          <fixr_scenarios> @<OrchestraScenariosV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_version> @linkml:String ;
+          <fixr_guid> @linkml:String ? ;
+          <fixr_spec_url> @linkml:Uri ? ;
+          <fixr_namespace> @linkml:Uri ? ;
+          <fixr_expression_language> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraRepositoryV11> ] ?
+    )
+}
+
+<OrchestraResponsesV10> CLOSED {
+    (  $<OrchestraResponsesV10_tes> <fixr_response> @<OrchestraResponseV10> + ;
+       rdf:type [ <OrchestraResponsesV10> ] ?
+    )
+}
+
+<OrchestraResponsesV11> CLOSED {
+    (  $<OrchestraResponsesV11_tes> <fixr_response> @<OrchestraResponseV11> + ;
+       rdf:type [ <OrchestraResponsesV11> ] ?
+    )
+}
+
+<OrchestraResponseV10> CLOSED {
+    (  $<OrchestraResponseV10_tes> (  &<OrchestraActionV10_tes> ;
+          rdf:type [ <OrchestraActionV10> ] ? ;
+          <fixr_when> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_sync> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#asynchronous>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#synchronous>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#pipelined> ] ?
+       ) ;
+       rdf:type [ <OrchestraResponseV10> ] ?
+    )
+}
+
+<OrchestraResponseV11> CLOSED {
+    (  $<OrchestraResponseV11_tes> (  &<OrchestraActionV11_tes> ;
+          rdf:type [ <OrchestraActionV11> ] ? ;
+          <fixr_when> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_sync> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#asynchronous>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#synchronous>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSynchronization#pipelined> ] ?
+       ) ;
+       rdf:type [ <OrchestraResponseV11> ] ?
+    )
+}
+
+<OrchestraScenarioReferenceV11Mixin> {
+    (  $<OrchestraScenarioReferenceV11Mixin_tes> (  <fixr_scenario_ref_id> @linkml:Integer ? ;
+          <fixr_scenario_ref> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraScenarioReferenceV11Mixin> ] ?
+    )
+}
+
+<OrchestraScenariosV11> CLOSED {
+    (  $<OrchestraScenariosV11_tes> (  <fixr_scenario> @<OrchestraScenarioV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraScenariosV11> ] ?
+    )
+}
+
+<OrchestraScenarioV11> CLOSED {
+    (  $<OrchestraScenarioV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraScenarioV11> ] ?
+    )
+}
+
+<OrchestraSectionsV10> CLOSED {
+    (  $<OrchestraSectionsV10_tes> (  &<OrchestraContainerV10Mixin_tes> ;
+          rdf:type [ <OrchestraContainerV10Mixin> ] ? ;
+          <fixr_section> @<OrchestraSectionV10> + ;
+          <xml_base> @linkml:Uri ? ;
+          <fixr_latest_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraSectionsV10> ] ?
+    )
+}
+
+<OrchestraSectionsV11> CLOSED {
+    (  $<OrchestraSectionsV11_tes> (  <fixr_section> @<OrchestraSectionV11> * ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <xml_base> @linkml:Uri ?
+       ) ;
+       rdf:type [ <OrchestraSectionsV11> ] ?
+    )
+}
+
+<OrchestraSectionV10> CLOSED {
+    (  $<OrchestraSectionV10_tes> (  &<OrchestraPedigreeV10Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV10Mixin> ] ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ? ;
+          <fixr_display_order> @linkml:Integer ? ;
+          <fixr_fixml_file_name> @linkml:String ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraSectionV10> ] ?
+    )
+}
+
+<OrchestraSectionV11> CLOSED {
+    (  $<OrchestraSectionV11_tes> (  &<OrchestraPedigreeV11Mixin_tes> ;
+          rdf:type [ <OrchestraPedigreeV11Mixin> ] ? ;
+          <fixr_encodings> @<OrchestraEncodingsV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_display_order> @linkml:Integer ? ;
+          <fixr_added> @linkml:String ? ;
+          <fixr_added_ep> @linkml:Integer ? ;
+          <fixr_change_type> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Editorial>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraChangeKind#Definitional> ] ? ;
+          <fixr_deprecated> @linkml:String ? ;
+          <fixr_deprecated_ep> @linkml:Integer ? ;
+          <fixr_issue> @linkml:String ? ;
+          <fixr_last_modified> @linkml:String ? ;
+          <fixr_replaced> @linkml:String ? ;
+          <fixr_replaced_ep> @linkml:Integer ? ;
+          <fixr_replaced_by_field> @linkml:Integer ? ;
+          <fixr_supported> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#supported>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#forbidden>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraSupport#ignored> ] ? ;
+          <fixr_updated> @linkml:String ? ;
+          <fixr_updated_ep> @linkml:Integer ?
+       ) ;
+       rdf:type [ <OrchestraSectionV11> ] ?
+    )
+}
+
+<OrchestraServiceV10> CLOSED {
+    (  $<OrchestraServiceV10_tes> (  &<OrchestraProtocolV10_tes> ;
+          rdf:type [ <OrchestraProtocolV10> ] ?
+       ) ;
+       rdf:type [ <OrchestraServiceV10> ] ?
+    )
+}
+
+<OrchestraServiceV11> CLOSED {
+    (  $<OrchestraServiceV11_tes> (  &<OrchestraProtocolV11_tes> ;
+          rdf:type [ <OrchestraProtocolV11> ] ?
+       ) ;
+       rdf:type [ <OrchestraServiceV11> ] ?
+    )
+}
+
+<OrchestraSessionIdentifierV10> CLOSED {
+    (  $<OrchestraSessionIdentifierV10_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_name> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraSessionIdentifierV10> ] ?
+    )
+}
+
+<OrchestraSessionIdentifierV11> CLOSED {
+    (  $<OrchestraSessionIdentifierV11_tes> (  <fixi_text> @linkml:String ? ;
+          <fixi_name> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraSessionIdentifierV11> ] ?
+    )
+}
+
+<OrchestraSessionProtocolV10> CLOSED {
+    (  $<OrchestraSessionProtocolV10_tes> (  &<OrchestraProtocolV10_tes> ;
+          rdf:type [ <OrchestraProtocolV10> ] ?
+       ) ;
+       rdf:type [ <OrchestraSessionProtocolV10> ] ?
+    )
+}
+
+<OrchestraSessionProtocolV11> CLOSED {
+    (  $<OrchestraSessionProtocolV11_tes> (  &<OrchestraProtocolV11_tes> ;
+          rdf:type [ <OrchestraProtocolV11> ] ?
+       ) ;
+       rdf:type [ <OrchestraSessionProtocolV11> ] ?
+    )
+}
+
+<OrchestraSessionsV10> CLOSED {
+    (  $<OrchestraSessionsV10_tes> <fixi_session> @<OrchestraSessionV10> + ;
+       rdf:type [ <OrchestraSessionsV10> ] ?
+    )
+}
+
+<OrchestraSessionsV11> CLOSED {
+    (  $<OrchestraSessionsV11_tes> <fixi_session> @<OrchestraSessionV11> + ;
+       rdf:type [ <OrchestraSessionsV11> ] ?
+    )
+}
+
+<OrchestraSessionV10> CLOSED {
+    (  $<OrchestraSessionV10_tes> (  &<OrchestraBaseInterfaceV10_tes> ;
+          rdf:type [ <OrchestraBaseInterfaceV10> ] ? ;
+          <fixi_identifier> @<OrchestraSessionIdentifierV10> * ;
+          <fixi_activation_time> @linkml:String ? ;
+          <fixi_deactivation_time> @linkml:String ? ;
+          <fixi_role> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#initiator>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#acceptor>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#client>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#server> ] ? ;
+          <fixi_security_keys> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraSessionV10> ] ?
+    )
+}
+
+<OrchestraSessionV11> CLOSED {
+    (  $<OrchestraSessionV11_tes> (  &<OrchestraBaseInterfaceV11_tes> ;
+          rdf:type [ <OrchestraBaseInterfaceV11> ] ? ;
+          <fixi_identifier> @<OrchestraSessionIdentifierV11> * ;
+          <fixi_role> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#initiator>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#acceptor>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#client>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraRole#server> ] ? ;
+          <fixi_security_keys> @linkml:String ? ;
+          <fixi_activation_time> @linkml:String ? ;
+          <fixi_deactivation_time> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraSessionV11> ] ?
+    )
+}
+
+<OrchestraStateMachineV10> CLOSED {
+    (  $<OrchestraStateMachineV10_tes> (  <fixr_initial> @<OrchestraStateV10> ;
+          <fixr_state> @<OrchestraStateV10> + ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraStateMachineV10> ] ?
+    )
+}
+
+<OrchestraStateMachineV11> CLOSED {
+    (  $<OrchestraStateMachineV11_tes> (  <fixr_initial> @<OrchestraStateV11> ;
+          <fixr_state> @<OrchestraStateV11> + ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraStateMachineV11> ] ?
+    )
+}
+
+<OrchestraStateV10> CLOSED {
+    (  $<OrchestraStateV10_tes> (  <fixr_transition> @<OrchestraTransitionV10> * ;
+          <fixr_onentry> @<OrchestraActionV10> ? ;
+          <fixr_activity> @<OrchestraActionV10> ? ;
+          <fixr_onexit> @<OrchestraActionV10> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraStateV10> ] ?
+    )
+}
+
+<OrchestraStateV11> CLOSED {
+    (  $<OrchestraStateV11_tes> (  <fixr_transition> @<OrchestraTransitionV11> * ;
+          <fixr_onentry> @<OrchestraActionV11> ? ;
+          <fixr_activity> @<OrchestraActionV11> ? ;
+          <fixr_onexit> @<OrchestraActionV11> ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraStateV11> ] ?
+    )
+}
+
+<OrchestraStructureMemberV10> CLOSED {
+    (  $<OrchestraStructureMemberV10_tes> (  <fixr_component_ref> @<OrchestraComponentRefV10> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV10> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV10> ?
+       ) ;
+       rdf:type [ <OrchestraStructureMemberV10> ] ?
+    )
+}
+
+<OrchestraStructureMemberV11> CLOSED {
+    (  $<OrchestraStructureMemberV11_tes> (  <fixr_component_ref> @<OrchestraComponentRefV11> ? ;
+          <fixr_group_ref> @<OrchestraGroupRefV11> ? ;
+          <fixr_field_ref> @<OrchestraFieldRefV11> ?
+       ) ;
+       rdf:type [ <OrchestraStructureMemberV11> ] ?
+    )
+}
+
+<OrchestraTimerScheduleV10> CLOSED {
+    (  $<OrchestraTimerScheduleV10_tes> (  <fixr_activity> @<OrchestraActionV10> ;
+          <fixr_actor> @linkml:String ;
+          <fixr_name> @linkml:String ;
+          <fixr_operation> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#START>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#CANCEL>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#RESET> ] ;
+          <fixr_interval> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraTimerScheduleV10> ] ?
+    )
+}
+
+<OrchestraTimerScheduleV11> CLOSED {
+    (  $<OrchestraTimerScheduleV11_tes> (  <fixr_activity> @<OrchestraActionV11> ;
+          <fixr_actor> @linkml:String ;
+          <fixr_name> @linkml:String ;
+          <fixr_operation> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#START>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#CANCEL>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraTimerOperation#RESET> ] ;
+          <fixr_interval> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraTimerScheduleV11> ] ?
+    )
+}
+
+<OrchestraTimerV10> CLOSED {
+    (  $<OrchestraTimerV10_tes> <fixr_name> @linkml:String ;
+       rdf:type [ <OrchestraTimerV10> ] ?
+    )
+}
+
+<OrchestraTimerV11> CLOSED {
+    (  $<OrchestraTimerV11_tes> <fixr_name> @linkml:String ;
+       rdf:type [ <OrchestraTimerV11> ] ?
+    )
+}
+
+<OrchestraTransitionV10> CLOSED {
+    (  $<OrchestraTransitionV10_tes> (  <fixr_when> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV10> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_target> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraTransitionV10> ] ?
+    )
+}
+
+<OrchestraTransitionV11> CLOSED {
+    (  $<OrchestraTransitionV11_tes> (  <fixr_when> @linkml:String ? ;
+          <fixr_annotation> @<OrchestraAnnotationV11> ? ;
+          <fixr_name> @linkml:String ;
+          <fixr_target> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraTransitionV11> ] ?
+    )
+}
+
+<OrchestraTransportV10> CLOSED {
+    (  $<OrchestraTransportV10_tes> (  &<OrchestraProtocolV10_tes> ;
+          rdf:type [ <OrchestraProtocolV10> ] ? ;
+          <fixi_address> @linkml:String ? ;
+          <fixi_message_cast> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#unicast>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#multicast>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#broadcast> ] ? ;
+          <fixi_use> @linkml:String ? ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraTransportV10> ] ?
+    )
+}
+
+<OrchestraTransportV11> CLOSED {
+    (  $<OrchestraTransportV11_tes> (  &<OrchestraProtocolV11_tes> ;
+          rdf:type [ <OrchestraProtocolV11> ] ? ;
+          <fixi_address> @linkml:String ? ;
+          <fixi_message_cast> [ <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#unicast>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#multicast>
+             <https://w3id.org/lmodel/fix-orchestra/OrchestraMessageCast#broadcast> ] ? ;
+          <fixi_use> @linkml:String ? ;
+          <fixi_other_attributes> @<OrchestraXmlAttribute> *
+       ) ;
+       rdf:type [ <OrchestraTransportV11> ] ?
+    )
+}
+
+<OrchestraTriggerV10> CLOSED {
+    (  $<OrchestraTriggerV10_tes> (  <fixr_state_machine> @linkml:String ;
+          <fixr_actor> @linkml:String ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraTriggerV10> ] ?
+    )
+}
+
+<OrchestraTriggerV11> CLOSED {
+    (  $<OrchestraTriggerV11_tes> (  <fixr_state_machine> @linkml:String ;
+          <fixr_actor> @linkml:String ;
+          <fixr_name> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraTriggerV11> ] ?
+    )
+}
+
+<OrchestraUniqueV10> CLOSED {
+    (  $<OrchestraUniqueV10_tes> <fixr_field_ref> @<OrchestraFieldRefV10> * ;
+       rdf:type [ <OrchestraUniqueV10> ] ?
+    )
+}
+
+<OrchestraUniqueV11> CLOSED {
+    (  $<OrchestraUniqueV11_tes> <fixr_field_ref> @<OrchestraFieldRefV11> * ;
+       rdf:type [ <OrchestraUniqueV11> ] ?
+    )
+}
+
+<OrchestraUnnamedEncodingV11> CLOSED {
+    (  $<OrchestraUnnamedEncodingV11_tes> (  &<OrchestraBaseEncodingV11_tes> ;
+          rdf:type [ <OrchestraBaseEncodingV11> ] ?
+       ) ;
+       rdf:type [ <OrchestraUnnamedEncodingV11> ] ?
+    )
+}
+
+<OrchestraUserInterfaceV10> CLOSED {
+    (  $<OrchestraUserInterfaceV10_tes> (  &<OrchestraProtocolV10_tes> ;
+          rdf:type [ <OrchestraProtocolV10> ] ?
+       ) ;
+       rdf:type [ <OrchestraUserInterfaceV10> ] ?
+    )
+}
+
+<OrchestraUserInterfaceV11> CLOSED {
+    (  $<OrchestraUserInterfaceV11_tes> (  &<OrchestraProtocolV11_tes> ;
+          rdf:type [ <OrchestraProtocolV11> ] ?
+       ) ;
+       rdf:type [ <OrchestraUserInterfaceV11> ] ?
+    )
+}
+
+<OrchestraXmlAttribute> CLOSED {
+    (  $<OrchestraXmlAttribute_tes> (  <xml_name> @linkml:String ;
+          <xml_value> @linkml:String
+       ) ;
+       rdf:type [ <OrchestraXmlAttribute> ] ?
+    )
+}
+
+<OrchestraXmlElement> CLOSED {
+    (  $<OrchestraXmlElement_tes> (  <xml_name> @linkml:String ;
+          <xml_attributes> @<OrchestraXmlAttribute> * ;
+          <xml_text> @linkml:String ? ;
+          <xml_children> @<OrchestraXmlElement> * ;
+          <xml_tail> @linkml:String ?
+       ) ;
+       rdf:type [ <OrchestraXmlElement> ] ?
+    )
+}

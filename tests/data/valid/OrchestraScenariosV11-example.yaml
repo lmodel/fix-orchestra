@@ -1,0 +1,13 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_scenario:
+  - fixr_name: base
+  - fixr_name: Equity
+    fixr_added: '1.1'
+    fixr_annotation:
+      fixr_members:
+        - fixr_documentation:
+            fixr_text: Orders in shares.
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_text: The venue's scenarios.

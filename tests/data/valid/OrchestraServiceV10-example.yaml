@@ -1,0 +1,13 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_name: OrderRouting
+fixi_version: '1.0'
+fixi_layer: application
+fixi_reliability: recoverable
+fixi_orchestration: https://example.org/venue/roe.xml
+fixi_annotation:
+  fixi_members:
+    - fixi_documentation:
+        fixi_purpose: SYNOPSIS
+        fixi_lang_id: en
+        fixi_content_type: text/plain
+        fixi_text: Order routing.

@@ -1,0 +1,13 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_purpose: monitoring
+fixi_spec_url: https://example.org/venue/status
+fixi_lang_id: en
+fixi_other_attributes:
+  - xml_name: '{https://example.org/orchestra-test}level'
+    xml_value: '2'
+fixi_text: 'status page '
+fixi_any:
+  - xml_name: '{https://example.org/orchestra-test}link'
+    xml_attributes:
+      - xml_name: href
+        xml_value: https://example.org/venue/status

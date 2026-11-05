@@ -1,0 +1,9 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_name: OrderFlow
+fixr_source: Trader
+fixr_destination: Venue
+fixr_reliability: recoverable
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_text: Orders from the firm to the venue.

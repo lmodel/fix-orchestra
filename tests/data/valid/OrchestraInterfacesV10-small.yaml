@@ -1,0 +1,13 @@
+# A small file this project wrote for the rule tests.
+fixi_metadata:
+  dcterms_title:
+    - Small interfaces for the rule tests
+fixi_interface:
+  - fixi_name: OrderEntry
+    fixi_sessions:
+      fixi_session:
+        - fixi_name: FIRM1-VENUE
+  - fixi_name: MarketData
+    fixi_sessions:
+      fixi_session:
+        - fixi_name: FIRM1-FEED

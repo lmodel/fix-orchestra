@@ -1,0 +1,5 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_name: FIXT
+fixi_version: '1.1'
+fixi_layer: session
+fixi_reliability: recoverable

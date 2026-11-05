@@ -1,0 +1,5 @@
+# Fails at: /fixr_builtin
+# Built in is true or false.
+fixr_standard: XML
+fixr_builtin: 'yes'
+fixr_base: xs:integer

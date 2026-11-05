@@ -1,0 +1,4 @@
+# Fails at: /fixr_presence
+# Presence is one of five values.
+fixr_id: 11
+fixr_presence: mandatory

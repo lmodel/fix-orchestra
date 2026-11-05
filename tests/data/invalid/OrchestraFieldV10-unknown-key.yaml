@@ -1,0 +1,13 @@
+# Fails at: /
+# A class takes only the keys it declares.
+fixr_id: 11
+fixr_name: ClOrdID
+fixr_type: String
+fixr_abbr_name: ClOrdID
+fixr_base_category: SingleGeneralOrderHandling
+fixr_base_category_abbr_name: ClOrdID
+fixr_impl_min_length: 1
+fixr_impl_max_length: 20
+fixr_encoding: UTF-8
+fixr_rendering: identifier
+fixr_colour: blue

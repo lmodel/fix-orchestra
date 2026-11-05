@@ -1,0 +1,55 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_which: anyOf
+fixr_members:
+  - fixr_field_ref:
+      fixr_id: 11
+      fixr_presence: required
+      fixr_name: ClOrdID
+  - fixr_component_ref:
+      fixr_id: 1012
+      fixr_presence: optional
+      fixr_instance_name: OrderParties
+      fixr_block_assignment:
+        - fixr_members:
+            - fixr_field_ref:
+                fixr_id: 448
+                fixr_presence: constant
+                fixr_value: FIRM1
+                fixr_scenario: Equity
+      fixr_rule:
+        - fixr_name: PartiesForBuys
+          fixr_presence: required
+          fixr_when: Side == ^Buy
+      fixr_encodings:
+        fixr_encoding:
+          - fixr_standard: FIXML
+            fixr_any:
+              - xml_name: '{https://example.org/orchestra-test}element'
+                xml_attributes:
+                  - xml_name: name
+                    xml_value: Pty
+                xml_tail: "\n            "
+  - fixr_group_ref:
+      fixr_id: 1013
+      fixr_impl_min_occurs: 1
+      fixr_impl_max_occurs: '5'
+  - fixr_field_ref:
+      fixr_id: 40
+      fixr_impl_min_length: 1
+      fixr_impl_max_length: 1
+      fixr_length_id: 38
+      fixr_instance_name: Kind
+      fixr_min_inclusive: '1'
+      fixr_max_inclusive: '9'
+      fixr_encoding: US-ASCII
+      fixr_rendering: code
+      fixr_non_encoded_field_id: 58
+      fixr_rule:
+        - fixr_name: UniqueOrder
+          fixr_unique:
+            fixr_field_ref:
+              - fixr_id: 11
+          fixr_assign:
+            - $Venue.Count=$Venue.Count+1
+          fixr_when: OrdType == ^Limit
+      fixr_assign: ^Limit

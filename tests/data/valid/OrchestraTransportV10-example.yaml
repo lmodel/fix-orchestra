@@ -1,0 +1,6 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_name: TCP
+fixi_layer: transport
+fixi_address: 192.0.2.10:9001
+fixi_message_cast: unicast
+fixi_use: primary

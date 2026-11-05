@@ -1,0 +1,4 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_name: tagvalue
+fixi_version: FIX.Latest
+fixi_layer: presentation

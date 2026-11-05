@@ -1,0 +1,8 @@
+# Fails at: /
+# Metadata holds Dublin Core elements and terms only.
+dcterms_title:
+  - Example venue interfaces
+dcterms_subject:
+  - Order entry sessions
+dcterms_colour:
+  - blue

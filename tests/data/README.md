@@ -1,27 +1,8 @@
-# Example data for fix_orchestra
+# Example data for fix-orchestra
 
-This folder contains example data for testing and demonstrating the
-datamodel, sorted into subfolders:
+- `xml/` holds four Orchestra files this project wrote for its tests, a repository and an interfaces file for each edition, with one of each kind of element the XSDs define. `tests/test_documents.py` validates each with the pinned XSD and the schema.
+- `valid/` holds an example of each class, taken from those files, and three small whole files for the rule tests. `linkml-run-examples` and `tests/test_data.py` read this folder.
+- `invalid/` holds a counter-example for each kind of constraint the validator can state. Each file's first line, `# Fails at: <JSON pointer>`, names its one failing place, and `tests/test_data.py` holds it there.
+- `problem/invalid/` holds a counter-example for each rule the generated JSON Schema cannot state, which `tests/orchestra_rules.py` checks over a whole file.
 
-- `valid/` - data conforming to the datamodel. Used to verify the datamodel
-  (`test_data.py::test_valid_data_files`).
-- `invalid/` - data intentionally violating the datamodel. Used to verify
-  validation surfaces the breach
-  (`test_data.py::test_invalid_data_files`).
-- `problem/` - data not yet handled correctly in the current schema version,
-  separated into `valid/` and `invalid/` again. Excluded from the test
-  suite until the underlying issue is resolved.
-- `third_party/fix-orchestra/` - real-world XML samples from the FIX Trading
-  Community reference implementation. Exercised by
-  `test_third_party.py` (XML -> YAML conversion via
-  `scripts/fix_xml_to_linkml.py`, then `linkml-validate`). See its
-  [README](third_party/fix-orchestra/README.md) for provenance and the
-  per-file error budget.
-
-## Filename convention
-
-Files in `valid/` and `invalid/` must be named `<ClassName>-<desc>.yaml`.
-The class name is derived by splitting on the first `-` and taking the
-part before it; it must match a class in the LinkML schema. `<desc>` can
-be any filename-safe identifier (e.g. `Repository-minimal.yaml`,
-`FieldType-missing-id.yaml`).
+A file name is `ClassName-anything.yaml`, and the class is the part before the first hyphen. The real files the tests read are under `upstream/documents/`.

@@ -1,0 +1,7 @@
+# Fails at: /fixi_message_cast
+# A cast is one of three values.
+fixi_name: TCP
+fixi_layer: transport
+fixi_address: 192.0.2.10:9001
+fixi_message_cast: anycast
+fixi_use: primary

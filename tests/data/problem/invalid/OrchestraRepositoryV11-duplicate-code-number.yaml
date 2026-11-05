@@ -1,0 +1,120 @@
+# Fails at: /fixr_code_sets/fixr_code_set/0/fixr_code/1/fixr_id
+# Two codes of one RC3 set share a number.
+fixr_name: Small
+fixr_version: 2.0.0
+fixr_metadata:
+  dcterms_title:
+    - A small repository for the rule tests
+fixr_categories:
+  fixr_category:
+    - fixr_name: Orders
+      fixr_section: Trade
+fixr_sections:
+  fixr_section:
+    - fixr_name: Trade
+fixr_encoding_standards:
+  fixr_encoding_standard:
+    - fixr_name: SBE
+fixr_datatypes:
+  fixr_datatype:
+    - fixr_name: String
+    - fixr_name: char
+    - fixr_name: NumInGroup
+fixr_code_sets:
+  fixr_code_set:
+    - fixr_id: 54
+      fixr_name: SideCodeSet
+      fixr_type: char
+      fixr_code:
+        - fixr_id: 1
+          fixr_name: Buy
+          fixr_value: '1'
+        - fixr_id: 1
+          fixr_name: Sell
+          fixr_value: '2'
+fixr_fields:
+  fixr_field:
+    - fixr_id: 11
+      fixr_name: ClOrdID
+      fixr_type: String
+    - fixr_id: 54
+      fixr_name: Side
+      fixr_code_set: SideCodeSet
+    - fixr_id: 453
+      fixr_name: NoPartyIDs
+      fixr_type: NumInGroup
+    - fixr_id: 448
+      fixr_name: PartyID
+      fixr_type: String
+fixr_actors:
+  fixr_members:
+    - fixr_actor:
+        fixr_name: Trader
+        fixr_members:
+          - fixr_states:
+              fixr_name: OrderState
+              fixr_initial:
+                fixr_name: New
+                fixr_transition:
+                  - fixr_name: Fill
+                    fixr_target: Filled
+              fixr_state:
+                - fixr_name: Filled
+          - fixr_timer:
+              fixr_name: Expiry
+    - fixr_actor:
+        fixr_name: Venue
+    - fixr_flow:
+        fixr_name: OrderFlow
+        fixr_source: Trader
+        fixr_destination: Venue
+fixr_components:
+  fixr_component:
+    - fixr_id: 1012
+      fixr_name: Parties
+      fixr_members:
+        - fixr_group_ref:
+            fixr_id: 1013
+fixr_groups:
+  fixr_group:
+    - fixr_id: 1013
+      fixr_name: PartiesGrp
+      fixr_category: Orders
+      fixr_num_in_group:
+        fixr_id: 453
+      fixr_members:
+        - fixr_field_ref:
+            fixr_id: 448
+fixr_messages:
+  fixr_message:
+    - fixr_id: 14
+      fixr_name: NewOrderSingle
+      fixr_msg_type: D
+      fixr_category: Orders
+      fixr_flow: OrderFlow
+      fixr_structure:
+        fixr_members:
+          - fixr_field_ref:
+              fixr_id: 11
+          - fixr_field_ref:
+              fixr_id: 54
+          - fixr_component_ref:
+              fixr_id: 1012
+      fixr_responses:
+        fixr_response:
+          - fixr_actions:
+              - fixr_trigger:
+                  fixr_state_machine: OrderState
+                  fixr_actor: Trader
+                  fixr_name: Fill
+              - fixr_timer_schedule:
+                  fixr_actor: Trader
+                  fixr_name: Expiry
+                  fixr_operation: START
+                  fixr_activity:
+                    fixr_actions:
+                      - fixr_assign: $Trader.Count=1
+fixr_scenarios:
+  fixr_scenario:
+    - fixr_name: base
+    - fixr_name: Equity

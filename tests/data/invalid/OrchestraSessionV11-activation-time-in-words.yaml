@@ -1,0 +1,21 @@
+# Fails at: /fixi_activation_time
+# A time is an XML Schema dateTime.
+fixi_name: FIRM1-VENUE
+fixi_activation_time: tomorrow
+fixi_deactivation_time: '2027-01-05T08:00:00Z'
+fixi_encoding:
+  - fixi_name: SBE
+fixi_session_protocol:
+  - fixi_name: FIXP
+fixi_transport:
+  - fixi_name: TCP
+    fixi_address: 192.0.2.10:9002
+    fixi_use: primary
+fixi_identifier:
+  - fixi_name: SessionID
+    fixi_text: FIRM1
+fixi_role: client
+fixi_security_keys: |-
+  -----BEGIN PUBLIC KEY-----
+  MCowBQYDK2VwAyEAexampleexampleexampleexampleexampleexample0=
+  -----END PUBLIC KEY-----

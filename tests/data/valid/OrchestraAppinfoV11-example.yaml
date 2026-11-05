@@ -1,0 +1,13 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_purpose: FIXML
+fixr_spec_url: https://example.org/fixml
+fixr_lang_id: en
+fixr_other_attributes:
+  - xml_name: '{https://example.org/orchestra-test}flag'
+    xml_value: 'yes'
+fixr_text: 'kept '
+fixr_any:
+  - xml_name: '{https://example.org/orchestra-test}hint'
+    xml_attributes:
+      - xml_name: notReqXML
+        xml_value: '1'

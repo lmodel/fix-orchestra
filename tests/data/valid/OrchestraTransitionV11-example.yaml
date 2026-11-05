@@ -1,0 +1,4 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_name: Fill
+fixr_target: Filled
+fixr_when: $Trader.OrderLimit > 0

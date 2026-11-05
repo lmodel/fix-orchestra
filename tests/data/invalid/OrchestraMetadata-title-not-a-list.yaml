@@ -1,0 +1,5 @@
+# Fails at: /dcterms_title
+# Each Dublin Core key holds a list.
+dcterms_title: One title
+dcterms_subject:
+  - Order entry sessions

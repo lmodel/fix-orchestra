@@ -1,0 +1,12 @@
+# Fails at: /
+# A state machine has a state beside its initial one.
+fixr_name: OrderState
+fixr_initial:
+  fixr_name: New
+  fixr_transition:
+    - fixr_name: Fill
+      fixr_target: Filled
+      fixr_when: $Trader.OrderLimit > 0
+  fixr_onentry:
+    fixr_actions:
+      - fixr_assign: $Trader.OrderLimit=100

@@ -1,0 +1,5 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_field:
+  fixr_id: 9001
+  fixr_name: OrderLimit
+  fixr_type: Qty

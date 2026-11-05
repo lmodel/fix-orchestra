@@ -1,0 +1,16 @@
+# Fails at: /fixr_component_type
+# A category sorts fields or messages.
+fixr_name: SingleGeneralOrderHandling
+fixr_section: Trade
+fixr_component_type: Block
+fixr_fixml_file_name: order
+fixr_include_file: components
+fixr_added: FIX.4.0
+fixr_updated: FIX.Latest
+fixr_updated_ep: 312
+fixr_change_type: Editorial
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_purpose: SYNOPSIS
+        fixr_text: Orders for a single instrument.

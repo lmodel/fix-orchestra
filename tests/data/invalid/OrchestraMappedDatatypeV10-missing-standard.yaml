@@ -1,0 +1,4 @@
+# Fails at: /
+# A mapping names its standard.
+fixr_builtin: true
+fixr_base: xs:integer

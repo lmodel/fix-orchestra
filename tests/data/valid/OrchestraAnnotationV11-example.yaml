@@ -1,0 +1,5 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_members:
+  - fixr_documentation:
+      fixr_purpose: CAPTION
+      fixr_text: Orders for a single instrument.

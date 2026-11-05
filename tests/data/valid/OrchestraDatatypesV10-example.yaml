@@ -1,0 +1,38 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_latest_ep: 312
+fixr_datatype:
+  - fixr_name: int
+    fixr_added: FIX.2.7
+    fixr_mapped_datatype:
+      - fixr_standard: XML
+        fixr_builtin: true
+        fixr_base: xs:integer
+  - fixr_name: float
+  - fixr_name: Price
+    fixr_base_type: float
+    fixr_mapped_datatype:
+      - fixr_standard: GPB
+        fixr_builtin: false
+        fixr_base: Decimal64
+        fixr_pattern: '[0-9.]+'
+        fixr_element: digit
+        fixr_parameter: scale=8
+        fixr_min_inclusive: '0'
+        fixr_max_inclusive: '99999999'
+        fixr_extension:
+          fixr_any:
+            - xml_name: '{https://example.org/orchestra-test}precision'
+              xml_attributes:
+                - xml_name: digits
+                  xml_value: '8'
+              xml_tail: "\n        "
+        fixr_annotation:
+          fixr_members:
+            - fixr_documentation:
+                fixr_text: A price as a decimal with eight places.
+  - fixr_name: Qty
+    fixr_base_type: float
+  - fixr_name: String
+  - fixr_name: char
+  - fixr_name: NumInGroup
+    fixr_base_type: int

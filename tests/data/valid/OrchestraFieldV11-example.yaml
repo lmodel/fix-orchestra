@@ -1,0 +1,20 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_id: 11
+fixr_name: ClOrdID
+fixr_type: String
+fixr_abbr_name: ClOrdID
+fixr_base_category: SingleGeneralOrderHandling
+fixr_base_category_abbr_name: ClOrdID
+fixr_impl_min_length: 1
+fixr_impl_max_length: 20
+fixr_encoding: UTF-8
+fixr_rendering: identifier
+fixr_encodings:
+  fixr_encoding:
+    - fixr_standard: SBE
+      fixr_any:
+        - xml_name: '{https://example.org/orchestra-test}field'
+          xml_attributes:
+            - xml_name: length
+              xml_value: '20'
+          xml_tail: "\n        "

@@ -1,0 +1,7 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_name: Buy
+fixr_id: 54001
+fixr_value: '1'
+fixr_sort: '1'
+fixr_group: Main
+fixr_abbr_name: Buy

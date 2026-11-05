@@ -1,0 +1,6 @@
+# From tests/data/xml/v1.0-interfaces.xml, which this project wrote for its tests.
+fixi_name: SOFH
+fixi_layer: presentation
+fixi_other_attributes:
+  - xml_name: '{https://example.org/orchestra-test}framing'
+    xml_value: '2'

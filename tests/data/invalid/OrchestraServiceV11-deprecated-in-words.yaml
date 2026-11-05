@@ -1,0 +1,17 @@
+# Fails at: /fixi_deprecated
+# A time is an XML Schema dateTime.
+fixi_name: OrderRouting
+fixi_version: '1.0'
+fixi_layer: application
+fixi_reliability: recoverable
+fixi_orchestration: https://example.org/venue/roe.xml
+fixi_activation_time: '2026-01-05T08:00:00Z'
+fixi_deactivation_time: '2027-01-05T08:00:00Z'
+fixi_deprecated: last year
+fixi_annotation:
+  fixi_members:
+    - fixi_documentation:
+        fixi_purpose: SYNOPSIS
+        fixi_lang_id: en
+        fixi_content_type: text/plain
+        fixi_text: Order routing.

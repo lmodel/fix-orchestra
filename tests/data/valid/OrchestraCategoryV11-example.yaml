@@ -1,0 +1,18 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_name: SingleGeneralOrderHandling
+fixr_section: Trade
+fixr_added: '1.0'
+fixr_encodings:
+  fixr_encoding:
+    - fixr_standard: FIXML
+      fixr_any:
+        - xml_name: '{https://example.org/orchestra-test}file'
+          xml_attributes:
+            - xml_name: name
+              xml_value: order
+          xml_tail: "\n        "
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_purpose: CAPTION
+        fixr_text: Orders for a single instrument.

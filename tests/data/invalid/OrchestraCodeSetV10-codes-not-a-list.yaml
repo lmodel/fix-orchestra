@@ -1,0 +1,16 @@
+# Fails at: /fixr_code
+# A code set holds a list of codes.
+fixr_name: SideCodeSet
+fixr_id: 54
+fixr_type: char
+fixr_default: '1'
+fixr_abbr_name: Side
+fixr_spec_url: https://example.org/venue/sides
+fixr_deprecated_ep: 312
+fixr_code:
+  fixr_name: Buy
+  fixr_id: 54001
+  fixr_value: '1'
+  fixr_sort: '1'
+  fixr_group: Main
+  fixr_abbr_name: Buy

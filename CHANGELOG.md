@@ -10,7 +10,7 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 - **Orchestra v1.0, the Technical Standard**, beside v1.1 RC3, each a module of its own, since FIX Latest is published in v1.0 and RC3 changes several of its attributes.
 - **`upstream/`**, holding each edition's XSDs and licence and five of FIX's own Orchestra files, pinned by git object hash, with a weekly watch on FIX's tags, files and licences.
-- **`scripts/orchestra_xml_to_yaml.py`**, which converts an Orchestra repository or interfaces file to records and back, keeping the order of a message's fields. It writes the records bare, as `linkml-validate` reads them, and the record's keys name its class on the way back.
+- **`scripts/orchestra_xml_to_yaml.py`**, which converts an Orchestra repository or interfaces file to records and back, keeping the order of a message's fields. It writes the records bare, as `linkml-validate` reads them, and the record's keys name its class on the way back. It refuses a document type declaration or an entity reference rather than lose text.
 - **Rules a validator cannot state** in `tests/orchestra_rules.py`: the XSDs' keys and references, and the references the specification describes.
 - **Tests** that validate FIX Latest EP312 and the other files with the XSD and the schema, and convert them back unchanged. They also read the XSDs and the XML separately from the converters, and hold an example per class and a counter-example per constraint.
 - **`.lokf/fix-orchestra.yaml`, the schema's `lokf adapt` copy.** The knowledge release attaches it as `schema-<tag>-fix-orchestra.yaml`.

@@ -80,6 +80,32 @@ def test_an_entity_is_not_expanded():
     assert "root:" not in etree.tostring(root).decode()
 
 
+def test_an_entity_reference_is_refused_not_dropped():
+    """An unexpanded entity reference would otherwise vanish from the text around it,
+    so the converter refuses it, in a text element and in open content alike."""
+    body = (
+        "<fixr:annotation><fixr:documentation>Owned by &co; and more"
+        "</fixr:documentation></fixr:annotation>"
+    )
+    xml = b'<!DOCTYPE r [<!ENTITY co "FIX">]>' + _repository(body)
+    root = etree.fromstring(xml, conversion.CONVERTER.PARSER)
+    with pytest.raises(ValueError, match="entity reference &co;"):
+        conversion.CONVERTER.to_record(root, "OrchestraRepositoryV10")
+    body = "<fixr:annotation><fixr:appinfo><x>&co;</x></fixr:appinfo></fixr:annotation>"
+    xml = b'<!DOCTYPE r [<!ENTITY co "FIX">]>' + _repository(body)
+    root = etree.fromstring(xml, conversion.CONVERTER.PARSER)
+    with pytest.raises(ValueError, match="entity reference &co;"):
+        conversion.CONVERTER.to_record(root, "OrchestraRepositoryV10")
+
+
+def test_a_document_type_declaration_is_refused(tmp_path):
+    """A file with a DOCTYPE is refused before any of it is read as records."""
+    path = tmp_path / "doctype.xml"
+    path.write_bytes(b"<!DOCTYPE r []>" + _repository(""))
+    with pytest.raises(ValueError, match="document type declaration"):
+        conversion.CONVERTER.read(path)
+
+
 def _run(*args, cwd=conversion.ROOT):
     """A command as docs/index.md gives it, run from the repository with this Python."""
     exe = Path(sys.executable).with_name(args[0])

@@ -13,9 +13,10 @@ annotations from the schema's modules, so it holds no table of its own:
   name its class among the tree roots; ``--class`` names it when they fit more than one.
 
 The records are written bare, as ``linkml-validate`` reads them. A name the class does
-not know is an error, so nothing is dropped silently. Attributes in the XML Schema
-instance namespace, such as ``xsi:schemaLocation``, are hints to a parser and are left
-out; so are comments and processing instructions. Usage::
+not know is an error, and so is a document type declaration or an entity reference, so
+nothing is dropped silently. Attributes in the XML Schema instance namespace, such as
+``xsi:schemaLocation``, are hints to a parser and are left out; so are comments and
+processing instructions. Usage::
 
     uv run python scripts/orchestra_xml_to_yaml.py FILE.xml [-o FILE.yaml]
     uv run python scripts/orchestra_xml_to_yaml.py --to-xml [--class NAME] FILE.yaml [-o FILE.xml]
@@ -161,6 +162,15 @@ def _clark(qname: etree.QName) -> str:
     return qname.text
 
 
+def _children(element) -> list:
+    """The element children, with comments and processing instructions passed over. An
+    entity reference, which the parser leaves unexpanded, is refused rather than lost."""
+    for child in element:
+        if isinstance(child, etree._Entity):
+            raise ValueError(f"{element.tag} holds the entity reference {child.text}")
+    return [child for child in element if isinstance(child.tag, str)]
+
+
 def _open_element(element) -> dict:
     """An element the XSDs leave open, kept as written."""
     out: dict = {"xml_name": _clark(etree.QName(element))}
@@ -171,7 +181,7 @@ def _open_element(element) -> dict:
         ]
     if element.text is not None:
         out["xml_text"] = element.text
-    children = [c for c in element if isinstance(c.tag, str)]
+    children = _children(element)
     if children:
         out["xml_children"] = [_open_element(c) for c in children]
     if element.tail is not None and element.getparent() is not None:
@@ -186,9 +196,7 @@ def _metadata(element) -> dict:
         for key, slot in _slots("OrchestraMetadata").items()
         for notes in [slot.get("annotations") or {}]
     }
-    for child in element:
-        if not isinstance(child.tag, str):
-            continue
+    for child in _children(element):
         key = keys.get(child.tag)
         if key is None:
             raise ValueError(f"metadata: no key for {child.tag}")
@@ -219,9 +227,7 @@ def to_record(element, name: str) -> dict:
         out[key] = _value(value, t.slots[key])
     if t.text is not None and element.text is not None:
         out[t.text] = element.text
-    for child in element:
-        if not isinstance(child.tag, str):
-            continue
+    for child in _children(element):
         q = etree.QName(child)
         if q.namespace == t.namespace and q.localname in t.elements:
             key = t.elements[q.localname]
@@ -253,14 +259,17 @@ def _child(child, slot: dict):
         return _metadata(child)
     if rng in _classes():
         return to_record(child, rng)
-    if len(child):
+    if _children(child):
         raise ValueError(f"{child.tag} should hold text only")
     return _value(child.text or "", slot)
 
 
 def read(path: Path) -> tuple[str, dict]:
     """The class and record of an Orchestra file."""
-    root = etree.parse(str(path), PARSER).getroot()
+    tree = etree.parse(str(path), PARSER)
+    if tree.docinfo.doctype:
+        raise ValueError(f"{path}: a document type declaration is not allowed")
+    root = tree.getroot()
     q = etree.QName(root)
     name = ROOTS.get((q.namespace, q.localname))
     if name is None:

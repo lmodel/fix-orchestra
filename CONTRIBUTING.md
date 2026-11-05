@@ -4,7 +4,7 @@
 
 ## What this project is
 
-A LinkML schema of FIX Orchestra, the FIX Trading Community's standard for rules of engagement that a machine can read, in two editions: the v1.0 Technical Standard and the v1.1 third release candidate. A converter turns an Orchestra file into records the schema validates, and back.
+A LinkML schema of FIX Orchestra, the FIX Trading Community's standard for rules of engagement that a machine can read, in two editions: the v1.0 Technical Standard and the v1.1 third release candidate. A converter turns each Orchestra file into records the schema validates, and back.
 
 | Path | Holds |
 | --- | --- |

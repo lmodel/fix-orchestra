@@ -12,7 +12,7 @@ So each edition is a module of its own, `fix_orchestra_v1_0` and `fix_orchestra_
 
 `scripts/orchestra_xsd_to_linkml.py` writes the edition modules from `upstream/`, and the descriptions from `scripts/orchestra_words.yaml`.
 
-| In the XSD | In the schema |
+| XSD | Schema |
 | --- | --- |
 | A complex type, or an element's anonymous type | A class, `Orchestra<Name><Edition>` |
 | An attribute group | A mixin, such as `OrchestraPedigreeV10Mixin` for the added, changed and deprecated versions |
@@ -33,12 +33,12 @@ So each edition is a module of its own, `fix_orchestra_v1_0` and `fix_orchestra_
 
 ## Where the schema departs from the XSDs
 
-- **RC3's `fieldTypeOrCodeSetKey`.** It is a key on a field's type or code set, so it refuses a second field of the same datatype, which every real repository has. The rules keep what it asks of one field, a type or a code set but not both, and leave out the uniqueness.
+- **RC3's `fieldTypeOrCodeSetKey`.** It is a key on a field's type or code set, so it refuses a second field of one datatype, which every real repository has. The rules keep what it asks of one field, a datatype or else a code set, never both, and leave out the uniqueness.
 - **Keys and references.** JSON Schema cannot state that two elements share no key, or that a reference names an element that exists. `tests/orchestra_rules.py` checks both: the XSDs' `xs:key` and `xs:keyref` constraints, and the references the specification describes, such as a field used by number and scenario or a trigger's transition.
 
 ## What the real files show
 
-The tests read FIX Latest as of Extension Pack 312, the FIXT and FIX 4.4 session files, the Trading Digital Assets practices and a sample interfaces file, each unchanged under `upstream/documents/`. Each is valid against the v1.0 XSD and converts to records that the schema accepts and that convert back unchanged.
+The tests read FIX Latest at Extension Pack 312, the FIXT and FIX 4.4 session files, the Trading Digital Assets practices and a sample interfaces file, each unchanged under `upstream/documents/`. Each is valid against the v1.0 XSD and converts to records that the schema accepts and that convert back unchanged.
 
 - FIX Latest leaves the section out of three categories, Common, Fields and ImplFields. That is valid in v1.0, which FIX Latest conforms to, and RC3 is the edition that requires a section.
 - The two session files put groups in a category named Common, which neither file defines. `tests/document_departures.yaml` lists them.

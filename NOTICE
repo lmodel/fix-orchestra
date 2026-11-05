@@ -61,7 +61,7 @@ FIX's Orchestra files
 upstream/documents/ holds five Orchestra files that the tests read, each
 unchanged:
 
-- OrchestraFIXLatest.xml (FIX Latest as of Extension Pack 312),
+- OrchestraFIXLatest.xml (FIX Latest at Extension Pack 312),
   FIXTSession.xml, FIX44Session.xml and TradingDigitalAssets.xml, from FIX
   Protocol Limited's orchestrations repository at commit cd24169
   (https://github.com/FIXTradingCommunity/orchestrations), copyright (c)

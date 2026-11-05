@@ -26,7 +26,7 @@ The converter reads the schema's `xml_attribute`, `xml_element` and `xml_choice`
 
 It leaves out the attributes that tell a parser where an XSD is, such as `xsi:schemaLocation`, and comments and processing instructions. Its parser reads no network resource and expands no entity.[^xml-converter]
 
-Records converted back give each pinned and example file again, with every attribute, element, text and order of elements.[^test_documents.py]
+Converting the records back gives each pinned and example file again, with every attribute, element, text and order of elements.[^test_documents.py]
 
 [^xml-converter]: scripts/orchestra_xml_to_yaml.py, the module's description and PARSER
 [^test_documents.py]: tests/test_documents.py, test_each_document_converts_back_unchanged

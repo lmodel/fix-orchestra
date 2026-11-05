@@ -19,6 +19,6 @@ status: draft
 
 `rule_errors` returns each error as a JSON pointer and a sentence.[^rules]
 
-RC3's `fieldTypeOrCodeSetKey` refuses two fields that share a datatype, so the rule keeps what it asks of one field, a datatype or else a code set, never both, and leaves out the uniqueness.[^rules]
+RC3's `fieldTypeOrCodeSetKey` refuses two fields that share a datatype. So the rule keeps only what it asks of one field: a datatype or else a code set, never both. It leaves out the uniqueness.[^rules]
 
 [^rules]: tests/orchestra_rules.py, the module's description

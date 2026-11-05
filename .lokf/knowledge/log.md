@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+* **Prose**: reworded 13 concept bodies in plain English. No fact, link, number or frontmatter changed.
 * **Changed**: reworded sentences that shared a run of four words with the Orchestra specification, so the bundle keeps to the project's own words; no fact changed.
 * **Added**: The adapt copy.
 * **Added**: The common module.

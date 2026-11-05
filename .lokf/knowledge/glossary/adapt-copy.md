@@ -17,6 +17,6 @@ status: draft
 
 # Adapt copy
 
-Edit the source, never the copy, and `just lokf-adapt-check` says when the copy is stale.[^readme]
+Edit the source, never the copy. `just lokf-adapt-check` says when the copy is stale.[^readme]
 
 [^readme]: README.md, Knowledge Trust Ladder (KTL)

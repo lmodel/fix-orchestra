@@ -16,6 +16,6 @@ status: draft
 
 # Lint and docs (lint-and-docs.yaml)
 
-The checks touch neither the schema nor the Python tests, and the workflow also runs every Monday to catch link rot.[^lint]
+The checks touch neither the schema nor the Python tests. The workflow also runs every Monday, to find links that no longer work.[^lint]
 
 [^lint]: .github/workflows/lint-and-docs.yaml

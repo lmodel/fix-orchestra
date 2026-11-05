@@ -29,7 +29,7 @@ status: draft
 
 The copy roots each edition's file classes and named elements on `Concept`, and keeps six Dublin Core keys, such as `dcterms_source`, whose IRIs LOKF's relations also use.[^justfile]
 
-The copy renames nothing, since every key starts with `fixr_`, `fixi_`, `xml_`, `dc_` or `dcterms_`.[^readme]
+The copy renames nothing, because every key starts with `fixr_`, `fixi_`, `xml_`, `dc_` or `dcterms_`.[^readme]
 
 The copy keeps each class of the source with all its keys.[^test_schema_rules.py]
 

@@ -23,9 +23,9 @@ status: draft
 
 CC BY-ND 4.0 lets anyone copy and share the XSDs unchanged, and lets no one share an adapted version, so the schema takes only the XSDs' names, structure and value lists.[^notice]
 
-The project takes the stricter reading European law allows, under which even a short extract can be protected, and took nothing from fixtrading.org.[^notice]
+The project takes the stricter reading that European law allows, under which even a short extract can be protected. It took nothing from fixtrading.org.[^notice]
 
-This project is not endorsed by FIX Protocol Limited.[^readme]
+FIX Protocol Limited has not endorsed this project.[^readme]
 
 [^notice]: NOTICE, FIX Orchestra XSDs
 [^readme]: README.md, License

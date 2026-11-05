@@ -24,7 +24,7 @@ status: draft
 
 A key's words come from the first entry that exists, from an override for one edition or one class down to the entry for its XML name.[^words]
 
-A test holds that no run of four words in the schema, the words table, the README or the docs is a run of the XSDs' documentation.[^test_own_words.py]
+A test checks that no run of four words in the schema, the words table, the README or the docs also appears in the XSDs' documentation.[^test_own_words.py]
 
 [^words]: scripts/orchestra_words.yaml, the header
 [^test_own_words.py]: tests/test_own_words.py, the module's description

@@ -26,9 +26,9 @@ status: draft
 
 The repository gives four of the files under `upstream/documents/`: `OrchestraFIXLatest.xml`, `FIXTSession.xml`, `FIX44Session.xml` and `TradingDigitalAssets.xml`, each pinned at commit `cd24169a2abd8daba7c360987c7a46ca11873a12`.[^pins]
 
-The files are under the Apache License 2.0, though `OrchestraFIXLatest.xml`'s own metadata says "All Rights Reserved", and the repository copies them whole and unchanged.[^notice]
+The files are under the Apache License 2.0, though the metadata of `OrchestraFIXLatest.xml` says "All Rights Reserved". The repository copies them whole and unchanged.[^notice]
 
-The watch reports a newer file on the default branch for information only, since the files are test data.[^watch]
+The watch reports a newer file on the default branch for information only, because the files are test data.[^watch]
 
 [^pins]: scripts/upstream_pins.tsv
 [^notice]: NOTICE, FIX's Orchestra files

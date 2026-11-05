@@ -23,7 +23,7 @@ status: draft
 
 A file name is `ClassName-anything.yaml`, and the class is the part before the first hyphen.[^data-readme]
 
-Every counter-example fails at the place its first line names, as `# Fails at: <JSON pointer>`, and nowhere else but on the way to it.[^test_data.py]
+Every counter-example fails at the place its first line names, as `# Fails at: <JSON pointer>`, and at no other place except along the path to it.[^test_data.py]
 
 [^data-readme]: tests/data/README.md
 [^test_data.py]: tests/test_data.py, test_counter_examples_fail_where_they_say

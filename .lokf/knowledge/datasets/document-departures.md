@@ -23,7 +23,7 @@ status: draft
 
 `FIX44Session.xml` puts one group in the category Common, and `FIXTSession.xml` puts three there, and neither file defines that category.[^departures]
 
-A document breaks no rule but the ones this file lists.[^test_documents.py]
+A document breaks no rule except the ones this file lists.[^test_documents.py]
 
 [^departures]: tests/document_departures.yaml
 [^test_documents.py]: tests/test_documents.py, test_each_document_keeps_the_rules

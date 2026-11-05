@@ -17,6 +17,6 @@ status: draft
 
 # The neighbours' copies
 
-Each copy is pinned by its SHA-256, and the adapt copy shares no class, enum, type or subset name with any of them, and no key under another IRI.[^test_schema_rules.py]
+Each copy is pinned by its SHA-256. The adapt copy shares no class, enum, type or subset name with any of them, and no key under another IRI.[^test_schema_rules.py]
 
 [^test_schema_rules.py]: tests/test_schema_rules.py, NEIGHBOURS and test_names_apart_from_neighbours

@@ -24,7 +24,7 @@ status: draft
 
 # The generated artefacts
 
-The SQL table generator is off, since it writes a join table per multivalued slot per class.[^generators]
+The SQL table generator is off, because it writes a join table per multivalued slot per class.[^generators]
 
 A schema edit without `just gen-project` fails a test, which compares the committed JSON Schema with the generator's output.[^test_generated_json_schema.py]
 

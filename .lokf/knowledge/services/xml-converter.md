@@ -24,7 +24,7 @@ status: draft
 
 The converter reads the schema's `xml_attribute`, `xml_element` and `xml_choice` annotations and holds no table of its own. A name the class does not know is an error.[^xml-converter]
 
-It leaves out the attributes that tell a parser where an XSD is, such as `xsi:schemaLocation`, and comments and processing instructions. Its parser reads no network resource and expands no entity.[^xml-converter]
+It leaves out the attributes that tell a parser where an XSD is, such as `xsi:schemaLocation`, comments, processing instructions and the file's own namespace prefixes, and writes a number or a boolean in its plain form. It stops on a document type declaration or an entity reference. Its parser reads no network resource and expands no entity.[^xml-converter]
 
 Converting the records back gives each pinned and example file again, with every attribute, element, text and order of elements.[^test_documents.py]
 

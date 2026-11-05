@@ -23,7 +23,7 @@ So each edition is a module of its own, `fix_orchestra_v1_0` and `fix_orchestra_
 | `xs:any`, `xs:anyAttribute` | `OrchestraXmlElement` and `OrchestraXmlAttribute`, kept as written |
 | A pattern, a length or a bound | A pattern or a minimum and maximum on the key |
 
-`scripts/orchestra_xml_to_yaml.py` reads those annotations, and nothing else, to convert a file both ways. It stops on a name the schema has no key for. It leaves out `xsi:schemaLocation`, which tells a parser where an XSD is, and comments.
+`scripts/orchestra_xml_to_yaml.py` reads those annotations, and nothing else, to convert a file both ways. It stops on a name the schema has no key for, on a document type declaration and on an entity reference. It leaves out `xsi:schemaLocation`, which tells a parser where an XSD is, comments, processing instructions and the file's own namespace prefixes, and it writes a number or a boolean in its plain form, so `+5` comes back as `5` and `1` as `true`.
 
 ## What the records leave out
 

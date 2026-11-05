@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-05
+
 ### Added
 
 - **Orchestra v1.0, the Technical Standard**, beside v1.1 RC3, each a module of its own, since FIX Latest is published in v1.0 and RC3 changes several of its attributes.

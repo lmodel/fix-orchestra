@@ -452,7 +452,6 @@ slots:
   '#text': The text the element holds, as written.
   '#any': Child elements from other namespaces, kept as written.
   '#other_attributes': Attributes from other namespaces, kept as written.
-  '#members': The members, in document order.
   '#parameters': >-
     The fields, groups and components the action takes as input, in order.
   '#actions': >-
@@ -461,7 +460,6 @@ slots:
   id: >-
     The element's number, unique among elements of its kind; for a field, its tag
     number.
-  name: The element's name.
   abbrName: A short form of the name, which FIXML uses for tags.
   scenario: >-
     The use case this variant of the element serves, such as a workflow or an asset
@@ -510,19 +508,16 @@ slots:
   unionDataType: >-
     A datatype whose values the field may hold beside its codes, such as a range
     kept for user-defined values.
-  type: The datatype that gives the element's values, by name.
   codeSet: The field's code set, by name.
   nonEncodedFieldId: >-
     The tag number of the plain field that this encoded field stands for.
   source: The sending actor, by name.
   destination: The receiving actor, by name.
-  reliability: The delivery guarantee, from best effort to recoverable.
   implMinOccurs: The fewest entries an implementation accepts.
   implMaxOccurs: The most entries an implementation accepts, or unbounded.
   which: >-
     Whether one member exactly, or one or more members, must appear.
   msgType: The message's MsgType(35) code.
-  category: The category the element belongs to, by name.
   flow: The flow that carries the message, by name.
   sync: How the response's timing relates to the request it answers.
   displayOrder: Where the section comes when all sections are shown.
@@ -536,8 +531,6 @@ slots:
   default: The code a receiver assumes when none is given.
   specUrl: The address of a document that describes the element.
   sort: A number that places the code when its set is shown.
-  group: >-
-    A label that places the code with others when its set is shown.
   langId: The language of the text, as a language tag.
   purpose: What the text is for, such as a summary or an example.
   contentType: The media type of the text; text/plain when none is given.

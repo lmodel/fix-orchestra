@@ -335,6 +335,7 @@ class Words:
     def __init__(self, path: Path):
         self.data = yaml.safe_load(path.read_text(encoding="utf-8"))
         self.missing: list[str] = []
+        self.used_slots: set[str] = set()
 
     def _get(self, section: str, key: str):
         found = (self.data.get(section) or {}).get(key)
@@ -357,7 +358,12 @@ class Words:
         for key in keys:
             if key in overrides:
                 return overrides[key]
+        self.used_slots.add(xml)
         return self._get("slots", xml)["description"]
+
+    def unused_slots(self) -> list[str]:
+        """The entries under slots: that no key read, since every use has an override."""
+        return sorted(set(self.data.get("slots") or {}) - self.used_slots)
 
     def enum(self, name: str) -> dict:
         return self._get("enums", name)
@@ -1140,6 +1146,11 @@ def main(argv: list[str] | None = None) -> int:
         for item in sorted(set(words.missing)):
             print(f"  {item}", file=sys.stderr)
         return 2
+    unused = words.unused_slots()
+    if unused:
+        print(f"Unused slots entries: {', '.join(unused)}", file=sys.stderr)
+        if args.check:
+            return 1
     stale = []
     for module, text in files.items():
         path = SCHEMA_DIR / f"{module}.yaml"

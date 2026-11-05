@@ -22,7 +22,7 @@ The schema renders FIX Orchestra, the FIX Trading Community's standard for rules
 
 None. The schema renders a file format and borrows no other vocabulary's terms. lmodel/fix-protocol and lmodel/fix-sbe map their classes to this one's.
 
-The SSSOM set of mappings to fix-sbe is gone: its rows were written by hand, and fix-sbe now states the pairs from its side.
+The SSSOM set of mappings to fix-sbe is gone: its rows were labelled as manual curation, and fix-sbe now states the pairs from its side.
 
 ## Repository Structure
 

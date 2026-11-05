@@ -41,26 +41,6 @@ XML_NS = "http://www.w3.org/XML/1998/namespace"
 DC = "http://purl.org/dc/elements/1.1/"
 DCTERMS = "http://purl.org/dc/terms/"
 
-# The class a file's root element becomes, by its namespace and name.
-ROOTS = {
-    (
-        "http://fixprotocol.io/2020/orchestra/repository",
-        "repository",
-    ): "OrchestraRepositoryV10",
-    (
-        "http://fixprotocol.io/2020/orchestra/interfaces",
-        "interfaces",
-    ): "OrchestraInterfacesV10",
-    (
-        "http://fixprotocol.io/2026/orchestra/repository",
-        "repository",
-    ): "OrchestraRepositoryV11",
-    (
-        "http://fixprotocol.io/2026/orchestra/interfaces",
-        "interfaces",
-    ): "OrchestraInterfacesV11",
-}
-
 # A parser that reads no network resource and expands no entity, within libxml2's usual
 # limits on depth and size, which the largest FIX file is far inside.
 PARSER = etree.XMLParser(
@@ -108,6 +88,17 @@ def _slots(name: str) -> dict[str, dict]:
         out |= _slots(mixin)
     out |= cls.get("attributes") or {}
     return out
+
+
+@cache
+def roots() -> dict[tuple[str, str], str]:
+    """The class a file's root element becomes, by its namespace and name: the schema's
+    tree roots, whose xsd_type annotation is the root element's name."""
+    return {
+        (cls["annotations"]["xml_namespace"], cls["annotations"]["xsd_type"]): name
+        for name, cls in _classes().items()
+        if cls.get("tree_root")
+    }
 
 
 @cache
@@ -271,7 +262,7 @@ def read(path: Path) -> tuple[str, dict]:
         raise ValueError(f"{path}: a document type declaration is not allowed")
     root = tree.getroot()
     q = etree.QName(root)
-    name = ROOTS.get((q.namespace, q.localname))
+    name = roots().get((q.namespace, q.localname))
     if name is None:
         raise ValueError(f"{path}: no class for a root {root.tag}")
     try:
@@ -381,7 +372,7 @@ def _fits(record, name: str) -> bool:
 
 def class_of(record: dict) -> str:
     """The one tree root whose keys a record uses, at every depth."""
-    found = [name for name in ROOTS.values() if _fits(record, name)]
+    found = [name for name in roots().values() if _fits(record, name)]
     if len(found) != 1:
         shown = ", ".join(found) or "no tree root"
         raise ValueError(f"the record fits {shown}; name the class with --class")
@@ -390,7 +381,7 @@ def class_of(record: dict) -> str:
 
 def write(name: str, record: dict) -> bytes:
     """The XML of a file's record, with its root class."""
-    ((namespace, local),) = [k for k, v in ROOTS.items() if v == name]
+    ((namespace, local),) = [k for k, v in roots().items() if v == name]
     root = to_element(record, name, f"{{{namespace}}}{local}")
     return etree.tostring(root, xml_declaration=True, encoding="UTF-8")
 
@@ -411,7 +402,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.to_xml:
             record = yaml.safe_load(args.path.read_text(encoding="utf-8"))
             name = args.class_name or class_of(record)
-            if name not in ROOTS.values():
+            if name not in roots().values():
                 raise ValueError(f"{name} is not a tree root of the schema")
             data = write(name, record)
         else:

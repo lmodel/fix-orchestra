@@ -86,7 +86,7 @@ def xsd(suffix: str, kind: str):
 def edition_of(path: Path) -> tuple[str, str]:
     """The edition suffix and file kind of a document, by its root's namespace."""
     root = etree.parse(str(path), CONVERTER.PARSER).getroot()
-    name = CONVERTER.ROOTS[(etree.QName(root).namespace, etree.QName(root).localname)]
+    name = CONVERTER.roots()[(etree.QName(root).namespace, etree.QName(root).localname)]
     kind = "repository" if "Repository" in name else "interfaces"
     return name[-3:], kind
 

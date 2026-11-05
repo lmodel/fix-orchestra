@@ -381,6 +381,11 @@ class Edition:
             for name in files:
                 path = UPSTREAM / self.info["folder"] / folder / name
                 root = ET.parse(path).getroot()
+                if root.get("targetNamespace") != self.info[doc]:
+                    raise SystemExit(
+                        f"{path.name}: targetNamespace {root.get('targetNamespace')} "
+                        f"is not the table's {self.info[doc]}"
+                    )
                 for child in root:
                     if not isinstance(child.tag, str):
                         continue

@@ -1,5 +1,0 @@
-# Appinfo: usage-specific annotation with a specUrl and purpose.
-purpose: ELABORATION
-spec_url: "https://www.fixtrading.org/standards/fix-orchestra-standard/"
-value: "Refers to FIX Orchestra v1.1-RC2 specification."
-lang_id: en

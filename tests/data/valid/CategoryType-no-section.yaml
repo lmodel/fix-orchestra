@@ -1,3 +1,0 @@
-# VALID: CategoryType without `section` – reflects the FIX "Common" category
-# that routinely omits the section attribute across all FIX distributions.
-name: Equities

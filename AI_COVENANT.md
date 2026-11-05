@@ -26,7 +26,7 @@ Two failure modes are worse here than elsewhere. One is a class, key or rule tha
 So:
 
 - **An element says what the XSD says.** The converter writes every class, key and value list from `upstream/`, and a change to one is a change to the converter or to the pinned edition. Name the XSD declaration in the pull request. "The model said so" is not a source.
-- **A rule states only what Orchestra states.** `tests/orchestra_rules.py` holds the XSDs' keys and the references the specification describes. Where a real FIX file breaks one, `tests/document_departures.yaml` records it, with a report to the FIX Trading Community.
+- **A rule states only what Orchestra states.** `tests/orchestra_rules.py` checks the XSDs' keys and the references the specification describes. Where a real FIX file breaks one, `tests/document_departures.yaml` records it, with a report to the FIX Trading Community.
 - **The words are this project's own.** Write a description from what the element does, never by rewording the XSDs' documentation or the specification, and keep it in `scripts/orchestra_words.yaml`. `tests/test_own_words.py` refuses any run of four words the XSDs' documentation holds. [NOTICE](NOTICE) states the terms.
 
 ## AI-Assisted Code Reviews

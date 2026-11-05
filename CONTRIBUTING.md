@@ -40,10 +40,10 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 ## Before opening a pull request
 
 - **Edit the words or the converter, then regenerate.** Run `just gen-schema`, `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. Everything under `src/fix_orchestra/schema/`, `src/fix_orchestra/datamodel/`, `project/`, `docs/schema/` and `.lokf/fix-orchestra.yaml` is generated.
-- **The XSD decides the shape.** `tests/test_coverage.py` holds every attribute and element of each XSD type to a key of its class, and `tests/test_documents.py` holds the converter to real FIX files, both ways.
+- **The XSD decides the shape.** `tests/test_coverage.py` checks that every attribute and element of each XSD type has a key in its class, and `tests/test_documents.py` tests the converter on real FIX files, both ways.
 - **The words are this project's own.** A description is written from what the element does, in `scripts/orchestra_words.yaml`. `tests/test_own_words.py` refuses any run of four words the XSDs' documentation holds; [NOTICE](NOTICE) says why.
 - **A rule is the XSD's or the specification's.** A key or a reference rule goes in `tests/orchestra_rules.py`, and a real file that breaks one in `tests/document_departures.yaml`, each with a report to the FIX Trading Community.
-- **Render the pinned editions.** `tests/test_upstream.py` holds the schema headers, `scripts/check_upstream_release.py` and `upstream/` equal.
+- **Render the pinned editions.** `tests/test_upstream.py` checks that the schema headers, `scripts/check_upstream_release.py` and `upstream/` agree.
 - **Keep names apart.** A host imports this adapt copy beside the Linked Open Knowledge Format (LOKF) schema and the released copies in `tests/neighbours/`. `tests/test_schema_rules.py` checks this.
 - **Run the tests**: `just test` (schema generation, `pytest` and the examples under `tests/data/`). Example data goes in `tests/data/valid/` and `tests/data/invalid/`, named `ClassName-suffix.yaml`; an invalid example's first line, `# Fails at: <pointer>`, names where it fails.
 - **Follow the schema's conventions**: PascalCase classes with the `Orchestra` prefix and the edition's suffix, keys that are `fixr_` or `fixi_` and the XML name in snake case, and a short description on every element.
@@ -65,7 +65,7 @@ Artificial intelligence (AI) assistance is welcome; [AI_COVENANT.md](AI_COVENANT
 
 ## Reporting issues
 
-Use the [issue tracker](https://github.com/lmodel/fix-orchestra/issues) for the schema. A problem in Orchestra itself belongs with the [FIX Trading Community](https://github.com/FIXTradingCommunity/fix-orchestra-spec/issues).
+Use the [issue tracker](https://github.com/lmodel/fix-orchestra/issues) for the schema. Report a problem in Orchestra itself to the [FIX Trading Community](https://github.com/FIXTradingCommunity/fix-orchestra-spec/issues).
 
 ## Releasing (maintainers)
 

@@ -14,7 +14,7 @@ FIX Orchestra v1.0 Technical Standard and v1.1 RC3 (LinkML)
 
 ## What it models
 
-The schema renders FIX Orchestra, the FIX Trading Community's standard for rules of engagement that a machine can read, in two editions: the v1.0 Technical Standard of February 2021, in which FIX Latest is published, and the v1.1 third release candidate of June 2026. Each edition is a module written from its XSDs, and `scripts/orchestra_xml_to_yaml.py` converts an Orchestra repository or interfaces file to records and back.
+The schema renders FIX Orchestra, the FIX Trading Community's standard for rules of engagement that a machine can read. It covers two editions: the v1.0 Technical Standard of February 2021, in which FIX Latest is published, and the v1.1 third release candidate of June 2026. Each edition is a module written from its XSDs, and `scripts/orchestra_xml_to_yaml.py` converts an Orchestra repository or interfaces file to records and back.
 
 `upstream/` holds both editions' XSDs and five of FIX's own files, pinned by hash. [docs/about.md](docs/about.md) says how the schema reads the XSDs and where it departs from them.
 
@@ -49,13 +49,13 @@ The copy roots each edition's file classes and named elements on `Concept`, such
 OrchestraActorV10, OrchestraActorV11, OrchestraCategoryV10, OrchestraCategoryV11, OrchestraCodeSetV10, OrchestraCodeSetV11, OrchestraComponentV10, OrchestraComponentV11, OrchestraConceptV10, OrchestraConceptV11, OrchestraDatatypeV10, OrchestraDatatypeV11, OrchestraEncodingStandardV11, OrchestraEncodingV10, OrchestraEncodingV11, OrchestraFieldV10, OrchestraFieldV11, OrchestraFlowV10, OrchestraFlowV11, OrchestraGroupV10, OrchestraGroupV11, OrchestraInterfaceV10, OrchestraInterfaceV11, OrchestraInterfacesV10, OrchestraInterfacesV11, OrchestraMessageV10, OrchestraMessageV11, OrchestraProtocolV10, OrchestraProtocolV11, OrchestraRepositoryV10, OrchestraRepositoryV11, OrchestraScenarioV11, OrchestraSectionV10, OrchestraSectionV11, OrchestraServiceV10, OrchestraServiceV11, OrchestraSessionProtocolV10, OrchestraSessionProtocolV11, OrchestraSessionV10, OrchestraSessionV11, OrchestraStateMachineV10, OrchestraStateMachineV11, OrchestraTransportV10, OrchestraTransportV11, OrchestraUserInterfaceV10, OrchestraUserInterfaceV11
 ```
 
-The copy renames nothing. Every key starts with `fixr_`, `fixi_`, `xml_`, `dc_` or `dcterms_`, so no key is LOKF's or another released copy's under another IRI; it keeps six Dublin Core keys, such as `dcterms_source`, whose IRIs LOKF's relations also use. `tests/test_schema_rules.py` holds both.
+The copy renames nothing. Every key starts with `fixr_`, `fixi_`, `xml_`, `dc_` or `dcterms_`, so no key is LOKF's or another released copy's under another IRI. It keeps six Dublin Core keys, such as `dcterms_source`, whose IRIs LOKF's relations also use. `tests/test_schema_rules.py` checks both.
 
 ## License
 
 The schema and the code are under the Apache License 2.0 ([LICENSE](LICENSE)), and the knowledge bundle in [.lokf/knowledge/](.lokf/knowledge) is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-FIX's XSDs are under CC BY-ND 4.0 and its Orchestra files under the Apache License 2.0, each copied unchanged; the schema's descriptions are this project's own words. [NOTICE](NOTICE) states the position. This project is not endorsed by FIX Protocol Limited.
+FIX's XSDs are under CC BY-ND 4.0 and its Orchestra files under the Apache License 2.0, each copied unchanged. The schema's descriptions are this project's own words. [NOTICE](NOTICE) states the position. FIX Protocol Limited has not endorsed this project.
 
 ## Contributing and security
 

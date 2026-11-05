@@ -9,13 +9,13 @@ FIX Orchestra XSDs
 ------------------
 
 upstream/v1.0/ holds the XML schemas of FIX Orchestra v1.0, the Technical
-Standard, as FIX Protocol Limited (the FIX Trading Community) publishes them
-in fix-orchestra-spec at the tag v1.0, commit e2b65db:
-https://github.com/FIXTradingCommunity/fix-orchestra-spec. upstream/v1.1-rc3/
-holds those of FIX Orchestra v1.1 Release Candidate 3, as FIX publishes them
-in fix-orchestra at the tag v1.1-rc3, commit eb4bb9d:
-https://github.com/FIXTradingCommunity/fix-orchestra. Each folder holds its
-repository's LICENSE, and every file is unchanged.
+Standard. FIX Protocol Limited (the FIX Trading Community) publishes them in
+https://github.com/FIXTradingCommunity/fix-orchestra-spec at the tag v1.0,
+commit e2b65db. upstream/v1.1-rc3/ holds those of FIX Orchestra v1.1 Release
+Candidate 3, as FIX publishes them in
+https://github.com/FIXTradingCommunity/fix-orchestra at the tag v1.1-rc3,
+commit eb4bb9d. Each folder holds its repository's LICENSE, and every file
+is unchanged.
 
   Copyright (c) 2016-2026 FIX Protocol Limited.
 
@@ -45,15 +45,15 @@ when it shows its author's own choices. Every title and description in the
 schema, the documentation and the generated files is this project's own,
 written in scripts/orchestra_words.yaml from what each element does, and
 not by rewording the XSDs' documentation or the Orchestra specification.
-tests/test_own_words.py holds that no run of four words in them is a run of
-the XSDs' documentation. Nothing was taken from fixtrading.org, whose terms
+tests/test_own_words.py checks that no run of four words in them also appears
+in the XSDs' documentation. Nothing was taken from fixtrading.org, whose terms
 bar copying its content. The specification remains the authority on what
 Orchestra means; this project's words describe the format and do not
 replace it.
 
 FIX, FIX Protocol, FIX Orchestra and FIX Trading Community are trademarks of
-FIX Protocol Limited, named here to identify the standard. This project is
-not endorsed by FIX Protocol Limited.
+FIX Protocol Limited, named here to identify the standard. FIX Protocol
+Limited has not endorsed this project.
 
 FIX's Orchestra files
 ---------------------

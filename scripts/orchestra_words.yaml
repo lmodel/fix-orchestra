@@ -2,7 +2,7 @@
 # from the Orchestra XSDs. scripts/orchestra_xsd_to_linkml.py reads this file and
 # stops on any name it finds no words for. Each description is written from what
 # the element does, never from the XSDs' or the specification's text, which FIX
-# licenses under CC BY-ND 4.0; tests/test_own_words.py holds that no run of four
+# licenses under CC BY-ND 4.0; tests/test_own_words.py checks that no run of four
 # words is shared with the XSDs' documentation.
 #
 # A key's words come from the first of these that exists: "V10:Class.name" or

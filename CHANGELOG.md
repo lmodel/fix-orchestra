@@ -12,7 +12,7 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **`upstream/`**, holding each edition's XSDs and licence and five of FIX's own Orchestra files, pinned by git object hash, with a weekly watch on FIX's tags, files and licences.
 - **`scripts/orchestra_xml_to_yaml.py`**, which converts an Orchestra repository or interfaces file to records and back, keeping the order of a message's fields.
 - **Rules a validator cannot state** in `tests/orchestra_rules.py`: the XSDs' keys and references, and the references the specification describes.
-- **Tests** that validate FIX Latest EP312 and the other files with the XSD and the schema, convert them back unchanged, walk the XSDs and the XML apart from the converters, and hold an example per class and a counter-example per constraint.
+- **Tests** that validate FIX Latest EP312 and the other files with the XSD and the schema, and convert them back unchanged. They also read the XSDs and the XML separately from the converters, and hold an example per class and a counter-example per constraint.
 - **`.lokf/fix-orchestra.yaml`, the schema's `lokf adapt` copy.** The knowledge release attaches it as `schema-<tag>-fix-orchestra.yaml`.
 - **The repository's Knowledge Trust Ladder (KTL) knowledge bundle and its sidecar automation**, from the KTL v0.61.0 templates with the lokf floor at 0.9.0, and a knowledge website that replaces the mkdocs site.
 - **The governance files**: SECURITY.md, AI_COVENANT.md, NOTICE and the CONTRIBUTING checklist.

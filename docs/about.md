@@ -4,7 +4,7 @@ This page says how the schema reads the Orchestra XSDs, where it departs from th
 
 ## Two editions
 
-Orchestra v1.0 became a Technical Standard in February 2021, and FIX Latest is published in it. Version 1.1 is in its third release candidate, of June 2026, whose XSDs sit in FIX's code repository under the tag `v1.1-rc3`. Neither is a superset of the other: RC3 adds scenarios, encoding standards and encoding blocks, drops v1.0's FIXML file names and category kinds, requires a category's section and caps a name at 64 characters.
+Orchestra v1.0 became a Technical Standard in February 2021, and FIX Latest is published in it. Version 1.1 is in its third release candidate, of June 2026, whose XSDs are in FIX's code repository under the tag `v1.1-rc3`. Neither is a superset of the other: RC3 adds scenarios, encoding standards and encoding blocks, drops v1.0's FIXML file names and category kinds, requires a category's section and caps a name at 64 characters.
 
 So each edition is a module of its own, `fix_orchestra_v1_0` and `fix_orchestra_v1_1`, and each class carries its edition's suffix: `OrchestraMessageV10`, `OrchestraMessageV11`. `fix_orchestra_common` holds the value lists both editions share, the Dublin Core block that heads a file, and two classes for XML the XSDs leave open.
 
@@ -33,7 +33,7 @@ So each edition is a module of its own, `fix_orchestra_v1_0` and `fix_orchestra_
 
 ## Where the schema departs from the XSDs
 
-- **RC3's `fieldTypeOrCodeSetKey`.** It is a key on a field's type or code set, so it refuses a second field of one datatype, which every real repository has. The rules keep what it asks of one field, a datatype or else a code set, never both, and leave out the uniqueness.
+- **RC3's `fieldTypeOrCodeSetKey`.** It is a key on a field's type or code set, so it refuses a second field of one datatype, which every real repository has. The rules keep only what it asks of one field: a datatype or else a code set, never both. They leave out the uniqueness.
 - **Keys and references.** JSON Schema cannot state that two elements share no key, or that a reference names an element that exists. `tests/orchestra_rules.py` checks both: the XSDs' `xs:key` and `xs:keyref` constraints, and the references the specification describes, such as a field used by number and scenario or a trigger's transition.
 
 ## What the real files show

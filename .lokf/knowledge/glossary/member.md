@@ -11,12 +11,12 @@ sources:
     title: test_a_member_holds_exactly_one_element
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 
 # Member
 
-In the JSON Schema a member is a `oneOf`, one branch per element it may hold.[^test_generated_json_schema.py]
+The generated JSON Schema writes a member as a `oneOf`, one branch per element it may hold.[^test_generated_json_schema.py]
 
 [^test_generated_json_schema.py]: tests/test_generated_json_schema.py, test_a_member_holds_exactly_one_element

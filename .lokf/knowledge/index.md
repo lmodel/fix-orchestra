@@ -30,7 +30,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 * [The example data](datasets/example-data.md) - `tests/data/`: a valid example of each class, taken from the example files, three small whole files for the rule tests, a counter-example per kind of constraint, and a counter-example per rule the JSON Schema cannot state.
 * [The example Orchestra files](datasets/example-files.md) - `tests/data/xml/`: four Orchestra files this project wrote, a repository and an interfaces file for each edition, with one of each kind of element the XSDs define, since no published RC3 file is valid against RC3's XSDs.
 * [The example venue's order flow](datasets/example-flow.md) - A v1.0 flow from the example repository, `OrderFlow`, which carries orders from the actor Trader to the actor Venue with recoverable delivery.
-* [FIX Latest EP312](datasets/fix-latest.md) - `upstream/documents/OrchestraFIXLatest.xml`: FIX Latest as of Extension Pack 312, a v1.0 Orchestra repository of 181 messages and 6,203 fields that the tests validate with the XSD and the schema and convert back unchanged.
+* [FIX Latest EP312](datasets/fix-latest.md) - `upstream/documents/OrchestraFIXLatest.xml`: FIX Latest at Extension Pack 312, a v1.0 Orchestra repository of 181 messages and 6,203 fields that the tests validate with the XSD and the schema and convert back unchanged.
 * [The fix-orchestra LinkML schema](datasets/fix-orchestra-linkml-schema.md) - `src/fix_orchestra/schema/`: the umbrella `fix_orchestra.yaml` over `fix_orchestra_common`, `fix_orchestra_v1_0` and `fix_orchestra_v1_1`, a LinkML model of FIX Orchestra's repository and interfaces files in two editions, with four tree roots.
 * [The generated artefacts](datasets/generated-artefacts.md) - `project/`, `src/fix_orchestra/datamodel/` and `docs/schema/`: what `just gen-project` and `just gen-doc` write from the schema, such as the JSON Schema, the Pydantic models and the OWL, never edited by hand.
 * [The neighbours' copies](datasets/neighbour-copies.md) - `tests/neighbours/`: the schema assets of 30 released lmodel repositories, each checked against its release's `.sha256` and attestation, against which the adapt copy is held to share no class or key.
@@ -43,7 +43,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 # Explanations
 
 * [Where the schema departs from the XSDs](explanations/departures-from-the-xsds.md) - The two places the schema and its rules differ from the XSDs: RC3's `fieldTypeOrCodeSetKey`, whose uniqueness the rules leave out, and the keys and references that only the rules check.
-* [How the schema reads an XSD](explanations/how-the-schema-reads-an-xsd.md) - What each XSD construct becomes in the schema: a complex type a class, an attribute group a mixin, an attribute or child element a `fixr_` or `fixi_` key, a repeated choice a list of members, and `xs:any` an open XML element.
+* [How the schema reads an XSD](explanations/how-the-schema-reads-an-xsd.md) - What each XSD construct becomes here: a complex type a class, an attribute group a mixin, an attribute or child element a `fixr_` or `fixi_` key, a repeated choice a list of members, and `xs:any` an open XML element.
 * [Why the schema has two editions](explanations/two-editions.md) - Why v1.0 and v1.1 RC3 are separate modules with suffixed class names: neither edition is a superset of the other, and FIX Latest is published in v1.0.
 * [What the real files show](explanations/what-the-real-files-show.md) - What FIX's own Orchestra files show when the schema reads them: FIX Latest's three categories without a section, the session files' undefined category, the 65-character group name RC3 refuses, and the v1.0 XSDs in the RC3 tag.
 
@@ -73,7 +73,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 
 * [FIX Orchestra v1.0, the Technical Standard](references/orchestra-v1-0.md) - The upstream authority for the v1.0 module: FIX Orchestra v1.0, promoted to Technical Standard in February 2021, whose XSDs sit in FIXTradingCommunity/fix-orchestra-spec under the tag `v1.0`, commit `e2b65db`. FIX Latest is published in this edition.
 * [FIX Orchestra v1.1 Release Candidate 3](references/orchestra-v1-1-rc3.md) - The upstream authority for the v1.1 module: FIX Orchestra v1.1 RC3 of June 2026, whose XSDs sit in FIX's code repository, FIXTradingCommunity/fix-orchestra, under the tag `v1.1-rc3`, commit `eb4bb9d`.
-* [FIX's orchestrations repository](references/orchestrations-repository.md) - FIXTradingCommunity/orchestrations, under the Apache License 2.0: the source of FIX Latest as of Extension Pack 312 and of three more Orchestra files the tests read, pinned at commit `cd24169`.
+* [FIX's orchestrations repository](references/orchestrations-repository.md) - FIXTradingCommunity/orchestrations, under the Apache License 2.0: the source of FIX Latest at Extension Pack 312 and of three more Orchestra files the tests read, pinned at commit `cd24169`.
 
 # Workflows
 

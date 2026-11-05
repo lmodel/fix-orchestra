@@ -3,7 +3,7 @@ type: Explanation
 id: https://w3id.org/lmodel/fix-orchestra/knowledge/explanations/how-the-schema-reads-an-xsd
 genre: explanation
 title: How the schema reads an XSD
-description: "What each XSD construct becomes in the schema: a complex type a class, an attribute group a mixin, an attribute or child element a `fixr_` or `fixi_` key, a repeated choice a list of members, and `xs:any` an open XML element."
+description: "What each XSD construct becomes here: a complex type a class, an attribute group a mixin, an attribute or child element a `fixr_` or `fixi_` key, a repeated choice a list of members, and `xs:any` an open XML element."
 resource: docs/about.md
 about:
   - https://w3id.org/lmodel/fix-orchestra/knowledge/glossary/member
@@ -14,7 +14,7 @@ sources:
     title: How the schema reads an XSD
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 

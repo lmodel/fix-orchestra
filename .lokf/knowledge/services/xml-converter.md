@@ -16,7 +16,7 @@ sources:
     title: test_each_document_converts_back_unchanged
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 
@@ -24,7 +24,7 @@ status: draft
 
 The converter reads the schema's `xml_attribute`, `xml_element` and `xml_choice` annotations and holds no table of its own. A name the class does not know is an error.[^xml-converter]
 
-It leaves out attributes in the XML Schema instance namespace, such as `xsi:schemaLocation`, and comments and processing instructions. Its parser reads no network resource and expands no entity.[^xml-converter]
+It leaves out the attributes that tell a parser where an XSD is, such as `xsi:schemaLocation`, and comments and processing instructions. Its parser reads no network resource and expands no entity.[^xml-converter]
 
 Records converted back give each pinned and example file again, with every attribute, element, text and order of elements.[^test_documents.py]
 

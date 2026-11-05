@@ -3,7 +3,7 @@ type: Reference
 id: https://w3id.org/lmodel/fix-orchestra/knowledge/references/orchestrations-repository
 genre: reference
 title: FIX's orchestrations repository
-description: "FIXTradingCommunity/orchestrations, under the Apache License 2.0: the source of FIX Latest as of Extension Pack 312 and of three more Orchestra files the tests read, pinned at commit `cd24169`."
+description: "FIXTradingCommunity/orchestrations, under the Apache License 2.0: the source of FIX Latest at Extension Pack 312 and of three more Orchestra files the tests read, pinned at commit `cd24169`."
 resource: https://github.com/FIXTradingCommunity/orchestrations
 references:
   - https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/fix-latest
@@ -18,7 +18,7 @@ sources:
     title: check_default_branches
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 

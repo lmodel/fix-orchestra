@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+* **Changed**: reworded sentences that shared a run of four words with the Orchestra specification, so the bundle keeps to the project's own words; no fact changed.
 * **Added**: The adapt copy.
 * **Added**: The common module.
 * **Added**: Where FIX's files break a rule.

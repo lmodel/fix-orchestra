@@ -17,7 +17,7 @@ sources:
     title: test_each_edition_module_names_its_pins
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 
@@ -25,7 +25,7 @@ status: draft
 
 1. Read what changed, and decide whether the schema moves to the new tag.[^watch]
 2. Move `upstream/`, `scripts/upstream_pins.tsv`, the watch's `EDITIONS` and the converter's `EDITIONS` together.[^watch]
-3. Run `just gen-schema` and the rest of the regeneration. A module's header must name the edition, tag and commit the watch pins.[^test_upstream.py]
+3. Run `just gen-schema` and the other regeneration recipes. A module's header must name the edition, tag and commit the watch pins.[^test_upstream.py]
 
 [^watch]: scripts/check_upstream_release.py, check_tags and EDITIONS
 [^test_upstream.py]: tests/test_upstream.py, test_each_edition_module_names_its_pins

@@ -3,7 +3,7 @@ type: Dataset
 id: https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/fix-latest
 genre: reference
 title: FIX Latest EP312
-description: "`upstream/documents/OrchestraFIXLatest.xml`: FIX Latest as of Extension Pack 312, a v1.0 Orchestra repository of 181 messages and 6,203 fields that the tests validate with the XSD and the schema and convert back unchanged."
+description: "`upstream/documents/OrchestraFIXLatest.xml`: FIX Latest at Extension Pack 312, a v1.0 Orchestra repository of 181 messages and 6,203 fields that the tests validate with the XSD and the schema and convert back unchanged."
 resource: upstream/documents/OrchestraFIXLatest.xml
 isPartOf:
   - https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/upstream-copy
@@ -18,7 +18,7 @@ sources:
     title: test_fix_latest_loads_into_the_pydantic_models
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 

@@ -16,13 +16,13 @@ sources:
     title: test_rc3_refuses_two_fields_of_one_datatype_and_the_schema_does_not
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-05T20:05:31Z"
 status: draft
 ---
 
 # Where the schema departs from the XSDs
 
-RC3's `fieldTypeOrCodeSetKey` is a key on a field's type or code set, so it refuses a second field of the same datatype, which every real repository has.[^about]
+RC3's `fieldTypeOrCodeSetKey` is a key on a field's type or code set, so it refuses a second field of one datatype, which every real repository has.[^about]
 
 The XSD refuses a repository with two fields of one datatype, and the schema and the rules accept it.[^test_documents.py]
 

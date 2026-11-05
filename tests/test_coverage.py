@@ -3,7 +3,8 @@ walk that shares no code with the scripts under test.
 
 The first walk reads each edition's XSDs with the standard library and holds every
 attribute and child element of every complex type to a key of the class that renders
-it, with the same XML name, the same required-ness and the same value list. The second
+it, with the same XML name, the same required-ness, the same repetition and the same
+value list. The second
 walk counts every element name and attribute value in a document, and then counts what
 the records hold through the schema's annotations alone; the two counts must be equal.
 """
@@ -91,9 +92,18 @@ def _named_ancestor(root, target):
     return None
 
 
+def _occurrence(node, element) -> tuple[bool, bool]:
+    """Whether a child element of a type is required and whether it may repeat. A member
+    of a choice is never required on its own, and repeats when the choice does."""
+    for choice in node.iter(f"{XS}choice"):
+        if element in list(choice):
+            return False, choice.get("maxOccurs") not in (None, "1")
+    return element.get("minOccurs", "1") != "0", element.get("maxOccurs", "1") != "1"
+
+
 def _xsd_parts(suffix: str, kind: str, node) -> tuple[dict, dict]:
-    """The attributes (name to required and type) and child element names of one type,
-    with its attribute groups and its extension's base."""
+    """The attributes (name to required and type) and child elements (name to required
+    and repeating) of one type, with its attribute groups and its extension's base."""
     types = xsd_types(suffix, kind)
     attributes, elements = {}, {}
     for child in node.iter():
@@ -115,7 +125,8 @@ def _xsd_parts(suffix: str, kind: str, node) -> tuple[dict, dict]:
             attributes |= sub_a
             elements |= sub_e
         elif tag == "element" and _owned(node, child):
-            elements[child.get("name") or child.get("ref").split(":")[1]] = child
+            name = child.get("name") or child.get("ref").split(":")[1]
+            elements[name] = _occurrence(node, child)
     return attributes, elements
 
 
@@ -161,14 +172,31 @@ def test_each_attribute_and_element_of_the_xsd_has_its_key(name):
         for s in keys.values()
         if _xml_name(s, "xml_element")
     }
+    members = {}
     for slot in keys.values():
         choice = _xml_name(slot, "xml_choice")
-        elements |= set(choice.split()) if choice else set()
+        for xml in choice.split() if choice else ():
+            elements.add(xml)
+            members[xml] = slot
     assert set(attributes) == set(xsd_attributes) - {None}
     for xml, (required, _) in xsd_attributes.items():
         assert bool(attributes[xml].get("required")) == required, xml
-    if not cls.get("mixin"):
-        assert elements == set(xsd_elements)
+    if cls.get("mixin"):
+        return
+    assert elements == set(xsd_elements)
+    by_element = {_xml_name(s, "xml_element"): s for s in keys.values()}
+    for xml, (required, repeats) in xsd_elements.items():
+        if xml in members:
+            # The list of members carries the choice's occurrence; each member class
+            # holds one element, optional and single.
+            assert repeats and not required, xml
+            inner = keys_of(members[xml]["range"])
+            held = next(s for s in inner.values() if _xml_name(s, "xml_element") == xml)
+            assert not held.get("required") and not held.get("multivalued"), xml
+            continue
+        slot = by_element[xml]
+        assert bool(slot.get("required")) == required, xml
+        assert bool(slot.get("multivalued")) == repeats, xml
 
 
 def _enumeration(suffix, kind, type_name):

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A condition under which a component's presence changes, such as when it becomes required.
+  A condition that changes a component's presence, such as making it required.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

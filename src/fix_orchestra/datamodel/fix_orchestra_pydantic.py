@@ -273,7 +273,7 @@ class OrchestraReliability(str, Enum):
     """
     bestEffort = "bestEffort"
     """
-    No promise; a message may be lost.
+    No promise; any message can be lost.
     """
     idempotent = "idempotent"
     """
@@ -500,7 +500,7 @@ class OrchestraPurposeV11(str, Enum):
 
 class OrchestraMetadata(ConfiguredBaseModel):
     """
-    The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element or term.
+    The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xsd_type': {'tag': 'xsd_type',
                                       'value': 'dcterms:elementOrRefinementContainer'}},
@@ -842,7 +842,7 @@ class OrchestraXmlAttribute(ConfiguredBaseModel):
 
 class OrchestraActionParameterV10(ConfiguredBaseModel):
     """
-    One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -988,7 +988,7 @@ class OrchestraActionV10(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra action (1.0)'})
 
-    fixr_parameters: Optional[list[OrchestraActionParameterV10]] = Field(default=None, description="""The fields, components and groups the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_parameters: Optional[list[OrchestraActionParameterV10]] = Field(default=None, description="""The fields, groups and components the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'field fieldRef component '
                                                  'componentRef group groupRef'}},
          'domain_of': ['OrchestraActionV10', 'OrchestraActionV11']} })
@@ -1035,7 +1035,7 @@ class OrchestraActorMemberV10(ConfiguredBaseModel):
                        'OrchestraActionParameterV11',
                        'OrchestraActorMemberV11',
                        'OrchestraFieldsV11']} })
-    fixr_field_ref: Optional[OrchestraFieldRefV10] = Field(default=None, description="""A variable given by reference to a field.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'fieldRef'}},
+    fixr_field_ref: Optional[OrchestraFieldRefV10] = Field(default=None, description="""A variable that uses a field by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'fieldRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
                        'OrchestraConceptMemberV10',
@@ -1053,7 +1053,7 @@ class OrchestraActorMemberV10(ConfiguredBaseModel):
                        'OrchestraActionParameterV11',
                        'OrchestraActorMemberV11',
                        'OrchestraComponentsV11']} })
-    fixr_component_ref: Optional[OrchestraComponentRefV10] = Field(default=None, description="""A variable given by reference to a component.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element',
+    fixr_component_ref: Optional[OrchestraComponentRefV10] = Field(default=None, description="""A variable that uses a component by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element',
                                          'value': 'componentRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
@@ -1072,7 +1072,7 @@ class OrchestraActorMemberV10(ConfiguredBaseModel):
                        'OrchestraActorMemberV11',
                        'OrchestraCodeV11',
                        'OrchestraGroupsV11']} })
-    fixr_group_ref: Optional[OrchestraGroupRefV10] = Field(default=None, description="""A variable given by reference to a repeating group.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'groupRef'}},
+    fixr_group_ref: Optional[OrchestraGroupRefV10] = Field(default=None, description="""A variable that uses a repeating group by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'groupRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
                        'OrchestraConceptMemberV10',
@@ -1343,7 +1343,7 @@ class OrchestraAnnotationMemberV10(ConfiguredBaseModel):
 
 class OrchestraBaseInterfaceV10(ConfiguredBaseModel):
     """
-    What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'annotations': {'xml_namespace': {'tag': 'xml_namespace',
@@ -1392,7 +1392,7 @@ class OrchestraBaseInterfaceV10(ConfiguredBaseModel):
 
 class OrchestraBlockAssignmentV10(ConfiguredBaseModel):
     """
-    How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -1402,7 +1402,7 @@ class OrchestraBlockAssignmentV10(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra block assignment (1.0)'})
 
-    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, components and groups the assignment sets, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, groups and components the assignment sets, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -1467,7 +1467,7 @@ class OrchestraCodeSetsV10(ConfiguredBaseModel):
 
 class OrchestraComponentRuleV10(ConfiguredBaseModel):
     """
-    A condition under which a component's presence changes, such as when it becomes required.
+    A condition that changes a component's presence, such as making it required.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -1476,7 +1476,7 @@ class OrchestraComponentRuleV10(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra component rule (1.0)'})
 
-    fixr_when: str = Field(default=..., description="""The condition under which the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: str = Field(default=..., description="""When the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -1564,7 +1564,7 @@ class OrchestraComponentRuleV10(ConfiguredBaseModel):
 
 class OrchestraConceptMemberV10(ConfiguredBaseModel):
     """
-    One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -2052,7 +2052,7 @@ class OrchestraFieldConstraintsV10Mixin(ConfiguredBaseModel):
 
 class OrchestraFieldRuleV10(OrchestraFieldConstraintsV10Mixin):
     """
-    A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -2075,7 +2075,7 @@ class OrchestraFieldRuleV10(OrchestraFieldConstraintsV10Mixin):
                        'OrchestraFieldRuleV11',
                        'OrchestraFieldV11',
                        'OrchestraIdentifiersMemberV11']} })
-    fixr_when: str = Field(default=..., description="""The condition under which the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: str = Field(default=..., description="""When the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -2276,7 +2276,7 @@ class OrchestraFieldsV10(ConfiguredBaseModel):
 
 class OrchestraFlowV10(ConfiguredBaseModel):
     """
-    A one-way flow of messages from one actor to another, with its delivery guarantee.
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -2387,7 +2387,7 @@ class OrchestraFlowV10(ConfiguredBaseModel):
     fixr_destination: str = Field(default=..., description="""The receiving actor, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'destination'}},
          'domain_of': ['OrchestraFlowV10', 'OrchestraFlowV11']} })
-    fixr_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee of the flow, from best effort to recoverable.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixr_reliability: Optional[OrchestraReliability] = Field(default=None, description="""How reliably the flow delivers its messages, from best effort to recoverable.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraFlowV10', 'OrchestraFlowV11']} })
 
@@ -2473,7 +2473,7 @@ class OrchestraIdentifierV10(ConfiguredBaseModel):
                        'OrchestraIdentifierV11',
                        'OrchestraIdentityV11Mixin',
                        'OrchestraReferenceV11Mixin']} })
-    fixr_source_id: Optional[int] = Field(default=None, description="""The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.""", ge=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixr_source_id: Optional[int] = Field(default=None, description="""The tag number of the received message's field that the value comes from; the field's own tag number when none is given.""", ge=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'sourceId'}},
          'domain_of': ['OrchestraIdentifierV10', 'OrchestraIdentifierV11']} })
 
@@ -3025,7 +3025,7 @@ class OrchestraMappedDatatypeV10(ConfiguredBaseModel):
 
 class OrchestraMessageStructureV10(ConfiguredBaseModel):
     """
-    The ordered fields, components and groups of a message.
+    The ordered fields, groups and components of a message.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -3035,7 +3035,7 @@ class OrchestraMessageStructureV10(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra message layout (1.0)'})
 
-    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The message's fields, components and groups, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The message's fields, groups and components, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -3852,7 +3852,7 @@ class OrchestraCodeSetV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
                        'OrchestraStateMachineV11',
                        'OrchestraStateV11',
                        'OrchestraTransitionV11']} })
-    fixr_type: str = Field(default=..., description="""The datatype of the set's values, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
+    fixr_type: str = Field(default=..., description="""The set's datatype, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
          'domain_of': ['OrchestraCodeSetV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraFieldV10',
@@ -4070,7 +4070,7 @@ class OrchestraCodeSetV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
 
 class OrchestraCodeV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
     """
-    One permitted value in a code set, with its name and what goes on the wire.
+    One permitted value of the set, with its name and what goes on the wire.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -4342,7 +4342,7 @@ class OrchestraCodeV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
 
 class OrchestraComponentV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
     """
-    A named block of fields, components and groups that messages and other blocks include by reference.
+    A named block of fields, groups and components that messages and other blocks include by reference.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -4352,7 +4352,7 @@ class OrchestraComponentV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin
          'mixins': ['OrchestraPedigreeV10Mixin', 'OrchestraIdentityV10Mixin'],
          'title': 'Orchestra component (1.0)'})
 
-    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, components and groups the component holds, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, groups and components the component holds, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -5068,7 +5068,7 @@ class OrchestraDocumentationV10(OrchestraPedigreeV10Mixin):
 
 class OrchestraFieldV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin, OrchestraFieldConstraintsV10Mixin):
     """
-    A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -5155,7 +5155,7 @@ class OrchestraFieldV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin, Or
                        'OrchestraStateMachineV11',
                        'OrchestraStateV11',
                        'OrchestraTransitionV11']} })
-    fixr_type: str = Field(default=..., description="""The datatype or code set that gives the field's values, by name; a code set brings its own datatype.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
+    fixr_type: str = Field(default=..., description="""The field's datatype, or its code set, by name; a code set brings its own datatype.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
          'domain_of': ['OrchestraCodeSetV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraFieldV10',
@@ -5462,7 +5462,7 @@ class OrchestraFieldV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin, Or
 
 class OrchestraGroupV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
     """
-    A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -5474,7 +5474,7 @@ class OrchestraGroupV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
 
     fixr_num_in_group: Optional[OrchestraFieldRefV10] = Field(default=None, description="""The field that counts the group's entries.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'numInGroup'}},
          'domain_of': ['OrchestraGroupV10', 'OrchestraGroupV11']} })
-    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, components and groups that each entry holds, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: list[OrchestraStructureMemberV10] = Field(default=..., description="""The fields, groups and components that each entry holds, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -5809,7 +5809,7 @@ class OrchestraGroupV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
 
 class OrchestraMessageV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
     """
-    A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/repository'},
@@ -5819,7 +5819,7 @@ class OrchestraMessageV10(OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin):
          'mixins': ['OrchestraIdentityV10Mixin', 'OrchestraPedigreeV10Mixin'],
          'title': 'Orchestra message (1.0)'})
 
-    fixr_structure: OrchestraMessageStructureV10 = Field(default=..., description="""The message's fields, components and groups, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'structure'}},
+    fixr_structure: OrchestraMessageStructureV10 = Field(default=..., description="""The message's fields, groups and components, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'structure'}},
          'domain_of': ['OrchestraMessageV10', 'OrchestraMessageV11']} })
     fixr_responses: Optional[OrchestraResponsesV10] = Field(default=None, description="""What can happen when the message arrives.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'responses'}},
          'domain_of': ['OrchestraMessageV10', 'OrchestraMessageV11']} })
@@ -6154,10 +6154,10 @@ class OrchestraProtocolV10(ConfiguredBaseModel):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -6199,10 +6199,10 @@ class OrchestraEncodingV10(OrchestraProtocolV10):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -7355,7 +7355,7 @@ class OrchestraRepositoryV10(OrchestraContainerV10Mixin):
                        'OrchestraTriggerV11']} })
     fixr_version: str = Field(default=..., description="""The repository's version, such as FIX.Latest_EP312.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'version'}},
          'domain_of': ['OrchestraRepositoryV10', 'OrchestraRepositoryV11']} })
-    fixr_guid: Optional[str] = Field(default=None, description="""A globally unique identifier for the repository.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'guid'}},
+    fixr_guid: Optional[str] = Field(default=None, description="""An identifier of the repository, unique worldwide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'guid'}},
          'domain_of': ['OrchestraRepositoryV10', 'OrchestraRepositoryV11']} })
     fixr_spec_url: Optional[str] = Field(default=None, description="""The address of a document that describes the element.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'specUrl'}},
          'domain_of': ['OrchestraAppinfoV10',
@@ -7367,7 +7367,7 @@ class OrchestraRepositoryV10(OrchestraContainerV10Mixin):
     fixr_namespace: Optional[str] = Field(default=None, description="""A namespace address that goes with the repository.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'namespace'}},
          'domain_of': ['OrchestraRepositoryV10', 'OrchestraRepositoryV11']} })
-    fixr_appl_ver_id: Optional[str] = Field(default=None, description="""The ApplVerID(1128) value of the FIX version the repository describes.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixr_appl_ver_id: Optional[str] = Field(default=None, description="""The FIX version the repository describes, as its ApplVerID(1128) code.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'applVerId'}},
          'domain_of': ['OrchestraRepositoryV10']} })
     fixr_expression_language: Optional[str] = Field(default="Score", description="""The language the conditions and assignments are written in; Score when none is given.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
@@ -7403,7 +7403,7 @@ class OrchestraResponseV10(OrchestraActionV10):
          'in_subset': ['fixr'],
          'title': 'Orchestra response (1.0)'})
 
-    fixr_when: Optional[str] = Field(default=None, description="""The condition under which the response fires, written as an expression; it always fires when none is given.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: Optional[str] = Field(default=None, description="""When the response fires, written as an expression; it always fires when none is given.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -7512,7 +7512,7 @@ class OrchestraResponseV10(OrchestraActionV10):
                        'OrchestraTriggerV11']} })
     fixr_sync: Optional[OrchestraSynchronization] = Field(default=None, description="""How the response's timing relates to the request it answers.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'sync'}},
          'domain_of': ['OrchestraResponseV10', 'OrchestraResponseV11']} })
-    fixr_parameters: Optional[list[OrchestraActionParameterV10]] = Field(default=None, description="""The fields, components and groups the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_parameters: Optional[list[OrchestraActionParameterV10]] = Field(default=None, description="""The fields, groups and components the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'field fieldRef component '
                                                  'componentRef group groupRef'}},
          'domain_of': ['OrchestraActionV10', 'OrchestraActionV11']} })
@@ -7856,7 +7856,7 @@ class OrchestraSectionsV10(OrchestraContainerV10Mixin):
 
 class OrchestraServiceV10(OrchestraProtocolV10):
     """
-    An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/interfaces'},
@@ -7882,10 +7882,10 @@ class OrchestraServiceV10(OrchestraProtocolV10):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -7901,7 +7901,7 @@ class OrchestraServiceV10(OrchestraProtocolV10):
 
 class OrchestraSessionIdentifierV10(ConfiguredBaseModel):
     """
-    A named value that picks out a session, such as a sender or target ID.
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2020/orchestra/interfaces'},
@@ -7955,10 +7955,10 @@ class OrchestraSessionProtocolV10(OrchestraProtocolV10):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -8762,10 +8762,10 @@ class OrchestraTransportV10(OrchestraProtocolV10):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
 
@@ -8912,10 +8912,10 @@ class OrchestraUserInterfaceV10(OrchestraProtocolV10):
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -8931,7 +8931,7 @@ class OrchestraUserInterfaceV10(OrchestraProtocolV10):
 
 class OrchestraActionParameterV11(ConfiguredBaseModel):
     """
-    One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -9077,7 +9077,7 @@ class OrchestraActionV11(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra action (1.1-rc3)'})
 
-    fixr_parameters: Optional[list[OrchestraActionParameterV11]] = Field(default=None, description="""The fields, components and groups the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_parameters: Optional[list[OrchestraActionParameterV11]] = Field(default=None, description="""The fields, groups and components the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'field fieldRef component '
                                                  'componentRef group groupRef'}},
          'domain_of': ['OrchestraActionV10', 'OrchestraActionV11']} })
@@ -9124,7 +9124,7 @@ class OrchestraActorMemberV11(ConfiguredBaseModel):
                        'OrchestraActionParameterV11',
                        'OrchestraActorMemberV11',
                        'OrchestraFieldsV11']} })
-    fixr_field_ref: Optional[OrchestraFieldRefV11] = Field(default=None, description="""A variable given by reference to a field.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'fieldRef'}},
+    fixr_field_ref: Optional[OrchestraFieldRefV11] = Field(default=None, description="""A variable that uses a field by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'fieldRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
                        'OrchestraConceptMemberV10',
@@ -9142,7 +9142,7 @@ class OrchestraActorMemberV11(ConfiguredBaseModel):
                        'OrchestraActionParameterV11',
                        'OrchestraActorMemberV11',
                        'OrchestraComponentsV11']} })
-    fixr_component_ref: Optional[OrchestraComponentRefV11] = Field(default=None, description="""A variable given by reference to a component.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element',
+    fixr_component_ref: Optional[OrchestraComponentRefV11] = Field(default=None, description="""A variable that uses a component by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element',
                                          'value': 'componentRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
@@ -9161,7 +9161,7 @@ class OrchestraActorMemberV11(ConfiguredBaseModel):
                        'OrchestraActorMemberV11',
                        'OrchestraCodeV11',
                        'OrchestraGroupsV11']} })
-    fixr_group_ref: Optional[OrchestraGroupRefV11] = Field(default=None, description="""A variable given by reference to a repeating group.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'groupRef'}},
+    fixr_group_ref: Optional[OrchestraGroupRefV11] = Field(default=None, description="""A variable that uses a repeating group by its number.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'groupRef'}},
          'domain_of': ['OrchestraActionParameterV10',
                        'OrchestraActorMemberV10',
                        'OrchestraConceptMemberV10',
@@ -9566,7 +9566,7 @@ class OrchestraBaseEncodingV11(ConfiguredBaseModel):
 
 class OrchestraBaseInterfaceV11(ConfiguredBaseModel):
     """
-    What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'annotations': {'xml_namespace': {'tag': 'xml_namespace',
@@ -9628,7 +9628,7 @@ class OrchestraBaseInterfaceV11(ConfiguredBaseModel):
 
 class OrchestraBlockAssignmentV11(ConfiguredBaseModel):
     """
-    How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -9638,7 +9638,7 @@ class OrchestraBlockAssignmentV11(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra block assignment (1.1-rc3)'})
 
-    fixr_members: list[OrchestraStructureMemberV11] = Field(default=..., description="""The fields, components and groups the assignment sets, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: list[OrchestraStructureMemberV11] = Field(default=..., description="""The fields, groups and components the assignment sets, in order.""", min_length=1, json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -9877,7 +9877,7 @@ class OrchestraCodeSetsV11(ConfiguredBaseModel):
 
 class OrchestraComponentRuleV11(ConfiguredBaseModel):
     """
-    A condition under which a component's presence changes, such as when it becomes required.
+    A condition that changes a component's presence, such as making it required.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -9886,7 +9886,7 @@ class OrchestraComponentRuleV11(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra component rule (1.1-rc3)'})
 
-    fixr_when: str = Field(default=..., description="""The condition under which the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: str = Field(default=..., description="""When the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -10089,7 +10089,7 @@ class OrchestraComponentsV11(ConfiguredBaseModel):
 
 class OrchestraConceptMemberV11(ConfiguredBaseModel):
     """
-    One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -10492,7 +10492,7 @@ class OrchestraEncodingStandardV11(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra encoding standard (1.1-rc3)'})
 
-    fixr_encoding: Optional[OrchestraUnnamedEncodingV11] = Field(default=None, description="""General encoding information for this standard.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'encoding'}},
+    fixr_encoding: Optional[OrchestraUnnamedEncodingV11] = Field(default=None, description="""Encoding details that hold for the whole standard.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'encoding'}},
          'domain_of': ['OrchestraFieldConstraintsV10Mixin',
                        'OrchestraEncodingStandardV11',
                        'OrchestraEncodingsV11',
@@ -10742,7 +10742,7 @@ class OrchestraFieldConstraintsV11Mixin(ConfiguredBaseModel):
 
 class OrchestraFieldRuleV11(OrchestraFieldConstraintsV11Mixin):
     """
-    A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -10765,7 +10765,7 @@ class OrchestraFieldRuleV11(OrchestraFieldConstraintsV11Mixin):
                        'OrchestraFieldRuleV11',
                        'OrchestraFieldV11',
                        'OrchestraIdentifiersMemberV11']} })
-    fixr_when: str = Field(default=..., description="""The condition under which the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: str = Field(default=..., description="""When the rule applies, written as an expression.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -11033,7 +11033,7 @@ class OrchestraFieldsV11(ConfiguredBaseModel):
 
 class OrchestraFlowV11(ConfiguredBaseModel):
     """
-    A one-way flow of messages from one actor to another, with its delivery guarantee.
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -11144,7 +11144,7 @@ class OrchestraFlowV11(ConfiguredBaseModel):
     fixr_destination: str = Field(default=..., description="""The receiving actor, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'destination'}},
          'domain_of': ['OrchestraFlowV10', 'OrchestraFlowV11']} })
-    fixr_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee of the flow, from best effort to recoverable.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixr_reliability: Optional[OrchestraReliability] = Field(default=None, description="""How reliably the flow delivers its messages, from best effort to recoverable.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraFlowV10', 'OrchestraFlowV11']} })
 
@@ -11337,7 +11337,7 @@ class OrchestraIdentifierV11(ConfiguredBaseModel):
                        'OrchestraTimerV11',
                        'OrchestraTransitionV11',
                        'OrchestraTriggerV11']} })
-    fixr_source_id: Optional[int] = Field(default=None, description="""The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.""", ge=1, le=2147483647, json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixr_source_id: Optional[int] = Field(default=None, description="""The tag number of the received message's field that the value comes from; the field's own tag number when none is given.""", ge=1, le=2147483647, json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'sourceId'}},
          'domain_of': ['OrchestraIdentifierV10', 'OrchestraIdentifierV11']} })
 
@@ -11959,7 +11959,7 @@ class OrchestraMappedDatatypeV11(ConfiguredBaseModel):
 
 class OrchestraMessageStructureV11(ConfiguredBaseModel):
     """
-    The ordered fields, components and groups of a message.
+    The ordered fields, groups and components of a message.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -11969,7 +11969,7 @@ class OrchestraMessageStructureV11(ConfiguredBaseModel):
          'in_subset': ['fixr'],
          'title': 'Orchestra message layout (1.1-rc3)'})
 
-    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The message's fields, components and groups, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The message's fields, groups and components, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -12870,7 +12870,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
 class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
     """
-    One permitted value in a code set, with its name and what goes on the wire.
+    One permitted value of the set, with its name and what goes on the wire.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -13573,7 +13573,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
 class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraFieldConstraintsV11Mixin):
     """
-    A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -13681,7 +13681,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
                        'OrchestraCodeSetV11',
                        'OrchestraFieldRuleV11',
                        'OrchestraFieldV11']} })
-    fixr_code_set: Optional[str] = Field(default=None, description="""The code set that gives the field's values, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'codeSet'}},
+    fixr_code_set: Optional[str] = Field(default=None, description="""The field's code set, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'codeSet'}},
          'domain_of': ['OrchestraCodeSetsV10',
                        'OrchestraCodeSetsV11',
                        'OrchestraFieldV11']} })
@@ -14079,10 +14079,10 @@ class OrchestraProtocolV11(ConfiguredBaseModel):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -14189,10 +14189,10 @@ class OrchestraEncodingV11(OrchestraProtocolV11):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -15658,7 +15658,7 @@ class OrchestraRepositoryV11(ConfiguredBaseModel):
                        'OrchestraTriggerV11']} })
     fixr_version: str = Field(default=..., description="""The repository's version, such as FIX.Latest_EP312.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'version'}},
          'domain_of': ['OrchestraRepositoryV10', 'OrchestraRepositoryV11']} })
-    fixr_guid: Optional[str] = Field(default=None, description="""A globally unique identifier for the repository.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'guid'}},
+    fixr_guid: Optional[str] = Field(default=None, description="""An identifier of the repository, unique worldwide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'guid'}},
          'domain_of': ['OrchestraRepositoryV10', 'OrchestraRepositoryV11']} })
     fixr_spec_url: Optional[str] = Field(default=None, description="""The address of a document that describes the element.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'specUrl'}},
          'domain_of': ['OrchestraAppinfoV10',
@@ -15700,7 +15700,7 @@ class OrchestraResponseV11(OrchestraActionV11):
          'in_subset': ['fixr'],
          'title': 'Orchestra response (1.1-rc3)'})
 
-    fixr_when: Optional[str] = Field(default=None, description="""The condition under which the response fires, written as an expression; it always fires when none is given.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: Optional[str] = Field(default=None, description="""When the response fires, written as an expression; it always fires when none is given.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -15809,7 +15809,7 @@ class OrchestraResponseV11(OrchestraActionV11):
                        'OrchestraTriggerV11']} })
     fixr_sync: Optional[OrchestraSynchronization] = Field(default=None, description="""How the response's timing relates to the request it answers.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'sync'}},
          'domain_of': ['OrchestraResponseV10', 'OrchestraResponseV11']} })
-    fixr_parameters: Optional[list[OrchestraActionParameterV11]] = Field(default=None, description="""The fields, components and groups the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_parameters: Optional[list[OrchestraActionParameterV11]] = Field(default=None, description="""The fields, groups and components the action takes as input, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'field fieldRef component '
                                                  'componentRef group groupRef'}},
          'domain_of': ['OrchestraActionV10', 'OrchestraActionV11']} })
@@ -15981,7 +15981,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
                        'OrchestraMessageV11',
                        'OrchestraMessagesV11',
                        'OrchestraSectionV11']} })
-    fixr_type: str = Field(default=..., description="""The datatype of the set's values, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
+    fixr_type: str = Field(default=..., description="""The set's datatype, by name.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'type'}},
          'domain_of': ['OrchestraCodeSetV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraFieldV10',
@@ -16247,7 +16247,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
 class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
     """
-    A named block of fields, components and groups that messages and other blocks include by reference.
+    A named block of fields, groups and components that messages and other blocks include by reference.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -16259,7 +16259,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
                     'OrchestraScenarioReferenceV11Mixin'],
          'title': 'Orchestra component (1.1-rc3)'})
 
-    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The fields, components and groups the component holds, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The fields, groups and components the component holds, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -16610,7 +16610,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
 class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
     """
-    A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -16624,7 +16624,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     fixr_num_in_group: Optional[OrchestraFieldRefV11] = Field(default=None, description="""The field that counts the group's entries.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'numInGroup'}},
          'domain_of': ['OrchestraGroupV10', 'OrchestraGroupV11']} })
-    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The fields, components and groups that each entry holds, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
+    fixr_members: Optional[list[OrchestraStructureMemberV11]] = Field(default=None, description="""The fields, groups and components that each entry holds, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_choice': {'tag': 'xml_choice',
                                         'value': 'componentRef groupRef fieldRef'}},
          'domain_of': ['OrchestraActorV10',
                        'OrchestraActorsV10',
@@ -17004,7 +17004,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
 class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
     """
-    A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/repository'},
@@ -17016,9 +17016,9 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
                     'OrchestraPedigreeV11Mixin'],
          'title': 'Orchestra message (1.1-rc3)'})
 
-    fixr_structure: Optional[OrchestraMessageStructureV11] = Field(default=None, description="""The message's fields, components and groups, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'structure'}},
+    fixr_structure: Optional[OrchestraMessageStructureV11] = Field(default=None, description="""The message's fields, groups and components, in order.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'structure'}},
          'domain_of': ['OrchestraMessageV10', 'OrchestraMessageV11']} })
-    fixr_when: Optional[str] = Field(default=None, description="""The condition that tells this scenario of the message from its others.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
+    fixr_when: Optional[str] = Field(default=None, description="""An expression that sets this scenario of the message apart from its others.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_element': {'tag': 'xml_element', 'value': 'when'}},
          'domain_of': ['OrchestraComponentRuleV10',
                        'OrchestraFieldRuleV10',
                        'OrchestraResponseV10',
@@ -18070,7 +18070,7 @@ class OrchestraSectionsV11(ConfiguredBaseModel):
 
 class OrchestraServiceV11(OrchestraProtocolV11):
     """
-    An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/interfaces'},
@@ -18109,10 +18109,10 @@ class OrchestraServiceV11(OrchestraProtocolV11):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -18180,7 +18180,7 @@ class OrchestraServiceV11(OrchestraProtocolV11):
 
 class OrchestraSessionIdentifierV11(ConfiguredBaseModel):
     """
-    A named value that picks out a session, such as a sender or target ID.
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'xml_namespace': {'tag': 'xml_namespace',
                                            'value': 'http://fixprotocol.io/2026/orchestra/interfaces'},
@@ -18260,10 +18260,10 @@ class OrchestraSessionProtocolV11(OrchestraProtocolV11):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},
@@ -19145,10 +19145,10 @@ class OrchestraTransportV11(OrchestraProtocolV11):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
 
@@ -19449,10 +19449,10 @@ class OrchestraUserInterfaceV11(OrchestraProtocolV11):
          'domain_of': ['OrchestraProtocolV11']} })
     fixi_layer: Optional[OrchestraLayer] = Field(default=None, description="""The layer the protocol works on.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute', 'value': 'layer'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or an application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_reliability: Optional[OrchestraReliability] = Field(default=None, description="""The delivery guarantee the protocol gives, which a transport, a session or the application may provide.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'reliability'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
-    fixi_orchestration: Optional[str] = Field(default=None, description="""The address of the Orchestra file that describes the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
+    fixi_orchestration: Optional[str] = Field(default=None, description="""Where to find the Orchestra repository that sets out the protocol's messages and rules.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_attribute': {'tag': 'xml_attribute',
                                            'value': 'orchestration'}},
          'domain_of': ['OrchestraProtocolV10', 'OrchestraProtocolV11']} })
     fixi_other_attributes: Optional[list[OrchestraXmlAttribute]] = Field(default=None, description="""Attributes from other namespaces, kept as written.""", json_schema_extra = { "linkml_meta": {'annotations': {'xml_any': {'tag': 'xml_any', 'value': 'attributes'}},

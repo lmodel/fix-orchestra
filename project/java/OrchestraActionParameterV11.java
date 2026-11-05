@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.
+  One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

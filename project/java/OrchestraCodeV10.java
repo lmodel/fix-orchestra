@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  One permitted value in a code set, with its name and what goes on the wire.
+  One permitted value of the set, with its name and what goes on the wire.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+  An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

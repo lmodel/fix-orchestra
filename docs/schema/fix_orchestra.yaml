@@ -43,12 +43,12 @@ subsets:
   fixr:
     name: fixr
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Fixr
-    description: Elements of an Orchestra repository file.
+    description: Elements that a repository holds.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common
   fixi:
     name: fixi
     definition_uri: https://w3id.org/lmodel/fix-orchestra/Fixi
-    description: Elements of an Orchestra interfaces file.
+    description: Elements that an interfaces file holds.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common
 types:
   string:
@@ -473,7 +473,7 @@ enums:
     permissible_values:
       bestEffort:
         text: bestEffort
-        description: No promise; a message may be lost.
+        description: No promise; any message can be lost.
       idempotent:
         text: idempotent
         description: Each message is acted on at most once; a lost one is not sent
@@ -2108,7 +2108,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: field fieldRef component componentRef group groupRef
-    description: The fields, components and groups the action takes as input, in order.
+    description: The fields, groups and components the action takes as input, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_parameters
     alias: fixr_parameters
@@ -2161,7 +2161,7 @@ slots:
       xml_element:
         tag: xml_element
         value: fieldRef
-    description: A variable given by reference to a field.
+    description: A variable that uses a field by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_field_ref
     alias: fixr_field_ref
@@ -2193,7 +2193,7 @@ slots:
       xml_element:
         tag: xml_element
         value: componentRef
-    description: A variable given by reference to a component.
+    description: A variable that uses a component by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_component_ref
     alias: fixr_component_ref
@@ -2225,7 +2225,7 @@ slots:
       xml_element:
         tag: xml_element
         value: groupRef
-    description: A variable given by reference to a repeating group.
+    description: A variable that uses a repeating group by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_group_ref
     alias: fixr_group_ref
@@ -2682,7 +2682,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups the assignment sets, in order.
+    description: The fields, groups and components the assignment sets, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -2858,7 +2858,7 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: type
-    description: The datatype of the set's values, by name.
+    description: The set's datatype, by name.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_type
     alias: fixr_type
@@ -3077,7 +3077,7 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the rule applies, written as an expression.
+    description: When the rule applies, written as an expression.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -3122,7 +3122,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups the component holds, in order.
+    description: The fields, groups and components the component holds, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -3837,7 +3837,7 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the rule applies, written as an expression.
+    description: When the rule applies, written as an expression.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -3931,8 +3931,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: type
-    description: The datatype or code set that gives the field's values, by name;
-      a code set brings its own datatype.
+    description: The field's datatype, or its code set, by name; a code set brings
+      its own datatype.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_type
     alias: fixr_type
@@ -4132,7 +4132,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: reliability
-    description: The delivery guarantee of the flow, from best effort to recoverable.
+    description: How reliably the flow delivers its messages, from best effort to
+      recoverable.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_reliability
     alias: fixr_reliability
@@ -4193,7 +4194,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups that each entry holds, in order.
+    description: The fields, groups and components that each entry holds, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -4352,8 +4353,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: sourceId
-    description: The tag number of the field in the message received that the value
-      comes from; the field's own tag number when none is given.
+    description: The tag number of the received message's field that the value comes
+      from; the field's own tag number when none is given.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_source_id
     alias: fixr_source_id
@@ -5002,7 +5003,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The message's fields, components and groups, in order.
+    description: The message's fields, groups and components, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -5035,7 +5036,7 @@ slots:
       xml_element:
         tag: xml_element
         value: structure
-    description: The message's fields, components and groups, in order.
+    description: The message's fields, groups and components, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_structure
     alias: fixr_structure
@@ -5415,7 +5416,7 @@ slots:
         tag: xml_attribute
         value: reliability
     description: The delivery guarantee the protocol gives, which a transport, a session
-      or an application may provide.
+      or the application may provide.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixi_reliability
     alias: fixi_reliability
@@ -5429,8 +5430,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: orchestration
-    description: The address of the Orchestra file that describes the protocol's messages
-      and rules.
+    description: Where to find the Orchestra repository that sets out the protocol's
+      messages and rules.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixi_orchestration
     alias: fixi_orchestration
@@ -5722,7 +5723,7 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: guid
-    description: A globally unique identifier for the repository.
+    description: An identifier of the repository, unique worldwide.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_guid
     alias: fixr_guid
@@ -5764,7 +5765,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: applVerId
-    description: The ApplVerID(1128) value of the FIX version the repository describes.
+    description: The FIX version the repository describes, as its ApplVerID(1128)
+      code.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_appl_ver_id
     alias: fixr_appl_ver_id
@@ -5794,8 +5796,8 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the response fires, written as an expression;
-      it always fires when none is given.
+    description: When the response fires, written as an expression; it always fires
+      when none is given.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -6750,7 +6752,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: field fieldRef component componentRef group groupRef
-    description: The fields, components and groups the action takes as input, in order.
+    description: The fields, groups and components the action takes as input, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_parameters
     alias: fixr_parameters
@@ -6803,7 +6805,7 @@ slots:
       xml_element:
         tag: xml_element
         value: fieldRef
-    description: A variable given by reference to a field.
+    description: A variable that uses a field by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_field_ref
     alias: fixr_field_ref
@@ -6835,7 +6837,7 @@ slots:
       xml_element:
         tag: xml_element
         value: componentRef
-    description: A variable given by reference to a component.
+    description: A variable that uses a component by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_component_ref
     alias: fixr_component_ref
@@ -6867,7 +6869,7 @@ slots:
       xml_element:
         tag: xml_element
         value: groupRef
-    description: A variable given by reference to a repeating group.
+    description: A variable that uses a repeating group by its number.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_group_ref
     alias: fixr_group_ref
@@ -7372,7 +7374,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups the assignment sets, in order.
+    description: The fields, groups and components the assignment sets, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -7551,7 +7553,7 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: type
-    description: The datatype of the set's values, by name.
+    description: The set's datatype, by name.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_type
     alias: fixr_type
@@ -7834,7 +7836,7 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the rule applies, written as an expression.
+    description: When the rule applies, written as an expression.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -7879,7 +7881,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups the component holds, in order.
+    description: The fields, groups and components the component holds, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -8370,7 +8372,7 @@ slots:
       xml_element:
         tag: xml_element
         value: encoding
-    description: General encoding information for this standard.
+    description: Encoding details that hold for the whole standard.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_encoding
     alias: fixr_encoding
@@ -8762,7 +8764,7 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the rule applies, written as an expression.
+    description: When the rule applies, written as an expression.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -8889,7 +8891,7 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: codeSet
-    description: The code set that gives the field's values, by name.
+    description: The field's code set, by name.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_code_set
     alias: fixr_code_set
@@ -9109,7 +9111,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: reliability
-    description: The delivery guarantee of the flow, from best effort to recoverable.
+    description: How reliably the flow delivers its messages, from best effort to
+      recoverable.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_reliability
     alias: fixr_reliability
@@ -9170,7 +9173,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The fields, components and groups that each entry holds, in order.
+    description: The fields, groups and components that each entry holds, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -9388,8 +9391,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: sourceId
-    description: The tag number of the field in the message received that the value
-      comes from; the field's own tag number when none is given.
+    description: The tag number of the received message's field that the value comes
+      from; the field's own tag number when none is given.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_source_id
     alias: fixr_source_id
@@ -10039,7 +10042,7 @@ slots:
       xml_choice:
         tag: xml_choice
         value: componentRef groupRef fieldRef
-    description: The message's fields, components and groups, in order.
+    description: The message's fields, groups and components, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_members
     alias: fixr_members
@@ -10070,7 +10073,7 @@ slots:
       xml_element:
         tag: xml_element
         value: structure
-    description: The message's fields, components and groups, in order.
+    description: The message's fields, groups and components, in order.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_structure
     alias: fixr_structure
@@ -10086,7 +10089,8 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition that tells this scenario of the message from its others.
+    description: An expression that sets this scenario of the message apart from its
+      others.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -10588,7 +10592,7 @@ slots:
         tag: xml_attribute
         value: reliability
     description: The delivery guarantee the protocol gives, which a transport, a session
-      or an application may provide.
+      or the application may provide.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixi_reliability
     alias: fixi_reliability
@@ -10602,8 +10606,8 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: orchestration
-    description: The address of the Orchestra file that describes the protocol's messages
-      and rules.
+    description: Where to find the Orchestra repository that sets out the protocol's
+      messages and rules.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixi_orchestration
     alias: fixi_orchestration
@@ -10940,7 +10944,7 @@ slots:
       xml_attribute:
         tag: xml_attribute
         value: guid
-    description: A globally unique identifier for the repository.
+    description: An identifier of the repository, unique worldwide.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_guid
     alias: fixr_guid
@@ -10998,8 +11002,8 @@ slots:
       xml_element:
         tag: xml_element
         value: when
-    description: The condition under which the response fires, written as an expression;
-      it always fires when none is given.
+    description: When the response fires, written as an expression; it always fires
+      when none is given.
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1
     slot_uri: fix_orchestra:fixr_when
     alias: fixr_when
@@ -11924,8 +11928,8 @@ classes:
       xsd_type:
         tag: xsd_type
         value: dcterms:elementOrRefinementContainer
-    description: The Dublin Core description at the head of an Orchestra file. Each
-      key holds the values of one Dublin Core element or term.
+    description: The Dublin Core description at the top of a repository or interfaces
+      file. Each key holds the values of one Dublin Core element or term.
     title: Orchestra file metadata
     from_schema: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common
     slots:
@@ -12769,8 +12773,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: 'One input to an action: a field, a component or a group, defined
-      in place or named by reference. It holds exactly one of these.'
+    description: One input to an action, which is a field, component or group, defined
+      in place or named by reference. It holds exactly one of these.
     title: Orchestra action input (1.0)
     in_subset:
     - fixr
@@ -12967,7 +12971,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: field fieldRef component componentRef group groupRef
-        description: The fields, components and groups the action takes as input,
+        description: The fields, groups and components the action takes as input,
           in order.
         range: OrchestraActionParameterV10
         multivalued: true
@@ -13028,7 +13032,7 @@ classes:
           xml_element:
             tag: xml_element
             value: fieldRef
-        description: A variable given by reference to a field.
+        description: A variable that uses a field by its number.
         range: OrchestraFieldRefV10
         inlined: true
       fixr_component:
@@ -13046,7 +13050,7 @@ classes:
           xml_element:
             tag: xml_element
             value: componentRef
-        description: A variable given by reference to a component.
+        description: A variable that uses a component by its number.
         range: OrchestraComponentRefV10
         inlined: true
       fixr_group:
@@ -13064,7 +13068,7 @@ classes:
           xml_element:
             tag: xml_element
             value: groupRef
-        description: A variable given by reference to a repeating group.
+        description: A variable that uses a repeating group by its number.
         range: OrchestraGroupRefV10
         inlined: true
       fixr_states:
@@ -13460,7 +13464,7 @@ classes:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/interfaces
     description: 'What an interface and a session share: the services, encodings and
-      protocols that make up a connection, layer by layer.'
+      protocols of a connection, layer by layer.'
     title: Orchestra connection description (1.0)
     in_subset:
     - fixi
@@ -13576,8 +13580,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: 'How a single use of a component, or every entry of a group, gets
-      its values: the fields, components and groups it sets.'
+    description: 'How every entry of a group, or a single use of a component, gets
+      its values: the fields, groups and components it sets.'
     title: Orchestra block assignment (1.0)
     in_subset:
     - fixr
@@ -13591,7 +13595,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups the assignment sets, in order.
+        description: The fields, groups and components the assignment sets, in order.
         range: OrchestraStructureMemberV10
         required: true
         multivalued: true
@@ -13804,7 +13808,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: type
-        description: The datatype of the set's values, by name.
+        description: The set's datatype, by name.
         range: string
         required: true
         pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
@@ -13877,8 +13881,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: One permitted value in a code set, with its name and what goes on
-      the wire.
+    description: One permitted value of the set, with its name and what goes on the
+      wire.
     title: Orchestra code (1.0)
     in_subset:
     - fixr
@@ -14045,8 +14049,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: A condition under which a component's presence changes, such as when
-      it becomes required.
+    description: A condition that changes a component's presence, such as making it
+      required.
     title: Orchestra component rule (1.0)
     in_subset:
     - fixr
@@ -14062,7 +14066,7 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the rule applies, written as an expression.
+        description: When the rule applies, written as an expression.
         range: string
         required: true
         pattern: ^[\s\S]{0,1024}$
@@ -14094,7 +14098,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: A named block of fields, components and groups that messages and
+    description: A named block of fields, groups and components that messages and
       other blocks include by reference.
     title: Orchestra component (1.0)
     in_subset:
@@ -14133,7 +14137,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups the component holds, in order.
+        description: The fields, groups and components the component holds, in order.
         range: OrchestraStructureMemberV10
         required: true
         multivalued: true
@@ -14229,8 +14233,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: 'One element a concept ties together: a field, component, group or
-      message, by reference. It holds exactly one of these.'
+    description: One element a concept ties together, named by reference, which is
+      a message, field, component or group. It holds exactly one of these.
     title: Orchestra concept item (1.0)
     in_subset:
     - fixr
@@ -14901,7 +14905,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: A condition under which a field's presence, datatype or limits change,
+    description: A condition that changes a field's presence, datatype or limits,
       or a check its value must pass.
     title: Orchestra field rule (1.0)
     in_subset:
@@ -14951,7 +14955,7 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the rule applies, written as an expression.
+        description: When the rule applies, written as an expression.
         range: string
         required: true
         pattern: ^[\s\S]{0,1024}$
@@ -14983,8 +14987,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: 'A FIX field: its tag number, name, datatype or code set, and the
-      limits on its value.'
+    description: 'A FIX field: its tag number, its name, its datatype or its code
+      set, and the limits on its value.'
     title: Orchestra field (1.0)
     in_subset:
     - fixr
@@ -15065,8 +15069,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: type
-        description: The datatype or code set that gives the field's values, by name;
-          a code set brings its own datatype.
+        description: The field's datatype, or its code set, by name; a code set brings
+          its own datatype.
         range: string
         required: true
       fixr_length_id:
@@ -15176,8 +15180,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: A one-way flow of messages from one actor to another, with its delivery
-      guarantee.
+    description: Messages that travel one way, from a sending actor to a receiving
+      one, with their delivery guarantee.
     title: Orchestra flow (1.0)
     in_subset:
     - fixr
@@ -15232,7 +15236,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: reliability
-        description: The delivery guarantee of the flow, from best effort to recoverable.
+        description: How reliably the flow delivers its messages, from best effort
+          to recoverable.
         range: OrchestraReliability
     class_uri: fix_orchestra:OrchestraFlowV10
   OrchestraGroupRefV10:
@@ -15306,8 +15311,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: A block whose entries repeat, each with the same fields, components
-      and groups, and whose count a NumInGroup field carries.
+    description: A block whose entries repeat, each with the same fields, groups and
+      components, and whose count a NumInGroup field carries.
     title: Orchestra repeating group (1.0)
     in_subset:
     - fixr
@@ -15357,7 +15362,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups that each entry holds, in order.
+        description: The fields, groups and components that each entry holds, in order.
         range: OrchestraStructureMemberV10
         required: true
         multivalued: true
@@ -15498,8 +15503,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: sourceId
-        description: The tag number of the field in the message received that the
-          value comes from; the field's own tag number when none is given.
+        description: The tag number of the received message's field that the value
+          comes from; the field's own tag number when none is given.
         range: integer
         minimum_value: 1
     class_uri: fix_orchestra:OrchestraIdentifierV10
@@ -16168,7 +16173,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: The ordered fields, components and groups of a message.
+    description: The ordered fields, groups and components of a message.
     title: Orchestra message layout (1.0)
     in_subset:
     - fixr
@@ -16183,7 +16188,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The message's fields, components and groups, in order.
+        description: The message's fields, groups and components, in order.
         range: OrchestraStructureMemberV10
         required: true
         multivalued: true
@@ -16208,7 +16213,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/repository
-    description: 'A FIX message: its type code, the fields, components and groups
+    description: 'A FIX message: its type code, the fields, groups and components
       it carries in order, and the responses it can cause.'
     title: Orchestra message (1.0)
     in_subset:
@@ -16248,7 +16253,7 @@ classes:
           xml_element:
             tag: xml_element
             value: structure
-        description: The message's fields, components and groups, in order.
+        description: The message's fields, groups and components, in order.
         range: OrchestraMessageStructureV10
         required: true
         inlined: true
@@ -16555,7 +16560,7 @@ classes:
             tag: xml_attribute
             value: reliability
         description: The delivery guarantee the protocol gives, which a transport,
-          a session or an application may provide.
+          a session or the application may provide.
         range: OrchestraReliability
       fixi_orchestration:
         name: fixi_orchestration
@@ -16563,7 +16568,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: orchestration
-        description: The address of the Orchestra file that describes the protocol's
+        description: Where to find the Orchestra repository that sets out the protocol's
           messages and rules.
         range: uri
       fixi_other_attributes:
@@ -16800,7 +16805,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: guid
-        description: A globally unique identifier for the repository.
+        description: An identifier of the repository, unique worldwide.
         range: string
       fixr_spec_url:
         name: fixr_spec_url
@@ -16824,7 +16829,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: applVerId
-        description: The ApplVerID(1128) value of the FIX version the repository describes.
+        description: The FIX version the repository describes, as its ApplVerID(1128)
+          code.
         range: string
       fixr_expression_language:
         name: fixr_expression_language
@@ -16869,8 +16875,8 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the response fires, written as an expression;
-          it always fires when none is given.
+        description: When the response fires, written as an expression; it always
+          fires when none is given.
         range: string
         pattern: ^[\s\S]{0,1024}$
       fixr_annotation:
@@ -17062,7 +17068,7 @@ classes:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/interfaces
     description: An application-level service an interface offers, such as order routing,
-      with the Orchestra file that describes it.
+      with the Orchestra repository that sets out its rules.
     title: Orchestra service (1.0)
     in_subset:
     - fixi
@@ -17087,8 +17093,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2020/orchestra/interfaces
-    description: A named value that picks out a session, such as a sender or target
-      ID.
+    description: A value, with what kind it is, that picks out a session, such as
+      a sender or target ID.
     title: Orchestra session identifier (1.0)
     in_subset:
     - fixi
@@ -17802,8 +17808,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: 'One input to an action: a field, a component or a group, defined
-      in place or named by reference. It holds exactly one of these.'
+    description: One input to an action, which is a field, component or group, defined
+      in place or named by reference. It holds exactly one of these.
     title: Orchestra action input (1.1-rc3)
     in_subset:
     - fixr
@@ -18000,7 +18006,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: field fieldRef component componentRef group groupRef
-        description: The fields, components and groups the action takes as input,
+        description: The fields, groups and components the action takes as input,
           in order.
         range: OrchestraActionParameterV11
         multivalued: true
@@ -18061,7 +18067,7 @@ classes:
           xml_element:
             tag: xml_element
             value: fieldRef
-        description: A variable given by reference to a field.
+        description: A variable that uses a field by its number.
         range: OrchestraFieldRefV11
         inlined: true
       fixr_component:
@@ -18079,7 +18085,7 @@ classes:
           xml_element:
             tag: xml_element
             value: componentRef
-        description: A variable given by reference to a component.
+        description: A variable that uses a component by its number.
         range: OrchestraComponentRefV11
         inlined: true
       fixr_group:
@@ -18097,7 +18103,7 @@ classes:
           xml_element:
             tag: xml_element
             value: groupRef
-        description: A variable given by reference to a repeating group.
+        description: A variable that uses a repeating group by its number.
         range: OrchestraGroupRefV11
         inlined: true
       fixr_states:
@@ -18542,7 +18548,7 @@ classes:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/interfaces
     description: 'What an interface and a session share: the services, encodings and
-      protocols that make up a connection, layer by layer.'
+      protocols of a connection, layer by layer.'
     title: Orchestra connection description (1.1-rc3)
     in_subset:
     - fixi
@@ -18659,8 +18665,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: 'How a single use of a component, or every entry of a group, gets
-      its values: the fields, components and groups it sets.'
+    description: 'How every entry of a group, or a single use of a component, gets
+      its values: the fields, groups and components it sets.'
     title: Orchestra block assignment (1.1-rc3)
     in_subset:
     - fixr
@@ -18674,7 +18680,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups the assignment sets, in order.
+        description: The fields, groups and components the assignment sets, in order.
         range: OrchestraStructureMemberV11
         required: true
         multivalued: true
@@ -18888,7 +18894,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: type
-        description: The datatype of the set's values, by name.
+        description: The set's datatype, by name.
         range: string
         required: true
         pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
@@ -18989,8 +18995,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: One permitted value in a code set, with its name and what goes on
-      the wire.
+    description: One permitted value of the set, with its name and what goes on the
+      wire.
     title: Orchestra code (1.1-rc3)
     in_subset:
     - fixr
@@ -19170,8 +19176,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: A condition under which a component's presence changes, such as when
-      it becomes required.
+    description: A condition that changes a component's presence, such as making it
+      required.
     title: Orchestra component rule (1.1-rc3)
     in_subset:
     - fixr
@@ -19187,7 +19193,7 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the rule applies, written as an expression.
+        description: When the rule applies, written as an expression.
         range: string
         required: true
         pattern: ^[\s\S]{0,1024}$
@@ -19219,7 +19225,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: A named block of fields, components and groups that messages and
+    description: A named block of fields, groups and components that messages and
       other blocks include by reference.
     title: Orchestra component (1.1-rc3)
     in_subset:
@@ -19262,7 +19268,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups the component holds, in order.
+        description: The fields, groups and components the component holds, in order.
         range: OrchestraStructureMemberV11
         multivalued: true
         inlined_as_list: true
@@ -19380,8 +19386,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: 'One element a concept ties together: a field, component, group or
-      message, by reference. It holds exactly one of these.'
+    description: One element a concept ties together, named by reference, which is
+      a message, field, component or group. It holds exactly one of these.
     title: Orchestra concept item (1.1-rc3)
     in_subset:
     - fixr
@@ -19776,7 +19782,7 @@ classes:
           xml_element:
             tag: xml_element
             value: encoding
-        description: General encoding information for this standard.
+        description: Encoding details that hold for the whole standard.
         range: OrchestraUnnamedEncodingV11
         inlined: true
       fixr_annotation:
@@ -20151,7 +20157,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: A condition under which a field's presence, datatype or limits change,
+    description: A condition that changes a field's presence, datatype or limits,
       or a check its value must pass.
     title: Orchestra field rule (1.1-rc3)
     in_subset:
@@ -20201,7 +20207,7 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the rule applies, written as an expression.
+        description: When the rule applies, written as an expression.
         range: string
         required: true
         pattern: ^[\s\S]{0,1024}$
@@ -20234,8 +20240,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: 'A FIX field: its tag number, name, datatype or code set, and the
-      limits on its value.'
+    description: 'A FIX field: its tag number, its name, its datatype or its code
+      set, and the limits on its value.'
     title: Orchestra field (1.1-rc3)
     in_subset:
     - fixr
@@ -20338,7 +20344,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: codeSet
-        description: The code set that gives the field's values, by name.
+        description: The field's code set, by name.
         range: string
         pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
       fixr_length_id:
@@ -20461,8 +20467,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: A one-way flow of messages from one actor to another, with its delivery
-      guarantee.
+    description: Messages that travel one way, from a sending actor to a receiving
+      one, with their delivery guarantee.
     title: Orchestra flow (1.1-rc3)
     in_subset:
     - fixr
@@ -20517,7 +20523,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: reliability
-        description: The delivery guarantee of the flow, from best effort to recoverable.
+        description: How reliably the flow delivers its messages, from best effort
+          to recoverable.
         range: OrchestraReliability
     class_uri: fix_orchestra:OrchestraFlowV11
   OrchestraGroupRefV11:
@@ -20593,8 +20600,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: A block whose entries repeat, each with the same fields, components
-      and groups, and whose count a NumInGroup field carries.
+    description: A block whose entries repeat, each with the same fields, groups and
+      components, and whose count a NumInGroup field carries.
     title: Orchestra repeating group (1.1-rc3)
     in_subset:
     - fixr
@@ -20648,7 +20655,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The fields, components and groups that each entry holds, in order.
+        description: The fields, groups and components that each entry holds, in order.
         range: OrchestraStructureMemberV11
         multivalued: true
         inlined_as_list: true
@@ -20821,8 +20828,8 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: sourceId
-        description: The tag number of the field in the message received that the
-          value comes from; the field's own tag number when none is given.
+        description: The tag number of the received message's field that the value
+          comes from; the field's own tag number when none is given.
         range: integer
         minimum_value: 1
         maximum_value: 2147483647
@@ -21494,7 +21501,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: The ordered fields, components and groups of a message.
+    description: The ordered fields, groups and components of a message.
     title: Orchestra message layout (1.1-rc3)
     in_subset:
     - fixr
@@ -21509,7 +21516,7 @@ classes:
           xml_choice:
             tag: xml_choice
             value: componentRef groupRef fieldRef
-        description: The message's fields, components and groups, in order.
+        description: The message's fields, groups and components, in order.
         range: OrchestraStructureMemberV11
         multivalued: true
         inlined_as_list: true
@@ -21532,7 +21539,7 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/repository
-    description: 'A FIX message: its type code, the fields, components and groups
+    description: 'A FIX message: its type code, the fields, groups and components
       it carries in order, and the responses it can cause.'
     title: Orchestra message (1.1-rc3)
     in_subset:
@@ -21578,7 +21585,7 @@ classes:
           xml_element:
             tag: xml_element
             value: structure
-        description: The message's fields, components and groups, in order.
+        description: The message's fields, groups and components, in order.
         range: OrchestraMessageStructureV11
         inlined: true
       fixr_when:
@@ -21587,8 +21594,8 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition that tells this scenario of the message from its
-          others.
+        description: An expression that sets this scenario of the message apart from
+          its others.
         range: string
         pattern: ^[\s\S]{0,1024}$
       fixr_responses:
@@ -21991,7 +21998,7 @@ classes:
             tag: xml_attribute
             value: reliability
         description: The delivery guarantee the protocol gives, which a transport,
-          a session or an application may provide.
+          a session or the application may provide.
         range: OrchestraReliability
       fixi_orchestration:
         name: fixi_orchestration
@@ -21999,7 +22006,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: orchestration
-        description: The address of the Orchestra file that describes the protocol's
+        description: Where to find the Orchestra repository that sets out the protocol's
           messages and rules.
         range: uri
       fixi_other_attributes:
@@ -22260,7 +22267,7 @@ classes:
           xml_attribute:
             tag: xml_attribute
             value: guid
-        description: A globally unique identifier for the repository.
+        description: An identifier of the repository, unique worldwide.
         range: string
       fixr_spec_url:
         name: fixr_spec_url
@@ -22321,8 +22328,8 @@ classes:
           xml_element:
             tag: xml_element
             value: when
-        description: The condition under which the response fires, written as an expression;
-          it always fires when none is given.
+        description: When the response fires, written as an expression; it always
+          fires when none is given.
         range: string
         pattern: ^[\s\S]{0,1024}$
       fixr_annotation:
@@ -22664,7 +22671,7 @@ classes:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/interfaces
     description: An application-level service an interface offers, such as order routing,
-      with the Orchestra file that describes it.
+      with the Orchestra repository that sets out its rules.
     title: Orchestra service (1.1-rc3)
     in_subset:
     - fixi
@@ -22692,8 +22699,8 @@ classes:
       xml_namespace:
         tag: xml_namespace
         value: http://fixprotocol.io/2026/orchestra/interfaces
-    description: A named value that picks out a session, such as a sender or target
-      ID.
+    description: A value, with what kind it is, that picks out a session, such as
+      a sender or target ID.
     title: Orchestra session identifier (1.1-rc3)
     in_subset:
     - fixi
@@ -23431,6 +23438,6 @@ classes:
     class_uri: fix_orchestra:OrchestraUserInterfaceV11
 metamodel_version: 1.12.0
 source_file: fix_orchestra.yaml
-source_file_date: '2026-11-05T19:26:20'
+source_file_date: '2026-11-05T20:03:20'
 source_file_size: 1195
 

@@ -107,7 +107,7 @@ export enum OrchestraPurpose {
 */
 export enum OrchestraReliability {
     
-    /** No promise; a message may be lost. */
+    /** No promise; any message can be lost. */
     bestEffort = "bestEffort",
     /** Each message is acted on at most once; a lost one is not sent again. */
     idempotent = "idempotent",
@@ -253,7 +253,7 @@ export enum OrchestraPurposeV11 {
 
 
 /**
- * The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element or term.
+ * The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.
  */
 export interface OrchestraMetadata {
     /** The values the file gives for the Dublin Core element title. */
@@ -428,7 +428,7 @@ export interface OrchestraXmlAttribute {
 
 
 /**
- * One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.
+ * One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
  */
 export interface OrchestraActionParameterV10 {
     /** A field defined in place. */
@@ -465,7 +465,7 @@ export interface OrchestraActionStepV10 {
  * Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
  */
 export interface OrchestraActionV10 {
-    /** The fields, components and groups the action takes as input, in order. */
+    /** The fields, groups and components the action takes as input, in order. */
     fixr_parameters?: OrchestraActionParameterV10[],
     /** What the action does, in order: messages sent, values set, transitions fired and timers scheduled. */
     fixr_actions: OrchestraActionStepV10[],
@@ -478,15 +478,15 @@ export interface OrchestraActionV10 {
 export interface OrchestraActorMemberV10 {
     /** A variable defined in place as a field. */
     fixr_field?: OrchestraFieldV10,
-    /** A variable given by reference to a field. */
+    /** A variable that uses a field by its number. */
     fixr_field_ref?: OrchestraFieldRefV10,
     /** A variable defined in place as a component. */
     fixr_component?: OrchestraComponentV10,
-    /** A variable given by reference to a component. */
+    /** A variable that uses a component by its number. */
     fixr_component_ref?: OrchestraComponentRefV10,
     /** A variable defined in place as a repeating group. */
     fixr_group?: OrchestraGroupV10,
-    /** A variable given by reference to a repeating group. */
+    /** A variable that uses a repeating group by its number. */
     fixr_group_ref?: OrchestraGroupRefV10,
     /** A state machine. */
     fixr_states?: OrchestraStateMachineV10,
@@ -570,7 +570,7 @@ export interface OrchestraAppinfoV10 extends OrchestraPedigreeV10Mixin {
 
 
 /**
- * What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.
+ * What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
  */
 export interface OrchestraBaseInterfaceV10 {
     /** The application-level services offered. */
@@ -595,10 +595,10 @@ export interface OrchestraBaseInterfaceV10 {
 
 
 /**
- * How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.
+ * How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
  */
 export interface OrchestraBlockAssignmentV10 {
-    /** The fields, components and groups the assignment sets, in order. */
+    /** The fields, groups and components the assignment sets, in order. */
     fixr_members: OrchestraStructureMemberV10[],
 }
 
@@ -641,7 +641,7 @@ export interface OrchestraCodeSetV10 extends OrchestraIdentityV10Mixin, Orchestr
     fixr_code?: OrchestraCodeV10[],
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV10,
-    /** The datatype of the set's values, by name. */
+    /** The set's datatype, by name. */
     fixr_type: string,
     /** The code a receiver assumes when none is given. */
     fixr_default?: string,
@@ -662,7 +662,7 @@ export interface OrchestraCodeSetsV10 {
 
 
 /**
- * One permitted value in a code set, with its name and what goes on the wire.
+ * One permitted value of the set, with its name and what goes on the wire.
  */
 export interface OrchestraCodeV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin {
     /** Notes for readers and hints for software about the element. */
@@ -694,10 +694,10 @@ export interface OrchestraComponentRefV10 extends OrchestraReferenceV10Mixin, Or
 
 
 /**
- * A condition under which a component's presence changes, such as when it becomes required.
+ * A condition that changes a component's presence, such as making it required.
  */
 export interface OrchestraComponentRuleV10 {
-    /** The condition under which the rule applies, written as an expression. */
+    /** When the rule applies, written as an expression. */
     fixr_when: string,
     /** The rule's name. */
     fixr_name?: string,
@@ -707,10 +707,10 @@ export interface OrchestraComponentRuleV10 {
 
 
 /**
- * A named block of fields, components and groups that messages and other blocks include by reference.
+ * A named block of fields, groups and components that messages and other blocks include by reference.
  */
 export interface OrchestraComponentV10 extends OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin {
-    /** The fields, components and groups the component holds, in order. */
+    /** The fields, groups and components the component holds, in order. */
     fixr_members: OrchestraStructureMemberV10[],
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV10,
@@ -735,7 +735,7 @@ export interface OrchestraComponentsV10 extends OrchestraContainerV10Mixin {
 
 
 /**
- * One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.
+ * One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
  */
 export interface OrchestraConceptMemberV10 {
     /** A component used by reference. */
@@ -884,14 +884,14 @@ export interface OrchestraFieldRefV10 extends OrchestraReferenceV10Mixin, Orches
 
 
 /**
- * A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+ * A condition that changes a field's presence, datatype or limits, or a check its value must pass.
  */
 export interface OrchestraFieldRuleV10 extends OrchestraFieldConstraintsV10Mixin {
     /** A check that the field's value is unique. */
     fixr_unique?: OrchestraUniqueV10,
     /** Expressions that set or check values while the rule's condition holds. */
     fixr_assign?: string[],
-    /** The condition under which the rule applies, written as an expression. */
+    /** When the rule applies, written as an expression. */
     fixr_when: string,
     /** The rule's name. */
     fixr_name?: string,
@@ -901,7 +901,7 @@ export interface OrchestraFieldRuleV10 extends OrchestraFieldConstraintsV10Mixin
 
 
 /**
- * A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+ * A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
  */
 export interface OrchestraFieldV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin, OrchestraFieldConstraintsV10Mixin {
     /** Rules that make the element's presence or limits depend on other values. */
@@ -910,7 +910,7 @@ export interface OrchestraFieldV10 extends OrchestraIdentityV10Mixin, OrchestraP
     fixr_assign?: string,
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV10,
-    /** The datatype or code set that gives the field's values, by name; a code set brings its own datatype. */
+    /** The field's datatype, or its code set, by name; a code set brings its own datatype. */
     fixr_type: string,
     /** The tag number of the field that gives this field's length. */
     fixr_length_id?: number,
@@ -939,7 +939,7 @@ export interface OrchestraFieldsV10 {
 
 
 /**
- * A one-way flow of messages from one actor to another, with its delivery guarantee.
+ * Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
  */
 export interface OrchestraFlowV10 {
     /** Notes for readers and hints for software about the element. */
@@ -950,7 +950,7 @@ export interface OrchestraFlowV10 {
     fixr_source: string,
     /** The receiving actor, by name. */
     fixr_destination: string,
-    /** The delivery guarantee of the flow, from best effort to recoverable. */
+    /** How reliably the flow delivers its messages, from best effort to recoverable. */
     fixr_reliability?: string,
 }
 
@@ -967,12 +967,12 @@ export interface OrchestraGroupRefV10 extends OrchestraComponentRefV10 {
 
 
 /**
- * A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.
+ * A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
  */
 export interface OrchestraGroupV10 extends OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin {
     /** The field that counts the group's entries. */
     fixr_num_in_group?: OrchestraFieldRefV10,
-    /** The fields, components and groups that each entry holds, in order. */
+    /** The fields, groups and components that each entry holds, in order. */
     fixr_members: OrchestraStructureMemberV10[],
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV10,
@@ -1006,7 +1006,7 @@ export interface OrchestraGroupsV10 extends OrchestraContainerV10Mixin {
 export interface OrchestraIdentifierV10 {
     /** The tag number of the field that is set or carried over. */
     fixr_id: number,
-    /** The tag number of the field in the message received that the value comes from; the field's own tag number when none is given. */
+    /** The tag number of the received message's field that the value comes from; the field's own tag number when none is given. */
     fixr_source_id?: number,
 }
 
@@ -1169,10 +1169,10 @@ export interface OrchestraMessageRefV10 extends OrchestraReferenceV10Mixin {
 
 
 /**
- * The ordered fields, components and groups of a message.
+ * The ordered fields, groups and components of a message.
  */
 export interface OrchestraMessageStructureV10 {
-    /** The message's fields, components and groups, in order. */
+    /** The message's fields, groups and components, in order. */
     fixr_members: OrchestraStructureMemberV10[],
     /** Whether one member exactly, or one or more members, must appear. */
     fixr_which?: string,
@@ -1180,10 +1180,10 @@ export interface OrchestraMessageStructureV10 {
 
 
 /**
- * A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.
+ * A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
  */
 export interface OrchestraMessageV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin {
-    /** The message's fields, components and groups, in order. */
+    /** The message's fields, groups and components, in order. */
     fixr_structure: OrchestraMessageStructureV10,
     /** What can happen when the message arrives. */
     fixr_responses?: OrchestraResponsesV10,
@@ -1254,9 +1254,9 @@ export interface OrchestraProtocolV10 {
     fixi_version?: string,
     /** The layer the protocol works on. */
     fixi_layer?: string,
-    /** The delivery guarantee the protocol gives, which a transport, a session or an application may provide. */
+    /** The delivery guarantee the protocol gives, which a transport, a session or the application may provide. */
     fixi_reliability?: string,
-    /** The address of the Orchestra file that describes the protocol's messages and rules. */
+    /** Where to find the Orchestra repository that sets out the protocol's messages and rules. */
     fixi_orchestration?: string,
     /** Attributes from other namespaces, kept as written. */
     fixi_other_attributes?: OrchestraXmlAttribute[],
@@ -1306,13 +1306,13 @@ export interface OrchestraRepositoryV10 extends OrchestraContainerV10Mixin {
     fixr_name: string,
     /** The repository's version, such as FIX.Latest_EP312. */
     fixr_version: string,
-    /** A globally unique identifier for the repository. */
+    /** An identifier of the repository, unique worldwide. */
     fixr_guid?: string,
     /** The address of a document that describes the element. */
     fixr_spec_url?: string,
     /** A namespace address that goes with the repository. */
     fixr_namespace?: string,
-    /** The ApplVerID(1128) value of the FIX version the repository describes. */
+    /** The FIX version the repository describes, as its ApplVerID(1128) code. */
     fixr_appl_ver_id?: string,
     /** The language the conditions and assignments are written in; Score when none is given. */
     fixr_expression_language?: string,
@@ -1323,7 +1323,7 @@ export interface OrchestraRepositoryV10 extends OrchestraContainerV10Mixin {
  * What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
  */
 export interface OrchestraResponseV10 extends OrchestraActionV10 {
-    /** The condition under which the response fires, written as an expression; it always fires when none is given. */
+    /** When the response fires, written as an expression; it always fires when none is given. */
     fixr_when?: string,
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV10,
@@ -1370,14 +1370,14 @@ export interface OrchestraSectionsV10 extends OrchestraContainerV10Mixin {
 
 
 /**
- * An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+ * An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
  */
 export interface OrchestraServiceV10 extends OrchestraProtocolV10 {
 }
 
 
 /**
- * A named value that picks out a session, such as a sender or target ID.
+ * A value, with what kind it is, that picks out a session, such as a sender or target ID.
  */
 export interface OrchestraSessionIdentifierV10 {
     /** The identifier's value. */
@@ -1553,7 +1553,7 @@ export interface OrchestraUserInterfaceV10 extends OrchestraProtocolV10 {
 
 
 /**
- * One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.
+ * One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
  */
 export interface OrchestraActionParameterV11 {
     /** A field defined in place. */
@@ -1590,7 +1590,7 @@ export interface OrchestraActionStepV11 {
  * Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
  */
 export interface OrchestraActionV11 {
-    /** The fields, components and groups the action takes as input, in order. */
+    /** The fields, groups and components the action takes as input, in order. */
     fixr_parameters?: OrchestraActionParameterV11[],
     /** What the action does, in order: messages sent, values set, transitions fired and timers scheduled. */
     fixr_actions: OrchestraActionStepV11[],
@@ -1603,15 +1603,15 @@ export interface OrchestraActionV11 {
 export interface OrchestraActorMemberV11 {
     /** A variable defined in place as a field. */
     fixr_field?: OrchestraFieldV11,
-    /** A variable given by reference to a field. */
+    /** A variable that uses a field by its number. */
     fixr_field_ref?: OrchestraFieldRefV11,
     /** A variable defined in place as a component. */
     fixr_component?: OrchestraComponentV11,
-    /** A variable given by reference to a component. */
+    /** A variable that uses a component by its number. */
     fixr_component_ref?: OrchestraComponentRefV11,
     /** A variable defined in place as a repeating group. */
     fixr_group?: OrchestraGroupV11,
-    /** A variable given by reference to a repeating group. */
+    /** A variable that uses a repeating group by its number. */
     fixr_group_ref?: OrchestraGroupRefV11,
     /** A state machine. */
     fixr_states?: OrchestraStateMachineV11,
@@ -1708,7 +1708,7 @@ export interface OrchestraBaseEncodingV11 {
 
 
 /**
- * What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.
+ * What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
  */
 export interface OrchestraBaseInterfaceV11 {
     /** The application-level services offered. */
@@ -1733,10 +1733,10 @@ export interface OrchestraBaseInterfaceV11 {
 
 
 /**
- * How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.
+ * How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
  */
 export interface OrchestraBlockAssignmentV11 {
-    /** The fields, components and groups the assignment sets, in order. */
+    /** The fields, groups and components the assignment sets, in order. */
     fixr_members: OrchestraStructureMemberV11[],
 }
 
@@ -1779,7 +1779,7 @@ export interface OrchestraCodeSetV11 extends OrchestraIdentityV11Mixin, Orchestr
     fixr_annotation?: OrchestraAnnotationV11,
     /** More information that particular encodings need about the element. */
     fixr_encodings?: OrchestraEncodingsV11,
-    /** The datatype of the set's values, by name. */
+    /** The set's datatype, by name. */
     fixr_type: string,
     /** The code a receiver assumes when none is given. */
     fixr_default?: string,
@@ -1806,7 +1806,7 @@ export interface OrchestraCodeSetsV11 {
 
 
 /**
- * One permitted value in a code set, with its name and what goes on the wire.
+ * One permitted value of the set, with its name and what goes on the wire.
  */
 export interface OrchestraCodeV11 extends OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin {
     /** Notes for readers and hints for software about the element. */
@@ -1840,10 +1840,10 @@ export interface OrchestraComponentRefV11 extends OrchestraReferenceV11Mixin, Or
 
 
 /**
- * A condition under which a component's presence changes, such as when it becomes required.
+ * A condition that changes a component's presence, such as making it required.
  */
 export interface OrchestraComponentRuleV11 {
-    /** The condition under which the rule applies, written as an expression. */
+    /** When the rule applies, written as an expression. */
     fixr_when: string,
     /** The rule's name. */
     fixr_name?: string,
@@ -1853,10 +1853,10 @@ export interface OrchestraComponentRuleV11 {
 
 
 /**
- * A named block of fields, components and groups that messages and other blocks include by reference.
+ * A named block of fields, groups and components that messages and other blocks include by reference.
  */
 export interface OrchestraComponentV11 extends OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin {
-    /** The fields, components and groups the component holds, in order. */
+    /** The fields, groups and components the component holds, in order. */
     fixr_members?: OrchestraStructureMemberV11[],
     /** More information that particular encodings need about the element. */
     fixr_encodings?: OrchestraEncodingsV11,
@@ -1887,7 +1887,7 @@ export interface OrchestraComponentsV11 {
 
 
 /**
- * One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.
+ * One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
  */
 export interface OrchestraConceptMemberV11 {
     /** A component used by reference. */
@@ -1974,7 +1974,7 @@ export interface OrchestraDocumentationV11 extends OrchestraPedigreeV11Mixin {
  * An encoding standard a repository uses, with a name to show and its general encoding information.
  */
 export interface OrchestraEncodingStandardV11 {
-    /** General encoding information for this standard. */
+    /** Encoding details that hold for the whole standard. */
     fixr_encoding?: OrchestraUnnamedEncodingV11,
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV11,
@@ -2059,14 +2059,14 @@ export interface OrchestraFieldRefV11 extends OrchestraReferenceV11Mixin, Orches
 
 
 /**
- * A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+ * A condition that changes a field's presence, datatype or limits, or a check its value must pass.
  */
 export interface OrchestraFieldRuleV11 extends OrchestraFieldConstraintsV11Mixin {
     /** A check that the field's value is unique. */
     fixr_unique?: OrchestraUniqueV11,
     /** Expressions that set or check values while the rule's condition holds. */
     fixr_assign?: string[],
-    /** The condition under which the rule applies, written as an expression. */
+    /** When the rule applies, written as an expression. */
     fixr_when: string,
     /** The rule's name. */
     fixr_name?: string,
@@ -2076,7 +2076,7 @@ export interface OrchestraFieldRuleV11 extends OrchestraFieldConstraintsV11Mixin
 
 
 /**
- * A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+ * A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
  */
 export interface OrchestraFieldV11 extends OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin, OrchestraFieldConstraintsV11Mixin {
     /** Rules that make the element's presence or limits depend on other values. */
@@ -2089,7 +2089,7 @@ export interface OrchestraFieldV11 extends OrchestraIdentityV11Mixin, OrchestraP
     fixr_annotation?: OrchestraAnnotationV11,
     /** The datatype that gives the field's values, by name, when no code set does. */
     fixr_type?: string,
-    /** The code set that gives the field's values, by name. */
+    /** The field's code set, by name. */
     fixr_code_set?: string,
     /** The tag number of the field that gives this field's length. */
     fixr_length_id?: number,
@@ -2120,7 +2120,7 @@ export interface OrchestraFieldsV11 {
 
 
 /**
- * A one-way flow of messages from one actor to another, with its delivery guarantee.
+ * Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
  */
 export interface OrchestraFlowV11 {
     /** Notes for readers and hints for software about the element. */
@@ -2131,7 +2131,7 @@ export interface OrchestraFlowV11 {
     fixr_source: string,
     /** The receiving actor, by name. */
     fixr_destination: string,
-    /** The delivery guarantee of the flow, from best effort to recoverable. */
+    /** How reliably the flow delivers its messages, from best effort to recoverable. */
     fixr_reliability?: string,
 }
 
@@ -2148,12 +2148,12 @@ export interface OrchestraGroupRefV11 extends OrchestraComponentRefV11 {
 
 
 /**
- * A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.
+ * A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
  */
 export interface OrchestraGroupV11 extends OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin {
     /** The field that counts the group's entries. */
     fixr_num_in_group?: OrchestraFieldRefV11,
-    /** The fields, components and groups that each entry holds, in order. */
+    /** The fields, groups and components that each entry holds, in order. */
     fixr_members?: OrchestraStructureMemberV11[],
     /** More information that particular encodings need about the element. */
     fixr_encodings?: OrchestraEncodingsV11,
@@ -2195,7 +2195,7 @@ export interface OrchestraIdentifierV11 {
     fixr_id: number,
     /** The field that is set or carried over, by name, for readability. */
     fixr_name?: string,
-    /** The tag number of the field in the message received that the value comes from; the field's own tag number when none is given. */
+    /** The tag number of the received message's field that the value comes from; the field's own tag number when none is given. */
     fixr_source_id?: number,
 }
 
@@ -2358,10 +2358,10 @@ export interface OrchestraMessageRefV11 extends OrchestraReferenceV11Mixin {
 
 
 /**
- * The ordered fields, components and groups of a message.
+ * The ordered fields, groups and components of a message.
  */
 export interface OrchestraMessageStructureV11 {
-    /** The message's fields, components and groups, in order. */
+    /** The message's fields, groups and components, in order. */
     fixr_members?: OrchestraStructureMemberV11[],
     /** Whether one member exactly, or one or more members, must appear. */
     fixr_which?: string,
@@ -2369,12 +2369,12 @@ export interface OrchestraMessageStructureV11 {
 
 
 /**
- * A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.
+ * A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
  */
 export interface OrchestraMessageV11 extends OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin {
-    /** The message's fields, components and groups, in order. */
+    /** The message's fields, groups and components, in order. */
     fixr_structure?: OrchestraMessageStructureV11,
-    /** The condition that tells this scenario of the message from its others. */
+    /** An expression that sets this scenario of the message apart from its others. */
     fixr_when?: string,
     /** What can happen when the message arrives. */
     fixr_responses?: OrchestraResponsesV11,
@@ -2468,9 +2468,9 @@ export interface OrchestraProtocolV11 {
     fixi_deprecated?: string,
     /** The layer the protocol works on. */
     fixi_layer?: string,
-    /** The delivery guarantee the protocol gives, which a transport, a session or an application may provide. */
+    /** The delivery guarantee the protocol gives, which a transport, a session or the application may provide. */
     fixi_reliability?: string,
-    /** The address of the Orchestra file that describes the protocol's messages and rules. */
+    /** Where to find the Orchestra repository that sets out the protocol's messages and rules. */
     fixi_orchestration?: string,
     /** Attributes from other namespaces, kept as written. */
     fixi_other_attributes?: OrchestraXmlAttribute[],
@@ -2526,7 +2526,7 @@ export interface OrchestraRepositoryV11 {
     fixr_name: string,
     /** The repository's version, such as FIX.Latest_EP312. */
     fixr_version: string,
-    /** A globally unique identifier for the repository. */
+    /** An identifier of the repository, unique worldwide. */
     fixr_guid?: string,
     /** The address of a document that describes the element. */
     fixr_spec_url?: string,
@@ -2541,7 +2541,7 @@ export interface OrchestraRepositoryV11 {
  * What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
  */
 export interface OrchestraResponseV11 extends OrchestraActionV11 {
-    /** The condition under which the response fires, written as an expression; it always fires when none is given. */
+    /** When the response fires, written as an expression; it always fires when none is given. */
     fixr_when?: string,
     /** Notes for readers and hints for software about the element. */
     fixr_annotation?: OrchestraAnnotationV11,
@@ -2625,14 +2625,14 @@ export interface OrchestraSectionsV11 {
 
 
 /**
- * An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+ * An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
  */
 export interface OrchestraServiceV11 extends OrchestraProtocolV11 {
 }
 
 
 /**
- * A named value that picks out a session, such as a sender or target ID.
+ * A value, with what kind it is, that picks out a session, such as a sender or target ID.
  */
 export interface OrchestraSessionIdentifierV11 {
     /** The identifier's value. */

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A named value that picks out a session, such as a sender or target ID.
+  A value, with what kind it is, that picks out a session, such as a sender or target ID.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

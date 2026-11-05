@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+  A condition that changes a field's presence, datatype or limits, or a check its value must pass.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

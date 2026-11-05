@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.
+  How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

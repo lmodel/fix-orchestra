@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.
+  One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

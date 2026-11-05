@@ -78,8 +78,8 @@ DEFAULT_ = FIX_ORCHESTRA
 @dataclass(repr=False)
 class OrchestraMetadata(YAMLRoot):
     """
-    The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element
-    or term.
+    The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin
+    Core element or term.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -513,8 +513,8 @@ class OrchestraXmlAttribute(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraActionParameterV10(YAMLRoot):
     """
-    One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly
-    one of these.
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -955,8 +955,7 @@ class OrchestraAppinfoV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraBaseInterfaceV10(YAMLRoot):
     """
-    What an interface and a session share: the services, encodings and protocols that make up a connection, layer by
-    layer.
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1016,7 +1015,7 @@ class OrchestraBaseInterfaceV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraBlockAssignmentV10(YAMLRoot):
     """
-    How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it
     sets.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -1302,7 +1301,7 @@ class OrchestraCodeSetsV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraCodeV10(YAMLRoot):
     """
-    One permitted value in a code set, with its name and what goes on the wire.
+    One permitted value of the set, with its name and what goes on the wire.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1509,7 +1508,7 @@ class OrchestraComponentRefV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraComponentRuleV10(YAMLRoot):
     """
-    A condition under which a component's presence changes, such as when it becomes required.
+    A condition that changes a component's presence, such as making it required.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1540,7 +1539,7 @@ class OrchestraComponentRuleV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraComponentV10(YAMLRoot):
     """
-    A named block of fields, components and groups that messages and other blocks include by reference.
+    A named block of fields, groups and components that messages and other blocks include by reference.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1682,8 +1681,8 @@ class OrchestraComponentsV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraConceptMemberV10(YAMLRoot):
     """
-    One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of
-    these.
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2217,7 +2216,7 @@ class OrchestraFieldRefV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFieldRuleV10(YAMLRoot):
     """
-    A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2293,7 +2292,7 @@ class OrchestraFieldRuleV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFieldV10(YAMLRoot):
     """
-    A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2485,7 +2484,7 @@ class OrchestraFieldsV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFlowV10(YAMLRoot):
     """
-    A one-way flow of messages from one actor to another, with its delivery guarantee.
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2554,7 +2553,7 @@ class OrchestraGroupRefV10(OrchestraComponentRefV10):
 @dataclass(repr=False)
 class OrchestraGroupV10(YAMLRoot):
     """
-    A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field
     carries.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -3131,7 +3130,7 @@ class OrchestraMessageRefV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraMessageStructureV10(YAMLRoot):
     """
-    The ordered fields, components and groups of a message.
+    The ordered fields, groups and components of a message.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -3159,7 +3158,7 @@ class OrchestraMessageStructureV10(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraMessageV10(YAMLRoot):
     """
-    A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can
     cause.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -3753,7 +3752,8 @@ class OrchestraSectionsV10(YAMLRoot):
 
 class OrchestraServiceV10(OrchestraProtocolV10):
     """
-    An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets
+    out its rules.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -3766,7 +3766,7 @@ class OrchestraServiceV10(OrchestraProtocolV10):
 @dataclass(repr=False)
 class OrchestraSessionIdentifierV10(YAMLRoot):
     """
-    A named value that picks out a session, such as a sender or target ID.
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -4187,8 +4187,8 @@ class OrchestraUserInterfaceV10(OrchestraProtocolV10):
 @dataclass(repr=False)
 class OrchestraActionParameterV11(YAMLRoot):
     """
-    One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly
-    one of these.
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -4655,8 +4655,7 @@ class OrchestraBaseEncodingV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraBaseInterfaceV11(YAMLRoot):
     """
-    What an interface and a session share: the services, encodings and protocols that make up a connection, layer by
-    layer.
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -4716,7 +4715,7 @@ class OrchestraBaseInterfaceV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraBlockAssignmentV11(YAMLRoot):
     """
-    How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it
     sets.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -5016,7 +5015,7 @@ class OrchestraCodeSetsV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraCodeV11(YAMLRoot):
     """
-    One permitted value in a code set, with its name and what goes on the wire.
+    One permitted value of the set, with its name and what goes on the wire.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -5231,7 +5230,7 @@ class OrchestraComponentRefV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraComponentRuleV11(YAMLRoot):
     """
-    A condition under which a component's presence changes, such as when it becomes required.
+    A condition that changes a component's presence, such as making it required.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -5262,7 +5261,7 @@ class OrchestraComponentRuleV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraComponentV11(YAMLRoot):
     """
-    A named block of fields, components and groups that messages and other blocks include by reference.
+    A named block of fields, groups and components that messages and other blocks include by reference.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -5416,8 +5415,8 @@ class OrchestraComponentsV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraConceptMemberV11(YAMLRoot):
     """
-    One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of
-    these.
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -5998,7 +5997,7 @@ class OrchestraFieldRefV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFieldRuleV11(YAMLRoot):
     """
-    A condition under which a field's presence, datatype or limits change, or a check its value must pass.
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -6074,7 +6073,7 @@ class OrchestraFieldRuleV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFieldV11(YAMLRoot):
     """
-    A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -6274,7 +6273,7 @@ class OrchestraFieldsV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraFlowV11(YAMLRoot):
     """
-    A one-way flow of messages from one actor to another, with its delivery guarantee.
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -6343,7 +6342,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 @dataclass(repr=False)
 class OrchestraGroupV11(YAMLRoot):
     """
-    A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field
     carries.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -6930,7 +6929,7 @@ class OrchestraMessageRefV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraMessageStructureV11(YAMLRoot):
     """
-    The ordered fields, components and groups of a message.
+    The ordered fields, groups and components of a message.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -6956,7 +6955,7 @@ class OrchestraMessageStructureV11(YAMLRoot):
 @dataclass(repr=False)
 class OrchestraMessageV11(YAMLRoot):
     """
-    A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can
     cause.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -7731,7 +7730,8 @@ class OrchestraSectionsV11(YAMLRoot):
 
 class OrchestraServiceV11(OrchestraProtocolV11):
     """
-    An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets
+    out its rules.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -7744,7 +7744,7 @@ class OrchestraServiceV11(OrchestraProtocolV11):
 @dataclass(repr=False)
 class OrchestraSessionIdentifierV11(YAMLRoot):
     """
-    A named value that picks out a session, such as a sender or target ID.
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -8344,7 +8344,7 @@ class OrchestraReliability(EnumDefinitionImpl):
     """
     bestEffort = PermissibleValue(
         text="bestEffort",
-        description="No promise; a message may be lost.")
+        description="No promise; any message can be lost.")
     idempotent = PermissibleValue(
         text="idempotent",
         description="Each message is acted on at most once; a lost one is not sent again.")

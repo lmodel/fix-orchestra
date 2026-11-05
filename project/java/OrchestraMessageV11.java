@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.
+  A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

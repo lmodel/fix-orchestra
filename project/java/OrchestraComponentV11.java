@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A named block of fields, components and groups that messages and other blocks include by reference.
+  A named block of fields, groups and components that messages and other blocks include by reference.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

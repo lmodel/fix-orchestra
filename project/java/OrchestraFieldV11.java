@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A FIX field: its tag number, name, datatype or code set, and the limits on its value.
+  A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

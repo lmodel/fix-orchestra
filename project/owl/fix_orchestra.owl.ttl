@@ -22,7 +22,7 @@ fix_orchestra:OrchestraActionParameterV10 dcterms:title "Orchestra action input 
 	rdfs:label "OrchestraActionParameterV10" ;
 	rdfs:subClassOf _:c14n1034 , _:c14n1125 , _:c14n1436 , _:c14n1448 , _:c14n1496 , _:c14n1700 , _:c14n1712 , _:c14n1724 , _:c14n1750 , _:c14n271 , _:c14n344 , _:c14n422 , _:c14n484 , _:c14n497 , _:c14n563 , _:c14n642 , _:c14n783 , _:c14n815 ;
 	owl:disjointUnionOf _:c14n772 ;
-	skos:definition "One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these." ;
+	skos:definition "One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "choice of field, fieldRef, component, componentRef, group, groupRef" .
@@ -31,7 +31,7 @@ fix_orchestra:OrchestraActionParameterV11 dcterms:title "Orchestra action input 
 	rdfs:label "OrchestraActionParameterV11" ;
 	rdfs:subClassOf _:c14n1135 , _:c14n1382 , _:c14n1492 , _:c14n156 , _:c14n1628 , _:c14n1636 , _:c14n1682 , _:c14n1715 , _:c14n1826 , _:c14n1864 , _:c14n1930 , _:c14n447 , _:c14n644 , _:c14n765 , _:c14n853 , _:c14n897 , _:c14n92 , _:c14n994 ;
 	owl:disjointUnionOf _:c14n752 ;
-	skos:definition "One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these." ;
+	skos:definition "One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "choice of field, fieldRef, component, componentRef, group, groupRef" .
@@ -199,7 +199,7 @@ fix_orchestra:OrchestraBaseInterfaceV10 dcterms:title "Orchestra connection desc
 	a owl:Class ;
 	rdfs:label "OrchestraBaseInterfaceV10" ;
 	rdfs:subClassOf _:c14n1092 , _:c14n1118 , _:c14n113 , _:c14n1178 , _:c14n1311 , _:c14n1353 , _:c14n139 , _:c14n1404 , _:c14n1499 , _:c14n1534 , _:c14n1734 , _:c14n1736 , _:c14n1955 , _:c14n343 , _:c14n444 , _:c14n504 , _:c14n615 , _:c14n658 , _:c14n747 , _:c14n902 , _:c14n917 ;
-	skos:definition "What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer." ;
+	skos:definition "What an interface and a session share: the services, encodings and protocols of a connection, layer by layer." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "baseInterfaceType" .
@@ -207,7 +207,7 @@ fix_orchestra:OrchestraBaseInterfaceV11 dcterms:title "Orchestra connection desc
 	a owl:Class ;
 	rdfs:label "OrchestraBaseInterfaceV11" ;
 	rdfs:subClassOf _:c14n1026 , _:c14n1281 , _:c14n1495 , _:c14n1541 , _:c14n1740 , _:c14n2003 , _:c14n235 , _:c14n247 , _:c14n289 , _:c14n295 , _:c14n403 , _:c14n446 , _:c14n551 , _:c14n593 , _:c14n598 , _:c14n650 , _:c14n7 , _:c14n891 , _:c14n930 , _:c14n932 , _:c14n981 ;
-	skos:definition "What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer." ;
+	skos:definition "What an interface and a session share: the services, encodings and protocols of a connection, layer by layer." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "baseInterfaceType" .
@@ -215,7 +215,7 @@ fix_orchestra:OrchestraBlockAssignmentV10 dcterms:title "Orchestra block assignm
 	a owl:Class ;
 	rdfs:label "OrchestraBlockAssignmentV10" ;
 	rdfs:subClassOf _:c14n491 , _:c14n637 ;
-	skos:definition "How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets." ;
+	skos:definition "How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "blockAssignmentType" .
@@ -223,7 +223,7 @@ fix_orchestra:OrchestraBlockAssignmentV11 dcterms:title "Orchestra block assignm
 	a owl:Class ;
 	rdfs:label "OrchestraBlockAssignmentV11" ;
 	rdfs:subClassOf _:c14n1664 , _:c14n1896 ;
-	skos:definition "How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets." ;
+	skos:definition "How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "blockAssignmentType" .
@@ -340,7 +340,7 @@ fix_orchestra:OrchestraCodeV10 dcterms:title "Orchestra code (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraCodeV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV10Mixin , fix_orchestra:OrchestraPedigreeV10Mixin , _:c14n1005 , _:c14n1185 , _:c14n1211 , _:c14n1248 , _:c14n1651 , _:c14n1670 , _:c14n1688 , _:c14n179 , _:c14n282 , _:c14n540 , _:c14n828 , _:c14n842 ;
-	skos:definition "One permitted value in a code set, with its name and what goes on the wire." ;
+	skos:definition "One permitted value of the set, with its name and what goes on the wire." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "codeType" .
@@ -348,7 +348,7 @@ fix_orchestra:OrchestraCodeV11 dcterms:title "Orchestra code (1.1-rc3)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraCodeV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV11Mixin , fix_orchestra:OrchestraPedigreeV11Mixin , _:c14n1208 , _:c14n127 , _:c14n1282 , _:c14n1294 , _:c14n1438 , _:c14n1764 , _:c14n1959 , _:c14n590 , _:c14n63 , _:c14n713 , _:c14n790 , _:c14n909 ;
-	skos:definition "One permitted value in a code set, with its name and what goes on the wire." ;
+	skos:definition "One permitted value of the set, with its name and what goes on the wire." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "codeType" .
@@ -372,7 +372,7 @@ fix_orchestra:OrchestraComponentRuleV10 dcterms:title "Orchestra component rule 
 	a owl:Class ;
 	rdfs:label "OrchestraComponentRuleV10" ;
 	rdfs:subClassOf _:c14n1374 , _:c14n1396 , _:c14n1402 , _:c14n1454 , _:c14n1776 , _:c14n576 , _:c14n632 , _:c14n699 , _:c14n992 ;
-	skos:definition "A condition under which a component's presence changes, such as when it becomes required." ;
+	skos:definition "A condition that changes a component's presence, such as making it required." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "componentRuleType" .
@@ -380,7 +380,7 @@ fix_orchestra:OrchestraComponentRuleV11 dcterms:title "Orchestra component rule 
 	a owl:Class ;
 	rdfs:label "OrchestraComponentRuleV11" ;
 	rdfs:subClassOf _:c14n1042 , _:c14n1050 , _:c14n1341 , _:c14n1391 , _:c14n437 , _:c14n445 , _:c14n819 , _:c14n958 , _:c14n966 ;
-	skos:definition "A condition under which a component's presence changes, such as when it becomes required." ;
+	skos:definition "A condition that changes a component's presence, such as making it required." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "componentRuleType" .
@@ -388,7 +388,7 @@ fix_orchestra:OrchestraComponentV10 dcterms:title "Orchestra component (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraComponentV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV10Mixin , fix_orchestra:OrchestraPedigreeV10Mixin , _:c14n1201 , _:c14n171 , _:c14n1743 , _:c14n1882 , _:c14n1927 , _:c14n1979 , _:c14n2033 , _:c14n28 , _:c14n305 , _:c14n347 , _:c14n468 , _:c14n612 , _:c14n670 , _:c14n798 ;
-	skos:definition "A named block of fields, components and groups that messages and other blocks include by reference." ;
+	skos:definition "A named block of fields, groups and components that messages and other blocks include by reference." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "componentType" .
@@ -396,7 +396,7 @@ fix_orchestra:OrchestraComponentV11 dcterms:title "Orchestra component (1.1-rc3)
 	a owl:Class ;
 	rdfs:label "OrchestraComponentV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV11Mixin , fix_orchestra:OrchestraPedigreeV11Mixin , fix_orchestra:OrchestraScenarioReferenceV11Mixin , _:c14n1093 , _:c14n1102 , _:c14n1305 , _:c14n1310 , _:c14n1471 , _:c14n1476 , _:c14n1512 , _:c14n1769 , _:c14n1950 , _:c14n2023 , _:c14n383 , _:c14n407 , _:c14n500 , _:c14n578 , _:c14n591 , _:c14n820 , _:c14n879 ;
-	skos:definition "A named block of fields, components and groups that messages and other blocks include by reference." ;
+	skos:definition "A named block of fields, groups and components that messages and other blocks include by reference." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "componentType" .
@@ -421,7 +421,7 @@ fix_orchestra:OrchestraConceptMemberV10 dcterms:title "Orchestra concept item (1
 	rdfs:label "OrchestraConceptMemberV10" ;
 	rdfs:subClassOf _:c14n1025 , _:c14n1087 , _:c14n1357 , _:c14n1439 , _:c14n1472 , _:c14n1646 , _:c14n1922 , _:c14n421 , _:c14n562 , _:c14n84 , _:c14n911 , _:c14n996 ;
 	owl:disjointUnionOf _:c14n1570 ;
-	skos:definition "One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these." ;
+	skos:definition "One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "choice of componentRef, groupRef, fieldRef, messageRef" .
@@ -430,7 +430,7 @@ fix_orchestra:OrchestraConceptMemberV11 dcterms:title "Orchestra concept item (1
 	rdfs:label "OrchestraConceptMemberV11" ;
 	rdfs:subClassOf _:c14n1062 , _:c14n1104 , _:c14n1112 , _:c14n1237 , _:c14n1252 , _:c14n1273 , _:c14n1620 , _:c14n1768 , _:c14n1777 , _:c14n1850 , _:c14n835 , _:c14n997 ;
 	owl:disjointUnionOf _:c14n1713 ;
-	skos:definition "One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these." ;
+	skos:definition "One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "choice of componentRef, groupRef, fieldRef, messageRef" .
@@ -637,7 +637,7 @@ fix_orchestra:OrchestraFieldRuleV10 dcterms:title "Orchestra field rule (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraFieldRuleV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraFieldConstraintsV10Mixin , _:c14n120 , _:c14n1247 , _:c14n1314 , _:c14n1373 , _:c14n1607 , _:c14n1912 , _:c14n2000 , _:c14n236 , _:c14n32 , _:c14n703 , _:c14n77 , _:c14n878 , _:c14n927 , _:c14n984 ;
-	skos:definition "A condition under which a field's presence, datatype or limits change, or a check its value must pass." ;
+	skos:definition "A condition that changes a field's presence, datatype or limits, or a check its value must pass." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "fieldRuleType" .
@@ -645,7 +645,7 @@ fix_orchestra:OrchestraFieldRuleV11 dcterms:title "Orchestra field rule (1.1-rc3
 	a owl:Class ;
 	rdfs:label "OrchestraFieldRuleV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraFieldConstraintsV11Mixin , _:c14n1116 , _:c14n1172 , _:c14n1242 , _:c14n2043 , _:c14n306 , _:c14n340 , _:c14n350 , _:c14n360 , _:c14n78 , _:c14n852 , _:c14n884 , _:c14n887 , _:c14n912 , _:c14n989 ;
-	skos:definition "A condition under which a field's presence, datatype or limits change, or a check its value must pass." ;
+	skos:definition "A condition that changes a field's presence, datatype or limits, or a check its value must pass." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "fieldRuleType" .
@@ -653,7 +653,7 @@ fix_orchestra:OrchestraFieldV10 dcterms:title "Orchestra field (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraFieldV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraFieldConstraintsV10Mixin , fix_orchestra:OrchestraIdentityV10Mixin , fix_orchestra:OrchestraPedigreeV10Mixin , _:c14n1076 , _:c14n1120 , _:c14n1143 , _:c14n1198 , _:c14n1268 , _:c14n1277 , _:c14n1327 , _:c14n1429 , _:c14n1548 , _:c14n1556 , _:c14n1591 , _:c14n1787 , _:c14n1890 , _:c14n1939 , _:c14n2 , _:c14n216 , _:c14n24 , _:c14n260 , _:c14n474 , _:c14n477 , _:c14n620 , _:c14n623 , _:c14n639 , _:c14n726 , _:c14n880 , _:c14n926 ;
-	skos:definition "A FIX field: its tag number, name, datatype or code set, and the limits on its value." ;
+	skos:definition "A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "fieldType" .
@@ -661,7 +661,7 @@ fix_orchestra:OrchestraFieldV11 dcterms:title "Orchestra field (1.1-rc3)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraFieldV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraFieldConstraintsV11Mixin , fix_orchestra:OrchestraIdentityV11Mixin , fix_orchestra:OrchestraPedigreeV11Mixin , _:c14n1130 , _:c14n1183 , _:c14n1188 , _:c14n1209 , _:c14n1214 , _:c14n1260 , _:c14n1440 , _:c14n1470 , _:c14n1510 , _:c14n152 , _:c14n1561 , _:c14n1575 , _:c14n1580 , _:c14n1807 , _:c14n1853 , _:c14n1944 , _:c14n252 , _:c14n254 , _:c14n263 , _:c14n417 , _:c14n43 , _:c14n599 , _:c14n611 , _:c14n635 , _:c14n661 , _:c14n671 , _:c14n683 , _:c14n722 , _:c14n725 , _:c14n808 , _:c14n905 , _:c14n915 , _:c14n94 , _:c14n954 , _:c14n970 ;
-	skos:definition "A FIX field: its tag number, name, datatype or code set, and the limits on its value." ;
+	skos:definition "A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "fieldType" .
@@ -685,7 +685,7 @@ fix_orchestra:OrchestraFlowV10 dcterms:title "Orchestra flow (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraFlowV10" ;
 	rdfs:subClassOf _:c14n1059 , _:c14n1318 , _:c14n1325 , _:c14n1361 , _:c14n1456 , _:c14n1566 , _:c14n1706 , _:c14n25 , _:c14n294 , _:c14n298 , _:c14n45 , _:c14n545 , _:c14n64 , _:c14n73 , _:c14n858 ;
-	skos:definition "A one-way flow of messages from one actor to another, with its delivery guarantee." ;
+	skos:definition "Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "flowType" .
@@ -693,7 +693,7 @@ fix_orchestra:OrchestraFlowV11 dcterms:title "Orchestra flow (1.1-rc3)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraFlowV11" ;
 	rdfs:subClassOf _:c14n12 , _:c14n1289 , _:c14n1411 , _:c14n1479 , _:c14n1667 , _:c14n1710 , _:c14n1985 , _:c14n498 , _:c14n579 , _:c14n721 , _:c14n876 , _:c14n88 , _:c14n957 , _:c14n964 , _:c14n977 ;
-	skos:definition "A one-way flow of messages from one actor to another, with its delivery guarantee." ;
+	skos:definition "Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "flowType" .
@@ -717,7 +717,7 @@ fix_orchestra:OrchestraGroupV10 dcterms:title "Orchestra repeating group (1.0)" 
 	a owl:Class ;
 	rdfs:label "OrchestraGroupV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV10Mixin , fix_orchestra:OrchestraPedigreeV10Mixin , _:c14n1048 , _:c14n122 , _:c14n1363 , _:c14n1384 , _:c14n148 , _:c14n1536 , _:c14n1565 , _:c14n1571 , _:c14n1585 , _:c14n1683 , _:c14n1727 , _:c14n1742 , _:c14n1893 , _:c14n1999 , _:c14n2014 , _:c14n2028 , _:c14n212 , _:c14n372 , _:c14n381 , _:c14n557 , _:c14n710 , _:c14n711 , _:c14n991 ;
-	skos:definition "A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries." ;
+	skos:definition "A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "groupType" .
@@ -725,7 +725,7 @@ fix_orchestra:OrchestraGroupV11 dcterms:title "Orchestra repeating group (1.1-rc
 	a owl:Class ;
 	rdfs:label "OrchestraGroupV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV11Mixin , fix_orchestra:OrchestraPedigreeV11Mixin , fix_orchestra:OrchestraScenarioReferenceV11Mixin , _:c14n1077 , _:c14n110 , _:c14n1202 , _:c14n124 , _:c14n1306 , _:c14n1334 , _:c14n1555 , _:c14n1613 , _:c14n169 , _:c14n1784 , _:c14n1795 , _:c14n1836 , _:c14n1935 , _:c14n1936 , _:c14n329 , _:c14n336 , _:c14n355 , _:c14n376 , _:c14n397 , _:c14n425 , _:c14n493 , _:c14n577 , _:c14n607 , _:c14n743 , _:c14n784 , _:c14n985 ;
-	skos:definition "A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries." ;
+	skos:definition "A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "groupType" .
@@ -1002,7 +1002,7 @@ fix_orchestra:OrchestraMessageStructureV10 dcterms:title "Orchestra message layo
 	a owl:Class ;
 	rdfs:label "OrchestraMessageStructureV10" ;
 	rdfs:subClassOf _:c14n1366 , _:c14n1623 , _:c14n1675 , _:c14n1866 , _:c14n647 ;
-	skos:definition "The ordered fields, components and groups of a message." ;
+	skos:definition "The ordered fields, groups and components of a message." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "messageType/structure" .
@@ -1010,7 +1010,7 @@ fix_orchestra:OrchestraMessageStructureV11 dcterms:title "Orchestra message layo
 	a owl:Class ;
 	rdfs:label "OrchestraMessageStructureV11" ;
 	rdfs:subClassOf _:c14n1004 , _:c14n1071 , _:c14n1531 , _:c14n1592 , _:c14n1793 ;
-	skos:definition "The ordered fields, components and groups of a message." ;
+	skos:definition "The ordered fields, groups and components of a message." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "messageType/structure" .
@@ -1018,7 +1018,7 @@ fix_orchestra:OrchestraMessageV10 dcterms:title "Orchestra message (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraMessageV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV10Mixin , fix_orchestra:OrchestraPedigreeV10Mixin , _:c14n1056 , _:c14n106 , _:c14n1283 , _:c14n1441 , _:c14n1711 , _:c14n1949 , _:c14n1980 , _:c14n233 , _:c14n242 , _:c14n448 , _:c14n539 , _:c14n589 , _:c14n702 , _:c14n754 , _:c14n801 , _:c14n847 , _:c14n951 , _:c14n968 ;
-	skos:definition "A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause." ;
+	skos:definition "A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/repository" ;
 	fix_orchestra:xsd_type "messageType" .
@@ -1026,7 +1026,7 @@ fix_orchestra:OrchestraMessageV11 dcterms:title "Orchestra message (1.1-rc3)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraMessageV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraIdentityV11Mixin , fix_orchestra:OrchestraPedigreeV11Mixin , fix_orchestra:OrchestraScenarioReferenceV11Mixin , _:c14n1024 , _:c14n1046 , _:c14n1121 , _:c14n1133 , _:c14n1193 , _:c14n1333 , _:c14n1336 , _:c14n1338 , _:c14n146 , _:c14n1480 , _:c14n1507 , _:c14n1641 , _:c14n1663 , _:c14n1709 , _:c14n1782 , _:c14n1897 , _:c14n2011 , _:c14n2042 , _:c14n414 , _:c14n485 , _:c14n645 , _:c14n662 , _:c14n712 , _:c14n768 , _:c14n918 , _:c14n945 , _:c14n969 ;
-	skos:definition "A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause." ;
+	skos:definition "A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/repository" ;
 	fix_orchestra:xsd_type "messageType" .
@@ -1050,7 +1050,7 @@ fix_orchestra:OrchestraMetadata dcterms:title "Orchestra file metadata" ;
 	a owl:Class ;
 	rdfs:label "OrchestraMetadata" ;
 	rdfs:subClassOf _:c14n1006 , _:c14n1023 , _:c14n1032 , _:c14n104 , _:c14n1040 , _:c14n1067 , _:c14n1075 , _:c14n1079 , _:c14n1115 , _:c14n112 , _:c14n1156 , _:c14n1190 , _:c14n1210 , _:c14n1225 , _:c14n1234 , _:c14n1238 , _:c14n1249 , _:c14n125 , _:c14n1251 , _:c14n1317 , _:c14n1340 , _:c14n1347 , _:c14n1372 , _:c14n1388 , _:c14n1390 , _:c14n1407 , _:c14n1412 , _:c14n1415 , _:c14n1423 , _:c14n1425 , _:c14n1463 , _:c14n1467 , _:c14n1493 , _:c14n1498 , _:c14n1533 , _:c14n1544 , _:c14n1557 , _:c14n158 , _:c14n1589 , _:c14n1594 , _:c14n160 , _:c14n1603 , _:c14n1634 , _:c14n1642 , _:c14n1672 , _:c14n1679 , _:c14n1696 , _:c14n1732 , _:c14n1737 , _:c14n174 , _:c14n1748 , _:c14n1751 , _:c14n1754 , _:c14n1763 , _:c14n1773 , _:c14n1790 , _:c14n1792 , _:c14n18 , _:c14n1806 , _:c14n1813 , _:c14n1825 , _:c14n1847 , _:c14n1856 , _:c14n1868 , _:c14n1881 , _:c14n1928 , _:c14n1943 , _:c14n195 , _:c14n1951 , _:c14n1971 , _:c14n1977 , _:c14n1982 , _:c14n1993 , _:c14n1995 , _:c14n2016 , _:c14n2029 , _:c14n2041 , _:c14n211 , _:c14n222 , _:c14n290 , _:c14n297 , _:c14n300 , _:c14n302 , _:c14n307 , _:c14n31 , _:c14n315 , _:c14n321 , _:c14n337 , _:c14n353 , _:c14n364 , _:c14n367 , _:c14n385 , _:c14n393 , _:c14n423 , _:c14n428 , _:c14n440 , _:c14n457 , _:c14n459 , _:c14n462 , _:c14n470 , _:c14n479 , _:c14n482 , _:c14n490 , _:c14n501 , _:c14n528 , _:c14n534 , _:c14n54 , _:c14n553 , _:c14n554 , _:c14n565 , _:c14n583 , _:c14n600 , _:c14n634 , _:c14n666 , _:c14n692 , _:c14n71 , _:c14n728 , _:c14n74 , _:c14n749 , _:c14n751 , _:c14n766 , _:c14n767 , _:c14n778 , _:c14n795 , _:c14n813 , _:c14n814 , _:c14n816 , _:c14n818 , _:c14n823 , _:c14n830 , _:c14n849 , _:c14n850 , _:c14n881 , _:c14n896 , _:c14n903 , _:c14n920 , _:c14n922 , _:c14n953 , _:c14n988 , _:c14n99 ;
-	skos:definition "The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element or term." ;
+	skos:definition "The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term." ;
 	skos:inScheme fix_orchestra:fix_orchestra_common ;
 	fix_orchestra:xsd_type "dcterms:elementOrRefinementContainer" .
 fix_orchestra:OrchestraNamedEncodingV11 dcterms:title "Orchestra encoding block for a standard (1.1-rc3)" ;
@@ -1248,7 +1248,7 @@ fix_orchestra:OrchestraReferenceV11Mixin dcterms:title "Orchestra reference keys
 fix_orchestra:OrchestraReliability\#bestEffort a owl:Class ;
 	rdfs:label "bestEffort" ;
 	rdfs:subClassOf fix_orchestra:OrchestraReliability ;
-	skos:definition "No promise; a message may be lost." .
+	skos:definition "No promise; any message can be lost." .
 fix_orchestra:OrchestraReliability\#idempotent a owl:Class ;
 	rdfs:label "idempotent" ;
 	rdfs:subClassOf fix_orchestra:OrchestraReliability ;
@@ -1395,7 +1395,7 @@ fix_orchestra:OrchestraServiceV10 dcterms:title "Orchestra service (1.0)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraServiceV10" ;
 	rdfs:subClassOf fix_orchestra:OrchestraProtocolV10 ;
-	skos:definition "An application-level service an interface offers, such as order routing, with the Orchestra file that describes it." ;
+	skos:definition "An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "serviceType" .
@@ -1403,7 +1403,7 @@ fix_orchestra:OrchestraServiceV11 dcterms:title "Orchestra service (1.1-rc3)" ;
 	a owl:Class ;
 	rdfs:label "OrchestraServiceV11" ;
 	rdfs:subClassOf fix_orchestra:OrchestraProtocolV11 ;
-	skos:definition "An application-level service an interface offers, such as order routing, with the Orchestra file that describes it." ;
+	skos:definition "An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "serviceType" .
@@ -1411,7 +1411,7 @@ fix_orchestra:OrchestraSessionIdentifierV10 dcterms:title "Orchestra session ide
 	a owl:Class ;
 	rdfs:label "OrchestraSessionIdentifierV10" ;
 	rdfs:subClassOf _:c14n1081 , _:c14n1749 , _:c14n415 , _:c14n748 , _:c14n845 , _:c14n955 ;
-	skos:definition "A named value that picks out a session, such as a sender or target ID." ;
+	skos:definition "A value, with what kind it is, that picks out a session, such as a sender or target ID." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2020/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "identifierType" .
@@ -1419,7 +1419,7 @@ fix_orchestra:OrchestraSessionIdentifierV11 dcterms:title "Orchestra session ide
 	a owl:Class ;
 	rdfs:label "OrchestraSessionIdentifierV11" ;
 	rdfs:subClassOf _:c14n1450 , _:c14n1661 , _:c14n215 , _:c14n224 , _:c14n68 , _:c14n761 ;
-	skos:definition "A named value that picks out a session, such as a sender or target ID." ;
+	skos:definition "A value, with what kind it is, that picks out a session, such as a sender or target ID." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_1 ;
 	fix_orchestra:xml_namespace "http://fixprotocol.io/2026/orchestra/interfaces" ;
 	fix_orchestra:xsd_type "identifierType" .
@@ -2157,7 +2157,7 @@ fix_orchestra:fixr_any a owl:ObjectProperty .
 fix_orchestra:fixr_appinfo a owl:ObjectProperty .
 fix_orchestra:fixr_appl_ver_id a owl:DatatypeProperty ;
 	rdfs:label "fixr_appl_ver_id" ;
-	skos:definition "The ApplVerID(1128) value of the FIX version the repository describes." ;
+	skos:definition "The FIX version the repository describes, as its ApplVerID(1128) code." ;
 	skos:inScheme fix_orchestra:fix_orchestra_v1_0 ;
 	fix_orchestra:xml_attribute "applVerId" .
 fix_orchestra:fixr_assign a owl:DatatypeProperty , owl:ObjectProperty .

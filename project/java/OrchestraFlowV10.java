@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A one-way flow of messages from one actor to another, with its delivery guarantee.
+  Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.
+  What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

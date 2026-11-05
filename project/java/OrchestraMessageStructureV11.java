@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  The ordered fields, components and groups of a message.
+  The ordered fields, groups and components of a message.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

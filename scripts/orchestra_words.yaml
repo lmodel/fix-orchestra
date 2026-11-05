@@ -21,8 +21,7 @@ modules:
     that validate here.
   common: >-
     The value lists that both editions of Orchestra share, the Dublin Core block
-    that heads an Orchestra file, and the two classes that hold XML the XSDs leave
-    open.
+    at the top of every file, and the two classes that hold XML the XSDs leave open.
   V10: >-
     Orchestra v1.0, promoted to Technical Standard in February 2021, rendered from
     its repository and interfaces XSDs. FIX Latest is published in this edition.
@@ -33,14 +32,14 @@ modules:
     so it is a module of its own.
 
 subsets:
-  fixr: Elements of an Orchestra repository file.
-  fixi: Elements of an Orchestra interfaces file.
+  fixr: Elements that a repository holds.
+  fixi: Elements that an interfaces file holds.
 
 metadata:
   title: Orchestra file metadata
   description: >-
-    The Dublin Core description at the head of an Orchestra file. Each key holds
-    the values of one Dublin Core element or term.
+    The Dublin Core description at the top of a repository or interfaces file. Each
+    key holds the values of one Dublin Core element or term.
   dc: >-
     The values the file gives for the Dublin Core element {term}.
   dcterms: The values the file gives for the DCMI term {term}.
@@ -69,7 +68,7 @@ classes:
   ActionParameter:
     title: Orchestra action input
     description: >-
-      One input to an action: a field, a component or a group, defined in place
+      One input to an action, which is a field, component or group, defined in place
       or named by reference. It holds exactly one of these.
   ActionStep:
     title: Orchestra action step
@@ -118,12 +117,12 @@ classes:
     title: Orchestra connection description
     description: >-
       What an interface and a session share: the services, encodings and protocols
-      that make up a connection, layer by layer.
+      of a connection, layer by layer.
   BlockAssignment:
     title: Orchestra block assignment
     description: >-
-      How a single use of a component, or every entry of a group, gets its values:
-      the fields, components and groups it sets.
+      How every entry of a group, or a single use of a component, gets its values:
+      the fields, groups and components it sets.
   Categories:
     title: Orchestra categories
     description: >-
@@ -136,7 +135,7 @@ classes:
   Code:
     title: Orchestra code
     description: >-
-      One permitted value in a code set, with its name and what goes on the wire.
+      One permitted value of the set, with its name and what goes on the wire.
   CodeSet:
     title: Orchestra code set
     description: >-
@@ -148,7 +147,7 @@ classes:
   Component:
     title: Orchestra component
     description: >-
-      A named block of fields, components and groups that messages and other blocks
+      A named block of fields, groups and components that messages and other blocks
       include by reference.
   ComponentRef:
     title: Orchestra component use
@@ -158,8 +157,7 @@ classes:
   ComponentRule:
     title: Orchestra component rule
     description: >-
-      A condition under which a component's presence changes, such as when it becomes
-      required.
+      A condition that changes a component's presence, such as making it required.
   Components:
     title: Orchestra components
     description: The components a repository defines.
@@ -171,8 +169,8 @@ classes:
   ConceptMember:
     title: Orchestra concept item
     description: >-
-      One element a concept ties together: a field, component, group or message,
-      by reference. It holds exactly one of these.
+      One element a concept ties together, named by reference, which is a message,
+      field, component or group. It holds exactly one of these.
   Concepts:
     title: Orchestra concepts
     description: The concepts a repository names.
@@ -217,8 +215,8 @@ classes:
   Field:
     title: Orchestra field
     description: >-
-      A FIX field: its tag number, name, datatype or code set, and the limits on
-      its value.
+      A FIX field: its tag number, its name, its datatype or its code set, and the
+      limits on its value.
   FieldConstraints:
     title: Orchestra field limits
     description: >-
@@ -233,19 +231,20 @@ classes:
   FieldRule:
     title: Orchestra field rule
     description: >-
-      A condition under which a field's presence, datatype or limits change, or
-      a check its value must pass.
+      A condition that changes a field's presence, datatype or limits, or a check
+      its value must pass.
   Fields:
     title: Orchestra fields
     description: The fields a repository defines.
   Flow:
     title: Orchestra flow
     description: >-
-      A one-way flow of messages from one actor to another, with its delivery guarantee.
+      Messages that travel one way, from a sending actor to a receiving one, with
+      their delivery guarantee.
   Group:
     title: Orchestra repeating group
     description: >-
-      A block whose entries repeat, each with the same fields, components and groups,
+      A block whose entries repeat, each with the same fields, groups and components,
       and whose count a NumInGroup field carries.
   GroupRef:
     title: Orchestra group use
@@ -307,7 +306,7 @@ classes:
   Message:
     title: Orchestra message
     description: >-
-      A FIX message: its type code, the fields, components and groups it carries
+      A FIX message: its type code, the fields, groups and components it carries
       in order, and the responses it can cause.
   MessageRef:
     title: Orchestra message sent
@@ -316,7 +315,7 @@ classes:
       sets or carries over.
   MessageStructure:
     title: Orchestra message layout
-    description: The ordered fields, components and groups of a message.
+    description: The ordered fields, groups and components of a message.
   Messages:
     title: Orchestra messages
     description: The messages a repository defines.
@@ -379,7 +378,7 @@ classes:
     title: Orchestra service
     description: >-
       An application-level service an interface offers, such as order routing, with
-      the Orchestra file that describes it.
+      the Orchestra repository that sets out its rules.
   Session:
     title: Orchestra session
     description: >-
@@ -388,7 +387,8 @@ classes:
   SessionIdentifier:
     title: Orchestra session identifier
     description: >-
-      A named value that picks out a session, such as a sender or target ID.
+      A value, with what kind it is, that picks out a session, such as a sender
+      or target ID.
   SessionProtocol:
     title: Orchestra session protocol
     description: >-
@@ -454,7 +454,7 @@ slots:
   '#other_attributes': Attributes from other namespaces, kept as written.
   '#members': The members, in document order.
   '#parameters': >-
-    The fields, components and groups the action takes as input, in order.
+    The fields, groups and components the action takes as input, in order.
   '#actions': >-
     What the action does, in order: messages sent, values set, transitions fired
     and timers scheduled.
@@ -511,7 +511,7 @@ slots:
     A datatype whose values the field may hold beside its codes, such as a range
     kept for user-defined values.
   type: The datatype that gives the element's values, by name.
-  codeSet: The code set that gives the field's values, by name.
+  codeSet: The field's code set, by name.
   nonEncodedFieldId: >-
     The tag number of the plain field that this encoded field stands for.
   source: The sending actor, by name.
@@ -557,14 +557,14 @@ slots:
   target: The state the transition leads to, by name.
   stateMachine: The state machine whose transition fires, by name.
   sourceId: >-
-    The tag number of the field in the message received that the value comes from;
-    the field's own tag number when none is given.
+    The tag number of the received message's field that the value comes from; the
+    field's own tag number when none is given.
   latestEP: The latest extension pack the list is up to date with.
   version: The repository's version, such as FIX.Latest_EP312.
-  guid: A globally unique identifier for the repository.
+  guid: An identifier of the repository, unique worldwide.
   namespace: A namespace address that goes with the repository.
   applVerId: >-
-    The ApplVerID(1128) value of the FIX version the repository describes.
+    The FIX version the repository describes, as its ApplVerID(1128) code.
   expressionLanguage: >-
     The language the conditions and assignments are written in; Score when none
     is given.
@@ -616,15 +616,14 @@ slots:
   onentry: What happens on entering the state.
   onexit: What happens on leaving the state.
   activity: What runs while the state is active.
-  when: >-
-    The condition under which the rule applies, written as an expression.
+  when: When the rule applies, written as an expression.
   rule: >-
     Rules that make the element's presence or limits depend on other values.
   blockAssignment: >-
     How the component, or every entry of the group, gets its values.
   unique: A check that the field's value is unique.
   numInGroup: The field that counts the group's entries.
-  structure: The message's fields, components and groups, in order.
+  structure: The message's fields, groups and components, in order.
   responses: What can happen when the message arrives.
   response: The responses, in order.
   identifiers: The fields the message sets or carries over.
@@ -641,8 +640,8 @@ slots:
   use: The transport's role, such as primary or alternate.
   layer: The layer the protocol works on.
   orchestration: >-
-    The address of the Orchestra file that describes the protocol's messages and
-    rules.
+    Where to find the Orchestra repository that sets out the protocol's messages
+    and rules.
   service: The application-level services offered.
   userInterface: The user interfaces offered.
   sessionProtocol: The session-level protocols used.
@@ -661,15 +660,15 @@ overrides:
   Annotation.#members: The texts and hints, in order.
   InterfaceAnnotation.#members: The texts and hints, in order.
   BlockAssignment.#members: >-
-    The fields, components and groups the assignment sets, in order.
+    The fields, groups and components the assignment sets, in order.
   Component.#members: >-
-    The fields, components and groups the component holds, in order.
+    The fields, groups and components the component holds, in order.
   Concept.#members: >-
     The fields, components, groups and messages the concept ties together.
   Group.#members: >-
-    The fields, components and groups that each entry holds, in order.
+    The fields, groups and components that each entry holds, in order.
   Identifiers.#members: The fields carried over or set, in order.
-  MessageStructure.#members: The message's fields, components and groups, in order.
+  MessageStructure.#members: The message's fields, groups and components, in order.
   SessionIdentifier.#text: The identifier's value.
   Identifier.id: The tag number of the field that is set or carried over.
   Reference.id: >-
@@ -707,11 +706,10 @@ overrides:
   Code.group: >-
     A label that places the code with others when its set is shown.
   V10:Field.type: >-
-    The datatype or code set that gives the field's values, by name; a code set
-    brings its own datatype.
+    The field's datatype, or its code set, by name; a code set brings its own datatype.
   V11:Field.type: >-
     The datatype that gives the field's values, by name, when no code set does.
-  CodeSet.type: The datatype of the set's values, by name.
+  CodeSet.type: The set's datatype, by name.
   FieldRule.type: >-
     The datatype the field takes while the rule's condition holds.
   CodeSets.codeSet: The code sets.
@@ -730,11 +728,11 @@ overrides:
   ActionParameter.component: A component defined in place.
   ActionParameter.group: A repeating group defined in place.
   ActorMember.field: A variable defined in place as a field.
-  ActorMember.fieldRef: A variable given by reference to a field.
+  ActorMember.fieldRef: A variable that uses a field by its number.
   ActorMember.component: A variable defined in place as a component.
-  ActorMember.componentRef: A variable given by reference to a component.
+  ActorMember.componentRef: A variable that uses a component by its number.
   ActorMember.group: A variable defined in place as a repeating group.
-  ActorMember.groupRef: A variable given by reference to a repeating group.
+  ActorMember.groupRef: A variable that uses a repeating group by its number.
   Unique.fieldRef: The fields that scope the check, in order.
   ActionStep.messageRef: A message to send.
   ActionStep.assign: >-
@@ -747,10 +745,10 @@ overrides:
     The condition that allows the transition, written as an expression; the transition
     is always allowed when none is given.
   Response.when: >-
-    The condition under which the response fires, written as an expression; it always
-    fires when none is given.
+    When the response fires, written as an expression; it always fires when none
+    is given.
   Message.when: >-
-    The condition that tells this scenario of the message from its others.
+    An expression that sets this scenario of the message apart from its others.
   ComponentRef.rule: >-
     Rules that make the component's presence depend on other values.
   Group.implMinOccurs: The fewest entries an implementation accepts.
@@ -764,13 +762,13 @@ overrides:
   Appinfo.purpose: What the hint is for, such as the encoding it concerns.
   InterfaceAppinfo.purpose: What the hint is for, such as the tool it concerns.
   NamedEncoding.standard: The encoding standard this block is for, by name.
-  EncodingStandard.encoding: General encoding information for this standard.
+  EncodingStandard.encoding: Encoding details that hold for the whole standard.
   Encodings.encoding: The encoding blocks, one per standard.
   MappedDatatype.encoding: Encoding information for this mapping.
   Flow.reliability: >-
-    The delivery guarantee of the flow, from best effort to recoverable.
+    How reliably the flow delivers its messages, from best effort to recoverable.
   Protocol.reliability: >-
-    The delivery guarantee the protocol gives, which a transport, a session or an
+    The delivery guarantee the protocol gives, which a transport, a session or the
     application may provide.
   fixi:Protocol.name: >-
     The protocol's name, such as FIXT or SBE, or another name of the provider's
@@ -824,7 +822,7 @@ enums:
     description: >-
       What a flow or protocol promises about delivering each message.
     values:
-      bestEffort: No promise; a message may be lost.
+      bestEffort: No promise; any message can be lost.
       idempotent: >-
         Each message is acted on at most once; a lost one is not sent again.
       recoverable: >-

@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element or term.
+  The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

@@ -50,14 +50,14 @@
     {
       "name": "fixr",
       "definition_uri": "https://w3id.org/lmodel/fix-orchestra/Fixr",
-      "description": "Elements of an Orchestra repository file.",
+      "description": "Elements that a repository holds.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common",
       "@type": "SubsetDefinition"
     },
     {
       "name": "fixi",
       "definition_uri": "https://w3id.org/lmodel/fix-orchestra/Fixi",
-      "description": "Elements of an Orchestra interfaces file.",
+      "description": "Elements that an interfaces file holds.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common",
       "@type": "SubsetDefinition"
     }
@@ -569,7 +569,7 @@
       "permissible_values": [
         {
           "text": "bestEffort",
-          "description": "No promise; a message may be lost."
+          "description": "No promise; any message can be lost."
         },
         {
           "text": "idempotent",
@@ -2835,7 +2835,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the action takes as input, in order.",
+      "description": "The fields, groups and components the action takes as input, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_parameters",
       "alias": "fixr_parameters",
@@ -2905,7 +2905,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a field.",
+      "description": "A variable that uses a field by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_field_ref",
       "alias": "fixr_field_ref",
@@ -2949,7 +2949,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a component.",
+      "description": "A variable that uses a component by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_component_ref",
       "alias": "fixr_component_ref",
@@ -2993,7 +2993,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a repeating group.",
+      "description": "A variable that uses a repeating group by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_group_ref",
       "alias": "fixr_group_ref",
@@ -3625,7 +3625,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the assignment sets, in order.",
+      "description": "The fields, groups and components the assignment sets, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -3865,7 +3865,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The datatype of the set's values, by name.",
+      "description": "The set's datatype, by name.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_type",
       "alias": "fixr_type",
@@ -4165,7 +4165,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the rule applies, written as an expression.",
+      "description": "When the rule applies, written as an expression.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -4228,7 +4228,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the component holds, in order.",
+      "description": "The fields, groups and components the component holds, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -5214,7 +5214,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the rule applies, written as an expression.",
+      "description": "When the rule applies, written as an expression.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -5343,7 +5343,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The datatype or code set that gives the field's values, by name; a code set brings its own datatype.",
+      "description": "The field's datatype, or its code set, by name; a code set brings its own datatype.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_type",
       "alias": "fixr_type",
@@ -5619,7 +5619,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The delivery guarantee of the flow, from best effort to recoverable.",
+      "description": "How reliably the flow delivers its messages, from best effort to recoverable.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_reliability",
       "alias": "fixr_reliability",
@@ -5704,7 +5704,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups that each entry holds, in order.",
+      "description": "The fields, groups and components that each entry holds, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -5922,7 +5922,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.",
+      "description": "The tag number of the received message's field that the value comes from; the field's own tag number when none is given.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_source_id",
       "alias": "fixr_source_id",
@@ -6833,7 +6833,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The message's fields, components and groups, in order.",
+      "description": "The message's fields, groups and components, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -6878,7 +6878,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The message's fields, components and groups, in order.",
+      "description": "The message's fields, groups and components, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_structure",
       "alias": "fixr_structure",
@@ -7412,7 +7412,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The delivery guarantee the protocol gives, which a transport, a session or an application may provide.",
+      "description": "The delivery guarantee the protocol gives, which a transport, a session or the application may provide.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixi_reliability",
       "alias": "fixi_reliability",
@@ -7432,7 +7432,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The address of the Orchestra file that describes the protocol's messages and rules.",
+      "description": "Where to find the Orchestra repository that sets out the protocol's messages and rules.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixi_orchestration",
       "alias": "fixi_orchestration",
@@ -7831,7 +7831,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A globally unique identifier for the repository.",
+      "description": "An identifier of the repository, unique worldwide.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_guid",
       "alias": "fixr_guid",
@@ -7891,7 +7891,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The ApplVerID(1128) value of the FIX version the repository describes.",
+      "description": "The FIX version the repository describes, as its ApplVerID(1128) code.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_appl_ver_id",
       "alias": "fixr_appl_ver_id",
@@ -7932,7 +7932,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the response fires, written as an expression; it always fires when none is given.",
+      "description": "When the response fires, written as an expression; it always fires when none is given.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -9251,7 +9251,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the action takes as input, in order.",
+      "description": "The fields, groups and components the action takes as input, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_parameters",
       "alias": "fixr_parameters",
@@ -9321,7 +9321,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a field.",
+      "description": "A variable that uses a field by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_field_ref",
       "alias": "fixr_field_ref",
@@ -9365,7 +9365,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a component.",
+      "description": "A variable that uses a component by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_component_ref",
       "alias": "fixr_component_ref",
@@ -9409,7 +9409,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A variable given by reference to a repeating group.",
+      "description": "A variable that uses a repeating group by its number.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_group_ref",
       "alias": "fixr_group_ref",
@@ -10107,7 +10107,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the assignment sets, in order.",
+      "description": "The fields, groups and components the assignment sets, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -10352,7 +10352,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The datatype of the set's values, by name.",
+      "description": "The set's datatype, by name.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_type",
       "alias": "fixr_type",
@@ -10739,7 +10739,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the rule applies, written as an expression.",
+      "description": "When the rule applies, written as an expression.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -10802,7 +10802,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups the component holds, in order.",
+      "description": "The fields, groups and components the component holds, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -11485,7 +11485,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "General encoding information for this standard.",
+      "description": "Encoding details that hold for the whole standard.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_encoding",
       "alias": "fixr_encoding",
@@ -12021,7 +12021,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the rule applies, written as an expression.",
+      "description": "When the rule applies, written as an expression.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -12194,7 +12194,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The code set that gives the field's values, by name.",
+      "description": "The field's code set, by name.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_code_set",
       "alias": "fixr_code_set",
@@ -12495,7 +12495,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The delivery guarantee of the flow, from best effort to recoverable.",
+      "description": "How reliably the flow delivers its messages, from best effort to recoverable.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_reliability",
       "alias": "fixr_reliability",
@@ -12580,7 +12580,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The fields, components and groups that each entry holds, in order.",
+      "description": "The fields, groups and components that each entry holds, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -12881,7 +12881,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.",
+      "description": "The tag number of the received message's field that the value comes from; the field's own tag number when none is given.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_source_id",
       "alias": "fixr_source_id",
@@ -13786,7 +13786,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The message's fields, components and groups, in order.",
+      "description": "The message's fields, groups and components, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_members",
       "alias": "fixr_members",
@@ -13829,7 +13829,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The message's fields, components and groups, in order.",
+      "description": "The message's fields, groups and components, in order.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_structure",
       "alias": "fixr_structure",
@@ -13851,7 +13851,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition that tells this scenario of the message from its others.",
+      "description": "An expression that sets this scenario of the message apart from its others.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -14554,7 +14554,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The delivery guarantee the protocol gives, which a transport, a session or an application may provide.",
+      "description": "The delivery guarantee the protocol gives, which a transport, a session or the application may provide.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixi_reliability",
       "alias": "fixi_reliability",
@@ -14574,7 +14574,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The address of the Orchestra file that describes the protocol's messages and rules.",
+      "description": "Where to find the Orchestra repository that sets out the protocol's messages and rules.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixi_orchestration",
       "alias": "fixi_orchestration",
@@ -15035,7 +15035,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A globally unique identifier for the repository.",
+      "description": "An identifier of the repository, unique worldwide.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_guid",
       "alias": "fixr_guid",
@@ -15116,7 +15116,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The condition under which the response fires, written as an expression; it always fires when none is given.",
+      "description": "When the response fires, written as an expression; it always fires when none is given.",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_1",
       "slot_uri": "https://w3id.org/lmodel/fix-orchestra/fixr_when",
       "alias": "fixr_when",
@@ -16395,7 +16395,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The Dublin Core description at the head of an Orchestra file. Each key holds the values of one Dublin Core element or term.",
+      "description": "The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.",
       "title": "Orchestra file metadata",
       "from_schema": "https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common",
       "slots": [
@@ -17622,7 +17622,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.",
+      "description": "One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.",
       "title": "Orchestra action input (1.0)",
       "in_subset": [
         "fixr"
@@ -17955,7 +17955,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the action takes as input, in order.",
+          "description": "The fields, groups and components the action takes as input, in order.",
           "range": "OrchestraActionParameterV10",
           "multivalued": true,
           "inlined_as_list": true,
@@ -18038,7 +18038,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a field.",
+          "description": "A variable that uses a field by its number.",
           "range": "OrchestraFieldRefV10",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -18066,7 +18066,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a component.",
+          "description": "A variable that uses a component by its number.",
           "range": "OrchestraComponentRefV10",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -18094,7 +18094,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a repeating group.",
+          "description": "A variable that uses a repeating group by its number.",
           "range": "OrchestraGroupRefV10",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -18733,7 +18733,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.",
+      "description": "What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.",
       "title": "Orchestra connection description (1.0)",
       "in_subset": [
         "fixi"
@@ -18905,7 +18905,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.",
+      "description": "How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.",
       "title": "Orchestra block assignment (1.0)",
       "in_subset": [
         "fixr"
@@ -18925,7 +18925,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the assignment sets, in order.",
+          "description": "The fields, groups and components the assignment sets, in order.",
           "range": "OrchestraStructureMemberV10",
           "required": true,
           "multivalued": true,
@@ -19224,7 +19224,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The datatype of the set's values, by name.",
+          "description": "The set's datatype, by name.",
           "range": "string",
           "required": true,
           "pattern": "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$",
@@ -19336,7 +19336,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One permitted value in a code set, with its name and what goes on the wire.",
+      "description": "One permitted value of the set, with its name and what goes on the wire.",
       "title": "Orchestra code (1.0)",
       "in_subset": [
         "fixr"
@@ -19569,7 +19569,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A condition under which a component's presence changes, such as when it becomes required.",
+      "description": "A condition that changes a component's presence, such as making it required.",
       "title": "Orchestra component rule (1.0)",
       "in_subset": [
         "fixr"
@@ -19591,7 +19591,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the rule applies, written as an expression.",
+          "description": "When the rule applies, written as an expression.",
           "range": "string",
           "required": true,
           "pattern": "^[\\s\\S]{0,1024}$",
@@ -19643,7 +19643,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A named block of fields, components and groups that messages and other blocks include by reference.",
+      "description": "A named block of fields, groups and components that messages and other blocks include by reference.",
       "title": "Orchestra component (1.0)",
       "in_subset": [
         "fixr"
@@ -19688,7 +19688,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the component holds, in order.",
+          "description": "The fields, groups and components the component holds, in order.",
           "range": "OrchestraStructureMemberV10",
           "required": true,
           "multivalued": true,
@@ -19834,7 +19834,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.",
+      "description": "One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.",
       "title": "Orchestra concept item (1.0)",
       "in_subset": [
         "fixr"
@@ -20826,7 +20826,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A condition under which a field's presence, datatype or limits change, or a check its value must pass.",
+      "description": "A condition that changes a field's presence, datatype or limits, or a check its value must pass.",
       "title": "Orchestra field rule (1.0)",
       "in_subset": [
         "fixr"
@@ -20891,7 +20891,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the rule applies, written as an expression.",
+          "description": "When the rule applies, written as an expression.",
           "range": "string",
           "required": true,
           "pattern": "^[\\s\\S]{0,1024}$",
@@ -20943,7 +20943,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A FIX field: its tag number, name, datatype or code set, and the limits on its value.",
+      "description": "A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.",
       "title": "Orchestra field (1.0)",
       "in_subset": [
         "fixr"
@@ -21045,7 +21045,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The datatype or code set that gives the field's values, by name; a code set brings its own datatype.",
+          "description": "The field's datatype, or its code set, by name; a code set brings its own datatype.",
           "range": "string",
           "required": true,
           "@type": "SlotDefinition"
@@ -21213,7 +21213,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A one-way flow of messages from one actor to another, with its delivery guarantee.",
+      "description": "Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.",
       "title": "Orchestra flow (1.0)",
       "in_subset": [
         "fixr"
@@ -21294,7 +21294,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The delivery guarantee of the flow, from best effort to recoverable.",
+          "description": "How reliably the flow delivers its messages, from best effort to recoverable.",
           "range": "OrchestraReliability",
           "@type": "SlotDefinition"
         }
@@ -21398,7 +21398,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.",
+      "description": "A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.",
       "title": "Orchestra repeating group (1.0)",
       "in_subset": [
         "fixr"
@@ -21460,7 +21460,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups that each entry holds, in order.",
+          "description": "The fields, groups and components that each entry holds, in order.",
           "range": "OrchestraStructureMemberV10",
           "required": true,
           "multivalued": true,
@@ -21671,7 +21671,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.",
+          "description": "The tag number of the received message's field that the value comes from; the field's own tag number when none is given.",
           "range": "integer",
           "minimum_value": 1,
           "@type": "SlotDefinition"
@@ -22706,7 +22706,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The ordered fields, components and groups of a message.",
+      "description": "The ordered fields, groups and components of a message.",
       "title": "Orchestra message layout (1.0)",
       "in_subset": [
         "fixr"
@@ -22727,7 +22727,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The message's fields, components and groups, in order.",
+          "description": "The message's fields, groups and components, in order.",
           "range": "OrchestraStructureMemberV10",
           "required": true,
           "multivalued": true,
@@ -22767,7 +22767,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.",
+      "description": "A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.",
       "title": "Orchestra message (1.0)",
       "in_subset": [
         "fixr"
@@ -22813,7 +22813,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The message's fields, components and groups, in order.",
+          "description": "The message's fields, groups and components, in order.",
           "range": "OrchestraMessageStructureV10",
           "required": true,
           "inlined": true,
@@ -23280,7 +23280,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The delivery guarantee the protocol gives, which a transport, a session or an application may provide.",
+          "description": "The delivery guarantee the protocol gives, which a transport, a session or the application may provide.",
           "range": "OrchestraReliability",
           "@type": "SlotDefinition"
         },
@@ -23293,7 +23293,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The address of the Orchestra file that describes the protocol's messages and rules.",
+          "description": "Where to find the Orchestra repository that sets out the protocol's messages and rules.",
           "range": "uri",
           "@type": "SlotDefinition"
         },
@@ -23637,7 +23637,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A globally unique identifier for the repository.",
+          "description": "An identifier of the repository, unique worldwide.",
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -23676,7 +23676,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The ApplVerID(1128) value of the FIX version the repository describes.",
+          "description": "The FIX version the repository describes, as its ApplVerID(1128) code.",
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -23740,7 +23740,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the response fires, written as an expression; it always fires when none is given.",
+          "description": "When the response fires, written as an expression; it always fires when none is given.",
           "range": "string",
           "pattern": "^[\\s\\S]{0,1024}$",
           "@type": "SlotDefinition"
@@ -24023,7 +24023,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.",
+      "description": "An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.",
       "title": "Orchestra service (1.0)",
       "in_subset": [
         "fixi"
@@ -24058,7 +24058,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A named value that picks out a session, such as a sender or target ID.",
+      "description": "A value, with what kind it is, that picks out a session, such as a sender or target ID.",
       "title": "Orchestra session identifier (1.0)",
       "in_subset": [
         "fixi"
@@ -25133,7 +25133,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One input to an action: a field, a component or a group, defined in place or named by reference. It holds exactly one of these.",
+      "description": "One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.",
       "title": "Orchestra action input (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -25466,7 +25466,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the action takes as input, in order.",
+          "description": "The fields, groups and components the action takes as input, in order.",
           "range": "OrchestraActionParameterV11",
           "multivalued": true,
           "inlined_as_list": true,
@@ -25549,7 +25549,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a field.",
+          "description": "A variable that uses a field by its number.",
           "range": "OrchestraFieldRefV11",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -25577,7 +25577,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a component.",
+          "description": "A variable that uses a component by its number.",
           "range": "OrchestraComponentRefV11",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -25605,7 +25605,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A variable given by reference to a repeating group.",
+          "description": "A variable that uses a repeating group by its number.",
           "range": "OrchestraGroupRefV11",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -26318,7 +26318,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "What an interface and a session share: the services, encodings and protocols that make up a connection, layer by layer.",
+      "description": "What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.",
       "title": "Orchestra connection description (1.1-rc3)",
       "in_subset": [
         "fixi"
@@ -26491,7 +26491,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "How a single use of a component, or every entry of a group, gets its values: the fields, components and groups it sets.",
+      "description": "How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.",
       "title": "Orchestra block assignment (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -26511,7 +26511,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the assignment sets, in order.",
+          "description": "The fields, groups and components the assignment sets, in order.",
           "range": "OrchestraStructureMemberV11",
           "required": true,
           "multivalued": true,
@@ -26812,7 +26812,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The datatype of the set's values, by name.",
+          "description": "The set's datatype, by name.",
           "range": "string",
           "required": true,
           "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
@@ -26966,7 +26966,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One permitted value in a code set, with its name and what goes on the wire.",
+      "description": "One permitted value of the set, with its name and what goes on the wire.",
       "title": "Orchestra code (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -27217,7 +27217,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A condition under which a component's presence changes, such as when it becomes required.",
+      "description": "A condition that changes a component's presence, such as making it required.",
       "title": "Orchestra component rule (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -27239,7 +27239,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the rule applies, written as an expression.",
+          "description": "When the rule applies, written as an expression.",
           "range": "string",
           "required": true,
           "pattern": "^[\\s\\S]{0,1024}$",
@@ -27291,7 +27291,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A named block of fields, components and groups that messages and other blocks include by reference.",
+      "description": "A named block of fields, groups and components that messages and other blocks include by reference.",
       "title": "Orchestra component (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -27340,7 +27340,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups the component holds, in order.",
+          "description": "The fields, groups and components the component holds, in order.",
           "range": "OrchestraStructureMemberV11",
           "multivalued": true,
           "inlined_as_list": true,
@@ -27522,7 +27522,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "One element a concept ties together: a field, component, group or message, by reference. It holds exactly one of these.",
+      "description": "One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.",
       "title": "Orchestra concept item (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -28122,7 +28122,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "General encoding information for this standard.",
+          "description": "Encoding details that hold for the whole standard.",
           "range": "OrchestraUnnamedEncodingV11",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -28660,7 +28660,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A condition under which a field's presence, datatype or limits change, or a check its value must pass.",
+      "description": "A condition that changes a field's presence, datatype or limits, or a check its value must pass.",
       "title": "Orchestra field rule (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -28725,7 +28725,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the rule applies, written as an expression.",
+          "description": "When the rule applies, written as an expression.",
           "range": "string",
           "required": true,
           "pattern": "^[\\s\\S]{0,1024}$",
@@ -28778,7 +28778,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A FIX field: its tag number, name, datatype or code set, and the limits on its value.",
+      "description": "A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.",
       "title": "Orchestra field (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -28911,7 +28911,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The code set that gives the field's values, by name.",
+          "description": "The field's code set, by name.",
           "range": "string",
           "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
           "@type": "SlotDefinition"
@@ -29096,7 +29096,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A one-way flow of messages from one actor to another, with its delivery guarantee.",
+      "description": "Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.",
       "title": "Orchestra flow (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -29177,7 +29177,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The delivery guarantee of the flow, from best effort to recoverable.",
+          "description": "How reliably the flow delivers its messages, from best effort to recoverable.",
           "range": "OrchestraReliability",
           "@type": "SlotDefinition"
         }
@@ -29283,7 +29283,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.",
+      "description": "A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.",
       "title": "Orchestra repeating group (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -29349,7 +29349,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The fields, components and groups that each entry holds, in order.",
+          "description": "The fields, groups and components that each entry holds, in order.",
           "range": "OrchestraStructureMemberV11",
           "multivalued": true,
           "inlined_as_list": true,
@@ -29611,7 +29611,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The tag number of the field in the message received that the value comes from; the field's own tag number when none is given.",
+          "description": "The tag number of the received message's field that the value comes from; the field's own tag number when none is given.",
           "range": "integer",
           "minimum_value": 1,
           "maximum_value": 2147483647,
@@ -30642,7 +30642,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "The ordered fields, components and groups of a message.",
+      "description": "The ordered fields, groups and components of a message.",
       "title": "Orchestra message layout (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -30663,7 +30663,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The message's fields, components and groups, in order.",
+          "description": "The message's fields, groups and components, in order.",
           "range": "OrchestraStructureMemberV11",
           "multivalued": true,
           "inlined_as_list": true,
@@ -30701,7 +30701,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A FIX message: its type code, the fields, components and groups it carries in order, and the responses it can cause.",
+      "description": "A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.",
       "title": "Orchestra message (1.1-rc3)",
       "in_subset": [
         "fixr"
@@ -30753,7 +30753,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The message's fields, components and groups, in order.",
+          "description": "The message's fields, groups and components, in order.",
           "range": "OrchestraMessageStructureV11",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -30767,7 +30767,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition that tells this scenario of the message from its others.",
+          "description": "An expression that sets this scenario of the message apart from its others.",
           "range": "string",
           "pattern": "^[\\s\\S]{0,1024}$",
           "@type": "SlotDefinition"
@@ -31379,7 +31379,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The delivery guarantee the protocol gives, which a transport, a session or an application may provide.",
+          "description": "The delivery guarantee the protocol gives, which a transport, a session or the application may provide.",
           "range": "OrchestraReliability",
           "@type": "SlotDefinition"
         },
@@ -31392,7 +31392,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The address of the Orchestra file that describes the protocol's messages and rules.",
+          "description": "Where to find the Orchestra repository that sets out the protocol's messages and rules.",
           "range": "uri",
           "@type": "SlotDefinition"
         },
@@ -31773,7 +31773,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "A globally unique identifier for the repository.",
+          "description": "An identifier of the repository, unique worldwide.",
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -31863,7 +31863,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "The condition under which the response fires, written as an expression; it always fires when none is given.",
+          "description": "When the response fires, written as an expression; it always fires when none is given.",
           "range": "string",
           "pattern": "^[\\s\\S]{0,1024}$",
           "@type": "SlotDefinition"
@@ -32367,7 +32367,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "An application-level service an interface offers, such as order routing, with the Orchestra file that describes it.",
+      "description": "An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.",
       "title": "Orchestra service (1.1-rc3)",
       "in_subset": [
         "fixi"
@@ -32405,7 +32405,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "A named value that picks out a session, such as a sender or target ID.",
+      "description": "A value, with what kind it is, that picks out a session, such as a sender or target ID.",
       "title": "Orchestra session identifier (1.1-rc3)",
       "in_subset": [
         "fixi"
@@ -33509,7 +33509,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "fix_orchestra.yaml",
-  "source_file_date": "2026-11-05T19:26:20",
+  "source_file_date": "2026-11-05T20:03:20",
   "source_file_size": 1195,
   "@type": "SchemaDefinition",
   "@context": [

@@ -3,8 +3,8 @@ id: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common
 name: fix_orchestra_common
 title: FIX Orchestra shared value lists and XML holders
 description: >-
-  The value lists that both editions of Orchestra share, the Dublin Core block that
-  heads an Orchestra file, and the two classes that hold XML the XSDs leave open.
+  The value lists that both editions of Orchestra share, the Dublin Core block at
+  the top of every file, and the two classes that hold XML the XSDs leave open.
 version: 1.0, 1.1-rc3
 source: https://github.com/FIXTradingCommunity/fix-orchestra-spec
 license: Apache-2.0
@@ -26,10 +26,10 @@ imports:
 subsets:
 
   fixr:
-    description: Elements of an Orchestra repository file.
+    description: Elements that a repository holds.
 
   fixi:
-    description: Elements of an Orchestra interfaces file.
+    description: Elements that an interfaces file holds.
 
 enums:
 
@@ -140,7 +140,7 @@ enums:
       What a flow or protocol promises about delivering each message.
     permissible_values:
       bestEffort:
-        description: No promise; a message may be lost.
+        description: No promise; any message can be lost.
       idempotent:
         description: >-
           Each message is acted on at most once; a lost one is not sent again.
@@ -215,8 +215,8 @@ classes:
   OrchestraMetadata:
     title: Orchestra file metadata
     description: >-
-      The Dublin Core description at the head of an Orchestra file. Each key holds
-      the values of one Dublin Core element or term.
+      The Dublin Core description at the top of a repository or interfaces file. Each
+      key holds the values of one Dublin Core element or term.
     annotations:
       xsd_type: dcterms:elementOrRefinementContainer
     attributes:

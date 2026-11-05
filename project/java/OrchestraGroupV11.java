@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A block whose entries repeat, each with the same fields, components and groups, and whose count a NumInGroup field carries.
+  A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)

@@ -17,7 +17,9 @@ https://github.com/FIXTradingCommunity/fix-orchestra at the tag v1.1-rc3,
 commit eb4bb9d. Each folder holds its repository's LICENSE, and every file
 is unchanged.
 
-  Copyright (c) 2016-2026 FIX Protocol Limited.
+  Copyright (c) 2016-2020 FIX Protocol Limited (the v1.0 XSDs)
+  Copyright (c) 2016-2026 FIX Protocol Limited (the v1.1 RC3 XSDs; its
+  interfaces XSD says 2016-2024)
 
 Each XSD names the Creative Commons Attribution-NoDerivatives 4.0
 International Public License (CC BY-ND 4.0,
@@ -26,7 +28,10 @@ upstream/v1.0/LICENSE holds. The fix-orchestra code repository is under the
 Apache License, Version 2.0, whose text upstream/v1.1-rc3/LICENSE holds. The
 dc.xsd, dcterms.xsd and dcmitype.xsd files beside the XSDs are the Dublin
 Core Metadata Initiative's, and xml.xsd is W3C's, as FIX copied them; they
-let the XSDs validate offline.
+let the XSDs validate offline. xml.xsd carries W3C's documentation of the
+xml: namespace and no licence statement, and the DCMI schemas' headers name
+their authors and dates and no licence; FIX ships them unchanged, and so does
+this repository.
 
 CC BY-ND 4.0 lets anyone copy and share the XSDs unchanged, with credit and
 a link to the licence (its section 2(a)(1)(A)), which is what upstream/

@@ -61,11 +61,11 @@ ROOTS = {
     ): "OrchestraInterfacesV11",
 }
 
-# A parser that reads no network resource and expands no entity.
+# A parser that reads no network resource and expands no entity, within libxml2's usual
+# limits on depth and size, which the largest FIX file is far inside.
 PARSER = etree.XMLParser(
     no_network=True,
     resolve_entities=False,
-    huge_tree=True,
     remove_comments=True,
     remove_pis=True,
 )
@@ -274,7 +274,12 @@ def read(path: Path) -> tuple[str, dict]:
     name = ROOTS.get((q.namespace, q.localname))
     if name is None:
         raise ValueError(f"{path}: no class for a root {root.tag}")
-    return name, to_record(root, name)
+    try:
+        return name, to_record(root, name)
+    except RecursionError:
+        raise ValueError(
+            f"{path}: the elements are nested too deep to convert"
+        ) from None
 
 
 # Records to XML

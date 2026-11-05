@@ -172,3 +172,14 @@ def _write(folder, record):
     path = folder / "record.yaml"
     path.write_text(yaml.safe_dump(record, sort_keys=False), encoding="utf-8")
     return path
+
+
+def test_a_file_nested_too_deep_is_refused(tmp_path):
+    """Open content nested past the parser's limit is refused with a plain error, and
+    content past Python's own depth, were the parser to allow it, would be too."""
+    path = tmp_path / "deep.xml"
+    body = "<fixr:annotation><fixr:appinfo>" + "<x>" * 300 + "</x>" * 300
+    body += "</fixr:appinfo></fixr:annotation>"
+    path.write_bytes(_repository(body))
+    with pytest.raises((ValueError, etree.XMLSyntaxError)):
+        conversion.CONVERTER.read(path)

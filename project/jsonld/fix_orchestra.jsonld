@@ -2517,7 +2517,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^\\{[^}]*\\}[^\\s{}]+$",
+      "pattern": "^(\\{[^}]*\\})?[^\\s{}]+$",
       "@type": "SlotDefinition"
     },
     {
@@ -17545,7 +17545,7 @@
           "name": "xml_name",
           "description": "The name, with its namespace in braces when it has one.",
           "required": true,
-          "pattern": "^\\{[^}]*\\}[^\\s{}]+$",
+          "pattern": "^(\\{[^}]*\\})?[^\\s{}]+$",
           "@type": "SlotDefinition"
         },
         {
@@ -33509,7 +33509,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "fix_orchestra.yaml",
-  "source_file_date": "2026-11-05T19:21:11",
+  "source_file_date": "2026-11-05T19:26:20",
   "source_file_size": 1195,
   "@type": "SchemaDefinition",
   "@context": [

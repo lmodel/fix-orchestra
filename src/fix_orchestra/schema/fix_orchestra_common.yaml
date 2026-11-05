@@ -735,7 +735,7 @@ classes:
       xml_name:
         description: The name, with its namespace in braces when it has one.
         required: true
-        pattern: ^\{[^}]*\}[^\s{}]+$
+        pattern: ^(\{[^}]*\})?[^\s{}]+$
       xml_attributes:
         description: The element's attributes.
         range: OrchestraXmlAttribute

@@ -1072,7 +1072,7 @@ def common_classes(words: Words) -> dict:
                 "xml_name": {
                     "description": xml_words["name"],
                     "required": True,
-                    "pattern": r"^\{[^}]*\}[^\s{}]+$",
+                    "pattern": r"^(\{[^}]*\})?[^\s{}]+$",
                 },
                 "xml_attributes": {
                     "description": xml_words["attributes"],

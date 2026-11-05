@@ -14343,7 +14343,7 @@
                 },
                 "xml_name": {
                     "description": "The name, with its namespace in braces when it has one.",
-                    "pattern": "^\\{[^}]*\\}[^\\s{}]+$",
+                    "pattern": "^(\\{[^}]*\\})?[^\\s{}]+$",
                     "type": "string"
                 },
                 "xml_tail": {

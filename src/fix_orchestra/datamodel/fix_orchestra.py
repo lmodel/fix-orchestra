@@ -8787,7 +8787,7 @@ slots.orchestraMetadata__dcterms_bibliographic_citation = Slot(uri=DCTERMS.bibli
 
 slots.orchestraXmlElement__xml_name = Slot(uri=FIX_ORCHESTRA.xml_name, name="orchestraXmlElement__xml_name", curie=FIX_ORCHESTRA.curie('xml_name'),
                    model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_name, domain=None, range=str,
-                   pattern=re.compile(r'^\{[^}]*\}[^\s{}]+$'))
+                   pattern=re.compile(r'^(\{[^}]*\})?[^\s{}]+$'))
 
 slots.orchestraXmlElement__xml_attributes = Slot(uri=FIX_ORCHESTRA.xml_attributes, name="orchestraXmlElement__xml_attributes", curie=FIX_ORCHESTRA.curie('xml_attributes'),
                    model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])

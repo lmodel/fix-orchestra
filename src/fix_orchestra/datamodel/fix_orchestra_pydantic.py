@@ -804,7 +804,7 @@ class OrchestraXmlElement(ConfiguredBaseModel):
 
     @field_validator('xml_name')
     def pattern_xml_name(cls, v):
-        pattern=re.compile(r"^\{[^}]*\}[^\s{}]+$")
+        pattern=re.compile(r"^(\{[^}]*\})?[^\s{}]+$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):

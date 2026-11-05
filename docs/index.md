@@ -17,4 +17,4 @@ uv run linkml-validate -s src/fix_orchestra/schema/fix_orchestra.yaml -C Orchest
 
 A repository is `OrchestraRepositoryV10` or `OrchestraRepositoryV11`, and an interfaces file `OrchestraInterfacesV10` or `OrchestraInterfacesV11`. `project/jsonschema/fix_orchestra.schema.json` is the same schema for anyone without LinkML. `tests/orchestra_rules.py` adds what a validator cannot state, such as that a field's number is unique and that a message uses fields the file defines.
 
-`uv run python scripts/orchestra_xml_to_yaml.py --to-xml fixt.yaml` writes the file back.
+`uv run python scripts/orchestra_xml_to_yaml.py --to-xml fixt.yaml` writes the file back. The record's keys name its class; when they fit both editions, as a file with no edition-specific element does, add `--class OrchestraRepositoryV10` or the class you mean.

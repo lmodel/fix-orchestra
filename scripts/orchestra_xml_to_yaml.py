@@ -9,14 +9,16 @@ annotations from the schema's modules, so it holds no table of its own:
 - to records: the root element's namespace picks the edition and the class, and each
   attribute, element and text becomes the key the class's annotations name. A repeated
   choice becomes a list of one-key members, so the order of a message's fields is kept;
-- to XML: the same tables, read the other way, write the file back.
+- to XML: the same tables, read the other way, write the file back. The record's keys
+  name its class among the tree roots; ``--class`` names it when they fit more than one.
 
-A name the class does not know is an error, so nothing is dropped silently. Attributes in
-the XML Schema instance namespace, such as ``xsi:schemaLocation``, are hints to a parser and
-are left out; so are comments and processing instructions. Usage::
+The records are written bare, as ``linkml-validate`` reads them. A name the class does
+not know is an error, so nothing is dropped silently. Attributes in the XML Schema
+instance namespace, such as ``xsi:schemaLocation``, are hints to a parser and are left
+out; so are comments and processing instructions. Usage::
 
     uv run python scripts/orchestra_xml_to_yaml.py FILE.xml [-o FILE.yaml]
-    uv run python scripts/orchestra_xml_to_yaml.py --to-xml FILE.yaml [-o FILE.xml]
+    uv run python scripts/orchestra_xml_to_yaml.py --to-xml [--class NAME] FILE.yaml [-o FILE.xml]
 """
 
 from __future__ import annotations
@@ -348,6 +350,30 @@ def _from_open(item: dict):
     return element
 
 
+def _fits(record, name: str) -> bool:
+    """Whether every key of a record, at every depth, is a key of the class."""
+    slots = _slots(name)
+    if not isinstance(record, dict) or set(record) - set(slots):
+        return False
+    for key, value in record.items():
+        rng = slots[key].get("range")
+        if rng not in _classes() or rng == "OrchestraMetadata":
+            continue
+        for item in value if isinstance(value, list) else [value]:
+            if not _fits(item, rng):
+                return False
+    return True
+
+
+def class_of(record: dict) -> str:
+    """The one tree root whose keys a record uses, at every depth."""
+    found = [name for name in ROOTS.values() if _fits(record, name)]
+    if len(found) != 1:
+        shown = ", ".join(found) or "no tree root"
+        raise ValueError(f"the record fits {shown}; name the class with --class")
+    return found[0]
+
+
 def write(name: str, record: dict) -> bytes:
     """The XML of a file's record, with its root class."""
     ((namespace, local),) = [k for k, v in ROOTS.items() if v == name]
@@ -359,16 +385,28 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("path", type=Path)
     parser.add_argument("--to-xml", action="store_true", help="Read records, write XML")
+    parser.add_argument(
+        "--class",
+        dest="class_name",
+        metavar="NAME",
+        help="With --to-xml, the record's class when its keys fit more than one",
+    )
     parser.add_argument("-o", "--output", type=Path)
     args = parser.parse_args(argv)
-    if args.to_xml:
-        doc = yaml.safe_load(args.path.read_text(encoding="utf-8"))
-        name = next(iter(doc))
-        data = write(name, doc[name])
-    else:
-        name, record = read(args.path)
+    try:
+        if args.to_xml:
+            record = yaml.safe_load(args.path.read_text(encoding="utf-8"))
+            name = args.class_name or class_of(record)
+            if name not in ROOTS.values():
+                raise ValueError(f"{name} is not a tree root of the schema")
+            data = write(name, record)
+        else:
+            _, record = read(args.path)
+    except ValueError as err:
+        raise SystemExit(str(err))
+    if not args.to_xml:
         data = yaml.safe_dump(
-            {name: record}, sort_keys=False, allow_unicode=True, width=100
+            record, sort_keys=False, allow_unicode=True, width=100
         ).encode("utf-8")
     if args.output:
         args.output.write_bytes(data)

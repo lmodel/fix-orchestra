@@ -21,6 +21,6 @@ status: draft
 
 1. Convert the file: `just to-records upstream/documents/FIXTSession.xml > fixt.yaml`.[^index]
 2. Validate the records: `uv run linkml-validate -s src/fix_orchestra/schema/fix_orchestra.yaml -C OrchestraRepositoryV10 fixt.yaml`.[^index]
-3. Write the file back with `uv run python scripts/orchestra_xml_to_yaml.py --to-xml fixt.yaml`.[^index]
+3. Write the file back with `uv run python scripts/orchestra_xml_to_yaml.py --to-xml fixt.yaml`. The record's keys name its class; when they fit both editions, add `--class` and the class you mean.[^index]
 
 [^index]: docs/index.md, Validating an Orchestra file

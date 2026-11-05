@@ -1,9 +1,15 @@
 """Checks the two scripts that stand between the XSDs, the schema and an Orchestra file."""
 
+import subprocess
+import sys
+from pathlib import Path
+
 import pytest
+import yaml
 from lxml import etree
 
 from tests import conversion
+from tests.test_documents import _canonical
 
 V10 = "http://fixprotocol.io/2020/orchestra/repository"
 
@@ -72,3 +78,71 @@ def test_an_entity_is_not_expanded():
     )
     root = etree.fromstring(xml, conversion.CONVERTER.PARSER)
     assert "root:" not in etree.tostring(root).decode()
+
+
+def _run(*args, cwd=conversion.ROOT):
+    """A command as docs/index.md gives it, run from the repository with this Python."""
+    exe = Path(sys.executable).with_name(args[0])
+    return subprocess.run(
+        [str(exe), *args[1:]], cwd=cwd, capture_output=True, text=True, check=False
+    )
+
+
+def test_the_documented_commands_validate_and_round_trip_a_pinned_file(tmp_path):
+    """The three commands docs/index.md shows: the converter writes a file's records
+    bare, linkml-validate accepts them as the file's class, and --to-xml writes the file
+    back with no class named, since the record's keys name it."""
+    script = str(conversion.SCRIPTS / "orchestra_xml_to_yaml.py")
+    source = str(conversion.UPSTREAM / "documents" / "FIXTSession.xml")
+    records, back = tmp_path / "fixt.yaml", tmp_path / "fixt.xml"
+    assert _run("python", script, source, "-o", str(records)).returncode == 0
+    assert records.read_text(encoding="utf-8").startswith("fixr_name: FIXT\n")
+    checked = _run(
+        "linkml-validate",
+        "-s",
+        str(conversion.SCHEMA),
+        "-C",
+        "OrchestraRepositoryV10",
+        str(records),
+    )
+    assert checked.returncode == 0, checked.stdout + checked.stderr
+    assert (
+        _run("python", script, "--to-xml", str(records), "-o", str(back)).returncode
+        == 0
+    )
+    original = etree.parse(source, conversion.CONVERTER.PARSER).getroot()
+    original.tail = None
+    assert _canonical(etree.parse(str(back)).getroot()) == _canonical(original)
+
+
+def test_a_record_that_fits_both_editions_needs_its_class_named(tmp_path):
+    """A record with no edition-specific key fits both editions, so --to-xml asks for
+    --class and takes it."""
+    _, record = conversion.record(
+        conversion.UPSTREAM / "documents" / "SampleInterfaces.xml"
+    )
+    with pytest.raises(
+        ValueError, match="OrchestraInterfacesV10, OrchestraInterfacesV11"
+    ):
+        conversion.CONVERTER.class_of(record)
+    name = conversion.CONVERTER.class_of(conversion.record(conversion.FIX_LATEST)[1])
+    assert name == "OrchestraRepositoryV10"
+    assert (
+        conversion.CONVERTER.main(
+            [
+                "--to-xml",
+                "--class",
+                "OrchestraInterfacesV10",
+                "-o",
+                str(tmp_path / "i.xml"),
+                str(_write(tmp_path, record)),
+            ]
+        )
+        == 0
+    )
+
+
+def _write(folder, record):
+    path = folder / "record.yaml"
+    path.write_text(yaml.safe_dump(record, sort_keys=False), encoding="utf-8")
+    return path

@@ -6,7 +6,8 @@ first kind in their xs:key and xs:keyref constraints, which ``KEY_RULES`` follow
 one for each edition. The second kind is what the specification says a reference means:
 a use of a field, component, group or message names one that the file defines, by its
 number and scenario, and a name of a category, section, flow, actor, state machine,
-transition, state or timer names one the file holds. ``REFERENCE_RULES`` checks those.
+transition, state or timer names one the file holds, whether or not the file defines any
+of that kind. ``_reference_errors`` checks those.
 
 RC3's fieldTypeOrCodeSetKey is a key on a field's type or code set, so it refuses two
 fields that share a datatype; no real repository can meet it. The rule here keeps what
@@ -225,13 +226,13 @@ def _reference_errors(record) -> Iterator[tuple[str, str]]:
                     f"{place}/fixr_id",
                     f"no {label} has the number {ref[0]} in {ref[1]}",
                 )
-        if key in ("fixr_message", "fixr_component", "fixr_group") and categories:
+        if key in ("fixr_message", "fixr_component", "fixr_group"):
             if "fixr_category" in item and item["fixr_category"] not in categories:
                 yield (
                     f"{place}/fixr_category",
                     f"no category is named {item['fixr_category']}",
                 )
-        if key == "fixr_category" and sections and "fixr_section" in item:
+        if key == "fixr_category" and "fixr_section" in item:
             if item["fixr_section"] not in sections:
                 yield (
                     f"{place}/fixr_section",

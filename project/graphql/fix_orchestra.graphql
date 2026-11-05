@@ -1,24 +1,24 @@
-# metamodel_version: 1.11.0
-# version: 1.1-rc2
-enum CatComponentType
+# metamodel_version: 1.12.0
+# version: 1.0, 1.1-rc3
+enum OrchestraCategoryContentV10
   {
     Field
     Message
   }
 
-enum CatIncludeFile
+enum OrchestraCategoryIncludeFileV10
   {
     components
     fields
   }
 
-enum ChangeType
+enum OrchestraChangeKind
   {
     Editorial
     Definitional
   }
 
-enum DatatypeStandardEnum
+enum OrchestraDatatypeStandardV10
   {
     ISO11404
     GPB
@@ -28,22 +28,7 @@ enum DatatypeStandardEnum
     TAG_VALUE
   }
 
-enum InterfacePurposeEnum
-  {
-    SYNOPSIS
-    ELABORATION
-    EXAMPLE
-    DISPLAY
-  }
-
-enum InterfaceReliability
-  {
-    bestEffort
-    idempotent
-    recoverable
-  }
-
-enum Layer
+enum OrchestraLayer
   {
     application
     presentation
@@ -51,20 +36,20 @@ enum Layer
     transport
   }
 
-enum MemberType
+enum OrchestraMemberSelection
   {
     oneOf
     anyOf
   }
 
-enum MessageCast
+enum OrchestraMessageCast
   {
     unicast
     multicast
     broadcast
   }
 
-enum Presence
+enum OrchestraPresence
   {
     optional
     required
@@ -73,7 +58,7 @@ enum Presence
     constant
   }
 
-enum ProtocolEnum
+enum OrchestraProtocolName
   {
     FIX4
     FIXT
@@ -88,7 +73,15 @@ enum ProtocolEnum
     FIXS
   }
 
-enum PurposeEnum
+enum OrchestraPurpose
+  {
+    SYNOPSIS
+    ELABORATION
+    EXAMPLE
+    DISPLAY
+  }
+
+enum OrchestraPurposeV11
   {
     SYNOPSIS
     ELABORATION
@@ -99,14 +92,14 @@ enum PurposeEnum
     DEFINITION
   }
 
-enum Reliability
+enum OrchestraReliability
   {
     bestEffort
     idempotent
     recoverable
   }
 
-enum Role
+enum OrchestraRole
   {
     initiator
     acceptor
@@ -114,40 +107,35 @@ enum Role
     server
   }
 
-enum SupportType
+enum OrchestraSupport
   {
     supported
     forbidden
     ignored
   }
 
-enum Synchronization
+enum OrchestraSynchronization
   {
     asynchronous
     synchronous
     pipelined
   }
 
-enum TimerOperation
+enum OrchestraTimerOperation
   {
     START
     CANCEL
     RESET
   }
 
-enum TransportUseEnum
+enum OrchestraTransportUse
   {
     primary
     secondary
     alternate
   }
 
-enum Unbounded
-  {
-    unbounded
-  }
-
-enum UnionDataType
+enum OrchestraUnionDatatypeV10
   {
     Qty
     Reserved100Plus
@@ -156,1746 +144,2043 @@ enum UnionDataType
     Tenor
   }
 
-enum XmlSpaceType
-  {
-    default
-    preserve
-  }
-
-type ActionType
-  {
-    field: [FieldType]
-    fieldRef: [FieldRefType]
-    component: [ComponentType]
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    messageRef: [MessageRefType]
-    trigger: [TriggerType]
-    timerSchedule: [TimerSchedule]
-    group: [GroupType]
-    assign: [ExpressionType]
-  }
-
-type Actors
-  {
-    actor: [ActorType]
-    flow: [FlowType]
-    annotation: Annotation
-    base: String
-  }
-
-type ActorType
-  {
-    field: [FieldType]
-    fieldRef: [FieldRefType]
-    component: [ComponentType]
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    states: [StateMachineType]
-    timer: [TimerType]
-    group: [GroupType]
-    annotation: Annotation
-    name: Name!
-  }
-
-type Annotation implements EntityAttribGrp
-  {
-    documentation: [Documentation]
-    appinfo: [Appinfo]
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type Appinfo implements EntityAttribGrp
-  {
-    specUrl: String
-    value: String
-    content: [String]
-    extraAttributes: [String]
-    fixmlEncoding: FIXMLencodingType
-    langId: Language
-    purpose: Purpose
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-interface BaseInterfaceType
-  {
-    service: [ServiceType]
-    userInterface: [UserInterfaceType]
-    sessionProtocol: [SessionProtocolType]
-    protocol: [ProtocolType]
-    transport: [TransportProtocolType]
-    extraAttributes: [String]
-    encoding: [EncodingType]
-    annotation: InterfaceAnnotation
-    name: String!
-  }
-
-type BlockAssignmentType
-  {
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    fieldRef: [FieldRefType]
-  }
-
-type Categories
-  {
-    category: [CategoryType]
-    annotation: Annotation
-    base: String
-  }
-
-type CategoryType implements EntityAttribGrp
-  {
-    fixmlFileName: Name
-    componentType: CatComponentType
-    includeFile: CatIncludeFile
-    annotation: Annotation
-    name: Name!
-    section: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type CodeSets
-  {
-    codeSet: [CodeSetType]
-    annotation: Annotation
-    base: String
-  }
-
-type CodeSetType implements OidGrp, ScenarioRefGrp, EntityAttribGrp
-  {
-    code: [CodeType]
-    default: String
-    specUrl: String
-    unionDataType: UnionDataType
-    annotation: Annotation
-    type: Name!
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    scenarioRefId: Id
-    scenarioRef: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type CodeType implements OidGrp, EntityAttribGrp
-  {
-    value: String!
-    sort: Int
-    annotation: Annotation
-    group: String
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type ComponentRefType implements RefidGrp, EntityAttribGrp
-  {
-    blockAssignment: [BlockAssignmentType]
-    presence: Presence
-    rule: [ComponentRuleType]
-    annotation: Annotation
-    instanceName: ComponentName
-    scenarioId: Id
-    id: Id!
-    name: Name
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type ComponentRuleType
-  {
-    when: ExpressionType!
-    presence: Presence
-    name: Name
-  }
-
-type Components
-  {
-    component: [ComponentType]
-    annotation: Annotation
-    base: String
-  }
-
-type ComponentType implements EntityAttribGrp, OidGrp, ScenarioRefGrp
-  {
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    fieldRef: [FieldRefType]
-    rendering: String
-    which: MemberType
-    annotation: Annotation
-    category: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    scenarioRefId: Id
-    scenarioRef: Name
-  }
-
-type Concepts
-  {
-    concept: [ConceptType]
-    annotation: Annotation
-    base: String
-  }
-
-type ConceptType
-  {
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    fieldRef: [FieldRefType]
-    messageRef: [MessageRefType]
-    annotation: Annotation
-    name: Name!
-  }
-
-type Datatype implements EntityAttribGrp
-  {
-    mappedDatatype: [MappedDatatype]
-    scenarioId: Id
-    baseType: Name
-    annotation: Annotation
-    name: Name!
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type Datatypes
-  {
-    datatype: [Datatype]
-    annotation: Annotation
-    base: String
-  }
-
-interface DcAny
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcContributor
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcCoverage
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcCreator
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcDate
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcDescription
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcElementContainer
-  {
-    title: String
-    creator: String
-    subject: String
-    description: String
-    publisher: String
-    contributor: String
-    date: String
-    format: String
-    source: String
-    language: String
-    relation: String
-    coverage: String
-    rights: String
-    alternative: String
-    tableOfContents: String
-    abstract: String
-    created: String
-    valid: String
-    available: String
-    issued: String
-    modified: String
-    dateAccepted: String
-    dateCopyrighted: String
-    dateSubmitted: String
-    extent: String
-    medium: String
-    isVersionOf: String
-    hasVersion: String
-    isReplacedBy: String
-    replaces: String
-    isRequiredBy: String
-    requires: String
-    isPartOf: String
-    hasPart: String
-    isReferencedBy: String
-    references: String
-    isFormatOf: String
-    hasFormat: String
-    conformsTo: String
-    spatial: String
-    temporal: String
-    audience: String
-    accrualMethod: String
-    accrualPeriodicity: String
-    accrualPolicy: String
-    instructionalMethod: String
-    provenance: String
-    rightsHolder: String
-    mediator: String
-    educationLevel: String
-    accessRights: String
-    license: String
-    bibliographicCitation: String
-    type: String
-    identifier: String
-  }
-
-interface DcElementsGroup
-  {
-  }
-
-type DcFormat
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcIdentifier
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcLanguage
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcPublisher
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcRelation
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcRights
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcSimpleLiteral
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcSource
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcSubject
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAbstract
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAccessRights
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAccrualMethod
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAccrualPeriodicity
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAccrualPolicy
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAlternative
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAudience
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsAvailable
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsBibliographicCitation
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsBox
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsConformsTo
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsContributor
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsCoverage
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsCreated
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsCreator
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDate
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDateAccepted
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDateCopyrighted
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDateSubmitted
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDCMIType
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDDC
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsDescription
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsEducationLevel
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsElementOrRefinementContainer
-  {
-    title: String
-    creator: String
-    subject: String
-    description: String
-    publisher: String
-    contributor: String
-    date: String
-    format: String
-    source: String
-    language: String
-    relation: String
-    coverage: String
-    rights: String
-    alternative: String
-    tableOfContents: String
-    abstract: String
-    created: String
-    valid: String
-    available: String
-    issued: String
-    modified: String
-    dateAccepted: String
-    dateCopyrighted: String
-    dateSubmitted: String
-    extent: String
-    medium: String
-    isVersionOf: String
-    hasVersion: String
-    isReplacedBy: String
-    replaces: String
-    isRequiredBy: String
-    requires: String
-    isPartOf: String
-    hasPart: String
-    isReferencedBy: String
-    references: String
-    isFormatOf: String
-    hasFormat: String
-    conformsTo: String
-    spatial: String
-    temporal: String
-    audience: String
-    accrualMethod: String
-    accrualPeriodicity: String
-    accrualPolicy: String
-    instructionalMethod: String
-    provenance: String
-    rightsHolder: String
-    mediator: String
-    educationLevel: String
-    accessRights: String
-    license: String
-    bibliographicCitation: String
-    type: String
-    identifier: String
-  }
-
-interface DctermsElementsAndRefinementsGroup
-  {
-  }
-
-type DctermsExtent
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsFormat
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsHasFormat
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsHasPart
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsHasVersion
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIdentifier
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIMT
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsInstructionalMethod
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsFormatOf
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsISO3166
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsISO6392
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsISO6393
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsPartOf
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsReferencedBy
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsReplacedBy
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsRequiredBy
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIssued
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsIsVersionOf
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsLanguage
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsLCC
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsLCSH
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsLicense
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsMediator
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsMedium
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsMESH
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsModified
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsPeriod
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsPoint
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsProvenance
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsPublisher
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsReferences
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRelation
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsReplaces
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRequires
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRFC1766
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRFC3066
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRFC4646
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRights
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsRightsHolder
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsSource
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsSpatial
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsSubject
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsTableOfContents
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsTemporal
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsTGN
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsTitle
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsType
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsUDC
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsURI
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsValid
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DctermsW3CDTF
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcTitle
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type DcType
-  {
-    value: String
-    content: [String]
-    lang: String
-  }
-
-type Documentation implements EntityAttribGrp
-  {
-    value: String
-    content: [String]
-    langId: Language
-    purpose: Purpose
-    contentType: Mime
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type EncodingType
-  {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    extraAttributes: [String]
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
-  }
-
-interface EntityAttribGrp
-  {
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-type ExtensionInline
-  {
-    content: [String]
-  }
-
-interface FieldAttribGrp
-  {
-    minInclusive: String
-    maxInclusive: String
-    implLength: Int
-    implMinLength: Int
-    implMaxLength: Int
-    presence: Presence
-    value: String
-    rendering: String
-    encoding: String
-  }
-
-type FieldRefType implements RefidGrp, EntityAttribGrp, FieldAttribGrp
-  {
-    lengthId: Id
-    nonEncodedFieldId: Id
-    rule: [FieldRuleType]
-    assign: ExpressionType
-    annotation: Annotation
-    instanceName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-    minInclusive: String
-    maxInclusive: String
-    implLength: Int
-    implMinLength: Int
-    implMaxLength: Int
-    presence: Presence
-    value: String
-    rendering: String
-    encoding: String
-  }
-
-type FieldRuleType implements FieldAttribGrp
-  {
-    unique: UniqueInline
-    when: ExpressionType!
-    assign: [ExpressionType]
-    name: Name
-    type: Name
-    minInclusive: String
-    maxInclusive: String
-    implLength: Int
-    implMinLength: Int
-    implMaxLength: Int
-    presence: Presence
-    value: String
-    rendering: String
-    encoding: String
-  }
-
-type Fields
-  {
-    field: [FieldType]
-    annotation: Annotation
-    base: String
-  }
-
-type FieldType implements OidGrp, EntityAttribGrp, FieldAttribGrp
-  {
-    lengthId: Id
-    nonEncodedFieldId: Id
-    discriminatorId: Id
-    baseCategory: Name
-    baseCategoryAbbrName: Name
-    unionDataType: UnionDataType
-    rule: [FieldRuleType]
-    assign: ExpressionType
-    annotation: Annotation
-    type: Name
-    codeSet: Name
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-    minInclusive: String
-    maxInclusive: String
-    implLength: Int
-    implMinLength: Int
-    implMaxLength: Int
-    presence: Presence
-    value: String
-    rendering: String
-    encoding: String
-  }
-
-type FIXMLencodingType
-  {
-    inlined: Boolean
-    notReqXml: Boolean
-  }
-
-type FlowType
-  {
-    source: String!
-    destination: String!
-    annotation: Annotation
-    name: Name!
-    reliability: Reliability
-  }
-
-type GroupRefType
-  {
-    blockAssignment: [BlockAssignmentType]
-    presence: Presence
-    rule: [ComponentRuleType]
-    annotation: Annotation
-    instanceName: ComponentName
-    scenarioId: Id
-    id: Id!
-    name: Name
-    scenario: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-    implMinOccurs: Int
-    implMaxOccurs: UnboundedIntType
-  }
-
-type Groups
-  {
-    group: [GroupType]
-    annotation: Annotation
-    base: String
-  }
-
-type GroupType implements EntityAttribGrp, OidGrp, ScenarioRefGrp
-  {
-    numInGroup: FieldRefType
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    fieldRef: [FieldRefType]
-    rendering: String
-    implMinOccurs: Int
-    implMaxOccurs: UnboundedIntType
-    which: MemberType
-    annotation: Annotation
-    category: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    scenarioRefId: Id
-    scenarioRef: Name
-  }
-
-type IdentifiersType
-  {
-    correlate: [IdentifierType]
-    assign: [IdentifierType]
-    annotation: Annotation
-  }
-
-type IdentifierType
-  {
-    value: String
-    name: String
-  }
-
-type InterfaceAnnotation
-  {
-    documentation: [InterfaceDocumentation]
-    appinfo: [InterfaceAppinfo]
-  }
-
-type InterfaceAppinfo
-  {
-    specUrl: String
-    value: String
-    content: [String]
-    extraAttributes: [String]
-    langId: String
-    purpose: InterfacePurpose
-  }
-
-type InterfaceDocumentation
-  {
-    value: String
-    content: [String]
-    langId: String
-    purpose: InterfacePurpose
-    contentType: String
-  }
-
-type Interfaces
-  {
-    metadata: DctermsElementOrRefinementContainer!
-    interface: [InterfaceType]
-  }
-
-type InterfaceType
-  {
-    service: [ServiceType]
-    userInterface: [UserInterfaceType]
-    sessionProtocol: [SessionProtocolType]
-    protocol: [ProtocolType]
-    transport: [TransportProtocolType]
-    extraAttributes: [String]
-    encoding: [EncodingType]
-    annotation: InterfaceAnnotation
-    name: String!
-    sessions: SessionsInline
-  }
-
-type MappedDatatype
-  {
-    extension: ExtensionInline
-    standard: DatatypeStandard!
-    builtin: Boolean
-    pattern: String
-    element: String
-    size: Int
-    parameter: String
-    minInclusive: String
-    maxInclusive: String
-    annotation: Annotation
-    base: String
-  }
-
-type MessageRefType implements RefidGrp
-  {
-    identifiers: IdentifiersType
-    msgType: MsgType
-    implMinOccurs: Int
-    implMaxOccurs: UnboundedIntType
-    scenarioId: Id
-    id: Id!
-    name: Name
-    scenario: Name
-  }
-
-type Messages
-  {
-    message: [MessageType]
-    annotation: Annotation
-    base: String
-  }
-
-type MessageType implements OidGrp, ScenarioRefGrp, EntityAttribGrp
-  {
-    structure: StructureInline
-    when: ExpressionType
-    responses: ResponsesInline
-    msgType: MsgType
-    rendering: String
-    annotation: Annotation
-    category: Name
-    flow: Name
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-    scenarioRefId: Id
-    scenarioRef: Name
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
-  }
-
-interface OidGrp
-  {
-    abbrName: Name
-    scenarioId: Id
-    id: Id!
-    name: Name!
-    scenario: Name
-  }
-
-type ProtocolType
-  {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    extraAttributes: [String]
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
-  }
-
-interface RefidGrp
-  {
-    scenarioId: Id
-    id: Id!
-    name: Name
-    scenario: Name
-  }
-
-type Repository
+type OrchestraActionParameterV10
   {
-    metadata: DctermsElementOrRefinementContainer!
-    categories: Categories
-    sections: Sections
-    datatypes: Datatypes!
-    codeSets: CodeSets
-    fields: Fields!
-    actors: Actors
-    components: Components
-    groups: Groups
-    messages: Messages!
-    concepts: Concepts
-    scenarios: Scenarios
-    guid: String
-    specUrl: String
-    namespace: String
-    expressionLanguage: String
-    annotation: Annotation
-    name: String!
-    version: Version!
+    fixrField: OrchestraFieldV10
+    fixrFieldRef: OrchestraFieldRefV10
+    fixrComponent: OrchestraComponentV10
+    fixrComponentRef: OrchestraComponentRefV10
+    fixrGroup: OrchestraGroupV10
+    fixrGroupRef: OrchestraGroupRefV10
   }
 
-type ResponsesInline
+type OrchestraActionParameterV11
   {
-    response: [ResponseType]!
+    fixrField: OrchestraFieldV11
+    fixrFieldRef: OrchestraFieldRefV11
+    fixrComponent: OrchestraComponentV11
+    fixrComponentRef: OrchestraComponentRefV11
+    fixrGroup: OrchestraGroupV11
+    fixrGroupRef: OrchestraGroupRefV11
   }
 
-type ResponseType
+type OrchestraActionStepV10
   {
-    field: [FieldType]
-    fieldRef: [FieldRefType]
-    component: [ComponentType]
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    messageRef: [MessageRefType]
-    trigger: [TriggerType]
-    timerSchedule: [TimerSchedule]
-    group: [GroupType]
-    assign: [ExpressionType]
-    when: ExpressionType
-    sync: Synchronization
-    annotation: Annotation
-    name: Name
+    fixrMessageRef: OrchestraMessageRefV10
+    fixrAssign: String
+    fixrTrigger: OrchestraTriggerV10
+    fixrTimerSchedule: OrchestraTimerScheduleV10
   }
 
-interface ScenarioRefGrp
+type OrchestraActionStepV11
   {
-    scenarioRefId: Id
-    scenarioRef: Name
+    fixrMessageRef: OrchestraMessageRefV11
+    fixrAssign: String
+    fixrTrigger: OrchestraTriggerV11
+    fixrTimerSchedule: OrchestraTimerScheduleV11
   }
 
-type Scenarios
+type OrchestraActionV10
   {
-    scenario: [ScenarioType]
-    annotation: Annotation
-    base: String
+    fixrParameters: [OrchestraActionParameterV10]
+    fixrActions: [OrchestraActionStepV10]!
   }
 
-type ScenarioType
+type OrchestraActionV11
   {
-    annotation: Annotation
-    id: Id
-    name: Name
+    fixrParameters: [OrchestraActionParameterV11]
+    fixrActions: [OrchestraActionStepV11]!
   }
 
-type Sections
+type OrchestraActorMemberV10
   {
-    section: [SectionType]
-    annotation: Annotation
-    base: String
+    fixrField: OrchestraFieldV10
+    fixrFieldRef: OrchestraFieldRefV10
+    fixrComponent: OrchestraComponentV10
+    fixrComponentRef: OrchestraComponentRefV10
+    fixrGroup: OrchestraGroupV10
+    fixrGroupRef: OrchestraGroupRefV10
+    fixrStates: OrchestraStateMachineV10
+    fixrTimer: OrchestraTimerV10
   }
 
-type SectionType implements EntityAttribGrp
+type OrchestraActorMemberV11
   {
-    displayOrder: Int
-    fixmlFileName: Name
-    annotation: Annotation
-    name: Name!
-    added: Version
-    addedEp: EP
-    changeType: ChangeType
-    deprecatedEp: EP
-    issue: String
-    lastModified: Version
-    replaced: Version
-    replacedEp: EP
-    replacedByField: Id
-    supported: SupportType
-    updated: Version
-    updatedEp: EP
-    deprecated: Version
+    fixrField: OrchestraFieldV11
+    fixrFieldRef: OrchestraFieldRefV11
+    fixrComponent: OrchestraComponentV11
+    fixrComponentRef: OrchestraComponentRefV11
+    fixrGroup: OrchestraGroupV11
+    fixrGroupRef: OrchestraGroupRefV11
+    fixrStates: OrchestraStateMachineV11
+    fixrTimer: OrchestraTimerV11
   }
 
-type ServiceType
+type OrchestraActorsMemberV10
   {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    extraAttributes: [String]
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
+    fixrActor: OrchestraActorV10
+    fixrFlow: OrchestraFlowV10
   }
 
-type SessionProtocolType
+type OrchestraActorsMemberV11
   {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    extraAttributes: [String]
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
+    fixrActor: OrchestraActorV11
+    fixrFlow: OrchestraFlowV11
   }
 
-type SessionsInline
+type OrchestraActorsV10
   {
-    session: [SessionType]!
+    fixrMembers: [OrchestraActorsMemberV10]!
+    xmlBase: String
   }
 
-type SessionType
+type OrchestraActorsV11
   {
-    service: [ServiceType]
-    userInterface: [UserInterfaceType]
-    sessionProtocol: [SessionProtocolType]
-    protocol: [ProtocolType]
-    transport: [TransportProtocolType]
-    extraAttributes: [String]
-    encoding: [EncodingType]
-    annotation: InterfaceAnnotation
-    name: String!
-    role: Role
-    securityKeys: String
-    activationTime: String
-    deactivationTime: String
-    identifier: [IdentifierType]
+    fixrMembers: [OrchestraActorsMemberV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
   }
 
-type StateMachineType
+type OrchestraActorV10
   {
-    initial: StateType!
-    state: [StateType]!
-    annotation: Annotation
-    name: Name!
+    fixrMembers: [OrchestraActorMemberV10]
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+  }
+
+type OrchestraActorV11
+  {
+    fixrMembers: [OrchestraActorMemberV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+  }
+
+type OrchestraAnnotationMemberV10
+  {
+    fixrDocumentation: OrchestraDocumentationV10
+    fixrAppinfo: OrchestraAppinfoV10
+  }
+
+type OrchestraAnnotationMemberV11
+  {
+    fixrDocumentation: OrchestraDocumentationV11
+    fixrAppinfo: OrchestraAppinfoV11
+  }
+
+type OrchestraAnnotationV10 implements OrchestraPedigreeV10Mixin
+  {
+    fixrMembers: [OrchestraAnnotationMemberV10]!
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraAnnotationV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrMembers: [OrchestraAnnotationMemberV11]!
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
   }
 
-type StateType
+type OrchestraAppinfoV10 implements OrchestraPedigreeV10Mixin
   {
-    transition: [TransitionType]
-    onentry: ActionType
-    activity: ActionType
-    onexit: ActionType
-    annotation: Annotation
-    name: Name!
+    fixrText: String
+    fixrAny: [OrchestraXmlElement]
+    fixrSpecUrl: String
+    fixrLangId: String
+    fixrPurpose: String
+    fixrOtherAttributes: [OrchestraXmlAttribute]
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
   }
-
-type StructureInline
-  {
-    componentRef: [ComponentRefType]
-    groupRef: [GroupRefType]
-    fieldRef: [FieldRefType]
-    which: MemberType
-  }
-
-type TimerSchedule
-  {
-    activity: ActionType!
-    operation: TimerOperation!
-    interval: String
-    actor: Name!
-    name: Name!
-  }
-
-type TimerType
-  {
-    name: Name!
-  }
-
-type TransitionType
-  {
-    when: ExpressionType
-    target: String!
-    annotation: Annotation
-    name: Name!
-  }
-
-type TransportProtocolType
-  {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
-    address: String
-    messageCast: MessageCast
-    use: TransportUse
-    extraAttributes: [String]
-  }
-
-type TriggerType
-  {
-    stateMachine: String!
-    actor: Name!
-    name: Name!
-  }
-
-type UniqueInline
-  {
-    fieldRef: [FieldRefType]
-  }
-
-type UserInterfaceType
+
+type OrchestraAppinfoV11 implements OrchestraPedigreeV11Mixin
   {
-    activationTime: String
-    deactivationTime: String
-    layer: Layer
-    orchestration: String
-    extraAttributes: [String]
-    annotation: InterfaceAnnotation
-    name: ProtocolName
-    version: String
-    deprecated: String
-    reliability: InterfaceReliability
-  }
-
-type XmlGlobalAttributes
+    fixrText: String
+    fixrAny: [OrchestraXmlElement]
+    fixrSpecUrl: String
+    fixrLangId: String
+    fixrPurpose: String
+    fixrOtherAttributes: [OrchestraXmlAttribute]
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+interface OrchestraBaseEncodingV11
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrAny: [OrchestraXmlElement]
+  }
+
+interface OrchestraBaseInterfaceV10
   {
-    lang: XmlLangType
-    space: XmlSpaceType
-    base: String
-    id: String
+    fixiService: [OrchestraServiceV10]
+    fixiUserInterface: [OrchestraUserInterfaceV10]
+    fixiEncoding: [OrchestraEncodingV10]
+    fixiSessionProtocol: [OrchestraSessionProtocolV10]
+    fixiProtocol: [OrchestraProtocolV10]
+    fixiTransport: [OrchestraTransportV10]
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
   }
 
-interface XmlSpecialAttrs
+interface OrchestraBaseInterfaceV11
   {
-    base: String
-    lang: String
-    space: String
-    id: String
+    fixiService: [OrchestraServiceV11]
+    fixiUserInterface: [OrchestraUserInterfaceV11]
+    fixiEncoding: [OrchestraEncodingV11]
+    fixiSessionProtocol: [OrchestraSessionProtocolV11]
+    fixiProtocol: [OrchestraProtocolV11]
+    fixiTransport: [OrchestraTransportV11]
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraBlockAssignmentV10
+  {
+    fixrMembers: [OrchestraStructureMemberV10]!
+  }
+
+type OrchestraBlockAssignmentV11
+  {
+    fixrMembers: [OrchestraStructureMemberV11]!
+  }
+
+type OrchestraCategoriesV10 implements OrchestraContainerV10Mixin
+  {
+    fixrCategory: [OrchestraCategoryV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraCategoriesV11
+  {
+    fixrCategory: [OrchestraCategoryV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraCategoryV10 implements OrchestraPedigreeV10Mixin
+  {
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String
+    fixrFixmlFileName: String
+    fixrComponentType: OrchestraCategoryContentV10
+    fixrSection: String
+    fixrIncludeFile: OrchestraCategoryIncludeFileV10
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraCategoryV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrSection: String!
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraCodeSetsV10
+  {
+    fixrCodeSet: [OrchestraCodeSetV10]!
+    xmlBase: String
+  }
+
+type OrchestraCodeSetsV11
+  {
+    fixrCodeSet: [OrchestraCodeSetV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraCodeSetV10 implements OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin
+  {
+    fixrCode: [OrchestraCodeV10]
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrType: String!
+    fixrDefault: String
+    fixrSpecUrl: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraCodeSetV11 implements OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin
+  {
+    fixrCode: [OrchestraCodeV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrEncodings: OrchestraEncodingsV11
+    fixrType: String!
+    fixrDefault: String
+    fixrSpecUrl: String
+    fixrUnionDataType: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrScenarioRefId: Int
+    fixrScenarioRef: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraCodeV10 implements OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin
+  {
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrValue: String!
+    fixrSort: String
+    fixrGroup: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraCodeV11 implements OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrValue: String!
+    fixrSort: Int
+    fixrGroup: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraComponentRefV10 implements OrchestraReferenceV10Mixin, OrchestraPedigreeV10Mixin
+  {
+    fixrBlockAssignment: [OrchestraBlockAssignmentV10]
+    fixrRule: [OrchestraComponentRuleV10]
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrPresence: OrchestraPresence
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraComponentRefV11 implements OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
+  {
+    fixrBlockAssignment: [OrchestraBlockAssignmentV11]
+    fixrRule: [OrchestraComponentRuleV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrPresence: OrchestraPresence
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraComponentRuleV10
+  {
+    fixrWhen: String!
+    fixrName: String
+    fixrPresence: OrchestraPresence
+  }
+
+type OrchestraComponentRuleV11
+  {
+    fixrWhen: String!
+    fixrName: String
+    fixrPresence: OrchestraPresence
+  }
+
+type OrchestraComponentsV10 implements OrchestraContainerV10Mixin
+  {
+    fixrComponent: [OrchestraComponentV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraComponentsV11
+  {
+    fixrComponent: [OrchestraComponentV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraComponentV10 implements OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin
+  {
+    fixrMembers: [OrchestraStructureMemberV10]!
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrCategory: String
+    fixrRendering: String
+    fixrWhich: OrchestraMemberSelection
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+  }
+
+type OrchestraComponentV11 implements OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin
+  {
+    fixrMembers: [OrchestraStructureMemberV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrCategory: String
+    fixrRendering: String
+    fixrWhich: OrchestraMemberSelection
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrScenarioRefId: Int
+    fixrScenarioRef: String
+  }
+
+type OrchestraConceptMemberV10
+  {
+    fixrComponentRef: OrchestraComponentRefV10
+    fixrGroupRef: OrchestraGroupRefV10
+    fixrFieldRef: OrchestraFieldRefV10
+    fixrMessageRef: OrchestraMessageRefV10
+  }
+
+type OrchestraConceptMemberV11
+  {
+    fixrComponentRef: OrchestraComponentRefV11
+    fixrGroupRef: OrchestraGroupRefV11
+    fixrFieldRef: OrchestraFieldRefV11
+    fixrMessageRef: OrchestraMessageRefV11
+  }
+
+type OrchestraConceptsV10
+  {
+    fixrConcept: [OrchestraConceptV10]!
+    xmlBase: String
+  }
+
+type OrchestraConceptsV11
+  {
+    fixrConcept: [OrchestraConceptV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraConceptV10
+  {
+    fixrMembers: [OrchestraConceptMemberV10]!
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+  }
+
+type OrchestraConceptV11
+  {
+    fixrMembers: [OrchestraConceptMemberV11]!
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+  }
+
+interface OrchestraContainerV10Mixin
+  {
+    fixrLatestEp: Int
+  }
+
+type OrchestraDatatypeExtensionV10
+  {
+    fixrAny: [OrchestraXmlElement]
+  }
+
+type OrchestraDatatypesV10 implements OrchestraContainerV10Mixin
+  {
+    fixrDatatype: [OrchestraDatatypeV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraDatatypesV11
+  {
+    fixrDatatype: [OrchestraDatatypeV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraDatatypeV10 implements OrchestraPedigreeV10Mixin
+  {
+    fixrMappedDatatype: [OrchestraMappedDatatypeV10]
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+    fixrBaseType: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraDatatypeV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrMappedDatatype: [OrchestraMappedDatatypeV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrBaseType: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraDocumentationV10 implements OrchestraPedigreeV10Mixin
+  {
+    fixrText: String
+    fixrAny: [OrchestraXmlElement]
+    fixrLangId: String
+    fixrPurpose: String
+    fixrContentType: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraDocumentationV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrText: String
+    fixrLangId: String
+    fixrPurpose: String
+    fixrContentType: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraEncodingStandardsV11
+  {
+    fixrEncodingStandard: [OrchestraEncodingStandardV11]
+    xmlBase: String
+  }
+
+type OrchestraEncodingStandardV11
+  {
+    fixrEncoding: OrchestraUnnamedEncodingV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrDisplayName: String
+  }
+
+type OrchestraEncodingsV11
+  {
+    fixrEncoding: [OrchestraNamedEncodingV11]
+  }
+
+type OrchestraEncodingV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraEncodingV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+interface OrchestraFieldConstraintsV10Mixin
+  {
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+interface OrchestraFieldConstraintsV11Mixin
+  {
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldRefV10 implements OrchestraReferenceV10Mixin, OrchestraPedigreeV10Mixin, OrchestraFieldConstraintsV10Mixin
+  {
+    fixrRule: [OrchestraFieldRuleV10]
+    fixrAssign: String
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrLengthId: Int
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldRefV11 implements OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin, OrchestraFieldConstraintsV11Mixin
+  {
+    fixrRule: [OrchestraFieldRuleV11]
+    fixrAssign: String
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrLengthId: Int
+    fixrNonEncodedFieldId: Int
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldRuleV10 implements OrchestraFieldConstraintsV10Mixin
+  {
+    fixrUnique: OrchestraUniqueV10
+    fixrAssign: [String]
+    fixrWhen: String!
+    fixrName: String
+    fixrType: String
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldRuleV11 implements OrchestraFieldConstraintsV11Mixin
+  {
+    fixrUnique: OrchestraUniqueV11
+    fixrAssign: [String]
+    fixrWhen: String!
+    fixrName: String
+    fixrType: String
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldsV10
+  {
+    fixrField: [OrchestraFieldV10]!
+    fixrLatestEp: Int
+    xmlBase: String
+  }
+
+type OrchestraFieldsV11
+  {
+    fixrField: [OrchestraFieldV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraFieldV10 implements OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin, OrchestraFieldConstraintsV10Mixin
+  {
+    fixrRule: [OrchestraFieldRuleV10]
+    fixrAssign: String
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrType: String!
+    fixrLengthId: Int
+    fixrDiscriminatorId: Int
+    fixrBaseCategory: String
+    fixrBaseCategoryAbbrName: String
+    fixrUnionDataType: OrchestraUnionDatatypeV10
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFieldV11 implements OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin, OrchestraFieldConstraintsV11Mixin
+  {
+    fixrRule: [OrchestraFieldRuleV11]
+    fixrAssign: String
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrType: String
+    fixrCodeSet: String
+    fixrLengthId: Int
+    fixrNonEncodedFieldId: Int
+    fixrDiscriminatorId: Int
+    fixrBaseCategory: String
+    fixrBaseCategoryAbbrName: String
+    fixrUnionDataType: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+    fixrImplLength: Int
+    fixrImplMinLength: Int
+    fixrImplMaxLength: Int
+    fixrPresence: OrchestraPresence
+    fixrEncoding: String
+    fixrValue: String
+    fixrRendering: String
+  }
+
+type OrchestraFlowV10
+  {
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+    fixrSource: String!
+    fixrDestination: String!
+    fixrReliability: OrchestraReliability
+  }
+
+type OrchestraFlowV11
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrSource: String!
+    fixrDestination: String!
+    fixrReliability: OrchestraReliability
+  }
+
+type OrchestraGroupRefV10
+  {
+    fixrBlockAssignment: [OrchestraBlockAssignmentV10]
+    fixrRule: [OrchestraComponentRuleV10]
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrPresence: OrchestraPresence
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+  }
+
+type OrchestraGroupRefV11
+  {
+    fixrBlockAssignment: [OrchestraBlockAssignmentV11]
+    fixrRule: [OrchestraComponentRuleV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrPresence: OrchestraPresence
+    fixrInstanceName: String
+    fixrId: Int!
+    fixrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+  }
+
+type OrchestraGroupsV10 implements OrchestraContainerV10Mixin
+  {
+    fixrGroup: [OrchestraGroupV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraGroupsV11
+  {
+    fixrGroup: [OrchestraGroupV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraGroupV10 implements OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin
+  {
+    fixrNumInGroup: OrchestraFieldRefV10
+    fixrMembers: [OrchestraStructureMemberV10]!
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrCategory: String
+    fixrRendering: String
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+    fixrWhich: OrchestraMemberSelection
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+  }
+
+type OrchestraGroupV11 implements OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin
+  {
+    fixrNumInGroup: OrchestraFieldRefV11
+    fixrMembers: [OrchestraStructureMemberV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrCategory: String
+    fixrRendering: String
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+    fixrWhich: OrchestraMemberSelection
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrScenarioRefId: Int
+    fixrScenarioRef: String
+  }
+
+type OrchestraIdentifiersMemberV10
+  {
+    fixrCorrelate: OrchestraIdentifierV10
+    fixrAssign: OrchestraIdentifierV10
+  }
+
+type OrchestraIdentifiersMemberV11
+  {
+    fixrCorrelate: OrchestraIdentifierV11
+    fixrAssign: OrchestraIdentifierV11
+  }
+
+type OrchestraIdentifiersV10
+  {
+    fixrMembers: [OrchestraIdentifiersMemberV10]!
+    fixrAnnotation: OrchestraAnnotationV10
+  }
+
+type OrchestraIdentifiersV11
+  {
+    fixrMembers: [OrchestraIdentifiersMemberV11]!
+    fixrAnnotation: OrchestraAnnotationV11
+  }
+
+type OrchestraIdentifierV10
+  {
+    fixrId: Int!
+    fixrSourceId: Int
+  }
+
+type OrchestraIdentifierV11
+  {
+    fixrId: Int!
+    fixrName: String
+    fixrSourceId: Int
+  }
+
+interface OrchestraIdentityV10Mixin
+  {
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+  }
+
+interface OrchestraIdentityV11Mixin
+  {
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+  }
+
+type OrchestraInterfaceAnnotationMemberV10
+  {
+    fixiDocumentation: OrchestraInterfaceDocumentationV10
+    fixiAppinfo: OrchestraInterfaceAppinfoV10
+  }
+
+type OrchestraInterfaceAnnotationMemberV11
+  {
+    fixiDocumentation: OrchestraInterfaceDocumentationV11
+    fixiAppinfo: OrchestraInterfaceAppinfoV11
+  }
+
+type OrchestraInterfaceAnnotationV10
+  {
+    fixiMembers: [OrchestraInterfaceAnnotationMemberV10]!
+  }
+
+type OrchestraInterfaceAnnotationV11
+  {
+    fixiMembers: [OrchestraInterfaceAnnotationMemberV11]!
+  }
+
+type OrchestraInterfaceAppinfoV10
+  {
+    fixiText: String
+    fixiAny: [OrchestraXmlElement]
+    fixiSpecUrl: String
+    fixiLangId: String
+    fixiPurpose: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraInterfaceAppinfoV11
+  {
+    fixiText: String
+    fixiAny: [OrchestraXmlElement]
+    fixiSpecUrl: String
+    fixiLangId: String
+    fixiPurpose: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraInterfaceDocumentationV10
+  {
+    fixiText: String
+    fixiAny: [OrchestraXmlElement]
+    fixiLangId: String
+    fixiPurpose: String
+    fixiContentType: String
+  }
+
+type OrchestraInterfaceDocumentationV11
+  {
+    fixiText: String
+    fixiAny: [OrchestraXmlElement]
+    fixiLangId: String
+    fixiPurpose: String
+    fixiContentType: String
+  }
+
+type OrchestraInterfacesV10
+  {
+    fixiMetadata: OrchestraMetadata!
+    fixiInterface: [OrchestraInterfaceV10]
+  }
+
+type OrchestraInterfacesV11
+  {
+    fixiMetadata: OrchestraMetadata!
+    fixiInterface: [OrchestraInterfaceV11]
+  }
+
+type OrchestraInterfaceV10
+  {
+    fixiService: [OrchestraServiceV10]
+    fixiUserInterface: [OrchestraUserInterfaceV10]
+    fixiEncoding: [OrchestraEncodingV10]
+    fixiSessionProtocol: [OrchestraSessionProtocolV10]
+    fixiProtocol: [OrchestraProtocolV10]
+    fixiTransport: [OrchestraTransportV10]
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+    fixiSessions: OrchestraSessionsV10
+  }
+
+type OrchestraInterfaceV11
+  {
+    fixiService: [OrchestraServiceV11]
+    fixiUserInterface: [OrchestraUserInterfaceV11]
+    fixiEncoding: [OrchestraEncodingV11]
+    fixiSessionProtocol: [OrchestraSessionProtocolV11]
+    fixiProtocol: [OrchestraProtocolV11]
+    fixiTransport: [OrchestraTransportV11]
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+    fixiSessions: OrchestraSessionsV11
+  }
+
+type OrchestraMappedDatatypeV10
+  {
+    fixrExtension: OrchestraDatatypeExtensionV10
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrStandard: String!
+    fixrBuiltin: Boolean
+    fixrBase: String
+    fixrPattern: String
+    fixrElement: String
+    fixrParameter: String
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+  }
+
+type OrchestraMappedDatatypeV11
+  {
+    fixrEncoding: OrchestraUnnamedEncodingV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrStandard: String!
+    fixrBuiltin: Boolean
+    fixrBase: String
+    fixrPattern: String
+    fixrElement: String
+    fixrSize: Int
+    fixrParameter: String
+    fixrMinInclusive: String
+    fixrMaxInclusive: String
+  }
+
+type OrchestraMessageRefV10 implements OrchestraReferenceV10Mixin
+  {
+    fixrIdentifiers: OrchestraIdentifiersV10
+    fixrName: String!
+    fixrMsgType: String
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+    fixrId: Int!
+    fixrScenario: String
+  }
+
+type OrchestraMessageRefV11 implements OrchestraReferenceV11Mixin
+  {
+    fixrIdentifiers: OrchestraIdentifiersV11
+    fixrMsgType: String
+    fixrImplMinOccurs: Int
+    fixrImplMaxOccurs: String
+    fixrId: Int!
+    fixrName: String
+    fixrScenario: String
+  }
+
+type OrchestraMessageStructureV10
+  {
+    fixrMembers: [OrchestraStructureMemberV10]!
+    fixrWhich: OrchestraMemberSelection
+  }
+
+type OrchestraMessageStructureV11
+  {
+    fixrMembers: [OrchestraStructureMemberV11]
+    fixrWhich: OrchestraMemberSelection
+  }
+
+type OrchestraMessagesV10 implements OrchestraContainerV10Mixin
+  {
+    fixrMessage: [OrchestraMessageV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraMessagesV11
+  {
+    fixrMessage: [OrchestraMessageV11]
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraMessageV10 implements OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin
+  {
+    fixrStructure: OrchestraMessageStructureV10!
+    fixrResponses: OrchestraResponsesV10
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrMsgType: String
+    fixrCategory: String
+    fixrFlow: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraMessageV11 implements OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin
+  {
+    fixrStructure: OrchestraMessageStructureV11
+    fixrWhen: String
+    fixrResponses: OrchestraResponsesV11
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrMsgType: String
+    fixrCategory: String
+    fixrFlow: String
+    fixrRendering: String
+    fixrId: Int!
+    fixrName: String!
+    fixrAbbrName: String
+    fixrScenario: String
+    fixrScenarioRefId: Int
+    fixrScenarioRef: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraMetadata
+  {
+    dcTitle: [String]
+    dcCreator: [String]
+    dcSubject: [String]
+    dcDescription: [String]
+    dcPublisher: [String]
+    dcContributor: [String]
+    dcDate: [String]
+    dcType: [String]
+    dcFormat: [String]
+    dcIdentifier: [String]
+    dcSource: [String]
+    dcLanguage: [String]
+    dcRelation: [String]
+    dcCoverage: [String]
+    dcRights: [String]
+    dctermsTitle: [String]
+    dctermsCreator: [String]
+    dctermsSubject: [String]
+    dctermsDescription: [String]
+    dctermsPublisher: [String]
+    dctermsContributor: [String]
+    dctermsDate: [String]
+    dctermsType: [String]
+    dctermsFormat: [String]
+    dctermsIdentifier: [String]
+    dctermsSource: [String]
+    dctermsLanguage: [String]
+    dctermsRelation: [String]
+    dctermsCoverage: [String]
+    dctermsRights: [String]
+    dctermsAlternative: [String]
+    dctermsTableOfContents: [String]
+    dctermsAbstract: [String]
+    dctermsCreated: [String]
+    dctermsValid: [String]
+    dctermsAvailable: [String]
+    dctermsIssued: [String]
+    dctermsModified: [String]
+    dctermsDateAccepted: [String]
+    dctermsDateCopyrighted: [String]
+    dctermsDateSubmitted: [String]
+    dctermsExtent: [String]
+    dctermsMedium: [String]
+    dctermsIsVersionOf: [String]
+    dctermsHasVersion: [String]
+    dctermsIsReplacedBy: [String]
+    dctermsReplaces: [String]
+    dctermsIsRequiredBy: [String]
+    dctermsRequires: [String]
+    dctermsIsPartOf: [String]
+    dctermsHasPart: [String]
+    dctermsIsReferencedBy: [String]
+    dctermsReferences: [String]
+    dctermsIsFormatOf: [String]
+    dctermsHasFormat: [String]
+    dctermsConformsTo: [String]
+    dctermsSpatial: [String]
+    dctermsTemporal: [String]
+    dctermsAudience: [String]
+    dctermsAccrualMethod: [String]
+    dctermsAccrualPeriodicity: [String]
+    dctermsAccrualPolicy: [String]
+    dctermsInstructionalMethod: [String]
+    dctermsProvenance: [String]
+    dctermsRightsHolder: [String]
+    dctermsMediator: [String]
+    dctermsEducationLevel: [String]
+    dctermsAccessRights: [String]
+    dctermsLicense: [String]
+    dctermsBibliographicCitation: [String]
+  }
+
+type OrchestraNamedEncodingV11
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrAny: [OrchestraXmlElement]
+    fixrStandard: String!
+  }
+
+interface OrchestraPedigreeV10Mixin
+  {
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+interface OrchestraPedigreeV11Mixin
+  {
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraProtocolV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraProtocolV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+interface OrchestraReferenceV10Mixin
+  {
+    fixrId: Int!
+    fixrScenario: String
+  }
+
+interface OrchestraReferenceV11Mixin
+  {
+    fixrId: Int!
+    fixrName: String
+    fixrScenario: String
+  }
+
+type OrchestraRepositoryV10 implements OrchestraContainerV10Mixin
+  {
+    fixrMetadata: OrchestraMetadata!
+    fixrCategories: OrchestraCategoriesV10
+    fixrSections: OrchestraSectionsV10
+    fixrDatatypes: OrchestraDatatypesV10!
+    fixrCodeSets: OrchestraCodeSetsV10!
+    fixrFields: OrchestraFieldsV10!
+    fixrActors: OrchestraActorsV10
+    fixrComponents: OrchestraComponentsV10
+    fixrGroups: OrchestraGroupsV10
+    fixrMessages: OrchestraMessagesV10!
+    fixrConcepts: OrchestraConceptsV10
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+    fixrVersion: String!
+    fixrGuid: String
+    fixrSpecUrl: String
+    fixrNamespace: String
+    fixrApplVerId: String
+    fixrExpressionLanguage: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraRepositoryV11
+  {
+    fixrMetadata: OrchestraMetadata!
+    fixrCategories: OrchestraCategoriesV11
+    fixrSections: OrchestraSectionsV11
+    fixrEncodingStandards: OrchestraEncodingStandardsV11
+    fixrDatatypes: OrchestraDatatypesV11
+    fixrCodeSets: OrchestraCodeSetsV11
+    fixrFields: OrchestraFieldsV11
+    fixrActors: OrchestraActorsV11
+    fixrComponents: OrchestraComponentsV11
+    fixrGroups: OrchestraGroupsV11
+    fixrMessages: OrchestraMessagesV11
+    fixrConcepts: OrchestraConceptsV11
+    fixrScenarios: OrchestraScenariosV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrVersion: String!
+    fixrGuid: String
+    fixrSpecUrl: String
+    fixrNamespace: String
+    fixrExpressionLanguage: String
+  }
+
+type OrchestraResponsesV10
+  {
+    fixrResponse: [OrchestraResponseV10]!
+  }
+
+type OrchestraResponsesV11
+  {
+    fixrResponse: [OrchestraResponseV11]!
+  }
+
+type OrchestraResponseV10
+  {
+    fixrParameters: [OrchestraActionParameterV10]
+    fixrActions: [OrchestraActionStepV10]!
+    fixrWhen: String
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String
+    fixrSync: OrchestraSynchronization
+  }
+
+type OrchestraResponseV11
+  {
+    fixrParameters: [OrchestraActionParameterV11]
+    fixrActions: [OrchestraActionStepV11]!
+    fixrWhen: String
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String
+    fixrSync: OrchestraSynchronization
+  }
+
+interface OrchestraScenarioReferenceV11Mixin
+  {
+    fixrScenarioRefId: Int
+    fixrScenarioRef: String
+  }
+
+type OrchestraScenariosV11
+  {
+    fixrScenario: [OrchestraScenarioV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraScenarioV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraSectionsV10 implements OrchestraContainerV10Mixin
+  {
+    fixrSection: [OrchestraSectionV10]!
+    xmlBase: String
+    fixrLatestEp: Int
+  }
+
+type OrchestraSectionsV11
+  {
+    fixrSection: [OrchestraSectionV11]
+    fixrAnnotation: OrchestraAnnotationV11
+    xmlBase: String
+  }
+
+type OrchestraSectionV10 implements OrchestraPedigreeV10Mixin
+  {
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String
+    fixrDisplayOrder: Int
+    fixrFixmlFileName: String
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraSectionV11 implements OrchestraPedigreeV11Mixin
+  {
+    fixrEncodings: OrchestraEncodingsV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrDisplayOrder: Int
+    fixrAdded: String
+    fixrAddedEp: Int
+    fixrChangeType: OrchestraChangeKind
+    fixrDeprecated: String
+    fixrDeprecatedEp: Int
+    fixrIssue: String
+    fixrLastModified: String
+    fixrReplaced: String
+    fixrReplacedEp: Int
+    fixrReplacedByField: Int
+    fixrSupported: OrchestraSupport
+    fixrUpdated: String
+    fixrUpdatedEp: Int
+  }
+
+type OrchestraServiceV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraServiceV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraSessionIdentifierV10
+  {
+    fixiText: String
+    fixiName: String
+  }
+
+type OrchestraSessionIdentifierV11
+  {
+    fixiText: String
+    fixiName: String
+  }
+
+type OrchestraSessionProtocolV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraSessionProtocolV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraSessionsV10
+  {
+    fixiSession: [OrchestraSessionV10]!
+  }
+
+type OrchestraSessionsV11
+  {
+    fixiSession: [OrchestraSessionV11]!
+  }
+
+type OrchestraSessionV10
+  {
+    fixiService: [OrchestraServiceV10]
+    fixiUserInterface: [OrchestraUserInterfaceV10]
+    fixiEncoding: [OrchestraEncodingV10]
+    fixiSessionProtocol: [OrchestraSessionProtocolV10]
+    fixiProtocol: [OrchestraProtocolV10]
+    fixiTransport: [OrchestraTransportV10]
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+    fixiIdentifier: [OrchestraSessionIdentifierV10]
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiRole: OrchestraRole
+    fixiSecurityKeys: String
+  }
+
+type OrchestraSessionV11
+  {
+    fixiService: [OrchestraServiceV11]
+    fixiUserInterface: [OrchestraUserInterfaceV11]
+    fixiEncoding: [OrchestraEncodingV11]
+    fixiSessionProtocol: [OrchestraSessionProtocolV11]
+    fixiProtocol: [OrchestraProtocolV11]
+    fixiTransport: [OrchestraTransportV11]
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String!
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+    fixiIdentifier: [OrchestraSessionIdentifierV11]
+    fixiRole: OrchestraRole
+    fixiSecurityKeys: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+  }
+
+type OrchestraStateMachineV10
+  {
+    fixrInitial: OrchestraStateV10!
+    fixrState: [OrchestraStateV10]!
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+  }
+
+type OrchestraStateMachineV11
+  {
+    fixrInitial: OrchestraStateV11!
+    fixrState: [OrchestraStateV11]!
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+  }
+
+type OrchestraStateV10
+  {
+    fixrTransition: [OrchestraTransitionV10]
+    fixrOnentry: OrchestraActionV10
+    fixrActivity: OrchestraActionV10
+    fixrOnexit: OrchestraActionV10
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+  }
+
+type OrchestraStateV11
+  {
+    fixrTransition: [OrchestraTransitionV11]
+    fixrOnentry: OrchestraActionV11
+    fixrActivity: OrchestraActionV11
+    fixrOnexit: OrchestraActionV11
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+  }
+
+type OrchestraStructureMemberV10
+  {
+    fixrComponentRef: OrchestraComponentRefV10
+    fixrGroupRef: OrchestraGroupRefV10
+    fixrFieldRef: OrchestraFieldRefV10
+  }
+
+type OrchestraStructureMemberV11
+  {
+    fixrComponentRef: OrchestraComponentRefV11
+    fixrGroupRef: OrchestraGroupRefV11
+    fixrFieldRef: OrchestraFieldRefV11
+  }
+
+type OrchestraTimerScheduleV10
+  {
+    fixrActivity: OrchestraActionV10!
+    fixrActor: String!
+    fixrName: String!
+    fixrOperation: OrchestraTimerOperation!
+    fixrInterval: String
+  }
+
+type OrchestraTimerScheduleV11
+  {
+    fixrActivity: OrchestraActionV11!
+    fixrActor: String!
+    fixrName: String!
+    fixrOperation: OrchestraTimerOperation!
+    fixrInterval: String
+  }
+
+type OrchestraTimerV10
+  {
+    fixrName: String!
+  }
+
+type OrchestraTimerV11
+  {
+    fixrName: String!
+  }
+
+type OrchestraTransitionV10
+  {
+    fixrWhen: String
+    fixrAnnotation: OrchestraAnnotationV10
+    fixrName: String!
+    fixrTarget: String!
+  }
+
+type OrchestraTransitionV11
+  {
+    fixrWhen: String
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrName: String!
+    fixrTarget: String!
+  }
+
+type OrchestraTransportV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiAddress: String
+    fixiMessageCast: OrchestraMessageCast
+    fixiUse: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraTransportV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiAddress: String
+    fixiMessageCast: OrchestraMessageCast
+    fixiUse: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraTriggerV10
+  {
+    fixrStateMachine: String!
+    fixrActor: String!
+    fixrName: String!
+  }
+
+type OrchestraTriggerV11
+  {
+    fixrStateMachine: String!
+    fixrActor: String!
+    fixrName: String!
+  }
+
+type OrchestraUniqueV10
+  {
+    fixrFieldRef: [OrchestraFieldRefV10]
+  }
+
+type OrchestraUniqueV11
+  {
+    fixrFieldRef: [OrchestraFieldRefV11]
+  }
+
+type OrchestraUnnamedEncodingV11
+  {
+    fixrAnnotation: OrchestraAnnotationV11
+    fixrAny: [OrchestraXmlElement]
+  }
+
+type OrchestraUserInterfaceV10
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV10
+    fixiName: String
+    fixiVersion: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraUserInterfaceV11
+  {
+    fixiAnnotation: OrchestraInterfaceAnnotationV11
+    fixiName: String
+    fixiVersion: String
+    fixiActivationTime: String
+    fixiDeactivationTime: String
+    fixiDeprecated: String
+    fixiLayer: OrchestraLayer
+    fixiReliability: OrchestraReliability
+    fixiOrchestration: String
+    fixiOtherAttributes: [OrchestraXmlAttribute]
+  }
+
+type OrchestraXmlAttribute
+  {
+    xmlName: String!
+    xmlValue: String!
+  }
+
+type OrchestraXmlElement
+  {
+    xmlName: String!
+    xmlAttributes: [OrchestraXmlAttribute]
+    xmlText: String
+    xmlChildren: [OrchestraXmlElement]
+    xmlTail: String
   }

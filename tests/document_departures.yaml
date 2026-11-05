@@ -1,0 +1,13 @@
+# Where a real document breaks a rule of tests/orchestra_rules.py, by file name: each
+# JSON pointer is one error that tests/test_documents.py expects, so a change in either
+# the document or the rules fails the test. Each is reported to the FIX Trading
+# Community.
+#
+# FIX's two session files put three groups in the category Common, which neither file
+# defines; FIX Latest defines it.
+FIX44Session.xml:
+  - /fixr_groups/fixr_group/1/fixr_category
+FIXTSession.xml:
+  - /fixr_groups/fixr_group/1/fixr_category
+  - /fixr_groups/fixr_group/2/fixr_category
+  - /fixr_groups/fixr_group/3/fixr_category

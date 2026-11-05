@@ -1,0 +1,9 @@
+# Fails at: /fixr_interval
+# An interval is an XML Schema duration.
+fixr_actor: Trader
+fixr_name: Expiry
+fixr_operation: START
+fixr_interval: 30 seconds
+fixr_activity:
+  fixr_actions:
+    - fixr_assign: $Trader.OrderLimit=0

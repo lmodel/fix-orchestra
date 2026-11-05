@@ -1,0 +1,20 @@
+# Fails at: /
+# RC3 drops the FIXML file name from a category.
+fixr_name: SingleGeneralOrderHandling
+fixr_section: Trade
+fixr_added: '1.0'
+fixr_encodings:
+  fixr_encoding:
+    - fixr_standard: FIXML
+      fixr_any:
+        - xml_name: '{https://example.org/orchestra-test}file'
+          xml_attributes:
+            - xml_name: name
+              xml_value: order
+          xml_tail: "\n        "
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_purpose: CAPTION
+        fixr_text: Orders for a single instrument.
+fixr_fixml_file_name: order

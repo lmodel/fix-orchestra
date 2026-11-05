@@ -1,5 +1,0 @@
-# INVALID: ActorType is missing the required `name` attribute.
-# Expected error: ValueError "name must be supplied"
-field_ref:
-  - id: 49
-    name: SenderCompID

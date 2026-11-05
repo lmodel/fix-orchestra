@@ -1,5 +1,0 @@
-# INVALID: SessionType uses an unknown value for the `role` enum (Role).
-# Valid values are: initiator, acceptor, client, server.
-# Expected error: ValueError "Unknown Role enumeration code: market_maker"
-name: SESS1
-role: market_maker

@@ -1,3 +1,8 @@
+"""fix_orchestra.
+
+FIX Orchestra v1.0 Technical Standard and v1.1 RC3 (LinkML)
+"""
+
 try:
     from fix_orchestra._version import __version__, __version_tuple__
 except ImportError:  # pragma: no cover

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  An Orchestra v1.0 interfaces file written for this project's tests: how to reach an
+  imaginary venue, with one of each kind of element the v1.0 interfaces XSD defines. It is
+  not FIX's text. tests/test_documents.py validates it with the pinned XSD and the schema.
+-->
+<fixi:interfaces xmlns:fixi="http://fixprotocol.io/2020/orchestra/interfaces"
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ex="https://example.org/orchestra-test">
+  <fixi:metadata>
+    <dcterms:title>Example venue interfaces</dcterms:title>
+    <dcterms:subject>Order entry sessions</dcterms:subject>
+  </fixi:metadata>
+  <fixi:interface name="OrderEntry" region="EU">
+    <fixi:service name="OrderRouting" version="1.0" layer="application" reliability="recoverable"
+        orchestration="https://example.org/venue/roe.xml">
+      <fixi:annotation>
+        <fixi:documentation purpose="SYNOPSIS" langId="en" contentType="text/plain">Order routing.</fixi:documentation>
+      </fixi:annotation>
+    </fixi:service>
+    <fixi:userInterface name="TradingScreen" layer="application"/>
+    <fixi:encoding name="tagvalue" version="FIX.Latest" layer="presentation"/>
+    <fixi:sessionProtocol name="FIXT" version="1.1" layer="session" reliability="recoverable"/>
+    <fixi:protocol name="SOFH" layer="presentation" ex:framing="2"/>
+    <fixi:transport name="TCP" layer="transport" address="192.0.2.10:9001" messageCast="unicast"
+        use="primary"/>
+    <fixi:annotation>
+      <fixi:documentation>The venue's order entry service.<ex:aside>in place</ex:aside></fixi:documentation>
+      <fixi:appinfo purpose="monitoring" specUrl="https://example.org/venue/status" langId="en"
+          ex:level="2">status page <ex:link href="https://example.org/venue/status"/></fixi:appinfo>
+    </fixi:annotation>
+    <fixi:sessions>
+      <fixi:session name="FIRM1-VENUE">
+        <fixi:service name="OrderRouting"/>
+        <fixi:userInterface name="TradingScreen"/>
+        <fixi:encoding name="tagvalue"/>
+        <fixi:sessionProtocol name="FIXT" version="1.1"/>
+        <fixi:protocol name="SOFH"/>
+        <fixi:transport name="TCP" address="192.0.2.10:9002" messageCast="multicast" use="secondary"/>
+        <fixi:annotation>
+          <fixi:documentation>The firm's main session.</fixi:documentation>
+        </fixi:annotation>
+        <fixi:identifier name="SenderCompID">FIRM1</fixi:identifier>
+        <fixi:identifier name="TargetCompID">VENUE</fixi:identifier>
+        <fixi:activationTime>2026-01-05T08:00:00Z</fixi:activationTime>
+        <fixi:deactivationTime>2027-01-05T08:00:00Z</fixi:deactivationTime>
+        <fixi:role>initiator</fixi:role>
+        <fixi:securityKeys>-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEAexampleexampleexampleexampleexampleexample0=
+-----END PUBLIC KEY-----</fixi:securityKeys>
+      </fixi:session>
+    </fixi:sessions>
+  </fixi:interface>
+</fixi:interfaces>

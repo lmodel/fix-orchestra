@@ -1,0 +1,6 @@
+# Fails at: /
+# A member holds exactly one element.
+fixr_field_ref:
+  fixr_id: 37
+fixr_group_ref:
+  fixr_id: 1013

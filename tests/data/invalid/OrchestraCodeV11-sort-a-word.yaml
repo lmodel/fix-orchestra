@@ -1,0 +1,8 @@
+# Fails at: /fixr_sort
+# An RC3 sort is a whole number.
+fixr_name: Buy
+fixr_id: 1
+fixr_value: '1'
+fixr_sort: first
+fixr_group: Main
+fixr_abbr_name: Buy

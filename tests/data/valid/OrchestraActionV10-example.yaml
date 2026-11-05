@@ -1,0 +1,3 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_actions:
+  - fixr_assign: $Trader.OrderLimit=100

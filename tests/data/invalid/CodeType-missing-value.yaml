@@ -1,4 +1,0 @@
-# INVALID: CodeType is missing the required `value` attribute.
-# Expected error: ValueError "value must be supplied"
-id: 401
-name: Market

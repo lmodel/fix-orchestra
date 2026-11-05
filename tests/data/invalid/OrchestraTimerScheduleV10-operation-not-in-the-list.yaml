@@ -1,0 +1,9 @@
+# Fails at: /fixr_operation
+# A timer starts, cancels or resets.
+fixr_actor: Trader
+fixr_name: Expiry
+fixr_operation: STOP
+fixr_interval: PT30S
+fixr_activity:
+  fixr_actions:
+    - fixr_assign: $Trader.OrderLimit=0

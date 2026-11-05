@@ -1,1783 +1,2816 @@
 /**
-* Anonymous simpleType for XML:space (from xml.xsd).
+* How far an element's latest change reaches.
 */
-export enum XmlSpaceType {
+export enum OrchestraChangeKind {
     
-    default = "default",
-    preserve = "preserve",
-};
-
-export enum CatComponentType {
-    
-    Field = "Field",
-    Message = "Message",
-};
-
-export enum CatIncludeFile {
-    
-    components = "components",
-    fields = "fields",
-};
-
-export enum ChangeType {
-    
+    /** A change to wording only. */
     Editorial = "Editorial",
+    /** A change to what the element means. */
     Definitional = "Definitional",
 };
-
-export enum DatatypeStandardEnum {
-    
-    /** General Purpose Datatypes */
-    ISO11404 = "ISO11404",
-    /** Google Protocol Buffers */
-    GPB = "GPB",
-    /** JSON Schema */
-    JSON = "JSON",
-    /** Simple Binary Encoding */
-    SBE = "SBE",
-    /** XML Schema and FIXML */
-    XML = "XML",
-    /** FIX classic encoding */
-    TAG_VALUE = "TAG_VALUE",
-};
-
-export enum MemberType {
-    
-    /** Members are mutually exclusive; exactly one must be present. */
-    oneOf = "oneOf",
-    /** At least one of the members must be present. */
-    anyOf = "anyOf",
-};
-
-export enum Presence {
-    
-    /** The field or component MAY be present; it may be conditionally required based on a rule. */
-    optional = "optional",
-    /** The field or component MUST be present. */
-    required = "required",
-    /** The field or component MUST NOT be present. */
-    forbidden = "forbidden",
-    /** The field or component MAY be present but is not validated. */
-    ignored = "ignored",
-    /** The field has a constant value; in some encodings it need not be sent on the wire. */
-    constant = "constant",
-};
 /**
-* Recommended annotation purposes
+* The layer of the communication stack a protocol works on.
 */
-export enum PurposeEnum {
+export enum OrchestraLayer {
     
-    /** Brief summary of the element, typically highlighting its key function or purpose, restricted to one paragraph for conciseness. */
-    SYNOPSIS = "SYNOPSIS",
-    /** Detailed explanation of the element, clarifying its usage, functionality, or background. */
-    ELABORATION = "ELABORATION",
-    /** Sample or illustration demonstrating how the element is used in practice. */
-    EXAMPLE = "EXAMPLE",
-    /** For UI when different from canonical name; may have multi-language displays. */
-    DISPLAY = "DISPLAY",
-    /** Descriptive label or title for the element, may be used for tables, figures, headings or brief annotations. */
-    CAPTION = "CAPTION",
-    /** Short message or hint that appears when hovering over the element, usually explaining its function or use. */
-    TOOLTIP = "TOOLTIP",
-    /** Precise and formal explanation of the element, restricted to one sentence in length to ensure brevity. */
-    DEFINITION = "DEFINITION",
-};
-/**
-* Message delivery gurantee
-*/
-export enum Reliability {
-    
-    bestEffort = "bestEffort",
-    idempotent = "idempotent",
-    recoverable = "recoverable",
-};
-/**
-* Support level
-*/
-export enum SupportType {
-    
-    supported = "supported",
-    forbidden = "forbidden",
-    ignored = "ignored",
-};
-
-export enum Synchronization {
-    
-    /** Event timing is completely independent */
-    asynchronous = "asynchronous",
-    /** Requests in-progress block subsequent requests */
-    synchronous = "synchronous",
-    /** Response timing is dependent on a request, but multiple requests can be in-flight */
-    pipelined = "pipelined",
-};
-
-export enum TimerOperation {
-    
-    START = "START",
-    CANCEL = "CANCEL",
-    /** Cancel and restart */
-    RESET = "RESET",
-};
-
-export enum Unbounded {
-    
-    unbounded = "unbounded",
-};
-/**
-* A second domain of valid values. The 'Reserved' types should only be applied Code Sets.
-*/
-export enum UnionDataType {
-    
-    Qty = "Qty",
-    Reserved100Plus = "Reserved100Plus",
-    Reserved1000Plus = "Reserved1000Plus",
-    Reserved4000Plus = "Reserved4000Plus",
-    Tenor = "Tenor",
-};
-
-export enum Layer {
-    
+    /** The application layer. */
     application = "application",
+    /** The presentation layer, where encodings sit. */
     presentation = "presentation",
+    /** The session layer. */
     session = "session",
+    /** The transport layer. */
     transport = "transport",
 };
-
-export enum MessageCast {
+/**
+* How many of a block's members must appear.
+*/
+export enum OrchestraMemberSelection {
     
+    /** Exactly one member appears. */
+    oneOf = "oneOf",
+    /** One or more members appear. */
+    anyOf = "anyOf",
+};
+/**
+* How many receivers a transport sends each message to.
+*/
+export enum OrchestraMessageCast {
+    
+    /** One receiver. */
     unicast = "unicast",
+    /** A group of receivers. */
     multicast = "multicast",
+    /** Every receiver. */
     broadcast = "broadcast",
 };
 /**
-* List of FIX protocols to standardize spelling
+* Whether an item must, may or must not appear in a message.
 */
-export enum ProtocolEnum {
+export enum OrchestraPresence {
     
-    /** FIX 4.x session layer */
+    /** May appear; a rule can make it required. */
+    optional = "optional",
+    /** Must appear. */
+    required = "required",
+    /** Must not appear. */
+    forbidden = "forbidden",
+    /** May appear, and is not checked. */
+    ignored = "ignored",
+    /** Has a fixed value, which some encodings leave off the wire. */
+    constant = "constant",
+};
+/**
+* The FIX protocols the interfaces file names, so that they are spelled one way. A file may name another protocol.
+*/
+export enum OrchestraProtocolName {
+    
+    /** The FIX 4 session layer. */
     FIX4 = "FIX4",
-    /** FIX Transport Session Protocol */
+    /** FIXT 1.1, the session protocol of FIX 5. */
     FIXT = "FIXT",
-    /** FIX Performance Session Layer */
+    /** FIXP, the FIX session protocol built for high performance. */
     FIXP = "FIXP",
-    /** Tag Value encoding (classic FIX) */
+    /** Classic tag=value encoding. */
     tagvalue = "tagvalue",
-    /** XML Schema */
+    /** FIX in XML. */
     FIXML = "FIXML",
-    /** FIX Adapted for Streaming */
+    /** The FAST streaming encoding. */
     FAST = "FAST",
-    /** Simple Binary Encoding */
+    /** Simple Binary Encoding. */
     SBE = "SBE",
-    /** Simple Open Framing Header */
+    /** The SOFH message framing header. */
     SOFH = "SOFH",
-    /** Google Protocol Buffers */
+    /** Google's protocol buffers. */
     GPB = "GPB",
-    /** Javascript Object Notation */
+    /** JSON encoding. */
     JSON = "JSON",
-    /** FIX over TLS security recommendation */
+    /** FIX over TLS. */
     FIXS = "FIXS",
 };
 /**
-* Recommended annotation purposes
+* The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
 */
-export enum InterfacePurposeEnum {
+export enum OrchestraPurpose {
     
+    /** A short summary. */
     SYNOPSIS = "SYNOPSIS",
+    /** A longer explanation. */
     ELABORATION = "ELABORATION",
+    /** An example of use. */
     EXAMPLE = "EXAMPLE",
-    /** For UI when different from canonical name; may have multi-language displays */
+    /** A name to show to people in place of the element's own. */
     DISPLAY = "DISPLAY",
 };
-
-export enum InterfaceReliability {
+/**
+* What a flow or protocol promises about delivering each message.
+*/
+export enum OrchestraReliability {
     
+    /** No promise; any message can be lost. */
     bestEffort = "bestEffort",
+    /** Each message is acted on at most once; a lost one is not sent again. */
     idempotent = "idempotent",
+    /** Each message is acted on exactly once; a lost one can be sent again. */
     recoverable = "recoverable",
 };
-
-export enum Role {
+/**
+* A party's role in setting up a session.
+*/
+export enum OrchestraRole {
     
+    /** The party that opens a FIX session. */
     initiator = "initiator",
+    /** The party that answers a request to open a FIX session. */
     acceptor = "acceptor",
+    /** The party that connects to a server. */
     client = "client",
+    /** The party that waits for clients to connect. */
     server = "server",
 };
-
-export enum TransportUseEnum {
+/**
+* How a party treats an element of the standard.
+*/
+export enum OrchestraSupport {
     
+    /** The party supports the element. */
+    supported = "supported",
+    /** The party refuses the element. */
+    forbidden = "forbidden",
+    /** The party accepts the element and acts on none of it. */
+    ignored = "ignored",
+};
+/**
+* How the timing of a response relates to the request it answers.
+*/
+export enum OrchestraSynchronization {
+    
+    /** The response's timing has no tie to the request's. */
+    asynchronous = "asynchronous",
+    /** A request waits until the one before it has its answer. */
+    synchronous = "synchronous",
+    /** Each response follows its request, and several requests may wait for answers at once. */
+    pipelined = "pipelined",
+};
+/**
+* What a step does to an actor's timer.
+*/
+export enum OrchestraTimerOperation {
+    
+    /** Start the timer. */
+    START = "START",
+    /** Stop the timer. */
+    CANCEL = "CANCEL",
+    /** Stop the timer and start it again. */
+    RESET = "RESET",
+};
+/**
+* The roles the interfaces file names for a transport. A file may give another role of its own.
+*/
+export enum OrchestraTransportUse {
+    
+    /** The main connection. */
     primary = "primary",
+    /** The backup connection. */
     secondary = "secondary",
+    /** Another connection, used in turn or by choice. */
     alternate = "alternate",
+};
+/**
+* What a category sorts, in v1.0.
+*/
+export enum OrchestraCategoryContentV10 {
+    
+    /** The category sorts fields. */
+    Field = "Field",
+    /** The category sorts messages. */
+    Message = "Message",
+};
+/**
+* The shared FIXML file a category's own file includes, in v1.0.
+*/
+export enum OrchestraCategoryIncludeFileV10 {
+    
+    /** The shared file of components. */
+    components = "components",
+    /** The shared file of fields. */
+    fields = "fields",
+};
+/**
+* The standards v1.0 names for mapping a datatype. A file may give another standard of its own.
+*/
+export enum OrchestraDatatypeStandardV10 {
+    
+    /** The general-purpose datatypes of ISO/IEC 11404. */
+    ISO11404 = "ISO11404",
+    /** Google's protocol buffers. */
+    GPB = "GPB",
+    /** JSON Schema. */
+    JSON = "JSON",
+    /** Simple Binary Encoding. */
+    SBE = "SBE",
+    /** XML Schema, as FIXML uses it. */
+    XML = "XML",
+    /** The classic tag=value encoding. */
+    TAG_VALUE = "TAG_VALUE",
+};
+/**
+* The datatypes v1.0 names whose values a field may hold beside its codes.
+*/
+export enum OrchestraUnionDatatypeV10 {
+    
+    /** Quantities. */
+    Qty = "Qty",
+    /** Values from 100 up, kept for user-defined codes. */
+    Reserved100Plus = "Reserved100Plus",
+    /** Values from 1000 up, kept for user-defined codes. */
+    Reserved1000Plus = "Reserved1000Plus",
+    /** Values from 4000 up, kept for user-defined codes. */
+    Reserved4000Plus = "Reserved4000Plus",
+    /** Tenors, such as 3M. */
+    Tenor = "Tenor",
+};
+/**
+* The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
+*/
+export enum OrchestraPurposeV11 {
+    
+    /** A short summary. */
+    SYNOPSIS = "SYNOPSIS",
+    /** A longer explanation. */
+    ELABORATION = "ELABORATION",
+    /** An example of use. */
+    EXAMPLE = "EXAMPLE",
+    /** A name to show to people in place of the element's own. */
+    DISPLAY = "DISPLAY",
+    /** A label for a table, a figure or a heading. */
+    CAPTION = "CAPTION",
+    /** A short hint shown when a pointer rests on the element. */
+    TOOLTIP = "TOOLTIP",
+    /** A formal definition in one sentence. */
+    DEFINITION = "DEFINITION",
 };
 
 
 /**
- * This is the default type for all of the DC elements. It permits text content only with optional xml:lang attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child elements.
+ * The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.
  */
-export interface DcSimpleLiteral {
-    /** Mixed text content of the element. */
-    value?: string,
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-    lang?: string,
+export interface OrchestraMetadata {
+    /** The values the file gives for the Dublin Core element title. */
+    dc_title?: string[],
+    /** The values the file gives for the Dublin Core element creator. */
+    dc_creator?: string[],
+    /** The values the file gives for the Dublin Core element subject. */
+    dc_subject?: string[],
+    /** The values the file gives for the Dublin Core element description. */
+    dc_description?: string[],
+    /** The values the file gives for the Dublin Core element publisher. */
+    dc_publisher?: string[],
+    /** The values the file gives for the Dublin Core element contributor. */
+    dc_contributor?: string[],
+    /** The values the file gives for the Dublin Core element date. */
+    dc_date?: string[],
+    /** The values the file gives for the Dublin Core element type. */
+    dc_type?: string[],
+    /** The values the file gives for the Dublin Core element format. */
+    dc_format?: string[],
+    /** The values the file gives for the Dublin Core element identifier. */
+    dc_identifier?: string[],
+    /** The values the file gives for the Dublin Core element source. */
+    dc_source?: string[],
+    /** The values the file gives for the Dublin Core element language. */
+    dc_language?: string[],
+    /** The values the file gives for the Dublin Core element relation. */
+    dc_relation?: string[],
+    /** The values the file gives for the Dublin Core element coverage. */
+    dc_coverage?: string[],
+    /** The values the file gives for the Dublin Core element rights. */
+    dc_rights?: string[],
+    /** The values the file gives for the DCMI term title. */
+    dcterms_title?: string[],
+    /** The values the file gives for the DCMI term creator. */
+    dcterms_creator?: string[],
+    /** The values the file gives for the DCMI term subject. */
+    dcterms_subject?: string[],
+    /** The values the file gives for the DCMI term description. */
+    dcterms_description?: string[],
+    /** The values the file gives for the DCMI term publisher. */
+    dcterms_publisher?: string[],
+    /** The values the file gives for the DCMI term contributor. */
+    dcterms_contributor?: string[],
+    /** The values the file gives for the DCMI term date. */
+    dcterms_date?: string[],
+    /** The values the file gives for the DCMI term type. */
+    dcterms_type?: string[],
+    /** The values the file gives for the DCMI term format. */
+    dcterms_format?: string[],
+    /** The values the file gives for the DCMI term identifier. */
+    dcterms_identifier?: string[],
+    /** The values the file gives for the DCMI term source. */
+    dcterms_source?: string[],
+    /** The values the file gives for the DCMI term language. */
+    dcterms_language?: string[],
+    /** The values the file gives for the DCMI term relation. */
+    dcterms_relation?: string[],
+    /** The values the file gives for the DCMI term coverage. */
+    dcterms_coverage?: string[],
+    /** The values the file gives for the DCMI term rights. */
+    dcterms_rights?: string[],
+    /** The values the file gives for the DCMI term alternative. */
+    dcterms_alternative?: string[],
+    /** The values the file gives for the DCMI term tableOfContents. */
+    dcterms_table_of_contents?: string[],
+    /** The values the file gives for the DCMI term abstract. */
+    dcterms_abstract?: string[],
+    /** The values the file gives for the DCMI term created. */
+    dcterms_created?: string[],
+    /** The values the file gives for the DCMI term valid. */
+    dcterms_valid?: string[],
+    /** The values the file gives for the DCMI term available. */
+    dcterms_available?: string[],
+    /** The values the file gives for the DCMI term issued. */
+    dcterms_issued?: string[],
+    /** The values the file gives for the DCMI term modified. */
+    dcterms_modified?: string[],
+    /** The values the file gives for the DCMI term dateAccepted. */
+    dcterms_date_accepted?: string[],
+    /** The values the file gives for the DCMI term dateCopyrighted. */
+    dcterms_date_copyrighted?: string[],
+    /** The values the file gives for the DCMI term dateSubmitted. */
+    dcterms_date_submitted?: string[],
+    /** The values the file gives for the DCMI term extent. */
+    dcterms_extent?: string[],
+    /** The values the file gives for the DCMI term medium. */
+    dcterms_medium?: string[],
+    /** The values the file gives for the DCMI term isVersionOf. */
+    dcterms_is_version_of?: string[],
+    /** The values the file gives for the DCMI term hasVersion. */
+    dcterms_has_version?: string[],
+    /** The values the file gives for the DCMI term isReplacedBy. */
+    dcterms_is_replaced_by?: string[],
+    /** The values the file gives for the DCMI term replaces. */
+    dcterms_replaces?: string[],
+    /** The values the file gives for the DCMI term isRequiredBy. */
+    dcterms_is_required_by?: string[],
+    /** The values the file gives for the DCMI term requires. */
+    dcterms_requires?: string[],
+    /** The values the file gives for the DCMI term isPartOf. */
+    dcterms_is_part_of?: string[],
+    /** The values the file gives for the DCMI term hasPart. */
+    dcterms_has_part?: string[],
+    /** The values the file gives for the DCMI term isReferencedBy. */
+    dcterms_is_referenced_by?: string[],
+    /** The values the file gives for the DCMI term references. */
+    dcterms_references?: string[],
+    /** The values the file gives for the DCMI term isFormatOf. */
+    dcterms_is_format_of?: string[],
+    /** The values the file gives for the DCMI term hasFormat. */
+    dcterms_has_format?: string[],
+    /** The values the file gives for the DCMI term conformsTo. */
+    dcterms_conforms_to?: string[],
+    /** The values the file gives for the DCMI term spatial. */
+    dcterms_spatial?: string[],
+    /** The values the file gives for the DCMI term temporal. */
+    dcterms_temporal?: string[],
+    /** The values the file gives for the DCMI term audience. */
+    dcterms_audience?: string[],
+    /** The values the file gives for the DCMI term accrualMethod. */
+    dcterms_accrual_method?: string[],
+    /** The values the file gives for the DCMI term accrualPeriodicity. */
+    dcterms_accrual_periodicity?: string[],
+    /** The values the file gives for the DCMI term accrualPolicy. */
+    dcterms_accrual_policy?: string[],
+    /** The values the file gives for the DCMI term instructionalMethod. */
+    dcterms_instructional_method?: string[],
+    /** The values the file gives for the DCMI term provenance. */
+    dcterms_provenance?: string[],
+    /** The values the file gives for the DCMI term rightsHolder. */
+    dcterms_rights_holder?: string[],
+    /** The values the file gives for the DCMI term mediator. */
+    dcterms_mediator?: string[],
+    /** The values the file gives for the DCMI term educationLevel. */
+    dcterms_education_level?: string[],
+    /** The values the file gives for the DCMI term accessRights. */
+    dcterms_access_rights?: string[],
+    /** The values the file gives for the DCMI term license. */
+    dcterms_license?: string[],
+    /** The values the file gives for the DCMI term bibliographicCitation. */
+    dcterms_bibliographic_citation?: string[],
 }
 
 
 /**
- * This complexType is included as a convenience for schema authors who need to define a root or container element for all of the DC elements.
+ * An XML element in a place where the XSDs accept any content, kept as written so that the file converts back unchanged.
  */
-export interface DcElementContainer {
-    /** Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    title?: string,
-    /** Free-text value of the Dublin Core element/refinement `creator`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    creator?: string,
-    /** Free-text value of the Dublin Core element/refinement `subject`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    subject?: string,
-    /** Free-text value of the Dublin Core element/refinement `description`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    description?: string,
-    /** Free-text value of the Dublin Core element/refinement `publisher`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    publisher?: string,
-    /** Free-text value of the Dublin Core element/refinement `contributor`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    contributor?: string,
-    /** Free-text value of the Dublin Core element/refinement `date`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date?: string,
-    /** Free-text value of the Dublin Core element/refinement `format`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    format?: string,
-    /** Free-text value of the Dublin Core element/refinement `source`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    source?: string,
-    /** Free-text value of the Dublin Core element/refinement `language`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    language?: string,
-    /** Free-text value of the Dublin Core element/refinement `relation`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    relation?: string,
-    /** Free-text value of the Dublin Core element/refinement `coverage`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    coverage?: string,
-    /** Free-text value of the Dublin Core element/refinement `rights`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    rights?: string,
-    /** Free-text value of the Dublin Core element/refinement `alternative`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    alternative?: string,
-    /** Free-text value of the Dublin Core element/refinement `tableOfContents`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    table_of_contents?: string,
-    /** Free-text value of the Dublin Core element/refinement `abstract`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    abstract?: string,
-    /** Free-text value of the Dublin Core element/refinement `created`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    created?: string,
-    /** Free-text value of the Dublin Core element/refinement `valid`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    valid?: string,
-    /** Free-text value of the Dublin Core element/refinement `available`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    available?: string,
-    /** Free-text value of the Dublin Core element/refinement `issued`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    issued?: string,
-    /** Free-text value of the Dublin Core element/refinement `modified`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    modified?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateAccepted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_accepted?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateCopyrighted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_copyrighted?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateSubmitted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_submitted?: string,
-    /** Free-text value of the Dublin Core element/refinement `extent`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    extent?: string,
-    /** Free-text value of the Dublin Core element/refinement `medium`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    medium?: string,
-    /** Free-text value of the Dublin Core element/refinement `isVersionOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_version_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasVersion`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_version?: string,
-    /** Free-text value of the Dublin Core element/refinement `isReplacedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_replaced_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `replaces`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    replaces?: string,
-    /** Free-text value of the Dublin Core element/refinement `isRequiredBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_required_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `requires`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    requires?: string,
-    /** Free-text value of the Dublin Core element/refinement `isPartOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_part_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasPart`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_part?: string,
-    /** Free-text value of the Dublin Core element/refinement `isReferencedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_referenced_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `references`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    references?: string,
-    /** Free-text value of the Dublin Core element/refinement `isFormatOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_format_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasFormat`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_format?: string,
-    /** Free-text value of the Dublin Core element/refinement `conformsTo`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    conforms_to?: string,
-    /** Free-text value of the Dublin Core element/refinement `spatial`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    spatial?: string,
-    /** Free-text value of the Dublin Core element/refinement `temporal`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    temporal?: string,
-    /** Free-text value of the Dublin Core element/refinement `audience`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    audience?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_method?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualPeriodicity`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_periodicity?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualPolicy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_policy?: string,
-    /** Free-text value of the Dublin Core element/refinement `instructionalMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    instructional_method?: string,
-    /** Free-text value of the Dublin Core element/refinement `provenance`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    provenance?: string,
-    /** Free-text value of the Dublin Core element/refinement `rightsHolder`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    rights_holder?: string,
-    /** Free-text value of the Dublin Core element/refinement `mediator`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    mediator?: string,
-    /** Free-text value of the Dublin Core element/refinement `educationLevel`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    education_level?: string,
-    /** Free-text value of the Dublin Core element/refinement `accessRights`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    access_rights?: string,
-    /** Free-text value of the Dublin Core element/refinement `license`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    license?: string,
-    /** Free-text value of the Dublin Core element/refinement `bibliographicCitation`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    bibliographic_citation?: string,
-    /** Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    type?: string,
-    /** Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    identifier?: string,
-}
-
-
-
-export interface DcAny extends DcSimpleLiteral {
-}
-
-
-
-export interface DcTitle extends DcAny {
-}
-
-
-
-export interface DcCreator extends DcAny {
-}
-
-
-
-export interface DcSubject extends DcAny {
-}
-
-
-
-export interface DcDescription extends DcAny {
-}
-
-
-
-export interface DcPublisher extends DcAny {
-}
-
-
-
-export interface DcContributor extends DcAny {
-}
-
-
-
-export interface DcDate extends DcAny {
-}
-
-
-
-export interface DcType extends DcAny {
-}
-
-
-
-export interface DcFormat extends DcAny {
-}
-
-
-
-export interface DcIdentifier extends DcAny {
-}
-
-
-
-export interface DcSource extends DcAny {
-}
-
-
-
-export interface DcLanguage extends DcAny {
-}
-
-
-
-export interface DcRelation extends DcAny {
-}
-
-
-
-export interface DcCoverage extends DcAny {
-}
-
-
-
-export interface DcRights extends DcAny {
+export interface OrchestraXmlElement {
+    /** The name, with its namespace in braces when it has one. */
+    xml_name: string,
+    /** The element's attributes. */
+    xml_attributes?: OrchestraXmlAttribute[],
+    /** The text before the first child element. */
+    xml_text?: string,
+    /** The child elements, in order. */
+    xml_children?: OrchestraXmlElement[],
+    /** The text after the element and before its next sibling. */
+    xml_tail?: string,
 }
 
 
 /**
- * This group is included as a convenience for schema authors who need to refer to all the elements in the http://purl.org/dc/elements/1.1/ namespace.
+ * An XML attribute from another namespace, kept as written.
  */
-export interface DcElementsGroup {
-}
-
-
-
-export interface DctermsLCSH extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsMESH extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsDDC extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsLCC extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsUDC extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsPeriod extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsW3CDTF extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsDCMIType extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsIMT extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsURI extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsISO6392 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsISO6393 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsRFC1766 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsRFC3066 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsRFC4646 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsPoint extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsISO3166 extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsBox extends DcSimpleLiteral {
-}
-
-
-
-export interface DctermsTGN extends DcSimpleLiteral {
+export interface OrchestraXmlAttribute {
+    /** The name, with its namespace in braces when it has one. */
+    xml_name: string,
+    /** The attribute's value. */
+    xml_value: string,
 }
 
 
 /**
- * This is included as a convenience for schema authors who need to define a root or container element for all of the DC elements and element refinements.
+ * One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
  */
-export interface DctermsElementOrRefinementContainer {
-    /** Free-text value of the Dublin Core element/refinement `title`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    title?: string,
-    /** Free-text value of the Dublin Core element/refinement `creator`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    creator?: string,
-    /** Free-text value of the Dublin Core element/refinement `subject`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    subject?: string,
-    /** Free-text value of the Dublin Core element/refinement `description`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    description?: string,
-    /** Free-text value of the Dublin Core element/refinement `publisher`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    publisher?: string,
-    /** Free-text value of the Dublin Core element/refinement `contributor`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    contributor?: string,
-    /** Free-text value of the Dublin Core element/refinement `date`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date?: string,
-    /** Free-text value of the Dublin Core element/refinement `format`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    format?: string,
-    /** Free-text value of the Dublin Core element/refinement `source`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    source?: string,
-    /** Free-text value of the Dublin Core element/refinement `language`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    language?: string,
-    /** Free-text value of the Dublin Core element/refinement `relation`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    relation?: string,
-    /** Free-text value of the Dublin Core element/refinement `coverage`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    coverage?: string,
-    /** Free-text value of the Dublin Core element/refinement `rights`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    rights?: string,
-    /** Free-text value of the Dublin Core element/refinement `alternative`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    alternative?: string,
-    /** Free-text value of the Dublin Core element/refinement `tableOfContents`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    table_of_contents?: string,
-    /** Free-text value of the Dublin Core element/refinement `abstract`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    abstract?: string,
-    /** Free-text value of the Dublin Core element/refinement `created`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    created?: string,
-    /** Free-text value of the Dublin Core element/refinement `valid`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    valid?: string,
-    /** Free-text value of the Dublin Core element/refinement `available`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    available?: string,
-    /** Free-text value of the Dublin Core element/refinement `issued`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    issued?: string,
-    /** Free-text value of the Dublin Core element/refinement `modified`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    modified?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateAccepted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_accepted?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateCopyrighted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_copyrighted?: string,
-    /** Free-text value of the Dublin Core element/refinement `dateSubmitted`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    date_submitted?: string,
-    /** Free-text value of the Dublin Core element/refinement `extent`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    extent?: string,
-    /** Free-text value of the Dublin Core element/refinement `medium`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    medium?: string,
-    /** Free-text value of the Dublin Core element/refinement `isVersionOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_version_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasVersion`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_version?: string,
-    /** Free-text value of the Dublin Core element/refinement `isReplacedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_replaced_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `replaces`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    replaces?: string,
-    /** Free-text value of the Dublin Core element/refinement `isRequiredBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_required_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `requires`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    requires?: string,
-    /** Free-text value of the Dublin Core element/refinement `isPartOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_part_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasPart`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_part?: string,
-    /** Free-text value of the Dublin Core element/refinement `isReferencedBy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_referenced_by?: string,
-    /** Free-text value of the Dublin Core element/refinement `references`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    references?: string,
-    /** Free-text value of the Dublin Core element/refinement `isFormatOf`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    is_format_of?: string,
-    /** Free-text value of the Dublin Core element/refinement `hasFormat`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    has_format?: string,
-    /** Free-text value of the Dublin Core element/refinement `conformsTo`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    conforms_to?: string,
-    /** Free-text value of the Dublin Core element/refinement `spatial`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    spatial?: string,
-    /** Free-text value of the Dublin Core element/refinement `temporal`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    temporal?: string,
-    /** Free-text value of the Dublin Core element/refinement `audience`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    audience?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_method?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualPeriodicity`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_periodicity?: string,
-    /** Free-text value of the Dublin Core element/refinement `accrualPolicy`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    accrual_policy?: string,
-    /** Free-text value of the Dublin Core element/refinement `instructionalMethod`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    instructional_method?: string,
-    /** Free-text value of the Dublin Core element/refinement `provenance`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    provenance?: string,
-    /** Free-text value of the Dublin Core element/refinement `rightsHolder`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    rights_holder?: string,
-    /** Free-text value of the Dublin Core element/refinement `mediator`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    mediator?: string,
-    /** Free-text value of the Dublin Core element/refinement `educationLevel`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    education_level?: string,
-    /** Free-text value of the Dublin Core element/refinement `accessRights`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    access_rights?: string,
-    /** Free-text value of the Dublin Core element/refinement `license`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    license?: string,
-    /** Free-text value of the Dublin Core element/refinement `bibliographicCitation`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    bibliographic_citation?: string,
-    /** Free-text value of the Dublin Core element/refinement `type`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    type?: string,
-    /** Free-text value of the Dublin Core element/refinement `identifier`. Expanded from the XSD substitutionGroup chain rooted at dc:any. */
-    identifier?: string,
-}
-
-
-
-export interface DctermsTitle extends DcTitle {
-}
-
-
-
-export interface DctermsCreator extends DcCreator {
-}
-
-
-
-export interface DctermsSubject extends DcSubject {
-}
-
-
-
-export interface DctermsDescription extends DcDescription {
-}
-
-
-
-export interface DctermsPublisher extends DcPublisher {
-}
-
-
-
-export interface DctermsContributor extends DcContributor {
-}
-
-
-
-export interface DctermsDate extends DcDate {
-}
-
-
-
-export interface DctermsType extends DcType {
-}
-
-
-
-export interface DctermsFormat extends DcFormat {
-}
-
-
-
-export interface DctermsIdentifier extends DcIdentifier {
-}
-
-
-
-export interface DctermsSource extends DcSource {
-}
-
-
-
-export interface DctermsLanguage extends DcLanguage {
-}
-
-
-
-export interface DctermsRelation extends DcRelation {
-}
-
-
-
-export interface DctermsCoverage extends DcCoverage {
-}
-
-
-
-export interface DctermsRights extends DcRights {
-}
-
-
-
-export interface DctermsAlternative extends DctermsTitle {
-}
-
-
-
-export interface DctermsTableOfContents extends DctermsDescription {
-}
-
-
-
-export interface DctermsAbstract extends DctermsDescription {
-}
-
-
-
-export interface DctermsCreated extends DctermsDate {
-}
-
-
-
-export interface DctermsValid extends DctermsDate {
-}
-
-
-
-export interface DctermsAvailable extends DctermsDate {
-}
-
-
-
-export interface DctermsIssued extends DctermsDate {
-}
-
-
-
-export interface DctermsModified extends DctermsDate {
-}
-
-
-
-export interface DctermsDateAccepted extends DctermsDate {
-}
-
-
-
-export interface DctermsDateCopyrighted extends DctermsDate {
-}
-
-
-
-export interface DctermsDateSubmitted extends DctermsDate {
-}
-
-
-
-export interface DctermsExtent extends DctermsFormat {
-}
-
-
-
-export interface DctermsMedium extends DctermsFormat {
-}
-
-
-
-export interface DctermsIsVersionOf extends DctermsRelation {
-}
-
-
-
-export interface DctermsHasVersion extends DctermsRelation {
-}
-
-
-
-export interface DctermsIsReplacedBy extends DctermsRelation {
-}
-
-
-
-export interface DctermsReplaces extends DctermsRelation {
-}
-
-
-
-export interface DctermsIsRequiredBy extends DctermsRelation {
-}
-
-
-
-export interface DctermsRequires extends DctermsRelation {
-}
-
-
-
-export interface DctermsIsPartOf extends DctermsRelation {
-}
-
-
-
-export interface DctermsHasPart extends DctermsRelation {
-}
-
-
-
-export interface DctermsIsReferencedBy extends DctermsRelation {
-}
-
-
-
-export interface DctermsReferences extends DctermsRelation {
-}
-
-
-
-export interface DctermsIsFormatOf extends DctermsRelation {
-}
-
-
-
-export interface DctermsHasFormat extends DctermsRelation {
-}
-
-
-
-export interface DctermsConformsTo extends DctermsRelation {
-}
-
-
-
-export interface DctermsSpatial extends DctermsCoverage {
-}
-
-
-
-export interface DctermsTemporal extends DctermsCoverage {
-}
-
-
-
-export interface DctermsAudience extends DcAny {
-}
-
-
-
-export interface DctermsAccrualMethod extends DcAny {
-}
-
-
-
-export interface DctermsAccrualPeriodicity extends DcAny {
-}
-
-
-
-export interface DctermsAccrualPolicy extends DcAny {
-}
-
-
-
-export interface DctermsInstructionalMethod extends DcAny {
-}
-
-
-
-export interface DctermsProvenance extends DcAny {
-}
-
-
-
-export interface DctermsRightsHolder extends DcAny {
-}
-
-
-
-export interface DctermsMediator extends DctermsAudience {
-}
-
-
-
-export interface DctermsEducationLevel extends DctermsAudience {
-}
-
-
-
-export interface DctermsAccessRights extends DctermsRights {
-}
-
-
-
-export interface DctermsLicense extends DctermsRights {
-}
-
-
-
-export interface DctermsBibliographicCitation extends DctermsIdentifier {
+export interface OrchestraActionParameterV10 {
+    /** A field defined in place. */
+    fixr_field?: OrchestraFieldV10,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV10,
+    /** A component defined in place. */
+    fixr_component?: OrchestraComponentV10,
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV10,
+    /** A repeating group defined in place. */
+    fixr_group?: OrchestraGroupV10,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV10,
 }
 
 
 /**
- * This group is included as a convenience for schema authors who need to refer to all the DC elements and element refinements in the http://purl.org/dc/elements/1.1/ and http://purl.org/dc/terms namespaces. N.B. Refinements available via substitution groups.
+ * One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one of these.
  */
-export interface DctermsElementsAndRefinementsGroup {
-}
-
-
-
-export interface XmlSpecialAttrs {
-    base?: string,
-    lang?: string,
-    space?: string,
-    id?: string,
+export interface OrchestraActionStepV10 {
+    /** A message to send. */
+    fixr_message_ref?: OrchestraMessageRefV10,
+    /** An expression that gives an actor's variable a value, such as $actor.variable=value. */
+    fixr_assign?: string,
+    /** A transition to fire. */
+    fixr_trigger?: OrchestraTriggerV10,
+    /** A timer to start, stop or restart. */
+    fixr_timer_schedule?: OrchestraTimerScheduleV10,
 }
 
 
 /**
- * Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
+ * Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
  */
-export interface XmlGlobalAttributes {
-    /** lang (as an attribute name) denotes an attribute whose value is a language code for the natural language of the content of any element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. Notes Attempting to install the relevant ISO 2- and 3-letter codes as the enumerated possible values is probably never going to be a realistic possibility. See BCP 47 at http://www.rfc-editor.org/rfc/bcp/bcp47.txt and the IANA language subtag registry at http://www.iana.org/assignments/language-subtag-registry for further information. The union allows for the 'un-declaration' of xml:lang with the empty string. */
-    lang?: string,
-    /** space (as an attribute name) denotes an attribute whose value is a keyword indicating what whitespace processing discipline is intended for the content of the element; its value is inherited. This name is reserved by virtue of its definition in the XML specification. */
-    space?: string,
-    /** base (as an attribute name) denotes an attribute whose value provides a URI to be used as the base for interpreting any relative URIs in the scope of the element on which it appears; its value is inherited. This name is reserved by virtue of its definition in the XML Base specification. See http://www.w3.org/TR/xmlbase/ for information about this attribute. */
-    base?: string,
-    /** id (as an attribute name) denotes an attribute whose value should be interpreted as if declared to be of type ID. This name is reserved by virtue of its definition in the xml:id specification. See http://www.w3.org/TR/xml-id/ for information about this attribute. */
-    id?: string,
-}
-
-
-
-export interface EntityAttribGrp {
-    added?: string,
-    added_ep?: string,
-    change_type?: string,
-    deprecated_ep?: string,
-    issue?: string,
-    last_modified?: string,
-    replaced?: string,
-    replaced_ep?: string,
-    replaced_by_field?: string,
-    supported?: string,
-    updated?: string,
-    updated_ep?: string,
-    deprecated?: string,
+export interface OrchestraActionV10 {
+    /** The fields, groups and components the action takes as input, in order. */
+    fixr_parameters?: OrchestraActionParameterV10[],
+    /** What the action does, in order: messages sent, values set, transitions fired and timers scheduled. */
+    fixr_actions: OrchestraActionStepV10[],
 }
 
 
 /**
- * Attributes of a field that be overridden by a rule
+ * One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds exactly one of these.
  */
-export interface FieldAttribGrp {
-    /** Inclusive lower bound */
-    min_inclusive?: string,
-    /** Inclusive upper bound */
-    max_inclusive?: string,
-    /** Fixed length */
-    impl_length?: number,
-    impl_min_length?: number,
-    impl_max_length?: number,
-    /** Overrides presence when expression is true */
-    presence?: string,
-    /** If presence is optional, then it represents a default when the sender does not provide the field. If presence is constant, then it is the constant value. */
-    value?: string,
-    /** A hint to processes about how to interpret the element. Not validated. */
-    rendering?: string,
-    /** Character encoding if other than US-ASCII */
-    encoding?: string,
+export interface OrchestraActorMemberV10 {
+    /** A variable defined in place as a field. */
+    fixr_field?: OrchestraFieldV10,
+    /** A variable that uses a field by its number. */
+    fixr_field_ref?: OrchestraFieldRefV10,
+    /** A variable defined in place as a component. */
+    fixr_component?: OrchestraComponentV10,
+    /** A variable that uses a component by its number. */
+    fixr_component_ref?: OrchestraComponentRefV10,
+    /** A variable defined in place as a repeating group. */
+    fixr_group?: OrchestraGroupV10,
+    /** A variable that uses a repeating group by its number. */
+    fixr_group_ref?: OrchestraGroupRefV10,
+    /** A state machine. */
+    fixr_states?: OrchestraStateMachineV10,
+    /** A timer. */
+    fixr_timer?: OrchestraTimerV10,
 }
 
 
 /**
- * The identifiers of a message element
+ * A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state machines and timers.
  */
-export interface OidGrp {
-    abbr_name?: string,
-    /** Unique identifier of a scenario. Default is '1' for base scenario. */
-    scenario_id?: string,
-    /** Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag */
-    id: string,
-    name: string,
-    /** The use case of an element, distinguished by workflow, asset class, etc. */
-    scenario?: string,
+export interface OrchestraActorV10 {
+    /** The actor's variables, state machines and timers, in order. */
+    fixr_members?: OrchestraActorMemberV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The actor's name, unique among the repository's actors. */
+    fixr_name: string,
 }
 
 
 /**
- * A reference to a message element by its key identifiers
+ * One entry of the actors list, an actor or a flow. It holds exactly one of these.
  */
-export interface RefidGrp {
-    /** Unique identifier of a scenario. Default is '1' for base scenario. */
-    scenario_id?: string,
-    /** Numeric identifier generally must be unique within a file for an element type, e.g. unique field tag */
-    id: string,
-    /** The name is optional as part of a reference and only for convenience. It is not enforced by referential integrity. However, the name of the referred object is authoritative. A validator may check the consistency between the name used for the reference and the name of the referred object. */
-    name?: string,
-    /** The use case of an element, distinguished by workflow, asset class, etc. */
-    scenario?: string,
+export interface OrchestraActorsMemberV10 {
+    /** An actor. */
+    fixr_actor?: OrchestraActorV10,
+    /** A flow. */
+    fixr_flow?: OrchestraFlowV10,
 }
 
 
 /**
- * A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
+ * The parties a repository describes and the one-way flows between them.
  */
-export interface ScenarioRefGrp {
-    /** Unique identifier of a scenario. The identifier is required when referencing another scenario. */
-    scenario_ref_id?: string,
-    /** Name of a scenario. The name is optional as part of a reference and only for convenience. */
-    scenario_ref?: string,
-}
-
-
-
-export interface ActionType {
-    field?: FieldType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    component?: ComponentType[],
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Send a message */
-    message_ref?: MessageRefType[],
-    /** Trigger a state transtion in a state machine */
-    trigger?: TriggerType[],
-    timer_schedule?: TimerSchedule[],
-    group?: GroupType[],
-    /** Content of element holds an assignment expression for a state variable in the form '$actor.variable=value' */
-    assign?: string[],
+export interface OrchestraActorsV10 {
+    /** The actors and flows, in order. */
+    fixr_members: OrchestraActorsMemberV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
 }
 
 
 /**
- * Represents a class of participants
+ * One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
  */
-export interface ActorType {
-    field?: FieldType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    component?: ComponentType[],
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    states?: StateMachineType[],
-    timer?: TimerType[],
-    group?: GroupType[],
-    annotation?: Annotation,
-    name: string,
-}
-
-
-
-export interface Annotation extends EntityAttribGrp {
-    documentation?: Documentation[],
-    appinfo?: Appinfo[],
+export interface OrchestraAnnotationMemberV10 {
+    /** A piece of text. */
+    fixr_documentation?: OrchestraDocumentationV10,
+    /** A hint for software. */
+    fixr_appinfo?: OrchestraAppinfoV10,
 }
 
 
 /**
- * Usage specific annotation, optionally with link to an external reference or standard
+ * Notes for readers and hints for software, attached to an element.
  */
-export interface Appinfo extends EntityAttribGrp {
-    /** Reference documentation */
-    spec_url?: string,
-    /** Mixed text content of the element. */
-    value?: string,
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-    /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
-    extra_attributes?: string[],
-    /** FIXML generator hints. Surfaces <fixml:FIXMLencoding> / <fixml:FIXMLencodingType> payloads embedded in <fixr:appinfo purpose="FIXML">. */
-    fixml_encoding?: FIXMLencodingType,
-    lang_id?: string,
-    purpose?: string,
-}
-
-
-
-export interface BlockAssignmentType {
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-}
-
-
-
-export interface CategoryType extends EntityAttribGrp {
-    fixml_file_name?: string,
-    component_type?: string,
-    include_file?: string,
-    annotation?: Annotation,
-    name: string,
-    section?: string,
-}
-
-
-
-export interface CodeSetType extends OidGrp, ScenarioRefGrp, EntityAttribGrp {
-    code?: CodeType[],
-    default?: string,
-    /** Reference documentation for an external code set */
-    spec_url?: string,
-    union_data_type?: string,
-    annotation?: Annotation,
-    /** Underlying FIX datatype of codes */
-    type: string,
-}
-
-
-
-export interface CodeType extends OidGrp, EntityAttribGrp {
-    /** The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. However, single internal spaces are allowed. May be further restricted by an external style. */
-    value: string,
-    /** Sort and group may be used to organize visualization of a code set. */
-    sort?: number,
-    annotation?: Annotation,
-    group?: string,
-}
-
-
-
-export interface ComponentRefType extends RefidGrp, EntityAttribGrp {
-    /** Specifies a how a component or each group entry is populated (optional) */
-    block_assignment?: BlockAssignmentType[],
-    /** Overrides presence when expression is true */
-    presence?: string,
-    /** Rule to tell when a conditionally require component */
-    rule?: ComponentRuleType[],
-    annotation?: Annotation,
-    /** Override the component name for this instance, for code generation and the like. Allows more than one instance of a component in a message. */
-    instance_name?: string,
-}
-
-
-
-export interface ComponentRuleType {
-    /** A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send. */
-    when: string,
-    /** Overrides presence when expression is true */
-    presence?: string,
-    /** Name of this rule */
-    name?: string,
-}
-
-
-
-export interface ComponentType extends EntityAttribGrp, OidGrp, ScenarioRefGrp {
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    /** A hint to processes about how to interpret the element. Not validated. */
-    rendering?: string,
-    /** Member selection within each group instance */
-    which?: string,
-    annotation?: Annotation,
-    category?: string,
-}
-
-
-
-export interface ConceptType {
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    /** Send a message */
-    message_ref?: MessageRefType[],
-    annotation?: Annotation,
-    name: string,
-}
-
-
-
-export interface Documentation extends EntityAttribGrp {
-    /** Mixed text content of the element. */
-    value?: string,
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-    lang_id?: string,
-    purpose?: string,
-    content_type?: string,
-}
-
-
-
-export interface FieldRefType extends RefidGrp, EntityAttribGrp, FieldAttribGrp {
-    /** Identifies a field used as a length prefix */
-    length_id?: string,
-    /** Identifies a non-encoded field related to an encoded field */
-    non_encoded_field_id?: string,
-    /** Rule to tell when a conditionally require field is required or forbidden, to override other attributes, or perform validation. */
-    rule?: FieldRuleType[],
-    /** Content of element holds an assignment expression for a message field or state variable */
-    assign?: string,
-    annotation?: Annotation,
-    /** Override the field name for this instance, for code generation and the like. Allows more than one instance of a field in a message or component. */
-    instance_name?: string,
-}
-
-
-
-export interface UniqueInline {
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-}
-
-
-
-export interface FieldRuleType extends FieldAttribGrp {
-    unique?: UniqueInline,
-    /** A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send. */
-    when: string,
-    /** Content of element holds an assignment expression for a message field or state variable. This can be used for field validation. */
-    assign?: string[],
-    /** Name of this rule */
-    name?: string,
-    /** Overrides the type of the referenced field. */
-    type?: string,
-}
-
-
-
-export interface FieldType extends OidGrp, EntityAttribGrp, FieldAttribGrp {
-    /** Identifies a field used as a length prefix */
-    length_id?: string,
-    /** Identifies a non-encoded field related to an encoded field */
-    non_encoded_field_id?: string,
-    /** Identifies a field used as a discriminator for this field's domain */
-    discriminator_id?: string,
-    base_category?: string,
-    base_category_abbr_name?: string,
-    union_data_type?: string,
-    /** Rule to tell when a conditionally require field is required or forbidden, to override other attributes, or perform validation. */
-    rule?: FieldRuleType[],
-    /** Content of element holds an assignment expression for a message field or state variable */
-    assign?: string,
-    annotation?: Annotation,
-    /** Attribute type refers to a datatype name */
-    type?: string,
-    /** Attribute codeSet refers to a codeSet name */
-    code_set?: string,
+export interface OrchestraAnnotationV10 extends OrchestraPedigreeV10Mixin {
+    /** The texts and hints, in order. */
+    fixr_members: OrchestraAnnotationMemberV10[],
 }
 
 
 /**
- * A stream of messages in one direction
+ * A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
  */
-export interface FlowType {
-    /** Name of the actor that originates messages */
-    source: string,
-    /** Name of the actor that receives messages. */
-    destination: string,
-    annotation?: Annotation,
-    name: string,
-    reliability?: string,
-}
-
-
-
-export interface GroupRefType extends ComponentRefType {
-    /** Lower bound of group instances (numInGroup) */
-    impl_min_occurs?: number,
-    /** Upper bound of group instances (numInGroup) */
-    impl_max_occurs?: string,
+export interface OrchestraAppinfoV10 extends OrchestraPedigreeV10Mixin {
+    /** The text the element holds, as written. */
+    fixr_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixr_any?: OrchestraXmlElement[],
+    /** The address of a document that describes the element. */
+    fixr_spec_url?: string,
+    /** The language of the text, as a language tag. */
+    fixr_lang_id?: string,
+    /** What the hint is for, such as the encoding it concerns. */
+    fixr_purpose?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixr_other_attributes?: OrchestraXmlAttribute[],
 }
 
 
 /**
- * A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the sequence, it cannot be an extension.
+ * What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
  */
-export interface GroupType extends EntityAttribGrp, OidGrp, ScenarioRefGrp {
-    num_in_group?: FieldRefType,
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    /** A hint to processes about how to interpret the element. Not validated. */
-    rendering?: string,
-    /** Lower bound of group instances (numInGroup) */
-    impl_min_occurs?: number,
-    /** Upper bound of group instances (numInGroup) */
-    impl_max_occurs?: string,
-    /** Member selection within each group instance */
-    which?: string,
-    annotation?: Annotation,
-    category?: string,
-}
-
-
-
-export interface IdentifiersType {
-    /** Correlated field IDs between two message types */
-    correlate?: IdentifierType[],
-    /** Field ID assigned */
-    assign?: IdentifierType[],
-    annotation?: Annotation,
-}
-
-
-
-export interface IdentifierType {
-    /** Mixed text content of the element. */
-    value?: string,
-    name?: string,
-}
-
-
-
-export interface ExtensionInline {
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-}
-
-
-
-export interface MappedDatatype {
-    /** A datatype may be mapped to an XML snippet in the native schema belonging to its encoding standard. */
-    extension?: ExtensionInline,
-    standard: string,
-    builtin?: boolean,
-    /** A lexical restriction from a base type */
-    pattern?: string,
-    /** Element type of an aggregate type such as an array or sequence */
-    element?: string,
-    /** Size of an aggregate type such as an array. That is, the number of elements. */
-    size?: number,
-    parameter?: string,
-    /** Inclusive lower bound of values */
-    min_inclusive?: string,
-    /** Inclusive upper bound of values */
-    max_inclusive?: string,
-    annotation?: Annotation,
-    /** A datatype from which a subtype is created by restriction or a derived type is created by a generator */
-    base?: string,
-}
-
-
-
-export interface MessageRefType extends RefidGrp {
-    identifiers?: IdentifiersType,
-    msg_type?: string,
-    /** Lower bound of group instances (numInGroup) */
-    impl_min_occurs?: number,
-    /** The same message type may be sent one or more times */
-    impl_max_occurs?: string,
-}
-
-
-
-export interface StructureInline {
-    component_ref?: ComponentRefType[],
-    group_ref?: GroupRefType[],
-    /** Other field or fields that scope uniqueness. If none provided, then the field value must be globally unique. */
-    field_ref?: FieldRefType[],
-    /** Member selection within each group instance */
-    which?: string,
-}
-
-
-
-export interface ResponsesInline {
-    /** Responses are evaluated and triggered in the order listed */
-    response: ResponseType[],
-}
-
-
-
-export interface MessageType extends OidGrp, ScenarioRefGrp, EntityAttribGrp {
-    structure?: StructureInline,
-    /** A condition that distinguishes when a scenario of a message type applies. It could be used to generate a decision tree to correlate an incoming message to its scenario, or to decide which scenario of a request message to send. */
-    when?: string,
-    responses?: ResponsesInline,
-    msg_type?: string,
-    /** A hint to processes about how to interpret the element. Not validated. */
-    rendering?: string,
-    annotation?: Annotation,
-    category?: string,
-    flow?: string,
+export interface OrchestraBaseInterfaceV10 {
+    /** The application-level services offered. */
+    fixi_service?: OrchestraServiceV10[],
+    /** The user interfaces offered. */
+    fixi_user_interface?: OrchestraUserInterfaceV10[],
+    /** The encodings used. */
+    fixi_encoding?: OrchestraEncodingV10[],
+    /** The session-level protocols used. */
+    fixi_session_protocol?: OrchestraSessionProtocolV10[],
+    /** Other protocols used. */
+    fixi_protocol?: OrchestraProtocolV10[],
+    /** The transports used. */
+    fixi_transport?: OrchestraTransportV10[],
+    /** Notes for readers and hints for software. */
+    fixi_annotation?: OrchestraInterfaceAnnotationV10,
+    /** The interface's or session's name, unique within the file. */
+    fixi_name: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
 }
 
 
 /**
- * Any number of action behaviors can be triggered by the same 'when' condition
+ * How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
  */
-export interface ResponseType extends ActionType {
-    /** A common condition for all of the actions. If it evalutes true, then the actions are invoked. If 'when' is not present, the actions are unconditional. */
-    when?: string,
-    sync?: string,
-    annotation?: Annotation,
-    name?: string,
+export interface OrchestraBlockAssignmentV10 {
+    /** The fields, groups and components the assignment sets, in order. */
+    fixr_members: OrchestraStructureMemberV10[],
 }
 
 
 /**
- * The use case of an element, distinguished by workflow, asset class, etc.
+ * The categories a repository sorts its messages and fields into.
  */
-export interface ScenarioType {
-    annotation?: Annotation,
-    /** Unique numeric identifier. Default is '1' is for base scenario. */
-    id?: string,
-    /** Unique name */
-    name?: string,
-}
-
-
-
-export interface SectionType extends EntityAttribGrp {
-    display_order?: number,
-    fixml_file_name?: string,
-    annotation?: Annotation,
-    name: string,
-}
-
-
-
-export interface StateMachineType {
-    /** Initial state of a state machine */
-    initial: StateType,
-    state: StateType[],
-    annotation?: Annotation,
-    name: string,
+export interface OrchestraCategoriesV10 extends OrchestraContainerV10Mixin {
+    /** The categories. */
+    fixr_category: OrchestraCategoryV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
 }
 
 
 /**
- * A state of a state machine. If it has no transitions, then it is a final state.
+ * A business process grouping within a section, such as order handling or market data.
  */
-export interface StateType {
-    transition?: TransitionType[],
-    /** Operation fired when entering a state. */
-    onentry?: ActionType,
-    /** Operation fired when entering a state and completing when exiting or earlier. */
-    activity?: ActionType,
-    /** Operation fired when exiting a state. */
-    onexit?: ActionType,
-    annotation?: Annotation,
-    name: string,
-}
-
-
-
-export interface TimerSchedule {
-    /** Action to take when a timer expires */
-    activity: ActionType,
-    operation: string,
-    interval?: string,
-    /** Name of the actor that owns the timer */
-    actor: string,
-    /** Name of the timer */
-    name: string,
-}
-
-
-
-export interface TimerType {
-    name: string,
-}
-
-
-
-export interface TransitionType {
-    /** Optional guard condition. The transition is allowed if the condition evaluates true. If not present, the transition is unconditional. */
-    when?: string,
-    /** The target state of the transition */
-    target: string,
-    annotation?: Annotation,
-    name: string,
-}
-
-
-
-export interface TriggerType {
-    /** Name of the state machine */
-    state_machine: string,
-    /** Name of the actor that owns the state machine */
-    actor: string,
-    /** Name of the transition to invoke */
-    name: string,
-}
-
-
-
-export interface InterfaceAnnotation {
-    documentation?: InterfaceDocumentation[],
-    appinfo?: InterfaceAppinfo[],
+export interface OrchestraCategoryV10 extends OrchestraPedigreeV10Mixin {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The category's name. */
+    fixr_name?: string,
+    /** The FIXML schema file that holds the elements of this section or category. */
+    fixr_fixml_file_name?: string,
+    /** Whether the category sorts messages or fields. */
+    fixr_component_type?: string,
+    /** The section the category belongs to, by name. */
+    fixr_section?: string,
+    /** The shared FIXML file, of components or of fields, that the category's file includes. */
+    fixr_include_file?: string,
 }
 
 
 /**
- * Usage specific annotation, optionally with link to an external reference or standard
+ * A named list of the values a field may take, each with a name of its own, over one underlying datatype.
  */
-export interface InterfaceAppinfo {
-    /** Reference documentation */
-    spec_url?: string,
-    /** Mixed text content of the element. */
-    value?: string,
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-    /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
-    extra_attributes?: string[],
-    lang_id?: string,
-    purpose?: string,
-}
-
-
-
-export interface BaseInterfaceType {
-    /** An application layer protocol with orchestration */
-    service?: ServiceType[],
-    user_interface?: UserInterfaceType[],
-    session_protocol?: SessionProtocolType[],
-    protocol?: ProtocolType[],
-    transport?: TransportProtocolType[],
-    /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
-    extra_attributes?: string[],
-    encoding?: EncodingType[],
-    annotation?: InterfaceAnnotation,
-    name: string,
-}
-
-
-
-export interface InterfaceDocumentation {
-    /** Mixed text content of the element. */
-    value?: string,
-    /** Pass-through xs:any content as raw strings. */
-    content?: string[],
-    lang_id?: string,
-    purpose?: string,
-    content_type?: string,
-}
-
-
-
-export interface EncodingType extends ProtocolType {
-}
-
-
-
-export interface SessionsInline {
-    session: SessionType[],
-}
-
-
-
-export interface InterfaceType extends BaseInterfaceType {
-    sessions?: SessionsInline,
-}
-
-
-
-export interface ProtocolType {
-    /** When this version becomes effective */
-    activation_time?: string,
-    /** When this version is no longer effective */
-    deactivation_time?: string,
-    layer?: string,
-    /** URI of Orchestra rules of engagement */
-    orchestration?: string,
-    /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
-    extra_attributes?: string[],
-    annotation?: InterfaceAnnotation,
-    name?: string,
-    version?: string,
-    /** When this version was deprecated; may be replaced or removed in the future */
-    deprecated?: string,
-    /** Reliability can be implemented at transport, session, or application layers */
-    reliability?: string,
-}
-
-
-
-export interface ServiceType extends ProtocolType {
-}
-
-
-
-export interface SessionProtocolType extends ProtocolType {
-}
-
-
-
-export interface SessionType extends BaseInterfaceType {
-    role?: string,
-    /** Textual encoding as specified by IETF RFC 7468 */
-    security_keys?: string,
-    /** When this session becomes effective */
-    activation_time?: string,
-    /** When this session is no longer effective */
-    deactivation_time?: string,
-    identifier?: IdentifierType[],
-}
-
-
-
-export interface TransportProtocolType extends ProtocolType {
-    address?: string,
-    message_cast?: string,
-    use?: string,
-    /** Pass-through xs:anyAttribute values keyed by their XML attribute name (open extension point). */
-    extra_attributes?: string[],
-}
-
-
-
-export interface UserInterfaceType extends ProtocolType {
-}
-
-
-
-export interface Datatype extends EntityAttribGrp {
-    mapped_datatype?: MappedDatatype[],
-    /** Unique identifier of a scenario. Default is '1' for base scenario. */
-    scenario_id?: string,
-    base_type?: string,
-    annotation?: Annotation,
-    name: string,
-    /** The use case of a datatype by name */
-    scenario?: string,
+export interface OrchestraCodeSetV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin {
+    /** The set's codes, in order. */
+    fixr_code?: OrchestraCodeV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The set's datatype, by name. */
+    fixr_type: string,
+    /** The code a receiver assumes when none is given. */
+    fixr_default?: string,
+    /** The address of the outside list, such as an ISO standard, that gives the codes. */
+    fixr_spec_url?: string,
 }
 
 
 /**
- * Participants and the message flows between them
+ * The code sets a repository defines.
  */
-export interface Actors {
-    actor?: ActorType[],
-    flow?: FlowType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Categories {
-    /** A business process category, a subcategory of a businessArea */
-    category?: CategoryType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface CodeSets {
-    code_set?: CodeSetType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Components {
-    component?: ComponentType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Concepts {
-    concept?: ConceptType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Datatypes {
-    datatype?: Datatype[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Fields {
-    field?: FieldType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Groups {
-    group?: GroupType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Messages {
-    message?: MessageType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Repository {
-    metadata: DctermsElementOrRefinementContainer,
-    categories?: Categories,
-    sections?: Sections,
-    datatypes: Datatypes,
-    code_sets?: CodeSets,
-    fields: Fields,
-    actors?: Actors,
-    components?: Components,
-    groups?: Groups,
-    messages: Messages,
-    concepts?: Concepts,
-    scenarios?: Scenarios,
-    guid?: string,
-    /** Reference documentation */
-    spec_url?: string,
-    /** An associated namespace as URI */
-    namespace?: string,
-    /** The syntax of 'expressionType' */
-    expression_language?: string,
-    annotation?: Annotation,
-    /** Stable name that does not change with minor version updates */
-    name: string,
-    version: string,
+export interface OrchestraCodeSetsV10 {
+    /** The code sets. */
+    fixr_code_set: OrchestraCodeSetV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
 }
 
 
 /**
- * The default scenario is id='1' name='base'.
+ * One permitted value of the set, with its name and what goes on the wire.
  */
-export interface Scenarios {
-    scenario?: ScenarioType[],
-    annotation?: Annotation,
-    base?: string,
-}
-
-
-
-export interface Sections {
-    /** A large-grained business process category */
-    section?: SectionType[],
-    annotation?: Annotation,
-    base?: string,
+export interface OrchestraCodeV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The value that goes on the wire for this code. */
+    fixr_value: string,
+    /** A number that places the code when its set is shown. */
+    fixr_sort?: string,
+    /** A label that places the code with others when its set is shown. */
+    fixr_group?: string,
 }
 
 
 /**
- * This represents the current state of service and session configurations. Changes to configuration can represented with patch operations. See IETF RFC 5261
+ * Where a message or block includes a component, by its number, with its presence and any rules that make it conditional.
  */
-export interface Interfaces {
-    metadata: DctermsElementOrRefinementContainer,
-    interface?: InterfaceType[],
+export interface OrchestraComponentRefV10 extends OrchestraReferenceV10Mixin, OrchestraPedigreeV10Mixin {
+    /** How the component, or every entry of the group, gets its values. */
+    fixr_block_assignment?: OrchestraBlockAssignmentV10[],
+    /** Rules that make the component's presence depend on other values. */
+    fixr_rule?: OrchestraComponentRuleV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** Whether the item must, may or must not appear, or has a fixed value; optional when none is given. */
+    fixr_presence?: string,
+    /** A name for this use of the element, so that one message or block can hold it more than once. */
+    fixr_instance_name?: string,
 }
 
 
 /**
- * FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.
+ * A condition that changes a component's presence, such as making it required.
  */
-export interface FIXMLencodingType {
-    /** If true, a component is inlined in a containing message or component */
-    inlined?: boolean,
-    /** If true, an element is ignored by FIXML generator */
-    not_req_xml?: boolean,
+export interface OrchestraComponentRuleV10 {
+    /** When the rule applies, written as an expression. */
+    fixr_when: string,
+    /** The rule's name. */
+    fixr_name?: string,
+    /** The presence that applies while the rule's condition holds. */
+    fixr_presence?: string,
+}
+
+
+/**
+ * A named block of fields, groups and components that messages and other blocks include by reference.
+ */
+export interface OrchestraComponentV10 extends OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin {
+    /** The fields, groups and components the component holds, in order. */
+    fixr_members: OrchestraStructureMemberV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The category the component belongs to, by name. */
+    fixr_category?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * The components a repository defines.
+ */
+export interface OrchestraComponentsV10 extends OrchestraContainerV10Mixin {
+    /** The components. */
+    fixr_component: OrchestraComponentV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
+ */
+export interface OrchestraConceptMemberV10 {
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV10,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV10,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV10,
+    /** A message, by reference. */
+    fixr_message_ref?: OrchestraMessageRefV10,
+}
+
+
+/**
+ * A named business idea that ties together the fields, components, groups and messages that express it.
+ */
+export interface OrchestraConceptV10 {
+    /** The fields, components, groups and messages the concept ties together. */
+    fixr_members: OrchestraConceptMemberV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The concept's name, unique among the repository's concepts. */
+    fixr_name: string,
+}
+
+
+/**
+ * The concepts a repository names.
+ */
+export interface OrchestraConceptsV10 {
+    /** The concepts. */
+    fixr_concept: OrchestraConceptV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * The extension pack that a list of elements is up to date with.
+ */
+export interface OrchestraContainerV10Mixin {
+    /** The latest extension pack the list is up to date with. */
+    fixr_latest_ep?: number,
+}
+
+
+/**
+ * XML from the target standard's own schema that a datatype mapping carries.
+ */
+export interface OrchestraDatatypeExtensionV10 {
+    /** Child elements from other namespaces, kept as written. */
+    fixr_any?: OrchestraXmlElement[],
+}
+
+
+/**
+ * A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+ */
+export interface OrchestraDatatypeV10 extends OrchestraPedigreeV10Mixin {
+    /** How the datatype is written in other standards. */
+    fixr_mapped_datatype?: OrchestraMappedDatatypeV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The datatype's name, such as Price. */
+    fixr_name: string,
+    /** The datatype this one narrows, such as int for Length. */
+    fixr_base_type?: string,
+}
+
+
+/**
+ * The datatypes a repository uses.
+ */
+export interface OrchestraDatatypesV10 extends OrchestraContainerV10Mixin {
+    /** The datatypes. */
+    fixr_datatype: OrchestraDatatypeV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * Text about an element, with its language, purpose and media type.
+ */
+export interface OrchestraDocumentationV10 extends OrchestraPedigreeV10Mixin {
+    /** The text the element holds, as written. */
+    fixr_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixr_any?: OrchestraXmlElement[],
+    /** The language of the text, as a language tag. */
+    fixr_lang_id?: string,
+    /** What the text is for, such as a summary or an example. */
+    fixr_purpose?: string,
+    /** The media type of the text; text/plain when none is given. */
+    fixr_content_type?: string,
+}
+
+
+/**
+ * An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+ */
+export interface OrchestraEncodingV10 extends OrchestraProtocolV10 {
+}
+
+
+/**
+ * The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or default value, character set and a display hint.
+ */
+export interface OrchestraFieldConstraintsV10Mixin {
+    /** The smallest value allowed. */
+    fixr_min_inclusive?: string,
+    /** The largest value allowed. */
+    fixr_max_inclusive?: string,
+    /** The fixed length an implementation uses. */
+    fixr_impl_length?: number,
+    /** The shortest length an implementation accepts. */
+    fixr_impl_min_length?: number,
+    /** The longest length an implementation accepts. */
+    fixr_impl_max_length?: number,
+    /** Whether the item must, may or must not appear, or has a fixed value; optional when none is given. */
+    fixr_presence?: string,
+    /** The character set of the value, when it is not US-ASCII. */
+    fixr_encoding?: string,
+    /** The value a receiver assumes when an optional field is left out, or the fixed value of a constant field. */
+    fixr_value?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+}
+
+
+/**
+ * Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+ */
+export interface OrchestraFieldRefV10 extends OrchestraReferenceV10Mixin, OrchestraPedigreeV10Mixin, OrchestraFieldConstraintsV10Mixin {
+    /** Rules that make the element's presence or limits depend on other values. */
+    fixr_rule?: OrchestraFieldRuleV10[],
+    /** An expression that sets the field's value. */
+    fixr_assign?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The tag number of the field that gives this field's length. */
+    fixr_length_id?: number,
+    /** A name for this use of the element, so that one message or block can hold it more than once. */
+    fixr_instance_name?: string,
+}
+
+
+/**
+ * A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+ */
+export interface OrchestraFieldRuleV10 extends OrchestraFieldConstraintsV10Mixin {
+    /** A check that the field's value is unique. */
+    fixr_unique?: OrchestraUniqueV10,
+    /** Expressions that set or check values while the rule's condition holds. */
+    fixr_assign?: string[],
+    /** When the rule applies, written as an expression. */
+    fixr_when: string,
+    /** The rule's name. */
+    fixr_name?: string,
+    /** The datatype the field takes while the rule's condition holds. */
+    fixr_type?: string,
+}
+
+
+/**
+ * A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+ */
+export interface OrchestraFieldV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin, OrchestraFieldConstraintsV10Mixin {
+    /** Rules that make the element's presence or limits depend on other values. */
+    fixr_rule?: OrchestraFieldRuleV10[],
+    /** An expression that sets the field's value. */
+    fixr_assign?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The field's datatype, or its code set, by name; a code set brings its own datatype. */
+    fixr_type: string,
+    /** The tag number of the field that gives this field's length. */
+    fixr_length_id?: number,
+    /** The tag number of the field whose value decides which values this field may take. */
+    fixr_discriminator_id?: number,
+    /** The category the field belongs to in the base specification. */
+    fixr_base_category?: string,
+    /** The short name the field takes within its base category in FIXML. */
+    fixr_base_category_abbr_name?: string,
+    /** A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values. */
+    fixr_union_data_type?: string,
+}
+
+
+/**
+ * The fields a repository defines.
+ */
+export interface OrchestraFieldsV10 {
+    /** The fields. */
+    fixr_field: OrchestraFieldV10[],
+    /** The latest extension pack the list is up to date with. */
+    fixr_latest_ep?: number,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+ */
+export interface OrchestraFlowV10 {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The flow's name. */
+    fixr_name: string,
+    /** The sending actor, by name. */
+    fixr_source: string,
+    /** The receiving actor, by name. */
+    fixr_destination: string,
+    /** How reliably the flow delivers its messages, from best effort to recoverable. */
+    fixr_reliability?: string,
+}
+
+
+/**
+ * Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+ */
+export interface OrchestraGroupRefV10 extends OrchestraComponentRefV10 {
+    /** The fewest entries an implementation accepts. */
+    fixr_impl_min_occurs?: number,
+    /** The most entries an implementation accepts, or unbounded. */
+    fixr_impl_max_occurs?: string,
+}
+
+
+/**
+ * A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
+ */
+export interface OrchestraGroupV10 extends OrchestraPedigreeV10Mixin, OrchestraIdentityV10Mixin {
+    /** The field that counts the group's entries. */
+    fixr_num_in_group?: OrchestraFieldRefV10,
+    /** The fields, groups and components that each entry holds, in order. */
+    fixr_members: OrchestraStructureMemberV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The category the group belongs to, by name. */
+    fixr_category?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+    /** The fewest entries an implementation accepts. */
+    fixr_impl_min_occurs?: number,
+    /** The most entries an implementation accepts, or unbounded. */
+    fixr_impl_max_occurs?: string,
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * The repeating groups a repository defines.
+ */
+export interface OrchestraGroupsV10 extends OrchestraContainerV10Mixin {
+    /** The repeating groups. */
+    fixr_group: OrchestraGroupV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * A field that a message sent by an action sets, or carries over from the message received, by tag number.
+ */
+export interface OrchestraIdentifierV10 {
+    /** The tag number of the field that is set or carried over. */
+    fixr_id: number,
+    /** The tag number of the received message's field that the value comes from; the field's own tag number when none is given. */
+    fixr_source_id?: number,
+}
+
+
+/**
+ * One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+ */
+export interface OrchestraIdentifiersMemberV10 {
+    /** A field whose value is carried over from the message received. */
+    fixr_correlate?: OrchestraIdentifierV10,
+    /** A field whose value the message sent sets. */
+    fixr_assign?: OrchestraIdentifierV10,
+}
+
+
+/**
+ * The fields a message sent by an action sets or carries over.
+ */
+export interface OrchestraIdentifiersV10 {
+    /** The fields carried over or set, in order. */
+    fixr_members: OrchestraIdentifiersMemberV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+}
+
+
+/**
+ * The keys of a defined element, its number, name, short name and scenario.
+ */
+export interface OrchestraIdentityV10Mixin {
+    /** The element's number, unique among elements of its kind; for a field, its tag number. */
+    fixr_id: number,
+    /** The element's name, unique among elements of its kind within one scenario. */
+    fixr_name: string,
+    /** A short form of the name, which FIXML uses for tags. */
+    fixr_abbr_name?: string,
+    /** The use case this variant of the element serves, such as a workflow or an asset class; base when none is given. */
+    fixr_scenario?: string,
+}
+
+
+/**
+ * One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+ */
+export interface OrchestraInterfaceAnnotationMemberV10 {
+    /** A piece of text. */
+    fixi_documentation?: OrchestraInterfaceDocumentationV10,
+    /** A hint for software. */
+    fixi_appinfo?: OrchestraInterfaceAppinfoV10,
+}
+
+
+/**
+ * Notes for readers and hints for software, attached to an element of an interfaces file.
+ */
+export interface OrchestraInterfaceAnnotationV10 {
+    /** The texts and hints, in order. */
+    fixi_members: OrchestraInterfaceAnnotationMemberV10[],
+}
+
+
+/**
+ * A hint for a particular tool on an element of an interfaces file.
+ */
+export interface OrchestraInterfaceAppinfoV10 {
+    /** The text the element holds, as written. */
+    fixi_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixi_any?: OrchestraXmlElement[],
+    /** The address of a document that describes the element. */
+    fixi_spec_url?: string,
+    /** The language of the text, as a language tag. */
+    fixi_lang_id?: string,
+    /** What the hint is for, such as the tool it concerns. */
+    fixi_purpose?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * Text about an element of an interfaces file.
+ */
+export interface OrchestraInterfaceDocumentationV10 {
+    /** The text the element holds, as written. */
+    fixi_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixi_any?: OrchestraXmlElement[],
+    /** The language of the text, as a language tag. */
+    fixi_lang_id?: string,
+    /** What the text is for, such as a summary or an example. */
+    fixi_purpose?: string,
+    /** The media type of the text; text/plain when none is given. */
+    fixi_content_type?: string,
+}
+
+
+/**
+ * A named service offering and the sessions it carries, with the protocols on each layer.
+ */
+export interface OrchestraInterfaceV10 extends OrchestraBaseInterfaceV10 {
+    /** The sessions the interface carries. */
+    fixi_sessions?: OrchestraSessionsV10,
+}
+
+
+/**
+ * A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core metadata.
+ */
+export interface OrchestraInterfacesV10 {
+    /** The file's Dublin Core description, such as its title, publisher and date. */
+    fixi_metadata: OrchestraMetadata,
+    /** The interfaces the file describes. */
+    fixi_interface?: OrchestraInterfaceV10[],
+}
+
+
+/**
+ * How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+ */
+export interface OrchestraMappedDatatypeV10 {
+    /** XML from the target standard's own schema. */
+    fixr_extension?: OrchestraDatatypeExtensionV10,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The standard the datatype is written in, such as XML or GPB. */
+    fixr_standard: string,
+    /** Whether the target standard has the type built in, rather than derived. */
+    fixr_builtin?: boolean,
+    /** The type in the target standard that the mapping narrows or builds on. */
+    fixr_base?: string,
+    /** A pattern the value matches in the target standard. */
+    fixr_pattern?: string,
+    /** The type of each item when the target type is a list or array. */
+    fixr_element?: string,
+    /** A setting of the target type, such as its precision. */
+    fixr_parameter?: string,
+    /** The smallest value allowed. */
+    fixr_min_inclusive?: string,
+    /** The largest value allowed. */
+    fixr_max_inclusive?: string,
+}
+
+
+/**
+ * A message an action sends, by its number and type code, with the fields it sets or carries over.
+ */
+export interface OrchestraMessageRefV10 extends OrchestraReferenceV10Mixin {
+    /** The fields the message sets or carries over. */
+    fixr_identifiers?: OrchestraIdentifiersV10,
+    /** The message sent, by name. */
+    fixr_name: string,
+    /** The MsgType(35) code of the message sent. */
+    fixr_msg_type?: string,
+    /** The fewest times the message is sent; once when none is given. */
+    fixr_impl_min_occurs?: number,
+    /** The most times the message is sent, or unbounded. */
+    fixr_impl_max_occurs?: string,
+}
+
+
+/**
+ * The ordered fields, groups and components of a message.
+ */
+export interface OrchestraMessageStructureV10 {
+    /** The message's fields, groups and components, in order. */
+    fixr_members: OrchestraStructureMemberV10[],
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
+ */
+export interface OrchestraMessageV10 extends OrchestraIdentityV10Mixin, OrchestraPedigreeV10Mixin {
+    /** The message's fields, groups and components, in order. */
+    fixr_structure: OrchestraMessageStructureV10,
+    /** What can happen when the message arrives. */
+    fixr_responses?: OrchestraResponsesV10,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The message's MsgType(35) code. */
+    fixr_msg_type?: string,
+    /** The category the message belongs to, by name. */
+    fixr_category?: string,
+    /** The flow that carries the message, by name. */
+    fixr_flow?: string,
+}
+
+
+/**
+ * The messages a repository defines.
+ */
+export interface OrchestraMessagesV10 extends OrchestraContainerV10Mixin {
+    /** The messages. */
+    fixr_message: OrchestraMessageV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is supported.
+ */
+export interface OrchestraPedigreeV10Mixin {
+    /** The FIX version in which the element first appeared. */
+    fixr_added?: string,
+    /** The extension pack in which the element first appeared. */
+    fixr_added_ep?: number,
+    /** Whether the latest change was to wording only or to meaning. */
+    fixr_change_type?: string,
+    /** The FIX version from which the element is deprecated. */
+    fixr_deprecated?: string,
+    /** The extension pack from which the element is deprecated. */
+    fixr_deprecated_ep?: number,
+    /** The change request behind the element's latest change. */
+    fixr_issue?: string,
+    /** The FIX version in which the element last changed. */
+    fixr_last_modified?: string,
+    /** The FIX version in which another element took this one's place. */
+    fixr_replaced?: string,
+    /** The extension pack in which another element took this one's place. */
+    fixr_replaced_ep?: number,
+    /** The tag number of the field that takes this element's place. */
+    fixr_replaced_by_field?: number,
+    /** Whether a party supports, refuses or ignores the element; supported when none is given. */
+    fixr_supported?: string,
+    /** The FIX version of the element's latest update. */
+    fixr_updated?: string,
+    /** The extension pack of the element's latest update. */
+    fixr_updated_ep?: number,
+}
+
+
+/**
+ * A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+ */
+export interface OrchestraProtocolV10 {
+    /** Notes for readers and hints for software. */
+    fixi_annotation?: OrchestraInterfaceAnnotationV10,
+    /** The protocol's name, such as FIXT or SBE, or another name of the provider's choice. */
+    fixi_name?: string,
+    /** The protocol's version. */
+    fixi_version?: string,
+    /** The layer the protocol works on. */
+    fixi_layer?: string,
+    /** The delivery guarantee the protocol gives, which a transport, a session or the application may provide. */
+    fixi_reliability?: string,
+    /** Where to find the Orchestra repository that sets out the protocol's messages and rules. */
+    fixi_orchestration?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+ */
+export interface OrchestraReferenceV10Mixin {
+    /** The number of the element in use; for a field, its tag number. */
+    fixr_id: number,
+    /** The scenario of the element in use; base when none is given. */
+    fixr_scenario?: string,
+}
+
+
+/**
+ * A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages it defines, and the actors and workflows that use them.
+ */
+export interface OrchestraRepositoryV10 extends OrchestraContainerV10Mixin {
+    /** The file's Dublin Core description, such as its title, publisher and date. */
+    fixr_metadata: OrchestraMetadata,
+    /** The repository's categories. */
+    fixr_categories?: OrchestraCategoriesV10,
+    /** The repository's sections. */
+    fixr_sections?: OrchestraSectionsV10,
+    /** The repository's datatypes. */
+    fixr_datatypes: OrchestraDatatypesV10,
+    /** The repository's code sets. */
+    fixr_code_sets: OrchestraCodeSetsV10,
+    /** The repository's fields. */
+    fixr_fields: OrchestraFieldsV10,
+    /** The repository's actors and flows. */
+    fixr_actors?: OrchestraActorsV10,
+    /** The repository's components. */
+    fixr_components?: OrchestraComponentsV10,
+    /** The repository's repeating groups. */
+    fixr_groups?: OrchestraGroupsV10,
+    /** The repository's messages. */
+    fixr_messages: OrchestraMessagesV10,
+    /** The repository's concepts. */
+    fixr_concepts?: OrchestraConceptsV10,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The repository's name, which stays the same across its minor versions. */
+    fixr_name: string,
+    /** The repository's version, such as FIX.Latest_EP312. */
+    fixr_version: string,
+    /** An identifier of the repository, unique worldwide. */
+    fixr_guid?: string,
+    /** The address of a document that describes the element. */
+    fixr_spec_url?: string,
+    /** A namespace address that goes with the repository. */
+    fixr_namespace?: string,
+    /** The FIX version the repository describes, as its ApplVerID(1128) code. */
+    fixr_appl_ver_id?: string,
+    /** The language the conditions and assignments are written in; Score when none is given. */
+    fixr_expression_language?: string,
+}
+
+
+/**
+ * What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
+ */
+export interface OrchestraResponseV10 extends OrchestraActionV10 {
+    /** When the response fires, written as an expression; it always fires when none is given. */
+    fixr_when?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The response's name. */
+    fixr_name?: string,
+    /** How the response's timing relates to the request it answers. */
+    fixr_sync?: string,
+}
+
+
+/**
+ * The responses a message can cause, tried one after another as given.
+ */
+export interface OrchestraResponsesV10 {
+    /** The responses, in order. */
+    fixr_response: OrchestraResponseV10[],
+}
+
+
+/**
+ * A broad business area, such as pre-trade or post-trade, that categories fall under.
+ */
+export interface OrchestraSectionV10 extends OrchestraPedigreeV10Mixin {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The section's name. */
+    fixr_name?: string,
+    /** Where the section comes when all sections are shown. */
+    fixr_display_order?: number,
+    /** The FIXML schema file that holds the elements of this section or category. */
+    fixr_fixml_file_name?: string,
+}
+
+
+/**
+ * The sections a repository defines.
+ */
+export interface OrchestraSectionsV10 extends OrchestraContainerV10Mixin {
+    /** The sections. */
+    fixr_section: OrchestraSectionV10[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
+ */
+export interface OrchestraServiceV10 extends OrchestraProtocolV10 {
+}
+
+
+/**
+ * A value, with what kind it is, that picks out a session, such as a sender or target ID.
+ */
+export interface OrchestraSessionIdentifierV10 {
+    /** The identifier's value. */
+    fixi_text?: string,
+    /** What kind of identifier this is, such as SenderCompID. */
+    fixi_name?: string,
+}
+
+
+/**
+ * The session-level protocol of an interface or session, such as FIXT or FIXP.
+ */
+export interface OrchestraSessionProtocolV10 extends OrchestraProtocolV10 {
+}
+
+
+/**
+ * One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+ */
+export interface OrchestraSessionV10 extends OrchestraBaseInterfaceV10 {
+    /** The identifiers that pick out the session. */
+    fixi_identifier?: OrchestraSessionIdentifierV10[],
+    /** When the session takes effect. */
+    fixi_activation_time?: string,
+    /** When the session stops having effect. */
+    fixi_deactivation_time?: string,
+    /** The party's role in the session. */
+    fixi_role?: string,
+    /** Security keys for the session, as PEM text. */
+    fixi_security_keys?: string,
+}
+
+
+/**
+ * The sessions an interface carries.
+ */
+export interface OrchestraSessionsV10 {
+    /** The sessions. */
+    fixi_session: OrchestraSessionV10[],
+}
+
+
+/**
+ * A named set of states that an actor moves through, from an initial state.
+ */
+export interface OrchestraStateMachineV10 {
+    /** The state the machine starts in. */
+    fixr_initial: OrchestraStateV10,
+    /** The machine's other states. */
+    fixr_state: OrchestraStateV10[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The state machine's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * One of a state machine's states, with the transitions out of it and what happens on entry, while active and on exit.
+ */
+export interface OrchestraStateV10 {
+    /** The moves out of this state. */
+    fixr_transition?: OrchestraTransitionV10[],
+    /** What happens on entering the state. */
+    fixr_onentry?: OrchestraActionV10,
+    /** What runs while the state is active. */
+    fixr_activity?: OrchestraActionV10,
+    /** What happens on leaving the state. */
+    fixr_onexit?: OrchestraActionV10,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The state's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+ */
+export interface OrchestraStructureMemberV10 {
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV10,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV10,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV10,
+}
+
+
+/**
+ * A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+ */
+export interface OrchestraTimerScheduleV10 {
+    /** What happens when the timer runs out. */
+    fixr_activity: OrchestraActionV10,
+    /** The actor whose timer or state machine this is, by name. */
+    fixr_actor: string,
+    /** The timer to start, stop or restart, by name. */
+    fixr_name: string,
+    /** Whether to start, stop or restart the timer. */
+    fixr_operation: string,
+    /** How long the timer runs, as an XML Schema duration. */
+    fixr_interval?: string,
+}
+
+
+/**
+ * A named timer that an actor owns.
+ */
+export interface OrchestraTimerV10 {
+    /** The timer's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * A move from one state to a named target state, with the condition that allows it.
+ */
+export interface OrchestraTransitionV10 {
+    /** The condition that allows the transition, written as an expression; the transition is always allowed when none is given. */
+    fixr_when?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV10,
+    /** The transition's name. */
+    fixr_name: string,
+    /** The state the transition leads to, by name. */
+    fixr_target: string,
+}
+
+
+/**
+ * The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+ */
+export interface OrchestraTransportV10 extends OrchestraProtocolV10 {
+    /** The address to connect to, such as a host and port. */
+    fixi_address?: string,
+    /** Whether messages go to one, some or every receiver; unicast when none is given. */
+    fixi_message_cast?: string,
+    /** The transport's role, such as primary or alternate. */
+    fixi_use?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * A step that fires a named transition of an actor's state machine.
+ */
+export interface OrchestraTriggerV10 {
+    /** The state machine whose transition fires, by name. */
+    fixr_state_machine: string,
+    /** The actor whose timer or state machine this is, by name. */
+    fixr_actor: string,
+    /** The transition to fire, by name. */
+    fixr_name: string,
+}
+
+
+/**
+ * A check that a field's value is unique among the values that share the other fields it names, or among all values when it names none.
+ */
+export interface OrchestraUniqueV10 {
+    /** The fields that scope the check, in order. */
+    fixr_field_ref?: OrchestraFieldRefV10[],
+}
+
+
+/**
+ * A user interface an interface offers, such as a trading screen, described as a protocol.
+ */
+export interface OrchestraUserInterfaceV10 extends OrchestraProtocolV10 {
+}
+
+
+/**
+ * One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
+ */
+export interface OrchestraActionParameterV11 {
+    /** A field defined in place. */
+    fixr_field?: OrchestraFieldV11,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV11,
+    /** A component defined in place. */
+    fixr_component?: OrchestraComponentV11,
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV11,
+    /** A repeating group defined in place. */
+    fixr_group?: OrchestraGroupV11,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV11,
+}
+
+
+/**
+ * One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one of these.
+ */
+export interface OrchestraActionStepV11 {
+    /** A message to send. */
+    fixr_message_ref?: OrchestraMessageRefV11,
+    /** An expression that gives an actor's variable a value, such as $actor.variable=value. */
+    fixr_assign?: string,
+    /** A transition to fire. */
+    fixr_trigger?: OrchestraTriggerV11,
+    /** A timer to start, stop or restart. */
+    fixr_timer_schedule?: OrchestraTimerScheduleV11,
+}
+
+
+/**
+ * Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
+ */
+export interface OrchestraActionV11 {
+    /** The fields, groups and components the action takes as input, in order. */
+    fixr_parameters?: OrchestraActionParameterV11[],
+    /** What the action does, in order: messages sent, values set, transitions fired and timers scheduled. */
+    fixr_actions: OrchestraActionStepV11[],
+}
+
+
+/**
+ * One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds exactly one of these.
+ */
+export interface OrchestraActorMemberV11 {
+    /** A variable defined in place as a field. */
+    fixr_field?: OrchestraFieldV11,
+    /** A variable that uses a field by its number. */
+    fixr_field_ref?: OrchestraFieldRefV11,
+    /** A variable defined in place as a component. */
+    fixr_component?: OrchestraComponentV11,
+    /** A variable that uses a component by its number. */
+    fixr_component_ref?: OrchestraComponentRefV11,
+    /** A variable defined in place as a repeating group. */
+    fixr_group?: OrchestraGroupV11,
+    /** A variable that uses a repeating group by its number. */
+    fixr_group_ref?: OrchestraGroupRefV11,
+    /** A state machine. */
+    fixr_states?: OrchestraStateMachineV11,
+    /** A timer. */
+    fixr_timer?: OrchestraTimerV11,
+}
+
+
+/**
+ * A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state machines and timers.
+ */
+export interface OrchestraActorV11 {
+    /** The actor's variables, state machines and timers, in order. */
+    fixr_members?: OrchestraActorMemberV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The actor's name, unique among the repository's actors. */
+    fixr_name: string,
+}
+
+
+/**
+ * One entry of the actors list, an actor or a flow. It holds exactly one of these.
+ */
+export interface OrchestraActorsMemberV11 {
+    /** An actor. */
+    fixr_actor?: OrchestraActorV11,
+    /** A flow. */
+    fixr_flow?: OrchestraFlowV11,
+}
+
+
+/**
+ * The parties a repository describes and the one-way flows between them.
+ */
+export interface OrchestraActorsV11 {
+    /** The actors and flows, in order. */
+    fixr_members?: OrchestraActorsMemberV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
+ */
+export interface OrchestraAnnotationMemberV11 {
+    /** A piece of text. */
+    fixr_documentation?: OrchestraDocumentationV11,
+    /** A hint for software. */
+    fixr_appinfo?: OrchestraAppinfoV11,
+}
+
+
+/**
+ * Notes for readers and hints for software, attached to an element.
+ */
+export interface OrchestraAnnotationV11 extends OrchestraPedigreeV11Mixin {
+    /** The texts and hints, in order. */
+    fixr_members: OrchestraAnnotationMemberV11[],
+}
+
+
+/**
+ * A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
+ */
+export interface OrchestraAppinfoV11 extends OrchestraPedigreeV11Mixin {
+    /** The text the element holds, as written. */
+    fixr_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixr_any?: OrchestraXmlElement[],
+    /** The address of a document that describes the element. */
+    fixr_spec_url?: string,
+    /** The language of the text, as a language tag. */
+    fixr_lang_id?: string,
+    /** What the hint is for, such as the encoding it concerns. */
+    fixr_purpose?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixr_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * What every encoding block shares: notes, and XML in another namespace that says how an element is encoded.
+ */
+export interface OrchestraBaseEncodingV11 {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** Child elements from other namespaces, kept as written. */
+    fixr_any?: OrchestraXmlElement[],
+}
+
+
+/**
+ * What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
+ */
+export interface OrchestraBaseInterfaceV11 {
+    /** The application-level services offered. */
+    fixi_service?: OrchestraServiceV11[],
+    /** The user interfaces offered. */
+    fixi_user_interface?: OrchestraUserInterfaceV11[],
+    /** The encodings used. */
+    fixi_encoding?: OrchestraEncodingV11[],
+    /** The session-level protocols used. */
+    fixi_session_protocol?: OrchestraSessionProtocolV11[],
+    /** Other protocols used. */
+    fixi_protocol?: OrchestraProtocolV11[],
+    /** The transports used. */
+    fixi_transport?: OrchestraTransportV11[],
+    /** Notes for readers and hints for software. */
+    fixi_annotation?: OrchestraInterfaceAnnotationV11,
+    /** The interface's or session's name, unique within the file. */
+    fixi_name: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
+ */
+export interface OrchestraBlockAssignmentV11 {
+    /** The fields, groups and components the assignment sets, in order. */
+    fixr_members: OrchestraStructureMemberV11[],
+}
+
+
+/**
+ * The categories a repository sorts its messages and fields into.
+ */
+export interface OrchestraCategoriesV11 {
+    /** The categories. */
+    fixr_category?: OrchestraCategoryV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * A business process grouping within a section, such as order handling or market data.
+ */
+export interface OrchestraCategoryV11 extends OrchestraPedigreeV11Mixin {
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The category's name. */
+    fixr_name: string,
+    /** The section the category belongs to, by name. */
+    fixr_section: string,
+}
+
+
+/**
+ * A named list of the values a field may take, each with a name of its own, over one underlying datatype.
+ */
+export interface OrchestraCodeSetV11 extends OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin {
+    /** The set's codes, in order. */
+    fixr_code?: OrchestraCodeV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** The set's datatype, by name. */
+    fixr_type: string,
+    /** The code a receiver assumes when none is given. */
+    fixr_default?: string,
+    /** The address of the outside list, such as an ISO standard, that gives the codes. */
+    fixr_spec_url?: string,
+    /** A datatype whose values a field of this set may hold beside its codes, such as a range kept for user-defined values. */
+    fixr_union_data_type?: string,
+}
+
+
+/**
+ * The code sets a repository defines.
+ */
+export interface OrchestraCodeSetsV11 {
+    /** The code sets. */
+    fixr_code_set?: OrchestraCodeSetV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * One permitted value of the set, with its name and what goes on the wire.
+ */
+export interface OrchestraCodeV11 extends OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The value that goes on the wire for this code. */
+    fixr_value: string,
+    /** A number that places the code when its set is shown. */
+    fixr_sort?: number,
+    /** A label that places the code with others when its set is shown. */
+    fixr_group?: string,
+}
+
+
+/**
+ * Where a message or block includes a component, by its number, with its presence and any rules that make it conditional.
+ */
+export interface OrchestraComponentRefV11 extends OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin {
+    /** How the component, or every entry of the group, gets its values. */
+    fixr_block_assignment?: OrchestraBlockAssignmentV11[],
+    /** Rules that make the component's presence depend on other values. */
+    fixr_rule?: OrchestraComponentRuleV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** Whether the item must, may or must not appear, or has a fixed value; optional when none is given. */
+    fixr_presence?: string,
+    /** A name for this use of the element, so that one message or block can hold it more than once. */
+    fixr_instance_name?: string,
+}
+
+
+/**
+ * A condition that changes a component's presence, such as making it required.
+ */
+export interface OrchestraComponentRuleV11 {
+    /** When the rule applies, written as an expression. */
+    fixr_when: string,
+    /** The rule's name. */
+    fixr_name?: string,
+    /** The presence that applies while the rule's condition holds. */
+    fixr_presence?: string,
+}
+
+
+/**
+ * A named block of fields, groups and components that messages and other blocks include by reference.
+ */
+export interface OrchestraComponentV11 extends OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin {
+    /** The fields, groups and components the component holds, in order. */
+    fixr_members?: OrchestraStructureMemberV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The category the component belongs to, by name. */
+    fixr_category?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * The components a repository defines.
+ */
+export interface OrchestraComponentsV11 {
+    /** The components. */
+    fixr_component?: OrchestraComponentV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
+ */
+export interface OrchestraConceptMemberV11 {
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV11,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV11,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV11,
+    /** A message, by reference. */
+    fixr_message_ref?: OrchestraMessageRefV11,
+}
+
+
+/**
+ * A named business idea that ties together the fields, components, groups and messages that express it.
+ */
+export interface OrchestraConceptV11 {
+    /** The fields, components, groups and messages the concept ties together. */
+    fixr_members: OrchestraConceptMemberV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The concept's name, unique among the repository's concepts. */
+    fixr_name: string,
+}
+
+
+/**
+ * The concepts a repository names.
+ */
+export interface OrchestraConceptsV11 {
+    /** The concepts. */
+    fixr_concept?: OrchestraConceptV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+ */
+export interface OrchestraDatatypeV11 extends OrchestraPedigreeV11Mixin {
+    /** How the datatype is written in other standards. */
+    fixr_mapped_datatype?: OrchestraMappedDatatypeV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The datatype's name, such as Price. */
+    fixr_name: string,
+    /** The datatype this one narrows, such as int for Length. */
+    fixr_base_type?: string,
+}
+
+
+/**
+ * The datatypes a repository uses.
+ */
+export interface OrchestraDatatypesV11 {
+    /** The datatypes. */
+    fixr_datatype?: OrchestraDatatypeV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * Text about an element, with its language, purpose and media type.
+ */
+export interface OrchestraDocumentationV11 extends OrchestraPedigreeV11Mixin {
+    /** The text the element holds, as written. */
+    fixr_text?: string,
+    /** The language of the text, as a language tag. */
+    fixr_lang_id?: string,
+    /** What the text is for, such as a summary or an example. */
+    fixr_purpose?: string,
+    /** The media type of the text; text/plain when none is given. */
+    fixr_content_type?: string,
+}
+
+
+/**
+ * An encoding standard a repository uses, with a name to show and its general encoding information.
+ */
+export interface OrchestraEncodingStandardV11 {
+    /** Encoding details that hold for the whole standard. */
+    fixr_encoding?: OrchestraUnnamedEncodingV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The encoding standard's name, which encoding blocks use. */
+    fixr_name: string,
+    /** The standard's name as a reader sees it. */
+    fixr_display_name?: string,
+}
+
+
+/**
+ * The encoding standards that a repository's encoding blocks name.
+ */
+export interface OrchestraEncodingStandardsV11 {
+    /** The encoding standards. */
+    fixr_encoding_standard?: OrchestraEncodingStandardV11[],
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+ */
+export interface OrchestraEncodingV11 extends OrchestraProtocolV11 {
+}
+
+
+/**
+ * The encoding blocks of one element, one for each encoding standard that needs more information about it.
+ */
+export interface OrchestraEncodingsV11 {
+    /** The encoding blocks, one per standard. */
+    fixr_encoding?: OrchestraNamedEncodingV11[],
+}
+
+
+/**
+ * The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or default value, character set and a display hint.
+ */
+export interface OrchestraFieldConstraintsV11Mixin {
+    /** The smallest value allowed. */
+    fixr_min_inclusive?: string,
+    /** The largest value allowed. */
+    fixr_max_inclusive?: string,
+    /** The fixed length an implementation uses. */
+    fixr_impl_length?: number,
+    /** The shortest length an implementation accepts. */
+    fixr_impl_min_length?: number,
+    /** The longest length an implementation accepts. */
+    fixr_impl_max_length?: number,
+    /** Whether the item must, may or must not appear, or has a fixed value; optional when none is given. */
+    fixr_presence?: string,
+    /** The character set of the value, when it is not US-ASCII. */
+    fixr_encoding?: string,
+    /** The value a receiver assumes when an optional field is left out, or the fixed value of a constant field. */
+    fixr_value?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+}
+
+
+/**
+ * Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+ */
+export interface OrchestraFieldRefV11 extends OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin, OrchestraFieldConstraintsV11Mixin {
+    /** Rules that make the element's presence or limits depend on other values. */
+    fixr_rule?: OrchestraFieldRuleV11[],
+    /** An expression that sets the field's value. */
+    fixr_assign?: string,
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The tag number of the field that gives this field's length. */
+    fixr_length_id?: number,
+    /** The tag number of the plain field that this encoded field stands for. */
+    fixr_non_encoded_field_id?: number,
+    /** A name for this use of the element, so that one message or block can hold it more than once. */
+    fixr_instance_name?: string,
+}
+
+
+/**
+ * A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+ */
+export interface OrchestraFieldRuleV11 extends OrchestraFieldConstraintsV11Mixin {
+    /** A check that the field's value is unique. */
+    fixr_unique?: OrchestraUniqueV11,
+    /** Expressions that set or check values while the rule's condition holds. */
+    fixr_assign?: string[],
+    /** When the rule applies, written as an expression. */
+    fixr_when: string,
+    /** The rule's name. */
+    fixr_name?: string,
+    /** The datatype the field takes while the rule's condition holds. */
+    fixr_type?: string,
+}
+
+
+/**
+ * A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+ */
+export interface OrchestraFieldV11 extends OrchestraIdentityV11Mixin, OrchestraPedigreeV11Mixin, OrchestraFieldConstraintsV11Mixin {
+    /** Rules that make the element's presence or limits depend on other values. */
+    fixr_rule?: OrchestraFieldRuleV11[],
+    /** An expression that sets the field's value. */
+    fixr_assign?: string,
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The datatype that gives the field's values, by name, when no code set does. */
+    fixr_type?: string,
+    /** The field's code set, by name. */
+    fixr_code_set?: string,
+    /** The tag number of the field that gives this field's length. */
+    fixr_length_id?: number,
+    /** The tag number of the plain field that this encoded field stands for. */
+    fixr_non_encoded_field_id?: number,
+    /** The tag number of the field whose value decides which values this field may take. */
+    fixr_discriminator_id?: number,
+    /** The category the field belongs to in the base specification. */
+    fixr_base_category?: string,
+    /** The short name the field takes within its base category in FIXML. */
+    fixr_base_category_abbr_name?: string,
+    /** A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values. */
+    fixr_union_data_type?: string,
+}
+
+
+/**
+ * The fields a repository defines.
+ */
+export interface OrchestraFieldsV11 {
+    /** The fields. */
+    fixr_field?: OrchestraFieldV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+ */
+export interface OrchestraFlowV11 {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The flow's name. */
+    fixr_name: string,
+    /** The sending actor, by name. */
+    fixr_source: string,
+    /** The receiving actor, by name. */
+    fixr_destination: string,
+    /** How reliably the flow delivers its messages, from best effort to recoverable. */
+    fixr_reliability?: string,
+}
+
+
+/**
+ * Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+ */
+export interface OrchestraGroupRefV11 extends OrchestraComponentRefV11 {
+    /** The fewest entries an implementation accepts. */
+    fixr_impl_min_occurs?: number,
+    /** The most entries an implementation accepts, or unbounded. */
+    fixr_impl_max_occurs?: string,
+}
+
+
+/**
+ * A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
+ */
+export interface OrchestraGroupV11 extends OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin {
+    /** The field that counts the group's entries. */
+    fixr_num_in_group?: OrchestraFieldRefV11,
+    /** The fields, groups and components that each entry holds, in order. */
+    fixr_members?: OrchestraStructureMemberV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The category the group belongs to, by name. */
+    fixr_category?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+    /** The fewest entries an implementation accepts. */
+    fixr_impl_min_occurs?: number,
+    /** The most entries an implementation accepts, or unbounded. */
+    fixr_impl_max_occurs?: string,
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * The repeating groups a repository defines.
+ */
+export interface OrchestraGroupsV11 {
+    /** The repeating groups. */
+    fixr_group?: OrchestraGroupV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * A field that a message sent by an action sets, or carries over from the message received, by tag number.
+ */
+export interface OrchestraIdentifierV11 {
+    /** The tag number of the field that is set or carried over. */
+    fixr_id: number,
+    /** The field that is set or carried over, by name, for readability. */
+    fixr_name?: string,
+    /** The tag number of the received message's field that the value comes from; the field's own tag number when none is given. */
+    fixr_source_id?: number,
+}
+
+
+/**
+ * One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+ */
+export interface OrchestraIdentifiersMemberV11 {
+    /** A field whose value is carried over from the message received. */
+    fixr_correlate?: OrchestraIdentifierV11,
+    /** A field whose value the message sent sets. */
+    fixr_assign?: OrchestraIdentifierV11,
+}
+
+
+/**
+ * The fields a message sent by an action sets or carries over.
+ */
+export interface OrchestraIdentifiersV11 {
+    /** The fields carried over or set, in order. */
+    fixr_members: OrchestraIdentifiersMemberV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+}
+
+
+/**
+ * The keys of a defined element, its number, name, short name and scenario.
+ */
+export interface OrchestraIdentityV11Mixin {
+    /** The element's number, unique among elements of its kind; for a field, its tag number. */
+    fixr_id: number,
+    /** The element's name, unique among elements of its kind within one scenario. */
+    fixr_name: string,
+    /** A short form of the name, which FIXML uses for tags. */
+    fixr_abbr_name?: string,
+    /** The use case this variant of the element serves, such as a workflow or an asset class; base when none is given. */
+    fixr_scenario?: string,
+}
+
+
+/**
+ * One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+ */
+export interface OrchestraInterfaceAnnotationMemberV11 {
+    /** A piece of text. */
+    fixi_documentation?: OrchestraInterfaceDocumentationV11,
+    /** A hint for software. */
+    fixi_appinfo?: OrchestraInterfaceAppinfoV11,
+}
+
+
+/**
+ * Notes for readers and hints for software, attached to an element of an interfaces file.
+ */
+export interface OrchestraInterfaceAnnotationV11 {
+    /** The texts and hints, in order. */
+    fixi_members: OrchestraInterfaceAnnotationMemberV11[],
+}
+
+
+/**
+ * A hint for a particular tool on an element of an interfaces file.
+ */
+export interface OrchestraInterfaceAppinfoV11 {
+    /** The text the element holds, as written. */
+    fixi_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixi_any?: OrchestraXmlElement[],
+    /** The address of a document that describes the element. */
+    fixi_spec_url?: string,
+    /** The language of the text, as a language tag. */
+    fixi_lang_id?: string,
+    /** What the hint is for, such as the tool it concerns. */
+    fixi_purpose?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * Text about an element of an interfaces file.
+ */
+export interface OrchestraInterfaceDocumentationV11 {
+    /** The text the element holds, as written. */
+    fixi_text?: string,
+    /** Child elements from other namespaces, kept as written. */
+    fixi_any?: OrchestraXmlElement[],
+    /** The language of the text, as a language tag. */
+    fixi_lang_id?: string,
+    /** What the text is for, such as a summary or an example. */
+    fixi_purpose?: string,
+    /** The media type of the text; text/plain when none is given. */
+    fixi_content_type?: string,
+}
+
+
+/**
+ * A named service offering and the sessions it carries, with the protocols on each layer.
+ */
+export interface OrchestraInterfaceV11 extends OrchestraBaseInterfaceV11 {
+    /** The sessions the interface carries. */
+    fixi_sessions?: OrchestraSessionsV11,
+}
+
+
+/**
+ * A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core metadata.
+ */
+export interface OrchestraInterfacesV11 {
+    /** The file's Dublin Core description, such as its title, publisher and date. */
+    fixi_metadata: OrchestraMetadata,
+    /** The interfaces the file describes. */
+    fixi_interface?: OrchestraInterfaceV11[],
+}
+
+
+/**
+ * How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+ */
+export interface OrchestraMappedDatatypeV11 {
+    /** Encoding information for this mapping. */
+    fixr_encoding?: OrchestraUnnamedEncodingV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The standard the datatype is written in, such as XML or GPB. */
+    fixr_standard: string,
+    /** Whether the target standard has the type built in, rather than derived. */
+    fixr_builtin?: boolean,
+    /** The type in the target standard that the mapping narrows or builds on. */
+    fixr_base?: string,
+    /** A pattern the value matches in the target standard. */
+    fixr_pattern?: string,
+    /** The type of each item when the target type is a list or array. */
+    fixr_element?: string,
+    /** The number of items when the target type is an array. */
+    fixr_size?: number,
+    /** A setting of the target type, such as its precision. */
+    fixr_parameter?: string,
+    /** The smallest value allowed. */
+    fixr_min_inclusive?: string,
+    /** The largest value allowed. */
+    fixr_max_inclusive?: string,
+}
+
+
+/**
+ * A message an action sends, by its number and type code, with the fields it sets or carries over.
+ */
+export interface OrchestraMessageRefV11 extends OrchestraReferenceV11Mixin {
+    /** The fields the message sets or carries over. */
+    fixr_identifiers?: OrchestraIdentifiersV11,
+    /** The MsgType(35) code of the message sent. */
+    fixr_msg_type?: string,
+    /** The fewest times the message is sent; once when none is given. */
+    fixr_impl_min_occurs?: number,
+    /** The most times the message is sent, or unbounded. */
+    fixr_impl_max_occurs?: string,
+}
+
+
+/**
+ * The ordered fields, groups and components of a message.
+ */
+export interface OrchestraMessageStructureV11 {
+    /** The message's fields, groups and components, in order. */
+    fixr_members?: OrchestraStructureMemberV11[],
+    /** Whether one member exactly, or one or more members, must appear. */
+    fixr_which?: string,
+}
+
+
+/**
+ * A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
+ */
+export interface OrchestraMessageV11 extends OrchestraIdentityV11Mixin, OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11Mixin {
+    /** The message's fields, groups and components, in order. */
+    fixr_structure?: OrchestraMessageStructureV11,
+    /** An expression that sets this scenario of the message apart from its others. */
+    fixr_when?: string,
+    /** What can happen when the message arrives. */
+    fixr_responses?: OrchestraResponsesV11,
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The message's MsgType(35) code. */
+    fixr_msg_type?: string,
+    /** The category the message belongs to, by name. */
+    fixr_category?: string,
+    /** The flow that carries the message, by name. */
+    fixr_flow?: string,
+    /** A hint for how a tool shows or reads the element, which no validator checks. */
+    fixr_rendering?: string,
+}
+
+
+/**
+ * The messages a repository defines.
+ */
+export interface OrchestraMessagesV11 {
+    /** The messages. */
+    fixr_message?: OrchestraMessageV11[],
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * An encoding block that names the encoding standard it is for.
+ */
+export interface OrchestraNamedEncodingV11 extends OrchestraBaseEncodingV11 {
+    /** The encoding standard this block is for, by name. */
+    fixr_standard: string,
+}
+
+
+/**
+ * When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is supported.
+ */
+export interface OrchestraPedigreeV11Mixin {
+    /** The FIX version in which the element first appeared. */
+    fixr_added?: string,
+    /** The extension pack in which the element first appeared. */
+    fixr_added_ep?: number,
+    /** Whether the latest change was to wording only or to meaning. */
+    fixr_change_type?: string,
+    /** The FIX version from which the element is deprecated. */
+    fixr_deprecated?: string,
+    /** The extension pack from which the element is deprecated. */
+    fixr_deprecated_ep?: number,
+    /** The change request behind the element's latest change. */
+    fixr_issue?: string,
+    /** The FIX version in which the element last changed. */
+    fixr_last_modified?: string,
+    /** The FIX version in which another element took this one's place. */
+    fixr_replaced?: string,
+    /** The extension pack in which another element took this one's place. */
+    fixr_replaced_ep?: number,
+    /** The tag number of the field that takes this element's place. */
+    fixr_replaced_by_field?: number,
+    /** Whether a party supports, refuses or ignores the element; supported when none is given. */
+    fixr_supported?: string,
+    /** The FIX version of the element's latest update. */
+    fixr_updated?: string,
+    /** The extension pack of the element's latest update. */
+    fixr_updated_ep?: number,
+}
+
+
+/**
+ * A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+ */
+export interface OrchestraProtocolV11 {
+    /** Notes for readers and hints for software. */
+    fixi_annotation?: OrchestraInterfaceAnnotationV11,
+    /** The protocol's name, such as FIXT or SBE, or another name of the provider's choice. */
+    fixi_name?: string,
+    /** The protocol's version. */
+    fixi_version?: string,
+    /** When this version of the protocol takes effect. */
+    fixi_activation_time?: string,
+    /** When this version of the protocol stops having effect. */
+    fixi_deactivation_time?: string,
+    /** When this version of the protocol was deprecated. */
+    fixi_deprecated?: string,
+    /** The layer the protocol works on. */
+    fixi_layer?: string,
+    /** The delivery guarantee the protocol gives, which a transport, a session or the application may provide. */
+    fixi_reliability?: string,
+    /** Where to find the Orchestra repository that sets out the protocol's messages and rules. */
+    fixi_orchestration?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+ */
+export interface OrchestraReferenceV11Mixin {
+    /** The number of the element in use; for a field, its tag number. */
+    fixr_id: number,
+    /** The element in use, by name, for readability; the number decides which element is meant. */
+    fixr_name?: string,
+    /** The scenario of the element in use; base when none is given. */
+    fixr_scenario?: string,
+}
+
+
+/**
+ * A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages it defines, and the actors and workflows that use them.
+ */
+export interface OrchestraRepositoryV11 {
+    /** The file's Dublin Core description, such as its title, publisher and date. */
+    fixr_metadata: OrchestraMetadata,
+    /** The repository's categories. */
+    fixr_categories?: OrchestraCategoriesV11,
+    /** The repository's sections. */
+    fixr_sections?: OrchestraSectionsV11,
+    /** The encoding standards the repository's encoding blocks name. */
+    fixr_encoding_standards?: OrchestraEncodingStandardsV11,
+    /** The repository's datatypes. */
+    fixr_datatypes?: OrchestraDatatypesV11,
+    /** The repository's code sets. */
+    fixr_code_sets?: OrchestraCodeSetsV11,
+    /** The repository's fields. */
+    fixr_fields?: OrchestraFieldsV11,
+    /** The repository's actors and flows. */
+    fixr_actors?: OrchestraActorsV11,
+    /** The repository's components. */
+    fixr_components?: OrchestraComponentsV11,
+    /** The repository's repeating groups. */
+    fixr_groups?: OrchestraGroupsV11,
+    /** The repository's messages. */
+    fixr_messages?: OrchestraMessagesV11,
+    /** The repository's concepts. */
+    fixr_concepts?: OrchestraConceptsV11,
+    /** The repository's scenarios. */
+    fixr_scenarios?: OrchestraScenariosV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The repository's name, which stays the same across its minor versions. */
+    fixr_name: string,
+    /** The repository's version, such as FIX.Latest_EP312. */
+    fixr_version: string,
+    /** An identifier of the repository, unique worldwide. */
+    fixr_guid?: string,
+    /** The address of a document that describes the element. */
+    fixr_spec_url?: string,
+    /** A namespace address that goes with the repository. */
+    fixr_namespace?: string,
+    /** The language the conditions and assignments are written in; Score when none is given. */
+    fixr_expression_language?: string,
+}
+
+
+/**
+ * What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
+ */
+export interface OrchestraResponseV11 extends OrchestraActionV11 {
+    /** When the response fires, written as an expression; it always fires when none is given. */
+    fixr_when?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The response's name. */
+    fixr_name?: string,
+    /** How the response's timing relates to the request it answers. */
+    fixr_sync?: string,
+}
+
+
+/**
+ * The responses a message can cause, tried one after another as given.
+ */
+export interface OrchestraResponsesV11 {
+    /** The responses, in order. */
+    fixr_response: OrchestraResponseV11[],
+}
+
+
+/**
+ * A pointer from an element to the scenario it belongs to, by number and, if wanted, name.
+ */
+export interface OrchestraScenarioReferenceV11Mixin {
+    /** The scenario the element belongs to, by number. */
+    fixr_scenario_ref_id?: number,
+    /** The scenario the element belongs to, by name, for readability. */
+    fixr_scenario_ref?: string,
+}
+
+
+/**
+ * A named variant of elements for one use case, such as a workflow or an asset class.
+ */
+export interface OrchestraScenarioV11 extends OrchestraPedigreeV11Mixin {
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The scenario's name; base when none is given. */
+    fixr_name?: string,
+}
+
+
+/**
+ * The scenarios a repository defines.
+ */
+export interface OrchestraScenariosV11 {
+    /** The scenarios. */
+    fixr_scenario?: OrchestraScenarioV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * A broad business area, such as pre-trade or post-trade, that categories fall under.
+ */
+export interface OrchestraSectionV11 extends OrchestraPedigreeV11Mixin {
+    /** More information that particular encodings need about the element. */
+    fixr_encodings?: OrchestraEncodingsV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The section's name. */
+    fixr_name: string,
+    /** Where the section comes when all sections are shown. */
+    fixr_display_order?: number,
+}
+
+
+/**
+ * The sections a repository defines.
+ */
+export interface OrchestraSectionsV11 {
+    /** The sections. */
+    fixr_section?: OrchestraSectionV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The base address for the list's relative links, which XInclude uses. */
+    xml_base?: string,
+}
+
+
+/**
+ * An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
+ */
+export interface OrchestraServiceV11 extends OrchestraProtocolV11 {
+}
+
+
+/**
+ * A value, with what kind it is, that picks out a session, such as a sender or target ID.
+ */
+export interface OrchestraSessionIdentifierV11 {
+    /** The identifier's value. */
+    fixi_text?: string,
+    /** What kind of identifier this is, such as SenderCompID. */
+    fixi_name?: string,
+}
+
+
+/**
+ * The session-level protocol of an interface or session, such as FIXT or FIXP.
+ */
+export interface OrchestraSessionProtocolV11 extends OrchestraProtocolV11 {
+}
+
+
+/**
+ * One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+ */
+export interface OrchestraSessionV11 extends OrchestraBaseInterfaceV11 {
+    /** The identifiers that pick out the session. */
+    fixi_identifier?: OrchestraSessionIdentifierV11[],
+    /** The party's role in the session. */
+    fixi_role?: string,
+    /** Security keys for the session, as PEM text. */
+    fixi_security_keys?: string,
+    /** When the session takes effect. */
+    fixi_activation_time?: string,
+    /** When the session stops having effect. */
+    fixi_deactivation_time?: string,
+}
+
+
+/**
+ * The sessions an interface carries.
+ */
+export interface OrchestraSessionsV11 {
+    /** The sessions. */
+    fixi_session: OrchestraSessionV11[],
+}
+
+
+/**
+ * A named set of states that an actor moves through, from an initial state.
+ */
+export interface OrchestraStateMachineV11 {
+    /** The state the machine starts in. */
+    fixr_initial: OrchestraStateV11,
+    /** The machine's other states. */
+    fixr_state: OrchestraStateV11[],
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The state machine's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * One of a state machine's states, with the transitions out of it and what happens on entry, while active and on exit.
+ */
+export interface OrchestraStateV11 {
+    /** The moves out of this state. */
+    fixr_transition?: OrchestraTransitionV11[],
+    /** What happens on entering the state. */
+    fixr_onentry?: OrchestraActionV11,
+    /** What runs while the state is active. */
+    fixr_activity?: OrchestraActionV11,
+    /** What happens on leaving the state. */
+    fixr_onexit?: OrchestraActionV11,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The state's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+ */
+export interface OrchestraStructureMemberV11 {
+    /** A component used by reference. */
+    fixr_component_ref?: OrchestraComponentRefV11,
+    /** A group used by reference. */
+    fixr_group_ref?: OrchestraGroupRefV11,
+    /** A field used by reference. */
+    fixr_field_ref?: OrchestraFieldRefV11,
+}
+
+
+/**
+ * A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+ */
+export interface OrchestraTimerScheduleV11 {
+    /** What happens when the timer runs out. */
+    fixr_activity: OrchestraActionV11,
+    /** The actor whose timer or state machine this is, by name. */
+    fixr_actor: string,
+    /** The timer to start, stop or restart, by name. */
+    fixr_name: string,
+    /** Whether to start, stop or restart the timer. */
+    fixr_operation: string,
+    /** How long the timer runs, as an XML Schema duration. */
+    fixr_interval?: string,
+}
+
+
+/**
+ * A named timer that an actor owns.
+ */
+export interface OrchestraTimerV11 {
+    /** The timer's name. */
+    fixr_name: string,
+}
+
+
+/**
+ * A move from one state to a named target state, with the condition that allows it.
+ */
+export interface OrchestraTransitionV11 {
+    /** The condition that allows the transition, written as an expression; the transition is always allowed when none is given. */
+    fixr_when?: string,
+    /** Notes for readers and hints for software about the element. */
+    fixr_annotation?: OrchestraAnnotationV11,
+    /** The transition's name. */
+    fixr_name: string,
+    /** The state the transition leads to, by name. */
+    fixr_target: string,
+}
+
+
+/**
+ * The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+ */
+export interface OrchestraTransportV11 extends OrchestraProtocolV11 {
+    /** The address to connect to, such as a host and port. */
+    fixi_address?: string,
+    /** Whether messages go to one, some or every receiver; unicast when none is given. */
+    fixi_message_cast?: string,
+    /** The transport's role, such as primary or alternate. */
+    fixi_use?: string,
+    /** Attributes from other namespaces, kept as written. */
+    fixi_other_attributes?: OrchestraXmlAttribute[],
+}
+
+
+/**
+ * A step that fires a named transition of an actor's state machine.
+ */
+export interface OrchestraTriggerV11 {
+    /** The state machine whose transition fires, by name. */
+    fixr_state_machine: string,
+    /** The actor whose timer or state machine this is, by name. */
+    fixr_actor: string,
+    /** The transition to fire, by name. */
+    fixr_name: string,
+}
+
+
+/**
+ * A check that a field's value is unique among the values that share the other fields it names, or among all values when it names none.
+ */
+export interface OrchestraUniqueV11 {
+    /** The fields that scope the check, in order. */
+    fixr_field_ref?: OrchestraFieldRefV11[],
+}
+
+
+/**
+ * An encoding block whose standard is clear from where it sits, so it names none.
+ */
+export interface OrchestraUnnamedEncodingV11 extends OrchestraBaseEncodingV11 {
+}
+
+
+/**
+ * A user interface an interface offers, such as a trading screen, described as a protocol.
+ */
+export interface OrchestraUserInterfaceV11 extends OrchestraProtocolV11 {
 }
 
 

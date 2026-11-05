@@ -1,0 +1,8 @@
+# Fails at: /
+# A named encoding block names its standard.
+fixr_any:
+  - xml_name: '{https://example.org/orchestra-test}file'
+    xml_attributes:
+      - xml_name: name
+        xml_value: order
+    xml_tail: "\n        "

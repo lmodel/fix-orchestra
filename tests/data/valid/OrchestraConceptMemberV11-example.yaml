@@ -1,0 +1,4 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_message_ref:
+  fixr_id: 14
+  fixr_msg_type: D

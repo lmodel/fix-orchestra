@@ -1,0 +1,4 @@
+# Fails at: /xml_name
+# An XML name holds no space.
+xml_name: '{https://example.org/orchestra-test}two words'
+xml_text: in place

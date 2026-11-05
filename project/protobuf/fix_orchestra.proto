@@ -1,1512 +1,3411 @@
- syntax="proto3";
- package
-// metamodel_version: 1.11.0
-// version: 1.1-rc2
-message ActionType
- {
- repeated  fieldType field = 0
- repeated  fieldRefType fieldRef = 0
- repeated  componentType component = 0
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  messageRefType messageRef = 0
- repeated  triggerType trigger = 0
- repeated  timerSchedule timerSchedule = 0
- repeated  groupType group = 0
- repeated  expressionType assign = 0
- }
-// Participants and the message flows between them
-message Actors
- {
- repeated  actorType actor = 0
- repeated  flowType flow = 0
-  annotation annotation = 0
-  string base = 0
- }
-// Represents a class of participants
-message ActorType
- {
- repeated  fieldType field = 0
- repeated  fieldRefType fieldRef = 0
- repeated  componentType component = 0
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  stateMachineType states = 0
- repeated  timerType timer = 0
- repeated  groupType group = 0
-  annotation annotation = 0
-  name name = 0
- }
-message Annotation
- {
- repeated  documentation documentation = 0
- repeated  appinfo appinfo = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-// Usage specific annotation, optionally with link to an external reference or standard
-message Appinfo
- {
-  uri specUrl = 0
-  string value = 0
- repeated  string content = 0
- repeated  string extraAttributes = 0
-  fIXMLencodingType fixmlEncoding = 0
-  language langId = 0
-  purpose purpose = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message BlockAssignmentType
- {
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  fieldRefType fieldRef = 0
- }
-message Categories
- {
- repeated  categoryType category = 0
-  annotation annotation = 0
-  string base = 0
- }
-message CategoryType
- {
-  name fixmlFileName = 0
-  catComponentType componentType = 0
-  catIncludeFile includeFile = 0
-  annotation annotation = 0
-  name name = 0
-  name section = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message CodeSets
- {
- repeated  codeSetType codeSet = 0
-  annotation annotation = 0
-  string base = 0
- }
-message CodeSetType
- {
- repeated  codeType code = 0
-  string default = 0
-  uri specUrl = 0
-  unionDataType unionDataType = 0
-  annotation annotation = 0
-  name type = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  id scenarioRefId = 0
-  name scenarioRef = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message CodeType
- {
-  string value = 0
-  integer sort = 0
-  annotation annotation = 0
-  string group = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message ComponentRefType
- {
- repeated  blockAssignmentType blockAssignment = 0
-  presence presence = 0
- repeated  componentRuleType rule = 0
-  annotation annotation = 0
-  componentName instanceName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message ComponentRuleType
- {
-  expressionType when = 0
-  presence presence = 0
-  name name = 0
- }
-message Components
- {
- repeated  componentType component = 0
-  annotation annotation = 0
-  string base = 0
- }
-message ComponentType
- {
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  fieldRefType fieldRef = 0
-  string rendering = 0
-  memberType which = 0
-  annotation annotation = 0
-  name category = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  id scenarioRefId = 0
-  name scenarioRef = 0
- }
-message Concepts
- {
- repeated  conceptType concept = 0
-  annotation annotation = 0
-  string base = 0
- }
-message ConceptType
- {
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  fieldRefType fieldRef = 0
- repeated  messageRefType messageRef = 0
-  annotation annotation = 0
-  name name = 0
- }
-message Datatype
- {
- repeated  mappedDatatype mappedDatatype = 0
-  id scenarioId = 0
-  name baseType = 0
-  annotation annotation = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message Datatypes
- {
- repeated  datatype datatype = 0
-  annotation annotation = 0
-  string base = 0
- }
-message DcContributor
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcCoverage
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcCreator
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcDate
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcDescription
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-// This complexType is included as a convenience for schema authors who need to define a root or container element for all of the DC elements.
-message DcElementContainer
- {
-  string title = 0
-  string creator = 0
-  string subject = 0
-  string description = 0
-  string publisher = 0
-  string contributor = 0
-  string date = 0
-  string format = 0
-  string source = 0
-  string language = 0
-  string relation = 0
-  string coverage = 0
-  string rights = 0
-  string alternative = 0
-  string tableOfContents = 0
-  string abstract = 0
-  string created = 0
-  string valid = 0
-  string available = 0
-  string issued = 0
-  string modified = 0
-  string dateAccepted = 0
-  string dateCopyrighted = 0
-  string dateSubmitted = 0
-  string extent = 0
-  string medium = 0
-  string isVersionOf = 0
-  string hasVersion = 0
-  string isReplacedBy = 0
-  string replaces = 0
-  string isRequiredBy = 0
-  string requires = 0
-  string isPartOf = 0
-  string hasPart = 0
-  string isReferencedBy = 0
-  string references = 0
-  string isFormatOf = 0
-  string hasFormat = 0
-  string conformsTo = 0
-  string spatial = 0
-  string temporal = 0
-  string audience = 0
-  string accrualMethod = 0
-  string accrualPeriodicity = 0
-  string accrualPolicy = 0
-  string instructionalMethod = 0
-  string provenance = 0
-  string rightsHolder = 0
-  string mediator = 0
-  string educationLevel = 0
-  string accessRights = 0
-  string license = 0
-  string bibliographicCitation = 0
-  string type = 0
-  string identifier = 0
- }
-message DcFormat
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcIdentifier
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcLanguage
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcPublisher
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcRelation
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcRights
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-// This is the default type for all of the DC elements. It permits text content only with optional xml:lang attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child elements.
-message DcSimpleLiteral
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcSource
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcSubject
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAbstract
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAccessRights
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAccrualMethod
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAccrualPeriodicity
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAccrualPolicy
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAlternative
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAudience
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsAvailable
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsBibliographicCitation
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsBox
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsConformsTo
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsContributor
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsCoverage
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsCreated
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsCreator
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDate
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDateAccepted
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDateCopyrighted
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDateSubmitted
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDCMIType
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDDC
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsDescription
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsEducationLevel
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-// This is included as a convenience for schema authors who need to define a root or container element for all of the DC elements and element refinements.
-message DctermsElementOrRefinementContainer
- {
-  string title = 0
-  string creator = 0
-  string subject = 0
-  string description = 0
-  string publisher = 0
-  string contributor = 0
-  string date = 0
-  string format = 0
-  string source = 0
-  string language = 0
-  string relation = 0
-  string coverage = 0
-  string rights = 0
-  string alternative = 0
-  string tableOfContents = 0
-  string abstract = 0
-  string created = 0
-  string valid = 0
-  string available = 0
-  string issued = 0
-  string modified = 0
-  string dateAccepted = 0
-  string dateCopyrighted = 0
-  string dateSubmitted = 0
-  string extent = 0
-  string medium = 0
-  string isVersionOf = 0
-  string hasVersion = 0
-  string isReplacedBy = 0
-  string replaces = 0
-  string isRequiredBy = 0
-  string requires = 0
-  string isPartOf = 0
-  string hasPart = 0
-  string isReferencedBy = 0
-  string references = 0
-  string isFormatOf = 0
-  string hasFormat = 0
-  string conformsTo = 0
-  string spatial = 0
-  string temporal = 0
-  string audience = 0
-  string accrualMethod = 0
-  string accrualPeriodicity = 0
-  string accrualPolicy = 0
-  string instructionalMethod = 0
-  string provenance = 0
-  string rightsHolder = 0
-  string mediator = 0
-  string educationLevel = 0
-  string accessRights = 0
-  string license = 0
-  string bibliographicCitation = 0
-  string type = 0
-  string identifier = 0
- }
-message DctermsExtent
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsFormat
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsHasFormat
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsHasPart
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsHasVersion
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIdentifier
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIMT
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsInstructionalMethod
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsFormatOf
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsISO3166
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsISO6392
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsISO6393
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsPartOf
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsReferencedBy
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsReplacedBy
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsRequiredBy
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIssued
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsIsVersionOf
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsLanguage
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsLCC
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsLCSH
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsLicense
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsMediator
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsMedium
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsMESH
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsModified
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsPeriod
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsPoint
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsProvenance
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsPublisher
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsReferences
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRelation
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsReplaces
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRequires
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRFC1766
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRFC3066
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRFC4646
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRights
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsRightsHolder
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsSource
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsSpatial
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsSubject
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsTableOfContents
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsTemporal
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsTGN
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsTitle
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsType
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsUDC
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsURI
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsValid
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DctermsW3CDTF
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcTitle
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message DcType
- {
-  string value = 0
- repeated  string content = 0
-  string lang = 0
- }
-message Documentation
- {
-  string value = 0
- repeated  string content = 0
-  language langId = 0
-  purpose purpose = 0
-  mime contentType = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message EncodingType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
- repeated  string extraAttributes = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
- }
-message ExtensionInline
- {
- repeated  string content = 0
- }
-message FieldRefType
- {
-  id lengthId = 0
-  id nonEncodedFieldId = 0
- repeated  fieldRuleType rule = 0
-  expressionType assign = 0
-  annotation annotation = 0
-  name instanceName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
-  string minInclusive = 0
-  string maxInclusive = 0
-  integer implLength = 0
-  integer implMinLength = 0
-  integer implMaxLength = 0
-  presence presence = 0
-  string value = 0
-  string rendering = 0
-  string encoding = 0
- }
-message FieldRuleType
- {
-  uniqueInline unique = 0
-  expressionType when = 0
- repeated  expressionType assign = 0
-  name name = 0
-  name type = 0
-  string minInclusive = 0
-  string maxInclusive = 0
-  integer implLength = 0
-  integer implMinLength = 0
-  integer implMaxLength = 0
-  presence presence = 0
-  string value = 0
-  string rendering = 0
-  string encoding = 0
- }
-message Fields
- {
- repeated  fieldType field = 0
-  annotation annotation = 0
-  string base = 0
- }
-message FieldType
- {
-  id lengthId = 0
-  id nonEncodedFieldId = 0
-  id discriminatorId = 0
-  name baseCategory = 0
-  name baseCategoryAbbrName = 0
-  unionDataType unionDataType = 0
- repeated  fieldRuleType rule = 0
-  expressionType assign = 0
-  annotation annotation = 0
-  name type = 0
-  name codeSet = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
-  string minInclusive = 0
-  string maxInclusive = 0
-  integer implLength = 0
-  integer implMinLength = 0
-  integer implMaxLength = 0
-  presence presence = 0
-  string value = 0
-  string rendering = 0
-  string encoding = 0
- }
-// FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in its containing message and whether an element is ignored by the FIXML generator.
-message FIXMLencodingType
- {
-  boolean inlined = 0
-  boolean notReqXml = 0
- }
-// A stream of messages in one direction
-message FlowType
- {
-  string source = 0
-  string destination = 0
-  annotation annotation = 0
-  name name = 0
-  reliability reliability = 0
- }
-message GroupRefType
- {
- repeated  blockAssignmentType blockAssignment = 0
-  presence presence = 0
- repeated  componentRuleType rule = 0
-  annotation annotation = 0
-  componentName instanceName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
-  integer implMinOccurs = 0
-  unboundedIntType implMaxOccurs = 0
- }
-message Groups
- {
- repeated  groupType group = 0
-  annotation annotation = 0
-  string base = 0
- }
-// A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the sequence, it cannot be an extension.
-message GroupType
- {
-  fieldRefType numInGroup = 0
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  fieldRefType fieldRef = 0
-  string rendering = 0
-  integer implMinOccurs = 0
-  unboundedIntType implMaxOccurs = 0
-  memberType which = 0
-  annotation annotation = 0
-  name category = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  id scenarioRefId = 0
-  name scenarioRef = 0
- }
-message IdentifiersType
- {
- repeated  identifierType correlate = 0
- repeated  identifierType assign = 0
-  annotation annotation = 0
- }
-message IdentifierType
- {
-  string value = 0
-  string name = 0
- }
-message InterfaceAnnotation
- {
- repeated  interfaceDocumentation documentation = 0
- repeated  interfaceAppinfo appinfo = 0
- }
-// Usage specific annotation, optionally with link to an external reference or standard
-message InterfaceAppinfo
- {
-  uri specUrl = 0
-  string value = 0
- repeated  string content = 0
- repeated  string extraAttributes = 0
-  string langId = 0
-  interfacePurpose purpose = 0
- }
-message InterfaceDocumentation
- {
-  string value = 0
- repeated  string content = 0
-  string langId = 0
-  interfacePurpose purpose = 0
-  string contentType = 0
- }
-// This represents the current state of service and session configurations. Changes to configuration can represented with patch operations. See IETF RFC 5261
-message Interfaces
- {
-  dctermsElementOrRefinementContainer metadata = 0
- repeated  interfaceType interface = 0
- }
-message InterfaceType
- {
- repeated  serviceType service = 0
- repeated  userInterfaceType userInterface = 0
- repeated  sessionProtocolType sessionProtocol = 0
- repeated  protocolType protocol = 0
- repeated  transportProtocolType transport = 0
- repeated  string extraAttributes = 0
- repeated  encodingType encoding = 0
-  interfaceAnnotation annotation = 0
-  string name = 0
-  sessionsInline sessions = 0
- }
-message MappedDatatype
- {
-  extensionInline extension = 0
-  datatypeStandard standard = 0
-  boolean builtin = 0
-  string pattern = 0
-  string element = 0
-  integer size = 0
-  string parameter = 0
-  string minInclusive = 0
-  string maxInclusive = 0
-  annotation annotation = 0
-  string base = 0
- }
-message MessageRefType
- {
-  identifiersType identifiers = 0
-  msgType msgType = 0
-  integer implMinOccurs = 0
-  unboundedIntType implMaxOccurs = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
- }
-message Messages
- {
- repeated  messageType message = 0
-  annotation annotation = 0
-  string base = 0
- }
-message MessageType
- {
-  structureInline structure = 0
-  expressionType when = 0
-  responsesInline responses = 0
-  msgType msgType = 0
-  string rendering = 0
-  annotation annotation = 0
-  name category = 0
-  name flow = 0
-  name abbrName = 0
-  id scenarioId = 0
-  id id = 0
-  name name = 0
-  name scenario = 0
-  id scenarioRefId = 0
-  name scenarioRef = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message ProtocolType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
- repeated  string extraAttributes = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
- }
-message Repository
- {
-  dctermsElementOrRefinementContainer metadata = 0
-  categories categories = 0
-  sections sections = 0
-  datatypes datatypes = 0
-  codeSets codeSets = 0
-  fields fields = 0
-  actors actors = 0
-  components components = 0
-  groups groups = 0
-  messages messages = 0
-  concepts concepts = 0
-  scenarios scenarios = 0
-  string guid = 0
-  uri specUrl = 0
-  uri namespace = 0
-  string expressionLanguage = 0
-  annotation annotation = 0
-  string name = 0
-  version version = 0
- }
-message ResponsesInline
- {
- repeated  responseType response = 0
- }
-// Any number of action behaviors can be triggered by the same 'when' condition
-message ResponseType
- {
- repeated  fieldType field = 0
- repeated  fieldRefType fieldRef = 0
- repeated  componentType component = 0
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  messageRefType messageRef = 0
- repeated  triggerType trigger = 0
- repeated  timerSchedule timerSchedule = 0
- repeated  groupType group = 0
- repeated  expressionType assign = 0
-  expressionType when = 0
-  synchronization sync = 0
-  annotation annotation = 0
-  name name = 0
- }
-// The default scenario is id='1' name='base'.
-message Scenarios
- {
- repeated  scenarioType scenario = 0
-  annotation annotation = 0
-  string base = 0
- }
-// The use case of an element, distinguished by workflow, asset class, etc.
-message ScenarioType
- {
-  annotation annotation = 0
-  id id = 0
-  name name = 0
- }
-message Sections
- {
- repeated  sectionType section = 0
-  annotation annotation = 0
-  string base = 0
- }
-message SectionType
- {
-  integer displayOrder = 0
-  name fixmlFileName = 0
-  annotation annotation = 0
-  name name = 0
-  version added = 0
-  eP addedEp = 0
-  changeType changeType = 0
-  eP deprecatedEp = 0
-  string issue = 0
-  version lastModified = 0
-  version replaced = 0
-  eP replacedEp = 0
-  id replacedByField = 0
-  supportType supported = 0
-  version updated = 0
-  eP updatedEp = 0
-  version deprecated = 0
- }
-message ServiceType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
- repeated  string extraAttributes = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
- }
-message SessionProtocolType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
- repeated  string extraAttributes = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
- }
-message SessionsInline
- {
- repeated  sessionType session = 0
- }
-message SessionType
- {
- repeated  serviceType service = 0
- repeated  userInterfaceType userInterface = 0
- repeated  sessionProtocolType sessionProtocol = 0
- repeated  protocolType protocol = 0
- repeated  transportProtocolType transport = 0
- repeated  string extraAttributes = 0
- repeated  encodingType encoding = 0
-  interfaceAnnotation annotation = 0
-  string name = 0
-  role role = 0
-  string securityKeys = 0
-  datetime activationTime = 0
-  datetime deactivationTime = 0
- repeated  identifierType identifier = 0
- }
-message StateMachineType
- {
-  stateType initial = 0
- repeated  stateType state = 0
-  annotation annotation = 0
-  name name = 0
- }
-// A state of a state machine. If it has no transitions, then it is a final state.
-message StateType
- {
- repeated  transitionType transition = 0
-  actionType onentry = 0
-  actionType activity = 0
-  actionType onexit = 0
-  annotation annotation = 0
-  name name = 0
- }
-message StructureInline
- {
- repeated  componentRefType componentRef = 0
- repeated  groupRefType groupRef = 0
- repeated  fieldRefType fieldRef = 0
-  memberType which = 0
- }
-message TimerSchedule
- {
-  actionType activity = 0
-  timerOperation operation = 0
-  string interval = 0
-  name actor = 0
-  name name = 0
- }
-message TimerType
- {
-  name name = 0
- }
-message TransitionType
- {
-  expressionType when = 0
-  string target = 0
-  annotation annotation = 0
-  name name = 0
- }
-message TransportProtocolType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
-  string address = 0
-  messageCast messageCast = 0
-  transportUse use = 0
- repeated  string extraAttributes = 0
- }
-message TriggerType
- {
-  string stateMachine = 0
-  name actor = 0
-  name name = 0
- }
-message UniqueInline
- {
- repeated  fieldRefType fieldRef = 0
- }
-message UserInterfaceType
- {
-  datetime activationTime = 0
-  datetime deactivationTime = 0
-  layer layer = 0
-  uri orchestration = 0
- repeated  string extraAttributes = 0
-  interfaceAnnotation annotation = 0
-  protocolName name = 0
-  string version = 0
-  datetime deprecated = 0
-  interfaceReliability reliability = 0
- }
-// Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from other XSDs via ``ref="XML:<name>"``.
-message XmlGlobalAttributes
- {
-  xmlLangType lang = 0
-  xmlSpaceType space = 0
-  uri base = 0
-  string id = 0
- }
+syntax = "proto3";
+package fix_orchestra;
+// metamodel_version: 1.12.0
+// version: 1.0, 1.1-rc3
+// One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
+message OrchestraActionParameterV10 {
+  // A field defined in place.
+  OrchestraFieldV10 fixr_field = 1;
+  // A field used by reference.
+  OrchestraFieldRefV10 fixr_field_ref = 2;
+  // A component defined in place.
+  OrchestraComponentV10 fixr_component = 3;
+  // A component used by reference.
+  OrchestraComponentRefV10 fixr_component_ref = 4;
+  // A repeating group defined in place.
+  OrchestraGroupV10 fixr_group = 5;
+  // A group used by reference.
+  OrchestraGroupRefV10 fixr_group_ref = 6;
+}
+// One input to an action, which is a field, component or group, defined in place or named by reference. It holds exactly one of these.
+message OrchestraActionParameterV11 {
+  // A field defined in place.
+  OrchestraFieldV11 fixr_field = 1;
+  // A field used by reference.
+  OrchestraFieldRefV11 fixr_field_ref = 2;
+  // A component defined in place.
+  OrchestraComponentV11 fixr_component = 3;
+  // A component used by reference.
+  OrchestraComponentRefV11 fixr_component_ref = 4;
+  // A repeating group defined in place.
+  OrchestraGroupV11 fixr_group = 5;
+  // A group used by reference.
+  OrchestraGroupRefV11 fixr_group_ref = 6;
+}
+// One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one of these.
+message OrchestraActionStepV10 {
+  // A message to send.
+  OrchestraMessageRefV10 fixr_message_ref = 1;
+  // An expression that gives an actor's variable a value, such as $actor.variable=value.
+  string fixr_assign = 2;
+  // A transition to fire.
+  OrchestraTriggerV10 fixr_trigger = 3;
+  // A timer to start, stop or restart.
+  OrchestraTimerScheduleV10 fixr_timer_schedule = 4;
+}
+// One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one of these.
+message OrchestraActionStepV11 {
+  // A message to send.
+  OrchestraMessageRefV11 fixr_message_ref = 1;
+  // An expression that gives an actor's variable a value, such as $actor.variable=value.
+  string fixr_assign = 2;
+  // A transition to fire.
+  OrchestraTriggerV11 fixr_trigger = 3;
+  // A timer to start, stop or restart.
+  OrchestraTimerScheduleV11 fixr_timer_schedule = 4;
+}
+// Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
+message OrchestraActionV10 {
+  // The fields, groups and components the action takes as input, in order.
+  repeated OrchestraActionParameterV10 fixr_parameters = 1;
+  // What the action does, in order: messages sent, values set, transitions fired and timers scheduled.
+  repeated OrchestraActionStepV10 fixr_actions = 2;
+}
+// Things that happen together, such as when a response fires or a state is entered: messages sent, values set, transitions fired and timers scheduled, with their inputs.
+message OrchestraActionV11 {
+  // The fields, groups and components the action takes as input, in order.
+  repeated OrchestraActionParameterV11 fixr_parameters = 1;
+  // What the action does, in order: messages sent, values set, transitions fired and timers scheduled.
+  repeated OrchestraActionStepV11 fixr_actions = 2;
+}
+// One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds exactly one of these.
+message OrchestraActorMemberV10 {
+  // A variable defined in place as a field.
+  OrchestraFieldV10 fixr_field = 1;
+  // A variable that uses a field by its number.
+  OrchestraFieldRefV10 fixr_field_ref = 2;
+  // A variable defined in place as a component.
+  OrchestraComponentV10 fixr_component = 3;
+  // A variable that uses a component by its number.
+  OrchestraComponentRefV10 fixr_component_ref = 4;
+  // A variable defined in place as a repeating group.
+  OrchestraGroupV10 fixr_group = 5;
+  // A variable that uses a repeating group by its number.
+  OrchestraGroupRefV10 fixr_group_ref = 6;
+  // A state machine.
+  OrchestraStateMachineV10 fixr_states = 7;
+  // A timer.
+  OrchestraTimerV10 fixr_timer = 8;
+}
+// One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds exactly one of these.
+message OrchestraActorMemberV11 {
+  // A variable defined in place as a field.
+  OrchestraFieldV11 fixr_field = 1;
+  // A variable that uses a field by its number.
+  OrchestraFieldRefV11 fixr_field_ref = 2;
+  // A variable defined in place as a component.
+  OrchestraComponentV11 fixr_component = 3;
+  // A variable that uses a component by its number.
+  OrchestraComponentRefV11 fixr_component_ref = 4;
+  // A variable defined in place as a repeating group.
+  OrchestraGroupV11 fixr_group = 5;
+  // A variable that uses a repeating group by its number.
+  OrchestraGroupRefV11 fixr_group_ref = 6;
+  // A state machine.
+  OrchestraStateMachineV11 fixr_states = 7;
+  // A timer.
+  OrchestraTimerV11 fixr_timer = 8;
+}
+// One entry of the actors list, an actor or a flow. It holds exactly one of these.
+message OrchestraActorsMemberV10 {
+  // An actor.
+  OrchestraActorV10 fixr_actor = 1;
+  // A flow.
+  OrchestraFlowV10 fixr_flow = 2;
+}
+// One entry of the actors list, an actor or a flow. It holds exactly one of these.
+message OrchestraActorsMemberV11 {
+  // An actor.
+  OrchestraActorV11 fixr_actor = 1;
+  // A flow.
+  OrchestraFlowV11 fixr_flow = 2;
+}
+// The parties a repository describes and the one-way flows between them.
+message OrchestraActorsV10 {
+  // The actors and flows, in order.
+  repeated OrchestraActorsMemberV10 fixr_members = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+}
+// The parties a repository describes and the one-way flows between them.
+message OrchestraActorsV11 {
+  // The actors and flows, in order.
+  repeated OrchestraActorsMemberV11 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state machines and timers.
+message OrchestraActorV10 {
+  // The actor's variables, state machines and timers, in order.
+  repeated OrchestraActorMemberV10 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The actor's name, unique among the repository's actors.
+  string fixr_name = 3;
+}
+// A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state machines and timers.
+message OrchestraActorV11 {
+  // The actor's variables, state machines and timers, in order.
+  repeated OrchestraActorMemberV11 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The actor's name, unique among the repository's actors.
+  string fixr_name = 3;
+}
+// One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
+message OrchestraAnnotationMemberV10 {
+  // A piece of text.
+  OrchestraDocumentationV10 fixr_documentation = 1;
+  // A hint for software.
+  OrchestraAppinfoV10 fixr_appinfo = 2;
+}
+// One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
+message OrchestraAnnotationMemberV11 {
+  // A piece of text.
+  OrchestraDocumentationV11 fixr_documentation = 1;
+  // A hint for software.
+  OrchestraAppinfoV11 fixr_appinfo = 2;
+}
+// Notes for readers and hints for software, attached to an element.
+message OrchestraAnnotationV10 {
+  // The texts and hints, in order.
+  repeated OrchestraAnnotationMemberV10 fixr_members = 1;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 2;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 3;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 4;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 5;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 6;
+  // The change request behind the element's latest change.
+  string fixr_issue = 7;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 8;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 9;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 10;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 11;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 12;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 13;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 14;
+}
+// Notes for readers and hints for software, attached to an element.
+message OrchestraAnnotationV11 {
+  // The texts and hints, in order.
+  repeated OrchestraAnnotationMemberV11 fixr_members = 1;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 2;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 3;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 4;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 5;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 6;
+  // The change request behind the element's latest change.
+  string fixr_issue = 7;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 8;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 9;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 10;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 11;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 12;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 13;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 14;
+}
+// A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
+message OrchestraAppinfoV10 {
+  // The text the element holds, as written.
+  string fixr_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+  // The address of a document that describes the element.
+  string fixr_spec_url = 3;
+  // The language of the text, as a language tag.
+  string fixr_lang_id = 4;
+  // What the hint is for, such as the encoding it concerns.
+  string fixr_purpose = 5;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixr_other_attributes = 6;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 7;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 8;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 9;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 10;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 11;
+  // The change request behind the element's latest change.
+  string fixr_issue = 12;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 13;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 14;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 15;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 16;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 17;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 18;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 19;
+}
+// A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
+message OrchestraAppinfoV11 {
+  // The text the element holds, as written.
+  string fixr_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+  // The address of a document that describes the element.
+  string fixr_spec_url = 3;
+  // The language of the text, as a language tag.
+  string fixr_lang_id = 4;
+  // What the hint is for, such as the encoding it concerns.
+  string fixr_purpose = 5;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixr_other_attributes = 6;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 7;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 8;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 9;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 10;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 11;
+  // The change request behind the element's latest change.
+  string fixr_issue = 12;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 13;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 14;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 15;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 16;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 17;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 18;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 19;
+}
+// What every encoding block shares: notes, and XML in another namespace that says how an element is encoded.
+message OrchestraBaseEncodingV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+}
+// What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
+message OrchestraBaseInterfaceV10 {
+  // The application-level services offered.
+  repeated OrchestraServiceV10 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV10 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV10 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV10 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV10 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV10 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+}
+// What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
+message OrchestraBaseInterfaceV11 {
+  // The application-level services offered.
+  repeated OrchestraServiceV11 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV11 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV11 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV11 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV11 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV11 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+}
+// How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
+message OrchestraBlockAssignmentV10 {
+  // The fields, groups and components the assignment sets, in order.
+  repeated OrchestraStructureMemberV10 fixr_members = 1;
+}
+// How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it sets.
+message OrchestraBlockAssignmentV11 {
+  // The fields, groups and components the assignment sets, in order.
+  repeated OrchestraStructureMemberV11 fixr_members = 1;
+}
+// The categories a repository sorts its messages and fields into.
+message OrchestraCategoriesV10 {
+  // The categories.
+  repeated OrchestraCategoryV10 fixr_category = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The categories a repository sorts its messages and fields into.
+message OrchestraCategoriesV11 {
+  // The categories.
+  repeated OrchestraCategoryV11 fixr_category = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A business process grouping within a section, such as order handling or market data.
+message OrchestraCategoryV10 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 1;
+  // The category's name.
+  string fixr_name = 2;
+  // The FIXML schema file that holds the elements of this section or category.
+  string fixr_fixml_file_name = 3;
+  // Whether the category sorts messages or fields.
+  OrchestraCategoryContentV10 fixr_component_type = 4;
+  // The section the category belongs to, by name.
+  string fixr_section = 5;
+  // The shared FIXML file, of components or of fields, that the category's file includes.
+  OrchestraCategoryIncludeFileV10 fixr_include_file = 6;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 7;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 8;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 9;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 10;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 11;
+  // The change request behind the element's latest change.
+  string fixr_issue = 12;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 13;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 14;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 15;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 16;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 17;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 18;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 19;
+}
+// A business process grouping within a section, such as order handling or market data.
+message OrchestraCategoryV11 {
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The category's name.
+  string fixr_name = 3;
+  // The section the category belongs to, by name.
+  string fixr_section = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// The code sets a repository defines.
+message OrchestraCodeSetsV10 {
+  // The code sets.
+  repeated OrchestraCodeSetV10 fixr_code_set = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+}
+// The code sets a repository defines.
+message OrchestraCodeSetsV11 {
+  // The code sets.
+  repeated OrchestraCodeSetV11 fixr_code_set = 1;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 4;
+}
+// A named list of the values a field may take, each with a name of its own, over one underlying datatype.
+message OrchestraCodeSetV10 {
+  // The set's codes, in order.
+  repeated OrchestraCodeV10 fixr_code = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The set's datatype, by name.
+  string fixr_type = 3;
+  // The code a receiver assumes when none is given.
+  string fixr_default = 4;
+  // The address of the outside list, such as an ISO standard, that gives the codes.
+  string fixr_spec_url = 5;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 6;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 7;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 8;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 9;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 10;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 11;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 12;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 13;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 14;
+  // The change request behind the element's latest change.
+  string fixr_issue = 15;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 16;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 17;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 18;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 19;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 20;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 21;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 22;
+}
+// A named list of the values a field may take, each with a name of its own, over one underlying datatype.
+message OrchestraCodeSetV11 {
+  // The set's codes, in order.
+  repeated OrchestraCodeV11 fixr_code = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // The set's datatype, by name.
+  string fixr_type = 4;
+  // The code a receiver assumes when none is given.
+  string fixr_default = 5;
+  // The address of the outside list, such as an ISO standard, that gives the codes.
+  string fixr_spec_url = 6;
+  // A datatype whose values a field of this set may hold beside its codes, such as a range kept for user-defined values.
+  string fixr_union_data_type = 7;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 8;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 9;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 10;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 11;
+  // The scenario the element belongs to, by number.
+  int32 fixr_scenario_ref_id = 12;
+  // The scenario the element belongs to, by name, for readability.
+  string fixr_scenario_ref = 13;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 14;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 15;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 16;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 17;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 18;
+  // The change request behind the element's latest change.
+  string fixr_issue = 19;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 20;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 21;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 22;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 23;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 24;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 25;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 26;
+}
+// One permitted value of the set, with its name and what goes on the wire.
+message OrchestraCodeV10 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 1;
+  // The value that goes on the wire for this code.
+  string fixr_value = 2;
+  // A number that places the code when its set is shown.
+  string fixr_sort = 3;
+  // A label that places the code with others when its set is shown.
+  string fixr_group = 4;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 5;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 6;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 7;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 8;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 9;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 10;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 11;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 12;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 13;
+  // The change request behind the element's latest change.
+  string fixr_issue = 14;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 15;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 16;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 17;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 18;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 19;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 20;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 21;
+}
+// One permitted value of the set, with its name and what goes on the wire.
+message OrchestraCodeV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // The value that goes on the wire for this code.
+  string fixr_value = 2;
+  // A number that places the code when its set is shown.
+  int32 fixr_sort = 3;
+  // A label that places the code with others when its set is shown.
+  string fixr_group = 4;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 5;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 6;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 7;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 8;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 9;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 10;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 11;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 12;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 13;
+  // The change request behind the element's latest change.
+  string fixr_issue = 14;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 15;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 16;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 17;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 18;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 19;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 20;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 21;
+}
+// Where a message or block includes a component, by its number, with its presence and any rules that make it conditional.
+message OrchestraComponentRefV10 {
+  // How the component, or every entry of the group, gets its values.
+  repeated OrchestraBlockAssignmentV10 fixr_block_assignment = 1;
+  // Rules that make the component's presence depend on other values.
+  repeated OrchestraComponentRuleV10 fixr_rule = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 4;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 5;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 6;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 7;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 8;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 9;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 10;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 11;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 12;
+  // The change request behind the element's latest change.
+  string fixr_issue = 13;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 14;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 15;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 16;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 17;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 18;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 19;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 20;
+}
+// Where a message or block includes a component, by its number, with its presence and any rules that make it conditional.
+message OrchestraComponentRefV11 {
+  // How the component, or every entry of the group, gets its values.
+  repeated OrchestraBlockAssignmentV11 fixr_block_assignment = 1;
+  // Rules that make the component's presence depend on other values.
+  repeated OrchestraComponentRuleV11 fixr_rule = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 5;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 6;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 7;
+  // The element in use, by name, for readability; the number decides which element is meant.
+  string fixr_name = 8;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 9;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 10;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 11;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 12;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 13;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 14;
+  // The change request behind the element's latest change.
+  string fixr_issue = 15;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 16;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 17;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 18;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 19;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 20;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 21;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 22;
+}
+// A condition that changes a component's presence, such as making it required.
+message OrchestraComponentRuleV10 {
+  // When the rule applies, written as an expression.
+  string fixr_when = 1;
+  // The rule's name.
+  string fixr_name = 2;
+  // The presence that applies while the rule's condition holds.
+  OrchestraPresence fixr_presence = 3;
+}
+// A condition that changes a component's presence, such as making it required.
+message OrchestraComponentRuleV11 {
+  // When the rule applies, written as an expression.
+  string fixr_when = 1;
+  // The rule's name.
+  string fixr_name = 2;
+  // The presence that applies while the rule's condition holds.
+  OrchestraPresence fixr_presence = 3;
+}
+// The components a repository defines.
+message OrchestraComponentsV10 {
+  // The components.
+  repeated OrchestraComponentV10 fixr_component = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The components a repository defines.
+message OrchestraComponentsV11 {
+  // The components.
+  repeated OrchestraComponentV11 fixr_component = 1;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 4;
+}
+// A named block of fields, groups and components that messages and other blocks include by reference.
+message OrchestraComponentV10 {
+  // The fields, groups and components the component holds, in order.
+  repeated OrchestraStructureMemberV10 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The category the component belongs to, by name.
+  string fixr_category = 3;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 4;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 5;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 6;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 7;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 8;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 9;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 10;
+  // The change request behind the element's latest change.
+  string fixr_issue = 11;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 12;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 13;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 14;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 15;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 16;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 17;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 18;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 19;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 20;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 21;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 22;
+}
+// A named block of fields, groups and components that messages and other blocks include by reference.
+message OrchestraComponentV11 {
+  // The fields, groups and components the component holds, in order.
+  repeated OrchestraStructureMemberV11 fixr_members = 1;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The category the component belongs to, by name.
+  string fixr_category = 4;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 5;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 6;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 7;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 8;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 9;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 10;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 11;
+  // The change request behind the element's latest change.
+  string fixr_issue = 12;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 13;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 14;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 15;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 16;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 17;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 18;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 19;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 20;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 21;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 22;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 23;
+  // The scenario the element belongs to, by number.
+  int32 fixr_scenario_ref_id = 24;
+  // The scenario the element belongs to, by name, for readability.
+  string fixr_scenario_ref = 25;
+}
+// One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
+message OrchestraConceptMemberV10 {
+  // A component used by reference.
+  OrchestraComponentRefV10 fixr_component_ref = 1;
+  // A group used by reference.
+  OrchestraGroupRefV10 fixr_group_ref = 2;
+  // A field used by reference.
+  OrchestraFieldRefV10 fixr_field_ref = 3;
+  // A message, by reference.
+  OrchestraMessageRefV10 fixr_message_ref = 4;
+}
+// One element a concept ties together, named by reference, which is a message, field, component or group. It holds exactly one of these.
+message OrchestraConceptMemberV11 {
+  // A component used by reference.
+  OrchestraComponentRefV11 fixr_component_ref = 1;
+  // A group used by reference.
+  OrchestraGroupRefV11 fixr_group_ref = 2;
+  // A field used by reference.
+  OrchestraFieldRefV11 fixr_field_ref = 3;
+  // A message, by reference.
+  OrchestraMessageRefV11 fixr_message_ref = 4;
+}
+// The concepts a repository names.
+message OrchestraConceptsV10 {
+  // The concepts.
+  repeated OrchestraConceptV10 fixr_concept = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+}
+// The concepts a repository names.
+message OrchestraConceptsV11 {
+  // The concepts.
+  repeated OrchestraConceptV11 fixr_concept = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A named business idea that ties together the fields, components, groups and messages that express it.
+message OrchestraConceptV10 {
+  // The fields, components, groups and messages the concept ties together.
+  repeated OrchestraConceptMemberV10 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The concept's name, unique among the repository's concepts.
+  string fixr_name = 3;
+}
+// A named business idea that ties together the fields, components, groups and messages that express it.
+message OrchestraConceptV11 {
+  // The fields, components, groups and messages the concept ties together.
+  repeated OrchestraConceptMemberV11 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The concept's name, unique among the repository's concepts.
+  string fixr_name = 3;
+}
+// The extension pack that a list of elements is up to date with.
+message OrchestraContainerV10Mixin {
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 1;
+}
+// XML from the target standard's own schema that a datatype mapping carries.
+message OrchestraDatatypeExtensionV10 {
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 1;
+}
+// The datatypes a repository uses.
+message OrchestraDatatypesV10 {
+  // The datatypes.
+  repeated OrchestraDatatypeV10 fixr_datatype = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The datatypes a repository uses.
+message OrchestraDatatypesV11 {
+  // The datatypes.
+  repeated OrchestraDatatypeV11 fixr_datatype = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+message OrchestraDatatypeV10 {
+  // How the datatype is written in other standards.
+  repeated OrchestraMappedDatatypeV10 fixr_mapped_datatype = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The datatype's name, such as Price.
+  string fixr_name = 3;
+  // The datatype this one narrows, such as int for Length.
+  string fixr_base_type = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+message OrchestraDatatypeV11 {
+  // How the datatype is written in other standards.
+  repeated OrchestraMappedDatatypeV11 fixr_mapped_datatype = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The datatype's name, such as Price.
+  string fixr_name = 3;
+  // The datatype this one narrows, such as int for Length.
+  string fixr_base_type = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// Text about an element, with its language, purpose and media type.
+message OrchestraDocumentationV10 {
+  // The text the element holds, as written.
+  string fixr_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+  // The language of the text, as a language tag.
+  string fixr_lang_id = 3;
+  // What the text is for, such as a summary or an example.
+  string fixr_purpose = 4;
+  // The media type of the text; text/plain when none is given.
+  string fixr_content_type = 5;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 6;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 7;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 8;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 9;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 10;
+  // The change request behind the element's latest change.
+  string fixr_issue = 11;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 12;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 13;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 14;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 15;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 16;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 17;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 18;
+}
+// Text about an element, with its language, purpose and media type.
+message OrchestraDocumentationV11 {
+  // The text the element holds, as written.
+  string fixr_text = 1;
+  // The language of the text, as a language tag.
+  string fixr_lang_id = 2;
+  // What the text is for, such as a summary or an example.
+  string fixr_purpose = 3;
+  // The media type of the text; text/plain when none is given.
+  string fixr_content_type = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// The encoding standards that a repository's encoding blocks name.
+message OrchestraEncodingStandardsV11 {
+  // The encoding standards.
+  repeated OrchestraEncodingStandardV11 fixr_encoding_standard = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+}
+// An encoding standard a repository uses, with a name to show and its general encoding information.
+message OrchestraEncodingStandardV11 {
+  // Encoding details that hold for the whole standard.
+  OrchestraUnnamedEncodingV11 fixr_encoding = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The encoding standard's name, which encoding blocks use.
+  string fixr_name = 3;
+  // The standard's name as a reader sees it.
+  string fixr_display_name = 4;
+}
+// The encoding blocks of one element, one for each encoding standard that needs more information about it.
+message OrchestraEncodingsV11 {
+  // The encoding blocks, one per standard.
+  repeated OrchestraNamedEncodingV11 fixr_encoding = 1;
+}
+// An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+message OrchestraEncodingV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 7;
+}
+// An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+message OrchestraEncodingV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or default value, character set and a display hint.
+message OrchestraFieldConstraintsV10Mixin {
+  // The smallest value allowed.
+  string fixr_min_inclusive = 1;
+  // The largest value allowed.
+  string fixr_max_inclusive = 2;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 3;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 4;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 5;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 6;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 7;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 8;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 9;
+}
+// The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or default value, character set and a display hint.
+message OrchestraFieldConstraintsV11Mixin {
+  // The smallest value allowed.
+  string fixr_min_inclusive = 1;
+  // The largest value allowed.
+  string fixr_max_inclusive = 2;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 3;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 4;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 5;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 6;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 7;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 8;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 9;
+}
+// Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+message OrchestraFieldRefV10 {
+  // Rules that make the element's presence or limits depend on other values.
+  repeated OrchestraFieldRuleV10 fixr_rule = 1;
+  // An expression that sets the field's value.
+  string fixr_assign = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // The tag number of the field that gives this field's length.
+  int32 fixr_length_id = 4;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 5;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 6;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 7;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 8;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 9;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 10;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 11;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 12;
+  // The change request behind the element's latest change.
+  string fixr_issue = 13;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 14;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 15;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 16;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 17;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 18;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 19;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 20;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 21;
+  // The largest value allowed.
+  string fixr_max_inclusive = 22;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 23;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 24;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 25;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 26;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 27;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 28;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 29;
+}
+// Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+message OrchestraFieldRefV11 {
+  // Rules that make the element's presence or limits depend on other values.
+  repeated OrchestraFieldRuleV11 fixr_rule = 1;
+  // An expression that sets the field's value.
+  string fixr_assign = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // The tag number of the field that gives this field's length.
+  int32 fixr_length_id = 5;
+  // The tag number of the plain field that this encoded field stands for.
+  int32 fixr_non_encoded_field_id = 6;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 7;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 8;
+  // The element in use, by name, for readability; the number decides which element is meant.
+  string fixr_name = 9;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 10;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 11;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 12;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 13;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 14;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 15;
+  // The change request behind the element's latest change.
+  string fixr_issue = 16;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 17;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 18;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 19;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 20;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 21;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 22;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 23;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 24;
+  // The largest value allowed.
+  string fixr_max_inclusive = 25;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 26;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 27;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 28;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 29;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 30;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 31;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 32;
+}
+// A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+message OrchestraFieldRuleV10 {
+  // A check that the field's value is unique.
+  OrchestraUniqueV10 fixr_unique = 1;
+  // Expressions that set or check values while the rule's condition holds.
+  repeated string fixr_assign = 2;
+  // When the rule applies, written as an expression.
+  string fixr_when = 3;
+  // The rule's name.
+  string fixr_name = 4;
+  // The datatype the field takes while the rule's condition holds.
+  string fixr_type = 5;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 6;
+  // The largest value allowed.
+  string fixr_max_inclusive = 7;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 8;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 9;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 10;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 11;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 12;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 13;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 14;
+}
+// A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+message OrchestraFieldRuleV11 {
+  // A check that the field's value is unique.
+  OrchestraUniqueV11 fixr_unique = 1;
+  // Expressions that set or check values while the rule's condition holds.
+  repeated string fixr_assign = 2;
+  // When the rule applies, written as an expression.
+  string fixr_when = 3;
+  // The rule's name.
+  string fixr_name = 4;
+  // The datatype the field takes while the rule's condition holds.
+  string fixr_type = 5;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 6;
+  // The largest value allowed.
+  string fixr_max_inclusive = 7;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 8;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 9;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 10;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 11;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 12;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 13;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 14;
+}
+// The fields a repository defines.
+message OrchestraFieldsV10 {
+  // The fields.
+  repeated OrchestraFieldV10 fixr_field = 1;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// The fields a repository defines.
+message OrchestraFieldsV11 {
+  // The fields.
+  repeated OrchestraFieldV11 fixr_field = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+message OrchestraFieldV10 {
+  // Rules that make the element's presence or limits depend on other values.
+  repeated OrchestraFieldRuleV10 fixr_rule = 1;
+  // An expression that sets the field's value.
+  string fixr_assign = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // The field's datatype, or its code set, by name; a code set brings its own datatype.
+  string fixr_type = 4;
+  // The tag number of the field that gives this field's length.
+  int32 fixr_length_id = 5;
+  // The tag number of the field whose value decides which values this field may take.
+  int32 fixr_discriminator_id = 6;
+  // The category the field belongs to in the base specification.
+  string fixr_base_category = 7;
+  // The short name the field takes within its base category in FIXML.
+  string fixr_base_category_abbr_name = 8;
+  // A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values.
+  OrchestraUnionDatatypeV10 fixr_union_data_type = 9;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 10;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 11;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 12;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 13;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 14;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 15;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 16;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 17;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 18;
+  // The change request behind the element's latest change.
+  string fixr_issue = 19;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 20;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 21;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 22;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 23;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 24;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 25;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 26;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 27;
+  // The largest value allowed.
+  string fixr_max_inclusive = 28;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 29;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 30;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 31;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 32;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 33;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 34;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 35;
+}
+// A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+message OrchestraFieldV11 {
+  // Rules that make the element's presence or limits depend on other values.
+  repeated OrchestraFieldRuleV11 fixr_rule = 1;
+  // An expression that sets the field's value.
+  string fixr_assign = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // The datatype that gives the field's values, by name, when no code set does.
+  string fixr_type = 5;
+  // The field's code set, by name.
+  string fixr_code_set = 6;
+  // The tag number of the field that gives this field's length.
+  int32 fixr_length_id = 7;
+  // The tag number of the plain field that this encoded field stands for.
+  int32 fixr_non_encoded_field_id = 8;
+  // The tag number of the field whose value decides which values this field may take.
+  int32 fixr_discriminator_id = 9;
+  // The category the field belongs to in the base specification.
+  string fixr_base_category = 10;
+  // The short name the field takes within its base category in FIXML.
+  string fixr_base_category_abbr_name = 11;
+  // A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values.
+  string fixr_union_data_type = 12;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 13;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 14;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 15;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 16;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 17;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 18;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 19;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 20;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 21;
+  // The change request behind the element's latest change.
+  string fixr_issue = 22;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 23;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 24;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 25;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 26;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 27;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 28;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 29;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 30;
+  // The largest value allowed.
+  string fixr_max_inclusive = 31;
+  // The fixed length an implementation uses.
+  int32 fixr_impl_length = 32;
+  // The shortest length an implementation accepts.
+  int32 fixr_impl_min_length = 33;
+  // The longest length an implementation accepts.
+  int32 fixr_impl_max_length = 34;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 35;
+  // The character set of the value, when it is not US-ASCII.
+  string fixr_encoding = 36;
+  // The value a receiver assumes when an optional field is left out, or the fixed value of a constant field.
+  string fixr_value = 37;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 38;
+}
+// Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+message OrchestraFlowV10 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 1;
+  // The flow's name.
+  string fixr_name = 2;
+  // The sending actor, by name.
+  string fixr_source = 3;
+  // The receiving actor, by name.
+  string fixr_destination = 4;
+  // How reliably the flow delivers its messages, from best effort to recoverable.
+  OrchestraReliability fixr_reliability = 5;
+}
+// Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+message OrchestraFlowV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // The flow's name.
+  string fixr_name = 2;
+  // The sending actor, by name.
+  string fixr_source = 3;
+  // The receiving actor, by name.
+  string fixr_destination = 4;
+  // How reliably the flow delivers its messages, from best effort to recoverable.
+  OrchestraReliability fixr_reliability = 5;
+}
+// Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+message OrchestraGroupRefV10 {
+  // How the component, or every entry of the group, gets its values.
+  repeated OrchestraBlockAssignmentV10 fixr_block_assignment = 1;
+  // Rules that make the component's presence depend on other values.
+  repeated OrchestraComponentRuleV10 fixr_rule = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 4;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 5;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 6;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 7;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 8;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 9;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 10;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 11;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 12;
+  // The change request behind the element's latest change.
+  string fixr_issue = 13;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 14;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 15;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 16;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 17;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 18;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 19;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 20;
+  // The fewest entries an implementation accepts.
+  int32 fixr_impl_min_occurs = 21;
+  // The most entries an implementation accepts, or unbounded.
+  string fixr_impl_max_occurs = 22;
+}
+// Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+message OrchestraGroupRefV11 {
+  // How the component, or every entry of the group, gets its values.
+  repeated OrchestraBlockAssignmentV11 fixr_block_assignment = 1;
+  // Rules that make the component's presence depend on other values.
+  repeated OrchestraComponentRuleV11 fixr_rule = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // Whether the item must, may or must not appear, or has a fixed value; optional when none is given.
+  OrchestraPresence fixr_presence = 5;
+  // A name for this use of the element, so that one message or block can hold it more than once.
+  string fixr_instance_name = 6;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 7;
+  // The element in use, by name, for readability; the number decides which element is meant.
+  string fixr_name = 8;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 9;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 10;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 11;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 12;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 13;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 14;
+  // The change request behind the element's latest change.
+  string fixr_issue = 15;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 16;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 17;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 18;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 19;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 20;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 21;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 22;
+  // The fewest entries an implementation accepts.
+  int32 fixr_impl_min_occurs = 23;
+  // The most entries an implementation accepts, or unbounded.
+  string fixr_impl_max_occurs = 24;
+}
+// The repeating groups a repository defines.
+message OrchestraGroupsV10 {
+  // The repeating groups.
+  repeated OrchestraGroupV10 fixr_group = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The repeating groups a repository defines.
+message OrchestraGroupsV11 {
+  // The repeating groups.
+  repeated OrchestraGroupV11 fixr_group = 1;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 4;
+}
+// A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
+message OrchestraGroupV10 {
+  // The field that counts the group's entries.
+  OrchestraFieldRefV10 fixr_num_in_group = 1;
+  // The fields, groups and components that each entry holds, in order.
+  repeated OrchestraStructureMemberV10 fixr_members = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // The category the group belongs to, by name.
+  string fixr_category = 4;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 5;
+  // The fewest entries an implementation accepts.
+  int32 fixr_impl_min_occurs = 6;
+  // The most entries an implementation accepts, or unbounded.
+  string fixr_impl_max_occurs = 7;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 8;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 9;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 10;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 11;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 12;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 13;
+  // The change request behind the element's latest change.
+  string fixr_issue = 14;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 15;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 16;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 17;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 18;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 19;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 20;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 21;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 22;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 23;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 24;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 25;
+}
+// A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field carries.
+message OrchestraGroupV11 {
+  // The field that counts the group's entries.
+  OrchestraFieldRefV11 fixr_num_in_group = 1;
+  // The fields, groups and components that each entry holds, in order.
+  repeated OrchestraStructureMemberV11 fixr_members = 2;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // The category the group belongs to, by name.
+  string fixr_category = 5;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 6;
+  // The fewest entries an implementation accepts.
+  int32 fixr_impl_min_occurs = 7;
+  // The most entries an implementation accepts, or unbounded.
+  string fixr_impl_max_occurs = 8;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 9;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 10;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 11;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 12;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 13;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 14;
+  // The change request behind the element's latest change.
+  string fixr_issue = 15;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 16;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 17;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 18;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 19;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 20;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 21;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 22;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 23;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 24;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 25;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 26;
+  // The scenario the element belongs to, by number.
+  int32 fixr_scenario_ref_id = 27;
+  // The scenario the element belongs to, by name, for readability.
+  string fixr_scenario_ref = 28;
+}
+// One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+message OrchestraIdentifiersMemberV10 {
+  // A field whose value is carried over from the message received.
+  OrchestraIdentifierV10 fixr_correlate = 1;
+  // A field whose value the message sent sets.
+  OrchestraIdentifierV10 fixr_assign = 2;
+}
+// One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+message OrchestraIdentifiersMemberV11 {
+  // A field whose value is carried over from the message received.
+  OrchestraIdentifierV11 fixr_correlate = 1;
+  // A field whose value the message sent sets.
+  OrchestraIdentifierV11 fixr_assign = 2;
+}
+// The fields a message sent by an action sets or carries over.
+message OrchestraIdentifiersV10 {
+  // The fields carried over or set, in order.
+  repeated OrchestraIdentifiersMemberV10 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+}
+// The fields a message sent by an action sets or carries over.
+message OrchestraIdentifiersV11 {
+  // The fields carried over or set, in order.
+  repeated OrchestraIdentifiersMemberV11 fixr_members = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+}
+// A field that a message sent by an action sets, or carries over from the message received, by tag number.
+message OrchestraIdentifierV10 {
+  // The tag number of the field that is set or carried over.
+  int32 fixr_id = 1;
+  // The tag number of the received message's field that the value comes from; the field's own tag number when none is given.
+  int32 fixr_source_id = 2;
+}
+// A field that a message sent by an action sets, or carries over from the message received, by tag number.
+message OrchestraIdentifierV11 {
+  // The tag number of the field that is set or carried over.
+  int32 fixr_id = 1;
+  // The field that is set or carried over, by name, for readability.
+  string fixr_name = 2;
+  // The tag number of the received message's field that the value comes from; the field's own tag number when none is given.
+  int32 fixr_source_id = 3;
+}
+// The keys of a defined element, its number, name, short name and scenario.
+message OrchestraIdentityV10Mixin {
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 1;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 2;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 3;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 4;
+}
+// The keys of a defined element, its number, name, short name and scenario.
+message OrchestraIdentityV11Mixin {
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 1;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 2;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 3;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 4;
+}
+// One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+message OrchestraInterfaceAnnotationMemberV10 {
+  // A piece of text.
+  OrchestraInterfaceDocumentationV10 fixi_documentation = 1;
+  // A hint for software.
+  OrchestraInterfaceAppinfoV10 fixi_appinfo = 2;
+}
+// One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+message OrchestraInterfaceAnnotationMemberV11 {
+  // A piece of text.
+  OrchestraInterfaceDocumentationV11 fixi_documentation = 1;
+  // A hint for software.
+  OrchestraInterfaceAppinfoV11 fixi_appinfo = 2;
+}
+// Notes for readers and hints for software, attached to an element of an interfaces file.
+message OrchestraInterfaceAnnotationV10 {
+  // The texts and hints, in order.
+  repeated OrchestraInterfaceAnnotationMemberV10 fixi_members = 1;
+}
+// Notes for readers and hints for software, attached to an element of an interfaces file.
+message OrchestraInterfaceAnnotationV11 {
+  // The texts and hints, in order.
+  repeated OrchestraInterfaceAnnotationMemberV11 fixi_members = 1;
+}
+// A hint for a particular tool on an element of an interfaces file.
+message OrchestraInterfaceAppinfoV10 {
+  // The text the element holds, as written.
+  string fixi_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixi_any = 2;
+  // The address of a document that describes the element.
+  string fixi_spec_url = 3;
+  // The language of the text, as a language tag.
+  string fixi_lang_id = 4;
+  // What the hint is for, such as the tool it concerns.
+  string fixi_purpose = 5;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 6;
+}
+// A hint for a particular tool on an element of an interfaces file.
+message OrchestraInterfaceAppinfoV11 {
+  // The text the element holds, as written.
+  string fixi_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixi_any = 2;
+  // The address of a document that describes the element.
+  string fixi_spec_url = 3;
+  // The language of the text, as a language tag.
+  string fixi_lang_id = 4;
+  // What the hint is for, such as the tool it concerns.
+  string fixi_purpose = 5;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 6;
+}
+// Text about an element of an interfaces file.
+message OrchestraInterfaceDocumentationV10 {
+  // The text the element holds, as written.
+  string fixi_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixi_any = 2;
+  // The language of the text, as a language tag.
+  string fixi_lang_id = 3;
+  // What the text is for, such as a summary or an example.
+  string fixi_purpose = 4;
+  // The media type of the text; text/plain when none is given.
+  string fixi_content_type = 5;
+}
+// Text about an element of an interfaces file.
+message OrchestraInterfaceDocumentationV11 {
+  // The text the element holds, as written.
+  string fixi_text = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixi_any = 2;
+  // The language of the text, as a language tag.
+  string fixi_lang_id = 3;
+  // What the text is for, such as a summary or an example.
+  string fixi_purpose = 4;
+  // The media type of the text; text/plain when none is given.
+  string fixi_content_type = 5;
+}
+// A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core metadata.
+message OrchestraInterfacesV10 {
+  // The file's Dublin Core description, such as its title, publisher and date.
+  OrchestraMetadata fixi_metadata = 1;
+  // The interfaces the file describes.
+  repeated OrchestraInterfaceV10 fixi_interface = 2;
+}
+// A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core metadata.
+message OrchestraInterfacesV11 {
+  // The file's Dublin Core description, such as its title, publisher and date.
+  OrchestraMetadata fixi_metadata = 1;
+  // The interfaces the file describes.
+  repeated OrchestraInterfaceV11 fixi_interface = 2;
+}
+// A named service offering and the sessions it carries, with the protocols on each layer.
+message OrchestraInterfaceV10 {
+  // The application-level services offered.
+  repeated OrchestraServiceV10 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV10 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV10 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV10 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV10 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV10 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+  // The sessions the interface carries.
+  OrchestraSessionsV10 fixi_sessions = 10;
+}
+// A named service offering and the sessions it carries, with the protocols on each layer.
+message OrchestraInterfaceV11 {
+  // The application-level services offered.
+  repeated OrchestraServiceV11 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV11 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV11 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV11 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV11 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV11 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+  // The sessions the interface carries.
+  OrchestraSessionsV11 fixi_sessions = 10;
+}
+// How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+message OrchestraMappedDatatypeV10 {
+  // XML from the target standard's own schema.
+  OrchestraDatatypeExtensionV10 fixr_extension = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The standard the datatype is written in, such as XML or GPB.
+  string fixr_standard = 3;
+  // Whether the target standard has the type built in, rather than derived.
+  bool fixr_builtin = 4;
+  // The type in the target standard that the mapping narrows or builds on.
+  string fixr_base = 5;
+  // A pattern the value matches in the target standard.
+  string fixr_pattern = 6;
+  // The type of each item when the target type is a list or array.
+  string fixr_element = 7;
+  // A setting of the target type, such as its precision.
+  string fixr_parameter = 8;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 9;
+  // The largest value allowed.
+  string fixr_max_inclusive = 10;
+}
+// How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+message OrchestraMappedDatatypeV11 {
+  // Encoding information for this mapping.
+  OrchestraUnnamedEncodingV11 fixr_encoding = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The standard the datatype is written in, such as XML or GPB.
+  string fixr_standard = 3;
+  // Whether the target standard has the type built in, rather than derived.
+  bool fixr_builtin = 4;
+  // The type in the target standard that the mapping narrows or builds on.
+  string fixr_base = 5;
+  // A pattern the value matches in the target standard.
+  string fixr_pattern = 6;
+  // The type of each item when the target type is a list or array.
+  string fixr_element = 7;
+  // The number of items when the target type is an array.
+  int32 fixr_size = 8;
+  // A setting of the target type, such as its precision.
+  string fixr_parameter = 9;
+  // The smallest value allowed.
+  string fixr_min_inclusive = 10;
+  // The largest value allowed.
+  string fixr_max_inclusive = 11;
+}
+// A message an action sends, by its number and type code, with the fields it sets or carries over.
+message OrchestraMessageRefV10 {
+  // The fields the message sets or carries over.
+  OrchestraIdentifiersV10 fixr_identifiers = 1;
+  // The message sent, by name.
+  string fixr_name = 2;
+  // The MsgType(35) code of the message sent.
+  string fixr_msg_type = 3;
+  // The fewest times the message is sent; once when none is given.
+  int32 fixr_impl_min_occurs = 4;
+  // The most times the message is sent, or unbounded.
+  string fixr_impl_max_occurs = 5;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 6;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 7;
+}
+// A message an action sends, by its number and type code, with the fields it sets or carries over.
+message OrchestraMessageRefV11 {
+  // The fields the message sets or carries over.
+  OrchestraIdentifiersV11 fixr_identifiers = 1;
+  // The MsgType(35) code of the message sent.
+  string fixr_msg_type = 2;
+  // The fewest times the message is sent; once when none is given.
+  int32 fixr_impl_min_occurs = 3;
+  // The most times the message is sent, or unbounded.
+  string fixr_impl_max_occurs = 4;
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 5;
+  // The element in use, by name, for readability; the number decides which element is meant.
+  string fixr_name = 6;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 7;
+}
+// The ordered fields, groups and components of a message.
+message OrchestraMessageStructureV10 {
+  // The message's fields, groups and components, in order.
+  repeated OrchestraStructureMemberV10 fixr_members = 1;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 2;
+}
+// The ordered fields, groups and components of a message.
+message OrchestraMessageStructureV11 {
+  // The message's fields, groups and components, in order.
+  repeated OrchestraStructureMemberV11 fixr_members = 1;
+  // Whether one member exactly, or one or more members, must appear.
+  OrchestraMemberSelection fixr_which = 2;
+}
+// The messages a repository defines.
+message OrchestraMessagesV10 {
+  // The messages.
+  repeated OrchestraMessageV10 fixr_message = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The messages a repository defines.
+message OrchestraMessagesV11 {
+  // The messages.
+  repeated OrchestraMessageV11 fixr_message = 1;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 4;
+}
+// A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
+message OrchestraMessageV10 {
+  // The message's fields, groups and components, in order.
+  OrchestraMessageStructureV10 fixr_structure = 1;
+  // What can happen when the message arrives.
+  OrchestraResponsesV10 fixr_responses = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // The message's MsgType(35) code.
+  string fixr_msg_type = 4;
+  // The category the message belongs to, by name.
+  string fixr_category = 5;
+  // The flow that carries the message, by name.
+  string fixr_flow = 6;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 7;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 8;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 9;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 10;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 11;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 12;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 13;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 14;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 15;
+  // The change request behind the element's latest change.
+  string fixr_issue = 16;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 17;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 18;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 19;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 20;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 21;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 22;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 23;
+}
+// A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can cause.
+message OrchestraMessageV11 {
+  // The message's fields, groups and components, in order.
+  OrchestraMessageStructureV11 fixr_structure = 1;
+  // An expression that sets this scenario of the message apart from its others.
+  string fixr_when = 2;
+  // What can happen when the message arrives.
+  OrchestraResponsesV11 fixr_responses = 3;
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 4;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 5;
+  // The message's MsgType(35) code.
+  string fixr_msg_type = 6;
+  // The category the message belongs to, by name.
+  string fixr_category = 7;
+  // The flow that carries the message, by name.
+  string fixr_flow = 8;
+  // A hint for how a tool shows or reads the element, which no validator checks.
+  string fixr_rendering = 9;
+  // The element's number, unique among elements of its kind; for a field, its tag number.
+  int32 fixr_id = 10;
+  // The element's name, unique among elements of its kind within one scenario.
+  string fixr_name = 11;
+  // A short form of the name, which FIXML uses for tags.
+  string fixr_abbr_name = 12;
+  // The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.
+  string fixr_scenario = 13;
+  // The scenario the element belongs to, by number.
+  int32 fixr_scenario_ref_id = 14;
+  // The scenario the element belongs to, by name, for readability.
+  string fixr_scenario_ref = 15;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 16;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 17;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 18;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 19;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 20;
+  // The change request behind the element's latest change.
+  string fixr_issue = 21;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 22;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 23;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 24;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 25;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 26;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 27;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 28;
+}
+// The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin Core element or term.
+message OrchestraMetadata {
+  // The values the file gives for the Dublin Core element title.
+  repeated string dc_title = 1;
+  // The values the file gives for the Dublin Core element creator.
+  repeated string dc_creator = 2;
+  // The values the file gives for the Dublin Core element subject.
+  repeated string dc_subject = 3;
+  // The values the file gives for the Dublin Core element description.
+  repeated string dc_description = 4;
+  // The values the file gives for the Dublin Core element publisher.
+  repeated string dc_publisher = 5;
+  // The values the file gives for the Dublin Core element contributor.
+  repeated string dc_contributor = 6;
+  // The values the file gives for the Dublin Core element date.
+  repeated string dc_date = 7;
+  // The values the file gives for the Dublin Core element type.
+  repeated string dc_type = 8;
+  // The values the file gives for the Dublin Core element format.
+  repeated string dc_format = 9;
+  // The values the file gives for the Dublin Core element identifier.
+  repeated string dc_identifier = 10;
+  // The values the file gives for the Dublin Core element source.
+  repeated string dc_source = 11;
+  // The values the file gives for the Dublin Core element language.
+  repeated string dc_language = 12;
+  // The values the file gives for the Dublin Core element relation.
+  repeated string dc_relation = 13;
+  // The values the file gives for the Dublin Core element coverage.
+  repeated string dc_coverage = 14;
+  // The values the file gives for the Dublin Core element rights.
+  repeated string dc_rights = 15;
+  // The values the file gives for the DCMI term title.
+  repeated string dcterms_title = 16;
+  // The values the file gives for the DCMI term creator.
+  repeated string dcterms_creator = 17;
+  // The values the file gives for the DCMI term subject.
+  repeated string dcterms_subject = 18;
+  // The values the file gives for the DCMI term description.
+  repeated string dcterms_description = 19;
+  // The values the file gives for the DCMI term publisher.
+  repeated string dcterms_publisher = 20;
+  // The values the file gives for the DCMI term contributor.
+  repeated string dcterms_contributor = 21;
+  // The values the file gives for the DCMI term date.
+  repeated string dcterms_date = 22;
+  // The values the file gives for the DCMI term type.
+  repeated string dcterms_type = 23;
+  // The values the file gives for the DCMI term format.
+  repeated string dcterms_format = 24;
+  // The values the file gives for the DCMI term identifier.
+  repeated string dcterms_identifier = 25;
+  // The values the file gives for the DCMI term source.
+  repeated string dcterms_source = 26;
+  // The values the file gives for the DCMI term language.
+  repeated string dcterms_language = 27;
+  // The values the file gives for the DCMI term relation.
+  repeated string dcterms_relation = 28;
+  // The values the file gives for the DCMI term coverage.
+  repeated string dcterms_coverage = 29;
+  // The values the file gives for the DCMI term rights.
+  repeated string dcterms_rights = 30;
+  // The values the file gives for the DCMI term alternative.
+  repeated string dcterms_alternative = 31;
+  // The values the file gives for the DCMI term tableOfContents.
+  repeated string dcterms_table_of_contents = 32;
+  // The values the file gives for the DCMI term abstract.
+  repeated string dcterms_abstract = 33;
+  // The values the file gives for the DCMI term created.
+  repeated string dcterms_created = 34;
+  // The values the file gives for the DCMI term valid.
+  repeated string dcterms_valid = 35;
+  // The values the file gives for the DCMI term available.
+  repeated string dcterms_available = 36;
+  // The values the file gives for the DCMI term issued.
+  repeated string dcterms_issued = 37;
+  // The values the file gives for the DCMI term modified.
+  repeated string dcterms_modified = 38;
+  // The values the file gives for the DCMI term dateAccepted.
+  repeated string dcterms_date_accepted = 39;
+  // The values the file gives for the DCMI term dateCopyrighted.
+  repeated string dcterms_date_copyrighted = 40;
+  // The values the file gives for the DCMI term dateSubmitted.
+  repeated string dcterms_date_submitted = 41;
+  // The values the file gives for the DCMI term extent.
+  repeated string dcterms_extent = 42;
+  // The values the file gives for the DCMI term medium.
+  repeated string dcterms_medium = 43;
+  // The values the file gives for the DCMI term isVersionOf.
+  repeated string dcterms_is_version_of = 44;
+  // The values the file gives for the DCMI term hasVersion.
+  repeated string dcterms_has_version = 45;
+  // The values the file gives for the DCMI term isReplacedBy.
+  repeated string dcterms_is_replaced_by = 46;
+  // The values the file gives for the DCMI term replaces.
+  repeated string dcterms_replaces = 47;
+  // The values the file gives for the DCMI term isRequiredBy.
+  repeated string dcterms_is_required_by = 48;
+  // The values the file gives for the DCMI term requires.
+  repeated string dcterms_requires = 49;
+  // The values the file gives for the DCMI term isPartOf.
+  repeated string dcterms_is_part_of = 50;
+  // The values the file gives for the DCMI term hasPart.
+  repeated string dcterms_has_part = 51;
+  // The values the file gives for the DCMI term isReferencedBy.
+  repeated string dcterms_is_referenced_by = 52;
+  // The values the file gives for the DCMI term references.
+  repeated string dcterms_references = 53;
+  // The values the file gives for the DCMI term isFormatOf.
+  repeated string dcterms_is_format_of = 54;
+  // The values the file gives for the DCMI term hasFormat.
+  repeated string dcterms_has_format = 55;
+  // The values the file gives for the DCMI term conformsTo.
+  repeated string dcterms_conforms_to = 56;
+  // The values the file gives for the DCMI term spatial.
+  repeated string dcterms_spatial = 57;
+  // The values the file gives for the DCMI term temporal.
+  repeated string dcterms_temporal = 58;
+  // The values the file gives for the DCMI term audience.
+  repeated string dcterms_audience = 59;
+  // The values the file gives for the DCMI term accrualMethod.
+  repeated string dcterms_accrual_method = 60;
+  // The values the file gives for the DCMI term accrualPeriodicity.
+  repeated string dcterms_accrual_periodicity = 61;
+  // The values the file gives for the DCMI term accrualPolicy.
+  repeated string dcterms_accrual_policy = 62;
+  // The values the file gives for the DCMI term instructionalMethod.
+  repeated string dcterms_instructional_method = 63;
+  // The values the file gives for the DCMI term provenance.
+  repeated string dcterms_provenance = 64;
+  // The values the file gives for the DCMI term rightsHolder.
+  repeated string dcterms_rights_holder = 65;
+  // The values the file gives for the DCMI term mediator.
+  repeated string dcterms_mediator = 66;
+  // The values the file gives for the DCMI term educationLevel.
+  repeated string dcterms_education_level = 67;
+  // The values the file gives for the DCMI term accessRights.
+  repeated string dcterms_access_rights = 68;
+  // The values the file gives for the DCMI term license.
+  repeated string dcterms_license = 69;
+  // The values the file gives for the DCMI term bibliographicCitation.
+  repeated string dcterms_bibliographic_citation = 70;
+}
+// An encoding block that names the encoding standard it is for.
+message OrchestraNamedEncodingV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+  // The encoding standard this block is for, by name.
+  string fixr_standard = 3;
+}
+// When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is supported.
+message OrchestraPedigreeV10Mixin {
+  // The FIX version in which the element first appeared.
+  string fixr_added = 1;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 2;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 3;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 4;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 5;
+  // The change request behind the element's latest change.
+  string fixr_issue = 6;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 7;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 8;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 9;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 10;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 11;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 12;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 13;
+}
+// When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is supported.
+message OrchestraPedigreeV11Mixin {
+  // The FIX version in which the element first appeared.
+  string fixr_added = 1;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 2;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 3;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 4;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 5;
+  // The change request behind the element's latest change.
+  string fixr_issue = 6;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 7;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 8;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 9;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 10;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 11;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 12;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 13;
+}
+// A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+message OrchestraProtocolV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 7;
+}
+// A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+message OrchestraProtocolV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+message OrchestraReferenceV10Mixin {
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 1;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 2;
+}
+// The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+message OrchestraReferenceV11Mixin {
+  // The number of the element in use; for a field, its tag number.
+  int32 fixr_id = 1;
+  // The element in use, by name, for readability; the number decides which element is meant.
+  string fixr_name = 2;
+  // The scenario of the element in use; base when none is given.
+  string fixr_scenario = 3;
+}
+// A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages it defines, and the actors and workflows that use them.
+message OrchestraRepositoryV10 {
+  // The file's Dublin Core description, such as its title, publisher and date.
+  OrchestraMetadata fixr_metadata = 1;
+  // The repository's categories.
+  OrchestraCategoriesV10 fixr_categories = 2;
+  // The repository's sections.
+  OrchestraSectionsV10 fixr_sections = 3;
+  // The repository's datatypes.
+  OrchestraDatatypesV10 fixr_datatypes = 4;
+  // The repository's code sets.
+  OrchestraCodeSetsV10 fixr_code_sets = 5;
+  // The repository's fields.
+  OrchestraFieldsV10 fixr_fields = 6;
+  // The repository's actors and flows.
+  OrchestraActorsV10 fixr_actors = 7;
+  // The repository's components.
+  OrchestraComponentsV10 fixr_components = 8;
+  // The repository's repeating groups.
+  OrchestraGroupsV10 fixr_groups = 9;
+  // The repository's messages.
+  OrchestraMessagesV10 fixr_messages = 10;
+  // The repository's concepts.
+  OrchestraConceptsV10 fixr_concepts = 11;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 12;
+  // The repository's name, which stays the same across its minor versions.
+  string fixr_name = 13;
+  // The repository's version, such as FIX.Latest_EP312.
+  string fixr_version = 14;
+  // An identifier of the repository, unique worldwide.
+  string fixr_guid = 15;
+  // The address of a document that describes the element.
+  string fixr_spec_url = 16;
+  // A namespace address that goes with the repository.
+  string fixr_namespace = 17;
+  // The FIX version the repository describes, as its ApplVerID(1128) code.
+  string fixr_appl_ver_id = 18;
+  // The language the conditions and assignments are written in; Score when none is given.
+  string fixr_expression_language = 19;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 20;
+}
+// A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages it defines, and the actors and workflows that use them.
+message OrchestraRepositoryV11 {
+  // The file's Dublin Core description, such as its title, publisher and date.
+  OrchestraMetadata fixr_metadata = 1;
+  // The repository's categories.
+  OrchestraCategoriesV11 fixr_categories = 2;
+  // The repository's sections.
+  OrchestraSectionsV11 fixr_sections = 3;
+  // The encoding standards the repository's encoding blocks name.
+  OrchestraEncodingStandardsV11 fixr_encoding_standards = 4;
+  // The repository's datatypes.
+  OrchestraDatatypesV11 fixr_datatypes = 5;
+  // The repository's code sets.
+  OrchestraCodeSetsV11 fixr_code_sets = 6;
+  // The repository's fields.
+  OrchestraFieldsV11 fixr_fields = 7;
+  // The repository's actors and flows.
+  OrchestraActorsV11 fixr_actors = 8;
+  // The repository's components.
+  OrchestraComponentsV11 fixr_components = 9;
+  // The repository's repeating groups.
+  OrchestraGroupsV11 fixr_groups = 10;
+  // The repository's messages.
+  OrchestraMessagesV11 fixr_messages = 11;
+  // The repository's concepts.
+  OrchestraConceptsV11 fixr_concepts = 12;
+  // The repository's scenarios.
+  OrchestraScenariosV11 fixr_scenarios = 13;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 14;
+  // The repository's name, which stays the same across its minor versions.
+  string fixr_name = 15;
+  // The repository's version, such as FIX.Latest_EP312.
+  string fixr_version = 16;
+  // An identifier of the repository, unique worldwide.
+  string fixr_guid = 17;
+  // The address of a document that describes the element.
+  string fixr_spec_url = 18;
+  // A namespace address that goes with the repository.
+  string fixr_namespace = 19;
+  // The language the conditions and assignments are written in; Score when none is given.
+  string fixr_expression_language = 20;
+}
+// The responses a message can cause, tried one after another as given.
+message OrchestraResponsesV10 {
+  // The responses, in order.
+  repeated OrchestraResponseV10 fixr_response = 1;
+}
+// The responses a message can cause, tried one after another as given.
+message OrchestraResponsesV11 {
+  // The responses, in order.
+  repeated OrchestraResponseV11 fixr_response = 1;
+}
+// What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
+message OrchestraResponseV10 {
+  // The fields, groups and components the action takes as input, in order.
+  repeated OrchestraActionParameterV10 fixr_parameters = 1;
+  // What the action does, in order: messages sent, values set, transitions fired and timers scheduled.
+  repeated OrchestraActionStepV10 fixr_actions = 2;
+  // When the response fires, written as an expression; it always fires when none is given.
+  string fixr_when = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 4;
+  // The response's name.
+  string fixr_name = 5;
+  // How the response's timing relates to the request it answers.
+  OrchestraSynchronization fixr_sync = 6;
+}
+// What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and timers scheduled.
+message OrchestraResponseV11 {
+  // The fields, groups and components the action takes as input, in order.
+  repeated OrchestraActionParameterV11 fixr_parameters = 1;
+  // What the action does, in order: messages sent, values set, transitions fired and timers scheduled.
+  repeated OrchestraActionStepV11 fixr_actions = 2;
+  // When the response fires, written as an expression; it always fires when none is given.
+  string fixr_when = 3;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 4;
+  // The response's name.
+  string fixr_name = 5;
+  // How the response's timing relates to the request it answers.
+  OrchestraSynchronization fixr_sync = 6;
+}
+// A pointer from an element to the scenario it belongs to, by number and, if wanted, name.
+message OrchestraScenarioReferenceV11Mixin {
+  // The scenario the element belongs to, by number.
+  int32 fixr_scenario_ref_id = 1;
+  // The scenario the element belongs to, by name, for readability.
+  string fixr_scenario_ref = 2;
+}
+// The scenarios a repository defines.
+message OrchestraScenariosV11 {
+  // The scenarios.
+  repeated OrchestraScenarioV11 fixr_scenario = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A named variant of elements for one use case, such as a workflow or an asset class.
+message OrchestraScenarioV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // The scenario's name; base when none is given.
+  string fixr_name = 2;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 3;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 4;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 5;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 6;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 7;
+  // The change request behind the element's latest change.
+  string fixr_issue = 8;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 9;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 10;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 11;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 12;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 13;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 14;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 15;
+}
+// The sections a repository defines.
+message OrchestraSectionsV10 {
+  // The sections.
+  repeated OrchestraSectionV10 fixr_section = 1;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 2;
+  // The latest extension pack the list is up to date with.
+  int32 fixr_latest_ep = 3;
+}
+// The sections a repository defines.
+message OrchestraSectionsV11 {
+  // The sections.
+  repeated OrchestraSectionV11 fixr_section = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The base address for the list's relative links, which XInclude uses.
+  string xml_base = 3;
+}
+// A broad business area, such as pre-trade or post-trade, that categories fall under.
+message OrchestraSectionV10 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 1;
+  // The section's name.
+  string fixr_name = 2;
+  // Where the section comes when all sections are shown.
+  int32 fixr_display_order = 3;
+  // The FIXML schema file that holds the elements of this section or category.
+  string fixr_fixml_file_name = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// A broad business area, such as pre-trade or post-trade, that categories fall under.
+message OrchestraSectionV11 {
+  // More information that particular encodings need about the element.
+  OrchestraEncodingsV11 fixr_encodings = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The section's name.
+  string fixr_name = 3;
+  // Where the section comes when all sections are shown.
+  int32 fixr_display_order = 4;
+  // The FIX version in which the element first appeared.
+  string fixr_added = 5;
+  // The extension pack in which the element first appeared.
+  int32 fixr_added_ep = 6;
+  // Whether the latest change was to wording only or to meaning.
+  OrchestraChangeKind fixr_change_type = 7;
+  // The FIX version from which the element is deprecated.
+  string fixr_deprecated = 8;
+  // The extension pack from which the element is deprecated.
+  int32 fixr_deprecated_ep = 9;
+  // The change request behind the element's latest change.
+  string fixr_issue = 10;
+  // The FIX version in which the element last changed.
+  string fixr_last_modified = 11;
+  // The FIX version in which another element took this one's place.
+  string fixr_replaced = 12;
+  // The extension pack in which another element took this one's place.
+  int32 fixr_replaced_ep = 13;
+  // The tag number of the field that takes this element's place.
+  int32 fixr_replaced_by_field = 14;
+  // Whether a party supports, refuses or ignores the element; supported when none is given.
+  OrchestraSupport fixr_supported = 15;
+  // The FIX version of the element's latest update.
+  string fixr_updated = 16;
+  // The extension pack of the element's latest update.
+  int32 fixr_updated_ep = 17;
+}
+// An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
+message OrchestraServiceV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 7;
+}
+// An application-level service an interface offers, such as order routing, with the Orchestra repository that sets out its rules.
+message OrchestraServiceV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// A value, with what kind it is, that picks out a session, such as a sender or target ID.
+message OrchestraSessionIdentifierV10 {
+  // The identifier's value.
+  string fixi_text = 1;
+  // What kind of identifier this is, such as SenderCompID.
+  string fixi_name = 2;
+}
+// A value, with what kind it is, that picks out a session, such as a sender or target ID.
+message OrchestraSessionIdentifierV11 {
+  // The identifier's value.
+  string fixi_text = 1;
+  // What kind of identifier this is, such as SenderCompID.
+  string fixi_name = 2;
+}
+// The session-level protocol of an interface or session, such as FIXT or FIXP.
+message OrchestraSessionProtocolV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 7;
+}
+// The session-level protocol of an interface or session, such as FIXT or FIXP.
+message OrchestraSessionProtocolV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// The sessions an interface carries.
+message OrchestraSessionsV10 {
+  // The sessions.
+  repeated OrchestraSessionV10 fixi_session = 1;
+}
+// The sessions an interface carries.
+message OrchestraSessionsV11 {
+  // The sessions.
+  repeated OrchestraSessionV11 fixi_session = 1;
+}
+// One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+message OrchestraSessionV10 {
+  // The application-level services offered.
+  repeated OrchestraServiceV10 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV10 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV10 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV10 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV10 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV10 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+  // The identifiers that pick out the session.
+  repeated OrchestraSessionIdentifierV10 fixi_identifier = 10;
+  // When the session takes effect.
+  string fixi_activation_time = 11;
+  // When the session stops having effect.
+  string fixi_deactivation_time = 12;
+  // The party's role in the session.
+  OrchestraRole fixi_role = 13;
+  // Security keys for the session, as PEM text.
+  string fixi_security_keys = 14;
+}
+// One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+message OrchestraSessionV11 {
+  // The application-level services offered.
+  repeated OrchestraServiceV11 fixi_service = 1;
+  // The user interfaces offered.
+  repeated OrchestraUserInterfaceV11 fixi_user_interface = 2;
+  // The encodings used.
+  repeated OrchestraEncodingV11 fixi_encoding = 3;
+  // The session-level protocols used.
+  repeated OrchestraSessionProtocolV11 fixi_session_protocol = 4;
+  // Other protocols used.
+  repeated OrchestraProtocolV11 fixi_protocol = 5;
+  // The transports used.
+  repeated OrchestraTransportV11 fixi_transport = 6;
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 7;
+  // The interface's or session's name, unique within the file.
+  string fixi_name = 8;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 9;
+  // The identifiers that pick out the session.
+  repeated OrchestraSessionIdentifierV11 fixi_identifier = 10;
+  // The party's role in the session.
+  OrchestraRole fixi_role = 11;
+  // Security keys for the session, as PEM text.
+  string fixi_security_keys = 12;
+  // When the session takes effect.
+  string fixi_activation_time = 13;
+  // When the session stops having effect.
+  string fixi_deactivation_time = 14;
+}
+// A named set of states that an actor moves through, from an initial state.
+message OrchestraStateMachineV10 {
+  // The state the machine starts in.
+  OrchestraStateV10 fixr_initial = 1;
+  // The machine's other states.
+  repeated OrchestraStateV10 fixr_state = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 3;
+  // The state machine's name.
+  string fixr_name = 4;
+}
+// A named set of states that an actor moves through, from an initial state.
+message OrchestraStateMachineV11 {
+  // The state the machine starts in.
+  OrchestraStateV11 fixr_initial = 1;
+  // The machine's other states.
+  repeated OrchestraStateV11 fixr_state = 2;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 3;
+  // The state machine's name.
+  string fixr_name = 4;
+}
+// One of a state machine's states, with the transitions out of it and what happens on entry, while active and on exit.
+message OrchestraStateV10 {
+  // The moves out of this state.
+  repeated OrchestraTransitionV10 fixr_transition = 1;
+  // What happens on entering the state.
+  OrchestraActionV10 fixr_onentry = 2;
+  // What runs while the state is active.
+  OrchestraActionV10 fixr_activity = 3;
+  // What happens on leaving the state.
+  OrchestraActionV10 fixr_onexit = 4;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 5;
+  // The state's name.
+  string fixr_name = 6;
+}
+// One of a state machine's states, with the transitions out of it and what happens on entry, while active and on exit.
+message OrchestraStateV11 {
+  // The moves out of this state.
+  repeated OrchestraTransitionV11 fixr_transition = 1;
+  // What happens on entering the state.
+  OrchestraActionV11 fixr_onentry = 2;
+  // What runs while the state is active.
+  OrchestraActionV11 fixr_activity = 3;
+  // What happens on leaving the state.
+  OrchestraActionV11 fixr_onexit = 4;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 5;
+  // The state's name.
+  string fixr_name = 6;
+}
+// One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+message OrchestraStructureMemberV10 {
+  // A component used by reference.
+  OrchestraComponentRefV10 fixr_component_ref = 1;
+  // A group used by reference.
+  OrchestraGroupRefV10 fixr_group_ref = 2;
+  // A field used by reference.
+  OrchestraFieldRefV10 fixr_field_ref = 3;
+}
+// One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+message OrchestraStructureMemberV11 {
+  // A component used by reference.
+  OrchestraComponentRefV11 fixr_component_ref = 1;
+  // A group used by reference.
+  OrchestraGroupRefV11 fixr_group_ref = 2;
+  // A field used by reference.
+  OrchestraFieldRefV11 fixr_field_ref = 3;
+}
+// A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+message OrchestraTimerScheduleV10 {
+  // What happens when the timer runs out.
+  OrchestraActionV10 fixr_activity = 1;
+  // The actor whose timer or state machine this is, by name.
+  string fixr_actor = 2;
+  // The timer to start, stop or restart, by name.
+  string fixr_name = 3;
+  // Whether to start, stop or restart the timer.
+  OrchestraTimerOperation fixr_operation = 4;
+  // How long the timer runs, as an XML Schema duration.
+  string fixr_interval = 5;
+}
+// A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+message OrchestraTimerScheduleV11 {
+  // What happens when the timer runs out.
+  OrchestraActionV11 fixr_activity = 1;
+  // The actor whose timer or state machine this is, by name.
+  string fixr_actor = 2;
+  // The timer to start, stop or restart, by name.
+  string fixr_name = 3;
+  // Whether to start, stop or restart the timer.
+  OrchestraTimerOperation fixr_operation = 4;
+  // How long the timer runs, as an XML Schema duration.
+  string fixr_interval = 5;
+}
+// A named timer that an actor owns.
+message OrchestraTimerV10 {
+  // The timer's name.
+  string fixr_name = 1;
+}
+// A named timer that an actor owns.
+message OrchestraTimerV11 {
+  // The timer's name.
+  string fixr_name = 1;
+}
+// A move from one state to a named target state, with the condition that allows it.
+message OrchestraTransitionV10 {
+  // The condition that allows the transition, written as an expression; the transition is always allowed when none is given.
+  string fixr_when = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV10 fixr_annotation = 2;
+  // The transition's name.
+  string fixr_name = 3;
+  // The state the transition leads to, by name.
+  string fixr_target = 4;
+}
+// A move from one state to a named target state, with the condition that allows it.
+message OrchestraTransitionV11 {
+  // The condition that allows the transition, written as an expression; the transition is always allowed when none is given.
+  string fixr_when = 1;
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 2;
+  // The transition's name.
+  string fixr_name = 3;
+  // The state the transition leads to, by name.
+  string fixr_target = 4;
+}
+// The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+message OrchestraTransportV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // The address to connect to, such as a host and port.
+  string fixi_address = 7;
+  // Whether messages go to one, some or every receiver; unicast when none is given.
+  OrchestraMessageCast fixi_message_cast = 8;
+  // The transport's role, such as primary or alternate.
+  string fixi_use = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+message OrchestraTransportV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // The address to connect to, such as a host and port.
+  string fixi_address = 10;
+  // Whether messages go to one, some or every receiver; unicast when none is given.
+  OrchestraMessageCast fixi_message_cast = 11;
+  // The transport's role, such as primary or alternate.
+  string fixi_use = 12;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 13;
+}
+// A step that fires a named transition of an actor's state machine.
+message OrchestraTriggerV10 {
+  // The state machine whose transition fires, by name.
+  string fixr_state_machine = 1;
+  // The actor whose timer or state machine this is, by name.
+  string fixr_actor = 2;
+  // The transition to fire, by name.
+  string fixr_name = 3;
+}
+// A step that fires a named transition of an actor's state machine.
+message OrchestraTriggerV11 {
+  // The state machine whose transition fires, by name.
+  string fixr_state_machine = 1;
+  // The actor whose timer or state machine this is, by name.
+  string fixr_actor = 2;
+  // The transition to fire, by name.
+  string fixr_name = 3;
+}
+// A check that a field's value is unique among the values that share the other fields it names, or among all values when it names none.
+message OrchestraUniqueV10 {
+  // The fields that scope the check, in order.
+  repeated OrchestraFieldRefV10 fixr_field_ref = 1;
+}
+// A check that a field's value is unique among the values that share the other fields it names, or among all values when it names none.
+message OrchestraUniqueV11 {
+  // The fields that scope the check, in order.
+  repeated OrchestraFieldRefV11 fixr_field_ref = 1;
+}
+// An encoding block whose standard is clear from where it sits, so it names none.
+message OrchestraUnnamedEncodingV11 {
+  // Notes for readers and hints for software about the element.
+  OrchestraAnnotationV11 fixr_annotation = 1;
+  // Child elements from other namespaces, kept as written.
+  repeated OrchestraXmlElement fixr_any = 2;
+}
+// A user interface an interface offers, such as a trading screen, described as a protocol.
+message OrchestraUserInterfaceV10 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV10 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 4;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 5;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 6;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 7;
+}
+// A user interface an interface offers, such as a trading screen, described as a protocol.
+message OrchestraUserInterfaceV11 {
+  // Notes for readers and hints for software.
+  OrchestraInterfaceAnnotationV11 fixi_annotation = 1;
+  // The protocol's name, such as FIXT or SBE, or another name of the provider's choice.
+  string fixi_name = 2;
+  // The protocol's version.
+  string fixi_version = 3;
+  // When this version of the protocol takes effect.
+  string fixi_activation_time = 4;
+  // When this version of the protocol stops having effect.
+  string fixi_deactivation_time = 5;
+  // When this version of the protocol was deprecated.
+  string fixi_deprecated = 6;
+  // The layer the protocol works on.
+  OrchestraLayer fixi_layer = 7;
+  // The delivery guarantee the protocol gives, which a transport, a session or the application may provide.
+  OrchestraReliability fixi_reliability = 8;
+  // Where to find the Orchestra repository that sets out the protocol's messages and rules.
+  string fixi_orchestration = 9;
+  // Attributes from other namespaces, kept as written.
+  repeated OrchestraXmlAttribute fixi_other_attributes = 10;
+}
+// An XML attribute from another namespace, kept as written.
+message OrchestraXmlAttribute {
+  // The name, with its namespace in braces when it has one.
+  string xml_name = 1;
+  // The attribute's value.
+  string xml_value = 2;
+}
+// An XML element in a place where the XSDs accept any content, kept as written so that the file converts back unchanged.
+message OrchestraXmlElement {
+  // The name, with its namespace in braces when it has one.
+  string xml_name = 1;
+  // The element's attributes.
+  repeated OrchestraXmlAttribute xml_attributes = 2;
+  // The text before the first child element.
+  string xml_text = 3;
+  // The child elements, in order.
+  repeated OrchestraXmlElement xml_children = 4;
+  // The text after the element and before its next sibling.
+  string xml_tail = 5;
+}
+
+// What a category sorts, in v1.0.
+enum OrchestraCategoryContentV10 {
+  ORCHESTRA_CATEGORY_CONTENT_V10_UNSPECIFIED = 0;
+  ORCHESTRA_CATEGORY_CONTENT_V10_FIELD = 1;
+  ORCHESTRA_CATEGORY_CONTENT_V10_MESSAGE = 2;
+}
+// The shared FIXML file a category's own file includes, in v1.0.
+enum OrchestraCategoryIncludeFileV10 {
+  ORCHESTRA_CATEGORY_INCLUDE_FILE_V10_UNSPECIFIED = 0;
+  ORCHESTRA_CATEGORY_INCLUDE_FILE_V10_COMPONENTS = 1;
+  ORCHESTRA_CATEGORY_INCLUDE_FILE_V10_FIELDS = 2;
+}
+// How far an element's latest change reaches.
+enum OrchestraChangeKind {
+  ORCHESTRA_CHANGE_KIND_UNSPECIFIED = 0;
+  ORCHESTRA_CHANGE_KIND_EDITORIAL = 1;
+  ORCHESTRA_CHANGE_KIND_DEFINITIONAL = 2;
+}
+// The standards v1.0 names for mapping a datatype. A file may give another standard of its own.
+enum OrchestraDatatypeStandardV10 {
+  ORCHESTRA_DATATYPE_STANDARD_V10_UNSPECIFIED = 0;
+  ORCHESTRA_DATATYPE_STANDARD_V10_ISO11404 = 1;
+  ORCHESTRA_DATATYPE_STANDARD_V10_GPB = 2;
+  ORCHESTRA_DATATYPE_STANDARD_V10_JSON = 3;
+  ORCHESTRA_DATATYPE_STANDARD_V10_SBE = 4;
+  ORCHESTRA_DATATYPE_STANDARD_V10_XML = 5;
+  ORCHESTRA_DATATYPE_STANDARD_V10_TAG_VALUE = 6;
+}
+// The layer of the communication stack a protocol works on.
+enum OrchestraLayer {
+  ORCHESTRA_LAYER_UNSPECIFIED = 0;
+  ORCHESTRA_LAYER_APPLICATION = 1;
+  ORCHESTRA_LAYER_PRESENTATION = 2;
+  ORCHESTRA_LAYER_SESSION = 3;
+  ORCHESTRA_LAYER_TRANSPORT = 4;
+}
+// How many of a block's members must appear.
+enum OrchestraMemberSelection {
+  ORCHESTRA_MEMBER_SELECTION_UNSPECIFIED = 0;
+  ORCHESTRA_MEMBER_SELECTION_ONE_OF = 1;
+  ORCHESTRA_MEMBER_SELECTION_ANY_OF = 2;
+}
+// How many receivers a transport sends each message to.
+enum OrchestraMessageCast {
+  ORCHESTRA_MESSAGE_CAST_UNSPECIFIED = 0;
+  ORCHESTRA_MESSAGE_CAST_UNICAST = 1;
+  ORCHESTRA_MESSAGE_CAST_MULTICAST = 2;
+  ORCHESTRA_MESSAGE_CAST_BROADCAST = 3;
+}
+// Whether an item must, may or must not appear in a message.
+enum OrchestraPresence {
+  ORCHESTRA_PRESENCE_UNSPECIFIED = 0;
+  ORCHESTRA_PRESENCE_OPTIONAL = 1;
+  ORCHESTRA_PRESENCE_REQUIRED = 2;
+  ORCHESTRA_PRESENCE_FORBIDDEN = 3;
+  ORCHESTRA_PRESENCE_IGNORED = 4;
+  ORCHESTRA_PRESENCE_CONSTANT = 5;
+}
+// The FIX protocols the interfaces file names, so that they are spelled one way. A file may name another protocol.
+enum OrchestraProtocolName {
+  ORCHESTRA_PROTOCOL_NAME_UNSPECIFIED = 0;
+  ORCHESTRA_PROTOCOL_NAME_FIX4 = 1;
+  ORCHESTRA_PROTOCOL_NAME_FIXT = 2;
+  ORCHESTRA_PROTOCOL_NAME_FIXP = 3;
+  ORCHESTRA_PROTOCOL_NAME_TAGVALUE = 4;
+  ORCHESTRA_PROTOCOL_NAME_FIXML = 5;
+  ORCHESTRA_PROTOCOL_NAME_FAST = 6;
+  ORCHESTRA_PROTOCOL_NAME_SBE = 7;
+  ORCHESTRA_PROTOCOL_NAME_SOFH = 8;
+  ORCHESTRA_PROTOCOL_NAME_GPB = 9;
+  ORCHESTRA_PROTOCOL_NAME_JSON = 10;
+  ORCHESTRA_PROTOCOL_NAME_FIXS = 11;
+}
+// The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
+enum OrchestraPurpose {
+  ORCHESTRA_PURPOSE_UNSPECIFIED = 0;
+  ORCHESTRA_PURPOSE_SYNOPSIS = 1;
+  ORCHESTRA_PURPOSE_ELABORATION = 2;
+  ORCHESTRA_PURPOSE_EXAMPLE = 3;
+  ORCHESTRA_PURPOSE_DISPLAY = 4;
+}
+// The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
+enum OrchestraPurposeV11 {
+  ORCHESTRA_PURPOSE_V11_UNSPECIFIED = 0;
+  ORCHESTRA_PURPOSE_V11_SYNOPSIS = 1;
+  ORCHESTRA_PURPOSE_V11_ELABORATION = 2;
+  ORCHESTRA_PURPOSE_V11_EXAMPLE = 3;
+  ORCHESTRA_PURPOSE_V11_DISPLAY = 4;
+  ORCHESTRA_PURPOSE_V11_CAPTION = 5;
+  ORCHESTRA_PURPOSE_V11_TOOLTIP = 6;
+  ORCHESTRA_PURPOSE_V11_DEFINITION = 7;
+}
+// What a flow or protocol promises about delivering each message.
+enum OrchestraReliability {
+  ORCHESTRA_RELIABILITY_UNSPECIFIED = 0;
+  ORCHESTRA_RELIABILITY_BEST_EFFORT = 1;
+  ORCHESTRA_RELIABILITY_IDEMPOTENT = 2;
+  ORCHESTRA_RELIABILITY_RECOVERABLE = 3;
+}
+// A party's role in setting up a session.
+enum OrchestraRole {
+  ORCHESTRA_ROLE_UNSPECIFIED = 0;
+  ORCHESTRA_ROLE_INITIATOR = 1;
+  ORCHESTRA_ROLE_ACCEPTOR = 2;
+  ORCHESTRA_ROLE_CLIENT = 3;
+  ORCHESTRA_ROLE_SERVER = 4;
+}
+// How a party treats an element of the standard.
+enum OrchestraSupport {
+  ORCHESTRA_SUPPORT_UNSPECIFIED = 0;
+  ORCHESTRA_SUPPORT_SUPPORTED = 1;
+  ORCHESTRA_SUPPORT_FORBIDDEN = 2;
+  ORCHESTRA_SUPPORT_IGNORED = 3;
+}
+// How the timing of a response relates to the request it answers.
+enum OrchestraSynchronization {
+  ORCHESTRA_SYNCHRONIZATION_UNSPECIFIED = 0;
+  ORCHESTRA_SYNCHRONIZATION_ASYNCHRONOUS = 1;
+  ORCHESTRA_SYNCHRONIZATION_SYNCHRONOUS = 2;
+  ORCHESTRA_SYNCHRONIZATION_PIPELINED = 3;
+}
+// What a step does to an actor's timer.
+enum OrchestraTimerOperation {
+  ORCHESTRA_TIMER_OPERATION_UNSPECIFIED = 0;
+  ORCHESTRA_TIMER_OPERATION_START = 1;
+  ORCHESTRA_TIMER_OPERATION_CANCEL = 2;
+  ORCHESTRA_TIMER_OPERATION_RESET = 3;
+}
+// The roles the interfaces file names for a transport. A file may give another role of its own.
+enum OrchestraTransportUse {
+  ORCHESTRA_TRANSPORT_USE_UNSPECIFIED = 0;
+  ORCHESTRA_TRANSPORT_USE_PRIMARY = 1;
+  ORCHESTRA_TRANSPORT_USE_SECONDARY = 2;
+  ORCHESTRA_TRANSPORT_USE_ALTERNATE = 3;
+}
+// The datatypes v1.0 names whose values a field may hold beside its codes.
+enum OrchestraUnionDatatypeV10 {
+  ORCHESTRA_UNION_DATATYPE_V10_UNSPECIFIED = 0;
+  ORCHESTRA_UNION_DATATYPE_V10_QTY = 1;
+  ORCHESTRA_UNION_DATATYPE_V10_RESERVED100_PLUS = 2;
+  ORCHESTRA_UNION_DATATYPE_V10_RESERVED1000_PLUS = 3;
+  ORCHESTRA_UNION_DATATYPE_V10_RESERVED4000_PLUS = 4;
+  ORCHESTRA_UNION_DATATYPE_V10_TENOR = 5;
+}

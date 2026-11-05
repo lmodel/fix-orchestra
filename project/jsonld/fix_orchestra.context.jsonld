@@ -1,1302 +1,1418 @@
 {
    "@context": {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "XML": "http://www.w3.org/XML/1998/namespace#",
       "dc": "http://purl.org/dc/elements/1.1/",
       "dcterms": "http://purl.org/dc/terms/",
-      "dctypes": "http://purl.org/dc/dcmitype/",
       "fix_orchestra": "https://w3id.org/lmodel/fix-orchestra/",
-      "fix_sbe": "http://example.org/UNKNOWN/fix_sbe/",
-      "fixi": "http://fixprotocol.io/2024/orchestra/interfaces/",
-      "fixml": "http://fixprotocol.io/2022/orchestra/appinfo/fixml#",
-      "fixr": "http://fixprotocol.io/2024/orchestra/repository/",
       "linkml": "https://w3id.org/linkml/",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://w3id.org/lmodel/fix-orchestra/",
-      "abbr_name": {
-         "@type": "fix_orchestra:Name",
-         "@id": "abbr_name"
-      },
-      "abstract": {
-         "@id": "dcterms:abstract"
-      },
-      "access_rights": {
-         "@id": "dcterms:accessRights"
-      },
-      "accrual_method": {
-         "@id": "dcterms:accrualMethod"
-      },
-      "accrual_periodicity": {
-         "@id": "dcterms:accrualPeriodicity"
-      },
-      "accrual_policy": {
-         "@id": "dcterms:accrualPolicy"
-      },
-      "assign": {
+      "fixr_component": {
          "@type": "@id",
-         "@id": "assign"
+         "@id": "fixr_component"
       },
-      "group": {
+      "fixr_component_ref": {
          "@type": "@id",
-         "@id": "group"
+         "@id": "fixr_component_ref"
       },
-      "activation_time": {
-         "@type": "xsd:dateTime",
-         "@id": "activation_time"
-      },
-      "activity": {
+      "fixr_field": {
          "@type": "@id",
-         "@id": "activity"
+         "@id": "fixr_field"
       },
-      "actors": {
+      "fixr_field_ref": {
          "@type": "@id",
-         "@id": "actors"
+         "@id": "fixr_field_ref"
       },
-      "actor": {
-         "@type": "fix_orchestra:Name",
-         "@id": "actor"
-      },
-      "annotation": {
+      "fixr_group": {
          "@type": "@id",
-         "@id": "annotation"
+         "@id": "fixr_group"
       },
-      "base": {
-         "@id": "base"
-      },
-      "flow": {
-         "@type": "fix_orchestra:Name",
-         "@id": "flow"
-      },
-      "name": {
-         "@type": "fix_orchestra:Name",
-         "@id": "name"
-      },
-      "added": {
-         "@type": "fix_orchestra:Version",
-         "@id": "added"
-      },
-      "added_ep": {
-         "@type": "fix_orchestra:EP",
-         "@id": "added_ep"
-      },
-      "address": {
-         "@id": "address"
-      },
-      "alternative": {
-         "@id": "dcterms:alternative"
-      },
-      "appinfo": {
+      "fixr_group_ref": {
          "@type": "@id",
-         "@id": "appinfo"
+         "@id": "fixr_group_ref"
       },
-      "documentation": {
+      "fixr_assign": {
          "@type": "@id",
-         "@id": "documentation"
+         "@id": "fixr_assign"
       },
-      "lang_id": {
-         "@id": "lang_id"
-      },
-      "purpose": {
-         "@type": "fix_orchestra:InterfacePurpose",
-         "@id": "purpose"
-      },
-      "audience": {
-         "@id": "dcterms:audience"
-      },
-      "available": {
-         "@id": "dcterms:available"
-      },
-      "base_category": {
-         "@type": "fix_orchestra:Name",
-         "@id": "base_category"
-      },
-      "base_category_abbr_name": {
-         "@type": "fix_orchestra:Name",
-         "@id": "base_category_abbr_name"
-      },
-      "base_type": {
-         "@type": "fix_orchestra:Name",
-         "@id": "base_type"
-      },
-      "encoding": {
-         "@id": "encoding"
-      },
-      "bibliographic_citation": {
-         "@id": "dcterms:bibliographicCitation"
-      },
-      "block_assignment": {
+      "fixr_message_ref": {
          "@type": "@id",
-         "@id": "block_assignment"
+         "@id": "fixr_message_ref"
       },
-      "builtin": {
-         "@type": "xsd:boolean",
-         "@id": "builtin"
-      },
-      "categories": {
+      "fixr_timer_schedule": {
          "@type": "@id",
-         "@id": "categories"
+         "@id": "fixr_timer_schedule"
       },
-      "category": {
-         "@type": "fix_orchestra:Name",
-         "@id": "category"
-      },
-      "section": {
+      "fixr_trigger": {
          "@type": "@id",
-         "@id": "section"
+         "@id": "fixr_trigger"
       },
-      "change_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "change_type"
-      },
-      "code": {
+      "fixr_actions": {
          "@type": "@id",
-         "@id": "code"
+         "@id": "fixr_actions"
       },
-      "code_sets": {
+      "fixr_parameters": {
          "@type": "@id",
-         "@id": "code_sets"
+         "@id": "fixr_parameters"
       },
-      "code_set": {
-         "@type": "fix_orchestra:Name",
-         "@id": "code_set"
-      },
-      "type": {
-         "@type": "fix_orchestra:Name",
-         "@id": "type"
-      },
-      "component": {
+      "fixr_states": {
          "@type": "@id",
-         "@id": "component"
+         "@id": "fixr_states"
       },
-      "component_ref": {
+      "fixr_timer": {
          "@type": "@id",
-         "@id": "component_ref"
+         "@id": "fixr_timer"
       },
-      "component_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "component_type"
+      "fixr_actor": {
+         "@id": "fixr_actor"
       },
-      "instance_name": {
-         "@type": "fix_orchestra:Name",
-         "@id": "instance_name"
+      "fixr_flow": {
+         "@id": "fixr_flow"
       },
-      "rule": {
+      "fixr_members": {
          "@type": "@id",
-         "@id": "rule"
+         "@id": "fixr_members"
       },
-      "components": {
-         "@type": "@id",
-         "@id": "components"
-      },
-      "concept": {
-         "@type": "@id",
-         "@id": "concept"
-      },
-      "concepts": {
-         "@type": "@id",
-         "@id": "concepts"
-      },
-      "conforms_to": {
-         "@id": "dcterms:conformsTo"
-      },
-      "content": {
-         "@id": "content"
-      },
-      "contributor": {
-         "@id": "dcterms:contributor"
-      },
-      "correlate": {
-         "@type": "@id",
-         "@id": "correlate"
-      },
-      "coverage": {
-         "@id": "dcterms:coverage"
-      },
-      "created": {
-         "@id": "dcterms:created"
-      },
-      "creator": {
-         "@id": "dcterms:creator"
-      },
-      "datatype": {
-         "@type": "@id",
-         "@id": "datatype"
-      },
-      "scenario": {
-         "@type": "@id",
-         "@id": "scenario"
-      },
-      "datatypes": {
-         "@type": "@id",
-         "@id": "datatypes"
-      },
-      "date": {
-         "@id": "dcterms:date"
-      },
-      "date_accepted": {
-         "@id": "dcterms:dateAccepted"
-      },
-      "date_copyrighted": {
-         "@id": "dcterms:dateCopyrighted"
-      },
-      "date_submitted": {
-         "@id": "dcterms:dateSubmitted"
-      },
-      "identifier": {
-         "@type": "@id",
-         "@id": "identifier"
-      },
-      "lang": {
-         "@id": "lang"
-      },
-      "deactivation_time": {
-         "@type": "xsd:dateTime",
-         "@id": "deactivation_time"
-      },
-      "default": {
-         "@id": "default"
-      },
-      "deprecated_ep": {
-         "@type": "fix_orchestra:EP",
-         "@id": "deprecated_ep"
-      },
-      "description": {
-         "@id": "dcterms:description"
-      },
-      "destination": {
-         "@id": "destination"
-      },
-      "discriminator_id": {
-         "@type": "fix_orchestra:Id",
-         "@id": "discriminator_id"
-      },
-      "display_order": {
-         "@type": "xsd:integer",
-         "@id": "display_order"
-      },
-      "content_type": {
-         "@id": "content_type"
-      },
-      "education_level": {
-         "@id": "dcterms:educationLevel"
-      },
-      "element": {
-         "@id": "element"
-      },
-      "deprecated": {
-         "@type": "xsd:dateTime",
-         "@id": "deprecated"
-      },
-      "expression_language": {
-         "@id": "expression_language"
-      },
-      "extension": {
-         "@type": "@id",
-         "@id": "extension"
-      },
-      "extent": {
-         "@id": "dcterms:extent"
-      },
-      "extra_attributes": {
-         "@id": "extra_attributes"
-      },
-      "field": {
-         "@type": "@id",
-         "@id": "field"
-      },
-      "field_ref": {
-         "@type": "@id",
-         "@id": "field_ref"
-      },
-      "fields": {
-         "@type": "@id",
-         "@id": "fields"
-      },
-      "fixml_encoding": {
-         "@type": "@id",
-         "@id": "fixml_encoding"
-      },
-      "fixml_file_name": {
-         "@type": "fix_orchestra:Name",
-         "@id": "fixml_file_name"
-      },
-      "reliability": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "reliability"
-      },
-      "format": {
-         "@id": "dcterms:format"
-      },
-      "group_ref": {
-         "@type": "@id",
-         "@id": "group_ref"
-      },
-      "groups": {
-         "@type": "@id",
-         "@id": "groups"
-      },
-      "guid": {
-         "@id": "guid"
-      },
-      "has_format": {
-         "@id": "dcterms:hasFormat"
-      },
-      "has_part": {
-         "@id": "dcterms:hasPart"
-      },
-      "has_version": {
-         "@id": "dcterms:hasVersion"
-      },
-      "identifiers": {
-         "@type": "@id",
-         "@id": "identifiers"
-      },
-      "impl_length": {
-         "@type": "xsd:integer",
-         "@id": "impl_length"
-      },
-      "impl_max_length": {
-         "@type": "xsd:integer",
-         "@id": "impl_max_length"
-      },
-      "impl_max_occurs": {
-         "@type": "fix_orchestra:UnboundedIntType",
-         "@id": "impl_max_occurs"
-      },
-      "impl_min_length": {
-         "@type": "xsd:integer",
-         "@id": "impl_min_length"
-      },
-      "impl_min_occurs": {
-         "@type": "xsd:integer",
-         "@id": "impl_min_occurs"
-      },
-      "include_file": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "include_file"
-      },
-      "initial": {
-         "@type": "@id",
-         "@id": "initial"
-      },
-      "inlined": {
-         "@type": "xsd:boolean",
-         "@id": "inlined"
-      },
-      "instructional_method": {
-         "@id": "dcterms:instructionalMethod"
-      },
-      "interface": {
-         "@type": "@id",
-         "@id": "interface"
-      },
-      "interval": {
-         "@id": "interval"
-      },
-      "is_format_of": {
-         "@id": "dcterms:isFormatOf"
-      },
-      "is_part_of": {
-         "@id": "dcterms:isPartOf"
-      },
-      "is_referenced_by": {
-         "@id": "dcterms:isReferencedBy"
-      },
-      "is_replaced_by": {
-         "@id": "dcterms:isReplacedBy"
-      },
-      "is_required_by": {
-         "@id": "dcterms:isRequiredBy"
-      },
-      "is_version_of": {
-         "@id": "dcterms:isVersionOf"
-      },
-      "issue": {
-         "@id": "issue"
-      },
-      "issued": {
-         "@id": "dcterms:issued"
-      },
-      "language": {
-         "@id": "dcterms:language"
-      },
-      "last_modified": {
-         "@type": "fix_orchestra:Version",
-         "@id": "last_modified"
-      },
-      "layer": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "layer"
-      },
-      "length_id": {
-         "@type": "fix_orchestra:Id",
-         "@id": "length_id"
-      },
-      "license": {
-         "@id": "dcterms:license"
-      },
-      "mapped_datatype": {
-         "@type": "@id",
-         "@id": "mapped_datatype"
-      },
-      "max_inclusive": {
-         "@id": "max_inclusive"
-      },
-      "mediator": {
-         "@id": "dcterms:mediator"
-      },
-      "medium": {
-         "@id": "dcterms:medium"
-      },
-      "message": {
-         "@type": "@id",
-         "@id": "message"
-      },
-      "message_cast": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "message_cast"
-      },
-      "message_ref": {
-         "@type": "@id",
-         "@id": "message_ref"
-      },
-      "messages": {
-         "@type": "@id",
-         "@id": "messages"
-      },
-      "metadata": {
-         "@type": "@id",
-         "@id": "metadata"
-      },
-      "min_inclusive": {
-         "@id": "min_inclusive"
-      },
-      "modified": {
-         "@id": "dcterms:modified"
-      },
-      "msg_type": {
-         "@type": "fix_orchestra:MsgType",
-         "@id": "msg_type"
-      },
-      "namespace": {
+      "xml_base": {
          "@type": "xsd:anyURI",
-         "@id": "namespace"
+         "@id": "xml_base"
       },
-      "non_encoded_field_id": {
-         "@type": "fix_orchestra:Id",
-         "@id": "non_encoded_field_id"
+      "fixr_annotation": {
+         "@type": "@id",
+         "@id": "fixr_annotation"
       },
-      "not_req_xml": {
+      "fixr_name": {
+         "@id": "fixr_name"
+      },
+      "fixr_appinfo": {
+         "@type": "@id",
+         "@id": "fixr_appinfo"
+      },
+      "fixr_documentation": {
+         "@type": "@id",
+         "@id": "fixr_documentation"
+      },
+      "fixr_any": {
+         "@type": "@id",
+         "@id": "fixr_any"
+      },
+      "fixr_lang_id": {
+         "@id": "fixr_lang_id"
+      },
+      "fixr_other_attributes": {
+         "@type": "@id",
+         "@id": "fixr_other_attributes"
+      },
+      "fixr_purpose": {
+         "@id": "fixr_purpose"
+      },
+      "fixr_spec_url": {
+         "@type": "xsd:anyURI",
+         "@id": "fixr_spec_url"
+      },
+      "fixr_text": {
+         "@id": "fixr_text"
+      },
+      "fixi_annotation": {
+         "@type": "@id",
+         "@id": "fixi_annotation"
+      },
+      "fixi_encoding": {
+         "@type": "@id",
+         "@id": "fixi_encoding"
+      },
+      "fixi_name": {
+         "@id": "fixi_name"
+      },
+      "fixi_other_attributes": {
+         "@type": "@id",
+         "@id": "fixi_other_attributes"
+      },
+      "fixi_protocol": {
+         "@type": "@id",
+         "@id": "fixi_protocol"
+      },
+      "fixi_service": {
+         "@type": "@id",
+         "@id": "fixi_service"
+      },
+      "fixi_session_protocol": {
+         "@type": "@id",
+         "@id": "fixi_session_protocol"
+      },
+      "fixi_transport": {
+         "@type": "@id",
+         "@id": "fixi_transport"
+      },
+      "fixi_user_interface": {
+         "@type": "@id",
+         "@id": "fixi_user_interface"
+      },
+      "fixr_category": {
+         "@id": "fixr_category"
+      },
+      "fixr_component_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_component_type"
+      },
+      "fixr_fixml_file_name": {
+         "@id": "fixr_fixml_file_name"
+      },
+      "fixr_include_file": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_include_file"
+      },
+      "fixr_section": {
+         "@type": "@id",
+         "@id": "fixr_section"
+      },
+      "fixr_encodings": {
+         "@type": "@id",
+         "@id": "fixr_encodings"
+      },
+      "fixr_code_set": {
+         "@id": "fixr_code_set"
+      },
+      "fixr_code": {
+         "@type": "@id",
+         "@id": "fixr_code"
+      },
+      "fixr_default": {
+         "@id": "fixr_default"
+      },
+      "fixr_type": {
+         "@id": "fixr_type"
+      },
+      "fixr_union_data_type": {
+         "@id": "fixr_union_data_type"
+      },
+      "fixr_sort": {
+         "@type": "xsd:integer",
+         "@id": "fixr_sort"
+      },
+      "fixr_value": {
+         "@id": "fixr_value"
+      },
+      "fixr_block_assignment": {
+         "@type": "@id",
+         "@id": "fixr_block_assignment"
+      },
+      "fixr_instance_name": {
+         "@id": "fixr_instance_name"
+      },
+      "fixr_presence": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_presence"
+      },
+      "fixr_rule": {
+         "@type": "@id",
+         "@id": "fixr_rule"
+      },
+      "fixr_when": {
+         "@id": "fixr_when"
+      },
+      "fixr_rendering": {
+         "@id": "fixr_rendering"
+      },
+      "fixr_which": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_which"
+      },
+      "fixr_concept": {
+         "@type": "@id",
+         "@id": "fixr_concept"
+      },
+      "fixr_latest_ep": {
+         "@type": "xsd:integer",
+         "@id": "fixr_latest_ep"
+      },
+      "fixr_datatype": {
+         "@type": "@id",
+         "@id": "fixr_datatype"
+      },
+      "fixr_base_type": {
+         "@id": "fixr_base_type"
+      },
+      "fixr_mapped_datatype": {
+         "@type": "@id",
+         "@id": "fixr_mapped_datatype"
+      },
+      "fixr_content_type": {
+         "@id": "fixr_content_type"
+      },
+      "fixr_encoding_standard": {
+         "@type": "@id",
+         "@id": "fixr_encoding_standard"
+      },
+      "fixr_display_name": {
+         "@id": "fixr_display_name"
+      },
+      "fixr_encoding": {
+         "@type": "@id",
+         "@id": "fixr_encoding"
+      },
+      "fixr_impl_length": {
+         "@type": "xsd:integer",
+         "@id": "fixr_impl_length"
+      },
+      "fixr_impl_max_length": {
+         "@type": "xsd:integer",
+         "@id": "fixr_impl_max_length"
+      },
+      "fixr_impl_min_length": {
+         "@type": "xsd:integer",
+         "@id": "fixr_impl_min_length"
+      },
+      "fixr_max_inclusive": {
+         "@id": "fixr_max_inclusive"
+      },
+      "fixr_min_inclusive": {
+         "@id": "fixr_min_inclusive"
+      },
+      "fixr_length_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_length_id"
+      },
+      "fixr_non_encoded_field_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_non_encoded_field_id"
+      },
+      "fixr_unique": {
+         "@type": "@id",
+         "@id": "fixr_unique"
+      },
+      "fixr_base_category": {
+         "@id": "fixr_base_category"
+      },
+      "fixr_base_category_abbr_name": {
+         "@id": "fixr_base_category_abbr_name"
+      },
+      "fixr_discriminator_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_discriminator_id"
+      },
+      "fixr_destination": {
+         "@id": "fixr_destination"
+      },
+      "fixr_reliability": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_reliability"
+      },
+      "fixr_source": {
+         "@id": "fixr_source"
+      },
+      "fixr_impl_max_occurs": {
+         "@id": "fixr_impl_max_occurs"
+      },
+      "fixr_impl_min_occurs": {
+         "@type": "xsd:integer",
+         "@id": "fixr_impl_min_occurs"
+      },
+      "fixr_num_in_group": {
+         "@type": "@id",
+         "@id": "fixr_num_in_group"
+      },
+      "fixr_correlate": {
+         "@type": "@id",
+         "@id": "fixr_correlate"
+      },
+      "fixr_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_id"
+      },
+      "fixr_source_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_source_id"
+      },
+      "fixr_abbr_name": {
+         "@id": "fixr_abbr_name"
+      },
+      "fixr_scenario": {
+         "@type": "@id",
+         "@id": "fixr_scenario"
+      },
+      "fixi_appinfo": {
+         "@type": "@id",
+         "@id": "fixi_appinfo"
+      },
+      "fixi_documentation": {
+         "@type": "@id",
+         "@id": "fixi_documentation"
+      },
+      "fixi_members": {
+         "@type": "@id",
+         "@id": "fixi_members"
+      },
+      "fixi_any": {
+         "@type": "@id",
+         "@id": "fixi_any"
+      },
+      "fixi_lang_id": {
+         "@id": "fixi_lang_id"
+      },
+      "fixi_purpose": {
+         "@id": "fixi_purpose"
+      },
+      "fixi_spec_url": {
+         "@type": "xsd:anyURI",
+         "@id": "fixi_spec_url"
+      },
+      "fixi_text": {
+         "@id": "fixi_text"
+      },
+      "fixi_content_type": {
+         "@id": "fixi_content_type"
+      },
+      "fixi_interface": {
+         "@type": "@id",
+         "@id": "fixi_interface"
+      },
+      "fixi_metadata": {
+         "@type": "@id",
+         "@id": "fixi_metadata"
+      },
+      "fixi_sessions": {
+         "@type": "@id",
+         "@id": "fixi_sessions"
+      },
+      "fixr_base": {
+         "@id": "fixr_base"
+      },
+      "fixr_builtin": {
          "@type": "xsd:boolean",
-         "@id": "not_req_xml"
+         "@id": "fixr_builtin"
       },
-      "num_in_group": {
+      "fixr_element": {
+         "@id": "fixr_element"
+      },
+      "fixr_extension": {
          "@type": "@id",
-         "@id": "num_in_group"
+         "@id": "fixr_extension"
       },
-      "id": {
-         "@id": "id"
+      "fixr_parameter": {
+         "@id": "fixr_parameter"
       },
-      "onentry": {
-         "@type": "@id",
-         "@id": "onentry"
+      "fixr_pattern": {
+         "@id": "fixr_pattern"
       },
-      "onexit": {
-         "@type": "@id",
-         "@id": "onexit"
+      "fixr_standard": {
+         "@id": "fixr_standard"
       },
-      "operation": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "operation"
-      },
-      "orchestration": {
-         "@type": "xsd:anyURI",
-         "@id": "orchestration"
-      },
-      "parameter": {
-         "@id": "parameter"
-      },
-      "pattern": {
-         "@id": "pattern"
-      },
-      "presence": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "presence"
-      },
-      "protocol": {
-         "@type": "@id",
-         "@id": "protocol"
-      },
-      "version": {
-         "@type": "fix_orchestra:Version",
-         "@id": "version"
-      },
-      "provenance": {
-         "@id": "dcterms:provenance"
-      },
-      "publisher": {
-         "@id": "dcterms:publisher"
-      },
-      "references": {
-         "@id": "dcterms:references"
-      },
-      "relation": {
-         "@id": "dcterms:relation"
-      },
-      "rendering": {
-         "@id": "rendering"
-      },
-      "replaced": {
-         "@type": "fix_orchestra:Version",
-         "@id": "replaced"
-      },
-      "replaced_by_field": {
-         "@type": "fix_orchestra:Id",
-         "@id": "replaced_by_field"
-      },
-      "replaced_ep": {
-         "@type": "fix_orchestra:EP",
-         "@id": "replaced_ep"
-      },
-      "replaces": {
-         "@id": "dcterms:replaces"
-      },
-      "requires": {
-         "@id": "dcterms:requires"
-      },
-      "response": {
-         "@type": "@id",
-         "@id": "response"
-      },
-      "responses": {
-         "@type": "@id",
-         "@id": "responses"
-      },
-      "rights": {
-         "@id": "dcterms:rights"
-      },
-      "rights_holder": {
-         "@id": "dcterms:rightsHolder"
-      },
-      "role": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "role"
-      },
-      "scenario_id": {
-         "@type": "fix_orchestra:Id",
-         "@id": "scenario_id"
-      },
-      "scenario_ref": {
-         "@type": "fix_orchestra:Name",
-         "@id": "scenario_ref"
-      },
-      "scenario_ref_id": {
-         "@type": "fix_orchestra:Id",
-         "@id": "scenario_ref_id"
-      },
-      "scenarios": {
-         "@type": "@id",
-         "@id": "scenarios"
-      },
-      "sections": {
-         "@type": "@id",
-         "@id": "sections"
-      },
-      "security_keys": {
-         "@id": "security_keys"
-      },
-      "service": {
-         "@type": "@id",
-         "@id": "service"
-      },
-      "session": {
-         "@type": "@id",
-         "@id": "session"
-      },
-      "session_protocol": {
-         "@type": "@id",
-         "@id": "session_protocol"
-      },
-      "sessions": {
-         "@type": "@id",
-         "@id": "sessions"
-      },
-      "size": {
+      "fixr_size": {
          "@type": "xsd:integer",
-         "@id": "size"
+         "@id": "fixr_size"
       },
-      "sort": {
-         "@type": "xsd:integer",
-         "@id": "sort"
-      },
-      "source": {
-         "@id": "dcterms:source"
-      },
-      "spatial": {
-         "@id": "dcterms:spatial"
-      },
-      "spec_url": {
-         "@type": "xsd:anyURI",
-         "@id": "spec_url"
-      },
-      "standard": {
-         "@type": "fix_orchestra:DatatypeStandard",
-         "@id": "standard"
-      },
-      "state": {
+      "fixr_identifiers": {
          "@type": "@id",
-         "@id": "state"
+         "@id": "fixr_identifiers"
       },
-      "state_machine": {
-         "@id": "state_machine"
+      "fixr_msg_type": {
+         "@id": "fixr_msg_type"
       },
-      "states": {
+      "fixr_message": {
          "@type": "@id",
-         "@id": "states"
+         "@id": "fixr_message"
       },
-      "structure": {
+      "fixr_responses": {
          "@type": "@id",
-         "@id": "structure"
+         "@id": "fixr_responses"
       },
-      "subject": {
-         "@id": "dcterms:subject"
-      },
-      "supported": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "supported"
-      },
-      "sync": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "sync"
-      },
-      "table_of_contents": {
-         "@id": "dcterms:tableOfContents"
-      },
-      "target": {
-         "@id": "target"
-      },
-      "temporal": {
-         "@id": "dcterms:temporal"
-      },
-      "timer": {
+      "fixr_structure": {
          "@type": "@id",
-         "@id": "timer"
+         "@id": "fixr_structure"
       },
-      "timer_schedule": {
-         "@type": "@id",
-         "@id": "timer_schedule"
-      },
-      "title": {
-         "@id": "dcterms:title"
-      },
-      "transition": {
-         "@type": "@id",
-         "@id": "transition"
-      },
-      "transport": {
-         "@type": "@id",
-         "@id": "transport"
-      },
-      "trigger": {
-         "@type": "@id",
-         "@id": "trigger"
-      },
-      "union_data_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "union_data_type"
-      },
-      "unique": {
-         "@type": "@id",
-         "@id": "unique"
-      },
-      "updated": {
-         "@type": "fix_orchestra:Version",
-         "@id": "updated"
-      },
-      "updated_ep": {
-         "@type": "fix_orchestra:EP",
-         "@id": "updated_ep"
-      },
-      "use": {
-         "@type": "fix_orchestra:TransportUse",
-         "@id": "use"
-      },
-      "user_interface": {
-         "@type": "@id",
-         "@id": "user_interface"
-      },
-      "valid": {
-         "@id": "dcterms:valid"
-      },
-      "value": {
-         "@id": "value"
-      },
-      "when": {
-         "@type": "fix_orchestra:ExpressionType",
-         "@id": "when"
-      },
-      "which": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "which"
-      },
-      "space": {
-         "@id": "space"
-      },
-      "ActionType": {
-         "@id": "ActionType"
-      },
-      "Actors": {
-         "@id": "Actors"
-      },
-      "ActorType": {
-         "@id": "ActorType"
-      },
-      "Annotation": {
-         "@id": "Annotation"
-      },
-      "Appinfo": {
-         "@id": "Appinfo"
-      },
-      "BaseInterfaceType": {
-         "@id": "BaseInterfaceType"
-      },
-      "BlockAssignmentType": {
-         "@id": "BlockAssignmentType"
-      },
-      "Categories": {
-         "@id": "Categories"
-      },
-      "CategoryType": {
-         "@id": "CategoryType"
-      },
-      "CodeSets": {
-         "@id": "CodeSets"
-      },
-      "CodeSetType": {
-         "@id": "CodeSetType"
-      },
-      "CodeType": {
-         "@id": "CodeType"
-      },
-      "ComponentRefType": {
-         "@id": "ComponentRefType"
-      },
-      "ComponentRuleType": {
-         "@id": "ComponentRuleType"
-      },
-      "Components": {
-         "@id": "Components"
-      },
-      "ComponentType": {
-         "@id": "ComponentType"
-      },
-      "Concepts": {
-         "@id": "Concepts"
-      },
-      "ConceptType": {
-         "@id": "ConceptType"
-      },
-      "Datatype": {
-         "@id": "Datatype"
-      },
-      "Datatypes": {
-         "@id": "Datatypes"
-      },
-      "DcAny": {
-         "@id": "dc:any"
-      },
-      "DcContributor": {
+      "dc_contributor": {
          "@id": "dc:contributor"
       },
-      "DcCoverage": {
+      "dc_coverage": {
          "@id": "dc:coverage"
       },
-      "DcCreator": {
+      "dc_creator": {
          "@id": "dc:creator"
       },
-      "DcDate": {
+      "dc_date": {
          "@id": "dc:date"
       },
-      "DcDescription": {
+      "dc_description": {
          "@id": "dc:description"
       },
-      "DcElementContainer": {
-         "@id": "dc:elementContainer"
-      },
-      "DcElementsGroup": {
-         "@id": "dc:elementsGroup"
-      },
-      "DcFormat": {
+      "dc_format": {
          "@id": "dc:format"
       },
-      "DcIdentifier": {
+      "dc_identifier": {
          "@id": "dc:identifier"
       },
-      "DcLanguage": {
+      "dc_language": {
          "@id": "dc:language"
       },
-      "DcPublisher": {
+      "dc_publisher": {
          "@id": "dc:publisher"
       },
-      "DcRelation": {
+      "dc_relation": {
          "@id": "dc:relation"
       },
-      "DcRights": {
+      "dc_rights": {
          "@id": "dc:rights"
       },
-      "DcSimpleLiteral": {
-         "@id": "dc:SimpleLiteral"
-      },
-      "DcSource": {
+      "dc_source": {
          "@id": "dc:source"
       },
-      "DcSubject": {
+      "dc_subject": {
          "@id": "dc:subject"
       },
-      "DctermsAbstract": {
-         "@id": "dcterms:abstract"
-      },
-      "DctermsAccessRights": {
-         "@id": "dcterms:accessRights"
-      },
-      "DctermsAccrualMethod": {
-         "@id": "dcterms:accrualMethod"
-      },
-      "DctermsAccrualPeriodicity": {
-         "@id": "dcterms:accrualPeriodicity"
-      },
-      "DctermsAccrualPolicy": {
-         "@id": "dcterms:accrualPolicy"
-      },
-      "DctermsAlternative": {
-         "@id": "dcterms:alternative"
-      },
-      "DctermsAudience": {
-         "@id": "dcterms:audience"
-      },
-      "DctermsAvailable": {
-         "@id": "dcterms:available"
-      },
-      "DctermsBibliographicCitation": {
-         "@id": "dcterms:bibliographicCitation"
-      },
-      "DctermsBox": {
-         "@id": "dcterms:Box"
-      },
-      "DctermsConformsTo": {
-         "@id": "dcterms:conformsTo"
-      },
-      "DctermsContributor": {
-         "@id": "dcterms:contributor"
-      },
-      "DctermsCoverage": {
-         "@id": "dcterms:coverage"
-      },
-      "DctermsCreated": {
-         "@id": "dcterms:created"
-      },
-      "DctermsCreator": {
-         "@id": "dcterms:creator"
-      },
-      "DctermsDate": {
-         "@id": "dcterms:date"
-      },
-      "DctermsDateAccepted": {
-         "@id": "dcterms:dateAccepted"
-      },
-      "DctermsDateCopyrighted": {
-         "@id": "dcterms:dateCopyrighted"
-      },
-      "DctermsDateSubmitted": {
-         "@id": "dcterms:dateSubmitted"
-      },
-      "DctermsDCMIType": {
-         "@id": "dcterms:DCMIType"
-      },
-      "DctermsDDC": {
-         "@id": "dcterms:DDC"
-      },
-      "DctermsDescription": {
-         "@id": "dcterms:description"
-      },
-      "DctermsEducationLevel": {
-         "@id": "dcterms:educationLevel"
-      },
-      "DctermsElementOrRefinementContainer": {
-         "@id": "dcterms:elementOrRefinementContainer"
-      },
-      "DctermsElementsAndRefinementsGroup": {
-         "@id": "dcterms:elementsAndRefinementsGroup"
-      },
-      "DctermsExtent": {
-         "@id": "dcterms:extent"
-      },
-      "DctermsFormat": {
-         "@id": "dcterms:format"
-      },
-      "DctermsHasFormat": {
-         "@id": "dcterms:hasFormat"
-      },
-      "DctermsHasPart": {
-         "@id": "dcterms:hasPart"
-      },
-      "DctermsHasVersion": {
-         "@id": "dcterms:hasVersion"
-      },
-      "DctermsIdentifier": {
-         "@id": "dcterms:identifier"
-      },
-      "DctermsIMT": {
-         "@id": "dcterms:IMT"
-      },
-      "DctermsInstructionalMethod": {
-         "@id": "dcterms:instructionalMethod"
-      },
-      "DctermsIsFormatOf": {
-         "@id": "dcterms:isFormatOf"
-      },
-      "DctermsISO3166": {
-         "@id": "dcterms:ISO3166"
-      },
-      "DctermsISO6392": {
-         "@id": "dcterms:ISO639-2"
-      },
-      "DctermsISO6393": {
-         "@id": "dcterms:ISO639-3"
-      },
-      "DctermsIsPartOf": {
-         "@id": "dcterms:isPartOf"
-      },
-      "DctermsIsReferencedBy": {
-         "@id": "dcterms:isReferencedBy"
-      },
-      "DctermsIsReplacedBy": {
-         "@id": "dcterms:isReplacedBy"
-      },
-      "DctermsIsRequiredBy": {
-         "@id": "dcterms:isRequiredBy"
-      },
-      "DctermsIssued": {
-         "@id": "dcterms:issued"
-      },
-      "DctermsIsVersionOf": {
-         "@id": "dcterms:isVersionOf"
-      },
-      "DctermsLanguage": {
-         "@id": "dcterms:language"
-      },
-      "DctermsLCC": {
-         "@id": "dcterms:LCC"
-      },
-      "DctermsLCSH": {
-         "@id": "dcterms:LCSH"
-      },
-      "DctermsLicense": {
-         "@id": "dcterms:license"
-      },
-      "DctermsMediator": {
-         "@id": "dcterms:mediator"
-      },
-      "DctermsMedium": {
-         "@id": "dcterms:medium"
-      },
-      "DctermsMESH": {
-         "@id": "dcterms:MESH"
-      },
-      "DctermsModified": {
-         "@id": "dcterms:modified"
-      },
-      "DctermsPeriod": {
-         "@id": "dcterms:Period"
-      },
-      "DctermsPoint": {
-         "@id": "dcterms:Point"
-      },
-      "DctermsProvenance": {
-         "@id": "dcterms:provenance"
-      },
-      "DctermsPublisher": {
-         "@id": "dcterms:publisher"
-      },
-      "DctermsReferences": {
-         "@id": "dcterms:references"
-      },
-      "DctermsRelation": {
-         "@id": "dcterms:relation"
-      },
-      "DctermsReplaces": {
-         "@id": "dcterms:replaces"
-      },
-      "DctermsRequires": {
-         "@id": "dcterms:requires"
-      },
-      "DctermsRFC1766": {
-         "@id": "dcterms:RFC1766"
-      },
-      "DctermsRFC3066": {
-         "@id": "dcterms:RFC3066"
-      },
-      "DctermsRFC4646": {
-         "@id": "dcterms:RFC4646"
-      },
-      "DctermsRights": {
-         "@id": "dcterms:rights"
-      },
-      "DctermsRightsHolder": {
-         "@id": "dcterms:rightsHolder"
-      },
-      "DctermsSource": {
-         "@id": "dcterms:source"
-      },
-      "DctermsSpatial": {
-         "@id": "dcterms:spatial"
-      },
-      "DctermsSubject": {
-         "@id": "dcterms:subject"
-      },
-      "DctermsTableOfContents": {
-         "@id": "dcterms:tableOfContents"
-      },
-      "DctermsTemporal": {
-         "@id": "dcterms:temporal"
-      },
-      "DctermsTGN": {
-         "@id": "dcterms:TGN"
-      },
-      "DctermsTitle": {
-         "@id": "dcterms:title"
-      },
-      "DctermsType": {
-         "@id": "dcterms:type"
-      },
-      "DctermsUDC": {
-         "@id": "dcterms:UDC"
-      },
-      "DctermsURI": {
-         "@id": "dcterms:URI"
-      },
-      "DctermsValid": {
-         "@id": "dcterms:valid"
-      },
-      "DctermsW3CDTF": {
-         "@id": "dcterms:W3CDTF"
-      },
-      "DcTitle": {
+      "dc_title": {
          "@id": "dc:title"
       },
-      "DcType": {
+      "dc_type": {
          "@id": "dc:type"
       },
-      "Documentation": {
-         "@id": "Documentation"
+      "dcterms_abstract": {
+         "@id": "dcterms:abstract"
       },
-      "EncodingType": {
-         "@id": "EncodingType"
+      "dcterms_access_rights": {
+         "@id": "dcterms:accessRights"
       },
-      "EntityAttribGrp": {
-         "@id": "EntityAttribGrp"
+      "dcterms_accrual_method": {
+         "@id": "dcterms:accrualMethod"
       },
-      "ExtensionInline": {
-         "@id": "ExtensionInline"
+      "dcterms_accrual_periodicity": {
+         "@id": "dcterms:accrualPeriodicity"
       },
-      "FieldAttribGrp": {
-         "@id": "FieldAttribGrp"
+      "dcterms_accrual_policy": {
+         "@id": "dcterms:accrualPolicy"
       },
-      "FieldRefType": {
-         "@id": "FieldRefType"
+      "dcterms_alternative": {
+         "@id": "dcterms:alternative"
       },
-      "FieldRuleType": {
-         "@id": "FieldRuleType"
+      "dcterms_audience": {
+         "@id": "dcterms:audience"
       },
-      "Fields": {
-         "@id": "Fields"
+      "dcterms_available": {
+         "@id": "dcterms:available"
       },
-      "FieldType": {
-         "@id": "FieldType"
+      "dcterms_bibliographic_citation": {
+         "@id": "dcterms:bibliographicCitation"
       },
-      "FIXMLencodingType": {
-         "@id": "FIXMLencodingType"
+      "dcterms_conforms_to": {
+         "@id": "dcterms:conformsTo"
       },
-      "FlowType": {
-         "@id": "FlowType"
+      "dcterms_contributor": {
+         "@id": "dcterms:contributor"
       },
-      "GroupRefType": {
-         "@id": "GroupRefType"
+      "dcterms_coverage": {
+         "@id": "dcterms:coverage"
       },
-      "Groups": {
-         "@id": "Groups"
+      "dcterms_created": {
+         "@id": "dcterms:created"
       },
-      "GroupType": {
-         "@id": "GroupType"
+      "dcterms_creator": {
+         "@id": "dcterms:creator"
       },
-      "IdentifiersType": {
-         "@id": "IdentifiersType"
+      "dcterms_date": {
+         "@id": "dcterms:date"
       },
-      "IdentifierType": {
-         "@id": "IdentifierType"
+      "dcterms_date_accepted": {
+         "@id": "dcterms:dateAccepted"
       },
-      "InterfaceAnnotation": {
-         "@id": "InterfaceAnnotation"
+      "dcterms_date_copyrighted": {
+         "@id": "dcterms:dateCopyrighted"
       },
-      "InterfaceAppinfo": {
-         "@id": "InterfaceAppinfo"
+      "dcterms_date_submitted": {
+         "@id": "dcterms:dateSubmitted"
       },
-      "InterfaceDocumentation": {
-         "@id": "InterfaceDocumentation"
+      "dcterms_description": {
+         "@id": "dcterms:description"
       },
-      "Interfaces": {
-         "@id": "Interfaces"
+      "dcterms_education_level": {
+         "@id": "dcterms:educationLevel"
       },
-      "InterfaceType": {
-         "@id": "InterfaceType"
+      "dcterms_extent": {
+         "@id": "dcterms:extent"
       },
-      "MappedDatatype": {
-         "@id": "MappedDatatype"
+      "dcterms_format": {
+         "@id": "dcterms:format"
       },
-      "MessageRefType": {
-         "@id": "MessageRefType"
+      "dcterms_has_format": {
+         "@id": "dcterms:hasFormat"
       },
-      "Messages": {
-         "@id": "Messages"
+      "dcterms_has_part": {
+         "@id": "dcterms:hasPart"
       },
-      "MessageType": {
-         "@id": "MessageType"
+      "dcterms_has_version": {
+         "@id": "dcterms:hasVersion"
       },
-      "OidGrp": {
-         "@id": "OidGrp"
+      "dcterms_identifier": {
+         "@id": "dcterms:identifier"
       },
-      "ProtocolType": {
-         "@id": "ProtocolType"
+      "dcterms_instructional_method": {
+         "@id": "dcterms:instructionalMethod"
       },
-      "RefidGrp": {
-         "@id": "RefidGrp"
+      "dcterms_is_format_of": {
+         "@id": "dcterms:isFormatOf"
       },
-      "Repository": {
-         "@id": "Repository"
+      "dcterms_is_part_of": {
+         "@id": "dcterms:isPartOf"
       },
-      "ResponsesInline": {
-         "@id": "ResponsesInline"
+      "dcterms_is_referenced_by": {
+         "@id": "dcterms:isReferencedBy"
       },
-      "ResponseType": {
-         "@id": "ResponseType"
+      "dcterms_is_replaced_by": {
+         "@id": "dcterms:isReplacedBy"
       },
-      "ScenarioRefGrp": {
-         "@id": "ScenarioRefGrp"
+      "dcterms_is_required_by": {
+         "@id": "dcterms:isRequiredBy"
       },
-      "Scenarios": {
-         "@id": "Scenarios"
+      "dcterms_is_version_of": {
+         "@id": "dcterms:isVersionOf"
       },
-      "ScenarioType": {
-         "@id": "ScenarioType"
+      "dcterms_issued": {
+         "@id": "dcterms:issued"
       },
-      "Sections": {
-         "@id": "Sections"
+      "dcterms_language": {
+         "@id": "dcterms:language"
       },
-      "SectionType": {
-         "@id": "SectionType"
+      "dcterms_license": {
+         "@id": "dcterms:license"
       },
-      "ServiceType": {
-         "@id": "ServiceType"
+      "dcterms_mediator": {
+         "@id": "dcterms:mediator"
       },
-      "SessionProtocolType": {
-         "@id": "SessionProtocolType"
+      "dcterms_medium": {
+         "@id": "dcterms:medium"
       },
-      "SessionsInline": {
-         "@id": "SessionsInline"
+      "dcterms_modified": {
+         "@id": "dcterms:modified"
       },
-      "SessionType": {
-         "@id": "SessionType"
+      "dcterms_provenance": {
+         "@id": "dcterms:provenance"
       },
-      "StateMachineType": {
-         "@id": "StateMachineType"
+      "dcterms_publisher": {
+         "@id": "dcterms:publisher"
       },
-      "StateType": {
-         "@id": "StateType"
+      "dcterms_references": {
+         "@id": "dcterms:references"
       },
-      "StructureInline": {
-         "@id": "StructureInline"
+      "dcterms_relation": {
+         "@id": "dcterms:relation"
       },
-      "TimerSchedule": {
-         "@id": "TimerSchedule"
+      "dcterms_replaces": {
+         "@id": "dcterms:replaces"
       },
-      "TimerType": {
-         "@id": "TimerType"
+      "dcterms_requires": {
+         "@id": "dcterms:requires"
       },
-      "TransitionType": {
-         "@id": "TransitionType"
+      "dcterms_rights": {
+         "@id": "dcterms:rights"
       },
-      "TransportProtocolType": {
-         "@id": "TransportProtocolType"
+      "dcterms_rights_holder": {
+         "@id": "dcterms:rightsHolder"
       },
-      "TriggerType": {
-         "@id": "TriggerType"
+      "dcterms_source": {
+         "@id": "dcterms:source"
       },
-      "UniqueInline": {
-         "@id": "UniqueInline"
+      "dcterms_spatial": {
+         "@id": "dcterms:spatial"
       },
-      "UserInterfaceType": {
-         "@id": "UserInterfaceType"
+      "dcterms_subject": {
+         "@id": "dcterms:subject"
       },
-      "XmlGlobalAttributes": {
-         "@id": "XML:GlobalAttributes"
+      "dcterms_table_of_contents": {
+         "@id": "dcterms:tableOfContents"
       },
-      "XmlSpecialAttrs": {
-         "@id": "XML:specialAttrs"
+      "dcterms_temporal": {
+         "@id": "dcterms:temporal"
+      },
+      "dcterms_title": {
+         "@id": "dcterms:title"
+      },
+      "dcterms_type": {
+         "@id": "dcterms:type"
+      },
+      "dcterms_valid": {
+         "@id": "dcterms:valid"
+      },
+      "fixr_added": {
+         "@id": "fixr_added"
+      },
+      "fixr_added_ep": {
+         "@type": "xsd:integer",
+         "@id": "fixr_added_ep"
+      },
+      "fixr_change_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_change_type"
+      },
+      "fixr_deprecated": {
+         "@id": "fixr_deprecated"
+      },
+      "fixr_deprecated_ep": {
+         "@type": "xsd:integer",
+         "@id": "fixr_deprecated_ep"
+      },
+      "fixr_issue": {
+         "@id": "fixr_issue"
+      },
+      "fixr_last_modified": {
+         "@id": "fixr_last_modified"
+      },
+      "fixr_replaced": {
+         "@id": "fixr_replaced"
+      },
+      "fixr_replaced_by_field": {
+         "@type": "xsd:integer",
+         "@id": "fixr_replaced_by_field"
+      },
+      "fixr_replaced_ep": {
+         "@type": "xsd:integer",
+         "@id": "fixr_replaced_ep"
+      },
+      "fixr_supported": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_supported"
+      },
+      "fixr_updated": {
+         "@id": "fixr_updated"
+      },
+      "fixr_updated_ep": {
+         "@type": "xsd:integer",
+         "@id": "fixr_updated_ep"
+      },
+      "fixi_layer": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixi_layer"
+      },
+      "fixi_orchestration": {
+         "@type": "xsd:anyURI",
+         "@id": "fixi_orchestration"
+      },
+      "fixi_reliability": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixi_reliability"
+      },
+      "fixi_version": {
+         "@id": "fixi_version"
+      },
+      "fixi_activation_time": {
+         "@id": "fixi_activation_time"
+      },
+      "fixi_deactivation_time": {
+         "@id": "fixi_deactivation_time"
+      },
+      "fixi_deprecated": {
+         "@id": "fixi_deprecated"
+      },
+      "fixr_actors": {
+         "@type": "@id",
+         "@id": "fixr_actors"
+      },
+      "fixr_appl_ver_id": {
+         "@id": "fixr_appl_ver_id"
+      },
+      "fixr_categories": {
+         "@type": "@id",
+         "@id": "fixr_categories"
+      },
+      "fixr_code_sets": {
+         "@type": "@id",
+         "@id": "fixr_code_sets"
+      },
+      "fixr_components": {
+         "@type": "@id",
+         "@id": "fixr_components"
+      },
+      "fixr_concepts": {
+         "@type": "@id",
+         "@id": "fixr_concepts"
+      },
+      "fixr_datatypes": {
+         "@type": "@id",
+         "@id": "fixr_datatypes"
+      },
+      "fixr_expression_language": {
+         "@id": "fixr_expression_language"
+      },
+      "fixr_fields": {
+         "@type": "@id",
+         "@id": "fixr_fields"
+      },
+      "fixr_groups": {
+         "@type": "@id",
+         "@id": "fixr_groups"
+      },
+      "fixr_guid": {
+         "@id": "fixr_guid"
+      },
+      "fixr_messages": {
+         "@type": "@id",
+         "@id": "fixr_messages"
+      },
+      "fixr_metadata": {
+         "@type": "@id",
+         "@id": "fixr_metadata"
+      },
+      "fixr_namespace": {
+         "@type": "xsd:anyURI",
+         "@id": "fixr_namespace"
+      },
+      "fixr_sections": {
+         "@type": "@id",
+         "@id": "fixr_sections"
+      },
+      "fixr_version": {
+         "@id": "fixr_version"
+      },
+      "fixr_encoding_standards": {
+         "@type": "@id",
+         "@id": "fixr_encoding_standards"
+      },
+      "fixr_scenarios": {
+         "@type": "@id",
+         "@id": "fixr_scenarios"
+      },
+      "fixr_response": {
+         "@type": "@id",
+         "@id": "fixr_response"
+      },
+      "fixr_sync": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_sync"
+      },
+      "fixr_scenario_ref": {
+         "@id": "fixr_scenario_ref"
+      },
+      "fixr_scenario_ref_id": {
+         "@type": "xsd:integer",
+         "@id": "fixr_scenario_ref_id"
+      },
+      "fixr_display_order": {
+         "@type": "xsd:integer",
+         "@id": "fixr_display_order"
+      },
+      "fixi_session": {
+         "@type": "@id",
+         "@id": "fixi_session"
+      },
+      "fixi_identifier": {
+         "@type": "@id",
+         "@id": "fixi_identifier"
+      },
+      "fixi_role": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixi_role"
+      },
+      "fixi_security_keys": {
+         "@id": "fixi_security_keys"
+      },
+      "fixr_initial": {
+         "@type": "@id",
+         "@id": "fixr_initial"
+      },
+      "fixr_state": {
+         "@type": "@id",
+         "@id": "fixr_state"
+      },
+      "fixr_activity": {
+         "@type": "@id",
+         "@id": "fixr_activity"
+      },
+      "fixr_onentry": {
+         "@type": "@id",
+         "@id": "fixr_onentry"
+      },
+      "fixr_onexit": {
+         "@type": "@id",
+         "@id": "fixr_onexit"
+      },
+      "fixr_transition": {
+         "@type": "@id",
+         "@id": "fixr_transition"
+      },
+      "fixr_interval": {
+         "@id": "fixr_interval"
+      },
+      "fixr_operation": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixr_operation"
+      },
+      "fixr_target": {
+         "@id": "fixr_target"
+      },
+      "fixi_address": {
+         "@id": "fixi_address"
+      },
+      "fixi_message_cast": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fixi_message_cast"
+      },
+      "fixi_use": {
+         "@id": "fixi_use"
+      },
+      "fixr_state_machine": {
+         "@id": "fixr_state_machine"
+      },
+      "xml_name": {
+         "@id": "xml_name"
+      },
+      "xml_value": {
+         "@id": "xml_value"
+      },
+      "xml_attributes": {
+         "@type": "@id",
+         "@id": "xml_attributes"
+      },
+      "xml_children": {
+         "@type": "@id",
+         "@id": "xml_children"
+      },
+      "xml_tail": {
+         "@id": "xml_tail"
+      },
+      "xml_text": {
+         "@id": "xml_text"
+      },
+      "OrchestraActionParameterV10": {
+         "@id": "OrchestraActionParameterV10"
+      },
+      "OrchestraActionParameterV11": {
+         "@id": "OrchestraActionParameterV11"
+      },
+      "OrchestraActionStepV10": {
+         "@id": "OrchestraActionStepV10"
+      },
+      "OrchestraActionStepV11": {
+         "@id": "OrchestraActionStepV11"
+      },
+      "OrchestraActionV10": {
+         "@id": "OrchestraActionV10"
+      },
+      "OrchestraActionV11": {
+         "@id": "OrchestraActionV11"
+      },
+      "OrchestraActorMemberV10": {
+         "@id": "OrchestraActorMemberV10"
+      },
+      "OrchestraActorMemberV11": {
+         "@id": "OrchestraActorMemberV11"
+      },
+      "OrchestraActorsMemberV10": {
+         "@id": "OrchestraActorsMemberV10"
+      },
+      "OrchestraActorsMemberV11": {
+         "@id": "OrchestraActorsMemberV11"
+      },
+      "OrchestraActorsV10": {
+         "@id": "OrchestraActorsV10"
+      },
+      "OrchestraActorsV11": {
+         "@id": "OrchestraActorsV11"
+      },
+      "OrchestraActorV10": {
+         "@id": "OrchestraActorV10"
+      },
+      "OrchestraActorV11": {
+         "@id": "OrchestraActorV11"
+      },
+      "OrchestraAnnotationMemberV10": {
+         "@id": "OrchestraAnnotationMemberV10"
+      },
+      "OrchestraAnnotationMemberV11": {
+         "@id": "OrchestraAnnotationMemberV11"
+      },
+      "OrchestraAnnotationV10": {
+         "@id": "OrchestraAnnotationV10"
+      },
+      "OrchestraAnnotationV11": {
+         "@id": "OrchestraAnnotationV11"
+      },
+      "OrchestraAppinfoV10": {
+         "@id": "OrchestraAppinfoV10"
+      },
+      "OrchestraAppinfoV11": {
+         "@id": "OrchestraAppinfoV11"
+      },
+      "OrchestraBaseEncodingV11": {
+         "@id": "OrchestraBaseEncodingV11"
+      },
+      "OrchestraBaseInterfaceV10": {
+         "@id": "OrchestraBaseInterfaceV10"
+      },
+      "OrchestraBaseInterfaceV11": {
+         "@id": "OrchestraBaseInterfaceV11"
+      },
+      "OrchestraBlockAssignmentV10": {
+         "@id": "OrchestraBlockAssignmentV10"
+      },
+      "OrchestraBlockAssignmentV11": {
+         "@id": "OrchestraBlockAssignmentV11"
+      },
+      "OrchestraCategoriesV10": {
+         "@id": "OrchestraCategoriesV10"
+      },
+      "OrchestraCategoriesV11": {
+         "@id": "OrchestraCategoriesV11"
+      },
+      "OrchestraCategoryV10": {
+         "@id": "OrchestraCategoryV10"
+      },
+      "OrchestraCategoryV11": {
+         "@id": "OrchestraCategoryV11"
+      },
+      "OrchestraCodeSetsV10": {
+         "@id": "OrchestraCodeSetsV10"
+      },
+      "OrchestraCodeSetsV11": {
+         "@id": "OrchestraCodeSetsV11"
+      },
+      "OrchestraCodeSetV10": {
+         "@id": "OrchestraCodeSetV10"
+      },
+      "OrchestraCodeSetV11": {
+         "@id": "OrchestraCodeSetV11"
+      },
+      "OrchestraCodeV10": {
+         "@id": "OrchestraCodeV10"
+      },
+      "OrchestraCodeV11": {
+         "@id": "OrchestraCodeV11"
+      },
+      "OrchestraComponentRefV10": {
+         "@id": "OrchestraComponentRefV10"
+      },
+      "OrchestraComponentRefV11": {
+         "@id": "OrchestraComponentRefV11"
+      },
+      "OrchestraComponentRuleV10": {
+         "@id": "OrchestraComponentRuleV10"
+      },
+      "OrchestraComponentRuleV11": {
+         "@id": "OrchestraComponentRuleV11"
+      },
+      "OrchestraComponentsV10": {
+         "@id": "OrchestraComponentsV10"
+      },
+      "OrchestraComponentsV11": {
+         "@id": "OrchestraComponentsV11"
+      },
+      "OrchestraComponentV10": {
+         "@id": "OrchestraComponentV10"
+      },
+      "OrchestraComponentV11": {
+         "@id": "OrchestraComponentV11"
+      },
+      "OrchestraConceptMemberV10": {
+         "@id": "OrchestraConceptMemberV10"
+      },
+      "OrchestraConceptMemberV11": {
+         "@id": "OrchestraConceptMemberV11"
+      },
+      "OrchestraConceptsV10": {
+         "@id": "OrchestraConceptsV10"
+      },
+      "OrchestraConceptsV11": {
+         "@id": "OrchestraConceptsV11"
+      },
+      "OrchestraConceptV10": {
+         "@id": "OrchestraConceptV10"
+      },
+      "OrchestraConceptV11": {
+         "@id": "OrchestraConceptV11"
+      },
+      "OrchestraContainerV10Mixin": {
+         "@id": "OrchestraContainerV10Mixin"
+      },
+      "OrchestraDatatypeExtensionV10": {
+         "@id": "OrchestraDatatypeExtensionV10"
+      },
+      "OrchestraDatatypesV10": {
+         "@id": "OrchestraDatatypesV10"
+      },
+      "OrchestraDatatypesV11": {
+         "@id": "OrchestraDatatypesV11"
+      },
+      "OrchestraDatatypeV10": {
+         "@id": "OrchestraDatatypeV10"
+      },
+      "OrchestraDatatypeV11": {
+         "@id": "OrchestraDatatypeV11"
+      },
+      "OrchestraDocumentationV10": {
+         "@id": "OrchestraDocumentationV10"
+      },
+      "OrchestraDocumentationV11": {
+         "@id": "OrchestraDocumentationV11"
+      },
+      "OrchestraEncodingStandardsV11": {
+         "@id": "OrchestraEncodingStandardsV11"
+      },
+      "OrchestraEncodingStandardV11": {
+         "@id": "OrchestraEncodingStandardV11"
+      },
+      "OrchestraEncodingsV11": {
+         "@id": "OrchestraEncodingsV11"
+      },
+      "OrchestraEncodingV10": {
+         "@id": "OrchestraEncodingV10"
+      },
+      "OrchestraEncodingV11": {
+         "@id": "OrchestraEncodingV11"
+      },
+      "OrchestraFieldConstraintsV10Mixin": {
+         "@id": "OrchestraFieldConstraintsV10Mixin"
+      },
+      "OrchestraFieldConstraintsV11Mixin": {
+         "@id": "OrchestraFieldConstraintsV11Mixin"
+      },
+      "OrchestraFieldRefV10": {
+         "@id": "OrchestraFieldRefV10"
+      },
+      "OrchestraFieldRefV11": {
+         "@id": "OrchestraFieldRefV11"
+      },
+      "OrchestraFieldRuleV10": {
+         "@id": "OrchestraFieldRuleV10"
+      },
+      "OrchestraFieldRuleV11": {
+         "@id": "OrchestraFieldRuleV11"
+      },
+      "OrchestraFieldsV10": {
+         "@id": "OrchestraFieldsV10"
+      },
+      "OrchestraFieldsV11": {
+         "@id": "OrchestraFieldsV11"
+      },
+      "OrchestraFieldV10": {
+         "@id": "OrchestraFieldV10"
+      },
+      "OrchestraFieldV11": {
+         "@id": "OrchestraFieldV11"
+      },
+      "OrchestraFlowV10": {
+         "@id": "OrchestraFlowV10"
+      },
+      "OrchestraFlowV11": {
+         "@id": "OrchestraFlowV11"
+      },
+      "OrchestraGroupRefV10": {
+         "@id": "OrchestraGroupRefV10"
+      },
+      "OrchestraGroupRefV11": {
+         "@id": "OrchestraGroupRefV11"
+      },
+      "OrchestraGroupsV10": {
+         "@id": "OrchestraGroupsV10"
+      },
+      "OrchestraGroupsV11": {
+         "@id": "OrchestraGroupsV11"
+      },
+      "OrchestraGroupV10": {
+         "@id": "OrchestraGroupV10"
+      },
+      "OrchestraGroupV11": {
+         "@id": "OrchestraGroupV11"
+      },
+      "OrchestraIdentifiersMemberV10": {
+         "@id": "OrchestraIdentifiersMemberV10"
+      },
+      "OrchestraIdentifiersMemberV11": {
+         "@id": "OrchestraIdentifiersMemberV11"
+      },
+      "OrchestraIdentifiersV10": {
+         "@id": "OrchestraIdentifiersV10"
+      },
+      "OrchestraIdentifiersV11": {
+         "@id": "OrchestraIdentifiersV11"
+      },
+      "OrchestraIdentifierV10": {
+         "@id": "OrchestraIdentifierV10"
+      },
+      "OrchestraIdentifierV11": {
+         "@id": "OrchestraIdentifierV11"
+      },
+      "OrchestraIdentityV10Mixin": {
+         "@id": "OrchestraIdentityV10Mixin"
+      },
+      "OrchestraIdentityV11Mixin": {
+         "@id": "OrchestraIdentityV11Mixin"
+      },
+      "OrchestraInterfaceAnnotationMemberV10": {
+         "@id": "OrchestraInterfaceAnnotationMemberV10"
+      },
+      "OrchestraInterfaceAnnotationMemberV11": {
+         "@id": "OrchestraInterfaceAnnotationMemberV11"
+      },
+      "OrchestraInterfaceAnnotationV10": {
+         "@id": "OrchestraInterfaceAnnotationV10"
+      },
+      "OrchestraInterfaceAnnotationV11": {
+         "@id": "OrchestraInterfaceAnnotationV11"
+      },
+      "OrchestraInterfaceAppinfoV10": {
+         "@id": "OrchestraInterfaceAppinfoV10"
+      },
+      "OrchestraInterfaceAppinfoV11": {
+         "@id": "OrchestraInterfaceAppinfoV11"
+      },
+      "OrchestraInterfaceDocumentationV10": {
+         "@id": "OrchestraInterfaceDocumentationV10"
+      },
+      "OrchestraInterfaceDocumentationV11": {
+         "@id": "OrchestraInterfaceDocumentationV11"
+      },
+      "OrchestraInterfacesV10": {
+         "@id": "OrchestraInterfacesV10"
+      },
+      "OrchestraInterfacesV11": {
+         "@id": "OrchestraInterfacesV11"
+      },
+      "OrchestraInterfaceV10": {
+         "@id": "OrchestraInterfaceV10"
+      },
+      "OrchestraInterfaceV11": {
+         "@id": "OrchestraInterfaceV11"
+      },
+      "OrchestraMappedDatatypeV10": {
+         "@id": "OrchestraMappedDatatypeV10"
+      },
+      "OrchestraMappedDatatypeV11": {
+         "@id": "OrchestraMappedDatatypeV11"
+      },
+      "OrchestraMessageRefV10": {
+         "@id": "OrchestraMessageRefV10"
+      },
+      "OrchestraMessageRefV11": {
+         "@id": "OrchestraMessageRefV11"
+      },
+      "OrchestraMessageStructureV10": {
+         "@id": "OrchestraMessageStructureV10"
+      },
+      "OrchestraMessageStructureV11": {
+         "@id": "OrchestraMessageStructureV11"
+      },
+      "OrchestraMessagesV10": {
+         "@id": "OrchestraMessagesV10"
+      },
+      "OrchestraMessagesV11": {
+         "@id": "OrchestraMessagesV11"
+      },
+      "OrchestraMessageV10": {
+         "@id": "OrchestraMessageV10"
+      },
+      "OrchestraMessageV11": {
+         "@id": "OrchestraMessageV11"
+      },
+      "OrchestraMetadata": {
+         "@id": "OrchestraMetadata"
+      },
+      "OrchestraNamedEncodingV11": {
+         "@id": "OrchestraNamedEncodingV11"
+      },
+      "OrchestraPedigreeV10Mixin": {
+         "@id": "OrchestraPedigreeV10Mixin"
+      },
+      "OrchestraPedigreeV11Mixin": {
+         "@id": "OrchestraPedigreeV11Mixin"
+      },
+      "OrchestraProtocolV10": {
+         "@id": "OrchestraProtocolV10"
+      },
+      "OrchestraProtocolV11": {
+         "@id": "OrchestraProtocolV11"
+      },
+      "OrchestraReferenceV10Mixin": {
+         "@id": "OrchestraReferenceV10Mixin"
+      },
+      "OrchestraReferenceV11Mixin": {
+         "@id": "OrchestraReferenceV11Mixin"
+      },
+      "OrchestraRepositoryV10": {
+         "@id": "OrchestraRepositoryV10"
+      },
+      "OrchestraRepositoryV11": {
+         "@id": "OrchestraRepositoryV11"
+      },
+      "OrchestraResponsesV10": {
+         "@id": "OrchestraResponsesV10"
+      },
+      "OrchestraResponsesV11": {
+         "@id": "OrchestraResponsesV11"
+      },
+      "OrchestraResponseV10": {
+         "@id": "OrchestraResponseV10"
+      },
+      "OrchestraResponseV11": {
+         "@id": "OrchestraResponseV11"
+      },
+      "OrchestraScenarioReferenceV11Mixin": {
+         "@id": "OrchestraScenarioReferenceV11Mixin"
+      },
+      "OrchestraScenariosV11": {
+         "@id": "OrchestraScenariosV11"
+      },
+      "OrchestraScenarioV11": {
+         "@id": "OrchestraScenarioV11"
+      },
+      "OrchestraSectionsV10": {
+         "@id": "OrchestraSectionsV10"
+      },
+      "OrchestraSectionsV11": {
+         "@id": "OrchestraSectionsV11"
+      },
+      "OrchestraSectionV10": {
+         "@id": "OrchestraSectionV10"
+      },
+      "OrchestraSectionV11": {
+         "@id": "OrchestraSectionV11"
+      },
+      "OrchestraServiceV10": {
+         "@id": "OrchestraServiceV10"
+      },
+      "OrchestraServiceV11": {
+         "@id": "OrchestraServiceV11"
+      },
+      "OrchestraSessionIdentifierV10": {
+         "@id": "OrchestraSessionIdentifierV10"
+      },
+      "OrchestraSessionIdentifierV11": {
+         "@id": "OrchestraSessionIdentifierV11"
+      },
+      "OrchestraSessionProtocolV10": {
+         "@id": "OrchestraSessionProtocolV10"
+      },
+      "OrchestraSessionProtocolV11": {
+         "@id": "OrchestraSessionProtocolV11"
+      },
+      "OrchestraSessionsV10": {
+         "@id": "OrchestraSessionsV10"
+      },
+      "OrchestraSessionsV11": {
+         "@id": "OrchestraSessionsV11"
+      },
+      "OrchestraSessionV10": {
+         "@id": "OrchestraSessionV10"
+      },
+      "OrchestraSessionV11": {
+         "@id": "OrchestraSessionV11"
+      },
+      "OrchestraStateMachineV10": {
+         "@id": "OrchestraStateMachineV10"
+      },
+      "OrchestraStateMachineV11": {
+         "@id": "OrchestraStateMachineV11"
+      },
+      "OrchestraStateV10": {
+         "@id": "OrchestraStateV10"
+      },
+      "OrchestraStateV11": {
+         "@id": "OrchestraStateV11"
+      },
+      "OrchestraStructureMemberV10": {
+         "@id": "OrchestraStructureMemberV10"
+      },
+      "OrchestraStructureMemberV11": {
+         "@id": "OrchestraStructureMemberV11"
+      },
+      "OrchestraTimerScheduleV10": {
+         "@id": "OrchestraTimerScheduleV10"
+      },
+      "OrchestraTimerScheduleV11": {
+         "@id": "OrchestraTimerScheduleV11"
+      },
+      "OrchestraTimerV10": {
+         "@id": "OrchestraTimerV10"
+      },
+      "OrchestraTimerV11": {
+         "@id": "OrchestraTimerV11"
+      },
+      "OrchestraTransitionV10": {
+         "@id": "OrchestraTransitionV10"
+      },
+      "OrchestraTransitionV11": {
+         "@id": "OrchestraTransitionV11"
+      },
+      "OrchestraTransportV10": {
+         "@id": "OrchestraTransportV10"
+      },
+      "OrchestraTransportV11": {
+         "@id": "OrchestraTransportV11"
+      },
+      "OrchestraTriggerV10": {
+         "@id": "OrchestraTriggerV10"
+      },
+      "OrchestraTriggerV11": {
+         "@id": "OrchestraTriggerV11"
+      },
+      "OrchestraUniqueV10": {
+         "@id": "OrchestraUniqueV10"
+      },
+      "OrchestraUniqueV11": {
+         "@id": "OrchestraUniqueV11"
+      },
+      "OrchestraUnnamedEncodingV11": {
+         "@id": "OrchestraUnnamedEncodingV11"
+      },
+      "OrchestraUserInterfaceV10": {
+         "@id": "OrchestraUserInterfaceV10"
+      },
+      "OrchestraUserInterfaceV11": {
+         "@id": "OrchestraUserInterfaceV11"
+      },
+      "OrchestraXmlAttribute": {
+         "@id": "OrchestraXmlAttribute"
+      },
+      "OrchestraXmlElement": {
+         "@id": "OrchestraXmlElement"
       }
    }
 }

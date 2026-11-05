@@ -1,0 +1,10 @@
+# Fails at: /fixr_reliability
+# Reliability is one of three values.
+fixr_name: OrderFlow
+fixr_source: Trader
+fixr_destination: Venue
+fixr_reliability: guaranteed
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_text: Orders from the firm to the venue.

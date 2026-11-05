@@ -1,0 +1,764 @@
+---
+id: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_common
+name: fix_orchestra_common
+title: FIX Orchestra shared value lists and XML holders
+description: >-
+  The value lists that both editions of Orchestra share, the Dublin Core block at
+  the top of every file, and the two classes that hold XML the XSDs leave open.
+version: 1.0, 1.1-rc3
+source: https://github.com/FIXTradingCommunity/fix-orchestra-spec
+license: Apache-2.0
+see_also:
+  - https://lmodel.github.io/fix-orchestra
+  - https://github.com/FIXTradingCommunity/fix-orchestra-spec
+
+prefixes:
+  fix_orchestra: https://w3id.org/lmodel/fix-orchestra/
+  linkml: https://w3id.org/linkml/
+  dc: http://purl.org/dc/elements/1.1/
+  dcterms: http://purl.org/dc/terms/
+default_prefix: fix_orchestra
+default_range: string
+
+imports:
+  - linkml:types
+
+subsets:
+
+  fixr:
+    description: Elements that a repository holds.
+
+  fixi:
+    description: Elements that an interfaces file holds.
+
+enums:
+
+  OrchestraChangeKind:
+    title: Orchestra change kind
+    description: How far an element's latest change reaches.
+    permissible_values:
+      Editorial:
+        description: A change to wording only.
+      Definitional:
+        description: A change to what the element means.
+
+  OrchestraLayer:
+    title: Orchestra protocol layer
+    description: The layer of the communication stack a protocol works on.
+    permissible_values:
+      application:
+        description: The application layer.
+      presentation:
+        description: The presentation layer, where encodings sit.
+      session:
+        description: The session layer.
+      transport:
+        description: The transport layer.
+
+  OrchestraMemberSelection:
+    title: Orchestra member selection
+    description: How many of a block's members must appear.
+    permissible_values:
+      oneOf:
+        description: Exactly one member appears.
+      anyOf:
+        description: One or more members appear.
+
+  OrchestraMessageCast:
+    title: Orchestra message casting
+    description: How many receivers a transport sends each message to.
+    permissible_values:
+      unicast:
+        description: One receiver.
+      multicast:
+        description: A group of receivers.
+      broadcast:
+        description: Every receiver.
+
+  OrchestraPresence:
+    title: Orchestra presence
+    description: Whether an item must, may or must not appear in a message.
+    permissible_values:
+      optional:
+        description: May appear; a rule can make it required.
+      required:
+        description: Must appear.
+      forbidden:
+        description: Must not appear.
+      ignored:
+        description: May appear, and is not checked.
+      constant:
+        description: Has a fixed value, which some encodings leave off the wire.
+
+  OrchestraProtocolName:
+    title: Orchestra protocol name
+    description: >-
+      The FIX protocols the interfaces file names, so that they are spelled one way.
+      A file may name another protocol.
+    permissible_values:
+      FIX4:
+        description: The FIX 4 session layer.
+      FIXT:
+        description: FIXT 1.1, the session protocol of FIX 5.
+      FIXP:
+        description: FIXP, the FIX session protocol built for high performance.
+      tagvalue:
+        description: Classic tag=value encoding.
+      FIXML:
+        description: FIX in XML.
+      FAST:
+        description: The FAST streaming encoding.
+      SBE:
+        description: Simple Binary Encoding.
+      SOFH:
+        description: The SOFH message framing header.
+      GPB:
+        description: Google's protocol buffers.
+      JSON:
+        description: JSON encoding.
+      FIXS:
+        description: FIX over TLS.
+
+  OrchestraPurpose:
+    title: Orchestra text purpose
+    description: >-
+      The kinds of purpose the standard names for a text or hint. A file may give
+      another purpose of its own.
+    permissible_values:
+      SYNOPSIS:
+        description: A short summary.
+      ELABORATION:
+        description: A longer explanation.
+      EXAMPLE:
+        description: An example of use.
+      DISPLAY:
+        description: A name to show to people in place of the element's own.
+
+  OrchestraReliability:
+    title: Orchestra delivery guarantee
+    description: >-
+      What a flow or protocol promises about delivering each message.
+    permissible_values:
+      bestEffort:
+        description: No promise; any message can be lost.
+      idempotent:
+        description: >-
+          Each message is acted on at most once; a lost one is not sent again.
+      recoverable:
+        description: >-
+          Each message is acted on exactly once; a lost one can be sent again.
+
+  OrchestraRole:
+    title: Orchestra session role
+    description: A party's role in setting up a session.
+    permissible_values:
+      initiator:
+        description: The party that opens a FIX session.
+      acceptor:
+        description: The party that answers a request to open a FIX session.
+      client:
+        description: The party that connects to a server.
+      server:
+        description: The party that waits for clients to connect.
+
+  OrchestraSupport:
+    title: Orchestra support level
+    description: How a party treats an element of the standard.
+    permissible_values:
+      supported:
+        description: The party supports the element.
+      forbidden:
+        description: The party refuses the element.
+      ignored:
+        description: The party accepts the element and acts on none of it.
+
+  OrchestraSynchronization:
+    title: Orchestra response timing
+    description: >-
+      How the timing of a response relates to the request it answers.
+    permissible_values:
+      asynchronous:
+        description: The response's timing has no tie to the request's.
+      synchronous:
+        description: A request waits until the one before it has its answer.
+      pipelined:
+        description: >-
+          Each response follows its request, and several requests may wait for answers
+          at once.
+
+  OrchestraTimerOperation:
+    title: Orchestra timer operation
+    description: What a step does to an actor's timer.
+    permissible_values:
+      START:
+        description: Start the timer.
+      CANCEL:
+        description: Stop the timer.
+      RESET:
+        description: Stop the timer and start it again.
+
+  OrchestraTransportUse:
+    title: Orchestra transport use
+    description: >-
+      The roles the interfaces file names for a transport. A file may give another
+      role of its own.
+    permissible_values:
+      primary:
+        description: The main connection.
+      secondary:
+        description: The backup connection.
+      alternate:
+        description: Another connection, used in turn or by choice.
+
+classes:
+
+  OrchestraMetadata:
+    title: Orchestra file metadata
+    description: >-
+      The Dublin Core description at the top of a repository or interfaces file. Each
+      key holds the values of one Dublin Core element or term.
+    annotations:
+      xsd_type: dcterms:elementOrRefinementContainer
+    attributes:
+      dc_title:
+        description: The values the file gives for the Dublin Core element title.
+        slot_uri: dc:title
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}title'
+      dc_creator:
+        description: >-
+          The values the file gives for the Dublin Core element creator.
+        slot_uri: dc:creator
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}creator'
+      dc_subject:
+        description: >-
+          The values the file gives for the Dublin Core element subject.
+        slot_uri: dc:subject
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}subject'
+      dc_description:
+        description: >-
+          The values the file gives for the Dublin Core element description.
+        slot_uri: dc:description
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}description'
+      dc_publisher:
+        description: >-
+          The values the file gives for the Dublin Core element publisher.
+        slot_uri: dc:publisher
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}publisher'
+      dc_contributor:
+        description: >-
+          The values the file gives for the Dublin Core element contributor.
+        slot_uri: dc:contributor
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}contributor'
+      dc_date:
+        description: The values the file gives for the Dublin Core element date.
+        slot_uri: dc:date
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}date'
+      dc_type:
+        description: The values the file gives for the Dublin Core element type.
+        slot_uri: dc:type
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}type'
+      dc_format:
+        description: >-
+          The values the file gives for the Dublin Core element format.
+        slot_uri: dc:format
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}format'
+      dc_identifier:
+        description: >-
+          The values the file gives for the Dublin Core element identifier.
+        slot_uri: dc:identifier
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}identifier'
+      dc_source:
+        description: >-
+          The values the file gives for the Dublin Core element source.
+        slot_uri: dc:source
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}source'
+      dc_language:
+        description: >-
+          The values the file gives for the Dublin Core element language.
+        slot_uri: dc:language
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}language'
+      dc_relation:
+        description: >-
+          The values the file gives for the Dublin Core element relation.
+        slot_uri: dc:relation
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}relation'
+      dc_coverage:
+        description: >-
+          The values the file gives for the Dublin Core element coverage.
+        slot_uri: dc:coverage
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}coverage'
+      dc_rights:
+        description: >-
+          The values the file gives for the Dublin Core element rights.
+        slot_uri: dc:rights
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/elements/1.1/}rights'
+      dcterms_title:
+        description: The values the file gives for the DCMI term title.
+        slot_uri: dcterms:title
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}title'
+      dcterms_creator:
+        description: The values the file gives for the DCMI term creator.
+        slot_uri: dcterms:creator
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}creator'
+      dcterms_subject:
+        description: The values the file gives for the DCMI term subject.
+        slot_uri: dcterms:subject
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}subject'
+      dcterms_description:
+        description: The values the file gives for the DCMI term description.
+        slot_uri: dcterms:description
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}description'
+      dcterms_publisher:
+        description: The values the file gives for the DCMI term publisher.
+        slot_uri: dcterms:publisher
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}publisher'
+      dcterms_contributor:
+        description: The values the file gives for the DCMI term contributor.
+        slot_uri: dcterms:contributor
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}contributor'
+      dcterms_date:
+        description: The values the file gives for the DCMI term date.
+        slot_uri: dcterms:date
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}date'
+      dcterms_type:
+        description: The values the file gives for the DCMI term type.
+        slot_uri: dcterms:type
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}type'
+      dcterms_format:
+        description: The values the file gives for the DCMI term format.
+        slot_uri: dcterms:format
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}format'
+      dcterms_identifier:
+        description: The values the file gives for the DCMI term identifier.
+        slot_uri: dcterms:identifier
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}identifier'
+      dcterms_source:
+        description: The values the file gives for the DCMI term source.
+        slot_uri: dcterms:source
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}source'
+      dcterms_language:
+        description: The values the file gives for the DCMI term language.
+        slot_uri: dcterms:language
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}language'
+      dcterms_relation:
+        description: The values the file gives for the DCMI term relation.
+        slot_uri: dcterms:relation
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}relation'
+      dcterms_coverage:
+        description: The values the file gives for the DCMI term coverage.
+        slot_uri: dcterms:coverage
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}coverage'
+      dcterms_rights:
+        description: The values the file gives for the DCMI term rights.
+        slot_uri: dcterms:rights
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}rights'
+      dcterms_alternative:
+        description: The values the file gives for the DCMI term alternative.
+        slot_uri: dcterms:alternative
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}alternative'
+      dcterms_table_of_contents:
+        description: The values the file gives for the DCMI term tableOfContents.
+        slot_uri: dcterms:tableOfContents
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}tableOfContents'
+      dcterms_abstract:
+        description: The values the file gives for the DCMI term abstract.
+        slot_uri: dcterms:abstract
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}abstract'
+      dcterms_created:
+        description: The values the file gives for the DCMI term created.
+        slot_uri: dcterms:created
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}created'
+      dcterms_valid:
+        description: The values the file gives for the DCMI term valid.
+        slot_uri: dcterms:valid
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}valid'
+      dcterms_available:
+        description: The values the file gives for the DCMI term available.
+        slot_uri: dcterms:available
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}available'
+      dcterms_issued:
+        description: The values the file gives for the DCMI term issued.
+        slot_uri: dcterms:issued
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}issued'
+      dcterms_modified:
+        description: The values the file gives for the DCMI term modified.
+        slot_uri: dcterms:modified
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}modified'
+      dcterms_date_accepted:
+        description: The values the file gives for the DCMI term dateAccepted.
+        slot_uri: dcterms:dateAccepted
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}dateAccepted'
+      dcterms_date_copyrighted:
+        description: The values the file gives for the DCMI term dateCopyrighted.
+        slot_uri: dcterms:dateCopyrighted
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}dateCopyrighted'
+      dcterms_date_submitted:
+        description: The values the file gives for the DCMI term dateSubmitted.
+        slot_uri: dcterms:dateSubmitted
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}dateSubmitted'
+      dcterms_extent:
+        description: The values the file gives for the DCMI term extent.
+        slot_uri: dcterms:extent
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}extent'
+      dcterms_medium:
+        description: The values the file gives for the DCMI term medium.
+        slot_uri: dcterms:medium
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}medium'
+      dcterms_is_version_of:
+        description: The values the file gives for the DCMI term isVersionOf.
+        slot_uri: dcterms:isVersionOf
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isVersionOf'
+      dcterms_has_version:
+        description: The values the file gives for the DCMI term hasVersion.
+        slot_uri: dcterms:hasVersion
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}hasVersion'
+      dcterms_is_replaced_by:
+        description: The values the file gives for the DCMI term isReplacedBy.
+        slot_uri: dcterms:isReplacedBy
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isReplacedBy'
+      dcterms_replaces:
+        description: The values the file gives for the DCMI term replaces.
+        slot_uri: dcterms:replaces
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}replaces'
+      dcterms_is_required_by:
+        description: The values the file gives for the DCMI term isRequiredBy.
+        slot_uri: dcterms:isRequiredBy
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isRequiredBy'
+      dcterms_requires:
+        description: The values the file gives for the DCMI term requires.
+        slot_uri: dcterms:requires
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}requires'
+      dcterms_is_part_of:
+        description: The values the file gives for the DCMI term isPartOf.
+        slot_uri: dcterms:isPartOf
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isPartOf'
+      dcterms_has_part:
+        description: The values the file gives for the DCMI term hasPart.
+        slot_uri: dcterms:hasPart
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}hasPart'
+      dcterms_is_referenced_by:
+        description: The values the file gives for the DCMI term isReferencedBy.
+        slot_uri: dcterms:isReferencedBy
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isReferencedBy'
+      dcterms_references:
+        description: The values the file gives for the DCMI term references.
+        slot_uri: dcterms:references
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}references'
+      dcterms_is_format_of:
+        description: The values the file gives for the DCMI term isFormatOf.
+        slot_uri: dcterms:isFormatOf
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}isFormatOf'
+      dcterms_has_format:
+        description: The values the file gives for the DCMI term hasFormat.
+        slot_uri: dcterms:hasFormat
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}hasFormat'
+      dcterms_conforms_to:
+        description: The values the file gives for the DCMI term conformsTo.
+        slot_uri: dcterms:conformsTo
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}conformsTo'
+      dcterms_spatial:
+        description: The values the file gives for the DCMI term spatial.
+        slot_uri: dcterms:spatial
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}spatial'
+      dcterms_temporal:
+        description: The values the file gives for the DCMI term temporal.
+        slot_uri: dcterms:temporal
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}temporal'
+      dcterms_audience:
+        description: The values the file gives for the DCMI term audience.
+        slot_uri: dcterms:audience
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}audience'
+      dcterms_accrual_method:
+        description: The values the file gives for the DCMI term accrualMethod.
+        slot_uri: dcterms:accrualMethod
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}accrualMethod'
+      dcterms_accrual_periodicity:
+        description: >-
+          The values the file gives for the DCMI term accrualPeriodicity.
+        slot_uri: dcterms:accrualPeriodicity
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}accrualPeriodicity'
+      dcterms_accrual_policy:
+        description: The values the file gives for the DCMI term accrualPolicy.
+        slot_uri: dcterms:accrualPolicy
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}accrualPolicy'
+      dcterms_instructional_method:
+        description: >-
+          The values the file gives for the DCMI term instructionalMethod.
+        slot_uri: dcterms:instructionalMethod
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}instructionalMethod'
+      dcterms_provenance:
+        description: The values the file gives for the DCMI term provenance.
+        slot_uri: dcterms:provenance
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}provenance'
+      dcterms_rights_holder:
+        description: The values the file gives for the DCMI term rightsHolder.
+        slot_uri: dcterms:rightsHolder
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}rightsHolder'
+      dcterms_mediator:
+        description: The values the file gives for the DCMI term mediator.
+        slot_uri: dcterms:mediator
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}mediator'
+      dcterms_education_level:
+        description: The values the file gives for the DCMI term educationLevel.
+        slot_uri: dcterms:educationLevel
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}educationLevel'
+      dcterms_access_rights:
+        description: The values the file gives for the DCMI term accessRights.
+        slot_uri: dcterms:accessRights
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}accessRights'
+      dcterms_license:
+        description: The values the file gives for the DCMI term license.
+        slot_uri: dcterms:license
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}license'
+      dcterms_bibliographic_citation:
+        description: >-
+          The values the file gives for the DCMI term bibliographicCitation.
+        slot_uri: dcterms:bibliographicCitation
+        multivalued: true
+        range: string
+        annotations:
+          xml_element: '{http://purl.org/dc/terms/}bibliographicCitation'
+
+  OrchestraXmlElement:
+    title: Open XML element
+    description: >-
+      An XML element in a place where the XSDs accept any content, kept as written
+      so that the file converts back unchanged.
+    attributes:
+      xml_name:
+        description: The name, with its namespace in braces when it has one.
+        required: true
+        pattern: ^(\{[^}]*\})?[^\s{}]+$
+      xml_attributes:
+        description: The element's attributes.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+      xml_text:
+        description: The text before the first child element.
+      xml_children:
+        description: The child elements, in order.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+      xml_tail:
+        description: The text after the element and before its next sibling.
+
+  OrchestraXmlAttribute:
+    title: Open XML attribute
+    description: An XML attribute from another namespace, kept as written.
+    attributes:
+      xml_name:
+        description: The name, with its namespace in braces when it has one.
+        required: true
+        pattern: ^(\{[^}]*\})?[^\s{}]+$
+      xml_value:
+        description: The attribute's value.
+        required: true

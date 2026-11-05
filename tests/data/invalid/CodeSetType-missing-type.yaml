@@ -1,4 +1,0 @@
-# INVALID: CodeSetType is missing the required `type` attribute.
-# Expected error: ValueError "type must be supplied"
-id: 40
-name: OrdTypeCodeSet

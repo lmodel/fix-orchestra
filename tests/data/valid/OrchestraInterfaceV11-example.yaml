@@ -1,0 +1,83 @@
+# From tests/data/xml/v1.1-interfaces.xml, which this project wrote for its tests.
+fixi_name: OrderEntry
+fixi_other_attributes:
+  - xml_name: region
+    xml_value: EU
+fixi_service:
+  - fixi_name: OrderRouting
+    fixi_version: '1.0'
+    fixi_layer: application
+    fixi_reliability: recoverable
+    fixi_orchestration: https://example.org/venue/roe.xml
+    fixi_activation_time: '2026-01-05T08:00:00Z'
+    fixi_deactivation_time: '2027-01-05T08:00:00Z'
+    fixi_deprecated: '2026-06-01T00:00:00Z'
+    fixi_annotation:
+      fixi_members:
+        - fixi_documentation:
+            fixi_purpose: SYNOPSIS
+            fixi_lang_id: en
+            fixi_content_type: text/plain
+            fixi_text: Order routing.
+fixi_user_interface:
+  - fixi_name: TradingScreen
+    fixi_layer: application
+fixi_encoding:
+  - fixi_name: SBE
+    fixi_version: '1.0'
+    fixi_layer: presentation
+fixi_session_protocol:
+  - fixi_name: FIXP
+    fixi_version: '1.1'
+    fixi_layer: session
+    fixi_reliability: idempotent
+fixi_protocol:
+  - fixi_name: SOFH
+    fixi_layer: presentation
+    fixi_other_attributes:
+      - xml_name: '{https://example.org/orchestra-test}framing'
+        xml_value: '2'
+fixi_transport:
+  - fixi_name: UDP
+    fixi_layer: transport
+    fixi_address: 233.252.0.1:9001
+    fixi_message_cast: multicast
+    fixi_use: alternate
+fixi_annotation:
+  fixi_members:
+    - fixi_documentation:
+        fixi_text: The venue's order entry service.
+    - fixi_appinfo:
+        fixi_purpose: monitoring
+        fixi_spec_url: https://example.org/venue/status
+        fixi_lang_id: en
+        fixi_other_attributes:
+          - xml_name: '{https://example.org/orchestra-test}level'
+            xml_value: '2'
+        fixi_text: 'status page '
+        fixi_any:
+          - xml_name: '{https://example.org/orchestra-test}link'
+            xml_attributes:
+              - xml_name: href
+                xml_value: https://example.org/venue/status
+fixi_sessions:
+  fixi_session:
+    - fixi_name: FIRM1-VENUE
+      fixi_activation_time: '2026-01-05T08:00:00Z'
+      fixi_deactivation_time: '2027-01-05T08:00:00Z'
+      fixi_encoding:
+        - fixi_name: SBE
+      fixi_session_protocol:
+        - fixi_name: FIXP
+      fixi_transport:
+        - fixi_name: TCP
+          fixi_address: 192.0.2.10:9002
+          fixi_use: primary
+      fixi_identifier:
+        - fixi_name: SessionID
+          fixi_text: FIRM1
+      fixi_role: client
+      fixi_security_keys: |-
+        -----BEGIN PUBLIC KEY-----
+        MCowBQYDK2VwAyEAexampleexampleexampleexampleexampleexample0=
+        -----END PUBLIC KEY-----

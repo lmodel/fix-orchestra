@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  An Orchestra v1.1 RC3 repository written for this project's tests: the rules of
+  engagement of an imaginary venue, with one of each kind of element the RC3 XSDs define.
+  It is not FIX's text. tests/test_documents.py validates it with the pinned XSD and the
+  schema. Each field has a datatype or code set of its own, because RC3's
+  fieldTypeOrCodeSetKey refuses two fields that share one.
+-->
+<fixr:repository xmlns:fixr="http://fixprotocol.io/2026/orchestra/repository"
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ex="https://example.org/orchestra-test"
+    name="ExampleVenue" version="2.0.0" guid="7a1d2c3b-4e5f-4a6b-8c9d-0e1f2a3b4c5d"
+    specUrl="https://example.org/venue/roe" namespace="https://example.org/venue"
+    expressionLanguage="Score">
+  <fixr:metadata>
+    <dcterms:title>Example venue rules of engagement</dcterms:title>
+    <dcterms:conformsTo>Orchestra v1.1 RC3</dcterms:conformsTo>
+  </fixr:metadata>
+  <fixr:categories>
+    <fixr:category name="SingleGeneralOrderHandling" section="Trade" added="1.0">
+      <fixr:encodings>
+        <fixr:encoding standard="FIXML">
+          <ex:file name="order"/>
+        </fixr:encoding>
+      </fixr:encodings>
+      <fixr:annotation>
+        <fixr:documentation purpose="CAPTION">Orders for a single instrument.</fixr:documentation>
+      </fixr:annotation>
+    </fixr:category>
+    <fixr:category name="Common" section="Trade"/>
+    <fixr:annotation>
+      <fixr:documentation>The venue's categories.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:categories>
+  <fixr:sections>
+    <fixr:section name="Trade" displayOrder="2">
+      <fixr:encodings>
+        <fixr:encoding standard="FIXML">
+          <ex:file name="trade"/>
+        </fixr:encoding>
+      </fixr:encodings>
+    </fixr:section>
+  </fixr:sections>
+  <fixr:encodingStandards>
+    <fixr:encodingStandard name="FIXML" displayName="FIX in XML">
+      <fixr:encoding>
+        <fixr:annotation>
+          <fixr:documentation>Element names come from the short names.</fixr:documentation>
+        </fixr:annotation>
+        <ex:rootElement name="FIXML"/>
+      </fixr:encoding>
+      <fixr:annotation>
+        <fixr:documentation purpose="TOOLTIP">The XML encoding.</fixr:documentation>
+      </fixr:annotation>
+    </fixr:encodingStandard>
+  </fixr:encodingStandards>
+  <fixr:datatypes>
+    <fixr:datatype name="int" added="1.0">
+      <fixr:mappedDatatype standard="XML" builtin="true" base="xs:integer"/>
+    </fixr:datatype>
+    <fixr:datatype name="float"/>
+    <fixr:datatype name="Price" baseType="float">
+      <fixr:mappedDatatype standard="GPB" builtin="false" base="Decimal64" pattern="[0-9.]+"
+          element="digit" size="8" parameter="scale=8" minInclusive="0" maxInclusive="99999999">
+        <fixr:encoding>
+          <ex:precision digits="8"/>
+        </fixr:encoding>
+        <fixr:annotation>
+          <fixr:documentation purpose="DEFINITION">A price as a decimal with eight places.</fixr:documentation>
+        </fixr:annotation>
+      </fixr:mappedDatatype>
+    </fixr:datatype>
+    <fixr:datatype name="Qty" baseType="float"/>
+    <fixr:datatype name="String"/>
+    <fixr:datatype name="char"/>
+    <fixr:datatype name="NumInGroup" baseType="int"/>
+    <fixr:datatype name="Length" baseType="int"/>
+    <fixr:datatype name="data"/>
+    <fixr:annotation>
+      <fixr:documentation>The venue's datatypes.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:datatypes>
+  <fixr:codeSets>
+    <fixr:codeSet name="SideCodeSet" id="54" type="char" default="1" abbrName="Side"
+        specUrl="https://example.org/venue/sides" scenarioRefId="1" scenarioRef="base"
+        unionDataType="Qty">
+      <fixr:code name="Buy" id="1" value="1" sort="1" group="Main" abbrName="Buy"/>
+      <fixr:code name="Sell" id="2" value="2" sort="2" group="Main">
+        <fixr:annotation>
+          <fixr:documentation purpose="EXAMPLE" langId="en">54=2</fixr:documentation>
+        </fixr:annotation>
+      </fixr:code>
+      <fixr:annotation>
+        <fixr:documentation>Which side of the market an order is on.</fixr:documentation>
+      </fixr:annotation>
+      <fixr:encodings>
+        <fixr:encoding standard="SBE">
+          <ex:enumType encodingType="char"/>
+        </fixr:encoding>
+      </fixr:encodings>
+    </fixr:codeSet>
+    <fixr:codeSet name="OrdTypeCodeSet" id="40" type="char" scenario="base" issue="EP312-1">
+      <fixr:code name="Limit" id="2" value="2" replaced="1.1" replacedEP="312"
+          replacedByField="44" lastModified="1.1"/>
+    </fixr:codeSet>
+    <fixr:encodings>
+      <fixr:encoding standard="SBE">
+        <ex:defaults encodingType="char"/>
+      </fixr:encoding>
+    </fixr:encodings>
+  </fixr:codeSets>
+  <fixr:fields>
+    <fixr:field id="11" name="ClOrdID" type="String" abbrName="ClOrdID"
+        baseCategory="SingleGeneralOrderHandling" baseCategoryAbbrName="ClOrdID"
+        implMinLength="1" implMaxLength="20" encoding="UTF-8" rendering="identifier">
+      <fixr:encodings>
+        <fixr:encoding standard="SBE">
+          <ex:field length="20"/>
+        </fixr:encoding>
+      </fixr:encodings>
+    </fixr:field>
+    <fixr:field id="54" name="Side" codeSet="SideCodeSet" presence="required"/>
+    <fixr:field id="38" name="OrderQty" type="Qty" minInclusive="1" maxInclusive="1000000"/>
+    <fixr:field id="40" name="OrdType" codeSet="OrdTypeCodeSet" value="2" presence="optional">
+      <fixr:rule name="LimitNeedsPrice" presence="required" type="char">
+        <fixr:when>OrdType == ^Limit</fixr:when>
+      </fixr:rule>
+    </fixr:field>
+    <fixr:field id="44" name="Price" type="Price" discriminatorId="40" implLength="12"
+        deprecated="1.1" unionDataType="Qty">
+      <fixr:assign>$Venue.LastPrice</fixr:assign>
+    </fixr:field>
+    <fixr:field id="37" name="OrderID" type="char" lengthId="38"/>
+    <fixr:field id="453" name="NoPartyIDs" type="NumInGroup"/>
+    <fixr:field id="448" name="PartyID" type="data" scenario="Equity"/>
+    <fixr:field id="354" name="EncodedTextLen" type="Length"/>
+    <fixr:field id="355" name="EncodedText" type="int" lengthId="354" nonEncodedFieldId="58"/>
+    <fixr:annotation>
+      <fixr:documentation>The venue's fields.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:fields>
+  <fixr:actors>
+    <fixr:actor name="Trader">
+      <fixr:field id="9001" name="OrderLimit" type="Qty"/>
+      <fixr:fieldRef id="11"/>
+      <fixr:states name="OrderState">
+        <fixr:initial name="New">
+          <fixr:transition name="Fill" target="Filled">
+            <fixr:when>$Trader.OrderLimit &gt; 0</fixr:when>
+          </fixr:transition>
+          <fixr:onentry>
+            <fixr:assign>$Trader.OrderLimit=100</fixr:assign>
+          </fixr:onentry>
+        </fixr:initial>
+        <fixr:state name="Filled">
+          <fixr:activity>
+            <fixr:messageRef id="9" name="ExecutionReport" msgType="8"/>
+          </fixr:activity>
+          <fixr:onexit>
+            <fixr:trigger stateMachine="OrderState" actor="Trader" name="Fill"/>
+          </fixr:onexit>
+        </fixr:state>
+      </fixr:states>
+      <fixr:timer name="Expiry"/>
+    </fixr:actor>
+    <fixr:actor name="Venue">
+      <fixr:component id="9100" name="VenueState"/>
+      <fixr:componentRef id="1012"/>
+      <fixr:group id="9200" name="VenueGrp"/>
+      <fixr:groupRef id="1013"/>
+    </fixr:actor>
+    <fixr:flow name="OrderFlow" source="Trader" destination="Venue" reliability="idempotent"/>
+    <fixr:annotation>
+      <fixr:documentation>The parties to the venue's workflows.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:actors>
+  <fixr:components>
+    <fixr:component id="1012" name="Parties" category="Common" abbrName="Pty"
+        rendering="block" which="anyOf" scenarioRefId="1" scenarioRef="base">
+      <fixr:groupRef id="1013" implMinOccurs="0" implMaxOccurs="unbounded"/>
+      <fixr:encodings>
+        <fixr:encoding standard="FIXML">
+          <ex:element name="Pty"/>
+        </fixr:encoding>
+      </fixr:encodings>
+    </fixr:component>
+    <fixr:encodings>
+      <fixr:encoding standard="FIXML">
+        <ex:file name="components"/>
+      </fixr:encoding>
+    </fixr:encodings>
+    <fixr:annotation>
+      <fixr:documentation>The venue's components.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:components>
+  <fixr:groups>
+    <fixr:group id="1013" name="PartiesGrp" category="Common" implMinOccurs="0"
+        implMaxOccurs="10" which="oneOf" rendering="table" scenarioRef="base">
+      <fixr:numInGroup id="453"/>
+      <fixr:fieldRef id="448" presence="required" scenario="Equity">
+        <fixr:encodings>
+          <fixr:encoding standard="SBE">
+            <ex:offset bytes="0"/>
+          </fixr:encoding>
+        </fixr:encodings>
+      </fixr:fieldRef>
+      <fixr:encodings>
+        <fixr:encoding standard="SBE">
+          <ex:group dimensionType="groupSizeEncoding"/>
+        </fixr:encoding>
+      </fixr:encodings>
+    </fixr:group>
+    <fixr:encodings>
+      <fixr:encoding standard="SBE"/>
+    </fixr:encodings>
+    <fixr:annotation>
+      <fixr:documentation>The venue's repeating groups.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:groups>
+  <fixr:messages>
+    <fixr:message id="14" name="NewOrderSingle" msgType="D" category="SingleGeneralOrderHandling"
+        flow="OrderFlow" added="1.0" rendering="form" scenarioRefId="1" scenarioRef="base">
+      <fixr:structure which="anyOf">
+        <fixr:fieldRef id="11" presence="required" name="ClOrdID"/>
+        <fixr:componentRef id="1012" presence="optional" instanceName="OrderParties">
+          <fixr:blockAssignment>
+            <fixr:fieldRef id="448" presence="constant" value="FIRM1" scenario="Equity"/>
+          </fixr:blockAssignment>
+          <fixr:rule name="PartiesForBuys" presence="required">
+            <fixr:when>Side == ^Buy</fixr:when>
+          </fixr:rule>
+          <fixr:encodings>
+            <fixr:encoding standard="FIXML">
+              <ex:element name="Pty"/>
+            </fixr:encoding>
+          </fixr:encodings>
+        </fixr:componentRef>
+        <fixr:groupRef id="1013" implMinOccurs="1" implMaxOccurs="5"/>
+        <fixr:fieldRef id="40" implMinLength="1" implMaxLength="1" lengthId="38"
+            instanceName="Kind" minInclusive="1" maxInclusive="9" encoding="US-ASCII"
+            rendering="code" nonEncodedFieldId="58">
+          <fixr:rule name="UniqueOrder">
+            <fixr:unique>
+              <fixr:fieldRef id="11"/>
+            </fixr:unique>
+            <fixr:assign>$Venue.Count=$Venue.Count+1</fixr:assign>
+            <fixr:when>OrdType == ^Limit</fixr:when>
+          </fixr:rule>
+          <fixr:assign>^Limit</fixr:assign>
+        </fixr:fieldRef>
+      </fixr:structure>
+      <fixr:when>OrdType == ^Limit</fixr:when>
+      <fixr:responses>
+        <fixr:response name="Accept" sync="pipelined">
+          <fixr:fieldRef id="11"/>
+          <fixr:messageRef msgType="8" id="9" name="ExecutionReport" implMinOccurs="1"
+              implMaxOccurs="unbounded">
+            <fixr:identifiers>
+              <fixr:correlate id="11" name="ClOrdID"/>
+              <fixr:assign id="37" sourceId="11"/>
+              <fixr:annotation>
+                <fixr:documentation>The order is found by its ClOrdID.</fixr:documentation>
+              </fixr:annotation>
+            </fixr:identifiers>
+          </fixr:messageRef>
+          <fixr:assign>$Trader.OrderLimit=0</fixr:assign>
+          <fixr:trigger stateMachine="OrderState" actor="Trader" name="Fill"/>
+          <fixr:timerSchedule actor="Trader" name="Expiry" operation="RESET" interval="PT30S">
+            <fixr:activity>
+              <fixr:assign>$Trader.OrderLimit=0</fixr:assign>
+            </fixr:activity>
+          </fixr:timerSchedule>
+          <fixr:when>OrderQty &gt; 0</fixr:when>
+        </fixr:response>
+      </fixr:responses>
+      <fixr:encodings>
+        <fixr:encoding standard="SBE">
+          <ex:message templateId="14"/>
+        </fixr:encoding>
+      </fixr:encodings>
+      <fixr:annotation>
+        <fixr:documentation purpose="SYNOPSIS" contentType="text/markdown">A *new* order.</fixr:documentation>
+        <fixr:appinfo purpose="FIXML" specUrl="https://example.org/fixml" langId="en"
+            ex:flag="yes">kept <ex:hint notReqXML="1"/></fixr:appinfo>
+      </fixr:annotation>
+    </fixr:message>
+    <fixr:message id="9" name="ExecutionReport" msgType="8" scenario="base">
+      <fixr:structure>
+        <fixr:fieldRef id="37" presence="required"/>
+      </fixr:structure>
+    </fixr:message>
+    <fixr:encodings>
+      <fixr:encoding standard="SBE">
+        <ex:schema id="1"/>
+      </fixr:encoding>
+    </fixr:encodings>
+  </fixr:messages>
+  <fixr:concepts>
+    <fixr:concept name="OrderEntry">
+      <fixr:messageRef id="14" msgType="D"/>
+      <fixr:fieldRef id="11"/>
+      <fixr:componentRef id="1012"/>
+      <fixr:groupRef id="1013"/>
+    </fixr:concept>
+    <fixr:annotation>
+      <fixr:documentation>The venue's concepts.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:concepts>
+  <fixr:scenarios>
+    <fixr:scenario name="base"/>
+    <fixr:scenario name="Equity" added="1.1">
+      <fixr:annotation>
+        <fixr:documentation>Orders in shares.</fixr:documentation>
+      </fixr:annotation>
+    </fixr:scenario>
+    <fixr:annotation>
+      <fixr:documentation>The venue's scenarios.</fixr:documentation>
+    </fixr:annotation>
+  </fixr:scenarios>
+  <fixr:annotation>
+    <fixr:documentation purpose="ELABORATION">Written for this project's tests.</fixr:documentation>
+  </fixr:annotation>
+</fixr:repository>

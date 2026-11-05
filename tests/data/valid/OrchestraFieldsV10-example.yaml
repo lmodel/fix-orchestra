@@ -1,0 +1,51 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_latest_ep: 312
+fixr_field:
+  - fixr_id: 11
+    fixr_name: ClOrdID
+    fixr_type: String
+    fixr_abbr_name: ClOrdID
+    fixr_base_category: SingleGeneralOrderHandling
+    fixr_base_category_abbr_name: ClOrdID
+    fixr_impl_min_length: 1
+    fixr_impl_max_length: 20
+    fixr_encoding: UTF-8
+    fixr_rendering: identifier
+  - fixr_id: 54
+    fixr_name: Side
+    fixr_type: SideCodeSet
+    fixr_presence: required
+  - fixr_id: 38
+    fixr_name: OrderQty
+    fixr_type: Qty
+    fixr_min_inclusive: '1'
+    fixr_max_inclusive: '1000000'
+  - fixr_id: 40
+    fixr_name: OrdType
+    fixr_type: OrdTypeCodeSet
+    fixr_value: '2'
+    fixr_presence: optional
+    fixr_rule:
+      - fixr_name: LimitNeedsPrice
+        fixr_presence: required
+        fixr_type: char
+        fixr_when: OrdType == ^Limit
+  - fixr_id: 44
+    fixr_name: Price
+    fixr_type: Price
+    fixr_discriminator_id: 40
+    fixr_impl_length: 12
+    fixr_deprecated: FIX.Latest
+    fixr_union_data_type: Qty
+    fixr_assign: $Venue.LastPrice
+  - fixr_id: 37
+    fixr_name: OrderID
+    fixr_type: String
+    fixr_length_id: 38
+  - fixr_id: 453
+    fixr_name: NoPartyIDs
+    fixr_type: NumInGroup
+  - fixr_id: 448
+    fixr_name: PartyID
+    fixr_type: String
+    fixr_scenario: Equity

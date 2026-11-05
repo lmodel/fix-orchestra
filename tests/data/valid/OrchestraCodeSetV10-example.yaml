@@ -1,0 +1,26 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_name: SideCodeSet
+fixr_id: 54
+fixr_type: char
+fixr_default: '1'
+fixr_abbr_name: Side
+fixr_spec_url: https://example.org/venue/sides
+fixr_deprecated_ep: 312
+fixr_code:
+  - fixr_name: Buy
+    fixr_id: 54001
+    fixr_value: '1'
+    fixr_sort: '1'
+    fixr_group: Main
+    fixr_abbr_name: Buy
+  - fixr_name: Sell
+    fixr_id: 54002
+    fixr_value: '2'
+    fixr_sort: '2'
+    fixr_group: Main
+    fixr_annotation:
+      fixr_members:
+        - fixr_documentation:
+            fixr_purpose: EXAMPLE
+            fixr_lang_id: en
+            fixr_text: 54=2

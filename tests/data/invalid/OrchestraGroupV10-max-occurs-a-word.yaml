@@ -1,0 +1,9 @@
+# Fails at: /fixr_impl_max_occurs
+# A bound is a number or unbounded.
+fixr_id: 9200
+fixr_name: VenueGrp
+fixr_members:
+  - fixr_field_ref:
+      fixr_id: 448
+      fixr_scenario: Equity
+fixr_impl_max_occurs: many

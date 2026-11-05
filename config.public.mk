@@ -8,13 +8,13 @@
 # - just works fine with quoted variables of dot-env files like this one
 LINKML_SCHEMA_NAME="fix_orchestra"
 LINKML_SCHEMA_AUTHOR="Noel McLoughlin <noel.mcloughlin@gmail.com>"
-LINKML_SCHEMA_DESCRIPTION="FIX Orchestra - LinkML Schema"
+LINKML_SCHEMA_DESCRIPTION="FIX Orchestra v1.0 Technical Standard and v1.1 RC3 (LinkML)"
 LINKML_SCHEMA_SOURCE_DIR="src/fix_orchestra/schema"
 
 ###### linkml generator variables, used by justfile
 
 ## gen-project configuration file
-LINKML_GENERATORS_CONFIG_YAML=config.yaml
+LINKML_GENERATORS_CONFIG_YAML=.linkml/generators.yaml
 
 ## pass args if gendoc ignores config.yaml (i.e. --no-mergeimports)
 LINKML_GENERATORS_DOC_ARGS=

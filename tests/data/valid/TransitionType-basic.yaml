@@ -1,3 +1,0 @@
-# TransitionType: a state machine transition (name and target both required).
-name: Accept
-target: New

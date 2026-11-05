@@ -1,0 +1,13 @@
+# Fails at: /
+# An encoding block in place names no standard.
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_text: Element names come from the short names.
+fixr_any:
+  - xml_name: '{https://example.org/orchestra-test}rootElement'
+    xml_attributes:
+      - xml_name: name
+        xml_value: FIXML
+    xml_tail: "\n      "
+fixr_standard: SBE

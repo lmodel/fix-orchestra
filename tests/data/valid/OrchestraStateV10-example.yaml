@@ -1,0 +1,9 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_name: New
+fixr_transition:
+  - fixr_name: Fill
+    fixr_target: Filled
+    fixr_when: $Trader.OrderLimit > 0
+fixr_onentry:
+  fixr_actions:
+    - fixr_assign: $Trader.OrderLimit=100

@@ -1,4 +1,0 @@
-# Minimal ScenarioType. The XSD defaults id=1 and name=base, but explicit
-# values exercise the slot bindings.
-id: 1
-name: base

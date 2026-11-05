@@ -1,0 +1,7 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_name: int
+fixr_added: FIX.2.7
+fixr_mapped_datatype:
+  - fixr_standard: XML
+    fixr_builtin: true
+    fixr_base: xs:integer

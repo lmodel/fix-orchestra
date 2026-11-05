@@ -1,0 +1,3080 @@
+---
+id: https://w3id.org/lmodel/fix-orchestra/fix_orchestra_v1_0
+name: fix_orchestra_v1_0
+title: FIX Orchestra v1.0 Technical Standard
+description: >-
+  Orchestra v1.0, promoted to Technical Standard in February 2021, rendered from its
+  repository and interfaces XSDs. FIX Latest is published in this edition.
+version: '1.0'
+source: https://github.com/FIXTradingCommunity/fix-orchestra-spec/tree/v1.0/v1-0-STANDARD/resources
+license: Apache-2.0
+see_also:
+  - https://lmodel.github.io/fix-orchestra
+  - https://github.com/FIXTradingCommunity/fix-orchestra-spec
+annotations:
+  upstream_repository: https://github.com/FIXTradingCommunity/fix-orchestra-spec
+  upstream_tag: v1.0
+  upstream_commit: e2b65db8505244f2708c468fe7cad60855fa9834
+  xml_namespace_repository: http://fixprotocol.io/2020/orchestra/repository
+  xml_namespace_interfaces: http://fixprotocol.io/2020/orchestra/interfaces
+
+prefixes:
+  fix_orchestra: https://w3id.org/lmodel/fix-orchestra/
+  linkml: https://w3id.org/linkml/
+  dc: http://purl.org/dc/elements/1.1/
+  dcterms: http://purl.org/dc/terms/
+default_prefix: fix_orchestra
+default_range: string
+
+imports:
+  - linkml:types
+  - ./fix_orchestra_common
+
+enums:
+
+  OrchestraCategoryContentV10:
+    title: Orchestra category content (1.0)
+    description: What a category sorts, in v1.0.
+    permissible_values:
+      Field:
+        description: The category sorts fields.
+      Message:
+        description: The category sorts messages.
+
+  OrchestraCategoryIncludeFileV10:
+    title: Orchestra category include file (1.0)
+    description: >-
+      The shared FIXML file a category's own file includes, in v1.0.
+    permissible_values:
+      components:
+        description: The shared file of components.
+      fields:
+        description: The shared file of fields.
+
+  OrchestraDatatypeStandardV10:
+    title: Orchestra datatype standard (1.0)
+    description: >-
+      The standards v1.0 names for mapping a datatype. A file may give another standard
+      of its own.
+    permissible_values:
+      ISO11404:
+        description: The general-purpose datatypes of ISO/IEC 11404.
+      GPB:
+        description: Google's protocol buffers.
+      JSON:
+        description: JSON Schema.
+      SBE:
+        description: Simple Binary Encoding.
+      XML:
+        description: XML Schema, as FIXML uses it.
+      TAG_VALUE:
+        description: The classic tag=value encoding.
+
+  OrchestraUnionDatatypeV10:
+    title: Orchestra union datatype (1.0)
+    description: >-
+      The datatypes v1.0 names whose values a field may hold beside its codes.
+    permissible_values:
+      Qty:
+        description: Quantities.
+      Reserved100Plus:
+        description: Values from 100 up, kept for user-defined codes.
+      Reserved1000Plus:
+        description: Values from 1000 up, kept for user-defined codes.
+      Reserved4000Plus:
+        description: Values from 4000 up, kept for user-defined codes.
+      Tenor:
+        description: Tenors, such as 3M.
+
+classes:
+
+  OrchestraActionParameterV10:
+    title: Orchestra action input (1.0)
+    description: >-
+      One input to an action, which is a field, component or group, defined in place
+      or named by reference. It holds exactly one of these.
+    annotations:
+      xsd_type: >-
+        choice of field, fieldRef, component, componentRef, group, groupRef
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_field:
+            required: true
+      - slot_conditions:
+          fixr_field_ref:
+            required: true
+      - slot_conditions:
+          fixr_component:
+            required: true
+      - slot_conditions:
+          fixr_component_ref:
+            required: true
+      - slot_conditions:
+          fixr_group:
+            required: true
+      - slot_conditions:
+          fixr_group_ref:
+            required: true
+    attributes:
+      fixr_field:
+        description: A field defined in place.
+        range: OrchestraFieldV10
+        inlined: true
+        annotations:
+          xml_element: field
+      fixr_field_ref:
+        description: A field used by reference.
+        range: OrchestraFieldRefV10
+        inlined: true
+        annotations:
+          xml_element: fieldRef
+      fixr_component:
+        description: A component defined in place.
+        range: OrchestraComponentV10
+        inlined: true
+        annotations:
+          xml_element: component
+      fixr_component_ref:
+        description: A component used by reference.
+        range: OrchestraComponentRefV10
+        inlined: true
+        annotations:
+          xml_element: componentRef
+      fixr_group:
+        description: A repeating group defined in place.
+        range: OrchestraGroupV10
+        inlined: true
+        annotations:
+          xml_element: group
+      fixr_group_ref:
+        description: A group used by reference.
+        range: OrchestraGroupRefV10
+        inlined: true
+        annotations:
+          xml_element: groupRef
+
+  OrchestraActionStepV10:
+    title: Orchestra action step (1.0)
+    description: >-
+      One thing an action does: send a message, set a value, fire a transition or
+      schedule a timer. It holds exactly one of these.
+    annotations:
+      xsd_type: choice of messageRef, assign, trigger, timerSchedule
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_message_ref:
+            required: true
+      - slot_conditions:
+          fixr_assign:
+            required: true
+      - slot_conditions:
+          fixr_trigger:
+            required: true
+      - slot_conditions:
+          fixr_timer_schedule:
+            required: true
+    attributes:
+      fixr_message_ref:
+        description: A message to send.
+        range: OrchestraMessageRefV10
+        inlined: true
+        annotations:
+          xml_element: messageRef
+      fixr_assign:
+        description: >-
+          An expression that gives an actor's variable a value, such as $actor.variable=value.
+        range: string
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: assign
+      fixr_trigger:
+        description: A transition to fire.
+        range: OrchestraTriggerV10
+        inlined: true
+        annotations:
+          xml_element: trigger
+      fixr_timer_schedule:
+        description: A timer to start, stop or restart.
+        range: OrchestraTimerScheduleV10
+        inlined: true
+        annotations:
+          xml_element: timerSchedule
+
+  OrchestraActionV10:
+    title: Orchestra action (1.0)
+    description: >-
+      Things that happen together, such as when a response fires or a state is entered:
+      messages sent, values set, transitions fired and timers scheduled, with their
+      inputs.
+    annotations:
+      xsd_type: actionType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_parameters:
+        description: >-
+          The fields, groups and components the action takes as input, in order.
+        range: OrchestraActionParameterV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_choice: field fieldRef component componentRef group groupRef
+      fixr_actions:
+        description: >-
+          What the action does, in order: messages sent, values set, transitions fired
+          and timers scheduled.
+        range: OrchestraActionStepV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: messageRef assign trigger timerSchedule
+
+  OrchestraActorMemberV10:
+    title: Orchestra actor item (1.0)
+    description: >-
+      One thing an actor keeps: a variable given as a field, component or group, a
+      state machine or a timer. It holds exactly one of these.
+    annotations:
+      xsd_type: >-
+        choice of field, fieldRef, component, componentRef, group, groupRef, states,
+        timer
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_field:
+            required: true
+      - slot_conditions:
+          fixr_field_ref:
+            required: true
+      - slot_conditions:
+          fixr_component:
+            required: true
+      - slot_conditions:
+          fixr_component_ref:
+            required: true
+      - slot_conditions:
+          fixr_group:
+            required: true
+      - slot_conditions:
+          fixr_group_ref:
+            required: true
+      - slot_conditions:
+          fixr_states:
+            required: true
+      - slot_conditions:
+          fixr_timer:
+            required: true
+    attributes:
+      fixr_field:
+        description: A variable defined in place as a field.
+        range: OrchestraFieldV10
+        inlined: true
+        annotations:
+          xml_element: field
+      fixr_field_ref:
+        description: A variable that uses a field by its number.
+        range: OrchestraFieldRefV10
+        inlined: true
+        annotations:
+          xml_element: fieldRef
+      fixr_component:
+        description: A variable defined in place as a component.
+        range: OrchestraComponentV10
+        inlined: true
+        annotations:
+          xml_element: component
+      fixr_component_ref:
+        description: A variable that uses a component by its number.
+        range: OrchestraComponentRefV10
+        inlined: true
+        annotations:
+          xml_element: componentRef
+      fixr_group:
+        description: A variable defined in place as a repeating group.
+        range: OrchestraGroupV10
+        inlined: true
+        annotations:
+          xml_element: group
+      fixr_group_ref:
+        description: A variable that uses a repeating group by its number.
+        range: OrchestraGroupRefV10
+        inlined: true
+        annotations:
+          xml_element: groupRef
+      fixr_states:
+        description: A state machine.
+        range: OrchestraStateMachineV10
+        inlined: true
+        annotations:
+          xml_element: states
+      fixr_timer:
+        description: A timer.
+        range: OrchestraTimerV10
+        inlined: true
+        annotations:
+          xml_element: timer
+
+  OrchestraActorV10:
+    title: Orchestra actor (1.0)
+    description: >-
+      A kind of party in an exchange, such as a buy-side firm or a venue, with the
+      state it keeps: its variables, state machines and timers.
+    annotations:
+      xsd_type: actorType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: The actor's variables, state machines and timers, in order.
+        range: OrchestraActorMemberV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_choice: >-
+            field fieldRef component componentRef group groupRef states timer
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The actor's name, unique among the repository's actors.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraActorsMemberV10:
+    title: Orchestra actor or flow (1.0)
+    description: >-
+      One entry of the actors list, an actor or a flow. It holds exactly one of these.
+    annotations:
+      xsd_type: choice of actor, flow
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_actor:
+            required: true
+      - slot_conditions:
+          fixr_flow:
+            required: true
+    attributes:
+      fixr_actor:
+        description: An actor.
+        range: OrchestraActorV10
+        inlined: true
+        annotations:
+          xml_element: actor
+      fixr_flow:
+        description: A flow.
+        range: OrchestraFlowV10
+        inlined: true
+        annotations:
+          xml_element: flow
+
+  OrchestraActorsV10:
+    title: Orchestra actors and flows (1.0)
+    description: >-
+      The parties a repository describes and the one-way flows between them.
+    annotations:
+      xsd_type: actors
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: The actors and flows, in order.
+        range: OrchestraActorsMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: actor flow
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraAnnotationMemberV10:
+    title: Orchestra annotation part (1.0)
+    description: >-
+      One part of an annotation, a piece of text or a hint for software. It holds
+      exactly one of these.
+    annotations:
+      xsd_type: choice of documentation, appinfo
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_documentation:
+            required: true
+      - slot_conditions:
+          fixr_appinfo:
+            required: true
+    attributes:
+      fixr_documentation:
+        description: A piece of text.
+        range: OrchestraDocumentationV10
+        inlined: true
+        annotations:
+          xml_element: documentation
+      fixr_appinfo:
+        description: A hint for software.
+        range: OrchestraAppinfoV10
+        inlined: true
+        annotations:
+          xml_element: appinfo
+
+  OrchestraAnnotationV10:
+    title: Orchestra annotation (1.0)
+    description: >-
+      Notes for readers and hints for software, attached to an element.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: annotation
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: The texts and hints, in order.
+        range: OrchestraAnnotationMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: documentation appinfo
+
+  OrchestraAppinfoV10:
+    title: Orchestra application hint (1.0)
+    description: >-
+      A hint for a particular tool or encoding, such as how FIXML renders an element,
+      held as text and open XML.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: appinfo
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_text:
+        description: The text the element holds, as written.
+        range: string
+        annotations:
+          xml_text: 'true'
+      fixr_any:
+        description: Child elements from other namespaces, kept as written.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: elements
+      fixr_spec_url:
+        description: The address of a document that describes the element.
+        range: uri
+        annotations:
+          xml_attribute: specUrl
+      fixr_lang_id:
+        description: The language of the text, as a language tag.
+        range: string
+        pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
+        annotations:
+          xml_attribute: langId
+      fixr_purpose:
+        description: What the hint is for, such as the encoding it concerns.
+        any_of:
+          - range: OrchestraPurpose
+          - range: string
+        annotations:
+          xml_attribute: purpose
+      fixr_other_attributes:
+        description: Attributes from other namespaces, kept as written.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: attributes
+
+  OrchestraBaseInterfaceV10:
+    title: Orchestra connection description (1.0)
+    description: >-
+      What an interface and a session share: the services, encodings and protocols
+      of a connection, layer by layer.
+    abstract: true
+    annotations:
+      xsd_type: baseInterfaceType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_service:
+        description: The application-level services offered.
+        range: OrchestraServiceV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: service
+      fixi_user_interface:
+        description: The user interfaces offered.
+        range: OrchestraUserInterfaceV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: userInterface
+      fixi_encoding:
+        description: The encodings used.
+        range: OrchestraEncodingV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: encoding
+      fixi_session_protocol:
+        description: The session-level protocols used.
+        range: OrchestraSessionProtocolV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: sessionProtocol
+      fixi_protocol:
+        description: Other protocols used.
+        range: OrchestraProtocolV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: protocol
+      fixi_transport:
+        description: The transports used.
+        range: OrchestraTransportV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: transport
+      fixi_annotation:
+        description: Notes for readers and hints for software.
+        range: OrchestraInterfaceAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixi_name:
+        description: The interface's or session's name, unique within the file.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: name
+      fixi_other_attributes:
+        description: Attributes from other namespaces, kept as written.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: attributes
+
+  OrchestraBlockAssignmentV10:
+    title: Orchestra block assignment (1.0)
+    description: >-
+      How every entry of a group, or a single use of a component, gets its values:
+      the fields, groups and components it sets.
+    annotations:
+      xsd_type: blockAssignmentType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: >-
+          The fields, groups and components the assignment sets, in order.
+        range: OrchestraStructureMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: componentRef groupRef fieldRef
+
+  OrchestraCategoriesV10:
+    title: Orchestra categories (1.0)
+    description: >-
+      The categories a repository sorts its messages and fields into.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: categories
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_category:
+        description: The categories.
+        range: OrchestraCategoryV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: category
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraCategoryV10:
+    title: Orchestra category (1.0)
+    description: >-
+      A business process grouping within a section, such as order handling or market
+      data.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: categoryType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The category's name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_fixml_file_name:
+        description: >-
+          The FIXML schema file that holds the elements of this section or category.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: FIXMLFileName
+      fixr_component_type:
+        description: Whether the category sorts messages or fields.
+        range: OrchestraCategoryContentV10
+        annotations:
+          xml_attribute: componentType
+      fixr_section:
+        description: The section the category belongs to, by name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: section
+      fixr_include_file:
+        description: >-
+          The shared FIXML file, of components or of fields, that the category's file
+          includes.
+        range: OrchestraCategoryIncludeFileV10
+        annotations:
+          xml_attribute: includeFile
+
+  OrchestraCodeSetV10:
+    title: Orchestra code set (1.0)
+    description: >-
+      A named list of the values a field may take, each with a name of its own, over
+      one underlying datatype.
+    mixins:
+      - OrchestraIdentityV10Mixin
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: codeSetType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_code:
+        description: The set's codes, in order.
+        range: OrchestraCodeV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: code
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_type:
+        description: The set's datatype, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: type
+      fixr_default:
+        description: The code a receiver assumes when none is given.
+        range: string
+        annotations:
+          xml_attribute: default
+      fixr_spec_url:
+        description: >-
+          The address of the outside list, such as an ISO standard, that gives the
+          codes.
+        range: uri
+        annotations:
+          xml_attribute: specUrl
+
+  OrchestraCodeSetsV10:
+    title: Orchestra code sets (1.0)
+    description: The code sets a repository defines.
+    annotations:
+      xsd_type: codeSets
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_code_set:
+        description: The code sets.
+        range: OrchestraCodeSetV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: codeSet
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraCodeV10:
+    title: Orchestra code (1.0)
+    description: >-
+      One permitted value of the set, with its name and what goes on the wire.
+    mixins:
+      - OrchestraIdentityV10Mixin
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: codeType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_value:
+        description: The value that goes on the wire for this code.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: value
+      fixr_sort:
+        description: A number that places the code when its set is shown.
+        range: string
+        annotations:
+          xml_attribute: sort
+      fixr_group:
+        description: >-
+          A label that places the code with others when its set is shown.
+        range: string
+        annotations:
+          xml_attribute: group
+
+  OrchestraComponentRefV10:
+    title: Orchestra component use (1.0)
+    description: >-
+      Where a message or block includes a component, by its number, with its presence
+      and any rules that make it conditional.
+    mixins:
+      - OrchestraReferenceV10Mixin
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: componentRefType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_block_assignment:
+        description: >-
+          How the component, or every entry of the group, gets its values.
+        range: OrchestraBlockAssignmentV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: blockAssignment
+      fixr_rule:
+        description: >-
+          Rules that make the component's presence depend on other values.
+        range: OrchestraComponentRuleV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: rule
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_presence:
+        description: >-
+          Whether the item must, may or must not appear, or has a fixed value; optional
+          when none is given.
+        range: OrchestraPresence
+        ifabsent: OrchestraPresence(optional)
+        annotations:
+          xml_attribute: presence
+      fixr_instance_name:
+        description: >-
+          A name for this use of the element, so that one message or block can hold
+          it more than once.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: instanceName
+
+  OrchestraComponentRuleV10:
+    title: Orchestra component rule (1.0)
+    description: >-
+      A condition that changes a component's presence, such as making it required.
+    annotations:
+      xsd_type: componentRuleType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_when:
+        description: When the rule applies, written as an expression.
+        range: string
+        required: true
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: when
+      fixr_name:
+        description: The rule's name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_presence:
+        description: The presence that applies while the rule's condition holds.
+        range: OrchestraPresence
+        annotations:
+          xml_attribute: presence
+
+  OrchestraComponentV10:
+    title: Orchestra component (1.0)
+    description: >-
+      A named block of fields, groups and components that messages and other blocks
+      include by reference.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+      - OrchestraIdentityV10Mixin
+    annotations:
+      xsd_type: componentType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: >-
+          The fields, groups and components the component holds, in order.
+        range: OrchestraStructureMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: componentRef groupRef fieldRef
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_category:
+        description: The category the component belongs to, by name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: category
+      fixr_rendering:
+        description: >-
+          A hint for how a tool shows or reads the element, which no validator checks.
+        range: string
+        annotations:
+          xml_attribute: rendering
+      fixr_which:
+        description: >-
+          Whether one member exactly, or one or more members, must appear.
+        range: OrchestraMemberSelection
+        annotations:
+          xml_attribute: which
+
+  OrchestraComponentsV10:
+    title: Orchestra components (1.0)
+    description: The components a repository defines.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: components
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_component:
+        description: The components.
+        range: OrchestraComponentV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: component
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraConceptMemberV10:
+    title: Orchestra concept item (1.0)
+    description: >-
+      One element a concept ties together, named by reference, which is a message,
+      field, component or group. It holds exactly one of these.
+    annotations:
+      xsd_type: choice of componentRef, groupRef, fieldRef, messageRef
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_component_ref:
+            required: true
+      - slot_conditions:
+          fixr_group_ref:
+            required: true
+      - slot_conditions:
+          fixr_field_ref:
+            required: true
+      - slot_conditions:
+          fixr_message_ref:
+            required: true
+    attributes:
+      fixr_component_ref:
+        description: A component used by reference.
+        range: OrchestraComponentRefV10
+        inlined: true
+        annotations:
+          xml_element: componentRef
+      fixr_group_ref:
+        description: A group used by reference.
+        range: OrchestraGroupRefV10
+        inlined: true
+        annotations:
+          xml_element: groupRef
+      fixr_field_ref:
+        description: A field used by reference.
+        range: OrchestraFieldRefV10
+        inlined: true
+        annotations:
+          xml_element: fieldRef
+      fixr_message_ref:
+        description: A message, by reference.
+        range: OrchestraMessageRefV10
+        inlined: true
+        annotations:
+          xml_element: messageRef
+
+  OrchestraConceptV10:
+    title: Orchestra concept (1.0)
+    description: >-
+      A named business idea that ties together the fields, components, groups and
+      messages that express it.
+    annotations:
+      xsd_type: conceptType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: >-
+          The fields, components, groups and messages the concept ties together.
+        range: OrchestraConceptMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: componentRef groupRef fieldRef messageRef
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The concept's name, unique among the repository's concepts.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraConceptsV10:
+    title: Orchestra concepts (1.0)
+    description: The concepts a repository names.
+    annotations:
+      xsd_type: concepts
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_concept:
+        description: The concepts.
+        range: OrchestraConceptV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: concept
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraContainerV10Mixin:
+    title: Orchestra list marker (1.0)
+    description: >-
+      The extension pack that a list of elements is up to date with.
+    mixin: true
+    annotations:
+      xsd_type: containerAttribGrp
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_latest_ep:
+        description: The latest extension pack the list is up to date with.
+        range: integer
+        annotations:
+          xml_attribute: latestEP
+
+  OrchestraDatatypeExtensionV10:
+    title: Orchestra datatype extension (1.0)
+    description: >-
+      XML from the target standard's own schema that a datatype mapping carries.
+    annotations:
+      xsd_type: mappedDatatype/extension
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_any:
+        description: Child elements from other namespaces, kept as written.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: elements
+
+  OrchestraDatatypeV10:
+    title: Orchestra datatype (1.0)
+    description: >-
+      A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types
+      of other standards.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: datatype
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_mapped_datatype:
+        description: How the datatype is written in other standards.
+        range: OrchestraMappedDatatypeV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: mappedDatatype
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The datatype's name, such as Price.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_base_type:
+        description: The datatype this one narrows, such as int for Length.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: baseType
+
+  OrchestraDatatypesV10:
+    title: Orchestra datatypes (1.0)
+    description: The datatypes a repository uses.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: datatypes
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_datatype:
+        description: The datatypes.
+        range: OrchestraDatatypeV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: datatype
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraDocumentationV10:
+    title: Orchestra documentation (1.0)
+    description: >-
+      Text about an element, with its language, purpose and media type.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: documentation
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_text:
+        description: The text the element holds, as written.
+        range: string
+        annotations:
+          xml_text: 'true'
+      fixr_any:
+        description: Child elements from other namespaces, kept as written.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: elements
+      fixr_lang_id:
+        description: The language of the text, as a language tag.
+        range: string
+        pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
+        annotations:
+          xml_attribute: langId
+      fixr_purpose:
+        description: What the text is for, such as a summary or an example.
+        any_of:
+          - range: OrchestraPurpose
+          - range: string
+        annotations:
+          xml_attribute: purpose
+      fixr_content_type:
+        description: The media type of the text; text/plain when none is given.
+        range: string
+        pattern: ^[\s\S]{3,}$
+        ifabsent: string(text/plain)
+        annotations:
+          xml_attribute: contentType
+
+  OrchestraEncodingV10:
+    title: Orchestra interface encoding (1.0)
+    description: >-
+      An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+    is_a: OrchestraProtocolV10
+    annotations:
+      xsd_type: encodingType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+
+  OrchestraFieldConstraintsV10Mixin:
+    title: Orchestra field limits (1.0)
+    description: >-
+      The limits on a field's value that a field, a use of it or a rule may set: range,
+      length, presence, fixed or default value, character set and a display hint.
+    mixin: true
+    annotations:
+      xsd_type: fieldAttribGrp
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_min_inclusive:
+        description: The smallest value allowed.
+        range: string
+        annotations:
+          xml_attribute: minInclusive
+      fixr_max_inclusive:
+        description: The largest value allowed.
+        range: string
+        annotations:
+          xml_attribute: maxInclusive
+      fixr_impl_length:
+        description: The fixed length an implementation uses.
+        range: integer
+        minimum_value: -32768
+        maximum_value: 32767
+        annotations:
+          xml_attribute: implLength
+      fixr_impl_min_length:
+        description: The shortest length an implementation accepts.
+        range: integer
+        minimum_value: -32768
+        maximum_value: 32767
+        annotations:
+          xml_attribute: implMinLength
+      fixr_impl_max_length:
+        description: The longest length an implementation accepts.
+        range: integer
+        minimum_value: -32768
+        maximum_value: 32767
+        annotations:
+          xml_attribute: implMaxLength
+      fixr_presence:
+        description: >-
+          Whether the item must, may or must not appear, or has a fixed value; optional
+          when none is given.
+        range: OrchestraPresence
+        ifabsent: OrchestraPresence(optional)
+        annotations:
+          xml_attribute: presence
+      fixr_encoding:
+        description: The character set of the value, when it is not US-ASCII.
+        range: string
+        annotations:
+          xml_attribute: encoding
+      fixr_value:
+        description: >-
+          The value a receiver assumes when an optional field is left out, or the
+          fixed value of a constant field.
+        range: string
+        annotations:
+          xml_attribute: value
+      fixr_rendering:
+        description: >-
+          A hint for how a tool shows or reads the element, which no validator checks.
+        range: string
+        annotations:
+          xml_attribute: rendering
+
+  OrchestraFieldRefV10:
+    title: Orchestra field use (1.0)
+    description: >-
+      Where a message or block includes a field, by its tag number, with its presence,
+      value limits and any rules.
+    mixins:
+      - OrchestraReferenceV10Mixin
+      - OrchestraPedigreeV10Mixin
+      - OrchestraFieldConstraintsV10Mixin
+    annotations:
+      xsd_type: fieldRefType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_rule:
+        description: >-
+          Rules that make the element's presence or limits depend on other values.
+        range: OrchestraFieldRuleV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: rule
+      fixr_assign:
+        description: An expression that sets the field's value.
+        range: string
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: assign
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_length_id:
+        description: The tag number of the field that gives this field's length.
+        range: integer
+        minimum_value: 1
+        annotations:
+          xml_attribute: lengthId
+      fixr_instance_name:
+        description: >-
+          A name for this use of the element, so that one message or block can hold
+          it more than once.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: instanceName
+
+  OrchestraFieldRuleV10:
+    title: Orchestra field rule (1.0)
+    description: >-
+      A condition that changes a field's presence, datatype or limits, or a check
+      its value must pass.
+    mixins:
+      - OrchestraFieldConstraintsV10Mixin
+    annotations:
+      xsd_type: fieldRuleType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_unique:
+        description: A check that the field's value is unique.
+        range: OrchestraUniqueV10
+        inlined: true
+        annotations:
+          xml_element: unique
+      fixr_assign:
+        description: >-
+          Expressions that set or check values while the rule's condition holds.
+        range: string
+        multivalued: true
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: assign
+      fixr_when:
+        description: When the rule applies, written as an expression.
+        range: string
+        required: true
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: when
+      fixr_name:
+        description: The rule's name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_type:
+        description: >-
+          The datatype the field takes while the rule's condition holds.
+        range: string
+        annotations:
+          xml_attribute: type
+
+  OrchestraFieldV10:
+    title: Orchestra field (1.0)
+    description: >-
+      A FIX field: its tag number, its name, its datatype or its code set, and the
+      limits on its value.
+    mixins:
+      - OrchestraIdentityV10Mixin
+      - OrchestraPedigreeV10Mixin
+      - OrchestraFieldConstraintsV10Mixin
+    annotations:
+      xsd_type: fieldType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_rule:
+        description: >-
+          Rules that make the element's presence or limits depend on other values.
+        range: OrchestraFieldRuleV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: rule
+      fixr_assign:
+        description: An expression that sets the field's value.
+        range: string
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: assign
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_type:
+        description: >-
+          The field's datatype, or its code set, by name; a code set brings its own
+          datatype.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: type
+      fixr_length_id:
+        description: The tag number of the field that gives this field's length.
+        range: integer
+        minimum_value: 1
+        annotations:
+          xml_attribute: lengthId
+      fixr_discriminator_id:
+        description: >-
+          The tag number of the field whose value decides which values this field
+          may take.
+        range: integer
+        minimum_value: 1
+        annotations:
+          xml_attribute: discriminatorId
+      fixr_base_category:
+        description: The category the field belongs to in the base specification.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: baseCategory
+      fixr_base_category_abbr_name:
+        description: >-
+          The short name the field takes within its base category in FIXML.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: baseCategoryAbbrName
+      fixr_union_data_type:
+        description: >-
+          A datatype whose values the field may hold beside its codes, such as a range
+          kept for user-defined values.
+        range: OrchestraUnionDatatypeV10
+        annotations:
+          xml_attribute: unionDataType
+
+  OrchestraFieldsV10:
+    title: Orchestra fields (1.0)
+    description: The fields a repository defines.
+    annotations:
+      xsd_type: fields
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_field:
+        description: The fields.
+        range: OrchestraFieldV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: field
+      fixr_latest_ep:
+        description: The latest extension pack the list is up to date with.
+        range: integer
+        annotations:
+          xml_attribute: latestEP
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraFlowV10:
+    title: Orchestra flow (1.0)
+    description: >-
+      Messages that travel one way, from a sending actor to a receiving one, with
+      their delivery guarantee.
+    annotations:
+      xsd_type: flowType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The flow's name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_source:
+        description: The sending actor, by name.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: source
+      fixr_destination:
+        description: The receiving actor, by name.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: destination
+      fixr_reliability:
+        description: >-
+          How reliably the flow delivers its messages, from best effort to recoverable.
+        range: OrchestraReliability
+        annotations:
+          xml_attribute: reliability
+
+  OrchestraGroupRefV10:
+    title: Orchestra group use (1.0)
+    description: >-
+      Where a message or block includes a repeating group, by its number, with how
+      many entries it may hold.
+    is_a: OrchestraComponentRefV10
+    annotations:
+      xsd_type: groupRefType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_impl_min_occurs:
+        description: The fewest entries an implementation accepts.
+        range: integer
+        minimum_value: 0
+        annotations:
+          xml_attribute: implMinOccurs
+      fixr_impl_max_occurs:
+        description: The most entries an implementation accepts, or unbounded.
+        range: string
+        pattern: ^(\d+|unbounded)$
+        ifabsent: string(unbounded)
+        annotations:
+          xml_attribute: implMaxOccurs
+
+  OrchestraGroupV10:
+    title: Orchestra repeating group (1.0)
+    description: >-
+      A block whose entries repeat, each with the same fields, groups and components,
+      and whose count a NumInGroup field carries.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+      - OrchestraIdentityV10Mixin
+    annotations:
+      xsd_type: groupType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_num_in_group:
+        description: The field that counts the group's entries.
+        range: OrchestraFieldRefV10
+        inlined: true
+        annotations:
+          xml_element: numInGroup
+      fixr_members:
+        description: >-
+          The fields, groups and components that each entry holds, in order.
+        range: OrchestraStructureMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: componentRef groupRef fieldRef
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_category:
+        description: The category the group belongs to, by name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: category
+      fixr_rendering:
+        description: >-
+          A hint for how a tool shows or reads the element, which no validator checks.
+        range: string
+        annotations:
+          xml_attribute: rendering
+      fixr_impl_min_occurs:
+        description: The fewest entries an implementation accepts.
+        range: integer
+        minimum_value: 0
+        annotations:
+          xml_attribute: implMinOccurs
+      fixr_impl_max_occurs:
+        description: The most entries an implementation accepts, or unbounded.
+        range: string
+        pattern: ^(\d+|unbounded)$
+        ifabsent: string(unbounded)
+        annotations:
+          xml_attribute: implMaxOccurs
+      fixr_which:
+        description: >-
+          Whether one member exactly, or one or more members, must appear.
+        range: OrchestraMemberSelection
+        annotations:
+          xml_attribute: which
+
+  OrchestraGroupsV10:
+    title: Orchestra repeating groups (1.0)
+    description: The repeating groups a repository defines.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: groups
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_group:
+        description: The repeating groups.
+        range: OrchestraGroupV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: group
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraIdentifierV10:
+    title: Orchestra message identifier (1.0)
+    description: >-
+      A field that a message sent by an action sets, or carries over from the message
+      received, by tag number.
+    annotations:
+      xsd_type: identifierType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_id:
+        description: The tag number of the field that is set or carried over.
+        range: integer
+        required: true
+        minimum_value: 1
+        annotations:
+          xml_attribute: id
+      fixr_source_id:
+        description: >-
+          The tag number of the received message's field that the value comes from;
+          the field's own tag number when none is given.
+        range: integer
+        minimum_value: 1
+        annotations:
+          xml_attribute: sourceId
+
+  OrchestraIdentifiersMemberV10:
+    title: Orchestra identifier entry (1.0)
+    description: >-
+      One entry of a message's identifiers, a field carried over or a field set. It
+      holds exactly one of these.
+    annotations:
+      xsd_type: choice of correlate, assign
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_correlate:
+            required: true
+      - slot_conditions:
+          fixr_assign:
+            required: true
+    attributes:
+      fixr_correlate:
+        description: >-
+          A field whose value is carried over from the message received.
+        range: OrchestraIdentifierV10
+        inlined: true
+        annotations:
+          xml_element: correlate
+      fixr_assign:
+        description: A field whose value the message sent sets.
+        range: OrchestraIdentifierV10
+        inlined: true
+        annotations:
+          xml_element: assign
+
+  OrchestraIdentifiersV10:
+    title: Orchestra message identifiers (1.0)
+    description: The fields a message sent by an action sets or carries over.
+    annotations:
+      xsd_type: identifiersType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: The fields carried over or set, in order.
+        range: OrchestraIdentifiersMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: correlate assign
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+
+  OrchestraIdentityV10Mixin:
+    title: Orchestra element keys (1.0)
+    description: >-
+      The keys of a defined element, its number, name, short name and scenario.
+    mixin: true
+    annotations:
+      xsd_type: oidGrp
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_id:
+        description: >-
+          The element's number, unique among elements of its kind; for a field, its
+          tag number.
+        range: integer
+        required: true
+        minimum_value: 1
+        annotations:
+          xml_attribute: id
+      fixr_name:
+        description: >-
+          The element's name, unique among elements of its kind within one scenario.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_abbr_name:
+        description: A short form of the name, which FIXML uses for tags.
+        range: string
+        annotations:
+          xml_attribute: abbrName
+      fixr_scenario:
+        description: >-
+          The use case this variant of the element serves, such as a workflow or an
+          asset class; base when none is given.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$
+        ifabsent: string(base)
+        annotations:
+          xml_attribute: scenario
+
+  OrchestraInterfaceAnnotationMemberV10:
+    title: Orchestra interfaces annotation part (1.0)
+    description: >-
+      One part of an annotation in an interfaces file, a text or a hint for software.
+      It holds exactly one of these.
+    annotations:
+      xsd_type: choice of documentation, appinfo
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    exactly_one_of:
+      - slot_conditions:
+          fixi_documentation:
+            required: true
+      - slot_conditions:
+          fixi_appinfo:
+            required: true
+    attributes:
+      fixi_documentation:
+        description: A piece of text.
+        range: OrchestraInterfaceDocumentationV10
+        inlined: true
+        annotations:
+          xml_element: documentation
+      fixi_appinfo:
+        description: A hint for software.
+        range: OrchestraInterfaceAppinfoV10
+        inlined: true
+        annotations:
+          xml_element: appinfo
+
+  OrchestraInterfaceAnnotationV10:
+    title: Orchestra interfaces annotation (1.0)
+    description: >-
+      Notes for readers and hints for software, attached to an element of an interfaces
+      file.
+    annotations:
+      xsd_type: annotation
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_members:
+        description: The texts and hints, in order.
+        range: OrchestraInterfaceAnnotationMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: documentation appinfo
+
+  OrchestraInterfaceAppinfoV10:
+    title: Orchestra interfaces application hint (1.0)
+    description: >-
+      A hint for a particular tool on an element of an interfaces file.
+    annotations:
+      xsd_type: appinfo
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_text:
+        description: The text the element holds, as written.
+        range: string
+        annotations:
+          xml_text: 'true'
+      fixi_any:
+        description: Child elements from other namespaces, kept as written.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: elements
+      fixi_spec_url:
+        description: The address of a document that describes the element.
+        range: uri
+        annotations:
+          xml_attribute: specUrl
+      fixi_lang_id:
+        description: The language of the text, as a language tag.
+        range: string
+        pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
+        annotations:
+          xml_attribute: langId
+      fixi_purpose:
+        description: What the hint is for, such as the tool it concerns.
+        any_of:
+          - range: OrchestraPurpose
+          - range: string
+        annotations:
+          xml_attribute: purpose
+      fixi_other_attributes:
+        description: Attributes from other namespaces, kept as written.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: attributes
+
+  OrchestraInterfaceDocumentationV10:
+    title: Orchestra interfaces documentation (1.0)
+    description: Text about an element of an interfaces file.
+    annotations:
+      xsd_type: documentation
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_text:
+        description: The text the element holds, as written.
+        range: string
+        annotations:
+          xml_text: 'true'
+      fixi_any:
+        description: Child elements from other namespaces, kept as written.
+        range: OrchestraXmlElement
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: elements
+      fixi_lang_id:
+        description: The language of the text, as a language tag.
+        range: string
+        pattern: ^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$
+        annotations:
+          xml_attribute: langId
+      fixi_purpose:
+        description: What the text is for, such as a summary or an example.
+        any_of:
+          - range: OrchestraPurpose
+          - range: string
+        annotations:
+          xml_attribute: purpose
+      fixi_content_type:
+        description: The media type of the text; text/plain when none is given.
+        range: string
+        ifabsent: string(text/plain)
+        annotations:
+          xml_attribute: contentType
+
+  OrchestraInterfaceV10:
+    title: Orchestra interface (1.0)
+    description: >-
+      A named service offering and the sessions it carries, with the protocols on
+      each layer.
+    is_a: OrchestraBaseInterfaceV10
+    annotations:
+      xsd_type: interfaceType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_sessions:
+        description: The sessions the interface carries.
+        range: OrchestraSessionsV10
+        inlined: true
+        annotations:
+          xml_element: sessions
+
+  OrchestraInterfacesV10:
+    title: Orchestra interfaces file (1.0)
+    description: >-
+      A description of the services and sessions a party offers and how to reach them,
+      headed by its Dublin Core metadata.
+    tree_root: true
+    annotations:
+      xsd_type: interfaces
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_metadata:
+        description: >-
+          The file's Dublin Core description, such as its title, publisher and date.
+        range: OrchestraMetadata
+        required: true
+        inlined: true
+        annotations:
+          xml_element: metadata
+      fixi_interface:
+        description: The interfaces the file describes.
+        range: OrchestraInterfaceV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: interface
+
+  OrchestraMappedDatatypeV10:
+    title: Orchestra datatype mapping (1.0)
+    description: >-
+      How a FIX datatype is written in another standard, such as XML Schema or protocol
+      buffers.
+    annotations:
+      xsd_type: mappedDatatype
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_extension:
+        description: XML from the target standard's own schema.
+        range: OrchestraDatatypeExtensionV10
+        inlined: true
+        annotations:
+          xml_element: extension
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_standard:
+        description: The standard the datatype is written in, such as XML or GPB.
+        any_of:
+          - range: OrchestraDatatypeStandardV10
+          - range: string
+        required: true
+        annotations:
+          xml_attribute: standard
+      fixr_builtin:
+        description: >-
+          Whether the target standard has the type built in, rather than derived.
+        range: boolean
+        annotations:
+          xml_attribute: builtin
+      fixr_base:
+        description: >-
+          The type in the target standard that the mapping narrows or builds on.
+        range: string
+        annotations:
+          xml_attribute: base
+      fixr_pattern:
+        description: A pattern the value matches in the target standard.
+        range: string
+        annotations:
+          xml_attribute: pattern
+      fixr_element:
+        description: >-
+          The type of each item when the target type is a list or array.
+        range: string
+        annotations:
+          xml_attribute: element
+      fixr_parameter:
+        description: A setting of the target type, such as its precision.
+        range: string
+        annotations:
+          xml_attribute: parameter
+      fixr_min_inclusive:
+        description: The smallest value allowed.
+        range: string
+        annotations:
+          xml_attribute: minInclusive
+      fixr_max_inclusive:
+        description: The largest value allowed.
+        range: string
+        annotations:
+          xml_attribute: maxInclusive
+
+  OrchestraMessageRefV10:
+    title: Orchestra message sent (1.0)
+    description: >-
+      A message an action sends, by its number and type code, with the fields it sets
+      or carries over.
+    mixins:
+      - OrchestraReferenceV10Mixin
+    annotations:
+      xsd_type: messageRefType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_identifiers:
+        description: The fields the message sets or carries over.
+        range: OrchestraIdentifiersV10
+        inlined: true
+        annotations:
+          xml_element: identifiers
+      fixr_name:
+        description: The message sent, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_msg_type:
+        description: The MsgType(35) code of the message sent.
+        range: string
+        pattern: ^[\s\S]{1,2}$
+        annotations:
+          xml_attribute: msgType
+      fixr_impl_min_occurs:
+        description: >-
+          The fewest times the message is sent; once when none is given.
+        range: integer
+        minimum_value: 1
+        ifabsent: int(1)
+        annotations:
+          xml_attribute: implMinOccurs
+      fixr_impl_max_occurs:
+        description: The most times the message is sent, or unbounded.
+        range: string
+        pattern: ^(\d+|unbounded)$
+        ifabsent: string(unbounded)
+        annotations:
+          xml_attribute: implMaxOccurs
+
+  OrchestraMessageStructureV10:
+    title: Orchestra message layout (1.0)
+    description: The ordered fields, groups and components of a message.
+    annotations:
+      xsd_type: messageType/structure
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_members:
+        description: The message's fields, groups and components, in order.
+        range: OrchestraStructureMemberV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_choice: componentRef groupRef fieldRef
+      fixr_which:
+        description: >-
+          Whether one member exactly, or one or more members, must appear.
+        range: OrchestraMemberSelection
+        annotations:
+          xml_attribute: which
+
+  OrchestraMessageV10:
+    title: Orchestra message (1.0)
+    description: >-
+      A FIX message: its type code, the fields, groups and components it carries in
+      order, and the responses it can cause.
+    mixins:
+      - OrchestraIdentityV10Mixin
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: messageType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_structure:
+        description: The message's fields, groups and components, in order.
+        range: OrchestraMessageStructureV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: structure
+      fixr_responses:
+        description: What can happen when the message arrives.
+        range: OrchestraResponsesV10
+        inlined: true
+        annotations:
+          xml_element: responses
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_msg_type:
+        description: The message's MsgType(35) code.
+        range: string
+        pattern: ^[\s\S]{1,2}$
+        annotations:
+          xml_attribute: msgType
+      fixr_category:
+        description: The category the message belongs to, by name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: category
+      fixr_flow:
+        description: The flow that carries the message, by name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: flow
+
+  OrchestraMessagesV10:
+    title: Orchestra messages (1.0)
+    description: The messages a repository defines.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: messages
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_message:
+        description: The messages.
+        range: OrchestraMessageV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: message
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraPedigreeV10Mixin:
+    title: Orchestra pedigree (1.0)
+    description: >-
+      When an element was added, changed, deprecated or replaced, by FIX version and
+      extension pack, and whether it is supported.
+    mixin: true
+    annotations:
+      xsd_type: entityAttribGrp
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_added:
+        description: The FIX version in which the element first appeared.
+        range: string
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: added
+      fixr_added_ep:
+        description: The extension pack in which the element first appeared.
+        range: integer
+        annotations:
+          xml_attribute: addedEP
+      fixr_change_type:
+        description: Whether the latest change was to wording only or to meaning.
+        range: OrchestraChangeKind
+        annotations:
+          xml_attribute: changeType
+      fixr_deprecated:
+        description: The FIX version from which the element is deprecated.
+        range: string
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: deprecated
+      fixr_deprecated_ep:
+        description: The extension pack from which the element is deprecated.
+        range: integer
+        annotations:
+          xml_attribute: deprecatedEP
+      fixr_issue:
+        description: The change request behind the element's latest change.
+        range: string
+        annotations:
+          xml_attribute: issue
+      fixr_last_modified:
+        description: The FIX version in which the element last changed.
+        range: string
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: lastModified
+      fixr_replaced:
+        description: >-
+          The FIX version in which another element took this one's place.
+        range: string
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: replaced
+      fixr_replaced_ep:
+        description: >-
+          The extension pack in which another element took this one's place.
+        range: integer
+        annotations:
+          xml_attribute: replacedEP
+      fixr_replaced_by_field:
+        description: The tag number of the field that takes this element's place.
+        range: integer
+        minimum_value: 1
+        annotations:
+          xml_attribute: replacedByField
+      fixr_supported:
+        description: >-
+          Whether a party supports, refuses or ignores the element; supported when
+          none is given.
+        range: OrchestraSupport
+        ifabsent: OrchestraSupport(supported)
+        annotations:
+          xml_attribute: supported
+      fixr_updated:
+        description: The FIX version of the element's latest update.
+        range: string
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: updated
+      fixr_updated_ep:
+        description: The extension pack of the element's latest update.
+        range: integer
+        annotations:
+          xml_attribute: updatedEP
+
+  OrchestraProtocolV10:
+    title: Orchestra protocol (1.0)
+    description: >-
+      A protocol used on one layer of an interface or session, with its version, layer
+      and delivery guarantee.
+    annotations:
+      xsd_type: protocolType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_annotation:
+        description: Notes for readers and hints for software.
+        range: OrchestraInterfaceAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixi_name:
+        description: >-
+          The protocol's name, such as FIXT or SBE, or another name of the provider's
+          choice.
+        any_of:
+          - range: OrchestraProtocolName
+          - range: string
+        annotations:
+          xml_attribute: name
+      fixi_version:
+        description: The protocol's version.
+        range: string
+        annotations:
+          xml_attribute: version
+      fixi_layer:
+        description: The layer the protocol works on.
+        range: OrchestraLayer
+        annotations:
+          xml_attribute: layer
+      fixi_reliability:
+        description: >-
+          The delivery guarantee the protocol gives, which a transport, a session
+          or the application may provide.
+        range: OrchestraReliability
+        annotations:
+          xml_attribute: reliability
+      fixi_orchestration:
+        description: >-
+          Where to find the Orchestra repository that sets out the protocol's messages
+          and rules.
+        range: uri
+        annotations:
+          xml_attribute: orchestration
+      fixi_other_attributes:
+        description: Attributes from other namespaces, kept as written.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: attributes
+
+  OrchestraReferenceV10Mixin:
+    title: Orchestra reference keys (1.0)
+    description: >-
+      The keys by which a use points at a defined element: its number, its scenario
+      and, as a convenience, its name.
+    mixin: true
+    annotations:
+      xsd_type: refidGrp
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_id:
+        description: >-
+          The number of the element in use; for a field, its tag number.
+        range: integer
+        required: true
+        minimum_value: 1
+        annotations:
+          xml_attribute: id
+      fixr_scenario:
+        description: The scenario of the element in use; base when none is given.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$
+        ifabsent: string(base)
+        annotations:
+          xml_attribute: scenario
+
+  OrchestraRepositoryV10:
+    title: Orchestra repository (1.0)
+    description: >-
+      A machine-readable set of rules of engagement: the datatypes, code sets, fields,
+      components, groups and messages it defines, and the actors and workflows that
+      use them.
+    mixins:
+      - OrchestraContainerV10Mixin
+    tree_root: true
+    annotations:
+      xsd_type: repository
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_metadata:
+        description: >-
+          The file's Dublin Core description, such as its title, publisher and date.
+        range: OrchestraMetadata
+        required: true
+        inlined: true
+        annotations:
+          xml_element: metadata
+      fixr_categories:
+        description: The repository's categories.
+        range: OrchestraCategoriesV10
+        inlined: true
+        annotations:
+          xml_element: categories
+      fixr_sections:
+        description: The repository's sections.
+        range: OrchestraSectionsV10
+        inlined: true
+        annotations:
+          xml_element: sections
+      fixr_datatypes:
+        description: The repository's datatypes.
+        range: OrchestraDatatypesV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: datatypes
+      fixr_code_sets:
+        description: The repository's code sets.
+        range: OrchestraCodeSetsV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: codeSets
+      fixr_fields:
+        description: The repository's fields.
+        range: OrchestraFieldsV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: fields
+      fixr_actors:
+        description: The repository's actors and flows.
+        range: OrchestraActorsV10
+        inlined: true
+        annotations:
+          xml_element: actors
+      fixr_components:
+        description: The repository's components.
+        range: OrchestraComponentsV10
+        inlined: true
+        annotations:
+          xml_element: components
+      fixr_groups:
+        description: The repository's repeating groups.
+        range: OrchestraGroupsV10
+        inlined: true
+        annotations:
+          xml_element: groups
+      fixr_messages:
+        description: The repository's messages.
+        range: OrchestraMessagesV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: messages
+      fixr_concepts:
+        description: The repository's concepts.
+        range: OrchestraConceptsV10
+        inlined: true
+        annotations:
+          xml_element: concepts
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: >-
+          The repository's name, which stays the same across its minor versions.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: name
+      fixr_version:
+        description: The repository's version, such as FIX.Latest_EP312.
+        range: string
+        required: true
+        pattern: ^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$
+        annotations:
+          xml_attribute: version
+      fixr_guid:
+        description: An identifier of the repository, unique worldwide.
+        range: string
+        annotations:
+          xml_attribute: guid
+      fixr_spec_url:
+        description: The address of a document that describes the element.
+        range: uri
+        annotations:
+          xml_attribute: specUrl
+      fixr_namespace:
+        description: A namespace address that goes with the repository.
+        range: uri
+        annotations:
+          xml_attribute: namespace
+      fixr_appl_ver_id:
+        description: >-
+          The FIX version the repository describes, as its ApplVerID(1128) code.
+        range: string
+        annotations:
+          xml_attribute: applVerId
+      fixr_expression_language:
+        description: >-
+          The language the conditions and assignments are written in; Score when none
+          is given.
+        range: string
+        ifabsent: string(Score)
+        annotations:
+          xml_attribute: expressionLanguage
+
+  OrchestraResponseV10:
+    title: Orchestra response (1.0)
+    description: >-
+      What happens when a message arrives, under an optional condition: messages sent,
+      values set, transitions fired and timers scheduled.
+    is_a: OrchestraActionV10
+    annotations:
+      xsd_type: responseType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_when:
+        description: >-
+          When the response fires, written as an expression; it always fires when
+          none is given.
+        range: string
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: when
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The response's name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_sync:
+        description: How the response's timing relates to the request it answers.
+        range: OrchestraSynchronization
+        annotations:
+          xml_attribute: sync
+
+  OrchestraResponsesV10:
+    title: Orchestra responses (1.0)
+    description: >-
+      The responses a message can cause, tried one after another as given.
+    annotations:
+      xsd_type: messageType/responses
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_response:
+        description: The responses, in order.
+        range: OrchestraResponseV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: response
+
+  OrchestraSectionV10:
+    title: Orchestra section (1.0)
+    description: >-
+      A broad business area, such as pre-trade or post-trade, that categories fall
+      under.
+    mixins:
+      - OrchestraPedigreeV10Mixin
+    annotations:
+      xsd_type: sectionType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The section's name.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_display_order:
+        description: Where the section comes when all sections are shown.
+        range: integer
+        minimum_value: -2147483648
+        maximum_value: 2147483647
+        annotations:
+          xml_attribute: displayOrder
+      fixr_fixml_file_name:
+        description: >-
+          The FIXML schema file that holds the elements of this section or category.
+        range: string
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: FIXMLFileName
+
+  OrchestraSectionsV10:
+    title: Orchestra sections (1.0)
+    description: The sections a repository defines.
+    mixins:
+      - OrchestraContainerV10Mixin
+    annotations:
+      xsd_type: sections
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_section:
+        description: The sections.
+        range: OrchestraSectionV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: section
+      xml_base:
+        description: >-
+          The base address for the list's relative links, which XInclude uses.
+        range: uri
+        annotations:
+          xml_attribute: xml:base
+
+  OrchestraServiceV10:
+    title: Orchestra service (1.0)
+    description: >-
+      An application-level service an interface offers, such as order routing, with
+      the Orchestra repository that sets out its rules.
+    is_a: OrchestraProtocolV10
+    annotations:
+      xsd_type: serviceType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+
+  OrchestraSessionIdentifierV10:
+    title: Orchestra session identifier (1.0)
+    description: >-
+      A value, with what kind it is, that picks out a session, such as a sender or
+      target ID.
+    annotations:
+      xsd_type: identifierType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_text:
+        description: The identifier's value.
+        range: string
+        annotations:
+          xml_text: 'true'
+      fixi_name:
+        description: What kind of identifier this is, such as SenderCompID.
+        range: string
+        annotations:
+          xml_attribute: name
+
+  OrchestraSessionProtocolV10:
+    title: Orchestra session protocol (1.0)
+    description: >-
+      The session-level protocol of an interface or session, such as FIXT or FIXP.
+    is_a: OrchestraProtocolV10
+    annotations:
+      xsd_type: sessionProtocolType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+
+  OrchestraSessionV10:
+    title: Orchestra session (1.0)
+    description: >-
+      One connection between two parties, with the identifiers, role, activation times
+      and security keys that set it up.
+    is_a: OrchestraBaseInterfaceV10
+    annotations:
+      xsd_type: sessionType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_identifier:
+        description: The identifiers that pick out the session.
+        range: OrchestraSessionIdentifierV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: identifier
+      fixi_activation_time:
+        description: When the session takes effect.
+        range: string
+        pattern: ^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$
+        annotations:
+          xml_element: activationTime
+      fixi_deactivation_time:
+        description: When the session stops having effect.
+        range: string
+        pattern: ^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$
+        annotations:
+          xml_element: deactivationTime
+      fixi_role:
+        description: The party's role in the session.
+        range: OrchestraRole
+        annotations:
+          xml_element: role
+      fixi_security_keys:
+        description: Security keys for the session, as PEM text.
+        range: string
+        annotations:
+          xml_element: securityKeys
+
+  OrchestraSessionsV10:
+    title: Orchestra sessions (1.0)
+    description: The sessions an interface carries.
+    annotations:
+      xsd_type: interfaceType/sessions
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_session:
+        description: The sessions.
+        range: OrchestraSessionV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: session
+
+  OrchestraStateMachineV10:
+    title: Orchestra state machine (1.0)
+    description: >-
+      A named set of states that an actor moves through, from an initial state.
+    annotations:
+      xsd_type: stateMachineType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_initial:
+        description: The state the machine starts in.
+        range: OrchestraStateV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: initial
+      fixr_state:
+        description: The machine's other states.
+        range: OrchestraStateV10
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        minimum_cardinality: 1
+        annotations:
+          xml_element: state
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The state machine's name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraStateV10:
+    title: Orchestra state (1.0)
+    description: >-
+      One of a state machine's states, with the transitions out of it and what happens
+      on entry, while active and on exit.
+    annotations:
+      xsd_type: stateType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_transition:
+        description: The moves out of this state.
+        range: OrchestraTransitionV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: transition
+      fixr_onentry:
+        description: What happens on entering the state.
+        range: OrchestraActionV10
+        inlined: true
+        annotations:
+          xml_element: onentry
+      fixr_activity:
+        description: What runs while the state is active.
+        range: OrchestraActionV10
+        inlined: true
+        annotations:
+          xml_element: activity
+      fixr_onexit:
+        description: What happens on leaving the state.
+        range: OrchestraActionV10
+        inlined: true
+        annotations:
+          xml_element: onexit
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The state's name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraStructureMemberV10:
+    title: Orchestra structure item (1.0)
+    description: >-
+      One item of an ordered structure, a component, a group or a field, by reference.
+      It holds exactly one of these.
+    annotations:
+      xsd_type: choice of componentRef, groupRef, fieldRef
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    exactly_one_of:
+      - slot_conditions:
+          fixr_component_ref:
+            required: true
+      - slot_conditions:
+          fixr_group_ref:
+            required: true
+      - slot_conditions:
+          fixr_field_ref:
+            required: true
+    attributes:
+      fixr_component_ref:
+        description: A component used by reference.
+        range: OrchestraComponentRefV10
+        inlined: true
+        annotations:
+          xml_element: componentRef
+      fixr_group_ref:
+        description: A group used by reference.
+        range: OrchestraGroupRefV10
+        inlined: true
+        annotations:
+          xml_element: groupRef
+      fixr_field_ref:
+        description: A field used by reference.
+        range: OrchestraFieldRefV10
+        inlined: true
+        annotations:
+          xml_element: fieldRef
+
+  OrchestraTimerScheduleV10:
+    title: Orchestra timer step (1.0)
+    description: >-
+      A step that starts, stops or restarts an actor's timer, with its interval and
+      what to do when it runs out.
+    annotations:
+      xsd_type: timerSchedule
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_activity:
+        description: What happens when the timer runs out.
+        range: OrchestraActionV10
+        required: true
+        inlined: true
+        annotations:
+          xml_element: activity
+      fixr_actor:
+        description: The actor whose timer or state machine this is, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: actor
+      fixr_name:
+        description: The timer to start, stop or restart, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_operation:
+        description: Whether to start, stop or restart the timer.
+        range: OrchestraTimerOperation
+        required: true
+        annotations:
+          xml_attribute: operation
+      fixr_interval:
+        description: How long the timer runs, as an XML Schema duration.
+        range: string
+        pattern: ^-?P(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+(\.\d+)?S)?)?$
+        annotations:
+          xml_attribute: interval
+
+  OrchestraTimerV10:
+    title: Orchestra timer (1.0)
+    description: A named timer that an actor owns.
+    annotations:
+      xsd_type: timerType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_name:
+        description: The timer's name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraTransitionV10:
+    title: Orchestra transition (1.0)
+    description: >-
+      A move from one state to a named target state, with the condition that allows
+      it.
+    annotations:
+      xsd_type: transitionType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_when:
+        description: >-
+          The condition that allows the transition, written as an expression; the
+          transition is always allowed when none is given.
+        range: string
+        pattern: ^[\s\S]{0,1024}$
+        annotations:
+          xml_element: when
+      fixr_annotation:
+        description: Notes for readers and hints for software about the element.
+        range: OrchestraAnnotationV10
+        inlined: true
+        annotations:
+          xml_element: annotation
+      fixr_name:
+        description: The transition's name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+      fixr_target:
+        description: The state the transition leads to, by name.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: target
+
+  OrchestraTransportV10:
+    title: Orchestra transport (1.0)
+    description: >-
+      The transport-level protocol of an interface or session, with its address, how
+      messages are cast and its use.
+    is_a: OrchestraProtocolV10
+    annotations:
+      xsd_type: transportProtocolType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi
+    attributes:
+      fixi_address:
+        description: The address to connect to, such as a host and port.
+        range: string
+        annotations:
+          xml_attribute: address
+      fixi_message_cast:
+        description: >-
+          Whether messages go to one, some or every receiver; unicast when none is
+          given.
+        range: OrchestraMessageCast
+        ifabsent: OrchestraMessageCast(unicast)
+        annotations:
+          xml_attribute: messageCast
+      fixi_use:
+        description: The transport's role, such as primary or alternate.
+        any_of:
+          - range: OrchestraTransportUse
+          - range: string
+        annotations:
+          xml_attribute: use
+      fixi_other_attributes:
+        description: Attributes from other namespaces, kept as written.
+        range: OrchestraXmlAttribute
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_any: attributes
+
+  OrchestraTriggerV10:
+    title: Orchestra trigger (1.0)
+    description: >-
+      A step that fires a named transition of an actor's state machine.
+    annotations:
+      xsd_type: triggerType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_state_machine:
+        description: The state machine whose transition fires, by name.
+        range: string
+        required: true
+        annotations:
+          xml_attribute: stateMachine
+      fixr_actor:
+        description: The actor whose timer or state machine this is, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: actor
+      fixr_name:
+        description: The transition to fire, by name.
+        range: string
+        required: true
+        pattern: ^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$
+        annotations:
+          xml_attribute: name
+
+  OrchestraUniqueV10:
+    title: Orchestra uniqueness check (1.0)
+    description: >-
+      A check that a field's value is unique among the values that share the other
+      fields it names, or among all values when it names none.
+    annotations:
+      xsd_type: fieldRuleType/unique
+      xml_namespace: http://fixprotocol.io/2020/orchestra/repository
+    in_subset:
+      - fixr
+    attributes:
+      fixr_field_ref:
+        description: The fields that scope the check, in order.
+        range: OrchestraFieldRefV10
+        multivalued: true
+        inlined_as_list: true
+        annotations:
+          xml_element: fieldRef
+
+  OrchestraUserInterfaceV10:
+    title: Orchestra user interface (1.0)
+    description: >-
+      A user interface an interface offers, such as a trading screen, described as
+      a protocol.
+    is_a: OrchestraProtocolV10
+    annotations:
+      xsd_type: userIntefaceType
+      xml_namespace: http://fixprotocol.io/2020/orchestra/interfaces
+    in_subset:
+      - fixi

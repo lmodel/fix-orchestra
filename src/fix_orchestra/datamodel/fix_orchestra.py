@@ -1,9 +1,8 @@
 # Auto generated from fix_orchestra.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-25T15:14:41
 # Schema: fix_orchestra
 #
 # id: https://w3id.org/lmodel/fix-orchestra
-# description: LinkML schema generated from the FIX Orchestra v1.1-RC2 XSD artifacts (repository.xsd, repositorytypes.xsd, interfaces.xsd).
+# description: A LinkML model of FIX Orchestra, the FIX Trading Community's standard for rules of engagement that a machine can read. It renders two editions from their XSDs, the v1.0 Technical Standard and the v1.1 third release candidate, so that an Orchestra repository or interfaces file of either edition converts to records that validate here.
 # license: Apache-2.0
 
 import dataclasses
@@ -56,6667 +55,10787 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Boolean, Date, Datetime, Float, Integer, String, Uri
-from linkml_runtime.utils.metamodelcore import Bool, URI, XSDDate, XSDDateTime
+from linkml_runtime.linkml_model.types import Boolean, Integer, String, Uri
+from linkml_runtime.utils.metamodelcore import Bool, URI
 
-metamodel_version = "1.11.0"
-version = "1.1-rc2"
+metamodel_version = "1.12.0"
+version = "1.0, 1.1-rc3"
 
 # Namespaces
-XML = CurieNamespace('XML', 'http://www.w3.org/XML/1998/namespace#')
 DC = CurieNamespace('dc', 'http://purl.org/dc/elements/1.1/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
-DCTYPES = CurieNamespace('dctypes', 'http://purl.org/dc/dcmitype/')
 FIX_ORCHESTRA = CurieNamespace('fix_orchestra', 'https://w3id.org/lmodel/fix-orchestra/')
-FIX_SBE = CurieNamespace('fix_sbe', 'http://example.org/UNKNOWN/fix_sbe/')
-FIXI = CurieNamespace('fixi', 'http://fixprotocol.io/2024/orchestra/interfaces/')
-FIXML = CurieNamespace('fixml', 'http://fixprotocol.io/2022/orchestra/appinfo/fixml#')
-FIXR = CurieNamespace('fixr', 'http://fixprotocol.io/2024/orchestra/repository/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
-SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
-XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = FIX_ORCHESTRA
 
 
 # Types
-class ComponentName(String):
-    type_class_uri = FIX_ORCHESTRA["ComponentName"]
-    type_class_curie = "fix_orchestra:ComponentName"
-    type_name = "ComponentName"
-    type_model_uri = FIX_ORCHESTRA.ComponentName
-
-
-class DatatypeStandard(String):
-    """ Extensible datatype standards | Union of: fixr:datatypeStandard_enum, xs:string """
-    type_class_uri = FIX_ORCHESTRA["DatatypeStandard"]
-    type_class_curie = "fix_orchestra:DatatypeStandard"
-    type_name = "DatatypeStandard"
-    type_model_uri = FIX_ORCHESTRA.DatatypeStandard
-
-
-class EP(Integer):
-    type_class_uri = FIX_ORCHESTRA["EP"]
-    type_class_curie = "fix_orchestra:EP"
-    type_name = "EP"
-    type_model_uri = FIX_ORCHESTRA.EP
-
-
-class ExpressionType(String):
-    """ Expressed in a Domain Specific Language """
-    type_class_uri = FIX_ORCHESTRA["ExpressionType"]
-    type_class_curie = "fix_orchestra:ExpressionType"
-    type_name = "ExpressionType"
-    type_model_uri = FIX_ORCHESTRA.ExpressionType
-
-
-class Id(Integer):
-    type_class_uri = FIX_ORCHESTRA["Id"]
-    type_class_curie = "fix_orchestra:Id"
-    type_name = "Id"
-    type_model_uri = FIX_ORCHESTRA.Id
-
-
-class Language(String):
-    type_class_uri = FIX_ORCHESTRA["Language"]
-    type_class_curie = "fix_orchestra:Language"
-    type_name = "Language"
-    type_model_uri = FIX_ORCHESTRA.Language
-
-
-class Mime(String):
-    """ Multipurpose Internet Mail Extensions (MIME) media type """
-    type_class_uri = FIX_ORCHESTRA["Mime"]
-    type_class_curie = "fix_orchestra:Mime"
-    type_name = "Mime"
-    type_model_uri = FIX_ORCHESTRA.Mime
-
-
-class MsgType(String):
-    type_class_uri = FIX_ORCHESTRA["MsgType"]
-    type_class_curie = "fix_orchestra:MsgType"
-    type_name = "MsgType"
-    type_model_uri = FIX_ORCHESTRA.MsgType
-
-
-class Name(String):
-    """ Names are from 1-64 characters. The XML processor will remove line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces. Single internal spaces are allowed by the schema but may be restricted by an external style. """
-    type_class_uri = FIX_ORCHESTRA["Name"]
-    type_class_curie = "fix_orchestra:Name"
-    type_name = "Name"
-    type_model_uri = FIX_ORCHESTRA.Name
-
-
-class Purpose(String):
-    """ Extensible annotation purposes | Union of: fixr:purpose_enum, xs:string """
-    type_class_uri = FIX_ORCHESTRA["Purpose"]
-    type_class_curie = "fix_orchestra:Purpose"
-    type_name = "Purpose"
-    type_model_uri = FIX_ORCHESTRA.Purpose
-
-
-class UnboundedIntType(String):
-    """ Union of: xs:nonNegativeInteger, fixr:unbounded """
-    type_class_uri = FIX_ORCHESTRA["UnboundedIntType"]
-    type_class_curie = "fix_orchestra:UnboundedIntType"
-    type_name = "UnboundedIntType"
-    type_model_uri = FIX_ORCHESTRA.UnboundedIntType
-
-
-class Version(String):
-    type_class_uri = FIX_ORCHESTRA["Version"]
-    type_class_curie = "fix_orchestra:Version"
-    type_name = "Version"
-    type_model_uri = FIX_ORCHESTRA.Version
-
-
-class ProtocolName(String):
-    """ Protocol names are not constrained to FIX protocols | Union of: fixi:protocolEnum_t, xs:token """
-    type_class_uri = FIX_ORCHESTRA["ProtocolName"]
-    type_class_curie = "fix_orchestra:ProtocolName"
-    type_name = "ProtocolName"
-    type_model_uri = FIX_ORCHESTRA.ProtocolName
-
-
-class InterfacePurpose(String):
-    """ Extensible annotation purposes | Union of: fixi:purpose_enum, xs:token """
-    type_class_uri = FIX_ORCHESTRA["InterfacePurpose"]
-    type_class_curie = "fix_orchestra:InterfacePurpose"
-    type_name = "InterfacePurpose"
-    type_model_uri = FIX_ORCHESTRA.InterfacePurpose
-
-
-class TransportUse(String):
-    """ Extensible transport use | Union of: fixi:transportUse_enum, xs:token """
-    type_class_uri = FIX_ORCHESTRA["TransportUse"]
-    type_class_curie = "fix_orchestra:TransportUse"
-    type_name = "TransportUse"
-    type_model_uri = FIX_ORCHESTRA.TransportUse
-
-
-class FIXInt(Integer):
-    """ FIX int base datatype. Sequence of digits without commas or decimals and optional sign character (ASCII characters "-" and "0" - "9" ). The sign character utilizes one byte (i.e. positive int is "99999" while negative int is "-99999"). Note that int values may contain leading zeros (e.g. "00023" = "23"). """
-    type_class_uri = FIX_ORCHESTRA["FIXInt"]
-    type_class_curie = "fix_orchestra:FIXInt"
-    type_name = "FIXInt"
-    type_model_uri = FIX_ORCHESTRA.FIXInt
-
-
-class FIXLength(Integer):
-    """ FIX Length datatype (extends int). int field representing the length in bytes. Value must be positive. """
-    type_class_uri = FIX_ORCHESTRA["FIXLength"]
-    type_class_curie = "fix_orchestra:FIXLength"
-    type_name = "FIXLength"
-    type_model_uri = FIX_ORCHESTRA.FIXLength
-
-
-class FIXTagNum(Integer):
-    """ FIX TagNum datatype (extends int). int field representing a field's tag number when using FIX "Tag=Value" syntax. Value must be positive and may not contain leading zeros. """
-    type_class_uri = FIX_ORCHESTRA["FIXTagNum"]
-    type_class_curie = "fix_orchestra:FIXTagNum"
-    type_name = "FIXTagNum"
-    type_model_uri = FIX_ORCHESTRA.FIXTagNum
-
-
-class FIXSeqNum(Integer):
-    """ FIX SeqNum datatype (extends int). int field representing a message sequence number. Value must be positive. """
-    type_class_uri = FIX_ORCHESTRA["FIXSeqNum"]
-    type_class_curie = "fix_orchestra:FIXSeqNum"
-    type_name = "FIXSeqNum"
-    type_model_uri = FIX_ORCHESTRA.FIXSeqNum
-
-
-class FIXNumInGroup(String):
-    """ FIX NumInGroup datatype (extends int). int field representing the number of entries in a repeating group. Value must be positive. """
-    type_class_uri = FIX_ORCHESTRA["FIXNumInGroup"]
-    type_class_curie = "fix_orchestra:FIXNumInGroup"
-    type_name = "FIXNumInGroup"
-    type_model_uri = FIX_ORCHESTRA.FIXNumInGroup
-
-
-class FIXDayOfMonth(Integer):
-    """ FIX DayOfMonth datatype (extends int). int field representing a day during a particular month (values 1 to 31). """
-    type_class_uri = FIX_ORCHESTRA["FIXDayOfMonth"]
-    type_class_curie = "fix_orchestra:FIXDayOfMonth"
-    type_name = "FIXDayOfMonth"
-    type_model_uri = FIX_ORCHESTRA.FIXDayOfMonth
-
-
-class FIXFloat(Float):
-    """ FIX float base datatype. Sequence of digits with optional decimal point and sign character (ASCII characters "-", "0" - "9" and "."); the absence of the decimal point within the string will be interpreted as the float representation of an integer value. All float fields must accommodate up to fifteen significant digits. The number of decimal places used should be a factor of business/market needs and mutual agreement between counterparties. Note that float values may contain leading zeros (e.g. "00023.23" = "23.23") and may contain or omit trailing zeros after the decimal point (e.g. "23.0" = "23.0000" = "23" = "23."). Note that fields which are derived from float may contain negative values unless explicitly specified otherwise. """
-    type_class_uri = FIX_ORCHESTRA["FIXFloat"]
-    type_class_curie = "fix_orchestra:FIXFloat"
-    type_name = "FIXFloat"
-    type_model_uri = FIX_ORCHESTRA.FIXFloat
-
-
-class FIXQty(Float):
-    """ FIX Qty datatype (extends float). float field capable of storing either a whole number (no decimal places) of "shares" (securities denominated in whole units) or a decimal value containing decimal places for non-share quantity asset classes (securities denominated in fractional units). """
-    type_class_uri = FIX_ORCHESTRA["FIXQty"]
-    type_class_curie = "fix_orchestra:FIXQty"
-    type_name = "FIXQty"
-    type_model_uri = FIX_ORCHESTRA.FIXQty
-
-
-class FIXPrice(Float):
-    """ FIX Price datatype (extends float). float field representing a price. Note the number of decimal places may vary. For certain asset classes prices may be negative values. For example, prices for options strategies can be negative under certain market conditions. Refer to Volume 7: FIX Usage by Product for asset classes that support negative price values. """
-    type_class_uri = FIX_ORCHESTRA["FIXPrice"]
-    type_class_curie = "fix_orchestra:FIXPrice"
-    type_name = "FIXPrice"
-    type_model_uri = FIX_ORCHESTRA.FIXPrice
-
-
-class FIXPriceOffset(Float):
-    """ FIX PriceOffset datatype (extends float). float field representing a price offset, which can be mathematically added to a "Price". Note the number of decimal places may vary and some fields such as LastForwardPoints may be negative. """
-    type_class_uri = FIX_ORCHESTRA["FIXPriceOffset"]
-    type_class_curie = "fix_orchestra:FIXPriceOffset"
-    type_name = "FIXPriceOffset"
-    type_model_uri = FIX_ORCHESTRA.FIXPriceOffset
-
-
-class FIXAmt(Float):
-    """ FIX Amt datatype (extends float). float field typically representing a Price times a Qty """
-    type_class_uri = FIX_ORCHESTRA["FIXAmt"]
-    type_class_curie = "fix_orchestra:FIXAmt"
-    type_name = "FIXAmt"
-    type_model_uri = FIX_ORCHESTRA.FIXAmt
-
-
-class FIXPercentage(Float):
-    """ FIX Percentage datatype (extends float). float field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary. """
-    type_class_uri = FIX_ORCHESTRA["FIXPercentage"]
-    type_class_curie = "fix_orchestra:FIXPercentage"
-    type_name = "FIXPercentage"
-    type_model_uri = FIX_ORCHESTRA.FIXPercentage
-
-
-class FIXChar(String):
-    """ FIX char base datatype. Single character value, can include any alphanumeric character or punctuation except the delimiter. All char fields are case sensitive (i.e. m != M). """
-    type_class_uri = FIX_ORCHESTRA["FIXChar"]
-    type_class_curie = "fix_orchestra:FIXChar"
-    type_name = "FIXChar"
-    type_model_uri = FIX_ORCHESTRA.FIXChar
-
-
-class FIXBoolean(String):
-    """ FIX Boolean datatype (extends char). char field containing one of two values: """
-    type_class_uri = FIX_ORCHESTRA["FIXBoolean"]
-    type_class_curie = "fix_orchestra:FIXBoolean"
-    type_name = "FIXBoolean"
-    type_model_uri = FIX_ORCHESTRA.FIXBoolean
-
-
-class FIXString(String):
-    """ FIX String base datatype. Alpha-numeric free format strings, can include any character or punctuation except the delimiter. All String fields are case sensitive (i.e. morstatt != Morstatt). """
-    type_class_uri = FIX_ORCHESTRA["FIXString"]
-    type_class_curie = "fix_orchestra:FIXString"
-    type_name = "FIXString"
-    type_model_uri = FIX_ORCHESTRA.FIXString
-
-
-class FIXMultipleCharValue(String):
-    """ FIX MultipleCharValue datatype (extends String). string field containing one or more space delimited single character values (e.g. |18=2 A F| ). """
-    type_class_uri = FIX_ORCHESTRA["FIXMultipleCharValue"]
-    type_class_curie = "fix_orchestra:FIXMultipleCharValue"
-    type_name = "FIXMultipleCharValue"
-    type_model_uri = FIX_ORCHESTRA.FIXMultipleCharValue
-
-
-class FIXMultipleStringValue(String):
-    """ FIX MultipleStringValue datatype (extends String). string field containing one or more space delimited multiple character values (e.g. |277=AV AN A| ). """
-    type_class_uri = FIX_ORCHESTRA["FIXMultipleStringValue"]
-    type_class_curie = "fix_orchestra:FIXMultipleStringValue"
-    type_name = "FIXMultipleStringValue"
-    type_model_uri = FIX_ORCHESTRA.FIXMultipleStringValue
-
-
-class FIXCountry(String):
-    """ FIX Country datatype (extends String). string field representing a country using ISO 3166 Country code (2 character) values (see Appendix 6-B). """
-    type_class_uri = FIX_ORCHESTRA["FIXCountry"]
-    type_class_curie = "fix_orchestra:FIXCountry"
-    type_name = "FIXCountry"
-    type_model_uri = FIX_ORCHESTRA.FIXCountry
-
-
-class FIXCurrency(String):
-    """ FIX Currency datatype (extends String). string field representing a currency type using ISO 4217 Currency code (3 character) values (see Appendix 6-A). """
-    type_class_uri = FIX_ORCHESTRA["FIXCurrency"]
-    type_class_curie = "fix_orchestra:FIXCurrency"
-    type_name = "FIXCurrency"
-    type_model_uri = FIX_ORCHESTRA.FIXCurrency
-
-
-class FIXExchange(String):
-    """ FIX Exchange datatype (extends String). string field representing a market or exchange using ISO 10383 Market Identifier Code (MIC) values (see"Appendix 6-C). """
-    type_class_uri = FIX_ORCHESTRA["FIXExchange"]
-    type_class_curie = "fix_orchestra:FIXExchange"
-    type_name = "FIXExchange"
-    type_model_uri = FIX_ORCHESTRA.FIXExchange
-
-
-class FIXMonthYear(String):
-    """ FIX MonthYear datatype (extends String). string field representing month of a year. An optional day of the month can be appended or an optional week code. """
-    type_class_uri = FIX_ORCHESTRA["FIXMonthYear"]
-    type_class_curie = "fix_orchestra:FIXMonthYear"
-    type_name = "FIXMonthYear"
-    type_model_uri = FIX_ORCHESTRA.FIXMonthYear
-
-
-class FIXUTCTimestamp(Datetime):
-    """ FIX UTCTimestamp datatype (extends String). string field representing time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss* format, colons, dash, and period required. """
-    type_class_uri = FIX_ORCHESTRA["FIXUTCTimestamp"]
-    type_class_curie = "fix_orchestra:FIXUTCTimestamp"
-    type_name = "FIXUTCTimestamp"
-    type_model_uri = FIX_ORCHESTRA.FIXUTCTimestamp
-
-
-class FIXUTCTimeOnly(String):
-    """ FIX UTCTimeOnly datatype (extends String). string field representing time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss* (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. """
-    type_class_uri = FIX_ORCHESTRA["FIXUTCTimeOnly"]
-    type_class_curie = "fix_orchestra:FIXUTCTimeOnly"
-    type_name = "FIXUTCTimeOnly"
-    type_model_uri = FIX_ORCHESTRA.FIXUTCTimeOnly
-
-
-class FIXUTCDateOnly(Date):
-    """ FIX UTCDateOnly datatype (extends String). string field representing Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. """
-    type_class_uri = FIX_ORCHESTRA["FIXUTCDateOnly"]
-    type_class_curie = "fix_orchestra:FIXUTCDateOnly"
-    type_name = "FIXUTCDateOnly"
-    type_model_uri = FIX_ORCHESTRA.FIXUTCDateOnly
-
-
-class FIXLocalMktDate(Date):
-    """ FIX LocalMktDate datatype (extends String). string field representing a Date of Local Market (as opposed to UTC) in YYYYMMDD format. This is the "normal" date field used by the FIX Protocol. """
-    type_class_uri = FIX_ORCHESTRA["FIXLocalMktDate"]
-    type_class_curie = "fix_orchestra:FIXLocalMktDate"
-    type_name = "FIXLocalMktDate"
-    type_model_uri = FIX_ORCHESTRA.FIXLocalMktDate
-
-
-class FIXTZTimeOnly(String):
-    """ FIX TZTimeOnly datatype (extends String). string field representing the time represented based on ISO 8601. This is the time with a UTC offset to allow identification of local time and timezone of that time. """
-    type_class_uri = FIX_ORCHESTRA["FIXTZTimeOnly"]
-    type_class_curie = "fix_orchestra:FIXTZTimeOnly"
-    type_name = "FIXTZTimeOnly"
-    type_model_uri = FIX_ORCHESTRA.FIXTZTimeOnly
-
-
-class FIXTZTimestamp(Datetime):
-    """ FIX TZTimestamp datatype (extends String). string field representing a time/date combination representing local time with an offset to UTC to allow identification of local time and timezone offset of that time. The representation is based on ISO 8601. """
-    type_class_uri = FIX_ORCHESTRA["FIXTZTimestamp"]
-    type_class_curie = "fix_orchestra:FIXTZTimestamp"
-    type_name = "FIXTZTimestamp"
-    type_model_uri = FIX_ORCHESTRA.FIXTZTimestamp
-
-
-class FIXData(String):
-    """ FIX data base datatype. string field containing opaque or non-ASCII data with no format or content restrictions. Data fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). The number of bytes does not equal the number of characters when multibyte character sets are used. Caution: The value of these fields may contain the delimiter (SOH) character. Note that the value specified for these fields must be followed by the delimiter (SOH) character as all tag-value fields are terminated with an SOH. """
-    type_class_uri = FIX_ORCHESTRA["FIXData"]
-    type_class_curie = "fix_orchestra:FIXData"
-    type_name = "FIXData"
-    type_model_uri = FIX_ORCHESTRA.FIXData
-
-
-class FIXPattern(String):
-    """ FIX Pattern base datatype. Used to build on and provide some restrictions on what is allowed as valid values in fields that uses a base FIX data type and a pattern data type. The universe of allowable valid values for the field would then be the union of the base set of valid values and what is defined by the pattern data type. The pattern data type used by the field will retain its base FIX data type (e.g. String, int, char). """
-    type_class_uri = FIX_ORCHESTRA["FIXPattern"]
-    type_class_curie = "fix_orchestra:FIXPattern"
-    type_name = "FIXPattern"
-    type_model_uri = FIX_ORCHESTRA.FIXPattern
-
-
-class FIXTenor(String):
-    """ FIX Tenor datatype (extends Pattern). used to allow the expression of FX standard tenors in addition to the base valid enumerations defined for the field that uses this pattern data type. This pattern data type is defined as follows: """
-    type_class_uri = FIX_ORCHESTRA["FIXTenor"]
-    type_class_curie = "fix_orchestra:FIXTenor"
-    type_name = "FIXTenor"
-    type_model_uri = FIX_ORCHESTRA.FIXTenor
-
-
-class FIXReserved100Plus(Integer):
-    """ FIX Reserved100Plus datatype (extends Pattern). Values "100" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIX_ORCHESTRA["FIXReserved100Plus"]
-    type_class_curie = "fix_orchestra:FIXReserved100Plus"
-    type_name = "FIXReserved100Plus"
-    type_model_uri = FIX_ORCHESTRA.FIXReserved100Plus
-
-
-class FIXReserved1000Plus(Integer):
-    """ FIX Reserved1000Plus datatype (extends Pattern). Values "1000" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIX_ORCHESTRA["FIXReserved1000Plus"]
-    type_class_curie = "fix_orchestra:FIXReserved1000Plus"
-    type_name = "FIXReserved1000Plus"
-    type_model_uri = FIX_ORCHESTRA.FIXReserved1000Plus
-
-
-class FIXReserved4000Plus(Integer):
-    """ FIX Reserved4000Plus datatype (extends Pattern). Values "4000" and above are reserved for bilaterally agreed upon user defined enumerations. """
-    type_class_uri = FIX_ORCHESTRA["FIXReserved4000Plus"]
-    type_class_curie = "fix_orchestra:FIXReserved4000Plus"
-    type_name = "FIXReserved4000Plus"
-    type_model_uri = FIX_ORCHESTRA.FIXReserved4000Plus
-
-
-class FIXXMLData(String):
-    """ FIX XMLData datatype (extends String). Contains an XML document raw data with no format or content restrictions. XMLData fields are always immediately preceded by a length field. The length field should specify the number of bytes of the value of the data field (up to but not including the terminating SOH). """
-    type_class_uri = FIX_ORCHESTRA["FIXXMLData"]
-    type_class_curie = "fix_orchestra:FIXXMLData"
-    type_name = "FIXXMLData"
-    type_model_uri = FIX_ORCHESTRA.FIXXMLData
-
-
-class FIXLanguage(String):
-    """ FIX Language datatype (extends String). Identifier for a national language - uses ISO 639-1 standard """
-    type_class_uri = FIX_ORCHESTRA["FIXLanguage"]
-    type_class_curie = "fix_orchestra:FIXLanguage"
-    type_name = "FIXLanguage"
-    type_model_uri = FIX_ORCHESTRA.FIXLanguage
-
-
-class FIXLocalMktTime(String):
-    """ FIX LocalMktTime datatype (extends String). string field representing the time local to a particular market center. Used where offset to UTC varies throughout the year and the defining market center is identified in a corresponding field. """
-    type_class_uri = FIX_ORCHESTRA["FIXLocalMktTime"]
-    type_class_curie = "fix_orchestra:FIXLocalMktTime"
-    type_name = "FIXLocalMktTime"
-    type_model_uri = FIX_ORCHESTRA.FIXLocalMktTime
-
-
-class FIXXID(String):
-    """ FIX XID datatype (extends String). The purpose of the XID datatype is to define a unique identifier that is global to a FIX message. An identifier defined using this datatype uniquely identifies its containing element, whatever its type and name is. The constraint added by this datatype is that the values of all the fields that have an XID datatype in a FIX message must be unique. """
-    type_class_uri = FIX_ORCHESTRA["FIXXID"]
-    type_class_curie = "fix_orchestra:FIXXID"
-    type_name = "FIXXID"
-    type_model_uri = FIX_ORCHESTRA.FIXXID
-
-
-class FIXXIDREF(String):
-    """ FIX XIDREF datatype (extends String). The XIDREF datatype defines a reference to an identifier defined by the XID datatype. """
-    type_class_uri = FIX_ORCHESTRA["FIXXIDREF"]
-    type_class_curie = "fix_orchestra:FIXXIDREF"
-    type_name = "FIXXIDREF"
-    type_model_uri = FIX_ORCHESTRA.FIXXIDREF
-
-
-class DcmitypeDCMIType(String):
-    """ Union of:  """
-    type_class_uri = DCTYPES["DCMIType"]
-    type_class_curie = "dctypes:DCMIType"
-    type_name = "DcmitypeDCMIType"
-    type_model_uri = FIX_ORCHESTRA.DcmitypeDCMIType
-
-
-class XmlLangType(String):
-    """ Anonymous simpleType for XML:lang (from xml.xsd). """
-    type_class_uri = XML["lang_t"]
-    type_class_curie = "XML:lang_t"
-    type_name = "XmlLangType"
-    type_model_uri = FIX_ORCHESTRA.XmlLangType
-
 
 # Class references
 
 
 
 @dataclass(repr=False)
-class EntityAttribGrp(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["EntityAttribGrp"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:EntityAttribGrp"
-    class_name: ClassVar[str] = "EntityAttribGrp"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.EntityAttribGrp
-
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class FieldAttribGrp(YAMLRoot):
+class OrchestraMetadata(YAMLRoot):
     """
-    Attributes of a field that be overridden by a rule
+    The Dublin Core description at the top of a repository or interfaces file. Each key holds the values of one Dublin
+    Core element or term.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldAttribGrp"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FieldAttribGrp"
-    class_name: ClassVar[str] = "FieldAttribGrp"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldAttribGrp
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMetadata"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMetadata"
+    class_name: ClassVar[str] = "OrchestraMetadata"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMetadata
 
-    min_inclusive: Optional[str] = None
-    max_inclusive: Optional[str] = None
-    impl_length: Optional[int] = None
-    impl_min_length: Optional[int] = None
-    impl_max_length: Optional[int] = None
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    value: Optional[str] = None
-    rendering: Optional[str] = None
-    encoding: Optional[str] = None
+    dc_title: Optional[Union[str, list[str]]] = empty_list()
+    dc_creator: Optional[Union[str, list[str]]] = empty_list()
+    dc_subject: Optional[Union[str, list[str]]] = empty_list()
+    dc_description: Optional[Union[str, list[str]]] = empty_list()
+    dc_publisher: Optional[Union[str, list[str]]] = empty_list()
+    dc_contributor: Optional[Union[str, list[str]]] = empty_list()
+    dc_date: Optional[Union[str, list[str]]] = empty_list()
+    dc_type: Optional[Union[str, list[str]]] = empty_list()
+    dc_format: Optional[Union[str, list[str]]] = empty_list()
+    dc_identifier: Optional[Union[str, list[str]]] = empty_list()
+    dc_source: Optional[Union[str, list[str]]] = empty_list()
+    dc_language: Optional[Union[str, list[str]]] = empty_list()
+    dc_relation: Optional[Union[str, list[str]]] = empty_list()
+    dc_coverage: Optional[Union[str, list[str]]] = empty_list()
+    dc_rights: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_title: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_creator: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_subject: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_description: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_publisher: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_contributor: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_date: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_type: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_format: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_identifier: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_source: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_language: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_relation: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_coverage: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_rights: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_alternative: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_table_of_contents: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_abstract: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_created: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_valid: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_available: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_issued: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_modified: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_date_accepted: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_date_copyrighted: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_date_submitted: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_extent: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_medium: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_version_of: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_has_version: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_replaced_by: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_replaces: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_required_by: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_requires: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_part_of: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_has_part: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_referenced_by: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_references: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_is_format_of: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_has_format: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_conforms_to: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_spatial: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_temporal: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_audience: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_accrual_method: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_accrual_periodicity: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_accrual_policy: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_instructional_method: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_provenance: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_rights_holder: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_mediator: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_education_level: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_access_rights: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_license: Optional[Union[str, list[str]]] = empty_list()
+    dcterms_bibliographic_citation: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.min_inclusive is not None and not isinstance(self.min_inclusive, str):
-            self.min_inclusive = str(self.min_inclusive)
+        if not isinstance(self.dc_title, list):
+            self.dc_title = [self.dc_title] if self.dc_title is not None else []
+        self.dc_title = [v if isinstance(v, str) else str(v) for v in self.dc_title]
 
-        if self.max_inclusive is not None and not isinstance(self.max_inclusive, str):
-            self.max_inclusive = str(self.max_inclusive)
+        if not isinstance(self.dc_creator, list):
+            self.dc_creator = [self.dc_creator] if self.dc_creator is not None else []
+        self.dc_creator = [v if isinstance(v, str) else str(v) for v in self.dc_creator]
 
-        if self.impl_length is not None and not isinstance(self.impl_length, int):
-            self.impl_length = int(self.impl_length)
+        if not isinstance(self.dc_subject, list):
+            self.dc_subject = [self.dc_subject] if self.dc_subject is not None else []
+        self.dc_subject = [v if isinstance(v, str) else str(v) for v in self.dc_subject]
 
-        if self.impl_min_length is not None and not isinstance(self.impl_min_length, int):
-            self.impl_min_length = int(self.impl_min_length)
+        if not isinstance(self.dc_description, list):
+            self.dc_description = [self.dc_description] if self.dc_description is not None else []
+        self.dc_description = [v if isinstance(v, str) else str(v) for v in self.dc_description]
 
-        if self.impl_max_length is not None and not isinstance(self.impl_max_length, int):
-            self.impl_max_length = int(self.impl_max_length)
+        if not isinstance(self.dc_publisher, list):
+            self.dc_publisher = [self.dc_publisher] if self.dc_publisher is not None else []
+        self.dc_publisher = [v if isinstance(v, str) else str(v) for v in self.dc_publisher]
 
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
+        if not isinstance(self.dc_contributor, list):
+            self.dc_contributor = [self.dc_contributor] if self.dc_contributor is not None else []
+        self.dc_contributor = [v if isinstance(v, str) else str(v) for v in self.dc_contributor]
 
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
+        if not isinstance(self.dc_date, list):
+            self.dc_date = [self.dc_date] if self.dc_date is not None else []
+        self.dc_date = [v if isinstance(v, str) else str(v) for v in self.dc_date]
 
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
+        if not isinstance(self.dc_type, list):
+            self.dc_type = [self.dc_type] if self.dc_type is not None else []
+        self.dc_type = [v if isinstance(v, str) else str(v) for v in self.dc_type]
 
-        if self.encoding is not None and not isinstance(self.encoding, str):
-            self.encoding = str(self.encoding)
+        if not isinstance(self.dc_format, list):
+            self.dc_format = [self.dc_format] if self.dc_format is not None else []
+        self.dc_format = [v if isinstance(v, str) else str(v) for v in self.dc_format]
+
+        if not isinstance(self.dc_identifier, list):
+            self.dc_identifier = [self.dc_identifier] if self.dc_identifier is not None else []
+        self.dc_identifier = [v if isinstance(v, str) else str(v) for v in self.dc_identifier]
+
+        if not isinstance(self.dc_source, list):
+            self.dc_source = [self.dc_source] if self.dc_source is not None else []
+        self.dc_source = [v if isinstance(v, str) else str(v) for v in self.dc_source]
+
+        if not isinstance(self.dc_language, list):
+            self.dc_language = [self.dc_language] if self.dc_language is not None else []
+        self.dc_language = [v if isinstance(v, str) else str(v) for v in self.dc_language]
+
+        if not isinstance(self.dc_relation, list):
+            self.dc_relation = [self.dc_relation] if self.dc_relation is not None else []
+        self.dc_relation = [v if isinstance(v, str) else str(v) for v in self.dc_relation]
+
+        if not isinstance(self.dc_coverage, list):
+            self.dc_coverage = [self.dc_coverage] if self.dc_coverage is not None else []
+        self.dc_coverage = [v if isinstance(v, str) else str(v) for v in self.dc_coverage]
+
+        if not isinstance(self.dc_rights, list):
+            self.dc_rights = [self.dc_rights] if self.dc_rights is not None else []
+        self.dc_rights = [v if isinstance(v, str) else str(v) for v in self.dc_rights]
+
+        if not isinstance(self.dcterms_title, list):
+            self.dcterms_title = [self.dcterms_title] if self.dcterms_title is not None else []
+        self.dcterms_title = [v if isinstance(v, str) else str(v) for v in self.dcterms_title]
+
+        if not isinstance(self.dcterms_creator, list):
+            self.dcterms_creator = [self.dcterms_creator] if self.dcterms_creator is not None else []
+        self.dcterms_creator = [v if isinstance(v, str) else str(v) for v in self.dcterms_creator]
+
+        if not isinstance(self.dcterms_subject, list):
+            self.dcterms_subject = [self.dcterms_subject] if self.dcterms_subject is not None else []
+        self.dcterms_subject = [v if isinstance(v, str) else str(v) for v in self.dcterms_subject]
+
+        if not isinstance(self.dcterms_description, list):
+            self.dcterms_description = [self.dcterms_description] if self.dcterms_description is not None else []
+        self.dcterms_description = [v if isinstance(v, str) else str(v) for v in self.dcterms_description]
+
+        if not isinstance(self.dcterms_publisher, list):
+            self.dcterms_publisher = [self.dcterms_publisher] if self.dcterms_publisher is not None else []
+        self.dcterms_publisher = [v if isinstance(v, str) else str(v) for v in self.dcterms_publisher]
+
+        if not isinstance(self.dcterms_contributor, list):
+            self.dcterms_contributor = [self.dcterms_contributor] if self.dcterms_contributor is not None else []
+        self.dcterms_contributor = [v if isinstance(v, str) else str(v) for v in self.dcterms_contributor]
+
+        if not isinstance(self.dcterms_date, list):
+            self.dcterms_date = [self.dcterms_date] if self.dcterms_date is not None else []
+        self.dcterms_date = [v if isinstance(v, str) else str(v) for v in self.dcterms_date]
+
+        if not isinstance(self.dcterms_type, list):
+            self.dcterms_type = [self.dcterms_type] if self.dcterms_type is not None else []
+        self.dcterms_type = [v if isinstance(v, str) else str(v) for v in self.dcterms_type]
+
+        if not isinstance(self.dcterms_format, list):
+            self.dcterms_format = [self.dcterms_format] if self.dcterms_format is not None else []
+        self.dcterms_format = [v if isinstance(v, str) else str(v) for v in self.dcterms_format]
+
+        if not isinstance(self.dcterms_identifier, list):
+            self.dcterms_identifier = [self.dcterms_identifier] if self.dcterms_identifier is not None else []
+        self.dcterms_identifier = [v if isinstance(v, str) else str(v) for v in self.dcterms_identifier]
+
+        if not isinstance(self.dcterms_source, list):
+            self.dcterms_source = [self.dcterms_source] if self.dcterms_source is not None else []
+        self.dcterms_source = [v if isinstance(v, str) else str(v) for v in self.dcterms_source]
+
+        if not isinstance(self.dcterms_language, list):
+            self.dcterms_language = [self.dcterms_language] if self.dcterms_language is not None else []
+        self.dcterms_language = [v if isinstance(v, str) else str(v) for v in self.dcterms_language]
+
+        if not isinstance(self.dcterms_relation, list):
+            self.dcterms_relation = [self.dcterms_relation] if self.dcterms_relation is not None else []
+        self.dcterms_relation = [v if isinstance(v, str) else str(v) for v in self.dcterms_relation]
+
+        if not isinstance(self.dcterms_coverage, list):
+            self.dcterms_coverage = [self.dcterms_coverage] if self.dcterms_coverage is not None else []
+        self.dcterms_coverage = [v if isinstance(v, str) else str(v) for v in self.dcterms_coverage]
+
+        if not isinstance(self.dcterms_rights, list):
+            self.dcterms_rights = [self.dcterms_rights] if self.dcterms_rights is not None else []
+        self.dcterms_rights = [v if isinstance(v, str) else str(v) for v in self.dcterms_rights]
+
+        if not isinstance(self.dcterms_alternative, list):
+            self.dcterms_alternative = [self.dcterms_alternative] if self.dcterms_alternative is not None else []
+        self.dcterms_alternative = [v if isinstance(v, str) else str(v) for v in self.dcterms_alternative]
+
+        if not isinstance(self.dcterms_table_of_contents, list):
+            self.dcterms_table_of_contents = [self.dcterms_table_of_contents] if self.dcterms_table_of_contents is not None else []
+        self.dcterms_table_of_contents = [v if isinstance(v, str) else str(v) for v in self.dcterms_table_of_contents]
+
+        if not isinstance(self.dcterms_abstract, list):
+            self.dcterms_abstract = [self.dcterms_abstract] if self.dcterms_abstract is not None else []
+        self.dcterms_abstract = [v if isinstance(v, str) else str(v) for v in self.dcterms_abstract]
+
+        if not isinstance(self.dcterms_created, list):
+            self.dcterms_created = [self.dcterms_created] if self.dcterms_created is not None else []
+        self.dcterms_created = [v if isinstance(v, str) else str(v) for v in self.dcterms_created]
+
+        if not isinstance(self.dcterms_valid, list):
+            self.dcterms_valid = [self.dcterms_valid] if self.dcterms_valid is not None else []
+        self.dcterms_valid = [v if isinstance(v, str) else str(v) for v in self.dcterms_valid]
+
+        if not isinstance(self.dcterms_available, list):
+            self.dcterms_available = [self.dcterms_available] if self.dcterms_available is not None else []
+        self.dcterms_available = [v if isinstance(v, str) else str(v) for v in self.dcterms_available]
+
+        if not isinstance(self.dcterms_issued, list):
+            self.dcterms_issued = [self.dcterms_issued] if self.dcterms_issued is not None else []
+        self.dcterms_issued = [v if isinstance(v, str) else str(v) for v in self.dcterms_issued]
+
+        if not isinstance(self.dcterms_modified, list):
+            self.dcterms_modified = [self.dcterms_modified] if self.dcterms_modified is not None else []
+        self.dcterms_modified = [v if isinstance(v, str) else str(v) for v in self.dcterms_modified]
+
+        if not isinstance(self.dcterms_date_accepted, list):
+            self.dcterms_date_accepted = [self.dcterms_date_accepted] if self.dcterms_date_accepted is not None else []
+        self.dcterms_date_accepted = [v if isinstance(v, str) else str(v) for v in self.dcterms_date_accepted]
+
+        if not isinstance(self.dcterms_date_copyrighted, list):
+            self.dcterms_date_copyrighted = [self.dcterms_date_copyrighted] if self.dcterms_date_copyrighted is not None else []
+        self.dcterms_date_copyrighted = [v if isinstance(v, str) else str(v) for v in self.dcterms_date_copyrighted]
+
+        if not isinstance(self.dcterms_date_submitted, list):
+            self.dcterms_date_submitted = [self.dcterms_date_submitted] if self.dcterms_date_submitted is not None else []
+        self.dcterms_date_submitted = [v if isinstance(v, str) else str(v) for v in self.dcterms_date_submitted]
+
+        if not isinstance(self.dcterms_extent, list):
+            self.dcterms_extent = [self.dcterms_extent] if self.dcterms_extent is not None else []
+        self.dcterms_extent = [v if isinstance(v, str) else str(v) for v in self.dcterms_extent]
+
+        if not isinstance(self.dcterms_medium, list):
+            self.dcterms_medium = [self.dcterms_medium] if self.dcterms_medium is not None else []
+        self.dcterms_medium = [v if isinstance(v, str) else str(v) for v in self.dcterms_medium]
+
+        if not isinstance(self.dcterms_is_version_of, list):
+            self.dcterms_is_version_of = [self.dcterms_is_version_of] if self.dcterms_is_version_of is not None else []
+        self.dcterms_is_version_of = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_version_of]
+
+        if not isinstance(self.dcterms_has_version, list):
+            self.dcterms_has_version = [self.dcterms_has_version] if self.dcterms_has_version is not None else []
+        self.dcterms_has_version = [v if isinstance(v, str) else str(v) for v in self.dcterms_has_version]
+
+        if not isinstance(self.dcterms_is_replaced_by, list):
+            self.dcterms_is_replaced_by = [self.dcterms_is_replaced_by] if self.dcterms_is_replaced_by is not None else []
+        self.dcterms_is_replaced_by = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_replaced_by]
+
+        if not isinstance(self.dcterms_replaces, list):
+            self.dcterms_replaces = [self.dcterms_replaces] if self.dcterms_replaces is not None else []
+        self.dcterms_replaces = [v if isinstance(v, str) else str(v) for v in self.dcterms_replaces]
+
+        if not isinstance(self.dcterms_is_required_by, list):
+            self.dcterms_is_required_by = [self.dcterms_is_required_by] if self.dcterms_is_required_by is not None else []
+        self.dcterms_is_required_by = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_required_by]
+
+        if not isinstance(self.dcterms_requires, list):
+            self.dcterms_requires = [self.dcterms_requires] if self.dcterms_requires is not None else []
+        self.dcterms_requires = [v if isinstance(v, str) else str(v) for v in self.dcterms_requires]
+
+        if not isinstance(self.dcterms_is_part_of, list):
+            self.dcterms_is_part_of = [self.dcterms_is_part_of] if self.dcterms_is_part_of is not None else []
+        self.dcterms_is_part_of = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_part_of]
+
+        if not isinstance(self.dcterms_has_part, list):
+            self.dcterms_has_part = [self.dcterms_has_part] if self.dcterms_has_part is not None else []
+        self.dcterms_has_part = [v if isinstance(v, str) else str(v) for v in self.dcterms_has_part]
+
+        if not isinstance(self.dcterms_is_referenced_by, list):
+            self.dcterms_is_referenced_by = [self.dcterms_is_referenced_by] if self.dcterms_is_referenced_by is not None else []
+        self.dcterms_is_referenced_by = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_referenced_by]
+
+        if not isinstance(self.dcterms_references, list):
+            self.dcterms_references = [self.dcterms_references] if self.dcterms_references is not None else []
+        self.dcterms_references = [v if isinstance(v, str) else str(v) for v in self.dcterms_references]
+
+        if not isinstance(self.dcterms_is_format_of, list):
+            self.dcterms_is_format_of = [self.dcterms_is_format_of] if self.dcterms_is_format_of is not None else []
+        self.dcterms_is_format_of = [v if isinstance(v, str) else str(v) for v in self.dcterms_is_format_of]
+
+        if not isinstance(self.dcterms_has_format, list):
+            self.dcterms_has_format = [self.dcterms_has_format] if self.dcterms_has_format is not None else []
+        self.dcterms_has_format = [v if isinstance(v, str) else str(v) for v in self.dcterms_has_format]
+
+        if not isinstance(self.dcterms_conforms_to, list):
+            self.dcterms_conforms_to = [self.dcterms_conforms_to] if self.dcterms_conforms_to is not None else []
+        self.dcterms_conforms_to = [v if isinstance(v, str) else str(v) for v in self.dcterms_conforms_to]
+
+        if not isinstance(self.dcterms_spatial, list):
+            self.dcterms_spatial = [self.dcterms_spatial] if self.dcterms_spatial is not None else []
+        self.dcterms_spatial = [v if isinstance(v, str) else str(v) for v in self.dcterms_spatial]
+
+        if not isinstance(self.dcterms_temporal, list):
+            self.dcterms_temporal = [self.dcterms_temporal] if self.dcterms_temporal is not None else []
+        self.dcterms_temporal = [v if isinstance(v, str) else str(v) for v in self.dcterms_temporal]
+
+        if not isinstance(self.dcterms_audience, list):
+            self.dcterms_audience = [self.dcterms_audience] if self.dcterms_audience is not None else []
+        self.dcterms_audience = [v if isinstance(v, str) else str(v) for v in self.dcterms_audience]
+
+        if not isinstance(self.dcterms_accrual_method, list):
+            self.dcterms_accrual_method = [self.dcterms_accrual_method] if self.dcterms_accrual_method is not None else []
+        self.dcterms_accrual_method = [v if isinstance(v, str) else str(v) for v in self.dcterms_accrual_method]
+
+        if not isinstance(self.dcterms_accrual_periodicity, list):
+            self.dcterms_accrual_periodicity = [self.dcterms_accrual_periodicity] if self.dcterms_accrual_periodicity is not None else []
+        self.dcterms_accrual_periodicity = [v if isinstance(v, str) else str(v) for v in self.dcterms_accrual_periodicity]
+
+        if not isinstance(self.dcterms_accrual_policy, list):
+            self.dcterms_accrual_policy = [self.dcterms_accrual_policy] if self.dcterms_accrual_policy is not None else []
+        self.dcterms_accrual_policy = [v if isinstance(v, str) else str(v) for v in self.dcterms_accrual_policy]
+
+        if not isinstance(self.dcterms_instructional_method, list):
+            self.dcterms_instructional_method = [self.dcterms_instructional_method] if self.dcterms_instructional_method is not None else []
+        self.dcterms_instructional_method = [v if isinstance(v, str) else str(v) for v in self.dcterms_instructional_method]
+
+        if not isinstance(self.dcterms_provenance, list):
+            self.dcterms_provenance = [self.dcterms_provenance] if self.dcterms_provenance is not None else []
+        self.dcterms_provenance = [v if isinstance(v, str) else str(v) for v in self.dcterms_provenance]
+
+        if not isinstance(self.dcterms_rights_holder, list):
+            self.dcterms_rights_holder = [self.dcterms_rights_holder] if self.dcterms_rights_holder is not None else []
+        self.dcterms_rights_holder = [v if isinstance(v, str) else str(v) for v in self.dcterms_rights_holder]
+
+        if not isinstance(self.dcterms_mediator, list):
+            self.dcterms_mediator = [self.dcterms_mediator] if self.dcterms_mediator is not None else []
+        self.dcterms_mediator = [v if isinstance(v, str) else str(v) for v in self.dcterms_mediator]
+
+        if not isinstance(self.dcterms_education_level, list):
+            self.dcterms_education_level = [self.dcterms_education_level] if self.dcterms_education_level is not None else []
+        self.dcterms_education_level = [v if isinstance(v, str) else str(v) for v in self.dcterms_education_level]
+
+        if not isinstance(self.dcterms_access_rights, list):
+            self.dcterms_access_rights = [self.dcterms_access_rights] if self.dcterms_access_rights is not None else []
+        self.dcterms_access_rights = [v if isinstance(v, str) else str(v) for v in self.dcterms_access_rights]
+
+        if not isinstance(self.dcterms_license, list):
+            self.dcterms_license = [self.dcterms_license] if self.dcterms_license is not None else []
+        self.dcterms_license = [v if isinstance(v, str) else str(v) for v in self.dcterms_license]
+
+        if not isinstance(self.dcterms_bibliographic_citation, list):
+            self.dcterms_bibliographic_citation = [self.dcterms_bibliographic_citation] if self.dcterms_bibliographic_citation is not None else []
+        self.dcterms_bibliographic_citation = [v if isinstance(v, str) else str(v) for v in self.dcterms_bibliographic_citation]
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class OidGrp(YAMLRoot):
+class OrchestraXmlElement(YAMLRoot):
     """
-    The identifiers of a message element
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OidGrp"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:OidGrp"
-    class_name: ClassVar[str] = "OidGrp"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OidGrp
-
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class RefidGrp(YAMLRoot):
-    """
-    A reference to a message element by its key identifiers
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["RefidGrp"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:RefidGrp"
-    class_name: ClassVar[str] = "RefidGrp"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.RefidGrp
-
-    id: Union[int, Id] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    name: Optional[Union[str, Name]] = None
-    scenario: Optional[Union[str, Name]] = "base"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ScenarioRefGrp(YAMLRoot):
-    """
-    A reference to a scenario by its key identifiers. There are no defaults as scenario references are optional.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ScenarioRefGrp"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ScenarioRefGrp"
-    class_name: ClassVar[str] = "ScenarioRefGrp"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ScenarioRefGrp
-
-    scenario_ref_id: Optional[Union[int, Id]] = None
-    scenario_ref: Optional[Union[str, Name]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.scenario_ref_id is not None and not isinstance(self.scenario_ref_id, Id):
-            self.scenario_ref_id = Id(self.scenario_ref_id)
-
-        if self.scenario_ref is not None and not isinstance(self.scenario_ref, Name):
-            self.scenario_ref = Name(self.scenario_ref)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ActionType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ActionType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ActionType"
-    class_name: ClassVar[str] = "ActionType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ActionType
-
-    field: Optional[Union[Union[dict, "FieldType"], list[Union[dict, "FieldType"]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]] = empty_list()
-    component: Optional[Union[Union[dict, "ComponentType"], list[Union[dict, "ComponentType"]]]] = empty_list()
-    component_ref: Optional[Union[Union[dict, "ComponentRefType"], list[Union[dict, "ComponentRefType"]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, "GroupRefType"], list[Union[dict, "GroupRefType"]]]] = empty_list()
-    message_ref: Optional[Union[Union[dict, "MessageRefType"], list[Union[dict, "MessageRefType"]]]] = empty_list()
-    trigger: Optional[Union[Union[dict, "TriggerType"], list[Union[dict, "TriggerType"]]]] = empty_list()
-    timer_schedule: Optional[Union[Union[dict, "TimerSchedule"], list[Union[dict, "TimerSchedule"]]]] = empty_list()
-    group: Optional[Union[Union[dict, "GroupType"], list[Union[dict, "GroupType"]]]] = empty_list()
-    assign: Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="field", slot_type=FieldType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="component", slot_type=ComponentType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="message_ref", slot_type=MessageRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="trigger", slot_type=TriggerType, key_name="state_machine", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="timer_schedule", slot_type=TimerSchedule, key_name="operation", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group", slot_type=GroupType, key_name="id", keyed=False)
-
-        if not isinstance(self.assign, list):
-            self.assign = [self.assign] if self.assign is not None else []
-        self.assign = [v if isinstance(v, ExpressionType) else ExpressionType(v) for v in self.assign]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ActorType(YAMLRoot):
-    """
-    Represents a class of participants
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ActorType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ActorType"
-    class_name: ClassVar[str] = "ActorType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ActorType
-
-    name: Union[str, Name] = None
-    field: Optional[Union[Union[dict, "FieldType"], list[Union[dict, "FieldType"]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]] = empty_list()
-    component: Optional[Union[Union[dict, "ComponentType"], list[Union[dict, "ComponentType"]]]] = empty_list()
-    component_ref: Optional[Union[Union[dict, "ComponentRefType"], list[Union[dict, "ComponentRefType"]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, "GroupRefType"], list[Union[dict, "GroupRefType"]]]] = empty_list()
-    states: Optional[Union[Union[dict, "StateMachineType"], list[Union[dict, "StateMachineType"]]]] = empty_list()
-    timer: Optional[Union[Union[dict, "TimerType"], list[Union[dict, "TimerType"]]]] = empty_list()
-    group: Optional[Union[Union[dict, "GroupType"], list[Union[dict, "GroupType"]]]] = empty_list()
-    annotation: Optional[Union[dict, "Annotation"]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        self._normalize_inlined_as_list(slot_name="field", slot_type=FieldType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="component", slot_type=ComponentType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="states", slot_type=StateMachineType, key_name="name", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="timer", slot_type=TimerType, key_name="name", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group", slot_type=GroupType, key_name="id", keyed=False)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class Annotation(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Annotation"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Annotation"
-    class_name: ClassVar[str] = "Annotation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Annotation
-
-    documentation: Optional[Union[Union[dict, "Documentation"], list[Union[dict, "Documentation"]]]] = empty_list()
-    appinfo: Optional[Union[Union[dict, "Appinfo"], list[Union[dict, "Appinfo"]]]] = empty_list()
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.documentation, list):
-            self.documentation = [self.documentation] if self.documentation is not None else []
-        self.documentation = [v if isinstance(v, Documentation) else Documentation(**as_dict(v)) for v in self.documentation]
-
-        if not isinstance(self.appinfo, list):
-            self.appinfo = [self.appinfo] if self.appinfo is not None else []
-        self.appinfo = [v if isinstance(v, Appinfo) else Appinfo(**as_dict(v)) for v in self.appinfo]
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class Appinfo(YAMLRoot):
-    """
-    Usage specific annotation, optionally with link to an external reference or standard
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Appinfo"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Appinfo"
-    class_name: ClassVar[str] = "Appinfo"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Appinfo
-
-    spec_url: Optional[Union[str, URI]] = None
-    value: Optional[str] = None
-    content: Optional[Union[str, list[str]]] = empty_list()
-    extra_attributes: Optional[Union[str, list[str]]] = empty_list()
-    fixml_encoding: Optional[Union[dict, "FIXMLencodingType"]] = None
-    lang_id: Optional[Union[str, Language]] = None
-    purpose: Optional[Union[str, Purpose]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.spec_url is not None and not isinstance(self.spec_url, URI):
-            self.spec_url = URI(self.spec_url)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
-
-        if not isinstance(self.extra_attributes, list):
-            self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
-        self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
-
-        if self.fixml_encoding is not None and not isinstance(self.fixml_encoding, FIXMLencodingType):
-            self.fixml_encoding = FIXMLencodingType(**as_dict(self.fixml_encoding))
-
-        if self.lang_id is not None and not isinstance(self.lang_id, Language):
-            self.lang_id = Language(self.lang_id)
-
-        if self.purpose is not None and not isinstance(self.purpose, Purpose):
-            self.purpose = Purpose(self.purpose)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class BlockAssignmentType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["BlockAssignmentType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:BlockAssignmentType"
-    class_name: ClassVar[str] = "BlockAssignmentType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.BlockAssignmentType
-
-    component_ref: Optional[Union[Union[dict, "ComponentRefType"], list[Union[dict, "ComponentRefType"]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, "GroupRefType"], list[Union[dict, "GroupRefType"]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class CategoryType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CategoryType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:CategoryType"
-    class_name: ClassVar[str] = "CategoryType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CategoryType
-
-    name: Union[str, Name] = None
-    fixml_file_name: Optional[Union[str, Name]] = None
-    component_type: Optional[Union[str, "CatComponentType"]] = None
-    include_file: Optional[Union[str, "CatIncludeFile"]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    section: Optional[Union[str, Name]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.fixml_file_name is not None and not isinstance(self.fixml_file_name, Name):
-            self.fixml_file_name = Name(self.fixml_file_name)
-
-        if self.component_type is not None and not isinstance(self.component_type, CatComponentType):
-            self.component_type = CatComponentType(self.component_type)
-
-        if self.include_file is not None and not isinstance(self.include_file, CatIncludeFile):
-            self.include_file = CatIncludeFile(self.include_file)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.section is not None and not isinstance(self.section, Name):
-            self.section = Name(self.section)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class CodeSetType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeSetType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:CodeSetType"
-    class_name: ClassVar[str] = "CodeSetType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeSetType
-
-    type: Union[str, Name] = None
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    code: Optional[Union[Union[dict, "CodeType"], list[Union[dict, "CodeType"]]]] = empty_list()
-    default: Optional[str] = None
-    spec_url: Optional[Union[str, URI]] = None
-    union_data_type: Optional[Union[str, "UnionDataType"]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    scenario_ref_id: Optional[Union[int, Id]] = None
-    scenario_ref: Optional[Union[str, Name]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.type):
-            self.MissingRequiredField("type")
-        if not isinstance(self.type, Name):
-            self.type = Name(self.type)
-
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        self._normalize_inlined_as_list(slot_name="code", slot_type=CodeType, key_name="value", keyed=False)
-
-        if self.default is not None and not isinstance(self.default, str):
-            self.default = str(self.default)
-
-        if self.spec_url is not None and not isinstance(self.spec_url, URI):
-            self.spec_url = URI(self.spec_url)
-
-        if self.union_data_type is not None and not isinstance(self.union_data_type, UnionDataType):
-            self.union_data_type = UnionDataType(self.union_data_type)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.scenario_ref_id is not None and not isinstance(self.scenario_ref_id, Id):
-            self.scenario_ref_id = Id(self.scenario_ref_id)
-
-        if self.scenario_ref is not None and not isinstance(self.scenario_ref, Name):
-            self.scenario_ref = Name(self.scenario_ref)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class CodeType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:CodeType"
-    class_name: ClassVar[str] = "CodeType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeType
-
-    value: str = None
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    sort: Optional[int] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    group: Optional[str] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.value):
-            self.MissingRequiredField("value")
-        if not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.sort is not None and not isinstance(self.sort, int):
-            self.sort = int(self.sort)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.group is not None and not isinstance(self.group, str):
-            self.group = str(self.group)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ComponentRefType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentRefType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentRefType"
-    class_name: ClassVar[str] = "ComponentRefType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentRefType
-
-    id: Union[int, Id] = None
-    block_assignment: Optional[Union[Union[dict, BlockAssignmentType], list[Union[dict, BlockAssignmentType]]]] = empty_list()
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    rule: Optional[Union[Union[dict, "ComponentRuleType"], list[Union[dict, "ComponentRuleType"]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    instance_name: Optional[Union[str, ComponentName]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    name: Optional[Union[str, Name]] = None
-    scenario: Optional[Union[str, Name]] = "base"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if not isinstance(self.block_assignment, list):
-            self.block_assignment = [self.block_assignment] if self.block_assignment is not None else []
-        self.block_assignment = [v if isinstance(v, BlockAssignmentType) else BlockAssignmentType(**as_dict(v)) for v in self.block_assignment]
-
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
-
-        self._normalize_inlined_as_list(slot_name="rule", slot_type=ComponentRuleType, key_name="when", keyed=False)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.instance_name is not None and not isinstance(self.instance_name, ComponentName):
-            self.instance_name = ComponentName(self.instance_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ComponentRuleType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentRuleType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentRuleType"
-    class_name: ClassVar[str] = "ComponentRuleType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentRuleType
-
-    when: Union[str, ExpressionType] = None
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    name: Optional[Union[str, Name]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.when):
-            self.MissingRequiredField("when")
-        if not isinstance(self.when, ExpressionType):
-            self.when = ExpressionType(self.when)
-
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ComponentType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ComponentType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ComponentType"
-    class_name: ClassVar[str] = "ComponentType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ComponentType
-
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    component_ref: Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, "GroupRefType"], list[Union[dict, "GroupRefType"]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]] = empty_list()
-    rendering: Optional[str] = None
-    which: Optional[Union[str, "MemberType"]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    category: Optional[Union[str, Name]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    scenario_ref_id: Optional[Union[int, Id]] = None
-    scenario_ref: Optional[Union[str, Name]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.which is not None and not isinstance(self.which, MemberType):
-            self.which = MemberType(self.which)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.category is not None and not isinstance(self.category, Name):
-            self.category = Name(self.category)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.scenario_ref_id is not None and not isinstance(self.scenario_ref_id, Id):
-            self.scenario_ref_id = Id(self.scenario_ref_id)
-
-        if self.scenario_ref is not None and not isinstance(self.scenario_ref, Name):
-            self.scenario_ref = Name(self.scenario_ref)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ConceptType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ConceptType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ConceptType"
-    class_name: ClassVar[str] = "ConceptType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ConceptType
-
-    name: Union[str, Name] = None
-    component_ref: Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, "GroupRefType"], list[Union[dict, "GroupRefType"]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]] = empty_list()
-    message_ref: Optional[Union[Union[dict, "MessageRefType"], list[Union[dict, "MessageRefType"]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="message_ref", slot_type=MessageRefType, key_name="id", keyed=False)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class Documentation(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Documentation"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Documentation"
-    class_name: ClassVar[str] = "Documentation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Documentation
-
-    value: Optional[str] = None
-    content: Optional[Union[str, list[str]]] = empty_list()
-    lang_id: Optional[Union[str, Language]] = None
-    purpose: Optional[Union[str, Purpose]] = None
-    content_type: Optional[Union[str, Mime]] = "text/plain"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
-
-        if self.lang_id is not None and not isinstance(self.lang_id, Language):
-            self.lang_id = Language(self.lang_id)
-
-        if self.purpose is not None and not isinstance(self.purpose, Purpose):
-            self.purpose = Purpose(self.purpose)
-
-        if self.content_type is not None and not isinstance(self.content_type, Mime):
-            self.content_type = Mime(self.content_type)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class FieldRefType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldRefType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FieldRefType"
-    class_name: ClassVar[str] = "FieldRefType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldRefType
-
-    id: Union[int, Id] = None
-    length_id: Optional[Union[int, Id]] = None
-    non_encoded_field_id: Optional[Union[int, Id]] = None
-    rule: Optional[Union[Union[dict, "FieldRuleType"], list[Union[dict, "FieldRuleType"]]]] = empty_list()
-    assign: Optional[Union[str, ExpressionType]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    instance_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    name: Optional[Union[str, Name]] = None
-    scenario: Optional[Union[str, Name]] = "base"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-    min_inclusive: Optional[str] = None
-    max_inclusive: Optional[str] = None
-    impl_length: Optional[int] = None
-    impl_min_length: Optional[int] = None
-    impl_max_length: Optional[int] = None
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    value: Optional[str] = None
-    rendering: Optional[str] = None
-    encoding: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self.length_id is not None and not isinstance(self.length_id, Id):
-            self.length_id = Id(self.length_id)
-
-        if self.non_encoded_field_id is not None and not isinstance(self.non_encoded_field_id, Id):
-            self.non_encoded_field_id = Id(self.non_encoded_field_id)
-
-        self._normalize_inlined_as_list(slot_name="rule", slot_type=FieldRuleType, key_name="when", keyed=False)
-
-        if self.assign is not None and not isinstance(self.assign, ExpressionType):
-            self.assign = ExpressionType(self.assign)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.instance_name is not None and not isinstance(self.instance_name, Name):
-            self.instance_name = Name(self.instance_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        if self.min_inclusive is not None and not isinstance(self.min_inclusive, str):
-            self.min_inclusive = str(self.min_inclusive)
-
-        if self.max_inclusive is not None and not isinstance(self.max_inclusive, str):
-            self.max_inclusive = str(self.max_inclusive)
-
-        if self.impl_length is not None and not isinstance(self.impl_length, int):
-            self.impl_length = int(self.impl_length)
-
-        if self.impl_min_length is not None and not isinstance(self.impl_min_length, int):
-            self.impl_min_length = int(self.impl_min_length)
-
-        if self.impl_max_length is not None and not isinstance(self.impl_max_length, int):
-            self.impl_max_length = int(self.impl_max_length)
-
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.encoding is not None and not isinstance(self.encoding, str):
-            self.encoding = str(self.encoding)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class UniqueInline(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["UniqueInline"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:UniqueInline"
-    class_name: ClassVar[str] = "UniqueInline"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.UniqueInline
-
-    field_ref: Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class FieldRuleType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldRuleType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FieldRuleType"
-    class_name: ClassVar[str] = "FieldRuleType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldRuleType
-
-    when: Union[str, ExpressionType] = None
-    unique: Optional[Union[dict, UniqueInline]] = None
-    assign: Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]] = empty_list()
-    name: Optional[Union[str, Name]] = None
-    type: Optional[Union[str, Name]] = None
-    min_inclusive: Optional[str] = None
-    max_inclusive: Optional[str] = None
-    impl_length: Optional[int] = None
-    impl_min_length: Optional[int] = None
-    impl_max_length: Optional[int] = None
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    value: Optional[str] = None
-    rendering: Optional[str] = None
-    encoding: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.when):
-            self.MissingRequiredField("when")
-        if not isinstance(self.when, ExpressionType):
-            self.when = ExpressionType(self.when)
-
-        if self.unique is not None and not isinstance(self.unique, UniqueInline):
-            self.unique = UniqueInline(**as_dict(self.unique))
-
-        if not isinstance(self.assign, list):
-            self.assign = [self.assign] if self.assign is not None else []
-        self.assign = [v if isinstance(v, ExpressionType) else ExpressionType(v) for v in self.assign]
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.type is not None and not isinstance(self.type, Name):
-            self.type = Name(self.type)
-
-        if self.min_inclusive is not None and not isinstance(self.min_inclusive, str):
-            self.min_inclusive = str(self.min_inclusive)
-
-        if self.max_inclusive is not None and not isinstance(self.max_inclusive, str):
-            self.max_inclusive = str(self.max_inclusive)
-
-        if self.impl_length is not None and not isinstance(self.impl_length, int):
-            self.impl_length = int(self.impl_length)
-
-        if self.impl_min_length is not None and not isinstance(self.impl_min_length, int):
-            self.impl_min_length = int(self.impl_min_length)
-
-        if self.impl_max_length is not None and not isinstance(self.impl_max_length, int):
-            self.impl_max_length = int(self.impl_max_length)
-
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.encoding is not None and not isinstance(self.encoding, str):
-            self.encoding = str(self.encoding)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class FieldType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FieldType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FieldType"
-    class_name: ClassVar[str] = "FieldType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FieldType
-
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    length_id: Optional[Union[int, Id]] = None
-    non_encoded_field_id: Optional[Union[int, Id]] = None
-    discriminator_id: Optional[Union[int, Id]] = None
-    base_category: Optional[Union[str, Name]] = None
-    base_category_abbr_name: Optional[Union[str, Name]] = None
-    union_data_type: Optional[Union[str, "UnionDataType"]] = None
-    rule: Optional[Union[Union[dict, FieldRuleType], list[Union[dict, FieldRuleType]]]] = empty_list()
-    assign: Optional[Union[str, ExpressionType]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    type: Optional[Union[str, Name]] = None
-    code_set: Optional[Union[str, Name]] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-    min_inclusive: Optional[str] = None
-    max_inclusive: Optional[str] = None
-    impl_length: Optional[int] = None
-    impl_min_length: Optional[int] = None
-    impl_max_length: Optional[int] = None
-    presence: Optional[Union[str, "Presence"]] = 'optional'
-    value: Optional[str] = None
-    rendering: Optional[str] = None
-    encoding: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.length_id is not None and not isinstance(self.length_id, Id):
-            self.length_id = Id(self.length_id)
-
-        if self.non_encoded_field_id is not None and not isinstance(self.non_encoded_field_id, Id):
-            self.non_encoded_field_id = Id(self.non_encoded_field_id)
-
-        if self.discriminator_id is not None and not isinstance(self.discriminator_id, Id):
-            self.discriminator_id = Id(self.discriminator_id)
-
-        if self.base_category is not None and not isinstance(self.base_category, Name):
-            self.base_category = Name(self.base_category)
-
-        if self.base_category_abbr_name is not None and not isinstance(self.base_category_abbr_name, Name):
-            self.base_category_abbr_name = Name(self.base_category_abbr_name)
-
-        if self.union_data_type is not None and not isinstance(self.union_data_type, UnionDataType):
-            self.union_data_type = UnionDataType(self.union_data_type)
-
-        self._normalize_inlined_as_list(slot_name="rule", slot_type=FieldRuleType, key_name="when", keyed=False)
-
-        if self.assign is not None and not isinstance(self.assign, ExpressionType):
-            self.assign = ExpressionType(self.assign)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.type is not None and not isinstance(self.type, Name):
-            self.type = Name(self.type)
-
-        if self.code_set is not None and not isinstance(self.code_set, Name):
-            self.code_set = Name(self.code_set)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        if self.min_inclusive is not None and not isinstance(self.min_inclusive, str):
-            self.min_inclusive = str(self.min_inclusive)
-
-        if self.max_inclusive is not None and not isinstance(self.max_inclusive, str):
-            self.max_inclusive = str(self.max_inclusive)
-
-        if self.impl_length is not None and not isinstance(self.impl_length, int):
-            self.impl_length = int(self.impl_length)
-
-        if self.impl_min_length is not None and not isinstance(self.impl_min_length, int):
-            self.impl_min_length = int(self.impl_min_length)
-
-        if self.impl_max_length is not None and not isinstance(self.impl_max_length, int):
-            self.impl_max_length = int(self.impl_max_length)
-
-        if self.presence is not None and not isinstance(self.presence, Presence):
-            self.presence = Presence(self.presence)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.encoding is not None and not isinstance(self.encoding, str):
-            self.encoding = str(self.encoding)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class FlowType(YAMLRoot):
-    """
-    A stream of messages in one direction
+    An XML element in a place where the XSDs accept any content, kept as written so that the file converts back
+    unchanged.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FlowType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FlowType"
-    class_name: ClassVar[str] = "FlowType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FlowType
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraXmlElement"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraXmlElement"
+    class_name: ClassVar[str] = "OrchestraXmlElement"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraXmlElement
 
-    source: str = None
-    destination: str = None
-    name: Union[str, Name] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    reliability: Optional[Union[str, "Reliability"]] = None
+    xml_name: str = None
+    xml_attributes: Optional[Union[Union[dict, "OrchestraXmlAttribute"], list[Union[dict, "OrchestraXmlAttribute"]]]] = empty_list()
+    xml_text: Optional[str] = None
+    xml_children: Optional[Union[Union[dict, "OrchestraXmlElement"], list[Union[dict, "OrchestraXmlElement"]]]] = empty_list()
+    xml_tail: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.source):
-            self.MissingRequiredField("source")
-        if not isinstance(self.source, str):
-            self.source = str(self.source)
+        if self._is_empty(self.xml_name):
+            self.MissingRequiredField("xml_name")
+        if not isinstance(self.xml_name, str):
+            self.xml_name = str(self.xml_name)
 
-        if self._is_empty(self.destination):
-            self.MissingRequiredField("destination")
-        if not isinstance(self.destination, str):
-            self.destination = str(self.destination)
+        self._normalize_inlined_as_list(slot_name="xml_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
 
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
+        if self.xml_text is not None and not isinstance(self.xml_text, str):
+            self.xml_text = str(self.xml_text)
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        self._normalize_inlined_as_list(slot_name="xml_children", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
 
-        if self.reliability is not None and not isinstance(self.reliability, Reliability):
-            self.reliability = Reliability(self.reliability)
+        if self.xml_tail is not None and not isinstance(self.xml_tail, str):
+            self.xml_tail = str(self.xml_tail)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class GroupRefType(ComponentRefType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["GroupRefType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:GroupRefType"
-    class_name: ClassVar[str] = "GroupRefType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.GroupRefType
-
-    id: Union[int, Id] = None
-    impl_min_occurs: Optional[int] = None
-    impl_max_occurs: Optional[Union[str, UnboundedIntType]] = "unbounded"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.impl_min_occurs is not None and not isinstance(self.impl_min_occurs, int):
-            self.impl_min_occurs = int(self.impl_min_occurs)
-
-        if self.impl_max_occurs is not None and not isinstance(self.impl_max_occurs, UnboundedIntType):
-            self.impl_max_occurs = UnboundedIntType(self.impl_max_occurs)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class GroupType(YAMLRoot):
+class OrchestraXmlAttribute(YAMLRoot):
     """
-    A repeating group. Logically, groupType is a subclass of componentType, but to make numInGroup first in the
-    sequence, it cannot be an extension.
+    An XML attribute from another namespace, kept as written.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["GroupType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:GroupType"
-    class_name: ClassVar[str] = "GroupType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.GroupType
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraXmlAttribute"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraXmlAttribute"
+    class_name: ClassVar[str] = "OrchestraXmlAttribute"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraXmlAttribute
 
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    num_in_group: Optional[Union[dict, FieldRefType]] = None
-    component_ref: Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, GroupRefType], list[Union[dict, GroupRefType]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]] = empty_list()
-    rendering: Optional[str] = None
-    impl_min_occurs: Optional[int] = None
-    impl_max_occurs: Optional[Union[str, UnboundedIntType]] = "unbounded"
-    which: Optional[Union[str, "MemberType"]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    category: Optional[Union[str, Name]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    scenario_ref_id: Optional[Union[int, Id]] = None
-    scenario_ref: Optional[Union[str, Name]] = None
+    xml_name: str = None
+    xml_value: str = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
+        if self._is_empty(self.xml_name):
+            self.MissingRequiredField("xml_name")
+        if not isinstance(self.xml_name, str):
+            self.xml_name = str(self.xml_name)
 
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.num_in_group is not None and not isinstance(self.num_in_group, FieldRefType):
-            self.num_in_group = FieldRefType(**as_dict(self.num_in_group))
-
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.impl_min_occurs is not None and not isinstance(self.impl_min_occurs, int):
-            self.impl_min_occurs = int(self.impl_min_occurs)
-
-        if self.impl_max_occurs is not None and not isinstance(self.impl_max_occurs, UnboundedIntType):
-            self.impl_max_occurs = UnboundedIntType(self.impl_max_occurs)
-
-        if self.which is not None and not isinstance(self.which, MemberType):
-            self.which = MemberType(self.which)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.category is not None and not isinstance(self.category, Name):
-            self.category = Name(self.category)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.scenario_ref_id is not None and not isinstance(self.scenario_ref_id, Id):
-            self.scenario_ref_id = Id(self.scenario_ref_id)
-
-        if self.scenario_ref is not None and not isinstance(self.scenario_ref, Name):
-            self.scenario_ref = Name(self.scenario_ref)
+        if self._is_empty(self.xml_value):
+            self.MissingRequiredField("xml_value")
+        if not isinstance(self.xml_value, str):
+            self.xml_value = str(self.xml_value)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class IdentifiersType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["IdentifiersType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:IdentifiersType"
-    class_name: ClassVar[str] = "IdentifiersType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.IdentifiersType
-
-    correlate: Optional[Union[Union[dict, "IdentifierType"], list[Union[dict, "IdentifierType"]]]] = empty_list()
-    assign: Optional[Union[Union[dict, "IdentifierType"], list[Union[dict, "IdentifierType"]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.correlate, list):
-            self.correlate = [self.correlate] if self.correlate is not None else []
-        self.correlate = [v if isinstance(v, IdentifierType) else IdentifierType(**as_dict(v)) for v in self.correlate]
-
-        if not isinstance(self.assign, list):
-            self.assign = [self.assign] if self.assign is not None else []
-        self.assign = [v if isinstance(v, IdentifierType) else IdentifierType(**as_dict(v)) for v in self.assign]
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class IdentifierType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["IdentifierType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:IdentifierType"
-    class_name: ClassVar[str] = "IdentifierType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.IdentifierType
-
-    value: Optional[str] = None
-    name: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ExtensionInline(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ExtensionInline"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ExtensionInline"
-    class_name: ClassVar[str] = "ExtensionInline"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ExtensionInline
-
-    content: Optional[Union[str, list[str]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MappedDatatype(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MappedDatatype"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:MappedDatatype"
-    class_name: ClassVar[str] = "MappedDatatype"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MappedDatatype
-
-    standard: Union[str, DatatypeStandard] = None
-    extension: Optional[Union[dict, ExtensionInline]] = None
-    builtin: Optional[Union[bool, Bool]] = None
-    pattern: Optional[str] = None
-    element: Optional[str] = None
-    size: Optional[int] = None
-    parameter: Optional[str] = None
-    min_inclusive: Optional[str] = None
-    max_inclusive: Optional[str] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.standard):
-            self.MissingRequiredField("standard")
-        if not isinstance(self.standard, DatatypeStandard):
-            self.standard = DatatypeStandard(self.standard)
-
-        if self.extension is not None and not isinstance(self.extension, ExtensionInline):
-            self.extension = ExtensionInline(**as_dict(self.extension))
-
-        if self.builtin is not None and not isinstance(self.builtin, Bool):
-            self.builtin = Bool(self.builtin)
-
-        if self.pattern is not None and not isinstance(self.pattern, str):
-            self.pattern = str(self.pattern)
-
-        if self.element is not None and not isinstance(self.element, str):
-            self.element = str(self.element)
-
-        if self.size is not None and not isinstance(self.size, int):
-            self.size = int(self.size)
-
-        if self.parameter is not None and not isinstance(self.parameter, str):
-            self.parameter = str(self.parameter)
-
-        if self.min_inclusive is not None and not isinstance(self.min_inclusive, str):
-            self.min_inclusive = str(self.min_inclusive)
-
-        if self.max_inclusive is not None and not isinstance(self.max_inclusive, str):
-            self.max_inclusive = str(self.max_inclusive)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MessageRefType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MessageRefType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:MessageRefType"
-    class_name: ClassVar[str] = "MessageRefType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MessageRefType
-
-    id: Union[int, Id] = None
-    identifiers: Optional[Union[dict, IdentifiersType]] = None
-    msg_type: Optional[Union[str, MsgType]] = None
-    impl_min_occurs: Optional[int] = 1
-    impl_max_occurs: Optional[Union[str, UnboundedIntType]] = "unbounded"
-    scenario_id: Optional[Union[int, Id]] = 1
-    name: Optional[Union[str, Name]] = None
-    scenario: Optional[Union[str, Name]] = "base"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self.identifiers is not None and not isinstance(self.identifiers, IdentifiersType):
-            self.identifiers = IdentifiersType(**as_dict(self.identifiers))
-
-        if self.msg_type is not None and not isinstance(self.msg_type, MsgType):
-            self.msg_type = MsgType(self.msg_type)
-
-        if self.impl_min_occurs is not None and not isinstance(self.impl_min_occurs, int):
-            self.impl_min_occurs = int(self.impl_min_occurs)
-
-        if self.impl_max_occurs is not None and not isinstance(self.impl_max_occurs, UnboundedIntType):
-            self.impl_max_occurs = UnboundedIntType(self.impl_max_occurs)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class StructureInline(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["StructureInline"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:StructureInline"
-    class_name: ClassVar[str] = "StructureInline"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.StructureInline
-
-    component_ref: Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]] = empty_list()
-    group_ref: Optional[Union[Union[dict, GroupRefType], list[Union[dict, GroupRefType]]]] = empty_list()
-    field_ref: Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]] = empty_list()
-    which: Optional[Union[str, "MemberType"]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="component_ref", slot_type=ComponentRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="group_ref", slot_type=GroupRefType, key_name="id", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="field_ref", slot_type=FieldRefType, key_name="id", keyed=False)
-
-        if self.which is not None and not isinstance(self.which, MemberType):
-            self.which = MemberType(self.which)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ResponsesInline(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ResponsesInline"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ResponsesInline"
-    class_name: ClassVar[str] = "ResponsesInline"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ResponsesInline
-
-    response: Union[Union[dict, "ResponseType"], list[Union[dict, "ResponseType"]]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.response):
-            self.MissingRequiredField("response")
-        if not isinstance(self.response, list):
-            self.response = [self.response] if self.response is not None else []
-        self.response = [v if isinstance(v, ResponseType) else ResponseType(**as_dict(v)) for v in self.response]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MessageType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["MessageType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:MessageType"
-    class_name: ClassVar[str] = "MessageType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.MessageType
-
-    id: Union[int, Id] = None
-    name: Union[str, Name] = None
-    structure: Optional[Union[dict, StructureInline]] = None
-    when: Optional[Union[str, ExpressionType]] = None
-    responses: Optional[Union[dict, ResponsesInline]] = None
-    msg_type: Optional[Union[str, MsgType]] = None
-    rendering: Optional[str] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    category: Optional[Union[str, Name]] = None
-    flow: Optional[Union[str, Name]] = None
-    abbr_name: Optional[Union[str, Name]] = None
-    scenario_id: Optional[Union[int, Id]] = 1
-    scenario: Optional[Union[str, Name]] = "base"
-    scenario_ref_id: Optional[Union[int, Id]] = None
-    scenario_ref: Optional[Union[str, Name]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.structure is not None and not isinstance(self.structure, StructureInline):
-            self.structure = StructureInline(**as_dict(self.structure))
-
-        if self.when is not None and not isinstance(self.when, ExpressionType):
-            self.when = ExpressionType(self.when)
-
-        if self.responses is not None and not isinstance(self.responses, ResponsesInline):
-            self.responses = ResponsesInline(**as_dict(self.responses))
-
-        if self.msg_type is not None and not isinstance(self.msg_type, MsgType):
-            self.msg_type = MsgType(self.msg_type)
-
-        if self.rendering is not None and not isinstance(self.rendering, str):
-            self.rendering = str(self.rendering)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.category is not None and not isinstance(self.category, Name):
-            self.category = Name(self.category)
-
-        if self.flow is not None and not isinstance(self.flow, Name):
-            self.flow = Name(self.flow)
-
-        if self.abbr_name is not None and not isinstance(self.abbr_name, Name):
-            self.abbr_name = Name(self.abbr_name)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.scenario_ref_id is not None and not isinstance(self.scenario_ref_id, Id):
-            self.scenario_ref_id = Id(self.scenario_ref_id)
-
-        if self.scenario_ref is not None and not isinstance(self.scenario_ref, Name):
-            self.scenario_ref = Name(self.scenario_ref)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ResponseType(ActionType):
+class OrchestraActionParameterV10(YAMLRoot):
     """
-    Any number of action behaviors can be triggered by the same 'when' condition
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ResponseType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ResponseType"
-    class_name: ClassVar[str] = "ResponseType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ResponseType
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionParameterV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionParameterV10"
+    class_name: ClassVar[str] = "OrchestraActionParameterV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionParameterV10
 
-    when: Optional[Union[str, ExpressionType]] = None
-    sync: Optional[Union[str, "Synchronization"]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    name: Optional[Union[str, Name]] = None
+    fixr_field: Optional[Union[dict, "OrchestraFieldV10"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV10"]] = None
+    fixr_component: Optional[Union[dict, "OrchestraComponentV10"]] = None
+    fixr_component_ref: Optional[Union[dict, "OrchestraComponentRefV10"]] = None
+    fixr_group: Optional[Union[dict, "OrchestraGroupV10"]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.when is not None and not isinstance(self.when, ExpressionType):
-            self.when = ExpressionType(self.when)
+        if self.fixr_field is not None and not isinstance(self.fixr_field, OrchestraFieldV10):
+            self.fixr_field = OrchestraFieldV10(**as_dict(self.fixr_field))
 
-        if self.sync is not None and not isinstance(self.sync, Synchronization):
-            self.sync = Synchronization(self.sync)
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV10):
+            self.fixr_field_ref = OrchestraFieldRefV10(**as_dict(self.fixr_field_ref))
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_component is not None and not isinstance(self.fixr_component, OrchestraComponentV10):
+            self.fixr_component = OrchestraComponentV10(**as_dict(self.fixr_component))
 
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV10):
+            self.fixr_component_ref = OrchestraComponentRefV10(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, OrchestraGroupV10):
+            self.fixr_group = OrchestraGroupV10(**as_dict(self.fixr_group))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV10):
+            self.fixr_group_ref = OrchestraGroupRefV10(**as_dict(self.fixr_group_ref))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class ScenarioType(YAMLRoot):
+class OrchestraActionStepV10(YAMLRoot):
     """
-    The use case of an element, distinguished by workflow, asset class, etc.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ScenarioType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ScenarioType"
-    class_name: ClassVar[str] = "ScenarioType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ScenarioType
-
-    annotation: Optional[Union[dict, Annotation]] = None
-    id: Optional[Union[int, Id]] = 1
-    name: Optional[Union[str, Name]] = "base"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.id is not None and not isinstance(self.id, Id):
-            self.id = Id(self.id)
-
-        if self.name is not None and not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class SectionType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SectionType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:SectionType"
-    class_name: ClassVar[str] = "SectionType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SectionType
-
-    name: Union[str, Name] = None
-    display_order: Optional[int] = None
-    fixml_file_name: Optional[Union[str, Name]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.display_order is not None and not isinstance(self.display_order, int):
-            self.display_order = int(self.display_order)
-
-        if self.fixml_file_name is not None and not isinstance(self.fixml_file_name, Name):
-            self.fixml_file_name = Name(self.fixml_file_name)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class StateMachineType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["StateMachineType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:StateMachineType"
-    class_name: ClassVar[str] = "StateMachineType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.StateMachineType
-
-    initial: Union[dict, "StateType"] = None
-    state: Union[Union[dict, "StateType"], list[Union[dict, "StateType"]]] = None
-    name: Union[str, Name] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.initial):
-            self.MissingRequiredField("initial")
-        if not isinstance(self.initial, StateType):
-            self.initial = StateType(**as_dict(self.initial))
-
-        if self._is_empty(self.state):
-            self.MissingRequiredField("state")
-        self._normalize_inlined_as_list(slot_name="state", slot_type=StateType, key_name="name", keyed=False)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class StateType(YAMLRoot):
-    """
-    A state of a state machine. If it has no transitions, then it is a final state.
+    One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one
+    of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["StateType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:StateType"
-    class_name: ClassVar[str] = "StateType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.StateType
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionStepV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionStepV10"
+    class_name: ClassVar[str] = "OrchestraActionStepV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionStepV10
 
-    name: Union[str, Name] = None
-    transition: Optional[Union[Union[dict, "TransitionType"], list[Union[dict, "TransitionType"]]]] = empty_list()
-    onentry: Optional[Union[dict, ActionType]] = None
-    activity: Optional[Union[dict, ActionType]] = None
-    onexit: Optional[Union[dict, ActionType]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
+    fixr_message_ref: Optional[Union[dict, "OrchestraMessageRefV10"]] = None
+    fixr_assign: Optional[str] = None
+    fixr_trigger: Optional[Union[dict, "OrchestraTriggerV10"]] = None
+    fixr_timer_schedule: Optional[Union[dict, "OrchestraTimerScheduleV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
+        if self.fixr_message_ref is not None and not isinstance(self.fixr_message_ref, OrchestraMessageRefV10):
+            self.fixr_message_ref = OrchestraMessageRefV10(**as_dict(self.fixr_message_ref))
 
-        self._normalize_inlined_as_list(slot_name="transition", slot_type=TransitionType, key_name="target", keyed=False)
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
 
-        if self.onentry is not None and not isinstance(self.onentry, ActionType):
-            self.onentry = ActionType(**as_dict(self.onentry))
+        if self.fixr_trigger is not None and not isinstance(self.fixr_trigger, OrchestraTriggerV10):
+            self.fixr_trigger = OrchestraTriggerV10(**as_dict(self.fixr_trigger))
 
-        if self.activity is not None and not isinstance(self.activity, ActionType):
-            self.activity = ActionType(**as_dict(self.activity))
-
-        if self.onexit is not None and not isinstance(self.onexit, ActionType):
-            self.onexit = ActionType(**as_dict(self.onexit))
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_timer_schedule is not None and not isinstance(self.fixr_timer_schedule, OrchestraTimerScheduleV10):
+            self.fixr_timer_schedule = OrchestraTimerScheduleV10(**as_dict(self.fixr_timer_schedule))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class TimerSchedule(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TimerSchedule"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:TimerSchedule"
-    class_name: ClassVar[str] = "TimerSchedule"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TimerSchedule
-
-    activity: Union[dict, ActionType] = None
-    operation: Union[str, "TimerOperation"] = None
-    actor: Union[str, Name] = None
-    name: Union[str, Name] = None
-    interval: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.activity):
-            self.MissingRequiredField("activity")
-        if not isinstance(self.activity, ActionType):
-            self.activity = ActionType(**as_dict(self.activity))
-
-        if self._is_empty(self.operation):
-            self.MissingRequiredField("operation")
-        if not isinstance(self.operation, TimerOperation):
-            self.operation = TimerOperation(self.operation)
-
-        if self._is_empty(self.actor):
-            self.MissingRequiredField("actor")
-        if not isinstance(self.actor, Name):
-            self.actor = Name(self.actor)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.interval is not None and not isinstance(self.interval, str):
-            self.interval = str(self.interval)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class TimerType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TimerType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:TimerType"
-    class_name: ClassVar[str] = "TimerType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TimerType
-
-    name: Union[str, Name] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class TransitionType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TransitionType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:TransitionType"
-    class_name: ClassVar[str] = "TransitionType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TransitionType
-
-    target: str = None
-    name: Union[str, Name] = None
-    when: Optional[Union[str, ExpressionType]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.target):
-            self.MissingRequiredField("target")
-        if not isinstance(self.target, str):
-            self.target = str(self.target)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        if self.when is not None and not isinstance(self.when, ExpressionType):
-            self.when = ExpressionType(self.when)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class TriggerType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TriggerType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:TriggerType"
-    class_name: ClassVar[str] = "TriggerType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TriggerType
-
-    state_machine: str = None
-    actor: Union[str, Name] = None
-    name: Union[str, Name] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.state_machine):
-            self.MissingRequiredField("state_machine")
-        if not isinstance(self.state_machine, str):
-            self.state_machine = str(self.state_machine)
-
-        if self._is_empty(self.actor):
-            self.MissingRequiredField("actor")
-        if not isinstance(self.actor, Name):
-            self.actor = Name(self.actor)
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class InterfaceAnnotation(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceAnnotation"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceAnnotation"
-    class_name: ClassVar[str] = "InterfaceAnnotation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceAnnotation
-
-    documentation: Optional[Union[Union[dict, "InterfaceDocumentation"], list[Union[dict, "InterfaceDocumentation"]]]] = empty_list()
-    appinfo: Optional[Union[Union[dict, "InterfaceAppinfo"], list[Union[dict, "InterfaceAppinfo"]]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.documentation, list):
-            self.documentation = [self.documentation] if self.documentation is not None else []
-        self.documentation = [v if isinstance(v, InterfaceDocumentation) else InterfaceDocumentation(**as_dict(v)) for v in self.documentation]
-
-        if not isinstance(self.appinfo, list):
-            self.appinfo = [self.appinfo] if self.appinfo is not None else []
-        self.appinfo = [v if isinstance(v, InterfaceAppinfo) else InterfaceAppinfo(**as_dict(v)) for v in self.appinfo]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class InterfaceAppinfo(YAMLRoot):
+class OrchestraActionV10(YAMLRoot):
     """
-    Usage specific annotation, optionally with link to an external reference or standard
+    Things that happen together, such as when a response fires or a state is entered: messages sent, values set,
+    transitions fired and timers scheduled, with their inputs.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceAppinfo"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceAppinfo"
-    class_name: ClassVar[str] = "InterfaceAppinfo"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceAppinfo
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionV10"
+    class_name: ClassVar[str] = "OrchestraActionV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionV10
 
-    spec_url: Optional[Union[str, URI]] = None
-    value: Optional[str] = None
-    content: Optional[Union[str, list[str]]] = empty_list()
-    extra_attributes: Optional[Union[str, list[str]]] = empty_list()
-    lang_id: Optional[str] = None
-    purpose: Optional[Union[str, InterfacePurpose]] = None
+    fixr_actions: Union[Union[dict, OrchestraActionStepV10], list[Union[dict, OrchestraActionStepV10]]] = None
+    fixr_parameters: Optional[Union[Union[dict, OrchestraActionParameterV10], list[Union[dict, OrchestraActionParameterV10]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.spec_url is not None and not isinstance(self.spec_url, URI):
-            self.spec_url = URI(self.spec_url)
+        if self._is_empty(self.fixr_actions):
+            self.MissingRequiredField("fixr_actions")
+        if not isinstance(self.fixr_actions, list):
+            self.fixr_actions = [self.fixr_actions] if self.fixr_actions is not None else []
+        self.fixr_actions = [v if isinstance(v, OrchestraActionStepV10) else OrchestraActionStepV10(**as_dict(v)) for v in self.fixr_actions]
 
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
-
-        if not isinstance(self.extra_attributes, list):
-            self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
-        self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
-
-        if self.lang_id is not None and not isinstance(self.lang_id, str):
-            self.lang_id = str(self.lang_id)
-
-        if self.purpose is not None and not isinstance(self.purpose, InterfacePurpose):
-            self.purpose = InterfacePurpose(self.purpose)
+        if not isinstance(self.fixr_parameters, list):
+            self.fixr_parameters = [self.fixr_parameters] if self.fixr_parameters is not None else []
+        self.fixr_parameters = [v if isinstance(v, OrchestraActionParameterV10) else OrchestraActionParameterV10(**as_dict(v)) for v in self.fixr_parameters]
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class BaseInterfaceType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["BaseInterfaceType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:BaseInterfaceType"
-    class_name: ClassVar[str] = "BaseInterfaceType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.BaseInterfaceType
-
-    name: str = None
-    service: Optional[Union[Union[dict, "ServiceType"], list[Union[dict, "ServiceType"]]]] = empty_list()
-    user_interface: Optional[Union[Union[dict, "UserInterfaceType"], list[Union[dict, "UserInterfaceType"]]]] = empty_list()
-    session_protocol: Optional[Union[Union[dict, "SessionProtocolType"], list[Union[dict, "SessionProtocolType"]]]] = empty_list()
-    protocol: Optional[Union[Union[dict, "ProtocolType"], list[Union[dict, "ProtocolType"]]]] = empty_list()
-    transport: Optional[Union[Union[dict, "TransportProtocolType"], list[Union[dict, "TransportProtocolType"]]]] = empty_list()
-    extra_attributes: Optional[Union[str, list[str]]] = empty_list()
-    encoding: Optional[Union[Union[dict, "EncodingType"], list[Union[dict, "EncodingType"]]]] = empty_list()
-    annotation: Optional[Union[dict, InterfaceAnnotation]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if not isinstance(self.service, list):
-            self.service = [self.service] if self.service is not None else []
-        self.service = [v if isinstance(v, ServiceType) else ServiceType(**as_dict(v)) for v in self.service]
-
-        if not isinstance(self.user_interface, list):
-            self.user_interface = [self.user_interface] if self.user_interface is not None else []
-        self.user_interface = [v if isinstance(v, UserInterfaceType) else UserInterfaceType(**as_dict(v)) for v in self.user_interface]
-
-        if not isinstance(self.session_protocol, list):
-            self.session_protocol = [self.session_protocol] if self.session_protocol is not None else []
-        self.session_protocol = [v if isinstance(v, SessionProtocolType) else SessionProtocolType(**as_dict(v)) for v in self.session_protocol]
-
-        if not isinstance(self.protocol, list):
-            self.protocol = [self.protocol] if self.protocol is not None else []
-        self.protocol = [v if isinstance(v, ProtocolType) else ProtocolType(**as_dict(v)) for v in self.protocol]
-
-        if not isinstance(self.transport, list):
-            self.transport = [self.transport] if self.transport is not None else []
-        self.transport = [v if isinstance(v, TransportProtocolType) else TransportProtocolType(**as_dict(v)) for v in self.transport]
-
-        if not isinstance(self.extra_attributes, list):
-            self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
-        self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
-
-        if not isinstance(self.encoding, list):
-            self.encoding = [self.encoding] if self.encoding is not None else []
-        self.encoding = [v if isinstance(v, EncodingType) else EncodingType(**as_dict(v)) for v in self.encoding]
-
-        if self.annotation is not None and not isinstance(self.annotation, InterfaceAnnotation):
-            self.annotation = InterfaceAnnotation(**as_dict(self.annotation))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class InterfaceDocumentation(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceDocumentation"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceDocumentation"
-    class_name: ClassVar[str] = "InterfaceDocumentation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceDocumentation
-
-    value: Optional[str] = None
-    content: Optional[Union[str, list[str]]] = empty_list()
-    lang_id: Optional[str] = None
-    purpose: Optional[Union[str, InterfacePurpose]] = None
-    content_type: Optional[str] = "text/plain"
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
-
-        if self.lang_id is not None and not isinstance(self.lang_id, str):
-            self.lang_id = str(self.lang_id)
-
-        if self.purpose is not None and not isinstance(self.purpose, InterfacePurpose):
-            self.purpose = InterfacePurpose(self.purpose)
-
-        if self.content_type is not None and not isinstance(self.content_type, str):
-            self.content_type = str(self.content_type)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class SessionsInline(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SessionsInline"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:SessionsInline"
-    class_name: ClassVar[str] = "SessionsInline"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SessionsInline
-
-    session: Union[Union[dict, "SessionType"], list[Union[dict, "SessionType"]]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.session):
-            self.MissingRequiredField("session")
-        self._normalize_inlined_as_list(slot_name="session", slot_type=SessionType, key_name="name", keyed=False)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class InterfaceType(BaseInterfaceType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["InterfaceType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:InterfaceType"
-    class_name: ClassVar[str] = "InterfaceType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.InterfaceType
-
-    name: str = None
-    sessions: Optional[Union[dict, SessionsInline]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.sessions is not None and not isinstance(self.sessions, SessionsInline):
-            self.sessions = SessionsInline(**as_dict(self.sessions))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ProtocolType(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ProtocolType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ProtocolType"
-    class_name: ClassVar[str] = "ProtocolType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ProtocolType
-
-    activation_time: Optional[Union[str, XSDDateTime]] = None
-    deactivation_time: Optional[Union[str, XSDDateTime]] = None
-    layer: Optional[Union[str, "Layer"]] = None
-    orchestration: Optional[Union[str, URI]] = None
-    extra_attributes: Optional[Union[str, list[str]]] = empty_list()
-    annotation: Optional[Union[dict, InterfaceAnnotation]] = None
-    name: Optional[Union[str, ProtocolName]] = None
-    version: Optional[str] = None
-    deprecated: Optional[Union[str, XSDDateTime]] = None
-    reliability: Optional[Union[str, "InterfaceReliability"]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.activation_time is not None and not isinstance(self.activation_time, XSDDateTime):
-            self.activation_time = XSDDateTime(self.activation_time)
-
-        if self.deactivation_time is not None and not isinstance(self.deactivation_time, XSDDateTime):
-            self.deactivation_time = XSDDateTime(self.deactivation_time)
-
-        if self.layer is not None and not isinstance(self.layer, Layer):
-            self.layer = Layer(self.layer)
-
-        if self.orchestration is not None and not isinstance(self.orchestration, URI):
-            self.orchestration = URI(self.orchestration)
-
-        if not isinstance(self.extra_attributes, list):
-            self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
-        self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
-
-        if self.annotation is not None and not isinstance(self.annotation, InterfaceAnnotation):
-            self.annotation = InterfaceAnnotation(**as_dict(self.annotation))
-
-        if self.name is not None and not isinstance(self.name, ProtocolName):
-            self.name = ProtocolName(self.name)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, XSDDateTime):
-            self.deprecated = XSDDateTime(self.deprecated)
-
-        if self.reliability is not None and not isinstance(self.reliability, InterfaceReliability):
-            self.reliability = InterfaceReliability(self.reliability)
-
-        super().__post_init__(**kwargs)
-
-
-class EncodingType(ProtocolType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["EncodingType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:EncodingType"
-    class_name: ClassVar[str] = "EncodingType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.EncodingType
-
-
-class ServiceType(ProtocolType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["ServiceType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:ServiceType"
-    class_name: ClassVar[str] = "ServiceType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.ServiceType
-
-
-class SessionProtocolType(ProtocolType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SessionProtocolType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:SessionProtocolType"
-    class_name: ClassVar[str] = "SessionProtocolType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SessionProtocolType
-
-
-@dataclass(repr=False)
-class SessionType(BaseInterfaceType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["SessionType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:SessionType"
-    class_name: ClassVar[str] = "SessionType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.SessionType
-
-    name: str = None
-    role: Optional[Union[str, "Role"]] = None
-    security_keys: Optional[str] = None
-    activation_time: Optional[Union[str, XSDDateTime]] = None
-    deactivation_time: Optional[Union[str, XSDDateTime]] = None
-    identifier: Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.role is not None and not isinstance(self.role, Role):
-            self.role = Role(self.role)
-
-        if self.security_keys is not None and not isinstance(self.security_keys, str):
-            self.security_keys = str(self.security_keys)
-
-        if self.activation_time is not None and not isinstance(self.activation_time, XSDDateTime):
-            self.activation_time = XSDDateTime(self.activation_time)
-
-        if self.deactivation_time is not None and not isinstance(self.deactivation_time, XSDDateTime):
-            self.deactivation_time = XSDDateTime(self.deactivation_time)
-
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier] if self.identifier is not None else []
-        self.identifier = [v if isinstance(v, IdentifierType) else IdentifierType(**as_dict(v)) for v in self.identifier]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class TransportProtocolType(ProtocolType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["TransportProtocolType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:TransportProtocolType"
-    class_name: ClassVar[str] = "TransportProtocolType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.TransportProtocolType
-
-    address: Optional[str] = None
-    message_cast: Optional[Union[str, "MessageCast"]] = 'unicast'
-    use: Optional[Union[str, TransportUse]] = None
-    extra_attributes: Optional[Union[str, list[str]]] = empty_list()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.address is not None and not isinstance(self.address, str):
-            self.address = str(self.address)
-
-        if self.message_cast is not None and not isinstance(self.message_cast, MessageCast):
-            self.message_cast = MessageCast(self.message_cast)
-
-        if self.use is not None and not isinstance(self.use, TransportUse):
-            self.use = TransportUse(self.use)
-
-        if not isinstance(self.extra_attributes, list):
-            self.extra_attributes = [self.extra_attributes] if self.extra_attributes is not None else []
-        self.extra_attributes = [v if isinstance(v, str) else str(v) for v in self.extra_attributes]
-
-        super().__post_init__(**kwargs)
-
-
-class UserInterfaceType(ProtocolType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["UserInterfaceType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:UserInterfaceType"
-    class_name: ClassVar[str] = "UserInterfaceType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.UserInterfaceType
-
-
-@dataclass(repr=False)
-class Datatype(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Datatype"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Datatype"
-    class_name: ClassVar[str] = "Datatype"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Datatype
-
-    name: Union[str, Name] = None
-    mapped_datatype: Optional[Union[Union[dict, MappedDatatype], list[Union[dict, MappedDatatype]]]] = empty_list()
-    scenario_id: Optional[Union[int, Id]] = 1
-    base_type: Optional[Union[str, Name]] = None
-    annotation: Optional[Union[dict, Annotation]] = None
-    scenario: Optional[Union[str, Name]] = "base"
-    added: Optional[Union[str, Version]] = None
-    added_ep: Optional[Union[int, EP]] = None
-    change_type: Optional[Union[str, "ChangeType"]] = None
-    deprecated_ep: Optional[Union[int, EP]] = None
-    issue: Optional[str] = None
-    last_modified: Optional[Union[str, Version]] = None
-    replaced: Optional[Union[str, Version]] = None
-    replaced_ep: Optional[Union[int, EP]] = None
-    replaced_by_field: Optional[Union[int, Id]] = None
-    supported: Optional[Union[str, "SupportType"]] = 'supported'
-    updated: Optional[Union[str, Version]] = None
-    updated_ep: Optional[Union[int, EP]] = None
-    deprecated: Optional[Union[str, Version]] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, Name):
-            self.name = Name(self.name)
-
-        self._normalize_inlined_as_list(slot_name="mapped_datatype", slot_type=MappedDatatype, key_name="standard", keyed=False)
-
-        if self.scenario_id is not None and not isinstance(self.scenario_id, Id):
-            self.scenario_id = Id(self.scenario_id)
-
-        if self.base_type is not None and not isinstance(self.base_type, Name):
-            self.base_type = Name(self.base_type)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.scenario is not None and not isinstance(self.scenario, Name):
-            self.scenario = Name(self.scenario)
-
-        if self.added is not None and not isinstance(self.added, Version):
-            self.added = Version(self.added)
-
-        if self.added_ep is not None and not isinstance(self.added_ep, EP):
-            self.added_ep = EP(self.added_ep)
-
-        if self.change_type is not None and not isinstance(self.change_type, ChangeType):
-            self.change_type = ChangeType(self.change_type)
-
-        if self.deprecated_ep is not None and not isinstance(self.deprecated_ep, EP):
-            self.deprecated_ep = EP(self.deprecated_ep)
-
-        if self.issue is not None and not isinstance(self.issue, str):
-            self.issue = str(self.issue)
-
-        if self.last_modified is not None and not isinstance(self.last_modified, Version):
-            self.last_modified = Version(self.last_modified)
-
-        if self.replaced is not None and not isinstance(self.replaced, Version):
-            self.replaced = Version(self.replaced)
-
-        if self.replaced_ep is not None and not isinstance(self.replaced_ep, EP):
-            self.replaced_ep = EP(self.replaced_ep)
-
-        if self.replaced_by_field is not None and not isinstance(self.replaced_by_field, Id):
-            self.replaced_by_field = Id(self.replaced_by_field)
-
-        if self.supported is not None and not isinstance(self.supported, SupportType):
-            self.supported = SupportType(self.supported)
-
-        if self.updated is not None and not isinstance(self.updated, Version):
-            self.updated = Version(self.updated)
-
-        if self.updated_ep is not None and not isinstance(self.updated_ep, EP):
-            self.updated_ep = EP(self.updated_ep)
-
-        if self.deprecated is not None and not isinstance(self.deprecated, Version):
-            self.deprecated = Version(self.deprecated)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class Actors(YAMLRoot):
+class OrchestraActorMemberV10(YAMLRoot):
     """
-    Participants and the message flows between them
+    One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds
+    exactly one of these.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Actors"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Actors"
-    class_name: ClassVar[str] = "Actors"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Actors
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorMemberV10"
+    class_name: ClassVar[str] = "OrchestraActorMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorMemberV10
 
-    actor: Optional[Union[Union[dict, ActorType], list[Union[dict, ActorType]]]] = empty_list()
-    flow: Optional[Union[Union[dict, FlowType], list[Union[dict, FlowType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_field: Optional[Union[dict, "OrchestraFieldV10"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV10"]] = None
+    fixr_component: Optional[Union[dict, "OrchestraComponentV10"]] = None
+    fixr_component_ref: Optional[Union[dict, "OrchestraComponentRefV10"]] = None
+    fixr_group: Optional[Union[dict, "OrchestraGroupV10"]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV10"]] = None
+    fixr_states: Optional[Union[dict, "OrchestraStateMachineV10"]] = None
+    fixr_timer: Optional[Union[dict, "OrchestraTimerV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="actor", slot_type=ActorType, key_name="name", keyed=False)
+        if self.fixr_field is not None and not isinstance(self.fixr_field, OrchestraFieldV10):
+            self.fixr_field = OrchestraFieldV10(**as_dict(self.fixr_field))
 
-        self._normalize_inlined_as_list(slot_name="flow", slot_type=FlowType, key_name="source", keyed=False)
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV10):
+            self.fixr_field_ref = OrchestraFieldRefV10(**as_dict(self.fixr_field_ref))
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_component is not None and not isinstance(self.fixr_component, OrchestraComponentV10):
+            self.fixr_component = OrchestraComponentV10(**as_dict(self.fixr_component))
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV10):
+            self.fixr_component_ref = OrchestraComponentRefV10(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, OrchestraGroupV10):
+            self.fixr_group = OrchestraGroupV10(**as_dict(self.fixr_group))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV10):
+            self.fixr_group_ref = OrchestraGroupRefV10(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_states is not None and not isinstance(self.fixr_states, OrchestraStateMachineV10):
+            self.fixr_states = OrchestraStateMachineV10(**as_dict(self.fixr_states))
+
+        if self.fixr_timer is not None and not isinstance(self.fixr_timer, OrchestraTimerV10):
+            self.fixr_timer = OrchestraTimerV10(**as_dict(self.fixr_timer))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Categories(YAMLRoot):
+class OrchestraActorV10(YAMLRoot):
+    """
+    A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state
+    machines and timers.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Categories"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Categories"
-    class_name: ClassVar[str] = "Categories"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Categories
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorV10"
+    class_name: ClassVar[str] = "OrchestraActorV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorV10
 
-    category: Optional[Union[Union[dict, CategoryType], list[Union[dict, CategoryType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_name: str = None
+    fixr_members: Optional[Union[Union[dict, OrchestraActorMemberV10], list[Union[dict, OrchestraActorMemberV10]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, "OrchestraAnnotationV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="category", slot_type=CategoryType, key_name="name", keyed=False)
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraActorMemberV10) else OrchestraActorMemberV10(**as_dict(v)) for v in self.fixr_members]
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class CodeSets(YAMLRoot):
+class OrchestraActorsMemberV10(YAMLRoot):
+    """
+    One entry of the actors list, an actor or a flow. It holds exactly one of these.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["CodeSets"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:CodeSets"
-    class_name: ClassVar[str] = "CodeSets"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.CodeSets
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorsMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorsMemberV10"
+    class_name: ClassVar[str] = "OrchestraActorsMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorsMemberV10
 
-    code_set: Optional[Union[Union[dict, CodeSetType], list[Union[dict, CodeSetType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_actor: Optional[Union[dict, OrchestraActorV10]] = None
+    fixr_flow: Optional[Union[dict, "OrchestraFlowV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="code_set", slot_type=CodeSetType, key_name="type", keyed=False)
+        if self.fixr_actor is not None and not isinstance(self.fixr_actor, OrchestraActorV10):
+            self.fixr_actor = OrchestraActorV10(**as_dict(self.fixr_actor))
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_flow is not None and not isinstance(self.fixr_flow, OrchestraFlowV10):
+            self.fixr_flow = OrchestraFlowV10(**as_dict(self.fixr_flow))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Components(YAMLRoot):
+class OrchestraActorsV10(YAMLRoot):
+    """
+    The parties a repository describes and the one-way flows between them.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Components"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Components"
-    class_name: ClassVar[str] = "Components"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Components
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorsV10"
+    class_name: ClassVar[str] = "OrchestraActorsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorsV10
 
-    component: Optional[Union[Union[dict, ComponentType], list[Union[dict, ComponentType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_members: Union[Union[dict, OrchestraActorsMemberV10], list[Union[dict, OrchestraActorsMemberV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="component", slot_type=ComponentType, key_name="id", keyed=False)
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraActorsMemberV10) else OrchestraActorsMemberV10(**as_dict(v)) for v in self.fixr_members]
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Concepts(YAMLRoot):
+class OrchestraAnnotationMemberV10(YAMLRoot):
+    """
+    One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Concepts"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Concepts"
-    class_name: ClassVar[str] = "Concepts"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Concepts
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAnnotationMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAnnotationMemberV10"
+    class_name: ClassVar[str] = "OrchestraAnnotationMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAnnotationMemberV10
 
-    concept: Optional[Union[Union[dict, ConceptType], list[Union[dict, ConceptType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_documentation: Optional[Union[dict, "OrchestraDocumentationV10"]] = None
+    fixr_appinfo: Optional[Union[dict, "OrchestraAppinfoV10"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="concept", slot_type=ConceptType, key_name="name", keyed=False)
+        if self.fixr_documentation is not None and not isinstance(self.fixr_documentation, OrchestraDocumentationV10):
+            self.fixr_documentation = OrchestraDocumentationV10(**as_dict(self.fixr_documentation))
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_appinfo is not None and not isinstance(self.fixr_appinfo, OrchestraAppinfoV10):
+            self.fixr_appinfo = OrchestraAppinfoV10(**as_dict(self.fixr_appinfo))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Datatypes(YAMLRoot):
+class OrchestraAnnotationV10(YAMLRoot):
+    """
+    Notes for readers and hints for software, attached to an element.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Datatypes"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Datatypes"
-    class_name: ClassVar[str] = "Datatypes"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Datatypes
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAnnotationV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAnnotationV10"
+    class_name: ClassVar[str] = "OrchestraAnnotationV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAnnotationV10
 
-    datatype: Optional[Union[Union[dict, Datatype], list[Union[dict, Datatype]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_members: Union[Union[dict, OrchestraAnnotationMemberV10], list[Union[dict, OrchestraAnnotationMemberV10]]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="datatype", slot_type=Datatype, key_name="name", keyed=False)
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraAnnotationMemberV10) else OrchestraAnnotationMemberV10(**as_dict(v)) for v in self.fixr_members]
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Fields(YAMLRoot):
+class OrchestraAppinfoV10(YAMLRoot):
+    """
+    A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Fields"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Fields"
-    class_name: ClassVar[str] = "Fields"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Fields
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAppinfoV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAppinfoV10"
+    class_name: ClassVar[str] = "OrchestraAppinfoV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAppinfoV10
 
-    field: Optional[Union[Union[dict, FieldType], list[Union[dict, FieldType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_text: Optional[str] = None
+    fixr_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_lang_id: Optional[str] = None
+    fixr_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixr_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="field", slot_type=FieldType, key_name="id", keyed=False)
+        if self.fixr_text is not None and not isinstance(self.fixr_text, str):
+            self.fixr_text = str(self.fixr_text)
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        self._normalize_inlined_as_list(slot_name="fixr_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_lang_id is not None and not isinstance(self.fixr_lang_id, str):
+            self.fixr_lang_id = str(self.fixr_lang_id)
+
+        if self.fixr_purpose is not None and not isinstance(self.fixr_purpose, (OrchestraPurpose, str)):
+            value = self.fixr_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixr_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixr_purpose")
+
+        self._normalize_inlined_as_list(slot_name="fixr_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Groups(YAMLRoot):
+class OrchestraBaseInterfaceV10(YAMLRoot):
+    """
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Groups"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Groups"
-    class_name: ClassVar[str] = "Groups"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Groups
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraBaseInterfaceV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraBaseInterfaceV10"
+    class_name: ClassVar[str] = "OrchestraBaseInterfaceV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraBaseInterfaceV10
 
-    group: Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixi_name: str = None
+    fixi_service: Optional[Union[Union[dict, "OrchestraServiceV10"], list[Union[dict, "OrchestraServiceV10"]]]] = empty_list()
+    fixi_user_interface: Optional[Union[Union[dict, "OrchestraUserInterfaceV10"], list[Union[dict, "OrchestraUserInterfaceV10"]]]] = empty_list()
+    fixi_encoding: Optional[Union[Union[dict, "OrchestraEncodingV10"], list[Union[dict, "OrchestraEncodingV10"]]]] = empty_list()
+    fixi_session_protocol: Optional[Union[Union[dict, "OrchestraSessionProtocolV10"], list[Union[dict, "OrchestraSessionProtocolV10"]]]] = empty_list()
+    fixi_protocol: Optional[Union[Union[dict, "OrchestraProtocolV10"], list[Union[dict, "OrchestraProtocolV10"]]]] = empty_list()
+    fixi_transport: Optional[Union[Union[dict, "OrchestraTransportV10"], list[Union[dict, "OrchestraTransportV10"]]]] = empty_list()
+    fixi_annotation: Optional[Union[dict, "OrchestraInterfaceAnnotationV10"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="group", slot_type=GroupType, key_name="id", keyed=False)
+        if self._is_empty(self.fixi_name):
+            self.MissingRequiredField("fixi_name")
+        if not isinstance(self.fixi_name, str):
+            self.fixi_name = str(self.fixi_name)
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if not isinstance(self.fixi_service, list):
+            self.fixi_service = [self.fixi_service] if self.fixi_service is not None else []
+        self.fixi_service = [v if isinstance(v, OrchestraServiceV10) else OrchestraServiceV10(**as_dict(v)) for v in self.fixi_service]
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if not isinstance(self.fixi_user_interface, list):
+            self.fixi_user_interface = [self.fixi_user_interface] if self.fixi_user_interface is not None else []
+        self.fixi_user_interface = [v if isinstance(v, OrchestraUserInterfaceV10) else OrchestraUserInterfaceV10(**as_dict(v)) for v in self.fixi_user_interface]
+
+        if not isinstance(self.fixi_encoding, list):
+            self.fixi_encoding = [self.fixi_encoding] if self.fixi_encoding is not None else []
+        self.fixi_encoding = [v if isinstance(v, OrchestraEncodingV10) else OrchestraEncodingV10(**as_dict(v)) for v in self.fixi_encoding]
+
+        if not isinstance(self.fixi_session_protocol, list):
+            self.fixi_session_protocol = [self.fixi_session_protocol] if self.fixi_session_protocol is not None else []
+        self.fixi_session_protocol = [v if isinstance(v, OrchestraSessionProtocolV10) else OrchestraSessionProtocolV10(**as_dict(v)) for v in self.fixi_session_protocol]
+
+        if not isinstance(self.fixi_protocol, list):
+            self.fixi_protocol = [self.fixi_protocol] if self.fixi_protocol is not None else []
+        self.fixi_protocol = [v if isinstance(v, OrchestraProtocolV10) else OrchestraProtocolV10(**as_dict(v)) for v in self.fixi_protocol]
+
+        if not isinstance(self.fixi_transport, list):
+            self.fixi_transport = [self.fixi_transport] if self.fixi_transport is not None else []
+        self.fixi_transport = [v if isinstance(v, OrchestraTransportV10) else OrchestraTransportV10(**as_dict(v)) for v in self.fixi_transport]
+
+        if self.fixi_annotation is not None and not isinstance(self.fixi_annotation, OrchestraInterfaceAnnotationV10):
+            self.fixi_annotation = OrchestraInterfaceAnnotationV10(**as_dict(self.fixi_annotation))
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Messages(YAMLRoot):
+class OrchestraBlockAssignmentV10(YAMLRoot):
+    """
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it
+    sets.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Messages"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Messages"
-    class_name: ClassVar[str] = "Messages"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Messages
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraBlockAssignmentV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraBlockAssignmentV10"
+    class_name: ClassVar[str] = "OrchestraBlockAssignmentV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraBlockAssignmentV10
 
-    message: Optional[Union[Union[dict, MessageType], list[Union[dict, MessageType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_members: Union[Union[dict, "OrchestraStructureMemberV10"], list[Union[dict, "OrchestraStructureMemberV10"]]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="message", slot_type=MessageType, key_name="id", keyed=False)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
-
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV10) else OrchestraStructureMemberV10(**as_dict(v)) for v in self.fixr_members]
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Repository(YAMLRoot):
+class OrchestraCategoriesV10(YAMLRoot):
+    """
+    The categories a repository sorts its messages and fields into.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Repository"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Repository"
-    class_name: ClassVar[str] = "Repository"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Repository
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCategoriesV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCategoriesV10"
+    class_name: ClassVar[str] = "OrchestraCategoriesV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCategoriesV10
 
-    metadata: Union[dict, "DctermsElementOrRefinementContainer"] = None
-    datatypes: Union[dict, Datatypes] = None
-    fields: Union[dict, Fields] = None
-    messages: Union[dict, Messages] = None
-    name: str = None
-    version: Union[str, Version] = None
-    categories: Optional[Union[dict, Categories]] = None
-    sections: Optional[Union[dict, "Sections"]] = None
-    code_sets: Optional[Union[dict, CodeSets]] = None
-    actors: Optional[Union[dict, Actors]] = None
-    components: Optional[Union[dict, Components]] = None
-    groups: Optional[Union[dict, Groups]] = None
-    concepts: Optional[Union[dict, Concepts]] = None
-    scenarios: Optional[Union[dict, "Scenarios"]] = None
-    guid: Optional[str] = None
-    spec_url: Optional[Union[str, URI]] = None
-    namespace: Optional[Union[str, URI]] = None
-    expression_language: Optional[str] = "Score"
-    annotation: Optional[Union[dict, Annotation]] = None
+    fixr_category: Union[Union[dict, "OrchestraCategoryV10"], list[Union[dict, "OrchestraCategoryV10"]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.metadata):
-            self.MissingRequiredField("metadata")
-        if not isinstance(self.metadata, DctermsElementOrRefinementContainer):
-            self.metadata = DctermsElementOrRefinementContainer(**as_dict(self.metadata))
+        if self._is_empty(self.fixr_category):
+            self.MissingRequiredField("fixr_category")
+        if not isinstance(self.fixr_category, list):
+            self.fixr_category = [self.fixr_category] if self.fixr_category is not None else []
+        self.fixr_category = [v if isinstance(v, OrchestraCategoryV10) else OrchestraCategoryV10(**as_dict(v)) for v in self.fixr_category]
 
-        if self._is_empty(self.datatypes):
-            self.MissingRequiredField("datatypes")
-        if not isinstance(self.datatypes, Datatypes):
-            self.datatypes = Datatypes(**as_dict(self.datatypes))
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
 
-        if self._is_empty(self.fields):
-            self.MissingRequiredField("fields")
-        if not isinstance(self.fields, Fields):
-            self.fields = Fields(**as_dict(self.fields))
-
-        if self._is_empty(self.messages):
-            self.MissingRequiredField("messages")
-        if not isinstance(self.messages, Messages):
-            self.messages = Messages(**as_dict(self.messages))
-
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self._is_empty(self.version):
-            self.MissingRequiredField("version")
-        if not isinstance(self.version, Version):
-            self.version = Version(self.version)
-
-        if self.categories is not None and not isinstance(self.categories, Categories):
-            self.categories = Categories(**as_dict(self.categories))
-
-        if self.sections is not None and not isinstance(self.sections, Sections):
-            self.sections = Sections(**as_dict(self.sections))
-
-        if self.code_sets is not None and not isinstance(self.code_sets, CodeSets):
-            self.code_sets = CodeSets(**as_dict(self.code_sets))
-
-        if self.actors is not None and not isinstance(self.actors, Actors):
-            self.actors = Actors(**as_dict(self.actors))
-
-        if self.components is not None and not isinstance(self.components, Components):
-            self.components = Components(**as_dict(self.components))
-
-        if self.groups is not None and not isinstance(self.groups, Groups):
-            self.groups = Groups(**as_dict(self.groups))
-
-        if self.concepts is not None and not isinstance(self.concepts, Concepts):
-            self.concepts = Concepts(**as_dict(self.concepts))
-
-        if self.scenarios is not None and not isinstance(self.scenarios, Scenarios):
-            self.scenarios = Scenarios(**as_dict(self.scenarios))
-
-        if self.guid is not None and not isinstance(self.guid, str):
-            self.guid = str(self.guid)
-
-        if self.spec_url is not None and not isinstance(self.spec_url, URI):
-            self.spec_url = URI(self.spec_url)
-
-        if self.namespace is not None and not isinstance(self.namespace, URI):
-            self.namespace = URI(self.namespace)
-
-        if self.expression_language is not None and not isinstance(self.expression_language, str):
-            self.expression_language = str(self.expression_language)
-
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Scenarios(YAMLRoot):
+class OrchestraCategoryV10(YAMLRoot):
     """
-    The default scenario is id='1' name='base'.
+    A business process grouping within a section, such as order handling or market data.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Scenarios"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Scenarios"
-    class_name: ClassVar[str] = "Scenarios"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Scenarios
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCategoryV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCategoryV10"
+    class_name: ClassVar[str] = "OrchestraCategoryV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCategoryV10
 
-    scenario: Optional[Union[Union[dict, ScenarioType], list[Union[dict, ScenarioType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_name: Optional[str] = None
+    fixr_fixml_file_name: Optional[str] = None
+    fixr_component_type: Optional[Union[str, "OrchestraCategoryContentV10"]] = None
+    fixr_section: Optional[str] = None
+    fixr_include_file: Optional[Union[str, "OrchestraCategoryIncludeFileV10"]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.scenario, list):
-            self.scenario = [self.scenario] if self.scenario is not None else []
-        self.scenario = [v if isinstance(v, ScenarioType) else ScenarioType(**as_dict(v)) for v in self.scenario]
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self.fixr_fixml_file_name is not None and not isinstance(self.fixr_fixml_file_name, str):
+            self.fixr_fixml_file_name = str(self.fixr_fixml_file_name)
+
+        if self.fixr_component_type is not None and not isinstance(self.fixr_component_type, OrchestraCategoryContentV10):
+            self.fixr_component_type = OrchestraCategoryContentV10(self.fixr_component_type)
+
+        if self.fixr_section is not None and not isinstance(self.fixr_section, str):
+            self.fixr_section = str(self.fixr_section)
+
+        if self.fixr_include_file is not None and not isinstance(self.fixr_include_file, OrchestraCategoryIncludeFileV10):
+            self.fixr_include_file = OrchestraCategoryIncludeFileV10(self.fixr_include_file)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Sections(YAMLRoot):
+class OrchestraCodeSetV10(YAMLRoot):
+    """
+    A named list of the values a field may take, each with a name of its own, over one underlying datatype.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Sections"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Sections"
-    class_name: ClassVar[str] = "Sections"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Sections
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeSetV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeSetV10"
+    class_name: ClassVar[str] = "OrchestraCodeSetV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeSetV10
 
-    section: Optional[Union[Union[dict, SectionType], list[Union[dict, SectionType]]]] = empty_list()
-    annotation: Optional[Union[dict, Annotation]] = None
-    base: Optional[str] = None
+    fixr_type: str = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_code: Optional[Union[Union[dict, "OrchestraCodeV10"], list[Union[dict, "OrchestraCodeV10"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_default: Optional[str] = None
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="section", slot_type=SectionType, key_name="name", keyed=False)
+        if self._is_empty(self.fixr_type):
+            self.MissingRequiredField("fixr_type")
+        if not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
 
-        if self.annotation is not None and not isinstance(self.annotation, Annotation):
-            self.annotation = Annotation(**as_dict(self.annotation))
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
 
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_code", slot_type=OrchestraCodeV10, key_name="fixr_value", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_default is not None and not isinstance(self.fixr_default, str):
+            self.fixr_default = str(self.fixr_default)
+
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Interfaces(YAMLRoot):
+class OrchestraCodeSetsV10(YAMLRoot):
     """
-    This represents the current state of service and session configurations. Changes to configuration can represented
-    with patch operations. See IETF RFC 5261
+    The code sets a repository defines.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["Interfaces"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:Interfaces"
-    class_name: ClassVar[str] = "Interfaces"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.Interfaces
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeSetsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeSetsV10"
+    class_name: ClassVar[str] = "OrchestraCodeSetsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeSetsV10
 
-    metadata: Union[dict, "DctermsElementOrRefinementContainer"] = None
-    interface: Optional[Union[Union[dict, InterfaceType], list[Union[dict, InterfaceType]]]] = empty_list()
+    fixr_code_set: Union[Union[dict, OrchestraCodeSetV10], list[Union[dict, OrchestraCodeSetV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.metadata):
-            self.MissingRequiredField("metadata")
-        if not isinstance(self.metadata, DctermsElementOrRefinementContainer):
-            self.metadata = DctermsElementOrRefinementContainer(**as_dict(self.metadata))
+        if self._is_empty(self.fixr_code_set):
+            self.MissingRequiredField("fixr_code_set")
+        self._normalize_inlined_as_list(slot_name="fixr_code_set", slot_type=OrchestraCodeSetV10, key_name="fixr_type", keyed=False)
 
-        self._normalize_inlined_as_list(slot_name="interface", slot_type=InterfaceType, key_name="name", keyed=False)
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class FIXMLencodingType(YAMLRoot):
+class OrchestraCodeV10(YAMLRoot):
     """
-    FIXML generator hints carried inside <fixr:appinfo purpose="FIXML">. Captures whether a component is inlined in
-    its containing message and whether an element is ignored by the FIXML generator.
+    One permitted value of the set, with its name and what goes on the wire.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["FIXMLencodingType"]
-    class_class_curie: ClassVar[str] = "fix_orchestra:FIXMLencodingType"
-    class_name: ClassVar[str] = "FIXMLencodingType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.FIXMLencodingType
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeV10"
+    class_name: ClassVar[str] = "OrchestraCodeV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeV10
 
-    inlined: Optional[Union[bool, Bool]] = False
-    not_req_xml: Optional[Union[bool, Bool]] = False
+    fixr_value: str = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_sort: Optional[str] = None
+    fixr_group: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.inlined is not None and not isinstance(self.inlined, Bool):
-            self.inlined = Bool(self.inlined)
+        if self._is_empty(self.fixr_value):
+            self.MissingRequiredField("fixr_value")
+        if not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
 
-        if self.not_req_xml is not None and not isinstance(self.not_req_xml, Bool):
-            self.not_req_xml = Bool(self.not_req_xml)
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_sort is not None and not isinstance(self.fixr_sort, str):
+            self.fixr_sort = str(self.fixr_sort)
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, str):
+            self.fixr_group = str(self.fixr_group)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class DcSimpleLiteral(YAMLRoot):
+class OrchestraComponentRefV10(YAMLRoot):
     """
-    This is the default type for all of the DC elements. It permits text content only with optional xml:lang
-    attribute. Text is allowed because mixed="true", but sub-elements are disallowed because minOccurs="0" and
-    maxOccurs="0" are on the xs:any tag. This complexType allows for restriction or extension permitting child
-    elements.
+    Where a message or block includes a component, by its number, with its presence and any rules that make it
+    conditional.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DC["SimpleLiteral"]
-    class_class_curie: ClassVar[str] = "dc:SimpleLiteral"
-    class_name: ClassVar[str] = "DcSimpleLiteral"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcSimpleLiteral
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentRefV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentRefV10"
+    class_name: ClassVar[str] = "OrchestraComponentRefV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentRefV10
 
-    value: Optional[str] = None
-    content: Optional[Union[str, list[str]]] = empty_list()
-    lang: Optional[str] = None
+    fixr_id: int = None
+    fixr_block_assignment: Optional[Union[Union[dict, OrchestraBlockAssignmentV10], list[Union[dict, OrchestraBlockAssignmentV10]]]] = empty_list()
+    fixr_rule: Optional[Union[Union[dict, "OrchestraComponentRuleV10"], list[Union[dict, "OrchestraComponentRuleV10"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_instance_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
 
-        if not isinstance(self.content, list):
-            self.content = [self.content] if self.content is not None else []
-        self.content = [v if isinstance(v, str) else str(v) for v in self.content]
+        if not isinstance(self.fixr_block_assignment, list):
+            self.fixr_block_assignment = [self.fixr_block_assignment] if self.fixr_block_assignment is not None else []
+        self.fixr_block_assignment = [v if isinstance(v, OrchestraBlockAssignmentV10) else OrchestraBlockAssignmentV10(**as_dict(v)) for v in self.fixr_block_assignment]
 
-        if self.lang is not None and not isinstance(self.lang, str):
-            self.lang = str(self.lang)
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraComponentRuleV10, key_name="fixr_when", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_instance_name is not None and not isinstance(self.fixr_instance_name, str):
+            self.fixr_instance_name = str(self.fixr_instance_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class DcElementContainer(YAMLRoot):
+class OrchestraComponentRuleV10(YAMLRoot):
     """
-    This complexType is included as a convenience for schema authors who need to define a root or container element
-    for all of the DC elements.
+    A condition that changes a component's presence, such as making it required.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DC["elementContainer"]
-    class_class_curie: ClassVar[str] = "dc:elementContainer"
-    class_name: ClassVar[str] = "DcElementContainer"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcElementContainer
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentRuleV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentRuleV10"
+    class_name: ClassVar[str] = "OrchestraComponentRuleV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentRuleV10
 
-    title: Optional[str] = None
-    creator: Optional[str] = None
-    subject: Optional[str] = None
-    description: Optional[str] = None
-    publisher: Optional[str] = None
-    contributor: Optional[str] = None
-    date: Optional[str] = None
-    format: Optional[str] = None
-    source: Optional[str] = None
-    language: Optional[str] = None
-    relation: Optional[str] = None
-    coverage: Optional[str] = None
-    rights: Optional[str] = None
-    alternative: Optional[str] = None
-    table_of_contents: Optional[str] = None
-    abstract: Optional[str] = None
-    created: Optional[str] = None
-    valid: Optional[str] = None
-    available: Optional[str] = None
-    issued: Optional[str] = None
-    modified: Optional[str] = None
-    date_accepted: Optional[str] = None
-    date_copyrighted: Optional[str] = None
-    date_submitted: Optional[str] = None
-    extent: Optional[str] = None
-    medium: Optional[str] = None
-    is_version_of: Optional[str] = None
-    has_version: Optional[str] = None
-    is_replaced_by: Optional[str] = None
-    replaces: Optional[str] = None
-    is_required_by: Optional[str] = None
-    requires: Optional[str] = None
-    is_part_of: Optional[str] = None
-    has_part: Optional[str] = None
-    is_referenced_by: Optional[str] = None
-    references: Optional[str] = None
-    is_format_of: Optional[str] = None
-    has_format: Optional[str] = None
-    conforms_to: Optional[str] = None
-    spatial: Optional[str] = None
-    temporal: Optional[str] = None
-    audience: Optional[str] = None
-    accrual_method: Optional[str] = None
-    accrual_periodicity: Optional[str] = None
-    accrual_policy: Optional[str] = None
-    instructional_method: Optional[str] = None
-    provenance: Optional[str] = None
-    rights_holder: Optional[str] = None
-    mediator: Optional[str] = None
-    education_level: Optional[str] = None
-    access_rights: Optional[str] = None
-    license: Optional[str] = None
-    bibliographic_citation: Optional[str] = None
-    type: Optional[str] = None
-    identifier: Optional[str] = None
+    fixr_when: str = None
+    fixr_name: Optional[str] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.creator is not None and not isinstance(self.creator, str):
-            self.creator = str(self.creator)
-
-        if self.subject is not None and not isinstance(self.subject, str):
-            self.subject = str(self.subject)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        if self.publisher is not None and not isinstance(self.publisher, str):
-            self.publisher = str(self.publisher)
-
-        if self.contributor is not None and not isinstance(self.contributor, str):
-            self.contributor = str(self.contributor)
-
-        if self.date is not None and not isinstance(self.date, str):
-            self.date = str(self.date)
-
-        if self.format is not None and not isinstance(self.format, str):
-            self.format = str(self.format)
-
-        if self.source is not None and not isinstance(self.source, str):
-            self.source = str(self.source)
-
-        if self.language is not None and not isinstance(self.language, str):
-            self.language = str(self.language)
-
-        if self.relation is not None and not isinstance(self.relation, str):
-            self.relation = str(self.relation)
-
-        if self.coverage is not None and not isinstance(self.coverage, str):
-            self.coverage = str(self.coverage)
-
-        if self.rights is not None and not isinstance(self.rights, str):
-            self.rights = str(self.rights)
-
-        if self.alternative is not None and not isinstance(self.alternative, str):
-            self.alternative = str(self.alternative)
-
-        if self.table_of_contents is not None and not isinstance(self.table_of_contents, str):
-            self.table_of_contents = str(self.table_of_contents)
-
-        if self.abstract is not None and not isinstance(self.abstract, str):
-            self.abstract = str(self.abstract)
-
-        if self.created is not None and not isinstance(self.created, str):
-            self.created = str(self.created)
-
-        if self.valid is not None and not isinstance(self.valid, str):
-            self.valid = str(self.valid)
-
-        if self.available is not None and not isinstance(self.available, str):
-            self.available = str(self.available)
-
-        if self.issued is not None and not isinstance(self.issued, str):
-            self.issued = str(self.issued)
-
-        if self.modified is not None and not isinstance(self.modified, str):
-            self.modified = str(self.modified)
-
-        if self.date_accepted is not None and not isinstance(self.date_accepted, str):
-            self.date_accepted = str(self.date_accepted)
-
-        if self.date_copyrighted is not None and not isinstance(self.date_copyrighted, str):
-            self.date_copyrighted = str(self.date_copyrighted)
-
-        if self.date_submitted is not None and not isinstance(self.date_submitted, str):
-            self.date_submitted = str(self.date_submitted)
-
-        if self.extent is not None and not isinstance(self.extent, str):
-            self.extent = str(self.extent)
-
-        if self.medium is not None and not isinstance(self.medium, str):
-            self.medium = str(self.medium)
-
-        if self.is_version_of is not None and not isinstance(self.is_version_of, str):
-            self.is_version_of = str(self.is_version_of)
-
-        if self.has_version is not None and not isinstance(self.has_version, str):
-            self.has_version = str(self.has_version)
-
-        if self.is_replaced_by is not None and not isinstance(self.is_replaced_by, str):
-            self.is_replaced_by = str(self.is_replaced_by)
-
-        if self.replaces is not None and not isinstance(self.replaces, str):
-            self.replaces = str(self.replaces)
-
-        if self.is_required_by is not None and not isinstance(self.is_required_by, str):
-            self.is_required_by = str(self.is_required_by)
-
-        if self.requires is not None and not isinstance(self.requires, str):
-            self.requires = str(self.requires)
-
-        if self.is_part_of is not None and not isinstance(self.is_part_of, str):
-            self.is_part_of = str(self.is_part_of)
-
-        if self.has_part is not None and not isinstance(self.has_part, str):
-            self.has_part = str(self.has_part)
-
-        if self.is_referenced_by is not None and not isinstance(self.is_referenced_by, str):
-            self.is_referenced_by = str(self.is_referenced_by)
-
-        if self.references is not None and not isinstance(self.references, str):
-            self.references = str(self.references)
-
-        if self.is_format_of is not None and not isinstance(self.is_format_of, str):
-            self.is_format_of = str(self.is_format_of)
-
-        if self.has_format is not None and not isinstance(self.has_format, str):
-            self.has_format = str(self.has_format)
-
-        if self.conforms_to is not None and not isinstance(self.conforms_to, str):
-            self.conforms_to = str(self.conforms_to)
-
-        if self.spatial is not None and not isinstance(self.spatial, str):
-            self.spatial = str(self.spatial)
-
-        if self.temporal is not None and not isinstance(self.temporal, str):
-            self.temporal = str(self.temporal)
-
-        if self.audience is not None and not isinstance(self.audience, str):
-            self.audience = str(self.audience)
-
-        if self.accrual_method is not None and not isinstance(self.accrual_method, str):
-            self.accrual_method = str(self.accrual_method)
-
-        if self.accrual_periodicity is not None and not isinstance(self.accrual_periodicity, str):
-            self.accrual_periodicity = str(self.accrual_periodicity)
-
-        if self.accrual_policy is not None and not isinstance(self.accrual_policy, str):
-            self.accrual_policy = str(self.accrual_policy)
-
-        if self.instructional_method is not None and not isinstance(self.instructional_method, str):
-            self.instructional_method = str(self.instructional_method)
-
-        if self.provenance is not None and not isinstance(self.provenance, str):
-            self.provenance = str(self.provenance)
-
-        if self.rights_holder is not None and not isinstance(self.rights_holder, str):
-            self.rights_holder = str(self.rights_holder)
-
-        if self.mediator is not None and not isinstance(self.mediator, str):
-            self.mediator = str(self.mediator)
-
-        if self.education_level is not None and not isinstance(self.education_level, str):
-            self.education_level = str(self.education_level)
-
-        if self.access_rights is not None and not isinstance(self.access_rights, str):
-            self.access_rights = str(self.access_rights)
-
-        if self.license is not None and not isinstance(self.license, str):
-            self.license = str(self.license)
-
-        if self.bibliographic_citation is not None and not isinstance(self.bibliographic_citation, str):
-            self.bibliographic_citation = str(self.bibliographic_citation)
-
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
-
-        if self.identifier is not None and not isinstance(self.identifier, str):
-            self.identifier = str(self.identifier)
-
-        super().__post_init__(**kwargs)
-
-
-class DcAny(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["any"]
-    class_class_curie: ClassVar[str] = "dc:any"
-    class_name: ClassVar[str] = "DcAny"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcAny
-
-
-class DcTitle(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["title"]
-    class_class_curie: ClassVar[str] = "dc:title"
-    class_name: ClassVar[str] = "DcTitle"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcTitle
-
-
-class DcCreator(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["creator"]
-    class_class_curie: ClassVar[str] = "dc:creator"
-    class_name: ClassVar[str] = "DcCreator"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcCreator
-
-
-class DcSubject(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["subject"]
-    class_class_curie: ClassVar[str] = "dc:subject"
-    class_name: ClassVar[str] = "DcSubject"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcSubject
-
-
-class DcDescription(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["description"]
-    class_class_curie: ClassVar[str] = "dc:description"
-    class_name: ClassVar[str] = "DcDescription"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcDescription
-
-
-class DcPublisher(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["publisher"]
-    class_class_curie: ClassVar[str] = "dc:publisher"
-    class_name: ClassVar[str] = "DcPublisher"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcPublisher
-
-
-class DcContributor(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["contributor"]
-    class_class_curie: ClassVar[str] = "dc:contributor"
-    class_name: ClassVar[str] = "DcContributor"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcContributor
-
-
-class DcDate(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["date"]
-    class_class_curie: ClassVar[str] = "dc:date"
-    class_name: ClassVar[str] = "DcDate"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcDate
-
-
-class DcType(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["type"]
-    class_class_curie: ClassVar[str] = "dc:type"
-    class_name: ClassVar[str] = "DcType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcType
-
-
-class DcFormat(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["format"]
-    class_class_curie: ClassVar[str] = "dc:format"
-    class_name: ClassVar[str] = "DcFormat"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcFormat
-
-
-class DcIdentifier(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["identifier"]
-    class_class_curie: ClassVar[str] = "dc:identifier"
-    class_name: ClassVar[str] = "DcIdentifier"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcIdentifier
-
-
-class DcSource(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["source"]
-    class_class_curie: ClassVar[str] = "dc:source"
-    class_name: ClassVar[str] = "DcSource"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcSource
-
-
-class DcLanguage(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["language"]
-    class_class_curie: ClassVar[str] = "dc:language"
-    class_name: ClassVar[str] = "DcLanguage"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcLanguage
-
-
-class DcRelation(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["relation"]
-    class_class_curie: ClassVar[str] = "dc:relation"
-    class_name: ClassVar[str] = "DcRelation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcRelation
-
-
-class DcCoverage(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["coverage"]
-    class_class_curie: ClassVar[str] = "dc:coverage"
-    class_name: ClassVar[str] = "DcCoverage"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcCoverage
-
-
-class DcRights(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["rights"]
-    class_class_curie: ClassVar[str] = "dc:rights"
-    class_name: ClassVar[str] = "DcRights"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcRights
-
-
-class DcElementsGroup(YAMLRoot):
-    """
-    This group is included as a convenience for schema authors who need to refer to all the elements in the
-    http://purl.org/dc/elements/1.1/ namespace.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DC["elementsGroup"]
-    class_class_curie: ClassVar[str] = "dc:elementsGroup"
-    class_name: ClassVar[str] = "DcElementsGroup"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DcElementsGroup
-
-
-class DctermsLCSH(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["LCSH"]
-    class_class_curie: ClassVar[str] = "dcterms:LCSH"
-    class_name: ClassVar[str] = "DctermsLCSH"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLCSH
-
-
-class DctermsMESH(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["MESH"]
-    class_class_curie: ClassVar[str] = "dcterms:MESH"
-    class_name: ClassVar[str] = "DctermsMESH"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMESH
-
-
-class DctermsDDC(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["DDC"]
-    class_class_curie: ClassVar[str] = "dcterms:DDC"
-    class_name: ClassVar[str] = "DctermsDDC"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDDC
-
-
-class DctermsLCC(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["LCC"]
-    class_class_curie: ClassVar[str] = "dcterms:LCC"
-    class_name: ClassVar[str] = "DctermsLCC"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLCC
-
-
-class DctermsUDC(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["UDC"]
-    class_class_curie: ClassVar[str] = "dcterms:UDC"
-    class_name: ClassVar[str] = "DctermsUDC"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsUDC
-
-
-class DctermsPeriod(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["Period"]
-    class_class_curie: ClassVar[str] = "dcterms:Period"
-    class_name: ClassVar[str] = "DctermsPeriod"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPeriod
-
-
-class DctermsW3CDTF(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["W3CDTF"]
-    class_class_curie: ClassVar[str] = "dcterms:W3CDTF"
-    class_name: ClassVar[str] = "DctermsW3CDTF"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsW3CDTF
-
-
-class DctermsDCMIType(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["DCMIType"]
-    class_class_curie: ClassVar[str] = "dcterms:DCMIType"
-    class_name: ClassVar[str] = "DctermsDCMIType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDCMIType
-
-
-class DctermsIMT(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["IMT"]
-    class_class_curie: ClassVar[str] = "dcterms:IMT"
-    class_name: ClassVar[str] = "DctermsIMT"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIMT
-
-
-class DctermsURI(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["URI"]
-    class_class_curie: ClassVar[str] = "dcterms:URI"
-    class_name: ClassVar[str] = "DctermsURI"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsURI
-
-
-class DctermsISO6392(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO639-2"]
-    class_class_curie: ClassVar[str] = "dcterms:ISO639-2"
-    class_name: ClassVar[str] = "DctermsISO6392"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO6392
-
-
-class DctermsISO6393(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO639-3"]
-    class_class_curie: ClassVar[str] = "dcterms:ISO639-3"
-    class_name: ClassVar[str] = "DctermsISO6393"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO6393
-
-
-class DctermsRFC1766(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC1766"]
-    class_class_curie: ClassVar[str] = "dcterms:RFC1766"
-    class_name: ClassVar[str] = "DctermsRFC1766"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC1766
-
-
-class DctermsRFC3066(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC3066"]
-    class_class_curie: ClassVar[str] = "dcterms:RFC3066"
-    class_name: ClassVar[str] = "DctermsRFC3066"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC3066
-
-
-class DctermsRFC4646(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["RFC4646"]
-    class_class_curie: ClassVar[str] = "dcterms:RFC4646"
-    class_name: ClassVar[str] = "DctermsRFC4646"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRFC4646
-
-
-class DctermsPoint(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["Point"]
-    class_class_curie: ClassVar[str] = "dcterms:Point"
-    class_name: ClassVar[str] = "DctermsPoint"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPoint
-
-
-class DctermsISO3166(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["ISO3166"]
-    class_class_curie: ClassVar[str] = "dcterms:ISO3166"
-    class_name: ClassVar[str] = "DctermsISO3166"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsISO3166
-
-
-class DctermsBox(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["Box"]
-    class_class_curie: ClassVar[str] = "dcterms:Box"
-    class_name: ClassVar[str] = "DctermsBox"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsBox
-
-
-class DctermsTGN(DcSimpleLiteral):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["TGN"]
-    class_class_curie: ClassVar[str] = "dcterms:TGN"
-    class_name: ClassVar[str] = "DctermsTGN"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTGN
-
-
-@dataclass(repr=False)
-class DctermsElementOrRefinementContainer(YAMLRoot):
-    """
-    This is included as a convenience for schema authors who need to define a root or container element for all of the
-    DC elements and element refinements.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["elementOrRefinementContainer"]
-    class_class_curie: ClassVar[str] = "dcterms:elementOrRefinementContainer"
-    class_name: ClassVar[str] = "DctermsElementOrRefinementContainer"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsElementOrRefinementContainer
-
-    title: Optional[str] = None
-    creator: Optional[str] = None
-    subject: Optional[str] = None
-    description: Optional[str] = None
-    publisher: Optional[str] = None
-    contributor: Optional[str] = None
-    date: Optional[str] = None
-    format: Optional[str] = None
-    source: Optional[str] = None
-    language: Optional[str] = None
-    relation: Optional[str] = None
-    coverage: Optional[str] = None
-    rights: Optional[str] = None
-    alternative: Optional[str] = None
-    table_of_contents: Optional[str] = None
-    abstract: Optional[str] = None
-    created: Optional[str] = None
-    valid: Optional[str] = None
-    available: Optional[str] = None
-    issued: Optional[str] = None
-    modified: Optional[str] = None
-    date_accepted: Optional[str] = None
-    date_copyrighted: Optional[str] = None
-    date_submitted: Optional[str] = None
-    extent: Optional[str] = None
-    medium: Optional[str] = None
-    is_version_of: Optional[str] = None
-    has_version: Optional[str] = None
-    is_replaced_by: Optional[str] = None
-    replaces: Optional[str] = None
-    is_required_by: Optional[str] = None
-    requires: Optional[str] = None
-    is_part_of: Optional[str] = None
-    has_part: Optional[str] = None
-    is_referenced_by: Optional[str] = None
-    references: Optional[str] = None
-    is_format_of: Optional[str] = None
-    has_format: Optional[str] = None
-    conforms_to: Optional[str] = None
-    spatial: Optional[str] = None
-    temporal: Optional[str] = None
-    audience: Optional[str] = None
-    accrual_method: Optional[str] = None
-    accrual_periodicity: Optional[str] = None
-    accrual_policy: Optional[str] = None
-    instructional_method: Optional[str] = None
-    provenance: Optional[str] = None
-    rights_holder: Optional[str] = None
-    mediator: Optional[str] = None
-    education_level: Optional[str] = None
-    access_rights: Optional[str] = None
-    license: Optional[str] = None
-    bibliographic_citation: Optional[str] = None
-    type: Optional[str] = None
-    identifier: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.creator is not None and not isinstance(self.creator, str):
-            self.creator = str(self.creator)
-
-        if self.subject is not None and not isinstance(self.subject, str):
-            self.subject = str(self.subject)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        if self.publisher is not None and not isinstance(self.publisher, str):
-            self.publisher = str(self.publisher)
-
-        if self.contributor is not None and not isinstance(self.contributor, str):
-            self.contributor = str(self.contributor)
-
-        if self.date is not None and not isinstance(self.date, str):
-            self.date = str(self.date)
-
-        if self.format is not None and not isinstance(self.format, str):
-            self.format = str(self.format)
-
-        if self.source is not None and not isinstance(self.source, str):
-            self.source = str(self.source)
-
-        if self.language is not None and not isinstance(self.language, str):
-            self.language = str(self.language)
-
-        if self.relation is not None and not isinstance(self.relation, str):
-            self.relation = str(self.relation)
-
-        if self.coverage is not None and not isinstance(self.coverage, str):
-            self.coverage = str(self.coverage)
-
-        if self.rights is not None and not isinstance(self.rights, str):
-            self.rights = str(self.rights)
-
-        if self.alternative is not None and not isinstance(self.alternative, str):
-            self.alternative = str(self.alternative)
-
-        if self.table_of_contents is not None and not isinstance(self.table_of_contents, str):
-            self.table_of_contents = str(self.table_of_contents)
-
-        if self.abstract is not None and not isinstance(self.abstract, str):
-            self.abstract = str(self.abstract)
-
-        if self.created is not None and not isinstance(self.created, str):
-            self.created = str(self.created)
-
-        if self.valid is not None and not isinstance(self.valid, str):
-            self.valid = str(self.valid)
-
-        if self.available is not None and not isinstance(self.available, str):
-            self.available = str(self.available)
-
-        if self.issued is not None and not isinstance(self.issued, str):
-            self.issued = str(self.issued)
-
-        if self.modified is not None and not isinstance(self.modified, str):
-            self.modified = str(self.modified)
-
-        if self.date_accepted is not None and not isinstance(self.date_accepted, str):
-            self.date_accepted = str(self.date_accepted)
-
-        if self.date_copyrighted is not None and not isinstance(self.date_copyrighted, str):
-            self.date_copyrighted = str(self.date_copyrighted)
-
-        if self.date_submitted is not None and not isinstance(self.date_submitted, str):
-            self.date_submitted = str(self.date_submitted)
-
-        if self.extent is not None and not isinstance(self.extent, str):
-            self.extent = str(self.extent)
-
-        if self.medium is not None and not isinstance(self.medium, str):
-            self.medium = str(self.medium)
-
-        if self.is_version_of is not None and not isinstance(self.is_version_of, str):
-            self.is_version_of = str(self.is_version_of)
-
-        if self.has_version is not None and not isinstance(self.has_version, str):
-            self.has_version = str(self.has_version)
-
-        if self.is_replaced_by is not None and not isinstance(self.is_replaced_by, str):
-            self.is_replaced_by = str(self.is_replaced_by)
-
-        if self.replaces is not None and not isinstance(self.replaces, str):
-            self.replaces = str(self.replaces)
-
-        if self.is_required_by is not None and not isinstance(self.is_required_by, str):
-            self.is_required_by = str(self.is_required_by)
-
-        if self.requires is not None and not isinstance(self.requires, str):
-            self.requires = str(self.requires)
-
-        if self.is_part_of is not None and not isinstance(self.is_part_of, str):
-            self.is_part_of = str(self.is_part_of)
-
-        if self.has_part is not None and not isinstance(self.has_part, str):
-            self.has_part = str(self.has_part)
-
-        if self.is_referenced_by is not None and not isinstance(self.is_referenced_by, str):
-            self.is_referenced_by = str(self.is_referenced_by)
-
-        if self.references is not None and not isinstance(self.references, str):
-            self.references = str(self.references)
-
-        if self.is_format_of is not None and not isinstance(self.is_format_of, str):
-            self.is_format_of = str(self.is_format_of)
-
-        if self.has_format is not None and not isinstance(self.has_format, str):
-            self.has_format = str(self.has_format)
-
-        if self.conforms_to is not None and not isinstance(self.conforms_to, str):
-            self.conforms_to = str(self.conforms_to)
-
-        if self.spatial is not None and not isinstance(self.spatial, str):
-            self.spatial = str(self.spatial)
-
-        if self.temporal is not None and not isinstance(self.temporal, str):
-            self.temporal = str(self.temporal)
-
-        if self.audience is not None and not isinstance(self.audience, str):
-            self.audience = str(self.audience)
-
-        if self.accrual_method is not None and not isinstance(self.accrual_method, str):
-            self.accrual_method = str(self.accrual_method)
-
-        if self.accrual_periodicity is not None and not isinstance(self.accrual_periodicity, str):
-            self.accrual_periodicity = str(self.accrual_periodicity)
-
-        if self.accrual_policy is not None and not isinstance(self.accrual_policy, str):
-            self.accrual_policy = str(self.accrual_policy)
-
-        if self.instructional_method is not None and not isinstance(self.instructional_method, str):
-            self.instructional_method = str(self.instructional_method)
-
-        if self.provenance is not None and not isinstance(self.provenance, str):
-            self.provenance = str(self.provenance)
-
-        if self.rights_holder is not None and not isinstance(self.rights_holder, str):
-            self.rights_holder = str(self.rights_holder)
-
-        if self.mediator is not None and not isinstance(self.mediator, str):
-            self.mediator = str(self.mediator)
-
-        if self.education_level is not None and not isinstance(self.education_level, str):
-            self.education_level = str(self.education_level)
-
-        if self.access_rights is not None and not isinstance(self.access_rights, str):
-            self.access_rights = str(self.access_rights)
-
-        if self.license is not None and not isinstance(self.license, str):
-            self.license = str(self.license)
-
-        if self.bibliographic_citation is not None and not isinstance(self.bibliographic_citation, str):
-            self.bibliographic_citation = str(self.bibliographic_citation)
-
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
-
-        if self.identifier is not None and not isinstance(self.identifier, str):
-            self.identifier = str(self.identifier)
-
-        super().__post_init__(**kwargs)
-
-
-class DctermsTitle(DcTitle):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["title"]
-    class_class_curie: ClassVar[str] = "dcterms:title"
-    class_name: ClassVar[str] = "DctermsTitle"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTitle
-
-
-class DctermsCreator(DcCreator):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["creator"]
-    class_class_curie: ClassVar[str] = "dcterms:creator"
-    class_name: ClassVar[str] = "DctermsCreator"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCreator
-
-
-class DctermsSubject(DcSubject):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["subject"]
-    class_class_curie: ClassVar[str] = "dcterms:subject"
-    class_name: ClassVar[str] = "DctermsSubject"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSubject
-
-
-class DctermsDescription(DcDescription):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["description"]
-    class_class_curie: ClassVar[str] = "dcterms:description"
-    class_name: ClassVar[str] = "DctermsDescription"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDescription
-
-
-class DctermsPublisher(DcPublisher):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["publisher"]
-    class_class_curie: ClassVar[str] = "dcterms:publisher"
-    class_name: ClassVar[str] = "DctermsPublisher"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsPublisher
-
-
-class DctermsContributor(DcContributor):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["contributor"]
-    class_class_curie: ClassVar[str] = "dcterms:contributor"
-    class_name: ClassVar[str] = "DctermsContributor"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsContributor
-
-
-class DctermsDate(DcDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["date"]
-    class_class_curie: ClassVar[str] = "dcterms:date"
-    class_name: ClassVar[str] = "DctermsDate"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDate
-
-
-class DctermsType(DcType):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["type"]
-    class_class_curie: ClassVar[str] = "dcterms:type"
-    class_name: ClassVar[str] = "DctermsType"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsType
-
-
-class DctermsFormat(DcFormat):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["format"]
-    class_class_curie: ClassVar[str] = "dcterms:format"
-    class_name: ClassVar[str] = "DctermsFormat"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsFormat
-
-
-class DctermsIdentifier(DcIdentifier):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["identifier"]
-    class_class_curie: ClassVar[str] = "dcterms:identifier"
-    class_name: ClassVar[str] = "DctermsIdentifier"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIdentifier
-
-
-class DctermsSource(DcSource):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["source"]
-    class_class_curie: ClassVar[str] = "dcterms:source"
-    class_name: ClassVar[str] = "DctermsSource"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSource
-
-
-class DctermsLanguage(DcLanguage):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["language"]
-    class_class_curie: ClassVar[str] = "dcterms:language"
-    class_name: ClassVar[str] = "DctermsLanguage"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLanguage
-
-
-class DctermsRelation(DcRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["relation"]
-    class_class_curie: ClassVar[str] = "dcterms:relation"
-    class_name: ClassVar[str] = "DctermsRelation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRelation
-
-
-class DctermsCoverage(DcCoverage):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["coverage"]
-    class_class_curie: ClassVar[str] = "dcterms:coverage"
-    class_name: ClassVar[str] = "DctermsCoverage"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCoverage
-
-
-class DctermsRights(DcRights):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["rights"]
-    class_class_curie: ClassVar[str] = "dcterms:rights"
-    class_name: ClassVar[str] = "DctermsRights"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRights
-
-
-class DctermsAlternative(DctermsTitle):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["alternative"]
-    class_class_curie: ClassVar[str] = "dcterms:alternative"
-    class_name: ClassVar[str] = "DctermsAlternative"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAlternative
-
-
-class DctermsTableOfContents(DctermsDescription):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["tableOfContents"]
-    class_class_curie: ClassVar[str] = "dcterms:tableOfContents"
-    class_name: ClassVar[str] = "DctermsTableOfContents"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTableOfContents
-
-
-class DctermsAbstract(DctermsDescription):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["abstract"]
-    class_class_curie: ClassVar[str] = "dcterms:abstract"
-    class_name: ClassVar[str] = "DctermsAbstract"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAbstract
-
-
-class DctermsCreated(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["created"]
-    class_class_curie: ClassVar[str] = "dcterms:created"
-    class_name: ClassVar[str] = "DctermsCreated"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsCreated
-
-
-class DctermsValid(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["valid"]
-    class_class_curie: ClassVar[str] = "dcterms:valid"
-    class_name: ClassVar[str] = "DctermsValid"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsValid
-
-
-class DctermsAvailable(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["available"]
-    class_class_curie: ClassVar[str] = "dcterms:available"
-    class_name: ClassVar[str] = "DctermsAvailable"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAvailable
-
-
-class DctermsIssued(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["issued"]
-    class_class_curie: ClassVar[str] = "dcterms:issued"
-    class_name: ClassVar[str] = "DctermsIssued"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIssued
-
-
-class DctermsModified(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["modified"]
-    class_class_curie: ClassVar[str] = "dcterms:modified"
-    class_name: ClassVar[str] = "DctermsModified"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsModified
-
-
-class DctermsDateAccepted(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["dateAccepted"]
-    class_class_curie: ClassVar[str] = "dcterms:dateAccepted"
-    class_name: ClassVar[str] = "DctermsDateAccepted"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateAccepted
-
-
-class DctermsDateCopyrighted(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["dateCopyrighted"]
-    class_class_curie: ClassVar[str] = "dcterms:dateCopyrighted"
-    class_name: ClassVar[str] = "DctermsDateCopyrighted"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateCopyrighted
-
-
-class DctermsDateSubmitted(DctermsDate):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["dateSubmitted"]
-    class_class_curie: ClassVar[str] = "dcterms:dateSubmitted"
-    class_name: ClassVar[str] = "DctermsDateSubmitted"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsDateSubmitted
-
-
-class DctermsExtent(DctermsFormat):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["extent"]
-    class_class_curie: ClassVar[str] = "dcterms:extent"
-    class_name: ClassVar[str] = "DctermsExtent"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsExtent
-
-
-class DctermsMedium(DctermsFormat):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["medium"]
-    class_class_curie: ClassVar[str] = "dcterms:medium"
-    class_name: ClassVar[str] = "DctermsMedium"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMedium
-
-
-class DctermsIsVersionOf(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isVersionOf"]
-    class_class_curie: ClassVar[str] = "dcterms:isVersionOf"
-    class_name: ClassVar[str] = "DctermsIsVersionOf"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsVersionOf
-
-
-class DctermsHasVersion(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["hasVersion"]
-    class_class_curie: ClassVar[str] = "dcterms:hasVersion"
-    class_name: ClassVar[str] = "DctermsHasVersion"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasVersion
-
-
-class DctermsIsReplacedBy(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isReplacedBy"]
-    class_class_curie: ClassVar[str] = "dcterms:isReplacedBy"
-    class_name: ClassVar[str] = "DctermsIsReplacedBy"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsReplacedBy
-
-
-class DctermsReplaces(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["replaces"]
-    class_class_curie: ClassVar[str] = "dcterms:replaces"
-    class_name: ClassVar[str] = "DctermsReplaces"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsReplaces
-
-
-class DctermsIsRequiredBy(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isRequiredBy"]
-    class_class_curie: ClassVar[str] = "dcterms:isRequiredBy"
-    class_name: ClassVar[str] = "DctermsIsRequiredBy"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsRequiredBy
-
-
-class DctermsRequires(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["requires"]
-    class_class_curie: ClassVar[str] = "dcterms:requires"
-    class_name: ClassVar[str] = "DctermsRequires"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRequires
-
-
-class DctermsIsPartOf(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isPartOf"]
-    class_class_curie: ClassVar[str] = "dcterms:isPartOf"
-    class_name: ClassVar[str] = "DctermsIsPartOf"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsPartOf
-
-
-class DctermsHasPart(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["hasPart"]
-    class_class_curie: ClassVar[str] = "dcterms:hasPart"
-    class_name: ClassVar[str] = "DctermsHasPart"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasPart
-
-
-class DctermsIsReferencedBy(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isReferencedBy"]
-    class_class_curie: ClassVar[str] = "dcterms:isReferencedBy"
-    class_name: ClassVar[str] = "DctermsIsReferencedBy"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsReferencedBy
-
-
-class DctermsReferences(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["references"]
-    class_class_curie: ClassVar[str] = "dcterms:references"
-    class_name: ClassVar[str] = "DctermsReferences"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsReferences
-
-
-class DctermsIsFormatOf(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["isFormatOf"]
-    class_class_curie: ClassVar[str] = "dcterms:isFormatOf"
-    class_name: ClassVar[str] = "DctermsIsFormatOf"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsIsFormatOf
-
-
-class DctermsHasFormat(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["hasFormat"]
-    class_class_curie: ClassVar[str] = "dcterms:hasFormat"
-    class_name: ClassVar[str] = "DctermsHasFormat"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsHasFormat
-
-
-class DctermsConformsTo(DctermsRelation):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["conformsTo"]
-    class_class_curie: ClassVar[str] = "dcterms:conformsTo"
-    class_name: ClassVar[str] = "DctermsConformsTo"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsConformsTo
-
-
-class DctermsSpatial(DctermsCoverage):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["spatial"]
-    class_class_curie: ClassVar[str] = "dcterms:spatial"
-    class_name: ClassVar[str] = "DctermsSpatial"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsSpatial
-
-
-class DctermsTemporal(DctermsCoverage):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["temporal"]
-    class_class_curie: ClassVar[str] = "dcterms:temporal"
-    class_name: ClassVar[str] = "DctermsTemporal"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsTemporal
-
-
-class DctermsAudience(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["audience"]
-    class_class_curie: ClassVar[str] = "dcterms:audience"
-    class_name: ClassVar[str] = "DctermsAudience"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAudience
-
-
-class DctermsAccrualMethod(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualMethod"]
-    class_class_curie: ClassVar[str] = "dcterms:accrualMethod"
-    class_name: ClassVar[str] = "DctermsAccrualMethod"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualMethod
-
-
-class DctermsAccrualPeriodicity(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualPeriodicity"]
-    class_class_curie: ClassVar[str] = "dcterms:accrualPeriodicity"
-    class_name: ClassVar[str] = "DctermsAccrualPeriodicity"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualPeriodicity
-
-
-class DctermsAccrualPolicy(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["accrualPolicy"]
-    class_class_curie: ClassVar[str] = "dcterms:accrualPolicy"
-    class_name: ClassVar[str] = "DctermsAccrualPolicy"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccrualPolicy
-
-
-class DctermsInstructionalMethod(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["instructionalMethod"]
-    class_class_curie: ClassVar[str] = "dcterms:instructionalMethod"
-    class_name: ClassVar[str] = "DctermsInstructionalMethod"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsInstructionalMethod
-
-
-class DctermsProvenance(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["provenance"]
-    class_class_curie: ClassVar[str] = "dcterms:provenance"
-    class_name: ClassVar[str] = "DctermsProvenance"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsProvenance
-
-
-class DctermsRightsHolder(DcAny):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["rightsHolder"]
-    class_class_curie: ClassVar[str] = "dcterms:rightsHolder"
-    class_name: ClassVar[str] = "DctermsRightsHolder"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsRightsHolder
-
-
-class DctermsMediator(DctermsAudience):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["mediator"]
-    class_class_curie: ClassVar[str] = "dcterms:mediator"
-    class_name: ClassVar[str] = "DctermsMediator"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsMediator
-
-
-class DctermsEducationLevel(DctermsAudience):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["educationLevel"]
-    class_class_curie: ClassVar[str] = "dcterms:educationLevel"
-    class_name: ClassVar[str] = "DctermsEducationLevel"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsEducationLevel
-
-
-class DctermsAccessRights(DctermsRights):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["accessRights"]
-    class_class_curie: ClassVar[str] = "dcterms:accessRights"
-    class_name: ClassVar[str] = "DctermsAccessRights"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsAccessRights
-
-
-class DctermsLicense(DctermsRights):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["license"]
-    class_class_curie: ClassVar[str] = "dcterms:license"
-    class_name: ClassVar[str] = "DctermsLicense"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsLicense
-
-
-class DctermsBibliographicCitation(DctermsIdentifier):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["bibliographicCitation"]
-    class_class_curie: ClassVar[str] = "dcterms:bibliographicCitation"
-    class_name: ClassVar[str] = "DctermsBibliographicCitation"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsBibliographicCitation
-
-
-class DctermsElementsAndRefinementsGroup(YAMLRoot):
-    """
-    This group is included as a convenience for schema authors who need to refer to all the DC elements and element
-    refinements in the http://purl.org/dc/elements/1.1/ and http://purl.org/dc/terms namespaces. N.B. Refinements
-    available via substitution groups.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["elementsAndRefinementsGroup"]
-    class_class_curie: ClassVar[str] = "dcterms:elementsAndRefinementsGroup"
-    class_name: ClassVar[str] = "DctermsElementsAndRefinementsGroup"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.DctermsElementsAndRefinementsGroup
-
-
-@dataclass(repr=False)
-class XmlSpecialAttrs(YAMLRoot):
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = XML["specialAttrs"]
-    class_class_curie: ClassVar[str] = "XML:specialAttrs"
-    class_name: ClassVar[str] = "XmlSpecialAttrs"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.XmlSpecialAttrs
-
-    base: Optional[str] = None
-    lang: Optional[str] = None
-    space: Optional[str] = None
-    id: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.base is not None and not isinstance(self.base, str):
-            self.base = str(self.base)
-
-        if self.lang is not None and not isinstance(self.lang, str):
-            self.lang = str(self.lang)
-
-        if self.space is not None and not isinstance(self.space, str):
-            self.space = str(self.space)
-
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
+        if self._is_empty(self.fixr_when):
+            self.MissingRequiredField("fixr_when")
+        if not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class XmlGlobalAttributes(YAMLRoot):
+class OrchestraComponentV10(YAMLRoot):
     """
-    Container for the global <xs:attribute> declarations defined in xml.xsd. Each attribute here is referenceable from
-    other XSDs via ``ref="XML:<name>"``.
+    A named block of fields, groups and components that messages and other blocks include by reference.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = XML["GlobalAttributes"]
-    class_class_curie: ClassVar[str] = "XML:GlobalAttributes"
-    class_name: ClassVar[str] = "XmlGlobalAttributes"
-    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.XmlGlobalAttributes
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentV10"
+    class_name: ClassVar[str] = "OrchestraComponentV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentV10
 
-    lang: Optional[Union[str, XmlLangType]] = None
-    space: Optional[Union[str, "XmlSpaceType"]] = None
-    base: Optional[Union[str, URI]] = None
-    id: Optional[str] = None
+    fixr_members: Union[Union[dict, "OrchestraStructureMemberV10"], list[Union[dict, "OrchestraStructureMemberV10"]]] = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_category: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.lang is not None and not isinstance(self.lang, XmlLangType):
-            self.lang = XmlLangType(self.lang)
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV10) else OrchestraStructureMemberV10(**as_dict(v)) for v in self.fixr_members]
 
-        if self.space is not None and not isinstance(self.space, XmlSpaceType):
-            self.space = XmlSpaceType(self.space)
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
 
-        if self.base is not None and not isinstance(self.base, URI):
-            self.base = URI(self.base)
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
 
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
 
         super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraComponentsV10(YAMLRoot):
+    """
+    The components a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentsV10"
+    class_name: ClassVar[str] = "OrchestraComponentsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentsV10
+
+    fixr_component: Union[Union[dict, OrchestraComponentV10], list[Union[dict, OrchestraComponentV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_component):
+            self.MissingRequiredField("fixr_component")
+        self._normalize_inlined_as_list(slot_name="fixr_component", slot_type=OrchestraComponentV10, key_name="fixr_id", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptMemberV10(YAMLRoot):
+    """
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds
+    exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptMemberV10"
+    class_name: ClassVar[str] = "OrchestraConceptMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptMemberV10
+
+    fixr_component_ref: Optional[Union[dict, OrchestraComponentRefV10]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV10"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV10"]] = None
+    fixr_message_ref: Optional[Union[dict, "OrchestraMessageRefV10"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV10):
+            self.fixr_component_ref = OrchestraComponentRefV10(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV10):
+            self.fixr_group_ref = OrchestraGroupRefV10(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV10):
+            self.fixr_field_ref = OrchestraFieldRefV10(**as_dict(self.fixr_field_ref))
+
+        if self.fixr_message_ref is not None and not isinstance(self.fixr_message_ref, OrchestraMessageRefV10):
+            self.fixr_message_ref = OrchestraMessageRefV10(**as_dict(self.fixr_message_ref))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptV10(YAMLRoot):
+    """
+    A named business idea that ties together the fields, components, groups and messages that express it.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptV10"
+    class_name: ClassVar[str] = "OrchestraConceptV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptV10
+
+    fixr_members: Union[Union[dict, OrchestraConceptMemberV10], list[Union[dict, OrchestraConceptMemberV10]]] = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraConceptMemberV10) else OrchestraConceptMemberV10(**as_dict(v)) for v in self.fixr_members]
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptsV10(YAMLRoot):
+    """
+    The concepts a repository names.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptsV10"
+    class_name: ClassVar[str] = "OrchestraConceptsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptsV10
+
+    fixr_concept: Union[Union[dict, OrchestraConceptV10], list[Union[dict, OrchestraConceptV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_concept):
+            self.MissingRequiredField("fixr_concept")
+        self._normalize_inlined_as_list(slot_name="fixr_concept", slot_type=OrchestraConceptV10, key_name="fixr_name", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraContainerV10Mixin(YAMLRoot):
+    """
+    The extension pack that a list of elements is up to date with.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraContainerV10Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraContainerV10Mixin"
+    class_name: ClassVar[str] = "OrchestraContainerV10Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraContainerV10Mixin
+
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDatatypeExtensionV10(YAMLRoot):
+    """
+    XML from the target standard's own schema that a datatype mapping carries.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDatatypeExtensionV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDatatypeExtensionV10"
+    class_name: ClassVar[str] = "OrchestraDatatypeExtensionV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDatatypeExtensionV10
+
+    fixr_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDatatypeV10(YAMLRoot):
+    """
+    A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDatatypeV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDatatypeV10"
+    class_name: ClassVar[str] = "OrchestraDatatypeV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDatatypeV10
+
+    fixr_name: str = None
+    fixr_mapped_datatype: Optional[Union[Union[dict, "OrchestraMappedDatatypeV10"], list[Union[dict, "OrchestraMappedDatatypeV10"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_base_type: Optional[str] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_mapped_datatype", slot_type=OrchestraMappedDatatypeV10, key_name="fixr_standard", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_base_type is not None and not isinstance(self.fixr_base_type, str):
+            self.fixr_base_type = str(self.fixr_base_type)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDatatypesV10(YAMLRoot):
+    """
+    The datatypes a repository uses.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDatatypesV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDatatypesV10"
+    class_name: ClassVar[str] = "OrchestraDatatypesV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDatatypesV10
+
+    fixr_datatype: Union[Union[dict, OrchestraDatatypeV10], list[Union[dict, OrchestraDatatypeV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_datatype):
+            self.MissingRequiredField("fixr_datatype")
+        self._normalize_inlined_as_list(slot_name="fixr_datatype", slot_type=OrchestraDatatypeV10, key_name="fixr_name", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDocumentationV10(YAMLRoot):
+    """
+    Text about an element, with its language, purpose and media type.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDocumentationV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDocumentationV10"
+    class_name: ClassVar[str] = "OrchestraDocumentationV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDocumentationV10
+
+    fixr_text: Optional[str] = None
+    fixr_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixr_lang_id: Optional[str] = None
+    fixr_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixr_content_type: Optional[str] = "text/plain"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_text is not None and not isinstance(self.fixr_text, str):
+            self.fixr_text = str(self.fixr_text)
+
+        self._normalize_inlined_as_list(slot_name="fixr_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixr_lang_id is not None and not isinstance(self.fixr_lang_id, str):
+            self.fixr_lang_id = str(self.fixr_lang_id)
+
+        if self.fixr_purpose is not None and not isinstance(self.fixr_purpose, (OrchestraPurpose, str)):
+            value = self.fixr_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixr_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixr_purpose")
+
+        if self.fixr_content_type is not None and not isinstance(self.fixr_content_type, str):
+            self.fixr_content_type = str(self.fixr_content_type)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldConstraintsV10Mixin(YAMLRoot):
+    """
+    The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or
+    default value, character set and a display hint.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldConstraintsV10Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldConstraintsV10Mixin"
+    class_name: ClassVar[str] = "OrchestraFieldConstraintsV10Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldConstraintsV10Mixin
+
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldRefV10(YAMLRoot):
+    """
+    Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldRefV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldRefV10"
+    class_name: ClassVar[str] = "OrchestraFieldRefV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldRefV10
+
+    fixr_id: int = None
+    fixr_rule: Optional[Union[Union[dict, "OrchestraFieldRuleV10"], list[Union[dict, "OrchestraFieldRuleV10"]]]] = empty_list()
+    fixr_assign: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_length_id: Optional[int] = None
+    fixr_instance_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraFieldRuleV10, key_name="fixr_when", keyed=False)
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_length_id is not None and not isinstance(self.fixr_length_id, int):
+            self.fixr_length_id = int(self.fixr_length_id)
+
+        if self.fixr_instance_name is not None and not isinstance(self.fixr_instance_name, str):
+            self.fixr_instance_name = str(self.fixr_instance_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldRuleV10(YAMLRoot):
+    """
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldRuleV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldRuleV10"
+    class_name: ClassVar[str] = "OrchestraFieldRuleV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldRuleV10
+
+    fixr_when: str = None
+    fixr_unique: Optional[Union[dict, "OrchestraUniqueV10"]] = None
+    fixr_assign: Optional[Union[str, list[str]]] = empty_list()
+    fixr_name: Optional[str] = None
+    fixr_type: Optional[str] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_when):
+            self.MissingRequiredField("fixr_when")
+        if not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_unique is not None and not isinstance(self.fixr_unique, OrchestraUniqueV10):
+            self.fixr_unique = OrchestraUniqueV10(**as_dict(self.fixr_unique))
+
+        if not isinstance(self.fixr_assign, list):
+            self.fixr_assign = [self.fixr_assign] if self.fixr_assign is not None else []
+        self.fixr_assign = [v if isinstance(v, str) else str(v) for v in self.fixr_assign]
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_type is not None and not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldV10(YAMLRoot):
+    """
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldV10"
+    class_name: ClassVar[str] = "OrchestraFieldV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldV10
+
+    fixr_type: str = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_rule: Optional[Union[Union[dict, OrchestraFieldRuleV10], list[Union[dict, OrchestraFieldRuleV10]]]] = empty_list()
+    fixr_assign: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_length_id: Optional[int] = None
+    fixr_discriminator_id: Optional[int] = None
+    fixr_base_category: Optional[str] = None
+    fixr_base_category_abbr_name: Optional[str] = None
+    fixr_union_data_type: Optional[Union[str, "OrchestraUnionDatatypeV10"]] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_type):
+            self.MissingRequiredField("fixr_type")
+        if not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraFieldRuleV10, key_name="fixr_when", keyed=False)
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_length_id is not None and not isinstance(self.fixr_length_id, int):
+            self.fixr_length_id = int(self.fixr_length_id)
+
+        if self.fixr_discriminator_id is not None and not isinstance(self.fixr_discriminator_id, int):
+            self.fixr_discriminator_id = int(self.fixr_discriminator_id)
+
+        if self.fixr_base_category is not None and not isinstance(self.fixr_base_category, str):
+            self.fixr_base_category = str(self.fixr_base_category)
+
+        if self.fixr_base_category_abbr_name is not None and not isinstance(self.fixr_base_category_abbr_name, str):
+            self.fixr_base_category_abbr_name = str(self.fixr_base_category_abbr_name)
+
+        if self.fixr_union_data_type is not None and not isinstance(self.fixr_union_data_type, OrchestraUnionDatatypeV10):
+            self.fixr_union_data_type = OrchestraUnionDatatypeV10(self.fixr_union_data_type)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldsV10(YAMLRoot):
+    """
+    The fields a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldsV10"
+    class_name: ClassVar[str] = "OrchestraFieldsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldsV10
+
+    fixr_field: Union[Union[dict, OrchestraFieldV10], list[Union[dict, OrchestraFieldV10]]] = None
+    fixr_latest_ep: Optional[int] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_field):
+            self.MissingRequiredField("fixr_field")
+        self._normalize_inlined_as_list(slot_name="fixr_field", slot_type=OrchestraFieldV10, key_name="fixr_type", keyed=False)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFlowV10(YAMLRoot):
+    """
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFlowV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFlowV10"
+    class_name: ClassVar[str] = "OrchestraFlowV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFlowV10
+
+    fixr_name: str = None
+    fixr_source: str = None
+    fixr_destination: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_reliability: Optional[Union[str, "OrchestraReliability"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_source):
+            self.MissingRequiredField("fixr_source")
+        if not isinstance(self.fixr_source, str):
+            self.fixr_source = str(self.fixr_source)
+
+        if self._is_empty(self.fixr_destination):
+            self.MissingRequiredField("fixr_destination")
+        if not isinstance(self.fixr_destination, str):
+            self.fixr_destination = str(self.fixr_destination)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_reliability is not None and not isinstance(self.fixr_reliability, OrchestraReliability):
+            self.fixr_reliability = OrchestraReliability(self.fixr_reliability)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupRefV10(OrchestraComponentRefV10):
+    """
+    Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupRefV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupRefV10"
+    class_name: ClassVar[str] = "OrchestraGroupRefV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupRefV10
+
+    fixr_id: int = None
+    fixr_impl_min_occurs: Optional[int] = None
+    fixr_impl_max_occurs: Optional[str] = "unbounded"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupV10(YAMLRoot):
+    """
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field
+    carries.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupV10"
+    class_name: ClassVar[str] = "OrchestraGroupV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupV10
+
+    fixr_members: Union[Union[dict, "OrchestraStructureMemberV10"], list[Union[dict, "OrchestraStructureMemberV10"]]] = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_num_in_group: Optional[Union[dict, OrchestraFieldRefV10]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_category: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+    fixr_impl_min_occurs: Optional[int] = None
+    fixr_impl_max_occurs: Optional[str] = "unbounded"
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV10) else OrchestraStructureMemberV10(**as_dict(v)) for v in self.fixr_members]
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_num_in_group is not None and not isinstance(self.fixr_num_in_group, OrchestraFieldRefV10):
+            self.fixr_num_in_group = OrchestraFieldRefV10(**as_dict(self.fixr_num_in_group))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupsV10(YAMLRoot):
+    """
+    The repeating groups a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupsV10"
+    class_name: ClassVar[str] = "OrchestraGroupsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupsV10
+
+    fixr_group: Union[Union[dict, OrchestraGroupV10], list[Union[dict, OrchestraGroupV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_group):
+            self.MissingRequiredField("fixr_group")
+        self._normalize_inlined_as_list(slot_name="fixr_group", slot_type=OrchestraGroupV10, key_name="fixr_id", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifierV10(YAMLRoot):
+    """
+    A field that a message sent by an action sets, or carries over from the message received, by tag number.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifierV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifierV10"
+    class_name: ClassVar[str] = "OrchestraIdentifierV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifierV10
+
+    fixr_id: int = None
+    fixr_source_id: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_source_id is not None and not isinstance(self.fixr_source_id, int):
+            self.fixr_source_id = int(self.fixr_source_id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifiersMemberV10(YAMLRoot):
+    """
+    One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifiersMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifiersMemberV10"
+    class_name: ClassVar[str] = "OrchestraIdentifiersMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifiersMemberV10
+
+    fixr_correlate: Optional[Union[dict, OrchestraIdentifierV10]] = None
+    fixr_assign: Optional[Union[dict, OrchestraIdentifierV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_correlate is not None and not isinstance(self.fixr_correlate, OrchestraIdentifierV10):
+            self.fixr_correlate = OrchestraIdentifierV10(**as_dict(self.fixr_correlate))
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, OrchestraIdentifierV10):
+            self.fixr_assign = OrchestraIdentifierV10(**as_dict(self.fixr_assign))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifiersV10(YAMLRoot):
+    """
+    The fields a message sent by an action sets or carries over.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifiersV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifiersV10"
+    class_name: ClassVar[str] = "OrchestraIdentifiersV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifiersV10
+
+    fixr_members: Union[Union[dict, OrchestraIdentifiersMemberV10], list[Union[dict, OrchestraIdentifiersMemberV10]]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraIdentifiersMemberV10) else OrchestraIdentifiersMemberV10(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentityV10Mixin(YAMLRoot):
+    """
+    The keys of a defined element, its number, name, short name and scenario.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentityV10Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentityV10Mixin"
+    class_name: ClassVar[str] = "OrchestraIdentityV10Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentityV10Mixin
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAnnotationMemberV10(YAMLRoot):
+    """
+    One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAnnotationMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAnnotationMemberV10"
+    class_name: ClassVar[str] = "OrchestraInterfaceAnnotationMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAnnotationMemberV10
+
+    fixi_documentation: Optional[Union[dict, "OrchestraInterfaceDocumentationV10"]] = None
+    fixi_appinfo: Optional[Union[dict, "OrchestraInterfaceAppinfoV10"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_documentation is not None and not isinstance(self.fixi_documentation, OrchestraInterfaceDocumentationV10):
+            self.fixi_documentation = OrchestraInterfaceDocumentationV10(**as_dict(self.fixi_documentation))
+
+        if self.fixi_appinfo is not None and not isinstance(self.fixi_appinfo, OrchestraInterfaceAppinfoV10):
+            self.fixi_appinfo = OrchestraInterfaceAppinfoV10(**as_dict(self.fixi_appinfo))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAnnotationV10(YAMLRoot):
+    """
+    Notes for readers and hints for software, attached to an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAnnotationV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAnnotationV10"
+    class_name: ClassVar[str] = "OrchestraInterfaceAnnotationV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAnnotationV10
+
+    fixi_members: Union[Union[dict, OrchestraInterfaceAnnotationMemberV10], list[Union[dict, OrchestraInterfaceAnnotationMemberV10]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_members):
+            self.MissingRequiredField("fixi_members")
+        if not isinstance(self.fixi_members, list):
+            self.fixi_members = [self.fixi_members] if self.fixi_members is not None else []
+        self.fixi_members = [v if isinstance(v, OrchestraInterfaceAnnotationMemberV10) else OrchestraInterfaceAnnotationMemberV10(**as_dict(v)) for v in self.fixi_members]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAppinfoV10(YAMLRoot):
+    """
+    A hint for a particular tool on an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAppinfoV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAppinfoV10"
+    class_name: ClassVar[str] = "OrchestraInterfaceAppinfoV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAppinfoV10
+
+    fixi_text: Optional[str] = None
+    fixi_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixi_spec_url: Optional[Union[str, URI]] = None
+    fixi_lang_id: Optional[str] = None
+    fixi_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        self._normalize_inlined_as_list(slot_name="fixi_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixi_spec_url is not None and not isinstance(self.fixi_spec_url, URI):
+            self.fixi_spec_url = URI(self.fixi_spec_url)
+
+        if self.fixi_lang_id is not None and not isinstance(self.fixi_lang_id, str):
+            self.fixi_lang_id = str(self.fixi_lang_id)
+
+        if self.fixi_purpose is not None and not isinstance(self.fixi_purpose, (OrchestraPurpose, str)):
+            value = self.fixi_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixi_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixi_purpose")
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceDocumentationV10(YAMLRoot):
+    """
+    Text about an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceDocumentationV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceDocumentationV10"
+    class_name: ClassVar[str] = "OrchestraInterfaceDocumentationV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceDocumentationV10
+
+    fixi_text: Optional[str] = None
+    fixi_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixi_lang_id: Optional[str] = None
+    fixi_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixi_content_type: Optional[str] = "text/plain"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        self._normalize_inlined_as_list(slot_name="fixi_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixi_lang_id is not None and not isinstance(self.fixi_lang_id, str):
+            self.fixi_lang_id = str(self.fixi_lang_id)
+
+        if self.fixi_purpose is not None and not isinstance(self.fixi_purpose, (OrchestraPurpose, str)):
+            value = self.fixi_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixi_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixi_purpose")
+
+        if self.fixi_content_type is not None and not isinstance(self.fixi_content_type, str):
+            self.fixi_content_type = str(self.fixi_content_type)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceV10(OrchestraBaseInterfaceV10):
+    """
+    A named service offering and the sessions it carries, with the protocols on each layer.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceV10"
+    class_name: ClassVar[str] = "OrchestraInterfaceV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceV10
+
+    fixi_name: str = None
+    fixi_sessions: Optional[Union[dict, "OrchestraSessionsV10"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_sessions is not None and not isinstance(self.fixi_sessions, OrchestraSessionsV10):
+            self.fixi_sessions = OrchestraSessionsV10(**as_dict(self.fixi_sessions))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfacesV10(YAMLRoot):
+    """
+    A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core
+    metadata.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfacesV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfacesV10"
+    class_name: ClassVar[str] = "OrchestraInterfacesV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfacesV10
+
+    fixi_metadata: Union[dict, OrchestraMetadata] = None
+    fixi_interface: Optional[Union[Union[dict, OrchestraInterfaceV10], list[Union[dict, OrchestraInterfaceV10]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_metadata):
+            self.MissingRequiredField("fixi_metadata")
+        if not isinstance(self.fixi_metadata, OrchestraMetadata):
+            self.fixi_metadata = OrchestraMetadata(**as_dict(self.fixi_metadata))
+
+        self._normalize_inlined_as_list(slot_name="fixi_interface", slot_type=OrchestraInterfaceV10, key_name="fixi_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMappedDatatypeV10(YAMLRoot):
+    """
+    How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMappedDatatypeV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMappedDatatypeV10"
+    class_name: ClassVar[str] = "OrchestraMappedDatatypeV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMappedDatatypeV10
+
+    fixr_standard: Union[str, "OrchestraDatatypeStandardV10"] = None
+    fixr_extension: Optional[Union[dict, OrchestraDatatypeExtensionV10]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_builtin: Optional[Union[bool, Bool]] = None
+    fixr_base: Optional[str] = None
+    fixr_pattern: Optional[str] = None
+    fixr_element: Optional[str] = None
+    fixr_parameter: Optional[str] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_standard):
+            self.MissingRequiredField("fixr_standard")
+        if not isinstance(self.fixr_standard, (OrchestraDatatypeStandardV10, str)):
+            value = self.fixr_standard
+            for _coerce in (lambda: OrchestraDatatypeStandardV10(value), lambda: str(value)):
+                try:
+                    self.fixr_standard = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraDatatypeStandardV10, str] could be constructed from {value!r} for slot fixr_standard")
+
+        if self.fixr_extension is not None and not isinstance(self.fixr_extension, OrchestraDatatypeExtensionV10):
+            self.fixr_extension = OrchestraDatatypeExtensionV10(**as_dict(self.fixr_extension))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_builtin is not None and not isinstance(self.fixr_builtin, Bool):
+            self.fixr_builtin = Bool(self.fixr_builtin)
+
+        if self.fixr_base is not None and not isinstance(self.fixr_base, str):
+            self.fixr_base = str(self.fixr_base)
+
+        if self.fixr_pattern is not None and not isinstance(self.fixr_pattern, str):
+            self.fixr_pattern = str(self.fixr_pattern)
+
+        if self.fixr_element is not None and not isinstance(self.fixr_element, str):
+            self.fixr_element = str(self.fixr_element)
+
+        if self.fixr_parameter is not None and not isinstance(self.fixr_parameter, str):
+            self.fixr_parameter = str(self.fixr_parameter)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageRefV10(YAMLRoot):
+    """
+    A message an action sends, by its number and type code, with the fields it sets or carries over.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageRefV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageRefV10"
+    class_name: ClassVar[str] = "OrchestraMessageRefV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageRefV10
+
+    fixr_name: str = None
+    fixr_id: int = None
+    fixr_identifiers: Optional[Union[dict, OrchestraIdentifiersV10]] = None
+    fixr_msg_type: Optional[str] = None
+    fixr_impl_min_occurs: Optional[int] = 1
+    fixr_impl_max_occurs: Optional[str] = "unbounded"
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_identifiers is not None and not isinstance(self.fixr_identifiers, OrchestraIdentifiersV10):
+            self.fixr_identifiers = OrchestraIdentifiersV10(**as_dict(self.fixr_identifiers))
+
+        if self.fixr_msg_type is not None and not isinstance(self.fixr_msg_type, str):
+            self.fixr_msg_type = str(self.fixr_msg_type)
+
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageStructureV10(YAMLRoot):
+    """
+    The ordered fields, groups and components of a message.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageStructureV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageStructureV10"
+    class_name: ClassVar[str] = "OrchestraMessageStructureV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageStructureV10
+
+    fixr_members: Union[Union[dict, "OrchestraStructureMemberV10"], list[Union[dict, "OrchestraStructureMemberV10"]]] = None
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV10) else OrchestraStructureMemberV10(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageV10(YAMLRoot):
+    """
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can
+    cause.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageV10"
+    class_name: ClassVar[str] = "OrchestraMessageV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageV10
+
+    fixr_structure: Union[dict, OrchestraMessageStructureV10] = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_responses: Optional[Union[dict, "OrchestraResponsesV10"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_msg_type: Optional[str] = None
+    fixr_category: Optional[str] = None
+    fixr_flow: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_structure):
+            self.MissingRequiredField("fixr_structure")
+        if not isinstance(self.fixr_structure, OrchestraMessageStructureV10):
+            self.fixr_structure = OrchestraMessageStructureV10(**as_dict(self.fixr_structure))
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_responses is not None and not isinstance(self.fixr_responses, OrchestraResponsesV10):
+            self.fixr_responses = OrchestraResponsesV10(**as_dict(self.fixr_responses))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_msg_type is not None and not isinstance(self.fixr_msg_type, str):
+            self.fixr_msg_type = str(self.fixr_msg_type)
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_flow is not None and not isinstance(self.fixr_flow, str):
+            self.fixr_flow = str(self.fixr_flow)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessagesV10(YAMLRoot):
+    """
+    The messages a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessagesV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessagesV10"
+    class_name: ClassVar[str] = "OrchestraMessagesV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessagesV10
+
+    fixr_message: Union[Union[dict, OrchestraMessageV10], list[Union[dict, OrchestraMessageV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_message):
+            self.MissingRequiredField("fixr_message")
+        self._normalize_inlined_as_list(slot_name="fixr_message", slot_type=OrchestraMessageV10, key_name="fixr_id", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraPedigreeV10Mixin(YAMLRoot):
+    """
+    When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is
+    supported.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraPedigreeV10Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraPedigreeV10Mixin"
+    class_name: ClassVar[str] = "OrchestraPedigreeV10Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraPedigreeV10Mixin
+
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraProtocolV10(YAMLRoot):
+    """
+    A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraProtocolV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraProtocolV10"
+    class_name: ClassVar[str] = "OrchestraProtocolV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraProtocolV10
+
+    fixi_annotation: Optional[Union[dict, OrchestraInterfaceAnnotationV10]] = None
+    fixi_name: Optional[Union[str, "OrchestraProtocolName"]] = None
+    fixi_version: Optional[str] = None
+    fixi_layer: Optional[Union[str, "OrchestraLayer"]] = None
+    fixi_reliability: Optional[Union[str, "OrchestraReliability"]] = None
+    fixi_orchestration: Optional[Union[str, URI]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_annotation is not None and not isinstance(self.fixi_annotation, OrchestraInterfaceAnnotationV10):
+            self.fixi_annotation = OrchestraInterfaceAnnotationV10(**as_dict(self.fixi_annotation))
+
+        if self.fixi_name is not None and not isinstance(self.fixi_name, (OrchestraProtocolName, str)):
+            value = self.fixi_name
+            for _coerce in (lambda: OrchestraProtocolName(value), lambda: str(value)):
+                try:
+                    self.fixi_name = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraProtocolName, str] could be constructed from {value!r} for slot fixi_name")
+
+        if self.fixi_version is not None and not isinstance(self.fixi_version, str):
+            self.fixi_version = str(self.fixi_version)
+
+        if self.fixi_layer is not None and not isinstance(self.fixi_layer, OrchestraLayer):
+            self.fixi_layer = OrchestraLayer(self.fixi_layer)
+
+        if self.fixi_reliability is not None and not isinstance(self.fixi_reliability, OrchestraReliability):
+            self.fixi_reliability = OrchestraReliability(self.fixi_reliability)
+
+        if self.fixi_orchestration is not None and not isinstance(self.fixi_orchestration, URI):
+            self.fixi_orchestration = URI(self.fixi_orchestration)
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraEncodingV10(OrchestraProtocolV10):
+    """
+    An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraEncodingV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraEncodingV10"
+    class_name: ClassVar[str] = "OrchestraEncodingV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraEncodingV10
+
+
+@dataclass(repr=False)
+class OrchestraReferenceV10Mixin(YAMLRoot):
+    """
+    The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraReferenceV10Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraReferenceV10Mixin"
+    class_name: ClassVar[str] = "OrchestraReferenceV10Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraReferenceV10Mixin
+
+    fixr_id: int = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraRepositoryV10(YAMLRoot):
+    """
+    A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages
+    it defines, and the actors and workflows that use them.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraRepositoryV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraRepositoryV10"
+    class_name: ClassVar[str] = "OrchestraRepositoryV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraRepositoryV10
+
+    fixr_metadata: Union[dict, OrchestraMetadata] = None
+    fixr_datatypes: Union[dict, OrchestraDatatypesV10] = None
+    fixr_code_sets: Union[dict, OrchestraCodeSetsV10] = None
+    fixr_fields: Union[dict, OrchestraFieldsV10] = None
+    fixr_messages: Union[dict, OrchestraMessagesV10] = None
+    fixr_name: str = None
+    fixr_version: str = None
+    fixr_categories: Optional[Union[dict, OrchestraCategoriesV10]] = None
+    fixr_sections: Optional[Union[dict, "OrchestraSectionsV10"]] = None
+    fixr_actors: Optional[Union[dict, OrchestraActorsV10]] = None
+    fixr_components: Optional[Union[dict, OrchestraComponentsV10]] = None
+    fixr_groups: Optional[Union[dict, OrchestraGroupsV10]] = None
+    fixr_concepts: Optional[Union[dict, OrchestraConceptsV10]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_guid: Optional[str] = None
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_namespace: Optional[Union[str, URI]] = None
+    fixr_appl_ver_id: Optional[str] = None
+    fixr_expression_language: Optional[str] = "Score"
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_metadata):
+            self.MissingRequiredField("fixr_metadata")
+        if not isinstance(self.fixr_metadata, OrchestraMetadata):
+            self.fixr_metadata = OrchestraMetadata(**as_dict(self.fixr_metadata))
+
+        if self._is_empty(self.fixr_datatypes):
+            self.MissingRequiredField("fixr_datatypes")
+        if not isinstance(self.fixr_datatypes, OrchestraDatatypesV10):
+            self.fixr_datatypes = OrchestraDatatypesV10(**as_dict(self.fixr_datatypes))
+
+        if self._is_empty(self.fixr_code_sets):
+            self.MissingRequiredField("fixr_code_sets")
+        if not isinstance(self.fixr_code_sets, OrchestraCodeSetsV10):
+            self.fixr_code_sets = OrchestraCodeSetsV10(**as_dict(self.fixr_code_sets))
+
+        if self._is_empty(self.fixr_fields):
+            self.MissingRequiredField("fixr_fields")
+        if not isinstance(self.fixr_fields, OrchestraFieldsV10):
+            self.fixr_fields = OrchestraFieldsV10(**as_dict(self.fixr_fields))
+
+        if self._is_empty(self.fixr_messages):
+            self.MissingRequiredField("fixr_messages")
+        if not isinstance(self.fixr_messages, OrchestraMessagesV10):
+            self.fixr_messages = OrchestraMessagesV10(**as_dict(self.fixr_messages))
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_version):
+            self.MissingRequiredField("fixr_version")
+        if not isinstance(self.fixr_version, str):
+            self.fixr_version = str(self.fixr_version)
+
+        if self.fixr_categories is not None and not isinstance(self.fixr_categories, OrchestraCategoriesV10):
+            self.fixr_categories = OrchestraCategoriesV10(**as_dict(self.fixr_categories))
+
+        if self.fixr_sections is not None and not isinstance(self.fixr_sections, OrchestraSectionsV10):
+            self.fixr_sections = OrchestraSectionsV10(**as_dict(self.fixr_sections))
+
+        if self.fixr_actors is not None and not isinstance(self.fixr_actors, OrchestraActorsV10):
+            self.fixr_actors = OrchestraActorsV10(**as_dict(self.fixr_actors))
+
+        if self.fixr_components is not None and not isinstance(self.fixr_components, OrchestraComponentsV10):
+            self.fixr_components = OrchestraComponentsV10(**as_dict(self.fixr_components))
+
+        if self.fixr_groups is not None and not isinstance(self.fixr_groups, OrchestraGroupsV10):
+            self.fixr_groups = OrchestraGroupsV10(**as_dict(self.fixr_groups))
+
+        if self.fixr_concepts is not None and not isinstance(self.fixr_concepts, OrchestraConceptsV10):
+            self.fixr_concepts = OrchestraConceptsV10(**as_dict(self.fixr_concepts))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_guid is not None and not isinstance(self.fixr_guid, str):
+            self.fixr_guid = str(self.fixr_guid)
+
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_namespace is not None and not isinstance(self.fixr_namespace, URI):
+            self.fixr_namespace = URI(self.fixr_namespace)
+
+        if self.fixr_appl_ver_id is not None and not isinstance(self.fixr_appl_ver_id, str):
+            self.fixr_appl_ver_id = str(self.fixr_appl_ver_id)
+
+        if self.fixr_expression_language is not None and not isinstance(self.fixr_expression_language, str):
+            self.fixr_expression_language = str(self.fixr_expression_language)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraResponseV10(OrchestraActionV10):
+    """
+    What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and
+    timers scheduled.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraResponseV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraResponseV10"
+    class_name: ClassVar[str] = "OrchestraResponseV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraResponseV10
+
+    fixr_actions: Union[Union[dict, OrchestraActionStepV10], list[Union[dict, OrchestraActionStepV10]]] = None
+    fixr_when: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_name: Optional[str] = None
+    fixr_sync: Optional[Union[str, "OrchestraSynchronization"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_when is not None and not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_sync is not None and not isinstance(self.fixr_sync, OrchestraSynchronization):
+            self.fixr_sync = OrchestraSynchronization(self.fixr_sync)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraResponsesV10(YAMLRoot):
+    """
+    The responses a message can cause, tried one after another as given.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraResponsesV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraResponsesV10"
+    class_name: ClassVar[str] = "OrchestraResponsesV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraResponsesV10
+
+    fixr_response: Union[Union[dict, OrchestraResponseV10], list[Union[dict, OrchestraResponseV10]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_response):
+            self.MissingRequiredField("fixr_response")
+        if not isinstance(self.fixr_response, list):
+            self.fixr_response = [self.fixr_response] if self.fixr_response is not None else []
+        self.fixr_response = [v if isinstance(v, OrchestraResponseV10) else OrchestraResponseV10(**as_dict(v)) for v in self.fixr_response]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSectionV10(YAMLRoot):
+    """
+    A broad business area, such as pre-trade or post-trade, that categories fall under.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSectionV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSectionV10"
+    class_name: ClassVar[str] = "OrchestraSectionV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSectionV10
+
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+    fixr_name: Optional[str] = None
+    fixr_display_order: Optional[int] = None
+    fixr_fixml_file_name: Optional[str] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_display_order is not None and not isinstance(self.fixr_display_order, int):
+            self.fixr_display_order = int(self.fixr_display_order)
+
+        if self.fixr_fixml_file_name is not None and not isinstance(self.fixr_fixml_file_name, str):
+            self.fixr_fixml_file_name = str(self.fixr_fixml_file_name)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSectionsV10(YAMLRoot):
+    """
+    The sections a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSectionsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSectionsV10"
+    class_name: ClassVar[str] = "OrchestraSectionsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSectionsV10
+
+    fixr_section: Union[Union[dict, OrchestraSectionV10], list[Union[dict, OrchestraSectionV10]]] = None
+    xml_base: Optional[Union[str, URI]] = None
+    fixr_latest_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_section):
+            self.MissingRequiredField("fixr_section")
+        if not isinstance(self.fixr_section, list):
+            self.fixr_section = [self.fixr_section] if self.fixr_section is not None else []
+        self.fixr_section = [v if isinstance(v, OrchestraSectionV10) else OrchestraSectionV10(**as_dict(v)) for v in self.fixr_section]
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        if self.fixr_latest_ep is not None and not isinstance(self.fixr_latest_ep, int):
+            self.fixr_latest_ep = int(self.fixr_latest_ep)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraServiceV10(OrchestraProtocolV10):
+    """
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets
+    out its rules.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraServiceV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraServiceV10"
+    class_name: ClassVar[str] = "OrchestraServiceV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraServiceV10
+
+
+@dataclass(repr=False)
+class OrchestraSessionIdentifierV10(YAMLRoot):
+    """
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionIdentifierV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionIdentifierV10"
+    class_name: ClassVar[str] = "OrchestraSessionIdentifierV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionIdentifierV10
+
+    fixi_text: Optional[str] = None
+    fixi_name: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        if self.fixi_name is not None and not isinstance(self.fixi_name, str):
+            self.fixi_name = str(self.fixi_name)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraSessionProtocolV10(OrchestraProtocolV10):
+    """
+    The session-level protocol of an interface or session, such as FIXT or FIXP.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionProtocolV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionProtocolV10"
+    class_name: ClassVar[str] = "OrchestraSessionProtocolV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionProtocolV10
+
+
+@dataclass(repr=False)
+class OrchestraSessionV10(OrchestraBaseInterfaceV10):
+    """
+    One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionV10"
+    class_name: ClassVar[str] = "OrchestraSessionV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionV10
+
+    fixi_name: str = None
+    fixi_identifier: Optional[Union[Union[dict, OrchestraSessionIdentifierV10], list[Union[dict, OrchestraSessionIdentifierV10]]]] = empty_list()
+    fixi_activation_time: Optional[str] = None
+    fixi_deactivation_time: Optional[str] = None
+    fixi_role: Optional[Union[str, "OrchestraRole"]] = None
+    fixi_security_keys: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.fixi_identifier, list):
+            self.fixi_identifier = [self.fixi_identifier] if self.fixi_identifier is not None else []
+        self.fixi_identifier = [v if isinstance(v, OrchestraSessionIdentifierV10) else OrchestraSessionIdentifierV10(**as_dict(v)) for v in self.fixi_identifier]
+
+        if self.fixi_activation_time is not None and not isinstance(self.fixi_activation_time, str):
+            self.fixi_activation_time = str(self.fixi_activation_time)
+
+        if self.fixi_deactivation_time is not None and not isinstance(self.fixi_deactivation_time, str):
+            self.fixi_deactivation_time = str(self.fixi_deactivation_time)
+
+        if self.fixi_role is not None and not isinstance(self.fixi_role, OrchestraRole):
+            self.fixi_role = OrchestraRole(self.fixi_role)
+
+        if self.fixi_security_keys is not None and not isinstance(self.fixi_security_keys, str):
+            self.fixi_security_keys = str(self.fixi_security_keys)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSessionsV10(YAMLRoot):
+    """
+    The sessions an interface carries.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionsV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionsV10"
+    class_name: ClassVar[str] = "OrchestraSessionsV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionsV10
+
+    fixi_session: Union[Union[dict, OrchestraSessionV10], list[Union[dict, OrchestraSessionV10]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_session):
+            self.MissingRequiredField("fixi_session")
+        self._normalize_inlined_as_list(slot_name="fixi_session", slot_type=OrchestraSessionV10, key_name="fixi_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStateMachineV10(YAMLRoot):
+    """
+    A named set of states that an actor moves through, from an initial state.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStateMachineV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStateMachineV10"
+    class_name: ClassVar[str] = "OrchestraStateMachineV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStateMachineV10
+
+    fixr_initial: Union[dict, "OrchestraStateV10"] = None
+    fixr_state: Union[Union[dict, "OrchestraStateV10"], list[Union[dict, "OrchestraStateV10"]]] = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_initial):
+            self.MissingRequiredField("fixr_initial")
+        if not isinstance(self.fixr_initial, OrchestraStateV10):
+            self.fixr_initial = OrchestraStateV10(**as_dict(self.fixr_initial))
+
+        if self._is_empty(self.fixr_state):
+            self.MissingRequiredField("fixr_state")
+        self._normalize_inlined_as_list(slot_name="fixr_state", slot_type=OrchestraStateV10, key_name="fixr_name", keyed=False)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStateV10(YAMLRoot):
+    """
+    One of a state machine's states, with the transitions out of it and what happens on entry, while active and on
+    exit.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStateV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStateV10"
+    class_name: ClassVar[str] = "OrchestraStateV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStateV10
+
+    fixr_name: str = None
+    fixr_transition: Optional[Union[Union[dict, "OrchestraTransitionV10"], list[Union[dict, "OrchestraTransitionV10"]]]] = empty_list()
+    fixr_onentry: Optional[Union[dict, OrchestraActionV10]] = None
+    fixr_activity: Optional[Union[dict, OrchestraActionV10]] = None
+    fixr_onexit: Optional[Union[dict, OrchestraActionV10]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_transition", slot_type=OrchestraTransitionV10, key_name="fixr_name", keyed=False)
+
+        if self.fixr_onentry is not None and not isinstance(self.fixr_onentry, OrchestraActionV10):
+            self.fixr_onentry = OrchestraActionV10(**as_dict(self.fixr_onentry))
+
+        if self.fixr_activity is not None and not isinstance(self.fixr_activity, OrchestraActionV10):
+            self.fixr_activity = OrchestraActionV10(**as_dict(self.fixr_activity))
+
+        if self.fixr_onexit is not None and not isinstance(self.fixr_onexit, OrchestraActionV10):
+            self.fixr_onexit = OrchestraActionV10(**as_dict(self.fixr_onexit))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStructureMemberV10(YAMLRoot):
+    """
+    One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStructureMemberV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStructureMemberV10"
+    class_name: ClassVar[str] = "OrchestraStructureMemberV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStructureMemberV10
+
+    fixr_component_ref: Optional[Union[dict, OrchestraComponentRefV10]] = None
+    fixr_group_ref: Optional[Union[dict, OrchestraGroupRefV10]] = None
+    fixr_field_ref: Optional[Union[dict, OrchestraFieldRefV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV10):
+            self.fixr_component_ref = OrchestraComponentRefV10(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV10):
+            self.fixr_group_ref = OrchestraGroupRefV10(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV10):
+            self.fixr_field_ref = OrchestraFieldRefV10(**as_dict(self.fixr_field_ref))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTimerScheduleV10(YAMLRoot):
+    """
+    A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTimerScheduleV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTimerScheduleV10"
+    class_name: ClassVar[str] = "OrchestraTimerScheduleV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTimerScheduleV10
+
+    fixr_activity: Union[dict, OrchestraActionV10] = None
+    fixr_actor: str = None
+    fixr_name: str = None
+    fixr_operation: Union[str, "OrchestraTimerOperation"] = None
+    fixr_interval: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_activity):
+            self.MissingRequiredField("fixr_activity")
+        if not isinstance(self.fixr_activity, OrchestraActionV10):
+            self.fixr_activity = OrchestraActionV10(**as_dict(self.fixr_activity))
+
+        if self._is_empty(self.fixr_actor):
+            self.MissingRequiredField("fixr_actor")
+        if not isinstance(self.fixr_actor, str):
+            self.fixr_actor = str(self.fixr_actor)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_operation):
+            self.MissingRequiredField("fixr_operation")
+        if not isinstance(self.fixr_operation, OrchestraTimerOperation):
+            self.fixr_operation = OrchestraTimerOperation(self.fixr_operation)
+
+        if self.fixr_interval is not None and not isinstance(self.fixr_interval, str):
+            self.fixr_interval = str(self.fixr_interval)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTimerV10(YAMLRoot):
+    """
+    A named timer that an actor owns.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTimerV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTimerV10"
+    class_name: ClassVar[str] = "OrchestraTimerV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTimerV10
+
+    fixr_name: str = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTransitionV10(YAMLRoot):
+    """
+    A move from one state to a named target state, with the condition that allows it.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTransitionV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTransitionV10"
+    class_name: ClassVar[str] = "OrchestraTransitionV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTransitionV10
+
+    fixr_name: str = None
+    fixr_target: str = None
+    fixr_when: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV10]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_target):
+            self.MissingRequiredField("fixr_target")
+        if not isinstance(self.fixr_target, str):
+            self.fixr_target = str(self.fixr_target)
+
+        if self.fixr_when is not None and not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV10):
+            self.fixr_annotation = OrchestraAnnotationV10(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTransportV10(OrchestraProtocolV10):
+    """
+    The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTransportV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTransportV10"
+    class_name: ClassVar[str] = "OrchestraTransportV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTransportV10
+
+    fixi_address: Optional[str] = None
+    fixi_message_cast: Optional[Union[str, "OrchestraMessageCast"]] = 'unicast'
+    fixi_use: Optional[Union[str, "OrchestraTransportUse"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_address is not None and not isinstance(self.fixi_address, str):
+            self.fixi_address = str(self.fixi_address)
+
+        if self.fixi_message_cast is not None and not isinstance(self.fixi_message_cast, OrchestraMessageCast):
+            self.fixi_message_cast = OrchestraMessageCast(self.fixi_message_cast)
+
+        if self.fixi_use is not None and not isinstance(self.fixi_use, (OrchestraTransportUse, str)):
+            value = self.fixi_use
+            for _coerce in (lambda: OrchestraTransportUse(value), lambda: str(value)):
+                try:
+                    self.fixi_use = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraTransportUse, str] could be constructed from {value!r} for slot fixi_use")
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTriggerV10(YAMLRoot):
+    """
+    A step that fires a named transition of an actor's state machine.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTriggerV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTriggerV10"
+    class_name: ClassVar[str] = "OrchestraTriggerV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTriggerV10
+
+    fixr_state_machine: str = None
+    fixr_actor: str = None
+    fixr_name: str = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_state_machine):
+            self.MissingRequiredField("fixr_state_machine")
+        if not isinstance(self.fixr_state_machine, str):
+            self.fixr_state_machine = str(self.fixr_state_machine)
+
+        if self._is_empty(self.fixr_actor):
+            self.MissingRequiredField("fixr_actor")
+        if not isinstance(self.fixr_actor, str):
+            self.fixr_actor = str(self.fixr_actor)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraUniqueV10(YAMLRoot):
+    """
+    A check that a field's value is unique among the values that share the other fields it names, or among all values
+    when it names none.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraUniqueV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraUniqueV10"
+    class_name: ClassVar[str] = "OrchestraUniqueV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraUniqueV10
+
+    fixr_field_ref: Optional[Union[Union[dict, OrchestraFieldRefV10], list[Union[dict, OrchestraFieldRefV10]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_field_ref", slot_type=OrchestraFieldRefV10, key_name="fixr_id", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraUserInterfaceV10(OrchestraProtocolV10):
+    """
+    A user interface an interface offers, such as a trading screen, described as a protocol.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraUserInterfaceV10"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraUserInterfaceV10"
+    class_name: ClassVar[str] = "OrchestraUserInterfaceV10"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraUserInterfaceV10
+
+
+@dataclass(repr=False)
+class OrchestraActionParameterV11(YAMLRoot):
+    """
+    One input to an action, which is a field, component or group, defined in place or named by reference. It holds
+    exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionParameterV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionParameterV11"
+    class_name: ClassVar[str] = "OrchestraActionParameterV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionParameterV11
+
+    fixr_field: Optional[Union[dict, "OrchestraFieldV11"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV11"]] = None
+    fixr_component: Optional[Union[dict, "OrchestraComponentV11"]] = None
+    fixr_component_ref: Optional[Union[dict, "OrchestraComponentRefV11"]] = None
+    fixr_group: Optional[Union[dict, "OrchestraGroupV11"]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_field is not None and not isinstance(self.fixr_field, OrchestraFieldV11):
+            self.fixr_field = OrchestraFieldV11(**as_dict(self.fixr_field))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV11):
+            self.fixr_field_ref = OrchestraFieldRefV11(**as_dict(self.fixr_field_ref))
+
+        if self.fixr_component is not None and not isinstance(self.fixr_component, OrchestraComponentV11):
+            self.fixr_component = OrchestraComponentV11(**as_dict(self.fixr_component))
+
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV11):
+            self.fixr_component_ref = OrchestraComponentRefV11(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, OrchestraGroupV11):
+            self.fixr_group = OrchestraGroupV11(**as_dict(self.fixr_group))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV11):
+            self.fixr_group_ref = OrchestraGroupRefV11(**as_dict(self.fixr_group_ref))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActionStepV11(YAMLRoot):
+    """
+    One thing an action does: send a message, set a value, fire a transition or schedule a timer. It holds exactly one
+    of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionStepV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionStepV11"
+    class_name: ClassVar[str] = "OrchestraActionStepV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionStepV11
+
+    fixr_message_ref: Optional[Union[dict, "OrchestraMessageRefV11"]] = None
+    fixr_assign: Optional[str] = None
+    fixr_trigger: Optional[Union[dict, "OrchestraTriggerV11"]] = None
+    fixr_timer_schedule: Optional[Union[dict, "OrchestraTimerScheduleV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_message_ref is not None and not isinstance(self.fixr_message_ref, OrchestraMessageRefV11):
+            self.fixr_message_ref = OrchestraMessageRefV11(**as_dict(self.fixr_message_ref))
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
+
+        if self.fixr_trigger is not None and not isinstance(self.fixr_trigger, OrchestraTriggerV11):
+            self.fixr_trigger = OrchestraTriggerV11(**as_dict(self.fixr_trigger))
+
+        if self.fixr_timer_schedule is not None and not isinstance(self.fixr_timer_schedule, OrchestraTimerScheduleV11):
+            self.fixr_timer_schedule = OrchestraTimerScheduleV11(**as_dict(self.fixr_timer_schedule))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActionV11(YAMLRoot):
+    """
+    Things that happen together, such as when a response fires or a state is entered: messages sent, values set,
+    transitions fired and timers scheduled, with their inputs.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActionV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActionV11"
+    class_name: ClassVar[str] = "OrchestraActionV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActionV11
+
+    fixr_actions: Union[Union[dict, OrchestraActionStepV11], list[Union[dict, OrchestraActionStepV11]]] = None
+    fixr_parameters: Optional[Union[Union[dict, OrchestraActionParameterV11], list[Union[dict, OrchestraActionParameterV11]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_actions):
+            self.MissingRequiredField("fixr_actions")
+        if not isinstance(self.fixr_actions, list):
+            self.fixr_actions = [self.fixr_actions] if self.fixr_actions is not None else []
+        self.fixr_actions = [v if isinstance(v, OrchestraActionStepV11) else OrchestraActionStepV11(**as_dict(v)) for v in self.fixr_actions]
+
+        if not isinstance(self.fixr_parameters, list):
+            self.fixr_parameters = [self.fixr_parameters] if self.fixr_parameters is not None else []
+        self.fixr_parameters = [v if isinstance(v, OrchestraActionParameterV11) else OrchestraActionParameterV11(**as_dict(v)) for v in self.fixr_parameters]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActorMemberV11(YAMLRoot):
+    """
+    One thing an actor keeps: a variable given as a field, component or group, a state machine or a timer. It holds
+    exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorMemberV11"
+    class_name: ClassVar[str] = "OrchestraActorMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorMemberV11
+
+    fixr_field: Optional[Union[dict, "OrchestraFieldV11"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV11"]] = None
+    fixr_component: Optional[Union[dict, "OrchestraComponentV11"]] = None
+    fixr_component_ref: Optional[Union[dict, "OrchestraComponentRefV11"]] = None
+    fixr_group: Optional[Union[dict, "OrchestraGroupV11"]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV11"]] = None
+    fixr_states: Optional[Union[dict, "OrchestraStateMachineV11"]] = None
+    fixr_timer: Optional[Union[dict, "OrchestraTimerV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_field is not None and not isinstance(self.fixr_field, OrchestraFieldV11):
+            self.fixr_field = OrchestraFieldV11(**as_dict(self.fixr_field))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV11):
+            self.fixr_field_ref = OrchestraFieldRefV11(**as_dict(self.fixr_field_ref))
+
+        if self.fixr_component is not None and not isinstance(self.fixr_component, OrchestraComponentV11):
+            self.fixr_component = OrchestraComponentV11(**as_dict(self.fixr_component))
+
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV11):
+            self.fixr_component_ref = OrchestraComponentRefV11(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, OrchestraGroupV11):
+            self.fixr_group = OrchestraGroupV11(**as_dict(self.fixr_group))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV11):
+            self.fixr_group_ref = OrchestraGroupRefV11(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_states is not None and not isinstance(self.fixr_states, OrchestraStateMachineV11):
+            self.fixr_states = OrchestraStateMachineV11(**as_dict(self.fixr_states))
+
+        if self.fixr_timer is not None and not isinstance(self.fixr_timer, OrchestraTimerV11):
+            self.fixr_timer = OrchestraTimerV11(**as_dict(self.fixr_timer))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActorV11(YAMLRoot):
+    """
+    A kind of party in an exchange, such as a buy-side firm or a venue, with the state it keeps: its variables, state
+    machines and timers.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorV11"
+    class_name: ClassVar[str] = "OrchestraActorV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorV11
+
+    fixr_name: str = None
+    fixr_members: Optional[Union[Union[dict, OrchestraActorMemberV11], list[Union[dict, OrchestraActorMemberV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, "OrchestraAnnotationV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraActorMemberV11) else OrchestraActorMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActorsMemberV11(YAMLRoot):
+    """
+    One entry of the actors list, an actor or a flow. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorsMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorsMemberV11"
+    class_name: ClassVar[str] = "OrchestraActorsMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorsMemberV11
+
+    fixr_actor: Optional[Union[dict, OrchestraActorV11]] = None
+    fixr_flow: Optional[Union[dict, "OrchestraFlowV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_actor is not None and not isinstance(self.fixr_actor, OrchestraActorV11):
+            self.fixr_actor = OrchestraActorV11(**as_dict(self.fixr_actor))
+
+        if self.fixr_flow is not None and not isinstance(self.fixr_flow, OrchestraFlowV11):
+            self.fixr_flow = OrchestraFlowV11(**as_dict(self.fixr_flow))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraActorsV11(YAMLRoot):
+    """
+    The parties a repository describes and the one-way flows between them.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraActorsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraActorsV11"
+    class_name: ClassVar[str] = "OrchestraActorsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraActorsV11
+
+    fixr_members: Optional[Union[Union[dict, OrchestraActorsMemberV11], list[Union[dict, OrchestraActorsMemberV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, "OrchestraAnnotationV11"]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraActorsMemberV11) else OrchestraActorsMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraAnnotationMemberV11(YAMLRoot):
+    """
+    One part of an annotation, a piece of text or a hint for software. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAnnotationMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAnnotationMemberV11"
+    class_name: ClassVar[str] = "OrchestraAnnotationMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAnnotationMemberV11
+
+    fixr_documentation: Optional[Union[dict, "OrchestraDocumentationV11"]] = None
+    fixr_appinfo: Optional[Union[dict, "OrchestraAppinfoV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_documentation is not None and not isinstance(self.fixr_documentation, OrchestraDocumentationV11):
+            self.fixr_documentation = OrchestraDocumentationV11(**as_dict(self.fixr_documentation))
+
+        if self.fixr_appinfo is not None and not isinstance(self.fixr_appinfo, OrchestraAppinfoV11):
+            self.fixr_appinfo = OrchestraAppinfoV11(**as_dict(self.fixr_appinfo))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraAnnotationV11(YAMLRoot):
+    """
+    Notes for readers and hints for software, attached to an element.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAnnotationV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAnnotationV11"
+    class_name: ClassVar[str] = "OrchestraAnnotationV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAnnotationV11
+
+    fixr_members: Union[Union[dict, OrchestraAnnotationMemberV11], list[Union[dict, OrchestraAnnotationMemberV11]]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraAnnotationMemberV11) else OrchestraAnnotationMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraAppinfoV11(YAMLRoot):
+    """
+    A hint for a particular tool or encoding, such as how FIXML renders an element, held as text and open XML.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraAppinfoV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraAppinfoV11"
+    class_name: ClassVar[str] = "OrchestraAppinfoV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraAppinfoV11
+
+    fixr_text: Optional[str] = None
+    fixr_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_lang_id: Optional[str] = None
+    fixr_purpose: Optional[Union[str, "OrchestraPurposeV11"]] = None
+    fixr_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_text is not None and not isinstance(self.fixr_text, str):
+            self.fixr_text = str(self.fixr_text)
+
+        self._normalize_inlined_as_list(slot_name="fixr_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_lang_id is not None and not isinstance(self.fixr_lang_id, str):
+            self.fixr_lang_id = str(self.fixr_lang_id)
+
+        if self.fixr_purpose is not None and not isinstance(self.fixr_purpose, (OrchestraPurposeV11, str)):
+            value = self.fixr_purpose
+            for _coerce in (lambda: OrchestraPurposeV11(value), lambda: str(value)):
+                try:
+                    self.fixr_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurposeV11, str] could be constructed from {value!r} for slot fixr_purpose")
+
+        self._normalize_inlined_as_list(slot_name="fixr_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraBaseEncodingV11(YAMLRoot):
+    """
+    What every encoding block shares: notes, and XML in another namespace that says how an element is encoded.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraBaseEncodingV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraBaseEncodingV11"
+    class_name: ClassVar[str] = "OrchestraBaseEncodingV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraBaseEncodingV11
+
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        self._normalize_inlined_as_list(slot_name="fixr_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraBaseInterfaceV11(YAMLRoot):
+    """
+    What an interface and a session share: the services, encodings and protocols of a connection, layer by layer.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraBaseInterfaceV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraBaseInterfaceV11"
+    class_name: ClassVar[str] = "OrchestraBaseInterfaceV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraBaseInterfaceV11
+
+    fixi_name: str = None
+    fixi_service: Optional[Union[Union[dict, "OrchestraServiceV11"], list[Union[dict, "OrchestraServiceV11"]]]] = empty_list()
+    fixi_user_interface: Optional[Union[Union[dict, "OrchestraUserInterfaceV11"], list[Union[dict, "OrchestraUserInterfaceV11"]]]] = empty_list()
+    fixi_encoding: Optional[Union[Union[dict, "OrchestraEncodingV11"], list[Union[dict, "OrchestraEncodingV11"]]]] = empty_list()
+    fixi_session_protocol: Optional[Union[Union[dict, "OrchestraSessionProtocolV11"], list[Union[dict, "OrchestraSessionProtocolV11"]]]] = empty_list()
+    fixi_protocol: Optional[Union[Union[dict, "OrchestraProtocolV11"], list[Union[dict, "OrchestraProtocolV11"]]]] = empty_list()
+    fixi_transport: Optional[Union[Union[dict, "OrchestraTransportV11"], list[Union[dict, "OrchestraTransportV11"]]]] = empty_list()
+    fixi_annotation: Optional[Union[dict, "OrchestraInterfaceAnnotationV11"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_name):
+            self.MissingRequiredField("fixi_name")
+        if not isinstance(self.fixi_name, str):
+            self.fixi_name = str(self.fixi_name)
+
+        if not isinstance(self.fixi_service, list):
+            self.fixi_service = [self.fixi_service] if self.fixi_service is not None else []
+        self.fixi_service = [v if isinstance(v, OrchestraServiceV11) else OrchestraServiceV11(**as_dict(v)) for v in self.fixi_service]
+
+        if not isinstance(self.fixi_user_interface, list):
+            self.fixi_user_interface = [self.fixi_user_interface] if self.fixi_user_interface is not None else []
+        self.fixi_user_interface = [v if isinstance(v, OrchestraUserInterfaceV11) else OrchestraUserInterfaceV11(**as_dict(v)) for v in self.fixi_user_interface]
+
+        if not isinstance(self.fixi_encoding, list):
+            self.fixi_encoding = [self.fixi_encoding] if self.fixi_encoding is not None else []
+        self.fixi_encoding = [v if isinstance(v, OrchestraEncodingV11) else OrchestraEncodingV11(**as_dict(v)) for v in self.fixi_encoding]
+
+        if not isinstance(self.fixi_session_protocol, list):
+            self.fixi_session_protocol = [self.fixi_session_protocol] if self.fixi_session_protocol is not None else []
+        self.fixi_session_protocol = [v if isinstance(v, OrchestraSessionProtocolV11) else OrchestraSessionProtocolV11(**as_dict(v)) for v in self.fixi_session_protocol]
+
+        if not isinstance(self.fixi_protocol, list):
+            self.fixi_protocol = [self.fixi_protocol] if self.fixi_protocol is not None else []
+        self.fixi_protocol = [v if isinstance(v, OrchestraProtocolV11) else OrchestraProtocolV11(**as_dict(v)) for v in self.fixi_protocol]
+
+        if not isinstance(self.fixi_transport, list):
+            self.fixi_transport = [self.fixi_transport] if self.fixi_transport is not None else []
+        self.fixi_transport = [v if isinstance(v, OrchestraTransportV11) else OrchestraTransportV11(**as_dict(v)) for v in self.fixi_transport]
+
+        if self.fixi_annotation is not None and not isinstance(self.fixi_annotation, OrchestraInterfaceAnnotationV11):
+            self.fixi_annotation = OrchestraInterfaceAnnotationV11(**as_dict(self.fixi_annotation))
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraBlockAssignmentV11(YAMLRoot):
+    """
+    How every entry of a group, or a single use of a component, gets its values: the fields, groups and components it
+    sets.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraBlockAssignmentV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraBlockAssignmentV11"
+    class_name: ClassVar[str] = "OrchestraBlockAssignmentV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraBlockAssignmentV11
+
+    fixr_members: Union[Union[dict, "OrchestraStructureMemberV11"], list[Union[dict, "OrchestraStructureMemberV11"]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV11) else OrchestraStructureMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraCategoriesV11(YAMLRoot):
+    """
+    The categories a repository sorts its messages and fields into.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCategoriesV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCategoriesV11"
+    class_name: ClassVar[str] = "OrchestraCategoriesV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCategoriesV11
+
+    fixr_category: Optional[Union[Union[dict, "OrchestraCategoryV11"], list[Union[dict, "OrchestraCategoryV11"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_category", slot_type=OrchestraCategoryV11, key_name="fixr_name", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraCategoryV11(YAMLRoot):
+    """
+    A business process grouping within a section, such as order handling or market data.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCategoryV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCategoryV11"
+    class_name: ClassVar[str] = "OrchestraCategoryV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCategoryV11
+
+    fixr_name: str = None
+    fixr_section: str = None
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_section):
+            self.MissingRequiredField("fixr_section")
+        if not isinstance(self.fixr_section, str):
+            self.fixr_section = str(self.fixr_section)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraCodeSetV11(YAMLRoot):
+    """
+    A named list of the values a field may take, each with a name of its own, over one underlying datatype.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeSetV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeSetV11"
+    class_name: ClassVar[str] = "OrchestraCodeSetV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeSetV11
+
+    fixr_type: str = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_code: Optional[Union[Union[dict, "OrchestraCodeV11"], list[Union[dict, "OrchestraCodeV11"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_default: Optional[str] = None
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_union_data_type: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_scenario_ref_id: Optional[int] = None
+    fixr_scenario_ref: Optional[str] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_type):
+            self.MissingRequiredField("fixr_type")
+        if not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_code", slot_type=OrchestraCodeV11, key_name="fixr_value", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_default is not None and not isinstance(self.fixr_default, str):
+            self.fixr_default = str(self.fixr_default)
+
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_union_data_type is not None and not isinstance(self.fixr_union_data_type, str):
+            self.fixr_union_data_type = str(self.fixr_union_data_type)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_scenario_ref_id is not None and not isinstance(self.fixr_scenario_ref_id, int):
+            self.fixr_scenario_ref_id = int(self.fixr_scenario_ref_id)
+
+        if self.fixr_scenario_ref is not None and not isinstance(self.fixr_scenario_ref, str):
+            self.fixr_scenario_ref = str(self.fixr_scenario_ref)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraCodeSetsV11(YAMLRoot):
+    """
+    The code sets a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeSetsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeSetsV11"
+    class_name: ClassVar[str] = "OrchestraCodeSetsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeSetsV11
+
+    fixr_code_set: Optional[Union[Union[dict, OrchestraCodeSetV11], list[Union[dict, OrchestraCodeSetV11]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_code_set", slot_type=OrchestraCodeSetV11, key_name="fixr_type", keyed=False)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraCodeV11(YAMLRoot):
+    """
+    One permitted value of the set, with its name and what goes on the wire.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraCodeV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraCodeV11"
+    class_name: ClassVar[str] = "OrchestraCodeV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraCodeV11
+
+    fixr_value: str = None
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_sort: Optional[int] = None
+    fixr_group: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_value):
+            self.MissingRequiredField("fixr_value")
+        if not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_sort is not None and not isinstance(self.fixr_sort, int):
+            self.fixr_sort = int(self.fixr_sort)
+
+        if self.fixr_group is not None and not isinstance(self.fixr_group, str):
+            self.fixr_group = str(self.fixr_group)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraComponentRefV11(YAMLRoot):
+    """
+    Where a message or block includes a component, by its number, with its presence and any rules that make it
+    conditional.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentRefV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentRefV11"
+    class_name: ClassVar[str] = "OrchestraComponentRefV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentRefV11
+
+    fixr_id: int = None
+    fixr_block_assignment: Optional[Union[Union[dict, OrchestraBlockAssignmentV11], list[Union[dict, OrchestraBlockAssignmentV11]]]] = empty_list()
+    fixr_rule: Optional[Union[Union[dict, "OrchestraComponentRuleV11"], list[Union[dict, "OrchestraComponentRuleV11"]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_instance_name: Optional[str] = None
+    fixr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if not isinstance(self.fixr_block_assignment, list):
+            self.fixr_block_assignment = [self.fixr_block_assignment] if self.fixr_block_assignment is not None else []
+        self.fixr_block_assignment = [v if isinstance(v, OrchestraBlockAssignmentV11) else OrchestraBlockAssignmentV11(**as_dict(v)) for v in self.fixr_block_assignment]
+
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraComponentRuleV11, key_name="fixr_when", keyed=False)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_instance_name is not None and not isinstance(self.fixr_instance_name, str):
+            self.fixr_instance_name = str(self.fixr_instance_name)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraComponentRuleV11(YAMLRoot):
+    """
+    A condition that changes a component's presence, such as making it required.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentRuleV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentRuleV11"
+    class_name: ClassVar[str] = "OrchestraComponentRuleV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentRuleV11
+
+    fixr_when: str = None
+    fixr_name: Optional[str] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_when):
+            self.MissingRequiredField("fixr_when")
+        if not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraComponentV11(YAMLRoot):
+    """
+    A named block of fields, groups and components that messages and other blocks include by reference.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentV11"
+    class_name: ClassVar[str] = "OrchestraComponentV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentV11
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_members: Optional[Union[Union[dict, "OrchestraStructureMemberV11"], list[Union[dict, "OrchestraStructureMemberV11"]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_category: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_scenario_ref_id: Optional[int] = None
+    fixr_scenario_ref: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV11) else OrchestraStructureMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_scenario_ref_id is not None and not isinstance(self.fixr_scenario_ref_id, int):
+            self.fixr_scenario_ref_id = int(self.fixr_scenario_ref_id)
+
+        if self.fixr_scenario_ref is not None and not isinstance(self.fixr_scenario_ref, str):
+            self.fixr_scenario_ref = str(self.fixr_scenario_ref)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraComponentsV11(YAMLRoot):
+    """
+    The components a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraComponentsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraComponentsV11"
+    class_name: ClassVar[str] = "OrchestraComponentsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraComponentsV11
+
+    fixr_component: Optional[Union[Union[dict, OrchestraComponentV11], list[Union[dict, OrchestraComponentV11]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, "OrchestraEncodingsV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_component", slot_type=OrchestraComponentV11, key_name="fixr_id", keyed=False)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptMemberV11(YAMLRoot):
+    """
+    One element a concept ties together, named by reference, which is a message, field, component or group. It holds
+    exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptMemberV11"
+    class_name: ClassVar[str] = "OrchestraConceptMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptMemberV11
+
+    fixr_component_ref: Optional[Union[dict, OrchestraComponentRefV11]] = None
+    fixr_group_ref: Optional[Union[dict, "OrchestraGroupRefV11"]] = None
+    fixr_field_ref: Optional[Union[dict, "OrchestraFieldRefV11"]] = None
+    fixr_message_ref: Optional[Union[dict, "OrchestraMessageRefV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV11):
+            self.fixr_component_ref = OrchestraComponentRefV11(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV11):
+            self.fixr_group_ref = OrchestraGroupRefV11(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV11):
+            self.fixr_field_ref = OrchestraFieldRefV11(**as_dict(self.fixr_field_ref))
+
+        if self.fixr_message_ref is not None and not isinstance(self.fixr_message_ref, OrchestraMessageRefV11):
+            self.fixr_message_ref = OrchestraMessageRefV11(**as_dict(self.fixr_message_ref))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptV11(YAMLRoot):
+    """
+    A named business idea that ties together the fields, components, groups and messages that express it.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptV11"
+    class_name: ClassVar[str] = "OrchestraConceptV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptV11
+
+    fixr_members: Union[Union[dict, OrchestraConceptMemberV11], list[Union[dict, OrchestraConceptMemberV11]]] = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraConceptMemberV11) else OrchestraConceptMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraConceptsV11(YAMLRoot):
+    """
+    The concepts a repository names.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraConceptsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraConceptsV11"
+    class_name: ClassVar[str] = "OrchestraConceptsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraConceptsV11
+
+    fixr_concept: Optional[Union[Union[dict, OrchestraConceptV11], list[Union[dict, OrchestraConceptV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_concept", slot_type=OrchestraConceptV11, key_name="fixr_name", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDatatypeV11(YAMLRoot):
+    """
+    A FIX datatype, such as Price or UTCTimestamp, with how it maps to the types of other standards.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDatatypeV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDatatypeV11"
+    class_name: ClassVar[str] = "OrchestraDatatypeV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDatatypeV11
+
+    fixr_name: str = None
+    fixr_mapped_datatype: Optional[Union[Union[dict, "OrchestraMappedDatatypeV11"], list[Union[dict, "OrchestraMappedDatatypeV11"]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_base_type: Optional[str] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_mapped_datatype", slot_type=OrchestraMappedDatatypeV11, key_name="fixr_standard", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_base_type is not None and not isinstance(self.fixr_base_type, str):
+            self.fixr_base_type = str(self.fixr_base_type)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDatatypesV11(YAMLRoot):
+    """
+    The datatypes a repository uses.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDatatypesV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDatatypesV11"
+    class_name: ClassVar[str] = "OrchestraDatatypesV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDatatypesV11
+
+    fixr_datatype: Optional[Union[Union[dict, OrchestraDatatypeV11], list[Union[dict, OrchestraDatatypeV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_datatype", slot_type=OrchestraDatatypeV11, key_name="fixr_name", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraDocumentationV11(YAMLRoot):
+    """
+    Text about an element, with its language, purpose and media type.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraDocumentationV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraDocumentationV11"
+    class_name: ClassVar[str] = "OrchestraDocumentationV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraDocumentationV11
+
+    fixr_text: Optional[str] = None
+    fixr_lang_id: Optional[str] = None
+    fixr_purpose: Optional[Union[str, "OrchestraPurposeV11"]] = None
+    fixr_content_type: Optional[str] = "text/plain"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_text is not None and not isinstance(self.fixr_text, str):
+            self.fixr_text = str(self.fixr_text)
+
+        if self.fixr_lang_id is not None and not isinstance(self.fixr_lang_id, str):
+            self.fixr_lang_id = str(self.fixr_lang_id)
+
+        if self.fixr_purpose is not None and not isinstance(self.fixr_purpose, (OrchestraPurposeV11, str)):
+            value = self.fixr_purpose
+            for _coerce in (lambda: OrchestraPurposeV11(value), lambda: str(value)):
+                try:
+                    self.fixr_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurposeV11, str] could be constructed from {value!r} for slot fixr_purpose")
+
+        if self.fixr_content_type is not None and not isinstance(self.fixr_content_type, str):
+            self.fixr_content_type = str(self.fixr_content_type)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraEncodingStandardV11(YAMLRoot):
+    """
+    An encoding standard a repository uses, with a name to show and its general encoding information.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraEncodingStandardV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraEncodingStandardV11"
+    class_name: ClassVar[str] = "OrchestraEncodingStandardV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraEncodingStandardV11
+
+    fixr_name: str = None
+    fixr_encoding: Optional[Union[dict, "OrchestraUnnamedEncodingV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_display_name: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, OrchestraUnnamedEncodingV11):
+            self.fixr_encoding = OrchestraUnnamedEncodingV11(**as_dict(self.fixr_encoding))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_display_name is not None and not isinstance(self.fixr_display_name, str):
+            self.fixr_display_name = str(self.fixr_display_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraEncodingStandardsV11(YAMLRoot):
+    """
+    The encoding standards that a repository's encoding blocks name.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraEncodingStandardsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraEncodingStandardsV11"
+    class_name: ClassVar[str] = "OrchestraEncodingStandardsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraEncodingStandardsV11
+
+    fixr_encoding_standard: Optional[Union[Union[dict, OrchestraEncodingStandardV11], list[Union[dict, OrchestraEncodingStandardV11]]]] = empty_list()
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_encoding_standard", slot_type=OrchestraEncodingStandardV11, key_name="fixr_name", keyed=False)
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraEncodingsV11(YAMLRoot):
+    """
+    The encoding blocks of one element, one for each encoding standard that needs more information about it.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraEncodingsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraEncodingsV11"
+    class_name: ClassVar[str] = "OrchestraEncodingsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraEncodingsV11
+
+    fixr_encoding: Optional[Union[Union[dict, "OrchestraNamedEncodingV11"], list[Union[dict, "OrchestraNamedEncodingV11"]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_encoding", slot_type=OrchestraNamedEncodingV11, key_name="fixr_standard", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldConstraintsV11Mixin(YAMLRoot):
+    """
+    The limits on a field's value that a field, a use of it or a rule may set: range, length, presence, fixed or
+    default value, character set and a display hint.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldConstraintsV11Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldConstraintsV11Mixin"
+    class_name: ClassVar[str] = "OrchestraFieldConstraintsV11Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldConstraintsV11Mixin
+
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldRefV11(YAMLRoot):
+    """
+    Where a message or block includes a field, by its tag number, with its presence, value limits and any rules.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldRefV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldRefV11"
+    class_name: ClassVar[str] = "OrchestraFieldRefV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldRefV11
+
+    fixr_id: int = None
+    fixr_rule: Optional[Union[Union[dict, "OrchestraFieldRuleV11"], list[Union[dict, "OrchestraFieldRuleV11"]]]] = empty_list()
+    fixr_assign: Optional[str] = None
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_length_id: Optional[int] = None
+    fixr_non_encoded_field_id: Optional[int] = None
+    fixr_instance_name: Optional[str] = None
+    fixr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraFieldRuleV11, key_name="fixr_when", keyed=False)
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_length_id is not None and not isinstance(self.fixr_length_id, int):
+            self.fixr_length_id = int(self.fixr_length_id)
+
+        if self.fixr_non_encoded_field_id is not None and not isinstance(self.fixr_non_encoded_field_id, int):
+            self.fixr_non_encoded_field_id = int(self.fixr_non_encoded_field_id)
+
+        if self.fixr_instance_name is not None and not isinstance(self.fixr_instance_name, str):
+            self.fixr_instance_name = str(self.fixr_instance_name)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldRuleV11(YAMLRoot):
+    """
+    A condition that changes a field's presence, datatype or limits, or a check its value must pass.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldRuleV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldRuleV11"
+    class_name: ClassVar[str] = "OrchestraFieldRuleV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldRuleV11
+
+    fixr_when: str = None
+    fixr_unique: Optional[Union[dict, "OrchestraUniqueV11"]] = None
+    fixr_assign: Optional[Union[str, list[str]]] = empty_list()
+    fixr_name: Optional[str] = None
+    fixr_type: Optional[str] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_when):
+            self.MissingRequiredField("fixr_when")
+        if not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_unique is not None and not isinstance(self.fixr_unique, OrchestraUniqueV11):
+            self.fixr_unique = OrchestraUniqueV11(**as_dict(self.fixr_unique))
+
+        if not isinstance(self.fixr_assign, list):
+            self.fixr_assign = [self.fixr_assign] if self.fixr_assign is not None else []
+        self.fixr_assign = [v if isinstance(v, str) else str(v) for v in self.fixr_assign]
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_type is not None and not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldV11(YAMLRoot):
+    """
+    A FIX field: its tag number, its name, its datatype or its code set, and the limits on its value.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldV11"
+    class_name: ClassVar[str] = "OrchestraFieldV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldV11
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_rule: Optional[Union[Union[dict, OrchestraFieldRuleV11], list[Union[dict, OrchestraFieldRuleV11]]]] = empty_list()
+    fixr_assign: Optional[str] = None
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_type: Optional[str] = None
+    fixr_code_set: Optional[str] = None
+    fixr_length_id: Optional[int] = None
+    fixr_non_encoded_field_id: Optional[int] = None
+    fixr_discriminator_id: Optional[int] = None
+    fixr_base_category: Optional[str] = None
+    fixr_base_category_abbr_name: Optional[str] = None
+    fixr_union_data_type: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+    fixr_impl_length: Optional[int] = None
+    fixr_impl_min_length: Optional[int] = None
+    fixr_impl_max_length: Optional[int] = None
+    fixr_presence: Optional[Union[str, "OrchestraPresence"]] = 'optional'
+    fixr_encoding: Optional[str] = None
+    fixr_value: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_rule", slot_type=OrchestraFieldRuleV11, key_name="fixr_when", keyed=False)
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, str):
+            self.fixr_assign = str(self.fixr_assign)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_type is not None and not isinstance(self.fixr_type, str):
+            self.fixr_type = str(self.fixr_type)
+
+        if self.fixr_code_set is not None and not isinstance(self.fixr_code_set, str):
+            self.fixr_code_set = str(self.fixr_code_set)
+
+        if self.fixr_length_id is not None and not isinstance(self.fixr_length_id, int):
+            self.fixr_length_id = int(self.fixr_length_id)
+
+        if self.fixr_non_encoded_field_id is not None and not isinstance(self.fixr_non_encoded_field_id, int):
+            self.fixr_non_encoded_field_id = int(self.fixr_non_encoded_field_id)
+
+        if self.fixr_discriminator_id is not None and not isinstance(self.fixr_discriminator_id, int):
+            self.fixr_discriminator_id = int(self.fixr_discriminator_id)
+
+        if self.fixr_base_category is not None and not isinstance(self.fixr_base_category, str):
+            self.fixr_base_category = str(self.fixr_base_category)
+
+        if self.fixr_base_category_abbr_name is not None and not isinstance(self.fixr_base_category_abbr_name, str):
+            self.fixr_base_category_abbr_name = str(self.fixr_base_category_abbr_name)
+
+        if self.fixr_union_data_type is not None and not isinstance(self.fixr_union_data_type, str):
+            self.fixr_union_data_type = str(self.fixr_union_data_type)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        if self.fixr_impl_length is not None and not isinstance(self.fixr_impl_length, int):
+            self.fixr_impl_length = int(self.fixr_impl_length)
+
+        if self.fixr_impl_min_length is not None and not isinstance(self.fixr_impl_min_length, int):
+            self.fixr_impl_min_length = int(self.fixr_impl_min_length)
+
+        if self.fixr_impl_max_length is not None and not isinstance(self.fixr_impl_max_length, int):
+            self.fixr_impl_max_length = int(self.fixr_impl_max_length)
+
+        if self.fixr_presence is not None and not isinstance(self.fixr_presence, OrchestraPresence):
+            self.fixr_presence = OrchestraPresence(self.fixr_presence)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, str):
+            self.fixr_encoding = str(self.fixr_encoding)
+
+        if self.fixr_value is not None and not isinstance(self.fixr_value, str):
+            self.fixr_value = str(self.fixr_value)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFieldsV11(YAMLRoot):
+    """
+    The fields a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFieldsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFieldsV11"
+    class_name: ClassVar[str] = "OrchestraFieldsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFieldsV11
+
+    fixr_field: Optional[Union[Union[dict, OrchestraFieldV11], list[Union[dict, OrchestraFieldV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_field", slot_type=OrchestraFieldV11, key_name="fixr_id", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraFlowV11(YAMLRoot):
+    """
+    Messages that travel one way, from a sending actor to a receiving one, with their delivery guarantee.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraFlowV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraFlowV11"
+    class_name: ClassVar[str] = "OrchestraFlowV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraFlowV11
+
+    fixr_name: str = None
+    fixr_source: str = None
+    fixr_destination: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_reliability: Optional[Union[str, "OrchestraReliability"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_source):
+            self.MissingRequiredField("fixr_source")
+        if not isinstance(self.fixr_source, str):
+            self.fixr_source = str(self.fixr_source)
+
+        if self._is_empty(self.fixr_destination):
+            self.MissingRequiredField("fixr_destination")
+        if not isinstance(self.fixr_destination, str):
+            self.fixr_destination = str(self.fixr_destination)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_reliability is not None and not isinstance(self.fixr_reliability, OrchestraReliability):
+            self.fixr_reliability = OrchestraReliability(self.fixr_reliability)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupRefV11(OrchestraComponentRefV11):
+    """
+    Where a message or block includes a repeating group, by its number, with how many entries it may hold.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupRefV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupRefV11"
+    class_name: ClassVar[str] = "OrchestraGroupRefV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupRefV11
+
+    fixr_id: int = None
+    fixr_impl_min_occurs: Optional[int] = None
+    fixr_impl_max_occurs: Optional[str] = "unbounded"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupV11(YAMLRoot):
+    """
+    A block whose entries repeat, each with the same fields, groups and components, and whose count a NumInGroup field
+    carries.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupV11"
+    class_name: ClassVar[str] = "OrchestraGroupV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupV11
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_num_in_group: Optional[Union[dict, OrchestraFieldRefV11]] = None
+    fixr_members: Optional[Union[Union[dict, "OrchestraStructureMemberV11"], list[Union[dict, "OrchestraStructureMemberV11"]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_category: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+    fixr_impl_min_occurs: Optional[int] = None
+    fixr_impl_max_occurs: Optional[str] = None
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_scenario_ref_id: Optional[int] = None
+    fixr_scenario_ref: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_num_in_group is not None and not isinstance(self.fixr_num_in_group, OrchestraFieldRefV11):
+            self.fixr_num_in_group = OrchestraFieldRefV11(**as_dict(self.fixr_num_in_group))
+
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV11) else OrchestraStructureMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_scenario_ref_id is not None and not isinstance(self.fixr_scenario_ref_id, int):
+            self.fixr_scenario_ref_id = int(self.fixr_scenario_ref_id)
+
+        if self.fixr_scenario_ref is not None and not isinstance(self.fixr_scenario_ref, str):
+            self.fixr_scenario_ref = str(self.fixr_scenario_ref)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraGroupsV11(YAMLRoot):
+    """
+    The repeating groups a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraGroupsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraGroupsV11"
+    class_name: ClassVar[str] = "OrchestraGroupsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraGroupsV11
+
+    fixr_group: Optional[Union[Union[dict, OrchestraGroupV11], list[Union[dict, OrchestraGroupV11]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_group", slot_type=OrchestraGroupV11, key_name="fixr_id", keyed=False)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifierV11(YAMLRoot):
+    """
+    A field that a message sent by an action sets, or carries over from the message received, by tag number.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifierV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifierV11"
+    class_name: ClassVar[str] = "OrchestraIdentifierV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifierV11
+
+    fixr_id: int = None
+    fixr_name: Optional[str] = None
+    fixr_source_id: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_source_id is not None and not isinstance(self.fixr_source_id, int):
+            self.fixr_source_id = int(self.fixr_source_id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifiersMemberV11(YAMLRoot):
+    """
+    One entry of a message's identifiers, a field carried over or a field set. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifiersMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifiersMemberV11"
+    class_name: ClassVar[str] = "OrchestraIdentifiersMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifiersMemberV11
+
+    fixr_correlate: Optional[Union[dict, OrchestraIdentifierV11]] = None
+    fixr_assign: Optional[Union[dict, OrchestraIdentifierV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_correlate is not None and not isinstance(self.fixr_correlate, OrchestraIdentifierV11):
+            self.fixr_correlate = OrchestraIdentifierV11(**as_dict(self.fixr_correlate))
+
+        if self.fixr_assign is not None and not isinstance(self.fixr_assign, OrchestraIdentifierV11):
+            self.fixr_assign = OrchestraIdentifierV11(**as_dict(self.fixr_assign))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentifiersV11(YAMLRoot):
+    """
+    The fields a message sent by an action sets or carries over.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentifiersV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentifiersV11"
+    class_name: ClassVar[str] = "OrchestraIdentifiersV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentifiersV11
+
+    fixr_members: Union[Union[dict, OrchestraIdentifiersMemberV11], list[Union[dict, OrchestraIdentifiersMemberV11]]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_members):
+            self.MissingRequiredField("fixr_members")
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraIdentifiersMemberV11) else OrchestraIdentifiersMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraIdentityV11Mixin(YAMLRoot):
+    """
+    The keys of a defined element, its number, name, short name and scenario.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraIdentityV11Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraIdentityV11Mixin"
+    class_name: ClassVar[str] = "OrchestraIdentityV11Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraIdentityV11Mixin
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAnnotationMemberV11(YAMLRoot):
+    """
+    One part of an annotation in an interfaces file, a text or a hint for software. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAnnotationMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAnnotationMemberV11"
+    class_name: ClassVar[str] = "OrchestraInterfaceAnnotationMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAnnotationMemberV11
+
+    fixi_documentation: Optional[Union[dict, "OrchestraInterfaceDocumentationV11"]] = None
+    fixi_appinfo: Optional[Union[dict, "OrchestraInterfaceAppinfoV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_documentation is not None and not isinstance(self.fixi_documentation, OrchestraInterfaceDocumentationV11):
+            self.fixi_documentation = OrchestraInterfaceDocumentationV11(**as_dict(self.fixi_documentation))
+
+        if self.fixi_appinfo is not None and not isinstance(self.fixi_appinfo, OrchestraInterfaceAppinfoV11):
+            self.fixi_appinfo = OrchestraInterfaceAppinfoV11(**as_dict(self.fixi_appinfo))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAnnotationV11(YAMLRoot):
+    """
+    Notes for readers and hints for software, attached to an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAnnotationV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAnnotationV11"
+    class_name: ClassVar[str] = "OrchestraInterfaceAnnotationV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAnnotationV11
+
+    fixi_members: Union[Union[dict, OrchestraInterfaceAnnotationMemberV11], list[Union[dict, OrchestraInterfaceAnnotationMemberV11]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_members):
+            self.MissingRequiredField("fixi_members")
+        if not isinstance(self.fixi_members, list):
+            self.fixi_members = [self.fixi_members] if self.fixi_members is not None else []
+        self.fixi_members = [v if isinstance(v, OrchestraInterfaceAnnotationMemberV11) else OrchestraInterfaceAnnotationMemberV11(**as_dict(v)) for v in self.fixi_members]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceAppinfoV11(YAMLRoot):
+    """
+    A hint for a particular tool on an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceAppinfoV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceAppinfoV11"
+    class_name: ClassVar[str] = "OrchestraInterfaceAppinfoV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceAppinfoV11
+
+    fixi_text: Optional[str] = None
+    fixi_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixi_spec_url: Optional[Union[str, URI]] = None
+    fixi_lang_id: Optional[str] = None
+    fixi_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        self._normalize_inlined_as_list(slot_name="fixi_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixi_spec_url is not None and not isinstance(self.fixi_spec_url, URI):
+            self.fixi_spec_url = URI(self.fixi_spec_url)
+
+        if self.fixi_lang_id is not None and not isinstance(self.fixi_lang_id, str):
+            self.fixi_lang_id = str(self.fixi_lang_id)
+
+        if self.fixi_purpose is not None and not isinstance(self.fixi_purpose, (OrchestraPurpose, str)):
+            value = self.fixi_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixi_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixi_purpose")
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceDocumentationV11(YAMLRoot):
+    """
+    Text about an element of an interfaces file.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceDocumentationV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceDocumentationV11"
+    class_name: ClassVar[str] = "OrchestraInterfaceDocumentationV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceDocumentationV11
+
+    fixi_text: Optional[str] = None
+    fixi_any: Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]] = empty_list()
+    fixi_lang_id: Optional[str] = None
+    fixi_purpose: Optional[Union[str, "OrchestraPurpose"]] = None
+    fixi_content_type: Optional[str] = "text/plain"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        self._normalize_inlined_as_list(slot_name="fixi_any", slot_type=OrchestraXmlElement, key_name="xml_name", keyed=False)
+
+        if self.fixi_lang_id is not None and not isinstance(self.fixi_lang_id, str):
+            self.fixi_lang_id = str(self.fixi_lang_id)
+
+        if self.fixi_purpose is not None and not isinstance(self.fixi_purpose, (OrchestraPurpose, str)):
+            value = self.fixi_purpose
+            for _coerce in (lambda: OrchestraPurpose(value), lambda: str(value)):
+                try:
+                    self.fixi_purpose = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraPurpose, str] could be constructed from {value!r} for slot fixi_purpose")
+
+        if self.fixi_content_type is not None and not isinstance(self.fixi_content_type, str):
+            self.fixi_content_type = str(self.fixi_content_type)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfaceV11(OrchestraBaseInterfaceV11):
+    """
+    A named service offering and the sessions it carries, with the protocols on each layer.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfaceV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfaceV11"
+    class_name: ClassVar[str] = "OrchestraInterfaceV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfaceV11
+
+    fixi_name: str = None
+    fixi_sessions: Optional[Union[dict, "OrchestraSessionsV11"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_sessions is not None and not isinstance(self.fixi_sessions, OrchestraSessionsV11):
+            self.fixi_sessions = OrchestraSessionsV11(**as_dict(self.fixi_sessions))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraInterfacesV11(YAMLRoot):
+    """
+    A description of the services and sessions a party offers and how to reach them, headed by its Dublin Core
+    metadata.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraInterfacesV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraInterfacesV11"
+    class_name: ClassVar[str] = "OrchestraInterfacesV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraInterfacesV11
+
+    fixi_metadata: Union[dict, OrchestraMetadata] = None
+    fixi_interface: Optional[Union[Union[dict, OrchestraInterfaceV11], list[Union[dict, OrchestraInterfaceV11]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_metadata):
+            self.MissingRequiredField("fixi_metadata")
+        if not isinstance(self.fixi_metadata, OrchestraMetadata):
+            self.fixi_metadata = OrchestraMetadata(**as_dict(self.fixi_metadata))
+
+        self._normalize_inlined_as_list(slot_name="fixi_interface", slot_type=OrchestraInterfaceV11, key_name="fixi_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMappedDatatypeV11(YAMLRoot):
+    """
+    How a FIX datatype is written in another standard, such as XML Schema or protocol buffers.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMappedDatatypeV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMappedDatatypeV11"
+    class_name: ClassVar[str] = "OrchestraMappedDatatypeV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMappedDatatypeV11
+
+    fixr_standard: str = None
+    fixr_encoding: Optional[Union[dict, "OrchestraUnnamedEncodingV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_builtin: Optional[Union[bool, Bool]] = None
+    fixr_base: Optional[str] = None
+    fixr_pattern: Optional[str] = None
+    fixr_element: Optional[str] = None
+    fixr_size: Optional[int] = None
+    fixr_parameter: Optional[str] = None
+    fixr_min_inclusive: Optional[str] = None
+    fixr_max_inclusive: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_standard):
+            self.MissingRequiredField("fixr_standard")
+        if not isinstance(self.fixr_standard, str):
+            self.fixr_standard = str(self.fixr_standard)
+
+        if self.fixr_encoding is not None and not isinstance(self.fixr_encoding, OrchestraUnnamedEncodingV11):
+            self.fixr_encoding = OrchestraUnnamedEncodingV11(**as_dict(self.fixr_encoding))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_builtin is not None and not isinstance(self.fixr_builtin, Bool):
+            self.fixr_builtin = Bool(self.fixr_builtin)
+
+        if self.fixr_base is not None and not isinstance(self.fixr_base, str):
+            self.fixr_base = str(self.fixr_base)
+
+        if self.fixr_pattern is not None and not isinstance(self.fixr_pattern, str):
+            self.fixr_pattern = str(self.fixr_pattern)
+
+        if self.fixr_element is not None and not isinstance(self.fixr_element, str):
+            self.fixr_element = str(self.fixr_element)
+
+        if self.fixr_size is not None and not isinstance(self.fixr_size, int):
+            self.fixr_size = int(self.fixr_size)
+
+        if self.fixr_parameter is not None and not isinstance(self.fixr_parameter, str):
+            self.fixr_parameter = str(self.fixr_parameter)
+
+        if self.fixr_min_inclusive is not None and not isinstance(self.fixr_min_inclusive, str):
+            self.fixr_min_inclusive = str(self.fixr_min_inclusive)
+
+        if self.fixr_max_inclusive is not None and not isinstance(self.fixr_max_inclusive, str):
+            self.fixr_max_inclusive = str(self.fixr_max_inclusive)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageRefV11(YAMLRoot):
+    """
+    A message an action sends, by its number and type code, with the fields it sets or carries over.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageRefV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageRefV11"
+    class_name: ClassVar[str] = "OrchestraMessageRefV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageRefV11
+
+    fixr_id: int = None
+    fixr_identifiers: Optional[Union[dict, OrchestraIdentifiersV11]] = None
+    fixr_msg_type: Optional[str] = None
+    fixr_impl_min_occurs: Optional[int] = 1
+    fixr_impl_max_occurs: Optional[str] = "unbounded"
+    fixr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_identifiers is not None and not isinstance(self.fixr_identifiers, OrchestraIdentifiersV11):
+            self.fixr_identifiers = OrchestraIdentifiersV11(**as_dict(self.fixr_identifiers))
+
+        if self.fixr_msg_type is not None and not isinstance(self.fixr_msg_type, str):
+            self.fixr_msg_type = str(self.fixr_msg_type)
+
+        if self.fixr_impl_min_occurs is not None and not isinstance(self.fixr_impl_min_occurs, int):
+            self.fixr_impl_min_occurs = int(self.fixr_impl_min_occurs)
+
+        if self.fixr_impl_max_occurs is not None and not isinstance(self.fixr_impl_max_occurs, str):
+            self.fixr_impl_max_occurs = str(self.fixr_impl_max_occurs)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageStructureV11(YAMLRoot):
+    """
+    The ordered fields, groups and components of a message.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageStructureV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageStructureV11"
+    class_name: ClassVar[str] = "OrchestraMessageStructureV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageStructureV11
+
+    fixr_members: Optional[Union[Union[dict, "OrchestraStructureMemberV11"], list[Union[dict, "OrchestraStructureMemberV11"]]]] = empty_list()
+    fixr_which: Optional[Union[str, "OrchestraMemberSelection"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.fixr_members, list):
+            self.fixr_members = [self.fixr_members] if self.fixr_members is not None else []
+        self.fixr_members = [v if isinstance(v, OrchestraStructureMemberV11) else OrchestraStructureMemberV11(**as_dict(v)) for v in self.fixr_members]
+
+        if self.fixr_which is not None and not isinstance(self.fixr_which, OrchestraMemberSelection):
+            self.fixr_which = OrchestraMemberSelection(self.fixr_which)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessageV11(YAMLRoot):
+    """
+    A FIX message: its type code, the fields, groups and components it carries in order, and the responses it can
+    cause.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessageV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessageV11"
+    class_name: ClassVar[str] = "OrchestraMessageV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessageV11
+
+    fixr_id: int = None
+    fixr_name: str = None
+    fixr_structure: Optional[Union[dict, OrchestraMessageStructureV11]] = None
+    fixr_when: Optional[str] = None
+    fixr_responses: Optional[Union[dict, "OrchestraResponsesV11"]] = None
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_msg_type: Optional[str] = None
+    fixr_category: Optional[str] = None
+    fixr_flow: Optional[str] = None
+    fixr_rendering: Optional[str] = None
+    fixr_abbr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+    fixr_scenario_ref_id: Optional[int] = None
+    fixr_scenario_ref: Optional[str] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_structure is not None and not isinstance(self.fixr_structure, OrchestraMessageStructureV11):
+            self.fixr_structure = OrchestraMessageStructureV11(**as_dict(self.fixr_structure))
+
+        if self.fixr_when is not None and not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_responses is not None and not isinstance(self.fixr_responses, OrchestraResponsesV11):
+            self.fixr_responses = OrchestraResponsesV11(**as_dict(self.fixr_responses))
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_msg_type is not None and not isinstance(self.fixr_msg_type, str):
+            self.fixr_msg_type = str(self.fixr_msg_type)
+
+        if self.fixr_category is not None and not isinstance(self.fixr_category, str):
+            self.fixr_category = str(self.fixr_category)
+
+        if self.fixr_flow is not None and not isinstance(self.fixr_flow, str):
+            self.fixr_flow = str(self.fixr_flow)
+
+        if self.fixr_rendering is not None and not isinstance(self.fixr_rendering, str):
+            self.fixr_rendering = str(self.fixr_rendering)
+
+        if self.fixr_abbr_name is not None and not isinstance(self.fixr_abbr_name, str):
+            self.fixr_abbr_name = str(self.fixr_abbr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        if self.fixr_scenario_ref_id is not None and not isinstance(self.fixr_scenario_ref_id, int):
+            self.fixr_scenario_ref_id = int(self.fixr_scenario_ref_id)
+
+        if self.fixr_scenario_ref is not None and not isinstance(self.fixr_scenario_ref, str):
+            self.fixr_scenario_ref = str(self.fixr_scenario_ref)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraMessagesV11(YAMLRoot):
+    """
+    The messages a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraMessagesV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraMessagesV11"
+    class_name: ClassVar[str] = "OrchestraMessagesV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraMessagesV11
+
+    fixr_message: Optional[Union[Union[dict, OrchestraMessageV11], list[Union[dict, OrchestraMessageV11]]]] = empty_list()
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_message", slot_type=OrchestraMessageV11, key_name="fixr_id", keyed=False)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraNamedEncodingV11(OrchestraBaseEncodingV11):
+    """
+    An encoding block that names the encoding standard it is for.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraNamedEncodingV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraNamedEncodingV11"
+    class_name: ClassVar[str] = "OrchestraNamedEncodingV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraNamedEncodingV11
+
+    fixr_standard: str = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_standard):
+            self.MissingRequiredField("fixr_standard")
+        if not isinstance(self.fixr_standard, str):
+            self.fixr_standard = str(self.fixr_standard)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraPedigreeV11Mixin(YAMLRoot):
+    """
+    When an element was added, changed, deprecated or replaced, by FIX version and extension pack, and whether it is
+    supported.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraPedigreeV11Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraPedigreeV11Mixin"
+    class_name: ClassVar[str] = "OrchestraPedigreeV11Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraPedigreeV11Mixin
+
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraProtocolV11(YAMLRoot):
+    """
+    A protocol used on one layer of an interface or session, with its version, layer and delivery guarantee.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraProtocolV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraProtocolV11"
+    class_name: ClassVar[str] = "OrchestraProtocolV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraProtocolV11
+
+    fixi_annotation: Optional[Union[dict, OrchestraInterfaceAnnotationV11]] = None
+    fixi_name: Optional[Union[str, "OrchestraProtocolName"]] = None
+    fixi_version: Optional[str] = None
+    fixi_activation_time: Optional[str] = None
+    fixi_deactivation_time: Optional[str] = None
+    fixi_deprecated: Optional[str] = None
+    fixi_layer: Optional[Union[str, "OrchestraLayer"]] = None
+    fixi_reliability: Optional[Union[str, "OrchestraReliability"]] = None
+    fixi_orchestration: Optional[Union[str, URI]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_annotation is not None and not isinstance(self.fixi_annotation, OrchestraInterfaceAnnotationV11):
+            self.fixi_annotation = OrchestraInterfaceAnnotationV11(**as_dict(self.fixi_annotation))
+
+        if self.fixi_name is not None and not isinstance(self.fixi_name, (OrchestraProtocolName, str)):
+            value = self.fixi_name
+            for _coerce in (lambda: OrchestraProtocolName(value), lambda: str(value)):
+                try:
+                    self.fixi_name = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraProtocolName, str] could be constructed from {value!r} for slot fixi_name")
+
+        if self.fixi_version is not None and not isinstance(self.fixi_version, str):
+            self.fixi_version = str(self.fixi_version)
+
+        if self.fixi_activation_time is not None and not isinstance(self.fixi_activation_time, str):
+            self.fixi_activation_time = str(self.fixi_activation_time)
+
+        if self.fixi_deactivation_time is not None and not isinstance(self.fixi_deactivation_time, str):
+            self.fixi_deactivation_time = str(self.fixi_deactivation_time)
+
+        if self.fixi_deprecated is not None and not isinstance(self.fixi_deprecated, str):
+            self.fixi_deprecated = str(self.fixi_deprecated)
+
+        if self.fixi_layer is not None and not isinstance(self.fixi_layer, OrchestraLayer):
+            self.fixi_layer = OrchestraLayer(self.fixi_layer)
+
+        if self.fixi_reliability is not None and not isinstance(self.fixi_reliability, OrchestraReliability):
+            self.fixi_reliability = OrchestraReliability(self.fixi_reliability)
+
+        if self.fixi_orchestration is not None and not isinstance(self.fixi_orchestration, URI):
+            self.fixi_orchestration = URI(self.fixi_orchestration)
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraEncodingV11(OrchestraProtocolV11):
+    """
+    An encoding used on an interface or session, such as tag=value, FIXML or SBE.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraEncodingV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraEncodingV11"
+    class_name: ClassVar[str] = "OrchestraEncodingV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraEncodingV11
+
+
+@dataclass(repr=False)
+class OrchestraReferenceV11Mixin(YAMLRoot):
+    """
+    The keys by which a use points at a defined element: its number, its scenario and, as a convenience, its name.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraReferenceV11Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraReferenceV11Mixin"
+    class_name: ClassVar[str] = "OrchestraReferenceV11Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraReferenceV11Mixin
+
+    fixr_id: int = None
+    fixr_name: Optional[str] = None
+    fixr_scenario: Optional[str] = "base"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_id):
+            self.MissingRequiredField("fixr_id")
+        if not isinstance(self.fixr_id, int):
+            self.fixr_id = int(self.fixr_id)
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_scenario is not None and not isinstance(self.fixr_scenario, str):
+            self.fixr_scenario = str(self.fixr_scenario)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraRepositoryV11(YAMLRoot):
+    """
+    A machine-readable set of rules of engagement: the datatypes, code sets, fields, components, groups and messages
+    it defines, and the actors and workflows that use them.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraRepositoryV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraRepositoryV11"
+    class_name: ClassVar[str] = "OrchestraRepositoryV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraRepositoryV11
+
+    fixr_metadata: Union[dict, OrchestraMetadata] = None
+    fixr_name: str = None
+    fixr_version: str = None
+    fixr_categories: Optional[Union[dict, OrchestraCategoriesV11]] = None
+    fixr_sections: Optional[Union[dict, "OrchestraSectionsV11"]] = None
+    fixr_encoding_standards: Optional[Union[dict, OrchestraEncodingStandardsV11]] = None
+    fixr_datatypes: Optional[Union[dict, OrchestraDatatypesV11]] = None
+    fixr_code_sets: Optional[Union[dict, OrchestraCodeSetsV11]] = None
+    fixr_fields: Optional[Union[dict, OrchestraFieldsV11]] = None
+    fixr_actors: Optional[Union[dict, OrchestraActorsV11]] = None
+    fixr_components: Optional[Union[dict, OrchestraComponentsV11]] = None
+    fixr_groups: Optional[Union[dict, OrchestraGroupsV11]] = None
+    fixr_messages: Optional[Union[dict, OrchestraMessagesV11]] = None
+    fixr_concepts: Optional[Union[dict, OrchestraConceptsV11]] = None
+    fixr_scenarios: Optional[Union[dict, "OrchestraScenariosV11"]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_guid: Optional[str] = None
+    fixr_spec_url: Optional[Union[str, URI]] = None
+    fixr_namespace: Optional[Union[str, URI]] = None
+    fixr_expression_language: Optional[str] = "Score"
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_metadata):
+            self.MissingRequiredField("fixr_metadata")
+        if not isinstance(self.fixr_metadata, OrchestraMetadata):
+            self.fixr_metadata = OrchestraMetadata(**as_dict(self.fixr_metadata))
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_version):
+            self.MissingRequiredField("fixr_version")
+        if not isinstance(self.fixr_version, str):
+            self.fixr_version = str(self.fixr_version)
+
+        if self.fixr_categories is not None and not isinstance(self.fixr_categories, OrchestraCategoriesV11):
+            self.fixr_categories = OrchestraCategoriesV11(**as_dict(self.fixr_categories))
+
+        if self.fixr_sections is not None and not isinstance(self.fixr_sections, OrchestraSectionsV11):
+            self.fixr_sections = OrchestraSectionsV11(**as_dict(self.fixr_sections))
+
+        if self.fixr_encoding_standards is not None and not isinstance(self.fixr_encoding_standards, OrchestraEncodingStandardsV11):
+            self.fixr_encoding_standards = OrchestraEncodingStandardsV11(**as_dict(self.fixr_encoding_standards))
+
+        if self.fixr_datatypes is not None and not isinstance(self.fixr_datatypes, OrchestraDatatypesV11):
+            self.fixr_datatypes = OrchestraDatatypesV11(**as_dict(self.fixr_datatypes))
+
+        if self.fixr_code_sets is not None and not isinstance(self.fixr_code_sets, OrchestraCodeSetsV11):
+            self.fixr_code_sets = OrchestraCodeSetsV11(**as_dict(self.fixr_code_sets))
+
+        if self.fixr_fields is not None and not isinstance(self.fixr_fields, OrchestraFieldsV11):
+            self.fixr_fields = OrchestraFieldsV11(**as_dict(self.fixr_fields))
+
+        if self.fixr_actors is not None and not isinstance(self.fixr_actors, OrchestraActorsV11):
+            self.fixr_actors = OrchestraActorsV11(**as_dict(self.fixr_actors))
+
+        if self.fixr_components is not None and not isinstance(self.fixr_components, OrchestraComponentsV11):
+            self.fixr_components = OrchestraComponentsV11(**as_dict(self.fixr_components))
+
+        if self.fixr_groups is not None and not isinstance(self.fixr_groups, OrchestraGroupsV11):
+            self.fixr_groups = OrchestraGroupsV11(**as_dict(self.fixr_groups))
+
+        if self.fixr_messages is not None and not isinstance(self.fixr_messages, OrchestraMessagesV11):
+            self.fixr_messages = OrchestraMessagesV11(**as_dict(self.fixr_messages))
+
+        if self.fixr_concepts is not None and not isinstance(self.fixr_concepts, OrchestraConceptsV11):
+            self.fixr_concepts = OrchestraConceptsV11(**as_dict(self.fixr_concepts))
+
+        if self.fixr_scenarios is not None and not isinstance(self.fixr_scenarios, OrchestraScenariosV11):
+            self.fixr_scenarios = OrchestraScenariosV11(**as_dict(self.fixr_scenarios))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_guid is not None and not isinstance(self.fixr_guid, str):
+            self.fixr_guid = str(self.fixr_guid)
+
+        if self.fixr_spec_url is not None and not isinstance(self.fixr_spec_url, URI):
+            self.fixr_spec_url = URI(self.fixr_spec_url)
+
+        if self.fixr_namespace is not None and not isinstance(self.fixr_namespace, URI):
+            self.fixr_namespace = URI(self.fixr_namespace)
+
+        if self.fixr_expression_language is not None and not isinstance(self.fixr_expression_language, str):
+            self.fixr_expression_language = str(self.fixr_expression_language)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraResponseV11(OrchestraActionV11):
+    """
+    What happens when a message arrives, under an optional condition: messages sent, values set, transitions fired and
+    timers scheduled.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraResponseV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraResponseV11"
+    class_name: ClassVar[str] = "OrchestraResponseV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraResponseV11
+
+    fixr_actions: Union[Union[dict, OrchestraActionStepV11], list[Union[dict, OrchestraActionStepV11]]] = None
+    fixr_when: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_name: Optional[str] = None
+    fixr_sync: Optional[Union[str, "OrchestraSynchronization"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_when is not None and not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_sync is not None and not isinstance(self.fixr_sync, OrchestraSynchronization):
+            self.fixr_sync = OrchestraSynchronization(self.fixr_sync)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraResponsesV11(YAMLRoot):
+    """
+    The responses a message can cause, tried one after another as given.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraResponsesV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraResponsesV11"
+    class_name: ClassVar[str] = "OrchestraResponsesV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraResponsesV11
+
+    fixr_response: Union[Union[dict, OrchestraResponseV11], list[Union[dict, OrchestraResponseV11]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_response):
+            self.MissingRequiredField("fixr_response")
+        if not isinstance(self.fixr_response, list):
+            self.fixr_response = [self.fixr_response] if self.fixr_response is not None else []
+        self.fixr_response = [v if isinstance(v, OrchestraResponseV11) else OrchestraResponseV11(**as_dict(v)) for v in self.fixr_response]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraScenarioReferenceV11Mixin(YAMLRoot):
+    """
+    A pointer from an element to the scenario it belongs to, by number and, if wanted, name.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraScenarioReferenceV11Mixin"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraScenarioReferenceV11Mixin"
+    class_name: ClassVar[str] = "OrchestraScenarioReferenceV11Mixin"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraScenarioReferenceV11Mixin
+
+    fixr_scenario_ref_id: Optional[int] = None
+    fixr_scenario_ref: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_scenario_ref_id is not None and not isinstance(self.fixr_scenario_ref_id, int):
+            self.fixr_scenario_ref_id = int(self.fixr_scenario_ref_id)
+
+        if self.fixr_scenario_ref is not None and not isinstance(self.fixr_scenario_ref, str):
+            self.fixr_scenario_ref = str(self.fixr_scenario_ref)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraScenarioV11(YAMLRoot):
+    """
+    A named variant of elements for one use case, such as a workflow or an asset class.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraScenarioV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraScenarioV11"
+    class_name: ClassVar[str] = "OrchestraScenarioV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraScenarioV11
+
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_name: Optional[str] = "base"
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_name is not None and not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraScenariosV11(YAMLRoot):
+    """
+    The scenarios a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraScenariosV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraScenariosV11"
+    class_name: ClassVar[str] = "OrchestraScenariosV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraScenariosV11
+
+    fixr_scenario: Optional[Union[Union[dict, OrchestraScenarioV11], list[Union[dict, OrchestraScenarioV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.fixr_scenario, list):
+            self.fixr_scenario = [self.fixr_scenario] if self.fixr_scenario is not None else []
+        self.fixr_scenario = [v if isinstance(v, OrchestraScenarioV11) else OrchestraScenarioV11(**as_dict(v)) for v in self.fixr_scenario]
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSectionV11(YAMLRoot):
+    """
+    A broad business area, such as pre-trade or post-trade, that categories fall under.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSectionV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSectionV11"
+    class_name: ClassVar[str] = "OrchestraSectionV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSectionV11
+
+    fixr_name: str = None
+    fixr_encodings: Optional[Union[dict, OrchestraEncodingsV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    fixr_display_order: Optional[int] = None
+    fixr_added: Optional[str] = None
+    fixr_added_ep: Optional[int] = None
+    fixr_change_type: Optional[Union[str, "OrchestraChangeKind"]] = None
+    fixr_deprecated: Optional[str] = None
+    fixr_deprecated_ep: Optional[int] = None
+    fixr_issue: Optional[str] = None
+    fixr_last_modified: Optional[str] = None
+    fixr_replaced: Optional[str] = None
+    fixr_replaced_ep: Optional[int] = None
+    fixr_replaced_by_field: Optional[int] = None
+    fixr_supported: Optional[Union[str, "OrchestraSupport"]] = 'supported'
+    fixr_updated: Optional[str] = None
+    fixr_updated_ep: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_encodings is not None and not isinstance(self.fixr_encodings, OrchestraEncodingsV11):
+            self.fixr_encodings = OrchestraEncodingsV11(**as_dict(self.fixr_encodings))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.fixr_display_order is not None and not isinstance(self.fixr_display_order, int):
+            self.fixr_display_order = int(self.fixr_display_order)
+
+        if self.fixr_added is not None and not isinstance(self.fixr_added, str):
+            self.fixr_added = str(self.fixr_added)
+
+        if self.fixr_added_ep is not None and not isinstance(self.fixr_added_ep, int):
+            self.fixr_added_ep = int(self.fixr_added_ep)
+
+        if self.fixr_change_type is not None and not isinstance(self.fixr_change_type, OrchestraChangeKind):
+            self.fixr_change_type = OrchestraChangeKind(self.fixr_change_type)
+
+        if self.fixr_deprecated is not None and not isinstance(self.fixr_deprecated, str):
+            self.fixr_deprecated = str(self.fixr_deprecated)
+
+        if self.fixr_deprecated_ep is not None and not isinstance(self.fixr_deprecated_ep, int):
+            self.fixr_deprecated_ep = int(self.fixr_deprecated_ep)
+
+        if self.fixr_issue is not None and not isinstance(self.fixr_issue, str):
+            self.fixr_issue = str(self.fixr_issue)
+
+        if self.fixr_last_modified is not None and not isinstance(self.fixr_last_modified, str):
+            self.fixr_last_modified = str(self.fixr_last_modified)
+
+        if self.fixr_replaced is not None and not isinstance(self.fixr_replaced, str):
+            self.fixr_replaced = str(self.fixr_replaced)
+
+        if self.fixr_replaced_ep is not None and not isinstance(self.fixr_replaced_ep, int):
+            self.fixr_replaced_ep = int(self.fixr_replaced_ep)
+
+        if self.fixr_replaced_by_field is not None and not isinstance(self.fixr_replaced_by_field, int):
+            self.fixr_replaced_by_field = int(self.fixr_replaced_by_field)
+
+        if self.fixr_supported is not None and not isinstance(self.fixr_supported, OrchestraSupport):
+            self.fixr_supported = OrchestraSupport(self.fixr_supported)
+
+        if self.fixr_updated is not None and not isinstance(self.fixr_updated, str):
+            self.fixr_updated = str(self.fixr_updated)
+
+        if self.fixr_updated_ep is not None and not isinstance(self.fixr_updated_ep, int):
+            self.fixr_updated_ep = int(self.fixr_updated_ep)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSectionsV11(YAMLRoot):
+    """
+    The sections a repository defines.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSectionsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSectionsV11"
+    class_name: ClassVar[str] = "OrchestraSectionsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSectionsV11
+
+    fixr_section: Optional[Union[Union[dict, OrchestraSectionV11], list[Union[dict, OrchestraSectionV11]]]] = empty_list()
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+    xml_base: Optional[Union[str, URI]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_section", slot_type=OrchestraSectionV11, key_name="fixr_name", keyed=False)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        if self.xml_base is not None and not isinstance(self.xml_base, URI):
+            self.xml_base = URI(self.xml_base)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraServiceV11(OrchestraProtocolV11):
+    """
+    An application-level service an interface offers, such as order routing, with the Orchestra repository that sets
+    out its rules.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraServiceV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraServiceV11"
+    class_name: ClassVar[str] = "OrchestraServiceV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraServiceV11
+
+
+@dataclass(repr=False)
+class OrchestraSessionIdentifierV11(YAMLRoot):
+    """
+    A value, with what kind it is, that picks out a session, such as a sender or target ID.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionIdentifierV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionIdentifierV11"
+    class_name: ClassVar[str] = "OrchestraSessionIdentifierV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionIdentifierV11
+
+    fixi_text: Optional[str] = None
+    fixi_name: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_text is not None and not isinstance(self.fixi_text, str):
+            self.fixi_text = str(self.fixi_text)
+
+        if self.fixi_name is not None and not isinstance(self.fixi_name, str):
+            self.fixi_name = str(self.fixi_name)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraSessionProtocolV11(OrchestraProtocolV11):
+    """
+    The session-level protocol of an interface or session, such as FIXT or FIXP.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionProtocolV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionProtocolV11"
+    class_name: ClassVar[str] = "OrchestraSessionProtocolV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionProtocolV11
+
+
+@dataclass(repr=False)
+class OrchestraSessionV11(OrchestraBaseInterfaceV11):
+    """
+    One connection between two parties, with the identifiers, role, activation times and security keys that set it up.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionV11"
+    class_name: ClassVar[str] = "OrchestraSessionV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionV11
+
+    fixi_name: str = None
+    fixi_identifier: Optional[Union[Union[dict, OrchestraSessionIdentifierV11], list[Union[dict, OrchestraSessionIdentifierV11]]]] = empty_list()
+    fixi_role: Optional[Union[str, "OrchestraRole"]] = None
+    fixi_security_keys: Optional[str] = None
+    fixi_activation_time: Optional[str] = None
+    fixi_deactivation_time: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.fixi_identifier, list):
+            self.fixi_identifier = [self.fixi_identifier] if self.fixi_identifier is not None else []
+        self.fixi_identifier = [v if isinstance(v, OrchestraSessionIdentifierV11) else OrchestraSessionIdentifierV11(**as_dict(v)) for v in self.fixi_identifier]
+
+        if self.fixi_role is not None and not isinstance(self.fixi_role, OrchestraRole):
+            self.fixi_role = OrchestraRole(self.fixi_role)
+
+        if self.fixi_security_keys is not None and not isinstance(self.fixi_security_keys, str):
+            self.fixi_security_keys = str(self.fixi_security_keys)
+
+        if self.fixi_activation_time is not None and not isinstance(self.fixi_activation_time, str):
+            self.fixi_activation_time = str(self.fixi_activation_time)
+
+        if self.fixi_deactivation_time is not None and not isinstance(self.fixi_deactivation_time, str):
+            self.fixi_deactivation_time = str(self.fixi_deactivation_time)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraSessionsV11(YAMLRoot):
+    """
+    The sessions an interface carries.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraSessionsV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraSessionsV11"
+    class_name: ClassVar[str] = "OrchestraSessionsV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraSessionsV11
+
+    fixi_session: Union[Union[dict, OrchestraSessionV11], list[Union[dict, OrchestraSessionV11]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixi_session):
+            self.MissingRequiredField("fixi_session")
+        self._normalize_inlined_as_list(slot_name="fixi_session", slot_type=OrchestraSessionV11, key_name="fixi_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStateMachineV11(YAMLRoot):
+    """
+    A named set of states that an actor moves through, from an initial state.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStateMachineV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStateMachineV11"
+    class_name: ClassVar[str] = "OrchestraStateMachineV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStateMachineV11
+
+    fixr_initial: Union[dict, "OrchestraStateV11"] = None
+    fixr_state: Union[Union[dict, "OrchestraStateV11"], list[Union[dict, "OrchestraStateV11"]]] = None
+    fixr_name: str = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_initial):
+            self.MissingRequiredField("fixr_initial")
+        if not isinstance(self.fixr_initial, OrchestraStateV11):
+            self.fixr_initial = OrchestraStateV11(**as_dict(self.fixr_initial))
+
+        if self._is_empty(self.fixr_state):
+            self.MissingRequiredField("fixr_state")
+        self._normalize_inlined_as_list(slot_name="fixr_state", slot_type=OrchestraStateV11, key_name="fixr_name", keyed=False)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStateV11(YAMLRoot):
+    """
+    One of a state machine's states, with the transitions out of it and what happens on entry, while active and on
+    exit.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStateV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStateV11"
+    class_name: ClassVar[str] = "OrchestraStateV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStateV11
+
+    fixr_name: str = None
+    fixr_transition: Optional[Union[Union[dict, "OrchestraTransitionV11"], list[Union[dict, "OrchestraTransitionV11"]]]] = empty_list()
+    fixr_onentry: Optional[Union[dict, OrchestraActionV11]] = None
+    fixr_activity: Optional[Union[dict, OrchestraActionV11]] = None
+    fixr_onexit: Optional[Union[dict, OrchestraActionV11]] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        self._normalize_inlined_as_list(slot_name="fixr_transition", slot_type=OrchestraTransitionV11, key_name="fixr_name", keyed=False)
+
+        if self.fixr_onentry is not None and not isinstance(self.fixr_onentry, OrchestraActionV11):
+            self.fixr_onentry = OrchestraActionV11(**as_dict(self.fixr_onentry))
+
+        if self.fixr_activity is not None and not isinstance(self.fixr_activity, OrchestraActionV11):
+            self.fixr_activity = OrchestraActionV11(**as_dict(self.fixr_activity))
+
+        if self.fixr_onexit is not None and not isinstance(self.fixr_onexit, OrchestraActionV11):
+            self.fixr_onexit = OrchestraActionV11(**as_dict(self.fixr_onexit))
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraStructureMemberV11(YAMLRoot):
+    """
+    One item of an ordered structure, a component, a group or a field, by reference. It holds exactly one of these.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraStructureMemberV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraStructureMemberV11"
+    class_name: ClassVar[str] = "OrchestraStructureMemberV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraStructureMemberV11
+
+    fixr_component_ref: Optional[Union[dict, OrchestraComponentRefV11]] = None
+    fixr_group_ref: Optional[Union[dict, OrchestraGroupRefV11]] = None
+    fixr_field_ref: Optional[Union[dict, OrchestraFieldRefV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixr_component_ref is not None and not isinstance(self.fixr_component_ref, OrchestraComponentRefV11):
+            self.fixr_component_ref = OrchestraComponentRefV11(**as_dict(self.fixr_component_ref))
+
+        if self.fixr_group_ref is not None and not isinstance(self.fixr_group_ref, OrchestraGroupRefV11):
+            self.fixr_group_ref = OrchestraGroupRefV11(**as_dict(self.fixr_group_ref))
+
+        if self.fixr_field_ref is not None and not isinstance(self.fixr_field_ref, OrchestraFieldRefV11):
+            self.fixr_field_ref = OrchestraFieldRefV11(**as_dict(self.fixr_field_ref))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTimerScheduleV11(YAMLRoot):
+    """
+    A step that starts, stops or restarts an actor's timer, with its interval and what to do when it runs out.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTimerScheduleV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTimerScheduleV11"
+    class_name: ClassVar[str] = "OrchestraTimerScheduleV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTimerScheduleV11
+
+    fixr_activity: Union[dict, OrchestraActionV11] = None
+    fixr_actor: str = None
+    fixr_name: str = None
+    fixr_operation: Union[str, "OrchestraTimerOperation"] = None
+    fixr_interval: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_activity):
+            self.MissingRequiredField("fixr_activity")
+        if not isinstance(self.fixr_activity, OrchestraActionV11):
+            self.fixr_activity = OrchestraActionV11(**as_dict(self.fixr_activity))
+
+        if self._is_empty(self.fixr_actor):
+            self.MissingRequiredField("fixr_actor")
+        if not isinstance(self.fixr_actor, str):
+            self.fixr_actor = str(self.fixr_actor)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_operation):
+            self.MissingRequiredField("fixr_operation")
+        if not isinstance(self.fixr_operation, OrchestraTimerOperation):
+            self.fixr_operation = OrchestraTimerOperation(self.fixr_operation)
+
+        if self.fixr_interval is not None and not isinstance(self.fixr_interval, str):
+            self.fixr_interval = str(self.fixr_interval)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTimerV11(YAMLRoot):
+    """
+    A named timer that an actor owns.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTimerV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTimerV11"
+    class_name: ClassVar[str] = "OrchestraTimerV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTimerV11
+
+    fixr_name: str = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTransitionV11(YAMLRoot):
+    """
+    A move from one state to a named target state, with the condition that allows it.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTransitionV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTransitionV11"
+    class_name: ClassVar[str] = "OrchestraTransitionV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTransitionV11
+
+    fixr_name: str = None
+    fixr_target: str = None
+    fixr_when: Optional[str] = None
+    fixr_annotation: Optional[Union[dict, OrchestraAnnotationV11]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        if self._is_empty(self.fixr_target):
+            self.MissingRequiredField("fixr_target")
+        if not isinstance(self.fixr_target, str):
+            self.fixr_target = str(self.fixr_target)
+
+        if self.fixr_when is not None and not isinstance(self.fixr_when, str):
+            self.fixr_when = str(self.fixr_when)
+
+        if self.fixr_annotation is not None and not isinstance(self.fixr_annotation, OrchestraAnnotationV11):
+            self.fixr_annotation = OrchestraAnnotationV11(**as_dict(self.fixr_annotation))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTransportV11(OrchestraProtocolV11):
+    """
+    The transport-level protocol of an interface or session, with its address, how messages are cast and its use.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTransportV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTransportV11"
+    class_name: ClassVar[str] = "OrchestraTransportV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTransportV11
+
+    fixi_address: Optional[str] = None
+    fixi_message_cast: Optional[Union[str, "OrchestraMessageCast"]] = 'unicast'
+    fixi_use: Optional[Union[str, "OrchestraTransportUse"]] = None
+    fixi_other_attributes: Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.fixi_address is not None and not isinstance(self.fixi_address, str):
+            self.fixi_address = str(self.fixi_address)
+
+        if self.fixi_message_cast is not None and not isinstance(self.fixi_message_cast, OrchestraMessageCast):
+            self.fixi_message_cast = OrchestraMessageCast(self.fixi_message_cast)
+
+        if self.fixi_use is not None and not isinstance(self.fixi_use, (OrchestraTransportUse, str)):
+            value = self.fixi_use
+            for _coerce in (lambda: OrchestraTransportUse(value), lambda: str(value)):
+                try:
+                    self.fixi_use = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[OrchestraTransportUse, str] could be constructed from {value!r} for slot fixi_use")
+
+        self._normalize_inlined_as_list(slot_name="fixi_other_attributes", slot_type=OrchestraXmlAttribute, key_name="xml_name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraTriggerV11(YAMLRoot):
+    """
+    A step that fires a named transition of an actor's state machine.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraTriggerV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraTriggerV11"
+    class_name: ClassVar[str] = "OrchestraTriggerV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraTriggerV11
+
+    fixr_state_machine: str = None
+    fixr_actor: str = None
+    fixr_name: str = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.fixr_state_machine):
+            self.MissingRequiredField("fixr_state_machine")
+        if not isinstance(self.fixr_state_machine, str):
+            self.fixr_state_machine = str(self.fixr_state_machine)
+
+        if self._is_empty(self.fixr_actor):
+            self.MissingRequiredField("fixr_actor")
+        if not isinstance(self.fixr_actor, str):
+            self.fixr_actor = str(self.fixr_actor)
+
+        if self._is_empty(self.fixr_name):
+            self.MissingRequiredField("fixr_name")
+        if not isinstance(self.fixr_name, str):
+            self.fixr_name = str(self.fixr_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OrchestraUniqueV11(YAMLRoot):
+    """
+    A check that a field's value is unique among the values that share the other fields it names, or among all values
+    when it names none.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraUniqueV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraUniqueV11"
+    class_name: ClassVar[str] = "OrchestraUniqueV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraUniqueV11
+
+    fixr_field_ref: Optional[Union[Union[dict, OrchestraFieldRefV11], list[Union[dict, OrchestraFieldRefV11]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="fixr_field_ref", slot_type=OrchestraFieldRefV11, key_name="fixr_id", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+class OrchestraUnnamedEncodingV11(OrchestraBaseEncodingV11):
+    """
+    An encoding block whose standard is clear from where it sits, so it names none.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraUnnamedEncodingV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraUnnamedEncodingV11"
+    class_name: ClassVar[str] = "OrchestraUnnamedEncodingV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraUnnamedEncodingV11
+
+
+class OrchestraUserInterfaceV11(OrchestraProtocolV11):
+    """
+    A user interface an interface offers, such as a trading screen, described as a protocol.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = FIX_ORCHESTRA["OrchestraUserInterfaceV11"]
+    class_class_curie: ClassVar[str] = "fix_orchestra:OrchestraUserInterfaceV11"
+    class_name: ClassVar[str] = "OrchestraUserInterfaceV11"
+    class_model_uri: ClassVar[URIRef] = FIX_ORCHESTRA.OrchestraUserInterfaceV11
 
 
 # Enumerations
-class CatComponentType(EnumDefinitionImpl):
-
-    Field = PermissibleValue(text="Field")
-    Message = PermissibleValue(text="Message")
-
-    _defn = EnumDefinition(
-        name="CatComponentType",
-    )
-
-class CatIncludeFile(EnumDefinitionImpl):
-
-    components = PermissibleValue(text="components")
-    fields = PermissibleValue(text="fields")
+class OrchestraChangeKind(EnumDefinitionImpl):
+    """
+    How far an element's latest change reaches.
+    """
+    Editorial = PermissibleValue(
+        text="Editorial",
+        description="A change to wording only.")
+    Definitional = PermissibleValue(
+        text="Definitional",
+        description="A change to what the element means.")
 
     _defn = EnumDefinition(
-        name="CatIncludeFile",
+        name="OrchestraChangeKind",
+        description="How far an element's latest change reaches.",
     )
 
-class ChangeType(EnumDefinitionImpl):
-
-    Editorial = PermissibleValue(text="Editorial")
-    Definitional = PermissibleValue(text="Definitional")
+class OrchestraLayer(EnumDefinitionImpl):
+    """
+    The layer of the communication stack a protocol works on.
+    """
+    application = PermissibleValue(
+        text="application",
+        description="The application layer.")
+    presentation = PermissibleValue(
+        text="presentation",
+        description="The presentation layer, where encodings sit.")
+    session = PermissibleValue(
+        text="session",
+        description="The session layer.")
+    transport = PermissibleValue(
+        text="transport",
+        description="The transport layer.")
 
     _defn = EnumDefinition(
-        name="ChangeType",
+        name="OrchestraLayer",
+        description="The layer of the communication stack a protocol works on.",
     )
 
-class DatatypeStandardEnum(EnumDefinitionImpl):
-
-    ISO11404 = PermissibleValue(
-        text="ISO11404",
-        description="General Purpose Datatypes")
-    GPB = PermissibleValue(
-        text="GPB",
-        description="Google Protocol Buffers")
-    JSON = PermissibleValue(
-        text="JSON",
-        description="JSON Schema")
-    SBE = PermissibleValue(
-        text="SBE",
-        description="Simple Binary Encoding")
-    XML = PermissibleValue(
-        text="XML",
-        description="XML Schema and FIXML")
-    TAG_VALUE = PermissibleValue(
-        text="TAG_VALUE",
-        description="FIX classic encoding")
-
-    _defn = EnumDefinition(
-        name="DatatypeStandardEnum",
-    )
-
-class MemberType(EnumDefinitionImpl):
-
+class OrchestraMemberSelection(EnumDefinitionImpl):
+    """
+    How many of a block's members must appear.
+    """
     oneOf = PermissibleValue(
         text="oneOf",
-        description="Members are mutually exclusive; exactly one must be present.")
+        description="Exactly one member appears.")
     anyOf = PermissibleValue(
         text="anyOf",
-        description="At least one of the members must be present.")
+        description="One or more members appear.")
 
     _defn = EnumDefinition(
-        name="MemberType",
+        name="OrchestraMemberSelection",
+        description="How many of a block's members must appear.",
     )
 
-class Presence(EnumDefinitionImpl):
+class OrchestraMessageCast(EnumDefinitionImpl):
+    """
+    How many receivers a transport sends each message to.
+    """
+    unicast = PermissibleValue(
+        text="unicast",
+        description="One receiver.")
+    multicast = PermissibleValue(
+        text="multicast",
+        description="A group of receivers.")
+    broadcast = PermissibleValue(
+        text="broadcast",
+        description="Every receiver.")
 
+    _defn = EnumDefinition(
+        name="OrchestraMessageCast",
+        description="How many receivers a transport sends each message to.",
+    )
+
+class OrchestraPresence(EnumDefinitionImpl):
+    """
+    Whether an item must, may or must not appear in a message.
+    """
     optional = PermissibleValue(
         text="optional",
-        description="The field or component MAY be present; it may be conditionally required based on a rule.")
+        description="May appear; a rule can make it required.")
     required = PermissibleValue(
         text="required",
-        description="The field or component MUST be present.")
+        description="Must appear.")
     forbidden = PermissibleValue(
         text="forbidden",
-        description="The field or component MUST NOT be present.")
+        description="Must not appear.")
     ignored = PermissibleValue(
         text="ignored",
-        description="The field or component MAY be present but is not validated.")
+        description="May appear, and is not checked.")
     constant = PermissibleValue(
         text="constant",
-        description="The field has a constant value; in some encodings it need not be sent on the wire.")
+        description="Has a fixed value, which some encodings leave off the wire.")
 
     _defn = EnumDefinition(
-        name="Presence",
+        name="OrchestraPresence",
+        description="Whether an item must, may or must not appear in a message.",
     )
 
-class PurposeEnum(EnumDefinitionImpl):
+class OrchestraProtocolName(EnumDefinitionImpl):
     """
-    Recommended annotation purposes
-    """
-    SYNOPSIS = PermissibleValue(
-        text="SYNOPSIS",
-        description="""Brief summary of the element, typically highlighting its key function or purpose, restricted to one paragraph for conciseness.""")
-    ELABORATION = PermissibleValue(
-        text="ELABORATION",
-        description="Detailed explanation of the element, clarifying its usage, functionality, or background.")
-    EXAMPLE = PermissibleValue(
-        text="EXAMPLE",
-        description="Sample or illustration demonstrating how the element is used in practice.")
-    DISPLAY = PermissibleValue(
-        text="DISPLAY",
-        description="For UI when different from canonical name; may have multi-language displays.")
-    CAPTION = PermissibleValue(
-        text="CAPTION",
-        description="""Descriptive label or title for the element, may be used for tables, figures, headings or brief annotations.""")
-    TOOLTIP = PermissibleValue(
-        text="TOOLTIP",
-        description="""Short message or hint that appears when hovering over the element, usually explaining its function or use.""")
-    DEFINITION = PermissibleValue(
-        text="DEFINITION",
-        description="""Precise and formal explanation of the element, restricted to one sentence in length to ensure brevity.""")
-
-    _defn = EnumDefinition(
-        name="PurposeEnum",
-        description="Recommended annotation purposes",
-    )
-
-class Reliability(EnumDefinitionImpl):
-    """
-    Message delivery gurantee
-    """
-    bestEffort = PermissibleValue(text="bestEffort")
-    idempotent = PermissibleValue(text="idempotent")
-    recoverable = PermissibleValue(text="recoverable")
-
-    _defn = EnumDefinition(
-        name="Reliability",
-        description="Message delivery gurantee",
-    )
-
-class SupportType(EnumDefinitionImpl):
-    """
-    Support level
-    """
-    supported = PermissibleValue(text="supported")
-    forbidden = PermissibleValue(text="forbidden")
-    ignored = PermissibleValue(text="ignored")
-
-    _defn = EnumDefinition(
-        name="SupportType",
-        description="Support level",
-    )
-
-class Synchronization(EnumDefinitionImpl):
-
-    asynchronous = PermissibleValue(
-        text="asynchronous",
-        description="Event timing is completely independent")
-    synchronous = PermissibleValue(
-        text="synchronous",
-        description="Requests in-progress block subsequent requests")
-    pipelined = PermissibleValue(
-        text="pipelined",
-        description="Response timing is dependent on a request, but multiple requests can be in-flight")
-
-    _defn = EnumDefinition(
-        name="Synchronization",
-    )
-
-class TimerOperation(EnumDefinitionImpl):
-
-    START = PermissibleValue(text="START")
-    CANCEL = PermissibleValue(text="CANCEL")
-    RESET = PermissibleValue(
-        text="RESET",
-        description="Cancel and restart")
-
-    _defn = EnumDefinition(
-        name="TimerOperation",
-    )
-
-class Unbounded(EnumDefinitionImpl):
-
-    unbounded = PermissibleValue(text="unbounded")
-
-    _defn = EnumDefinition(
-        name="Unbounded",
-    )
-
-class UnionDataType(EnumDefinitionImpl):
-    """
-    A second domain of valid values. The 'Reserved' types should only be applied Code Sets.
-    """
-    Qty = PermissibleValue(text="Qty")
-    Reserved100Plus = PermissibleValue(text="Reserved100Plus")
-    Reserved1000Plus = PermissibleValue(text="Reserved1000Plus")
-    Reserved4000Plus = PermissibleValue(text="Reserved4000Plus")
-    Tenor = PermissibleValue(text="Tenor")
-
-    _defn = EnumDefinition(
-        name="UnionDataType",
-        description="A second domain of valid values. The 'Reserved' types should only be applied Code Sets.",
-    )
-
-class Layer(EnumDefinitionImpl):
-
-    application = PermissibleValue(text="application")
-    presentation = PermissibleValue(text="presentation")
-    session = PermissibleValue(text="session")
-    transport = PermissibleValue(text="transport")
-
-    _defn = EnumDefinition(
-        name="Layer",
-    )
-
-class MessageCast(EnumDefinitionImpl):
-
-    unicast = PermissibleValue(text="unicast")
-    multicast = PermissibleValue(text="multicast")
-    broadcast = PermissibleValue(text="broadcast")
-
-    _defn = EnumDefinition(
-        name="MessageCast",
-    )
-
-class ProtocolEnum(EnumDefinitionImpl):
-    """
-    List of FIX protocols to standardize spelling
+    The FIX protocols the interfaces file names, so that they are spelled one way. A file may name another protocol.
     """
     FIX4 = PermissibleValue(
         text="FIX4",
-        description="FIX 4.x session layer")
+        description="The FIX 4 session layer.")
     FIXT = PermissibleValue(
         text="FIXT",
-        description="FIX Transport Session Protocol")
+        description="FIXT 1.1, the session protocol of FIX 5.")
     FIXP = PermissibleValue(
         text="FIXP",
-        description="FIX Performance Session Layer")
+        description="FIXP, the FIX session protocol built for high performance.")
     tagvalue = PermissibleValue(
         text="tagvalue",
-        description="Tag Value encoding (classic FIX)")
+        description="Classic tag=value encoding.")
     FIXML = PermissibleValue(
         text="FIXML",
-        description="XML Schema")
+        description="FIX in XML.")
     FAST = PermissibleValue(
         text="FAST",
-        description="FIX Adapted for Streaming")
+        description="The FAST streaming encoding.")
     SBE = PermissibleValue(
         text="SBE",
-        description="Simple Binary Encoding")
+        description="Simple Binary Encoding.")
     SOFH = PermissibleValue(
         text="SOFH",
-        description="Simple Open Framing Header")
+        description="The SOFH message framing header.")
     GPB = PermissibleValue(
         text="GPB",
-        description="Google Protocol Buffers")
+        description="Google's protocol buffers.")
     JSON = PermissibleValue(
         text="JSON",
-        description="Javascript Object Notation")
+        description="JSON encoding.")
     FIXS = PermissibleValue(
         text="FIXS",
-        description="FIX over TLS security recommendation")
+        description="FIX over TLS.")
 
     _defn = EnumDefinition(
-        name="ProtocolEnum",
-        description="List of FIX protocols to standardize spelling",
+        name="OrchestraProtocolName",
+        description="""The FIX protocols the interfaces file names, so that they are spelled one way. A file may name another protocol.""",
     )
 
-class InterfacePurposeEnum(EnumDefinitionImpl):
+class OrchestraPurpose(EnumDefinitionImpl):
     """
-    Recommended annotation purposes
+    The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
     """
-    SYNOPSIS = PermissibleValue(text="SYNOPSIS")
-    ELABORATION = PermissibleValue(text="ELABORATION")
-    EXAMPLE = PermissibleValue(text="EXAMPLE")
+    SYNOPSIS = PermissibleValue(
+        text="SYNOPSIS",
+        description="A short summary.")
+    ELABORATION = PermissibleValue(
+        text="ELABORATION",
+        description="A longer explanation.")
+    EXAMPLE = PermissibleValue(
+        text="EXAMPLE",
+        description="An example of use.")
     DISPLAY = PermissibleValue(
         text="DISPLAY",
-        description="For UI when different from canonical name; may have multi-language displays")
+        description="A name to show to people in place of the element's own.")
 
     _defn = EnumDefinition(
-        name="InterfacePurposeEnum",
-        description="Recommended annotation purposes",
+        name="OrchestraPurpose",
+        description="""The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.""",
     )
 
-class InterfaceReliability(EnumDefinitionImpl):
-
-    bestEffort = PermissibleValue(text="bestEffort")
-    idempotent = PermissibleValue(text="idempotent")
-    recoverable = PermissibleValue(text="recoverable")
-
-    _defn = EnumDefinition(
-        name="InterfaceReliability",
-    )
-
-class Role(EnumDefinitionImpl):
-
-    initiator = PermissibleValue(text="initiator")
-    acceptor = PermissibleValue(text="acceptor")
-    client = PermissibleValue(text="client")
-    server = PermissibleValue(text="server")
-
-    _defn = EnumDefinition(
-        name="Role",
-    )
-
-class TransportUseEnum(EnumDefinitionImpl):
-
-    primary = PermissibleValue(text="primary")
-    secondary = PermissibleValue(text="secondary")
-    alternate = PermissibleValue(text="alternate")
-
-    _defn = EnumDefinition(
-        name="TransportUseEnum",
-    )
-
-class XmlSpaceType(EnumDefinitionImpl):
+class OrchestraReliability(EnumDefinitionImpl):
     """
-    Anonymous simpleType for XML:space (from xml.xsd).
+    What a flow or protocol promises about delivering each message.
     """
-    default = PermissibleValue(text="default")
-    preserve = PermissibleValue(text="preserve")
+    bestEffort = PermissibleValue(
+        text="bestEffort",
+        description="No promise; any message can be lost.")
+    idempotent = PermissibleValue(
+        text="idempotent",
+        description="Each message is acted on at most once; a lost one is not sent again.")
+    recoverable = PermissibleValue(
+        text="recoverable",
+        description="Each message is acted on exactly once; a lost one can be sent again.")
 
     _defn = EnumDefinition(
-        name="XmlSpaceType",
-        description="Anonymous simpleType for XML:space (from xml.xsd).",
+        name="OrchestraReliability",
+        description="What a flow or protocol promises about delivering each message.",
+    )
+
+class OrchestraRole(EnumDefinitionImpl):
+    """
+    A party's role in setting up a session.
+    """
+    initiator = PermissibleValue(
+        text="initiator",
+        description="The party that opens a FIX session.")
+    acceptor = PermissibleValue(
+        text="acceptor",
+        description="The party that answers a request to open a FIX session.")
+    client = PermissibleValue(
+        text="client",
+        description="The party that connects to a server.")
+    server = PermissibleValue(
+        text="server",
+        description="The party that waits for clients to connect.")
+
+    _defn = EnumDefinition(
+        name="OrchestraRole",
+        description="A party's role in setting up a session.",
+    )
+
+class OrchestraSupport(EnumDefinitionImpl):
+    """
+    How a party treats an element of the standard.
+    """
+    supported = PermissibleValue(
+        text="supported",
+        description="The party supports the element.")
+    forbidden = PermissibleValue(
+        text="forbidden",
+        description="The party refuses the element.")
+    ignored = PermissibleValue(
+        text="ignored",
+        description="The party accepts the element and acts on none of it.")
+
+    _defn = EnumDefinition(
+        name="OrchestraSupport",
+        description="How a party treats an element of the standard.",
+    )
+
+class OrchestraSynchronization(EnumDefinitionImpl):
+    """
+    How the timing of a response relates to the request it answers.
+    """
+    asynchronous = PermissibleValue(
+        text="asynchronous",
+        description="The response's timing has no tie to the request's.")
+    synchronous = PermissibleValue(
+        text="synchronous",
+        description="A request waits until the one before it has its answer.")
+    pipelined = PermissibleValue(
+        text="pipelined",
+        description="Each response follows its request, and several requests may wait for answers at once.")
+
+    _defn = EnumDefinition(
+        name="OrchestraSynchronization",
+        description="How the timing of a response relates to the request it answers.",
+    )
+
+class OrchestraTimerOperation(EnumDefinitionImpl):
+    """
+    What a step does to an actor's timer.
+    """
+    START = PermissibleValue(
+        text="START",
+        description="Start the timer.")
+    CANCEL = PermissibleValue(
+        text="CANCEL",
+        description="Stop the timer.")
+    RESET = PermissibleValue(
+        text="RESET",
+        description="Stop the timer and start it again.")
+
+    _defn = EnumDefinition(
+        name="OrchestraTimerOperation",
+        description="What a step does to an actor's timer.",
+    )
+
+class OrchestraTransportUse(EnumDefinitionImpl):
+    """
+    The roles the interfaces file names for a transport. A file may give another role of its own.
+    """
+    primary = PermissibleValue(
+        text="primary",
+        description="The main connection.")
+    secondary = PermissibleValue(
+        text="secondary",
+        description="The backup connection.")
+    alternate = PermissibleValue(
+        text="alternate",
+        description="Another connection, used in turn or by choice.")
+
+    _defn = EnumDefinition(
+        name="OrchestraTransportUse",
+        description="The roles the interfaces file names for a transport. A file may give another role of its own.",
+    )
+
+class OrchestraCategoryContentV10(EnumDefinitionImpl):
+    """
+    What a category sorts, in v1.0.
+    """
+    Field = PermissibleValue(
+        text="Field",
+        description="The category sorts fields.")
+    Message = PermissibleValue(
+        text="Message",
+        description="The category sorts messages.")
+
+    _defn = EnumDefinition(
+        name="OrchestraCategoryContentV10",
+        description="What a category sorts, in v1.0.",
+    )
+
+class OrchestraCategoryIncludeFileV10(EnumDefinitionImpl):
+    """
+    The shared FIXML file a category's own file includes, in v1.0.
+    """
+    components = PermissibleValue(
+        text="components",
+        description="The shared file of components.")
+    fields = PermissibleValue(
+        text="fields",
+        description="The shared file of fields.")
+
+    _defn = EnumDefinition(
+        name="OrchestraCategoryIncludeFileV10",
+        description="The shared FIXML file a category's own file includes, in v1.0.",
+    )
+
+class OrchestraDatatypeStandardV10(EnumDefinitionImpl):
+    """
+    The standards v1.0 names for mapping a datatype. A file may give another standard of its own.
+    """
+    ISO11404 = PermissibleValue(
+        text="ISO11404",
+        description="The general-purpose datatypes of ISO/IEC 11404.")
+    GPB = PermissibleValue(
+        text="GPB",
+        description="Google's protocol buffers.")
+    JSON = PermissibleValue(
+        text="JSON",
+        description="JSON Schema.")
+    SBE = PermissibleValue(
+        text="SBE",
+        description="Simple Binary Encoding.")
+    XML = PermissibleValue(
+        text="XML",
+        description="XML Schema, as FIXML uses it.")
+    TAG_VALUE = PermissibleValue(
+        text="TAG_VALUE",
+        description="The classic tag=value encoding.")
+
+    _defn = EnumDefinition(
+        name="OrchestraDatatypeStandardV10",
+        description="The standards v1.0 names for mapping a datatype. A file may give another standard of its own.",
+    )
+
+class OrchestraUnionDatatypeV10(EnumDefinitionImpl):
+    """
+    The datatypes v1.0 names whose values a field may hold beside its codes.
+    """
+    Qty = PermissibleValue(
+        text="Qty",
+        description="Quantities.")
+    Reserved100Plus = PermissibleValue(
+        text="Reserved100Plus",
+        description="Values from 100 up, kept for user-defined codes.")
+    Reserved1000Plus = PermissibleValue(
+        text="Reserved1000Plus",
+        description="Values from 1000 up, kept for user-defined codes.")
+    Reserved4000Plus = PermissibleValue(
+        text="Reserved4000Plus",
+        description="Values from 4000 up, kept for user-defined codes.")
+    Tenor = PermissibleValue(
+        text="Tenor",
+        description="Tenors, such as 3M.")
+
+    _defn = EnumDefinition(
+        name="OrchestraUnionDatatypeV10",
+        description="The datatypes v1.0 names whose values a field may hold beside its codes.",
+    )
+
+class OrchestraPurposeV11(EnumDefinitionImpl):
+    """
+    The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.
+    """
+    SYNOPSIS = PermissibleValue(
+        text="SYNOPSIS",
+        description="A short summary.")
+    ELABORATION = PermissibleValue(
+        text="ELABORATION",
+        description="A longer explanation.")
+    EXAMPLE = PermissibleValue(
+        text="EXAMPLE",
+        description="An example of use.")
+    DISPLAY = PermissibleValue(
+        text="DISPLAY",
+        description="A name to show to people in place of the element's own.")
+    CAPTION = PermissibleValue(
+        text="CAPTION",
+        description="A label for a table, a figure or a heading.")
+    TOOLTIP = PermissibleValue(
+        text="TOOLTIP",
+        description="A short hint shown when a pointer rests on the element.")
+    DEFINITION = PermissibleValue(
+        text="DEFINITION",
+        description="A formal definition in one sentence.")
+
+    _defn = EnumDefinition(
+        name="OrchestraPurposeV11",
+        description="""The kinds of purpose the standard names for a text or hint. A file may give another purpose of its own.""",
     )
 
 # Slots
 class slots:
     pass
 
-slots.added = Slot(uri=FIX_ORCHESTRA.added, name="added", curie=FIX_ORCHESTRA.curie('added'),
-                   model_uri=FIX_ORCHESTRA.added, domain=None, range=Optional[Union[str, Version]])
+slots.orchestraMetadata__dc_title = Slot(uri=DC.title, name="orchestraMetadata__dc_title", curie=DC.curie('title'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_title, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.added_ep = Slot(uri=FIX_ORCHESTRA.added_ep, name="added_ep", curie=FIX_ORCHESTRA.curie('added_ep'),
-                   model_uri=FIX_ORCHESTRA.added_ep, domain=None, range=Optional[Union[int, EP]])
+slots.orchestraMetadata__dc_creator = Slot(uri=DC.creator, name="orchestraMetadata__dc_creator", curie=DC.curie('creator'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_creator, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.change_type = Slot(uri=FIX_ORCHESTRA.change_type, name="change_type", curie=FIX_ORCHESTRA.curie('change_type'),
-                   model_uri=FIX_ORCHESTRA.change_type, domain=None, range=Optional[Union[str, "ChangeType"]])
+slots.orchestraMetadata__dc_subject = Slot(uri=DC.subject, name="orchestraMetadata__dc_subject", curie=DC.curie('subject'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_subject, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.deprecated_ep = Slot(uri=FIX_ORCHESTRA.deprecated_ep, name="deprecated_ep", curie=FIX_ORCHESTRA.curie('deprecated_ep'),
-                   model_uri=FIX_ORCHESTRA.deprecated_ep, domain=None, range=Optional[Union[int, EP]])
+slots.orchestraMetadata__dc_description = Slot(uri=DC.description, name="orchestraMetadata__dc_description", curie=DC.curie('description'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_description, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.issue = Slot(uri=FIX_ORCHESTRA.issue, name="issue", curie=FIX_ORCHESTRA.curie('issue'),
-                   model_uri=FIX_ORCHESTRA.issue, domain=None, range=Optional[str])
+slots.orchestraMetadata__dc_publisher = Slot(uri=DC.publisher, name="orchestraMetadata__dc_publisher", curie=DC.curie('publisher'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_publisher, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.last_modified = Slot(uri=FIX_ORCHESTRA.last_modified, name="last_modified", curie=FIX_ORCHESTRA.curie('last_modified'),
-                   model_uri=FIX_ORCHESTRA.last_modified, domain=None, range=Optional[Union[str, Version]])
+slots.orchestraMetadata__dc_contributor = Slot(uri=DC.contributor, name="orchestraMetadata__dc_contributor", curie=DC.curie('contributor'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_contributor, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.replaced = Slot(uri=FIX_ORCHESTRA.replaced, name="replaced", curie=FIX_ORCHESTRA.curie('replaced'),
-                   model_uri=FIX_ORCHESTRA.replaced, domain=None, range=Optional[Union[str, Version]])
+slots.orchestraMetadata__dc_date = Slot(uri=DC.date, name="orchestraMetadata__dc_date", curie=DC.curie('date'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_date, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.replaced_ep = Slot(uri=FIX_ORCHESTRA.replaced_ep, name="replaced_ep", curie=FIX_ORCHESTRA.curie('replaced_ep'),
-                   model_uri=FIX_ORCHESTRA.replaced_ep, domain=None, range=Optional[Union[int, EP]])
+slots.orchestraMetadata__dc_type = Slot(uri=DC.type, name="orchestraMetadata__dc_type", curie=DC.curie('type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_type, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.replaced_by_field = Slot(uri=FIX_ORCHESTRA.replaced_by_field, name="replaced_by_field", curie=FIX_ORCHESTRA.curie('replaced_by_field'),
-                   model_uri=FIX_ORCHESTRA.replaced_by_field, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dc_format = Slot(uri=DC.format, name="orchestraMetadata__dc_format", curie=DC.curie('format'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_format, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.supported = Slot(uri=FIX_ORCHESTRA.supported, name="supported", curie=FIX_ORCHESTRA.curie('supported'),
-                   model_uri=FIX_ORCHESTRA.supported, domain=None, range=Optional[Union[str, "SupportType"]])
+slots.orchestraMetadata__dc_identifier = Slot(uri=DC.identifier, name="orchestraMetadata__dc_identifier", curie=DC.curie('identifier'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_identifier, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.updated = Slot(uri=FIX_ORCHESTRA.updated, name="updated", curie=FIX_ORCHESTRA.curie('updated'),
-                   model_uri=FIX_ORCHESTRA.updated, domain=None, range=Optional[Union[str, Version]])
+slots.orchestraMetadata__dc_source = Slot(uri=DC.source, name="orchestraMetadata__dc_source", curie=DC.curie('source'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_source, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.updated_ep = Slot(uri=FIX_ORCHESTRA.updated_ep, name="updated_ep", curie=FIX_ORCHESTRA.curie('updated_ep'),
-                   model_uri=FIX_ORCHESTRA.updated_ep, domain=None, range=Optional[Union[int, EP]])
+slots.orchestraMetadata__dc_language = Slot(uri=DC.language, name="orchestraMetadata__dc_language", curie=DC.curie('language'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_language, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.min_inclusive = Slot(uri=FIX_ORCHESTRA.min_inclusive, name="min_inclusive", curie=FIX_ORCHESTRA.curie('min_inclusive'),
-                   model_uri=FIX_ORCHESTRA.min_inclusive, domain=None, range=Optional[str])
+slots.orchestraMetadata__dc_relation = Slot(uri=DC.relation, name="orchestraMetadata__dc_relation", curie=DC.curie('relation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_relation, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.max_inclusive = Slot(uri=FIX_ORCHESTRA.max_inclusive, name="max_inclusive", curie=FIX_ORCHESTRA.curie('max_inclusive'),
-                   model_uri=FIX_ORCHESTRA.max_inclusive, domain=None, range=Optional[str])
+slots.orchestraMetadata__dc_coverage = Slot(uri=DC.coverage, name="orchestraMetadata__dc_coverage", curie=DC.curie('coverage'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_coverage, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.impl_length = Slot(uri=FIX_ORCHESTRA.impl_length, name="impl_length", curie=FIX_ORCHESTRA.curie('impl_length'),
-                   model_uri=FIX_ORCHESTRA.impl_length, domain=None, range=Optional[int])
+slots.orchestraMetadata__dc_rights = Slot(uri=DC.rights, name="orchestraMetadata__dc_rights", curie=DC.curie('rights'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dc_rights, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.impl_min_length = Slot(uri=FIX_ORCHESTRA.impl_min_length, name="impl_min_length", curie=FIX_ORCHESTRA.curie('impl_min_length'),
-                   model_uri=FIX_ORCHESTRA.impl_min_length, domain=None, range=Optional[int])
+slots.orchestraMetadata__dcterms_title = Slot(uri=DCTERMS.title, name="orchestraMetadata__dcterms_title", curie=DCTERMS.curie('title'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_title, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.impl_max_length = Slot(uri=FIX_ORCHESTRA.impl_max_length, name="impl_max_length", curie=FIX_ORCHESTRA.curie('impl_max_length'),
-                   model_uri=FIX_ORCHESTRA.impl_max_length, domain=None, range=Optional[int])
+slots.orchestraMetadata__dcterms_creator = Slot(uri=DCTERMS.creator, name="orchestraMetadata__dcterms_creator", curie=DCTERMS.curie('creator'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_creator, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.presence = Slot(uri=FIX_ORCHESTRA.presence, name="presence", curie=FIX_ORCHESTRA.curie('presence'),
-                   model_uri=FIX_ORCHESTRA.presence, domain=None, range=Optional[Union[str, "Presence"]])
+slots.orchestraMetadata__dcterms_subject = Slot(uri=DCTERMS.subject, name="orchestraMetadata__dcterms_subject", curie=DCTERMS.curie('subject'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_subject, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.rendering = Slot(uri=FIX_ORCHESTRA.rendering, name="rendering", curie=FIX_ORCHESTRA.curie('rendering'),
-                   model_uri=FIX_ORCHESTRA.rendering, domain=None, range=Optional[str])
+slots.orchestraMetadata__dcterms_description = Slot(uri=DCTERMS.description, name="orchestraMetadata__dcterms_description", curie=DCTERMS.curie('description'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_description, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.abbr_name = Slot(uri=FIX_ORCHESTRA.abbr_name, name="abbr_name", curie=FIX_ORCHESTRA.curie('abbr_name'),
-                   model_uri=FIX_ORCHESTRA.abbr_name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMetadata__dcterms_publisher = Slot(uri=DCTERMS.publisher, name="orchestraMetadata__dcterms_publisher", curie=DCTERMS.curie('publisher'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_publisher, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.scenario_id = Slot(uri=FIX_ORCHESTRA.scenario_id, name="scenario_id", curie=FIX_ORCHESTRA.curie('scenario_id'),
-                   model_uri=FIX_ORCHESTRA.scenario_id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dcterms_contributor = Slot(uri=DCTERMS.contributor, name="orchestraMetadata__dcterms_contributor", curie=DCTERMS.curie('contributor'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_contributor, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.scenario_ref_id = Slot(uri=FIX_ORCHESTRA.scenario_ref_id, name="scenario_ref_id", curie=FIX_ORCHESTRA.curie('scenario_ref_id'),
-                   model_uri=FIX_ORCHESTRA.scenario_ref_id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dcterms_date = Slot(uri=DCTERMS.date, name="orchestraMetadata__dcterms_date", curie=DCTERMS.curie('date'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_date, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.scenario_ref = Slot(uri=FIX_ORCHESTRA.scenario_ref, name="scenario_ref", curie=FIX_ORCHESTRA.curie('scenario_ref'),
-                   model_uri=FIX_ORCHESTRA.scenario_ref, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMetadata__dcterms_type = Slot(uri=DCTERMS.type, name="orchestraMetadata__dcterms_type", curie=DCTERMS.curie('type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_type, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.field = Slot(uri=FIX_ORCHESTRA.field, name="field", curie=FIX_ORCHESTRA.curie('field'),
-                   model_uri=FIX_ORCHESTRA.field, domain=None, range=Optional[Union[Union[dict, FieldType], list[Union[dict, FieldType]]]])
+slots.orchestraMetadata__dcterms_format = Slot(uri=DCTERMS.format, name="orchestraMetadata__dcterms_format", curie=DCTERMS.curie('format'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_format, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.field_ref, domain=None, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
+slots.orchestraMetadata__dcterms_identifier = Slot(uri=DCTERMS.identifier, name="orchestraMetadata__dcterms_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_identifier, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.component = Slot(uri=FIX_ORCHESTRA.component, name="component", curie=FIX_ORCHESTRA.curie('component'),
-                   model_uri=FIX_ORCHESTRA.component, domain=None, range=Optional[Union[Union[dict, ComponentType], list[Union[dict, ComponentType]]]])
+slots.orchestraMetadata__dcterms_source = Slot(uri=DCTERMS.source, name="orchestraMetadata__dcterms_source", curie=DCTERMS.curie('source'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_source, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.component_ref = Slot(uri=FIX_ORCHESTRA.component_ref, name="component_ref", curie=FIX_ORCHESTRA.curie('component_ref'),
-                   model_uri=FIX_ORCHESTRA.component_ref, domain=None, range=Optional[Union[Union[dict, ComponentRefType], list[Union[dict, ComponentRefType]]]])
+slots.orchestraMetadata__dcterms_language = Slot(uri=DCTERMS.language, name="orchestraMetadata__dcterms_language", curie=DCTERMS.curie('language'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_language, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.group_ref = Slot(uri=FIX_ORCHESTRA.group_ref, name="group_ref", curie=FIX_ORCHESTRA.curie('group_ref'),
-                   model_uri=FIX_ORCHESTRA.group_ref, domain=None, range=Optional[Union[Union[dict, GroupRefType], list[Union[dict, GroupRefType]]]])
+slots.orchestraMetadata__dcterms_relation = Slot(uri=DCTERMS.relation, name="orchestraMetadata__dcterms_relation", curie=DCTERMS.curie('relation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_relation, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.message_ref = Slot(uri=FIX_ORCHESTRA.message_ref, name="message_ref", curie=FIX_ORCHESTRA.curie('message_ref'),
-                   model_uri=FIX_ORCHESTRA.message_ref, domain=None, range=Optional[Union[Union[dict, MessageRefType], list[Union[dict, MessageRefType]]]])
+slots.orchestraMetadata__dcterms_coverage = Slot(uri=DCTERMS.coverage, name="orchestraMetadata__dcterms_coverage", curie=DCTERMS.curie('coverage'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_coverage, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.trigger = Slot(uri=FIX_ORCHESTRA.trigger, name="trigger", curie=FIX_ORCHESTRA.curie('trigger'),
-                   model_uri=FIX_ORCHESTRA.trigger, domain=None, range=Optional[Union[Union[dict, TriggerType], list[Union[dict, TriggerType]]]])
+slots.orchestraMetadata__dcterms_rights = Slot(uri=DCTERMS.rights, name="orchestraMetadata__dcterms_rights", curie=DCTERMS.curie('rights'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_rights, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.timer_schedule = Slot(uri=FIX_ORCHESTRA.timer_schedule, name="timer_schedule", curie=FIX_ORCHESTRA.curie('timer_schedule'),
-                   model_uri=FIX_ORCHESTRA.timer_schedule, domain=None, range=Optional[Union[Union[dict, TimerSchedule], list[Union[dict, TimerSchedule]]]])
+slots.orchestraMetadata__dcterms_alternative = Slot(uri=DCTERMS.alternative, name="orchestraMetadata__dcterms_alternative", curie=DCTERMS.curie('alternative'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_alternative, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.states = Slot(uri=FIX_ORCHESTRA.states, name="states", curie=FIX_ORCHESTRA.curie('states'),
-                   model_uri=FIX_ORCHESTRA.states, domain=None, range=Optional[Union[Union[dict, StateMachineType], list[Union[dict, StateMachineType]]]])
+slots.orchestraMetadata__dcterms_table_of_contents = Slot(uri=DCTERMS.tableOfContents, name="orchestraMetadata__dcterms_table_of_contents", curie=DCTERMS.curie('tableOfContents'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_table_of_contents, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.timer = Slot(uri=FIX_ORCHESTRA.timer, name="timer", curie=FIX_ORCHESTRA.curie('timer'),
-                   model_uri=FIX_ORCHESTRA.timer, domain=None, range=Optional[Union[Union[dict, TimerType], list[Union[dict, TimerType]]]])
+slots.orchestraMetadata__dcterms_abstract = Slot(uri=DCTERMS.abstract, name="orchestraMetadata__dcterms_abstract", curie=DCTERMS.curie('abstract'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_abstract, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
-                   model_uri=FIX_ORCHESTRA.spec_url, domain=None, range=Optional[Union[str, URI]])
+slots.orchestraMetadata__dcterms_created = Slot(uri=DCTERMS.created, name="orchestraMetadata__dcterms_created", curie=DCTERMS.curie('created'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_created, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.extra_attributes = Slot(uri=FIX_ORCHESTRA.extra_attributes, name="extra_attributes", curie=FIX_ORCHESTRA.curie('extra_attributes'),
-                   model_uri=FIX_ORCHESTRA.extra_attributes, domain=None, range=Optional[Union[str, list[str]]])
+slots.orchestraMetadata__dcterms_valid = Slot(uri=DCTERMS.valid, name="orchestraMetadata__dcterms_valid", curie=DCTERMS.curie('valid'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_valid, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.fixml_encoding = Slot(uri=FIX_ORCHESTRA.fixml_encoding, name="fixml_encoding", curie=FIX_ORCHESTRA.curie('fixml_encoding'),
-                   model_uri=FIX_ORCHESTRA.fixml_encoding, domain=None, range=Optional[Union[dict, FIXMLencodingType]])
+slots.orchestraMetadata__dcterms_available = Slot(uri=DCTERMS.available, name="orchestraMetadata__dcterms_available", curie=DCTERMS.curie('available'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_available, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.fixml_file_name = Slot(uri=FIX_ORCHESTRA.fixml_file_name, name="fixml_file_name", curie=FIX_ORCHESTRA.curie('fixml_file_name'),
-                   model_uri=FIX_ORCHESTRA.fixml_file_name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMetadata__dcterms_issued = Slot(uri=DCTERMS.issued, name="orchestraMetadata__dcterms_issued", curie=DCTERMS.curie('issued'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_issued, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.component_type = Slot(uri=FIX_ORCHESTRA.component_type, name="component_type", curie=FIX_ORCHESTRA.curie('component_type'),
-                   model_uri=FIX_ORCHESTRA.component_type, domain=None, range=Optional[Union[str, "CatComponentType"]])
+slots.orchestraMetadata__dcterms_modified = Slot(uri=DCTERMS.modified, name="orchestraMetadata__dcterms_modified", curie=DCTERMS.curie('modified'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_modified, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.include_file = Slot(uri=FIX_ORCHESTRA.include_file, name="include_file", curie=FIX_ORCHESTRA.curie('include_file'),
-                   model_uri=FIX_ORCHESTRA.include_file, domain=None, range=Optional[Union[str, "CatIncludeFile"]])
+slots.orchestraMetadata__dcterms_date_accepted = Slot(uri=DCTERMS.dateAccepted, name="orchestraMetadata__dcterms_date_accepted", curie=DCTERMS.curie('dateAccepted'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_date_accepted, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.code = Slot(uri=FIX_ORCHESTRA.code, name="code", curie=FIX_ORCHESTRA.curie('code'),
-                   model_uri=FIX_ORCHESTRA.code, domain=None, range=Optional[Union[Union[dict, CodeType], list[Union[dict, CodeType]]]])
+slots.orchestraMetadata__dcterms_date_copyrighted = Slot(uri=DCTERMS.dateCopyrighted, name="orchestraMetadata__dcterms_date_copyrighted", curie=DCTERMS.curie('dateCopyrighted'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_date_copyrighted, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.default = Slot(uri=FIX_ORCHESTRA.default, name="default", curie=FIX_ORCHESTRA.curie('default'),
-                   model_uri=FIX_ORCHESTRA.default, domain=None, range=Optional[str])
+slots.orchestraMetadata__dcterms_date_submitted = Slot(uri=DCTERMS.dateSubmitted, name="orchestraMetadata__dcterms_date_submitted", curie=DCTERMS.curie('dateSubmitted'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_date_submitted, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.union_data_type = Slot(uri=FIX_ORCHESTRA.union_data_type, name="union_data_type", curie=FIX_ORCHESTRA.curie('union_data_type'),
-                   model_uri=FIX_ORCHESTRA.union_data_type, domain=None, range=Optional[Union[str, "UnionDataType"]])
+slots.orchestraMetadata__dcterms_extent = Slot(uri=DCTERMS.extent, name="orchestraMetadata__dcterms_extent", curie=DCTERMS.curie('extent'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_extent, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.sort = Slot(uri=FIX_ORCHESTRA.sort, name="sort", curie=FIX_ORCHESTRA.curie('sort'),
-                   model_uri=FIX_ORCHESTRA.sort, domain=None, range=Optional[int])
+slots.orchestraMetadata__dcterms_medium = Slot(uri=DCTERMS.medium, name="orchestraMetadata__dcterms_medium", curie=DCTERMS.curie('medium'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_medium, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.block_assignment = Slot(uri=FIX_ORCHESTRA.block_assignment, name="block_assignment", curie=FIX_ORCHESTRA.curie('block_assignment'),
-                   model_uri=FIX_ORCHESTRA.block_assignment, domain=None, range=Optional[Union[Union[dict, BlockAssignmentType], list[Union[dict, BlockAssignmentType]]]])
+slots.orchestraMetadata__dcterms_is_version_of = Slot(uri=DCTERMS.isVersionOf, name="orchestraMetadata__dcterms_is_version_of", curie=DCTERMS.curie('isVersionOf'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_version_of, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.when = Slot(uri=FIX_ORCHESTRA.when, name="when", curie=FIX_ORCHESTRA.curie('when'),
-                   model_uri=FIX_ORCHESTRA.when, domain=None, range=Optional[Union[str, ExpressionType]])
+slots.orchestraMetadata__dcterms_has_version = Slot(uri=DCTERMS.hasVersion, name="orchestraMetadata__dcterms_has_version", curie=DCTERMS.curie('hasVersion'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_has_version, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.which = Slot(uri=FIX_ORCHESTRA.which, name="which", curie=FIX_ORCHESTRA.curie('which'),
-                   model_uri=FIX_ORCHESTRA.which, domain=None, range=Optional[Union[str, "MemberType"]])
+slots.orchestraMetadata__dcterms_is_replaced_by = Slot(uri=DCTERMS.isReplacedBy, name="orchestraMetadata__dcterms_is_replaced_by", curie=DCTERMS.curie('isReplacedBy'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_replaced_by, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.length_id = Slot(uri=FIX_ORCHESTRA.length_id, name="length_id", curie=FIX_ORCHESTRA.curie('length_id'),
-                   model_uri=FIX_ORCHESTRA.length_id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dcterms_replaces = Slot(uri=DCTERMS.replaces, name="orchestraMetadata__dcterms_replaces", curie=DCTERMS.curie('replaces'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_replaces, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.non_encoded_field_id = Slot(uri=FIX_ORCHESTRA.non_encoded_field_id, name="non_encoded_field_id", curie=FIX_ORCHESTRA.curie('non_encoded_field_id'),
-                   model_uri=FIX_ORCHESTRA.non_encoded_field_id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dcterms_is_required_by = Slot(uri=DCTERMS.isRequiredBy, name="orchestraMetadata__dcterms_is_required_by", curie=DCTERMS.curie('isRequiredBy'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_required_by, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.unique = Slot(uri=FIX_ORCHESTRA.unique, name="unique", curie=FIX_ORCHESTRA.curie('unique'),
-                   model_uri=FIX_ORCHESTRA.unique, domain=None, range=Optional[Union[dict, UniqueInline]])
+slots.orchestraMetadata__dcterms_requires = Slot(uri=DCTERMS.requires, name="orchestraMetadata__dcterms_requires", curie=DCTERMS.curie('requires'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_requires, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.discriminator_id = Slot(uri=FIX_ORCHESTRA.discriminator_id, name="discriminator_id", curie=FIX_ORCHESTRA.curie('discriminator_id'),
-                   model_uri=FIX_ORCHESTRA.discriminator_id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraMetadata__dcterms_is_part_of = Slot(uri=DCTERMS.isPartOf, name="orchestraMetadata__dcterms_is_part_of", curie=DCTERMS.curie('isPartOf'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_part_of, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.base_category = Slot(uri=FIX_ORCHESTRA.base_category, name="base_category", curie=FIX_ORCHESTRA.curie('base_category'),
-                   model_uri=FIX_ORCHESTRA.base_category, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMetadata__dcterms_has_part = Slot(uri=DCTERMS.hasPart, name="orchestraMetadata__dcterms_has_part", curie=DCTERMS.curie('hasPart'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_has_part, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.base_category_abbr_name = Slot(uri=FIX_ORCHESTRA.base_category_abbr_name, name="base_category_abbr_name", curie=FIX_ORCHESTRA.curie('base_category_abbr_name'),
-                   model_uri=FIX_ORCHESTRA.base_category_abbr_name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMetadata__dcterms_is_referenced_by = Slot(uri=DCTERMS.isReferencedBy, name="orchestraMetadata__dcterms_is_referenced_by", curie=DCTERMS.curie('isReferencedBy'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_referenced_by, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.destination = Slot(uri=FIX_ORCHESTRA.destination, name="destination", curie=FIX_ORCHESTRA.curie('destination'),
-                   model_uri=FIX_ORCHESTRA.destination, domain=None, range=str)
+slots.orchestraMetadata__dcterms_references = Slot(uri=DCTERMS.references, name="orchestraMetadata__dcterms_references", curie=DCTERMS.curie('references'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_references, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
-                   model_uri=FIX_ORCHESTRA.impl_min_occurs, domain=None, range=Optional[int])
+slots.orchestraMetadata__dcterms_is_format_of = Slot(uri=DCTERMS.isFormatOf, name="orchestraMetadata__dcterms_is_format_of", curie=DCTERMS.curie('isFormatOf'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_is_format_of, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
-                   model_uri=FIX_ORCHESTRA.impl_max_occurs, domain=None, range=Optional[Union[str, UnboundedIntType]])
+slots.orchestraMetadata__dcterms_has_format = Slot(uri=DCTERMS.hasFormat, name="orchestraMetadata__dcterms_has_format", curie=DCTERMS.curie('hasFormat'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_has_format, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.num_in_group = Slot(uri=FIX_ORCHESTRA.num_in_group, name="num_in_group", curie=FIX_ORCHESTRA.curie('num_in_group'),
-                   model_uri=FIX_ORCHESTRA.num_in_group, domain=None, range=Optional[Union[dict, FieldRefType]])
+slots.orchestraMetadata__dcterms_conforms_to = Slot(uri=DCTERMS.conformsTo, name="orchestraMetadata__dcterms_conforms_to", curie=DCTERMS.curie('conformsTo'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_conforms_to, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.correlate = Slot(uri=FIX_ORCHESTRA.correlate, name="correlate", curie=FIX_ORCHESTRA.curie('correlate'),
-                   model_uri=FIX_ORCHESTRA.correlate, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
+slots.orchestraMetadata__dcterms_spatial = Slot(uri=DCTERMS.spatial, name="orchestraMetadata__dcterms_spatial", curie=DCTERMS.curie('spatial'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_spatial, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.extension = Slot(uri=FIX_ORCHESTRA.extension, name="extension", curie=FIX_ORCHESTRA.curie('extension'),
-                   model_uri=FIX_ORCHESTRA.extension, domain=None, range=Optional[Union[dict, ExtensionInline]])
+slots.orchestraMetadata__dcterms_temporal = Slot(uri=DCTERMS.temporal, name="orchestraMetadata__dcterms_temporal", curie=DCTERMS.curie('temporal'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_temporal, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.standard = Slot(uri=FIX_ORCHESTRA.standard, name="standard", curie=FIX_ORCHESTRA.curie('standard'),
-                   model_uri=FIX_ORCHESTRA.standard, domain=None, range=Union[str, DatatypeStandard])
+slots.orchestraMetadata__dcterms_audience = Slot(uri=DCTERMS.audience, name="orchestraMetadata__dcterms_audience", curie=DCTERMS.curie('audience'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_audience, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.builtin = Slot(uri=FIX_ORCHESTRA.builtin, name="builtin", curie=FIX_ORCHESTRA.curie('builtin'),
-                   model_uri=FIX_ORCHESTRA.builtin, domain=None, range=Optional[Union[bool, Bool]])
+slots.orchestraMetadata__dcterms_accrual_method = Slot(uri=DCTERMS.accrualMethod, name="orchestraMetadata__dcterms_accrual_method", curie=DCTERMS.curie('accrualMethod'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_accrual_method, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.pattern = Slot(uri=FIX_ORCHESTRA.pattern, name="pattern", curie=FIX_ORCHESTRA.curie('pattern'),
-                   model_uri=FIX_ORCHESTRA.pattern, domain=None, range=Optional[str])
+slots.orchestraMetadata__dcterms_accrual_periodicity = Slot(uri=DCTERMS.accrualPeriodicity, name="orchestraMetadata__dcterms_accrual_periodicity", curie=DCTERMS.curie('accrualPeriodicity'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_accrual_periodicity, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.element = Slot(uri=FIX_ORCHESTRA.element, name="element", curie=FIX_ORCHESTRA.curie('element'),
-                   model_uri=FIX_ORCHESTRA.element, domain=None, range=Optional[str])
+slots.orchestraMetadata__dcterms_accrual_policy = Slot(uri=DCTERMS.accrualPolicy, name="orchestraMetadata__dcterms_accrual_policy", curie=DCTERMS.curie('accrualPolicy'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_accrual_policy, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.size = Slot(uri=FIX_ORCHESTRA.size, name="size", curie=FIX_ORCHESTRA.curie('size'),
-                   model_uri=FIX_ORCHESTRA.size, domain=None, range=Optional[int])
+slots.orchestraMetadata__dcterms_instructional_method = Slot(uri=DCTERMS.instructionalMethod, name="orchestraMetadata__dcterms_instructional_method", curie=DCTERMS.curie('instructionalMethod'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_instructional_method, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.parameter = Slot(uri=FIX_ORCHESTRA.parameter, name="parameter", curie=FIX_ORCHESTRA.curie('parameter'),
-                   model_uri=FIX_ORCHESTRA.parameter, domain=None, range=Optional[str])
+slots.orchestraMetadata__dcterms_provenance = Slot(uri=DCTERMS.provenance, name="orchestraMetadata__dcterms_provenance", curie=DCTERMS.curie('provenance'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_provenance, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.identifiers = Slot(uri=FIX_ORCHESTRA.identifiers, name="identifiers", curie=FIX_ORCHESTRA.curie('identifiers'),
-                   model_uri=FIX_ORCHESTRA.identifiers, domain=None, range=Optional[Union[dict, IdentifiersType]])
+slots.orchestraMetadata__dcterms_rights_holder = Slot(uri=DCTERMS.rightsHolder, name="orchestraMetadata__dcterms_rights_holder", curie=DCTERMS.curie('rightsHolder'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_rights_holder, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.msg_type = Slot(uri=FIX_ORCHESTRA.msg_type, name="msg_type", curie=FIX_ORCHESTRA.curie('msg_type'),
-                   model_uri=FIX_ORCHESTRA.msg_type, domain=None, range=Optional[Union[str, MsgType]])
+slots.orchestraMetadata__dcterms_mediator = Slot(uri=DCTERMS.mediator, name="orchestraMetadata__dcterms_mediator", curie=DCTERMS.curie('mediator'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_mediator, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.response = Slot(uri=FIX_ORCHESTRA.response, name="response", curie=FIX_ORCHESTRA.curie('response'),
-                   model_uri=FIX_ORCHESTRA.response, domain=None, range=Union[Union[dict, ResponseType], list[Union[dict, ResponseType]]])
+slots.orchestraMetadata__dcterms_education_level = Slot(uri=DCTERMS.educationLevel, name="orchestraMetadata__dcterms_education_level", curie=DCTERMS.curie('educationLevel'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_education_level, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.structure = Slot(uri=FIX_ORCHESTRA.structure, name="structure", curie=FIX_ORCHESTRA.curie('structure'),
-                   model_uri=FIX_ORCHESTRA.structure, domain=None, range=Optional[Union[dict, StructureInline]])
+slots.orchestraMetadata__dcterms_access_rights = Slot(uri=DCTERMS.accessRights, name="orchestraMetadata__dcterms_access_rights", curie=DCTERMS.curie('accessRights'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_access_rights, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.responses = Slot(uri=FIX_ORCHESTRA.responses, name="responses", curie=FIX_ORCHESTRA.curie('responses'),
-                   model_uri=FIX_ORCHESTRA.responses, domain=None, range=Optional[Union[dict, ResponsesInline]])
+slots.orchestraMetadata__dcterms_license = Slot(uri=DCTERMS.license, name="orchestraMetadata__dcterms_license", curie=DCTERMS.curie('license'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_license, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.sync = Slot(uri=FIX_ORCHESTRA.sync, name="sync", curie=FIX_ORCHESTRA.curie('sync'),
-                   model_uri=FIX_ORCHESTRA.sync, domain=None, range=Optional[Union[str, "Synchronization"]])
+slots.orchestraMetadata__dcterms_bibliographic_citation = Slot(uri=DCTERMS.bibliographicCitation, name="orchestraMetadata__dcterms_bibliographic_citation", curie=DCTERMS.curie('bibliographicCitation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMetadata__dcterms_bibliographic_citation, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.display_order = Slot(uri=FIX_ORCHESTRA.display_order, name="display_order", curie=FIX_ORCHESTRA.curie('display_order'),
-                   model_uri=FIX_ORCHESTRA.display_order, domain=None, range=Optional[int])
+slots.orchestraXmlElement__xml_name = Slot(uri=FIX_ORCHESTRA.xml_name, name="orchestraXmlElement__xml_name", curie=FIX_ORCHESTRA.curie('xml_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_name, domain=None, range=str,
+                   pattern=re.compile(r'^(\{[^}]*\})?[^\s{}]+$'))
 
-slots.initial = Slot(uri=FIX_ORCHESTRA.initial, name="initial", curie=FIX_ORCHESTRA.curie('initial'),
-                   model_uri=FIX_ORCHESTRA.initial, domain=None, range=Union[dict, StateType])
+slots.orchestraXmlElement__xml_attributes = Slot(uri=FIX_ORCHESTRA.xml_attributes, name="orchestraXmlElement__xml_attributes", curie=FIX_ORCHESTRA.curie('xml_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
 
-slots.state = Slot(uri=FIX_ORCHESTRA.state, name="state", curie=FIX_ORCHESTRA.curie('state'),
-                   model_uri=FIX_ORCHESTRA.state, domain=None, range=Union[Union[dict, StateType], list[Union[dict, StateType]]])
+slots.orchestraXmlElement__xml_text = Slot(uri=FIX_ORCHESTRA.xml_text, name="orchestraXmlElement__xml_text", curie=FIX_ORCHESTRA.curie('xml_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_text, domain=None, range=Optional[str])
 
-slots.transition = Slot(uri=FIX_ORCHESTRA.transition, name="transition", curie=FIX_ORCHESTRA.curie('transition'),
-                   model_uri=FIX_ORCHESTRA.transition, domain=None, range=Optional[Union[Union[dict, TransitionType], list[Union[dict, TransitionType]]]])
+slots.orchestraXmlElement__xml_children = Slot(uri=FIX_ORCHESTRA.xml_children, name="orchestraXmlElement__xml_children", curie=FIX_ORCHESTRA.curie('xml_children'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_children, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.onentry = Slot(uri=FIX_ORCHESTRA.onentry, name="onentry", curie=FIX_ORCHESTRA.curie('onentry'),
-                   model_uri=FIX_ORCHESTRA.onentry, domain=None, range=Optional[Union[dict, ActionType]])
+slots.orchestraXmlElement__xml_tail = Slot(uri=FIX_ORCHESTRA.xml_tail, name="orchestraXmlElement__xml_tail", curie=FIX_ORCHESTRA.curie('xml_tail'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlElement__xml_tail, domain=None, range=Optional[str])
 
-slots.activity = Slot(uri=FIX_ORCHESTRA.activity, name="activity", curie=FIX_ORCHESTRA.curie('activity'),
-                   model_uri=FIX_ORCHESTRA.activity, domain=None, range=Optional[Union[dict, ActionType]])
+slots.orchestraXmlAttribute__xml_name = Slot(uri=FIX_ORCHESTRA.xml_name, name="orchestraXmlAttribute__xml_name", curie=FIX_ORCHESTRA.curie('xml_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlAttribute__xml_name, domain=None, range=str,
+                   pattern=re.compile(r'^(\{[^}]*\})?[^\s{}]+$'))
 
-slots.onexit = Slot(uri=FIX_ORCHESTRA.onexit, name="onexit", curie=FIX_ORCHESTRA.curie('onexit'),
-                   model_uri=FIX_ORCHESTRA.onexit, domain=None, range=Optional[Union[dict, ActionType]])
+slots.orchestraXmlAttribute__xml_value = Slot(uri=FIX_ORCHESTRA.xml_value, name="orchestraXmlAttribute__xml_value", curie=FIX_ORCHESTRA.curie('xml_value'),
+                   model_uri=FIX_ORCHESTRA.orchestraXmlAttribute__xml_value, domain=None, range=str)
 
-slots.operation = Slot(uri=FIX_ORCHESTRA.operation, name="operation", curie=FIX_ORCHESTRA.curie('operation'),
-                   model_uri=FIX_ORCHESTRA.operation, domain=None, range=Union[str, "TimerOperation"])
+slots.orchestraActionParameterV10__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraActionParameterV10__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_field, domain=None, range=Optional[Union[dict, OrchestraFieldV10]])
 
-slots.interval = Slot(uri=FIX_ORCHESTRA.interval, name="interval", curie=FIX_ORCHESTRA.curie('interval'),
-                   model_uri=FIX_ORCHESTRA.interval, domain=None, range=Optional[str])
+slots.orchestraActionParameterV10__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraActionParameterV10__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV10]])
 
-slots.target = Slot(uri=FIX_ORCHESTRA.target, name="target", curie=FIX_ORCHESTRA.curie('target'),
-                   model_uri=FIX_ORCHESTRA.target, domain=None, range=str)
+slots.orchestraActionParameterV10__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraActionParameterV10__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_component, domain=None, range=Optional[Union[dict, OrchestraComponentV10]])
 
-slots.state_machine = Slot(uri=FIX_ORCHESTRA.state_machine, name="state_machine", curie=FIX_ORCHESTRA.curie('state_machine'),
-                   model_uri=FIX_ORCHESTRA.state_machine, domain=None, range=str)
+slots.orchestraActionParameterV10__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraActionParameterV10__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV10]])
 
-slots.service = Slot(uri=FIX_ORCHESTRA.service, name="service", curie=FIX_ORCHESTRA.curie('service'),
-                   model_uri=FIX_ORCHESTRA.service, domain=None, range=Optional[Union[Union[dict, ServiceType], list[Union[dict, ServiceType]]]])
+slots.orchestraActionParameterV10__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraActionParameterV10__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_group, domain=None, range=Optional[Union[dict, OrchestraGroupV10]])
 
-slots.user_interface = Slot(uri=FIX_ORCHESTRA.user_interface, name="user_interface", curie=FIX_ORCHESTRA.curie('user_interface'),
-                   model_uri=FIX_ORCHESTRA.user_interface, domain=None, range=Optional[Union[Union[dict, UserInterfaceType], list[Union[dict, UserInterfaceType]]]])
+slots.orchestraActionParameterV10__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraActionParameterV10__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV10__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV10]])
 
-slots.session_protocol = Slot(uri=FIX_ORCHESTRA.session_protocol, name="session_protocol", curie=FIX_ORCHESTRA.curie('session_protocol'),
-                   model_uri=FIX_ORCHESTRA.session_protocol, domain=None, range=Optional[Union[Union[dict, SessionProtocolType], list[Union[dict, SessionProtocolType]]]])
+slots.orchestraActionStepV10__fixr_message_ref = Slot(uri=FIX_ORCHESTRA.fixr_message_ref, name="orchestraActionStepV10__fixr_message_ref", curie=FIX_ORCHESTRA.curie('fixr_message_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV10__fixr_message_ref, domain=None, range=Optional[Union[dict, OrchestraMessageRefV10]])
 
-slots.protocol = Slot(uri=FIX_ORCHESTRA.protocol, name="protocol", curie=FIX_ORCHESTRA.curie('protocol'),
-                   model_uri=FIX_ORCHESTRA.protocol, domain=None, range=Optional[Union[Union[dict, ProtocolType], list[Union[dict, ProtocolType]]]])
+slots.orchestraActionStepV10__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraActionStepV10__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV10__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.transport = Slot(uri=FIX_ORCHESTRA.transport, name="transport", curie=FIX_ORCHESTRA.curie('transport'),
-                   model_uri=FIX_ORCHESTRA.transport, domain=None, range=Optional[Union[Union[dict, TransportProtocolType], list[Union[dict, TransportProtocolType]]]])
+slots.orchestraActionStepV10__fixr_trigger = Slot(uri=FIX_ORCHESTRA.fixr_trigger, name="orchestraActionStepV10__fixr_trigger", curie=FIX_ORCHESTRA.curie('fixr_trigger'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV10__fixr_trigger, domain=None, range=Optional[Union[dict, OrchestraTriggerV10]])
 
-slots.session = Slot(uri=FIX_ORCHESTRA.session, name="session", curie=FIX_ORCHESTRA.curie('session'),
-                   model_uri=FIX_ORCHESTRA.session, domain=None, range=Union[Union[dict, SessionType], list[Union[dict, SessionType]]])
+slots.orchestraActionStepV10__fixr_timer_schedule = Slot(uri=FIX_ORCHESTRA.fixr_timer_schedule, name="orchestraActionStepV10__fixr_timer_schedule", curie=FIX_ORCHESTRA.curie('fixr_timer_schedule'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV10__fixr_timer_schedule, domain=None, range=Optional[Union[dict, OrchestraTimerScheduleV10]])
 
-slots.sessions = Slot(uri=FIX_ORCHESTRA.sessions, name="sessions", curie=FIX_ORCHESTRA.curie('sessions'),
-                   model_uri=FIX_ORCHESTRA.sessions, domain=None, range=Optional[Union[dict, SessionsInline]])
+slots.orchestraActionV10__fixr_parameters = Slot(uri=FIX_ORCHESTRA.fixr_parameters, name="orchestraActionV10__fixr_parameters", curie=FIX_ORCHESTRA.curie('fixr_parameters'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionV10__fixr_parameters, domain=None, range=Optional[Union[Union[dict, OrchestraActionParameterV10], list[Union[dict, OrchestraActionParameterV10]]]])
 
-slots.activation_time = Slot(uri=FIX_ORCHESTRA.activation_time, name="activation_time", curie=FIX_ORCHESTRA.curie('activation_time'),
-                   model_uri=FIX_ORCHESTRA.activation_time, domain=None, range=Optional[Union[str, XSDDateTime]])
+slots.orchestraActionV10__fixr_actions = Slot(uri=FIX_ORCHESTRA.fixr_actions, name="orchestraActionV10__fixr_actions", curie=FIX_ORCHESTRA.curie('fixr_actions'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionV10__fixr_actions, domain=None, range=Union[Union[dict, OrchestraActionStepV10], list[Union[dict, OrchestraActionStepV10]]])
 
-slots.deactivation_time = Slot(uri=FIX_ORCHESTRA.deactivation_time, name="deactivation_time", curie=FIX_ORCHESTRA.curie('deactivation_time'),
-                   model_uri=FIX_ORCHESTRA.deactivation_time, domain=None, range=Optional[Union[str, XSDDateTime]])
+slots.orchestraActorMemberV10__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraActorMemberV10__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_field, domain=None, range=Optional[Union[dict, OrchestraFieldV10]])
 
-slots.layer = Slot(uri=FIX_ORCHESTRA.layer, name="layer", curie=FIX_ORCHESTRA.curie('layer'),
-                   model_uri=FIX_ORCHESTRA.layer, domain=None, range=Optional[Union[str, "Layer"]])
+slots.orchestraActorMemberV10__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraActorMemberV10__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV10]])
 
-slots.orchestration = Slot(uri=FIX_ORCHESTRA.orchestration, name="orchestration", curie=FIX_ORCHESTRA.curie('orchestration'),
-                   model_uri=FIX_ORCHESTRA.orchestration, domain=None, range=Optional[Union[str, URI]])
+slots.orchestraActorMemberV10__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraActorMemberV10__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_component, domain=None, range=Optional[Union[dict, OrchestraComponentV10]])
 
-slots.role = Slot(uri=FIX_ORCHESTRA.role, name="role", curie=FIX_ORCHESTRA.curie('role'),
-                   model_uri=FIX_ORCHESTRA.role, domain=None, range=Optional[Union[str, "Role"]])
+slots.orchestraActorMemberV10__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraActorMemberV10__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV10]])
 
-slots.security_keys = Slot(uri=FIX_ORCHESTRA.security_keys, name="security_keys", curie=FIX_ORCHESTRA.curie('security_keys'),
-                   model_uri=FIX_ORCHESTRA.security_keys, domain=None, range=Optional[str])
+slots.orchestraActorMemberV10__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraActorMemberV10__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_group, domain=None, range=Optional[Union[dict, OrchestraGroupV10]])
 
-slots.address = Slot(uri=FIX_ORCHESTRA.address, name="address", curie=FIX_ORCHESTRA.curie('address'),
-                   model_uri=FIX_ORCHESTRA.address, domain=None, range=Optional[str])
+slots.orchestraActorMemberV10__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraActorMemberV10__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV10]])
 
-slots.message_cast = Slot(uri=FIX_ORCHESTRA.message_cast, name="message_cast", curie=FIX_ORCHESTRA.curie('message_cast'),
-                   model_uri=FIX_ORCHESTRA.message_cast, domain=None, range=Optional[Union[str, "MessageCast"]])
+slots.orchestraActorMemberV10__fixr_states = Slot(uri=FIX_ORCHESTRA.fixr_states, name="orchestraActorMemberV10__fixr_states", curie=FIX_ORCHESTRA.curie('fixr_states'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_states, domain=None, range=Optional[Union[dict, OrchestraStateMachineV10]])
 
-slots.use = Slot(uri=FIX_ORCHESTRA.use, name="use", curie=FIX_ORCHESTRA.curie('use'),
-                   model_uri=FIX_ORCHESTRA.use, domain=None, range=Optional[Union[str, TransportUse]])
+slots.orchestraActorMemberV10__fixr_timer = Slot(uri=FIX_ORCHESTRA.fixr_timer, name="orchestraActorMemberV10__fixr_timer", curie=FIX_ORCHESTRA.curie('fixr_timer'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV10__fixr_timer, domain=None, range=Optional[Union[dict, OrchestraTimerV10]])
 
-slots.mapped_datatype = Slot(uri=FIX_ORCHESTRA.mapped_datatype, name="mapped_datatype", curie=FIX_ORCHESTRA.curie('mapped_datatype'),
-                   model_uri=FIX_ORCHESTRA.mapped_datatype, domain=None, range=Optional[Union[Union[dict, MappedDatatype], list[Union[dict, MappedDatatype]]]])
+slots.orchestraActorV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraActorV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV10__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraActorMemberV10], list[Union[dict, OrchestraActorMemberV10]]]])
 
-slots.base_type = Slot(uri=FIX_ORCHESTRA.base_type, name="base_type", curie=FIX_ORCHESTRA.curie('base_type'),
-                   model_uri=FIX_ORCHESTRA.base_type, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraActorV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraActorV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.concept = Slot(uri=FIX_ORCHESTRA.concept, name="concept", curie=FIX_ORCHESTRA.curie('concept'),
-                   model_uri=FIX_ORCHESTRA.concept, domain=None, range=Optional[Union[Union[dict, ConceptType], list[Union[dict, ConceptType]]]])
+slots.orchestraActorV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraActorV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.datatype = Slot(uri=FIX_ORCHESTRA.datatype, name="datatype", curie=FIX_ORCHESTRA.curie('datatype'),
-                   model_uri=FIX_ORCHESTRA.datatype, domain=None, range=Optional[Union[Union[dict, Datatype], list[Union[dict, Datatype]]]])
+slots.orchestraActorsMemberV10__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraActorsMemberV10__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsMemberV10__fixr_actor, domain=None, range=Optional[Union[dict, OrchestraActorV10]])
 
-slots.message = Slot(uri=FIX_ORCHESTRA.message, name="message", curie=FIX_ORCHESTRA.curie('message'),
-                   model_uri=FIX_ORCHESTRA.message, domain=None, range=Optional[Union[Union[dict, MessageType], list[Union[dict, MessageType]]]])
+slots.orchestraActorsMemberV10__fixr_flow = Slot(uri=FIX_ORCHESTRA.fixr_flow, name="orchestraActorsMemberV10__fixr_flow", curie=FIX_ORCHESTRA.curie('fixr_flow'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsMemberV10__fixr_flow, domain=None, range=Optional[Union[dict, OrchestraFlowV10]])
 
-slots.metadata = Slot(uri=FIX_ORCHESTRA.metadata, name="metadata", curie=FIX_ORCHESTRA.curie('metadata'),
-                   model_uri=FIX_ORCHESTRA.metadata, domain=None, range=Union[dict, DctermsElementOrRefinementContainer])
+slots.orchestraActorsV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraActorsV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraActorsMemberV10], list[Union[dict, OrchestraActorsMemberV10]]])
 
-slots.categories = Slot(uri=FIX_ORCHESTRA.categories, name="categories", curie=FIX_ORCHESTRA.curie('categories'),
-                   model_uri=FIX_ORCHESTRA.categories, domain=None, range=Optional[Union[dict, Categories]])
+slots.orchestraActorsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraActorsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.sections = Slot(uri=FIX_ORCHESTRA.sections, name="sections", curie=FIX_ORCHESTRA.curie('sections'),
-                   model_uri=FIX_ORCHESTRA.sections, domain=None, range=Optional[Union[dict, Sections]])
+slots.orchestraAnnotationMemberV10__fixr_documentation = Slot(uri=FIX_ORCHESTRA.fixr_documentation, name="orchestraAnnotationMemberV10__fixr_documentation", curie=FIX_ORCHESTRA.curie('fixr_documentation'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationMemberV10__fixr_documentation, domain=None, range=Optional[Union[dict, OrchestraDocumentationV10]])
 
-slots.datatypes = Slot(uri=FIX_ORCHESTRA.datatypes, name="datatypes", curie=FIX_ORCHESTRA.curie('datatypes'),
-                   model_uri=FIX_ORCHESTRA.datatypes, domain=None, range=Union[dict, Datatypes])
+slots.orchestraAnnotationMemberV10__fixr_appinfo = Slot(uri=FIX_ORCHESTRA.fixr_appinfo, name="orchestraAnnotationMemberV10__fixr_appinfo", curie=FIX_ORCHESTRA.curie('fixr_appinfo'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationMemberV10__fixr_appinfo, domain=None, range=Optional[Union[dict, OrchestraAppinfoV10]])
 
-slots.code_sets = Slot(uri=FIX_ORCHESTRA.code_sets, name="code_sets", curie=FIX_ORCHESTRA.curie('code_sets'),
-                   model_uri=FIX_ORCHESTRA.code_sets, domain=None, range=Optional[Union[dict, CodeSets]])
+slots.orchestraAnnotationV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraAnnotationV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraAnnotationMemberV10], list[Union[dict, OrchestraAnnotationMemberV10]]])
 
-slots.fields = Slot(uri=FIX_ORCHESTRA.fields, name="fields", curie=FIX_ORCHESTRA.curie('fields'),
-                   model_uri=FIX_ORCHESTRA.fields, domain=None, range=Union[dict, Fields])
+slots.orchestraAppinfoV10__fixr_text = Slot(uri=FIX_ORCHESTRA.fixr_text, name="orchestraAppinfoV10__fixr_text", curie=FIX_ORCHESTRA.curie('fixr_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_text, domain=None, range=Optional[str])
 
-slots.actors = Slot(uri=FIX_ORCHESTRA.actors, name="actors", curie=FIX_ORCHESTRA.curie('actors'),
-                   model_uri=FIX_ORCHESTRA.actors, domain=None, range=Optional[Union[dict, Actors]])
+slots.orchestraAppinfoV10__fixr_any = Slot(uri=FIX_ORCHESTRA.fixr_any, name="orchestraAppinfoV10__fixr_any", curie=FIX_ORCHESTRA.curie('fixr_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.components = Slot(uri=FIX_ORCHESTRA.components, name="components", curie=FIX_ORCHESTRA.curie('components'),
-                   model_uri=FIX_ORCHESTRA.components, domain=None, range=Optional[Union[dict, Components]])
+slots.orchestraAppinfoV10__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraAppinfoV10__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
 
-slots.groups = Slot(uri=FIX_ORCHESTRA.groups, name="groups", curie=FIX_ORCHESTRA.curie('groups'),
-                   model_uri=FIX_ORCHESTRA.groups, domain=None, range=Optional[Union[dict, Groups]])
+slots.orchestraAppinfoV10__fixr_lang_id = Slot(uri=FIX_ORCHESTRA.fixr_lang_id, name="orchestraAppinfoV10__fixr_lang_id", curie=FIX_ORCHESTRA.curie('fixr_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
 
-slots.messages = Slot(uri=FIX_ORCHESTRA.messages, name="messages", curie=FIX_ORCHESTRA.curie('messages'),
-                   model_uri=FIX_ORCHESTRA.messages, domain=None, range=Union[dict, Messages])
+slots.orchestraAppinfoV10__fixr_purpose = Slot(uri=FIX_ORCHESTRA.fixr_purpose, name="orchestraAppinfoV10__fixr_purpose", curie=FIX_ORCHESTRA.curie('fixr_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
 
-slots.concepts = Slot(uri=FIX_ORCHESTRA.concepts, name="concepts", curie=FIX_ORCHESTRA.curie('concepts'),
-                   model_uri=FIX_ORCHESTRA.concepts, domain=None, range=Optional[Union[dict, Concepts]])
+slots.orchestraAppinfoV10__fixr_other_attributes = Slot(uri=FIX_ORCHESTRA.fixr_other_attributes, name="orchestraAppinfoV10__fixr_other_attributes", curie=FIX_ORCHESTRA.curie('fixr_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV10__fixr_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
 
-slots.scenarios = Slot(uri=FIX_ORCHESTRA.scenarios, name="scenarios", curie=FIX_ORCHESTRA.curie('scenarios'),
-                   model_uri=FIX_ORCHESTRA.scenarios, domain=None, range=Optional[Union[dict, Scenarios]])
+slots.orchestraBaseInterfaceV10__fixi_service = Slot(uri=FIX_ORCHESTRA.fixi_service, name="orchestraBaseInterfaceV10__fixi_service", curie=FIX_ORCHESTRA.curie('fixi_service'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_service, domain=None, range=Optional[Union[Union[dict, OrchestraServiceV10], list[Union[dict, OrchestraServiceV10]]]])
 
-slots.guid = Slot(uri=FIX_ORCHESTRA.guid, name="guid", curie=FIX_ORCHESTRA.curie('guid'),
-                   model_uri=FIX_ORCHESTRA.guid, domain=None, range=Optional[str])
+slots.orchestraBaseInterfaceV10__fixi_user_interface = Slot(uri=FIX_ORCHESTRA.fixi_user_interface, name="orchestraBaseInterfaceV10__fixi_user_interface", curie=FIX_ORCHESTRA.curie('fixi_user_interface'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_user_interface, domain=None, range=Optional[Union[Union[dict, OrchestraUserInterfaceV10], list[Union[dict, OrchestraUserInterfaceV10]]]])
 
-slots.namespace = Slot(uri=FIX_ORCHESTRA.namespace, name="namespace", curie=FIX_ORCHESTRA.curie('namespace'),
-                   model_uri=FIX_ORCHESTRA.namespace, domain=None, range=Optional[Union[str, URI]])
+slots.orchestraBaseInterfaceV10__fixi_encoding = Slot(uri=FIX_ORCHESTRA.fixi_encoding, name="orchestraBaseInterfaceV10__fixi_encoding", curie=FIX_ORCHESTRA.curie('fixi_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_encoding, domain=None, range=Optional[Union[Union[dict, OrchestraEncodingV10], list[Union[dict, OrchestraEncodingV10]]]])
 
-slots.expression_language = Slot(uri=FIX_ORCHESTRA.expression_language, name="expression_language", curie=FIX_ORCHESTRA.curie('expression_language'),
-                   model_uri=FIX_ORCHESTRA.expression_language, domain=None, range=Optional[str])
+slots.orchestraBaseInterfaceV10__fixi_session_protocol = Slot(uri=FIX_ORCHESTRA.fixi_session_protocol, name="orchestraBaseInterfaceV10__fixi_session_protocol", curie=FIX_ORCHESTRA.curie('fixi_session_protocol'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_session_protocol, domain=None, range=Optional[Union[Union[dict, OrchestraSessionProtocolV10], list[Union[dict, OrchestraSessionProtocolV10]]]])
 
-slots.interface = Slot(uri=FIX_ORCHESTRA.interface, name="interface", curie=FIX_ORCHESTRA.curie('interface'),
-                   model_uri=FIX_ORCHESTRA.interface, domain=None, range=Optional[Union[Union[dict, InterfaceType], list[Union[dict, InterfaceType]]]])
+slots.orchestraBaseInterfaceV10__fixi_protocol = Slot(uri=FIX_ORCHESTRA.fixi_protocol, name="orchestraBaseInterfaceV10__fixi_protocol", curie=FIX_ORCHESTRA.curie('fixi_protocol'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_protocol, domain=None, range=Optional[Union[Union[dict, OrchestraProtocolV10], list[Union[dict, OrchestraProtocolV10]]]])
 
-slots.inlined = Slot(uri=FIX_ORCHESTRA.inlined, name="inlined", curie=FIX_ORCHESTRA.curie('inlined'),
-                   model_uri=FIX_ORCHESTRA.inlined, domain=None, range=Optional[Union[bool, Bool]])
+slots.orchestraBaseInterfaceV10__fixi_transport = Slot(uri=FIX_ORCHESTRA.fixi_transport, name="orchestraBaseInterfaceV10__fixi_transport", curie=FIX_ORCHESTRA.curie('fixi_transport'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_transport, domain=None, range=Optional[Union[Union[dict, OrchestraTransportV10], list[Union[dict, OrchestraTransportV10]]]])
 
-slots.not_req_xml = Slot(uri=FIX_ORCHESTRA.not_req_xml, name="not_req_xml", curie=FIX_ORCHESTRA.curie('not_req_xml'),
-                   model_uri=FIX_ORCHESTRA.not_req_xml, domain=None, range=Optional[Union[bool, Bool]])
+slots.orchestraBaseInterfaceV10__fixi_annotation = Slot(uri=FIX_ORCHESTRA.fixi_annotation, name="orchestraBaseInterfaceV10__fixi_annotation", curie=FIX_ORCHESTRA.curie('fixi_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_annotation, domain=None, range=Optional[Union[dict, OrchestraInterfaceAnnotationV10]])
 
-slots.value = Slot(uri=FIX_ORCHESTRA.value, name="value", curie=FIX_ORCHESTRA.curie('value'),
-                   model_uri=FIX_ORCHESTRA.value, domain=None, range=Optional[str])
+slots.orchestraBaseInterfaceV10__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraBaseInterfaceV10__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_name, domain=None, range=str)
 
-slots.content = Slot(uri=FIX_ORCHESTRA.content, name="content", curie=FIX_ORCHESTRA.curie('content'),
-                   model_uri=FIX_ORCHESTRA.content, domain=None, range=Optional[Union[str, list[str]]])
+slots.orchestraBaseInterfaceV10__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraBaseInterfaceV10__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV10__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
 
-slots.title = Slot(uri=DCTERMS.title, name="title", curie=DCTERMS.curie('title'),
-                   model_uri=FIX_ORCHESTRA.title, domain=None, range=Optional[str])
+slots.orchestraBlockAssignmentV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraBlockAssignmentV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraBlockAssignmentV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraStructureMemberV10], list[Union[dict, OrchestraStructureMemberV10]]])
 
-slots.description = Slot(uri=DCTERMS.description, name="description", curie=DCTERMS.curie('description'),
-                   model_uri=FIX_ORCHESTRA.description, domain=None, range=Optional[str])
+slots.orchestraCategoriesV10__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraCategoriesV10__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoriesV10__fixr_category, domain=None, range=Union[Union[dict, OrchestraCategoryV10], list[Union[dict, OrchestraCategoryV10]]])
 
-slots.creator = Slot(uri=DCTERMS.creator, name="creator", curie=DCTERMS.curie('creator'),
-                   model_uri=FIX_ORCHESTRA.creator, domain=None, range=Optional[str])
+slots.orchestraCategoriesV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraCategoriesV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoriesV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.rights = Slot(uri=DCTERMS.rights, name="rights", curie=DCTERMS.curie('rights'),
-                   model_uri=FIX_ORCHESTRA.rights, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCategoryV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.date = Slot(uri=DCTERMS.date, name="date", curie=DCTERMS.curie('date'),
-                   model_uri=FIX_ORCHESTRA.date, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraCategoryV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.publisher = Slot(uri=DCTERMS.publisher, name="publisher", curie=DCTERMS.curie('publisher'),
-                   model_uri=FIX_ORCHESTRA.publisher, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_fixml_file_name = Slot(uri=FIX_ORCHESTRA.fixr_fixml_file_name, name="orchestraCategoryV10__fixr_fixml_file_name", curie=FIX_ORCHESTRA.curie('fixr_fixml_file_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_fixml_file_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.subject = Slot(uri=DCTERMS.subject, name="subject", curie=DCTERMS.curie('subject'),
-                   model_uri=FIX_ORCHESTRA.subject, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_component_type = Slot(uri=FIX_ORCHESTRA.fixr_component_type, name="orchestraCategoryV10__fixr_component_type", curie=FIX_ORCHESTRA.curie('fixr_component_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_component_type, domain=None, range=Optional[Union[str, "OrchestraCategoryContentV10"]])
 
-slots.contributor = Slot(uri=DCTERMS.contributor, name="contributor", curie=DCTERMS.curie('contributor'),
-                   model_uri=FIX_ORCHESTRA.contributor, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_section = Slot(uri=FIX_ORCHESTRA.fixr_section, name="orchestraCategoryV10__fixr_section", curie=FIX_ORCHESTRA.curie('fixr_section'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_section, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.format = Slot(uri=DCTERMS.format, name="format", curie=DCTERMS.curie('format'),
-                   model_uri=FIX_ORCHESTRA.format, domain=None, range=Optional[str])
+slots.orchestraCategoryV10__fixr_include_file = Slot(uri=FIX_ORCHESTRA.fixr_include_file, name="orchestraCategoryV10__fixr_include_file", curie=FIX_ORCHESTRA.curie('fixr_include_file'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV10__fixr_include_file, domain=None, range=Optional[Union[str, "OrchestraCategoryIncludeFileV10"]])
 
-slots.source = Slot(uri=DCTERMS.source, name="source", curie=DCTERMS.curie('source'),
-                   model_uri=FIX_ORCHESTRA.source, domain=None, range=Optional[str])
+slots.orchestraCodeSetV10__fixr_code = Slot(uri=FIX_ORCHESTRA.fixr_code, name="orchestraCodeSetV10__fixr_code", curie=FIX_ORCHESTRA.curie('fixr_code'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV10__fixr_code, domain=None, range=Optional[Union[Union[dict, OrchestraCodeV10], list[Union[dict, OrchestraCodeV10]]]])
 
-slots.language = Slot(uri=DCTERMS.language, name="language", curie=DCTERMS.curie('language'),
-                   model_uri=FIX_ORCHESTRA.language, domain=None, range=Optional[str])
+slots.orchestraCodeSetV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCodeSetV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.relation = Slot(uri=DCTERMS.relation, name="relation", curie=DCTERMS.curie('relation'),
-                   model_uri=FIX_ORCHESTRA.relation, domain=None, range=Optional[str])
+slots.orchestraCodeSetV10__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraCodeSetV10__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV10__fixr_type, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.coverage = Slot(uri=DCTERMS.coverage, name="coverage", curie=DCTERMS.curie('coverage'),
-                   model_uri=FIX_ORCHESTRA.coverage, domain=None, range=Optional[str])
+slots.orchestraCodeSetV10__fixr_default = Slot(uri=FIX_ORCHESTRA.fixr_default, name="orchestraCodeSetV10__fixr_default", curie=FIX_ORCHESTRA.curie('fixr_default'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV10__fixr_default, domain=None, range=Optional[str])
 
-slots.alternative = Slot(uri=DCTERMS.alternative, name="alternative", curie=DCTERMS.curie('alternative'),
-                   model_uri=FIX_ORCHESTRA.alternative, domain=None, range=Optional[str])
+slots.orchestraCodeSetV10__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraCodeSetV10__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV10__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
 
-slots.table_of_contents = Slot(uri=DCTERMS.tableOfContents, name="table_of_contents", curie=DCTERMS.curie('tableOfContents'),
-                   model_uri=FIX_ORCHESTRA.table_of_contents, domain=None, range=Optional[str])
+slots.orchestraCodeSetsV10__fixr_code_set = Slot(uri=FIX_ORCHESTRA.fixr_code_set, name="orchestraCodeSetsV10__fixr_code_set", curie=FIX_ORCHESTRA.curie('fixr_code_set'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV10__fixr_code_set, domain=None, range=Union[Union[dict, OrchestraCodeSetV10], list[Union[dict, OrchestraCodeSetV10]]])
 
-slots.abstract = Slot(uri=DCTERMS.abstract, name="abstract", curie=DCTERMS.curie('abstract'),
-                   model_uri=FIX_ORCHESTRA.abstract, domain=None, range=Optional[str])
+slots.orchestraCodeSetsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraCodeSetsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.created = Slot(uri=DCTERMS.created, name="created", curie=DCTERMS.curie('created'),
-                   model_uri=FIX_ORCHESTRA.created, domain=None, range=Optional[str])
+slots.orchestraCodeV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCodeV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.valid = Slot(uri=DCTERMS.valid, name="valid", curie=DCTERMS.curie('valid'),
-                   model_uri=FIX_ORCHESTRA.valid, domain=None, range=Optional[str])
+slots.orchestraCodeV10__fixr_value = Slot(uri=FIX_ORCHESTRA.fixr_value, name="orchestraCodeV10__fixr_value", curie=FIX_ORCHESTRA.curie('fixr_value'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV10__fixr_value, domain=None, range=str)
 
-slots.available = Slot(uri=DCTERMS.available, name="available", curie=DCTERMS.curie('available'),
-                   model_uri=FIX_ORCHESTRA.available, domain=None, range=Optional[str])
+slots.orchestraCodeV10__fixr_sort = Slot(uri=FIX_ORCHESTRA.fixr_sort, name="orchestraCodeV10__fixr_sort", curie=FIX_ORCHESTRA.curie('fixr_sort'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV10__fixr_sort, domain=None, range=Optional[str])
 
-slots.issued = Slot(uri=DCTERMS.issued, name="issued", curie=DCTERMS.curie('issued'),
-                   model_uri=FIX_ORCHESTRA.issued, domain=None, range=Optional[str])
+slots.orchestraCodeV10__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraCodeV10__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV10__fixr_group, domain=None, range=Optional[str])
 
-slots.modified = Slot(uri=DCTERMS.modified, name="modified", curie=DCTERMS.curie('modified'),
-                   model_uri=FIX_ORCHESTRA.modified, domain=None, range=Optional[str])
+slots.orchestraComponentRefV10__fixr_block_assignment = Slot(uri=FIX_ORCHESTRA.fixr_block_assignment, name="orchestraComponentRefV10__fixr_block_assignment", curie=FIX_ORCHESTRA.curie('fixr_block_assignment'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV10__fixr_block_assignment, domain=None, range=Optional[Union[Union[dict, OrchestraBlockAssignmentV10], list[Union[dict, OrchestraBlockAssignmentV10]]]])
 
-slots.date_accepted = Slot(uri=DCTERMS.dateAccepted, name="date_accepted", curie=DCTERMS.curie('dateAccepted'),
-                   model_uri=FIX_ORCHESTRA.date_accepted, domain=None, range=Optional[str])
+slots.orchestraComponentRefV10__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraComponentRefV10__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV10__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraComponentRuleV10], list[Union[dict, OrchestraComponentRuleV10]]]])
 
-slots.date_copyrighted = Slot(uri=DCTERMS.dateCopyrighted, name="date_copyrighted", curie=DCTERMS.curie('dateCopyrighted'),
-                   model_uri=FIX_ORCHESTRA.date_copyrighted, domain=None, range=Optional[str])
+slots.orchestraComponentRefV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraComponentRefV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.date_submitted = Slot(uri=DCTERMS.dateSubmitted, name="date_submitted", curie=DCTERMS.curie('dateSubmitted'),
-                   model_uri=FIX_ORCHESTRA.date_submitted, domain=None, range=Optional[str])
+slots.orchestraComponentRefV10__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraComponentRefV10__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV10__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
 
-slots.extent = Slot(uri=DCTERMS.extent, name="extent", curie=DCTERMS.curie('extent'),
-                   model_uri=FIX_ORCHESTRA.extent, domain=None, range=Optional[str])
+slots.orchestraComponentRefV10__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraComponentRefV10__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV10__fixr_instance_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.medium = Slot(uri=DCTERMS.medium, name="medium", curie=DCTERMS.curie('medium'),
-                   model_uri=FIX_ORCHESTRA.medium, domain=None, range=Optional[str])
+slots.orchestraComponentRuleV10__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraComponentRuleV10__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV10__fixr_when, domain=None, range=str,
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.is_version_of = Slot(uri=DCTERMS.isVersionOf, name="is_version_of", curie=DCTERMS.curie('isVersionOf'),
-                   model_uri=FIX_ORCHESTRA.is_version_of, domain=None, range=Optional[str])
+slots.orchestraComponentRuleV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraComponentRuleV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV10__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.has_version = Slot(uri=DCTERMS.hasVersion, name="has_version", curie=DCTERMS.curie('hasVersion'),
-                   model_uri=FIX_ORCHESTRA.has_version, domain=None, range=Optional[str])
+slots.orchestraComponentRuleV10__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraComponentRuleV10__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV10__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
 
-slots.is_replaced_by = Slot(uri=DCTERMS.isReplacedBy, name="is_replaced_by", curie=DCTERMS.curie('isReplacedBy'),
-                   model_uri=FIX_ORCHESTRA.is_replaced_by, domain=None, range=Optional[str])
+slots.orchestraComponentV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraComponentV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraStructureMemberV10], list[Union[dict, OrchestraStructureMemberV10]]])
 
-slots.replaces = Slot(uri=DCTERMS.replaces, name="replaces", curie=DCTERMS.curie('replaces'),
-                   model_uri=FIX_ORCHESTRA.replaces, domain=None, range=Optional[str])
+slots.orchestraComponentV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraComponentV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.is_required_by = Slot(uri=DCTERMS.isRequiredBy, name="is_required_by", curie=DCTERMS.curie('isRequiredBy'),
-                   model_uri=FIX_ORCHESTRA.is_required_by, domain=None, range=Optional[str])
+slots.orchestraComponentV10__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraComponentV10__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV10__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.requires = Slot(uri=DCTERMS.requires, name="requires", curie=DCTERMS.curie('requires'),
-                   model_uri=FIX_ORCHESTRA.requires, domain=None, range=Optional[str])
+slots.orchestraComponentV10__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraComponentV10__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV10__fixr_rendering, domain=None, range=Optional[str])
 
-slots.is_part_of = Slot(uri=DCTERMS.isPartOf, name="is_part_of", curie=DCTERMS.curie('isPartOf'),
-                   model_uri=FIX_ORCHESTRA.is_part_of, domain=None, range=Optional[str])
+slots.orchestraComponentV10__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraComponentV10__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV10__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
 
-slots.has_part = Slot(uri=DCTERMS.hasPart, name="has_part", curie=DCTERMS.curie('hasPart'),
-                   model_uri=FIX_ORCHESTRA.has_part, domain=None, range=Optional[str])
+slots.orchestraComponentsV10__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraComponentsV10__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV10__fixr_component, domain=None, range=Union[Union[dict, OrchestraComponentV10], list[Union[dict, OrchestraComponentV10]]])
 
-slots.is_referenced_by = Slot(uri=DCTERMS.isReferencedBy, name="is_referenced_by", curie=DCTERMS.curie('isReferencedBy'),
-                   model_uri=FIX_ORCHESTRA.is_referenced_by, domain=None, range=Optional[str])
+slots.orchestraComponentsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraComponentsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.references = Slot(uri=DCTERMS.references, name="references", curie=DCTERMS.curie('references'),
-                   model_uri=FIX_ORCHESTRA.references, domain=None, range=Optional[str])
+slots.orchestraConceptMemberV10__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraConceptMemberV10__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV10__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV10]])
 
-slots.is_format_of = Slot(uri=DCTERMS.isFormatOf, name="is_format_of", curie=DCTERMS.curie('isFormatOf'),
-                   model_uri=FIX_ORCHESTRA.is_format_of, domain=None, range=Optional[str])
+slots.orchestraConceptMemberV10__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraConceptMemberV10__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV10__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV10]])
 
-slots.has_format = Slot(uri=DCTERMS.hasFormat, name="has_format", curie=DCTERMS.curie('hasFormat'),
-                   model_uri=FIX_ORCHESTRA.has_format, domain=None, range=Optional[str])
+slots.orchestraConceptMemberV10__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraConceptMemberV10__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV10__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV10]])
 
-slots.conforms_to = Slot(uri=DCTERMS.conformsTo, name="conforms_to", curie=DCTERMS.curie('conformsTo'),
-                   model_uri=FIX_ORCHESTRA.conforms_to, domain=None, range=Optional[str])
+slots.orchestraConceptMemberV10__fixr_message_ref = Slot(uri=FIX_ORCHESTRA.fixr_message_ref, name="orchestraConceptMemberV10__fixr_message_ref", curie=FIX_ORCHESTRA.curie('fixr_message_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV10__fixr_message_ref, domain=None, range=Optional[Union[dict, OrchestraMessageRefV10]])
 
-slots.spatial = Slot(uri=DCTERMS.spatial, name="spatial", curie=DCTERMS.curie('spatial'),
-                   model_uri=FIX_ORCHESTRA.spatial, domain=None, range=Optional[str])
+slots.orchestraConceptV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraConceptV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraConceptMemberV10], list[Union[dict, OrchestraConceptMemberV10]]])
 
-slots.temporal = Slot(uri=DCTERMS.temporal, name="temporal", curie=DCTERMS.curie('temporal'),
-                   model_uri=FIX_ORCHESTRA.temporal, domain=None, range=Optional[str])
+slots.orchestraConceptV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraConceptV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.audience = Slot(uri=DCTERMS.audience, name="audience", curie=DCTERMS.curie('audience'),
-                   model_uri=FIX_ORCHESTRA.audience, domain=None, range=Optional[str])
+slots.orchestraConceptV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraConceptV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.accrual_method = Slot(uri=DCTERMS.accrualMethod, name="accrual_method", curie=DCTERMS.curie('accrualMethod'),
-                   model_uri=FIX_ORCHESTRA.accrual_method, domain=None, range=Optional[str])
+slots.orchestraConceptsV10__fixr_concept = Slot(uri=FIX_ORCHESTRA.fixr_concept, name="orchestraConceptsV10__fixr_concept", curie=FIX_ORCHESTRA.curie('fixr_concept'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptsV10__fixr_concept, domain=None, range=Union[Union[dict, OrchestraConceptV10], list[Union[dict, OrchestraConceptV10]]])
 
-slots.accrual_periodicity = Slot(uri=DCTERMS.accrualPeriodicity, name="accrual_periodicity", curie=DCTERMS.curie('accrualPeriodicity'),
-                   model_uri=FIX_ORCHESTRA.accrual_periodicity, domain=None, range=Optional[str])
+slots.orchestraConceptsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraConceptsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.accrual_policy = Slot(uri=DCTERMS.accrualPolicy, name="accrual_policy", curie=DCTERMS.curie('accrualPolicy'),
-                   model_uri=FIX_ORCHESTRA.accrual_policy, domain=None, range=Optional[str])
+slots.orchestraContainerV10Mixin__fixr_latest_ep = Slot(uri=FIX_ORCHESTRA.fixr_latest_ep, name="orchestraContainerV10Mixin__fixr_latest_ep", curie=FIX_ORCHESTRA.curie('fixr_latest_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraContainerV10Mixin__fixr_latest_ep, domain=None, range=Optional[int])
 
-slots.instructional_method = Slot(uri=DCTERMS.instructionalMethod, name="instructional_method", curie=DCTERMS.curie('instructionalMethod'),
-                   model_uri=FIX_ORCHESTRA.instructional_method, domain=None, range=Optional[str])
+slots.orchestraDatatypeExtensionV10__fixr_any = Slot(uri=FIX_ORCHESTRA.fixr_any, name="orchestraDatatypeExtensionV10__fixr_any", curie=FIX_ORCHESTRA.curie('fixr_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeExtensionV10__fixr_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.provenance = Slot(uri=DCTERMS.provenance, name="provenance", curie=DCTERMS.curie('provenance'),
-                   model_uri=FIX_ORCHESTRA.provenance, domain=None, range=Optional[str])
+slots.orchestraDatatypeV10__fixr_mapped_datatype = Slot(uri=FIX_ORCHESTRA.fixr_mapped_datatype, name="orchestraDatatypeV10__fixr_mapped_datatype", curie=FIX_ORCHESTRA.curie('fixr_mapped_datatype'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV10__fixr_mapped_datatype, domain=None, range=Optional[Union[Union[dict, OrchestraMappedDatatypeV10], list[Union[dict, OrchestraMappedDatatypeV10]]]])
 
-slots.rights_holder = Slot(uri=DCTERMS.rightsHolder, name="rights_holder", curie=DCTERMS.curie('rightsHolder'),
-                   model_uri=FIX_ORCHESTRA.rights_holder, domain=None, range=Optional[str])
+slots.orchestraDatatypeV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraDatatypeV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.mediator = Slot(uri=DCTERMS.mediator, name="mediator", curie=DCTERMS.curie('mediator'),
-                   model_uri=FIX_ORCHESTRA.mediator, domain=None, range=Optional[str])
+slots.orchestraDatatypeV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraDatatypeV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.education_level = Slot(uri=DCTERMS.educationLevel, name="education_level", curie=DCTERMS.curie('educationLevel'),
-                   model_uri=FIX_ORCHESTRA.education_level, domain=None, range=Optional[str])
+slots.orchestraDatatypeV10__fixr_base_type = Slot(uri=FIX_ORCHESTRA.fixr_base_type, name="orchestraDatatypeV10__fixr_base_type", curie=FIX_ORCHESTRA.curie('fixr_base_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV10__fixr_base_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.access_rights = Slot(uri=DCTERMS.accessRights, name="access_rights", curie=DCTERMS.curie('accessRights'),
-                   model_uri=FIX_ORCHESTRA.access_rights, domain=None, range=Optional[str])
+slots.orchestraDatatypesV10__fixr_datatype = Slot(uri=FIX_ORCHESTRA.fixr_datatype, name="orchestraDatatypesV10__fixr_datatype", curie=FIX_ORCHESTRA.curie('fixr_datatype'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypesV10__fixr_datatype, domain=None, range=Union[Union[dict, OrchestraDatatypeV10], list[Union[dict, OrchestraDatatypeV10]]])
 
-slots.license = Slot(uri=DCTERMS.license, name="license", curie=DCTERMS.curie('license'),
-                   model_uri=FIX_ORCHESTRA.license, domain=None, range=Optional[str])
+slots.orchestraDatatypesV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraDatatypesV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypesV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.bibliographic_citation = Slot(uri=DCTERMS.bibliographicCitation, name="bibliographic_citation", curie=DCTERMS.curie('bibliographicCitation'),
-                   model_uri=FIX_ORCHESTRA.bibliographic_citation, domain=None, range=Optional[str])
+slots.orchestraDocumentationV10__fixr_text = Slot(uri=FIX_ORCHESTRA.fixr_text, name="orchestraDocumentationV10__fixr_text", curie=FIX_ORCHESTRA.curie('fixr_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV10__fixr_text, domain=None, range=Optional[str])
 
-slots.entityAttribGrp__deprecated = Slot(uri=FIX_ORCHESTRA.deprecated, name="entityAttribGrp__deprecated", curie=FIX_ORCHESTRA.curie('deprecated'),
-                   model_uri=FIX_ORCHESTRA.entityAttribGrp__deprecated, domain=None, range=Optional[Union[str, Version]])
+slots.orchestraDocumentationV10__fixr_any = Slot(uri=FIX_ORCHESTRA.fixr_any, name="orchestraDocumentationV10__fixr_any", curie=FIX_ORCHESTRA.curie('fixr_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV10__fixr_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.fieldAttribGrp__encoding = Slot(uri=FIX_ORCHESTRA.encoding, name="fieldAttribGrp__encoding", curie=FIX_ORCHESTRA.curie('encoding'),
-                   model_uri=FIX_ORCHESTRA.fieldAttribGrp__encoding, domain=None, range=Optional[str])
+slots.orchestraDocumentationV10__fixr_lang_id = Slot(uri=FIX_ORCHESTRA.fixr_lang_id, name="orchestraDocumentationV10__fixr_lang_id", curie=FIX_ORCHESTRA.curie('fixr_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV10__fixr_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
 
-slots.oidGrp__id = Slot(uri=FIX_ORCHESTRA.id, name="oidGrp__id", curie=FIX_ORCHESTRA.curie('id'),
-                   model_uri=FIX_ORCHESTRA.oidGrp__id, domain=None, range=Union[int, Id])
+slots.orchestraDocumentationV10__fixr_purpose = Slot(uri=FIX_ORCHESTRA.fixr_purpose, name="orchestraDocumentationV10__fixr_purpose", curie=FIX_ORCHESTRA.curie('fixr_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV10__fixr_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
 
-slots.oidGrp__name = Slot(uri=FIX_ORCHESTRA.name, name="oidGrp__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.oidGrp__name, domain=None, range=Union[str, Name])
+slots.orchestraDocumentationV10__fixr_content_type = Slot(uri=FIX_ORCHESTRA.fixr_content_type, name="orchestraDocumentationV10__fixr_content_type", curie=FIX_ORCHESTRA.curie('fixr_content_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV10__fixr_content_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{3,}$'))
 
-slots.oidGrp__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="oidGrp__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
-                   model_uri=FIX_ORCHESTRA.oidGrp__scenario, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_min_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_min_inclusive, name="orchestraFieldConstraintsV10Mixin__fixr_min_inclusive", curie=FIX_ORCHESTRA.curie('fixr_min_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_min_inclusive, domain=None, range=Optional[str])
 
-slots.refidGrp__id = Slot(uri=FIX_ORCHESTRA.id, name="refidGrp__id", curie=FIX_ORCHESTRA.curie('id'),
-                   model_uri=FIX_ORCHESTRA.refidGrp__id, domain=None, range=Union[int, Id])
+slots.orchestraFieldConstraintsV10Mixin__fixr_max_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_max_inclusive, name="orchestraFieldConstraintsV10Mixin__fixr_max_inclusive", curie=FIX_ORCHESTRA.curie('fixr_max_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_max_inclusive, domain=None, range=Optional[str])
 
-slots.refidGrp__name = Slot(uri=FIX_ORCHESTRA.name, name="refidGrp__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.refidGrp__name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_impl_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_length, name="orchestraFieldConstraintsV10Mixin__fixr_impl_length", curie=FIX_ORCHESTRA.curie('fixr_impl_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_impl_length, domain=None, range=Optional[int])
 
-slots.refidGrp__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="refidGrp__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
-                   model_uri=FIX_ORCHESTRA.refidGrp__scenario, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_impl_min_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_length, name="orchestraFieldConstraintsV10Mixin__fixr_impl_min_length", curie=FIX_ORCHESTRA.curie('fixr_impl_min_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_impl_min_length, domain=None, range=Optional[int])
 
-slots.actionType__group = Slot(uri=FIX_ORCHESTRA.group, name="actionType__group", curie=FIX_ORCHESTRA.curie('group'),
-                   model_uri=FIX_ORCHESTRA.actionType__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_impl_max_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_length, name="orchestraFieldConstraintsV10Mixin__fixr_impl_max_length", curie=FIX_ORCHESTRA.curie('fixr_impl_max_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_impl_max_length, domain=None, range=Optional[int])
 
-slots.actionType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="actionType__assign", curie=FIX_ORCHESTRA.curie('assign'),
-                   model_uri=FIX_ORCHESTRA.actionType__assign, domain=None, range=Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraFieldConstraintsV10Mixin__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
 
-slots.actorType__group = Slot(uri=FIX_ORCHESTRA.group, name="actorType__group", curie=FIX_ORCHESTRA.curie('group'),
-                   model_uri=FIX_ORCHESTRA.actorType__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_encoding = Slot(uri=FIX_ORCHESTRA.fixr_encoding, name="orchestraFieldConstraintsV10Mixin__fixr_encoding", curie=FIX_ORCHESTRA.curie('fixr_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_encoding, domain=None, range=Optional[str])
 
-slots.actorType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="actorType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.actorType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldConstraintsV10Mixin__fixr_value = Slot(uri=FIX_ORCHESTRA.fixr_value, name="orchestraFieldConstraintsV10Mixin__fixr_value", curie=FIX_ORCHESTRA.curie('fixr_value'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_value, domain=None, range=Optional[str])
 
-slots.actorType__name = Slot(uri=FIX_ORCHESTRA.name, name="actorType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.actorType__name, domain=None, range=Union[str, Name])
+slots.orchestraFieldConstraintsV10Mixin__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraFieldConstraintsV10Mixin__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV10Mixin__fixr_rendering, domain=None, range=Optional[str])
 
-slots.annotation__documentation = Slot(uri=FIX_ORCHESTRA.documentation, name="annotation__documentation", curie=FIX_ORCHESTRA.curie('documentation'),
-                   model_uri=FIX_ORCHESTRA.annotation__documentation, domain=None, range=Optional[Union[Union[dict, Documentation], list[Union[dict, Documentation]]]])
+slots.orchestraFieldRefV10__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraFieldRefV10__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV10__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRuleV10], list[Union[dict, OrchestraFieldRuleV10]]]])
 
-slots.annotation__appinfo = Slot(uri=FIX_ORCHESTRA.appinfo, name="annotation__appinfo", curie=FIX_ORCHESTRA.curie('appinfo'),
-                   model_uri=FIX_ORCHESTRA.annotation__appinfo, domain=None, range=Optional[Union[Union[dict, Appinfo], list[Union[dict, Appinfo]]]])
+slots.orchestraFieldRefV10__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldRefV10__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV10__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.appinfo__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="appinfo__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
-                   model_uri=FIX_ORCHESTRA.appinfo__lang_id, domain=None, range=Optional[Union[str, Language]])
+slots.orchestraFieldRefV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFieldRefV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.appinfo__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="appinfo__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
-                   model_uri=FIX_ORCHESTRA.appinfo__purpose, domain=None, range=Optional[Union[str, Purpose]])
+slots.orchestraFieldRefV10__fixr_length_id = Slot(uri=FIX_ORCHESTRA.fixr_length_id, name="orchestraFieldRefV10__fixr_length_id", curie=FIX_ORCHESTRA.curie('fixr_length_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV10__fixr_length_id, domain=None, range=Optional[int])
 
-slots.categoryType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="categoryType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.categoryType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldRefV10__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraFieldRefV10__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV10__fixr_instance_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.categoryType__name = Slot(uri=FIX_ORCHESTRA.name, name="categoryType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.categoryType__name, domain=None, range=Union[str, Name])
+slots.orchestraFieldRuleV10__fixr_unique = Slot(uri=FIX_ORCHESTRA.fixr_unique, name="orchestraFieldRuleV10__fixr_unique", curie=FIX_ORCHESTRA.curie('fixr_unique'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV10__fixr_unique, domain=None, range=Optional[Union[dict, OrchestraUniqueV10]])
 
-slots.categoryType__section = Slot(uri=FIX_ORCHESTRA.section, name="categoryType__section", curie=FIX_ORCHESTRA.curie('section'),
-                   model_uri=FIX_ORCHESTRA.categoryType__section, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldRuleV10__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldRuleV10__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV10__fixr_assign, domain=None, range=Optional[Union[str, list[str]]],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.codeSetType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeSetType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.codeSetType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldRuleV10__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraFieldRuleV10__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV10__fixr_when, domain=None, range=str,
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.codeSetType__type = Slot(uri=FIX_ORCHESTRA.type, name="codeSetType__type", curie=FIX_ORCHESTRA.curie('type'),
-                   model_uri=FIX_ORCHESTRA.codeSetType__type, domain=None, range=Union[str, Name])
+slots.orchestraFieldRuleV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFieldRuleV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV10__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.codeType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.codeType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldRuleV10__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldRuleV10__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV10__fixr_type, domain=None, range=Optional[str])
 
-slots.codeType__group = Slot(uri=FIX_ORCHESTRA.group, name="codeType__group", curie=FIX_ORCHESTRA.curie('group'),
-                   model_uri=FIX_ORCHESTRA.codeType__group, domain=None, range=Optional[str])
+slots.orchestraFieldV10__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraFieldV10__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRuleV10], list[Union[dict, OrchestraFieldRuleV10]]]])
 
-slots.componentRefType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="componentRefType__rule", curie=FIX_ORCHESTRA.curie('rule'),
-                   model_uri=FIX_ORCHESTRA.componentRefType__rule, domain=None, range=Optional[Union[Union[dict, ComponentRuleType], list[Union[dict, ComponentRuleType]]]])
+slots.orchestraFieldV10__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldV10__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.componentRefType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="componentRefType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.componentRefType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFieldV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.componentRefType__instance_name = Slot(uri=FIX_ORCHESTRA.instance_name, name="componentRefType__instance_name", curie=FIX_ORCHESTRA.curie('instance_name'),
-                   model_uri=FIX_ORCHESTRA.componentRefType__instance_name, domain=None, range=Optional[Union[str, ComponentName]])
+slots.orchestraFieldV10__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldV10__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_type, domain=None, range=str)
 
-slots.componentRuleType__name = Slot(uri=FIX_ORCHESTRA.name, name="componentRuleType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.componentRuleType__name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldV10__fixr_length_id = Slot(uri=FIX_ORCHESTRA.fixr_length_id, name="orchestraFieldV10__fixr_length_id", curie=FIX_ORCHESTRA.curie('fixr_length_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_length_id, domain=None, range=Optional[int])
 
-slots.componentType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="componentType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.componentType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldV10__fixr_discriminator_id = Slot(uri=FIX_ORCHESTRA.fixr_discriminator_id, name="orchestraFieldV10__fixr_discriminator_id", curie=FIX_ORCHESTRA.curie('fixr_discriminator_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_discriminator_id, domain=None, range=Optional[int])
 
-slots.componentType__category = Slot(uri=FIX_ORCHESTRA.category, name="componentType__category", curie=FIX_ORCHESTRA.curie('category'),
-                   model_uri=FIX_ORCHESTRA.componentType__category, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFieldV10__fixr_base_category = Slot(uri=FIX_ORCHESTRA.fixr_base_category, name="orchestraFieldV10__fixr_base_category", curie=FIX_ORCHESTRA.curie('fixr_base_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_base_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.conceptType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="conceptType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.conceptType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFieldV10__fixr_base_category_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_base_category_abbr_name, name="orchestraFieldV10__fixr_base_category_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_base_category_abbr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_base_category_abbr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.conceptType__name = Slot(uri=FIX_ORCHESTRA.name, name="conceptType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.conceptType__name, domain=None, range=Union[str, Name])
+slots.orchestraFieldV10__fixr_union_data_type = Slot(uri=FIX_ORCHESTRA.fixr_union_data_type, name="orchestraFieldV10__fixr_union_data_type", curie=FIX_ORCHESTRA.curie('fixr_union_data_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV10__fixr_union_data_type, domain=None, range=Optional[Union[str, "OrchestraUnionDatatypeV10"]])
 
-slots.documentation__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="documentation__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
-                   model_uri=FIX_ORCHESTRA.documentation__lang_id, domain=None, range=Optional[Union[str, Language]])
+slots.orchestraFieldsV10__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraFieldsV10__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV10__fixr_field, domain=None, range=Union[Union[dict, OrchestraFieldV10], list[Union[dict, OrchestraFieldV10]]])
 
-slots.documentation__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="documentation__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
-                   model_uri=FIX_ORCHESTRA.documentation__purpose, domain=None, range=Optional[Union[str, Purpose]])
+slots.orchestraFieldsV10__fixr_latest_ep = Slot(uri=FIX_ORCHESTRA.fixr_latest_ep, name="orchestraFieldsV10__fixr_latest_ep", curie=FIX_ORCHESTRA.curie('fixr_latest_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV10__fixr_latest_ep, domain=None, range=Optional[int])
 
-slots.documentation__content_type = Slot(uri=FIX_ORCHESTRA.content_type, name="documentation__content_type", curie=FIX_ORCHESTRA.curie('content_type'),
-                   model_uri=FIX_ORCHESTRA.documentation__content_type, domain=None, range=Optional[Union[str, Mime]])
+slots.orchestraFieldsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraFieldsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.fieldRefType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="fieldRefType__rule", curie=FIX_ORCHESTRA.curie('rule'),
-                   model_uri=FIX_ORCHESTRA.fieldRefType__rule, domain=None, range=Optional[Union[Union[dict, FieldRuleType], list[Union[dict, FieldRuleType]]]])
+slots.orchestraFlowV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFlowV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.fieldRefType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldRefType__assign", curie=FIX_ORCHESTRA.curie('assign'),
-                   model_uri=FIX_ORCHESTRA.fieldRefType__assign, domain=None, range=Optional[Union[str, ExpressionType]])
+slots.orchestraFlowV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFlowV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.fieldRefType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fieldRefType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.fieldRefType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraFlowV10__fixr_source = Slot(uri=FIX_ORCHESTRA.fixr_source, name="orchestraFlowV10__fixr_source", curie=FIX_ORCHESTRA.curie('fixr_source'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV10__fixr_source, domain=None, range=str)
 
-slots.fieldRefType__instance_name = Slot(uri=FIX_ORCHESTRA.instance_name, name="fieldRefType__instance_name", curie=FIX_ORCHESTRA.curie('instance_name'),
-                   model_uri=FIX_ORCHESTRA.fieldRefType__instance_name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraFlowV10__fixr_destination = Slot(uri=FIX_ORCHESTRA.fixr_destination, name="orchestraFlowV10__fixr_destination", curie=FIX_ORCHESTRA.curie('fixr_destination'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV10__fixr_destination, domain=None, range=str)
 
-slots.fieldRuleType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldRuleType__assign", curie=FIX_ORCHESTRA.curie('assign'),
-                   model_uri=FIX_ORCHESTRA.fieldRuleType__assign, domain=None, range=Optional[Union[Union[str, ExpressionType], list[Union[str, ExpressionType]]]])
+slots.orchestraFlowV10__fixr_reliability = Slot(uri=FIX_ORCHESTRA.fixr_reliability, name="orchestraFlowV10__fixr_reliability", curie=FIX_ORCHESTRA.curie('fixr_reliability'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV10__fixr_reliability, domain=None, range=Optional[Union[str, "OrchestraReliability"]])
 
-slots.fieldRuleType__name = Slot(uri=FIX_ORCHESTRA.name, name="fieldRuleType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.fieldRuleType__name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraGroupRefV10__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraGroupRefV10__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupRefV10__fixr_impl_min_occurs, domain=None, range=Optional[int])
 
-slots.fieldRuleType__type = Slot(uri=FIX_ORCHESTRA.type, name="fieldRuleType__type", curie=FIX_ORCHESTRA.curie('type'),
-                   model_uri=FIX_ORCHESTRA.fieldRuleType__type, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraGroupRefV10__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraGroupRefV10__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupRefV10__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
 
-slots.fieldType__rule = Slot(uri=FIX_ORCHESTRA.rule, name="fieldType__rule", curie=FIX_ORCHESTRA.curie('rule'),
-                   model_uri=FIX_ORCHESTRA.fieldType__rule, domain=None, range=Optional[Union[Union[dict, FieldRuleType], list[Union[dict, FieldRuleType]]]])
+slots.orchestraGroupV10__fixr_num_in_group = Slot(uri=FIX_ORCHESTRA.fixr_num_in_group, name="orchestraGroupV10__fixr_num_in_group", curie=FIX_ORCHESTRA.curie('fixr_num_in_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_num_in_group, domain=None, range=Optional[Union[dict, OrchestraFieldRefV10]])
 
-slots.fieldType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="fieldType__assign", curie=FIX_ORCHESTRA.curie('assign'),
-                   model_uri=FIX_ORCHESTRA.fieldType__assign, domain=None, range=Optional[Union[str, ExpressionType]])
+slots.orchestraGroupV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraGroupV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraStructureMemberV10], list[Union[dict, OrchestraStructureMemberV10]]])
 
-slots.fieldType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fieldType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.fieldType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraGroupV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraGroupV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.fieldType__type = Slot(uri=FIX_ORCHESTRA.type, name="fieldType__type", curie=FIX_ORCHESTRA.curie('type'),
-                   model_uri=FIX_ORCHESTRA.fieldType__type, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraGroupV10__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraGroupV10__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.fieldType__code_set = Slot(uri=FIX_ORCHESTRA.code_set, name="fieldType__code_set", curie=FIX_ORCHESTRA.curie('code_set'),
-                   model_uri=FIX_ORCHESTRA.fieldType__code_set, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraGroupV10__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraGroupV10__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_rendering, domain=None, range=Optional[str])
 
-slots.flowType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="flowType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.flowType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraGroupV10__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraGroupV10__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_impl_min_occurs, domain=None, range=Optional[int])
 
-slots.flowType__name = Slot(uri=FIX_ORCHESTRA.name, name="flowType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.flowType__name, domain=None, range=Union[str, Name])
+slots.orchestraGroupV10__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraGroupV10__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
 
-slots.flowType__reliability = Slot(uri=FIX_ORCHESTRA.reliability, name="flowType__reliability", curie=FIX_ORCHESTRA.curie('reliability'),
-                   model_uri=FIX_ORCHESTRA.flowType__reliability, domain=None, range=Optional[Union[str, "Reliability"]])
+slots.orchestraGroupV10__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraGroupV10__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV10__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
 
-slots.groupType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="groupType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.groupType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraGroupsV10__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraGroupsV10__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV10__fixr_group, domain=None, range=Union[Union[dict, OrchestraGroupV10], list[Union[dict, OrchestraGroupV10]]])
 
-slots.groupType__category = Slot(uri=FIX_ORCHESTRA.category, name="groupType__category", curie=FIX_ORCHESTRA.curie('category'),
-                   model_uri=FIX_ORCHESTRA.groupType__category, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraGroupsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraGroupsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.identifiersType__assign = Slot(uri=FIX_ORCHESTRA.assign, name="identifiersType__assign", curie=FIX_ORCHESTRA.curie('assign'),
-                   model_uri=FIX_ORCHESTRA.identifiersType__assign, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
+slots.orchestraIdentifierV10__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraIdentifierV10__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifierV10__fixr_id, domain=None, range=int)
 
-slots.identifiersType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="identifiersType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.identifiersType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraIdentifierV10__fixr_source_id = Slot(uri=FIX_ORCHESTRA.fixr_source_id, name="orchestraIdentifierV10__fixr_source_id", curie=FIX_ORCHESTRA.curie('fixr_source_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifierV10__fixr_source_id, domain=None, range=Optional[int])
 
-slots.identifierType__name = Slot(uri=FIX_ORCHESTRA.name, name="identifierType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.identifierType__name, domain=None, range=Optional[str])
+slots.orchestraIdentifiersMemberV10__fixr_correlate = Slot(uri=FIX_ORCHESTRA.fixr_correlate, name="orchestraIdentifiersMemberV10__fixr_correlate", curie=FIX_ORCHESTRA.curie('fixr_correlate'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersMemberV10__fixr_correlate, domain=None, range=Optional[Union[dict, OrchestraIdentifierV10]])
 
-slots.mappedDatatype__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="mappedDatatype__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.mappedDatatype__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraIdentifiersMemberV10__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraIdentifiersMemberV10__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersMemberV10__fixr_assign, domain=None, range=Optional[Union[dict, OrchestraIdentifierV10]])
 
-slots.mappedDatatype__base = Slot(uri=FIX_ORCHESTRA.base, name="mappedDatatype__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.mappedDatatype__base, domain=None, range=Optional[str])
+slots.orchestraIdentifiersV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraIdentifiersV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraIdentifiersMemberV10], list[Union[dict, OrchestraIdentifiersMemberV10]]])
 
-slots.messageType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="messageType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.messageType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraIdentifiersV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraIdentifiersV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.messageType__category = Slot(uri=FIX_ORCHESTRA.category, name="messageType__category", curie=FIX_ORCHESTRA.curie('category'),
-                   model_uri=FIX_ORCHESTRA.messageType__category, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraIdentityV10Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraIdentityV10Mixin__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV10Mixin__fixr_id, domain=None, range=int)
 
-slots.messageType__flow = Slot(uri=FIX_ORCHESTRA.flow, name="messageType__flow", curie=FIX_ORCHESTRA.curie('flow'),
-                   model_uri=FIX_ORCHESTRA.messageType__flow, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraIdentityV10Mixin__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraIdentityV10Mixin__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV10Mixin__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.responseType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="responseType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.responseType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraIdentityV10Mixin__fixr_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_abbr_name, name="orchestraIdentityV10Mixin__fixr_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_abbr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV10Mixin__fixr_abbr_name, domain=None, range=Optional[str])
 
-slots.responseType__name = Slot(uri=FIX_ORCHESTRA.name, name="responseType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.responseType__name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraIdentityV10Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraIdentityV10Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV10Mixin__fixr_scenario, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$'))
 
-slots.scenarioType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="scenarioType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.scenarioType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraInterfaceAnnotationMemberV10__fixi_documentation = Slot(uri=FIX_ORCHESTRA.fixi_documentation, name="orchestraInterfaceAnnotationMemberV10__fixi_documentation", curie=FIX_ORCHESTRA.curie('fixi_documentation'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationMemberV10__fixi_documentation, domain=None, range=Optional[Union[dict, OrchestraInterfaceDocumentationV10]])
 
-slots.scenarioType__id = Slot(uri=FIX_ORCHESTRA.id, name="scenarioType__id", curie=FIX_ORCHESTRA.curie('id'),
-                   model_uri=FIX_ORCHESTRA.scenarioType__id, domain=None, range=Optional[Union[int, Id]])
+slots.orchestraInterfaceAnnotationMemberV10__fixi_appinfo = Slot(uri=FIX_ORCHESTRA.fixi_appinfo, name="orchestraInterfaceAnnotationMemberV10__fixi_appinfo", curie=FIX_ORCHESTRA.curie('fixi_appinfo'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationMemberV10__fixi_appinfo, domain=None, range=Optional[Union[dict, OrchestraInterfaceAppinfoV10]])
 
-slots.scenarioType__name = Slot(uri=FIX_ORCHESTRA.name, name="scenarioType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.scenarioType__name, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraInterfaceAnnotationV10__fixi_members = Slot(uri=FIX_ORCHESTRA.fixi_members, name="orchestraInterfaceAnnotationV10__fixi_members", curie=FIX_ORCHESTRA.curie('fixi_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationV10__fixi_members, domain=None, range=Union[Union[dict, OrchestraInterfaceAnnotationMemberV10], list[Union[dict, OrchestraInterfaceAnnotationMemberV10]]])
 
-slots.sectionType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="sectionType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.sectionType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraInterfaceAppinfoV10__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraInterfaceAppinfoV10__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_text, domain=None, range=Optional[str])
 
-slots.sectionType__name = Slot(uri=FIX_ORCHESTRA.name, name="sectionType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.sectionType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceAppinfoV10__fixi_any = Slot(uri=FIX_ORCHESTRA.fixi_any, name="orchestraInterfaceAppinfoV10__fixi_any", curie=FIX_ORCHESTRA.curie('fixi_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.stateMachineType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="stateMachineType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.stateMachineType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraInterfaceAppinfoV10__fixi_spec_url = Slot(uri=FIX_ORCHESTRA.fixi_spec_url, name="orchestraInterfaceAppinfoV10__fixi_spec_url", curie=FIX_ORCHESTRA.curie('fixi_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_spec_url, domain=None, range=Optional[Union[str, URI]])
 
-slots.stateMachineType__name = Slot(uri=FIX_ORCHESTRA.name, name="stateMachineType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.stateMachineType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceAppinfoV10__fixi_lang_id = Slot(uri=FIX_ORCHESTRA.fixi_lang_id, name="orchestraInterfaceAppinfoV10__fixi_lang_id", curie=FIX_ORCHESTRA.curie('fixi_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
 
-slots.stateType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="stateType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.stateType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraInterfaceAppinfoV10__fixi_purpose = Slot(uri=FIX_ORCHESTRA.fixi_purpose, name="orchestraInterfaceAppinfoV10__fixi_purpose", curie=FIX_ORCHESTRA.curie('fixi_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
 
-slots.stateType__name = Slot(uri=FIX_ORCHESTRA.name, name="stateType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.stateType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceAppinfoV10__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraInterfaceAppinfoV10__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV10__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
 
-slots.timerSchedule__actor = Slot(uri=FIX_ORCHESTRA.actor, name="timerSchedule__actor", curie=FIX_ORCHESTRA.curie('actor'),
-                   model_uri=FIX_ORCHESTRA.timerSchedule__actor, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceDocumentationV10__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraInterfaceDocumentationV10__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV10__fixi_text, domain=None, range=Optional[str])
 
-slots.timerSchedule__name = Slot(uri=FIX_ORCHESTRA.name, name="timerSchedule__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.timerSchedule__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceDocumentationV10__fixi_any = Slot(uri=FIX_ORCHESTRA.fixi_any, name="orchestraInterfaceDocumentationV10__fixi_any", curie=FIX_ORCHESTRA.curie('fixi_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV10__fixi_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
 
-slots.timerType__name = Slot(uri=FIX_ORCHESTRA.name, name="timerType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.timerType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceDocumentationV10__fixi_lang_id = Slot(uri=FIX_ORCHESTRA.fixi_lang_id, name="orchestraInterfaceDocumentationV10__fixi_lang_id", curie=FIX_ORCHESTRA.curie('fixi_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV10__fixi_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
 
-slots.transitionType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="transitionType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.transitionType__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraInterfaceDocumentationV10__fixi_purpose = Slot(uri=FIX_ORCHESTRA.fixi_purpose, name="orchestraInterfaceDocumentationV10__fixi_purpose", curie=FIX_ORCHESTRA.curie('fixi_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV10__fixi_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
 
-slots.transitionType__name = Slot(uri=FIX_ORCHESTRA.name, name="transitionType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.transitionType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceDocumentationV10__fixi_content_type = Slot(uri=FIX_ORCHESTRA.fixi_content_type, name="orchestraInterfaceDocumentationV10__fixi_content_type", curie=FIX_ORCHESTRA.curie('fixi_content_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV10__fixi_content_type, domain=None, range=Optional[str])
 
-slots.triggerType__actor = Slot(uri=FIX_ORCHESTRA.actor, name="triggerType__actor", curie=FIX_ORCHESTRA.curie('actor'),
-                   model_uri=FIX_ORCHESTRA.triggerType__actor, domain=None, range=Union[str, Name])
+slots.orchestraInterfaceV10__fixi_sessions = Slot(uri=FIX_ORCHESTRA.fixi_sessions, name="orchestraInterfaceV10__fixi_sessions", curie=FIX_ORCHESTRA.curie('fixi_sessions'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceV10__fixi_sessions, domain=None, range=Optional[Union[dict, OrchestraSessionsV10]])
 
-slots.triggerType__name = Slot(uri=FIX_ORCHESTRA.name, name="triggerType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.triggerType__name, domain=None, range=Union[str, Name])
+slots.orchestraInterfacesV10__fixi_metadata = Slot(uri=FIX_ORCHESTRA.fixi_metadata, name="orchestraInterfacesV10__fixi_metadata", curie=FIX_ORCHESTRA.curie('fixi_metadata'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfacesV10__fixi_metadata, domain=None, range=Union[dict, OrchestraMetadata])
 
-slots.interfaceAnnotation__documentation = Slot(uri=FIX_ORCHESTRA.documentation, name="interfaceAnnotation__documentation", curie=FIX_ORCHESTRA.curie('documentation'),
-                   model_uri=FIX_ORCHESTRA.interfaceAnnotation__documentation, domain=None, range=Optional[Union[Union[dict, InterfaceDocumentation], list[Union[dict, InterfaceDocumentation]]]])
+slots.orchestraInterfacesV10__fixi_interface = Slot(uri=FIX_ORCHESTRA.fixi_interface, name="orchestraInterfacesV10__fixi_interface", curie=FIX_ORCHESTRA.curie('fixi_interface'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfacesV10__fixi_interface, domain=None, range=Optional[Union[Union[dict, OrchestraInterfaceV10], list[Union[dict, OrchestraInterfaceV10]]]])
 
-slots.interfaceAnnotation__appinfo = Slot(uri=FIX_ORCHESTRA.appinfo, name="interfaceAnnotation__appinfo", curie=FIX_ORCHESTRA.curie('appinfo'),
-                   model_uri=FIX_ORCHESTRA.interfaceAnnotation__appinfo, domain=None, range=Optional[Union[Union[dict, InterfaceAppinfo], list[Union[dict, InterfaceAppinfo]]]])
+slots.orchestraMappedDatatypeV10__fixr_extension = Slot(uri=FIX_ORCHESTRA.fixr_extension, name="orchestraMappedDatatypeV10__fixr_extension", curie=FIX_ORCHESTRA.curie('fixr_extension'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_extension, domain=None, range=Optional[Union[dict, OrchestraDatatypeExtensionV10]])
 
-slots.interfaceAppinfo__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="interfaceAppinfo__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
-                   model_uri=FIX_ORCHESTRA.interfaceAppinfo__lang_id, domain=None, range=Optional[str])
+slots.orchestraMappedDatatypeV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraMappedDatatypeV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.interfaceAppinfo__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="interfaceAppinfo__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
-                   model_uri=FIX_ORCHESTRA.interfaceAppinfo__purpose, domain=None, range=Optional[Union[str, InterfacePurpose]])
+slots.orchestraMappedDatatypeV10__fixr_standard = Slot(uri=FIX_ORCHESTRA.fixr_standard, name="orchestraMappedDatatypeV10__fixr_standard", curie=FIX_ORCHESTRA.curie('fixr_standard'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_standard, domain=None, range=Union[str, "OrchestraDatatypeStandardV10"])
 
-slots.baseInterfaceType__encoding = Slot(uri=FIX_ORCHESTRA.encoding, name="baseInterfaceType__encoding", curie=FIX_ORCHESTRA.curie('encoding'),
-                   model_uri=FIX_ORCHESTRA.baseInterfaceType__encoding, domain=None, range=Optional[Union[Union[dict, EncodingType], list[Union[dict, EncodingType]]]])
+slots.orchestraMappedDatatypeV10__fixr_builtin = Slot(uri=FIX_ORCHESTRA.fixr_builtin, name="orchestraMappedDatatypeV10__fixr_builtin", curie=FIX_ORCHESTRA.curie('fixr_builtin'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_builtin, domain=None, range=Optional[Union[bool, Bool]])
 
-slots.baseInterfaceType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="baseInterfaceType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.baseInterfaceType__annotation, domain=None, range=Optional[Union[dict, InterfaceAnnotation]])
+slots.orchestraMappedDatatypeV10__fixr_base = Slot(uri=FIX_ORCHESTRA.fixr_base, name="orchestraMappedDatatypeV10__fixr_base", curie=FIX_ORCHESTRA.curie('fixr_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_base, domain=None, range=Optional[str])
 
-slots.baseInterfaceType__name = Slot(uri=FIX_ORCHESTRA.name, name="baseInterfaceType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.baseInterfaceType__name, domain=None, range=str)
+slots.orchestraMappedDatatypeV10__fixr_pattern = Slot(uri=FIX_ORCHESTRA.fixr_pattern, name="orchestraMappedDatatypeV10__fixr_pattern", curie=FIX_ORCHESTRA.curie('fixr_pattern'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_pattern, domain=None, range=Optional[str])
 
-slots.interfaceDocumentation__lang_id = Slot(uri=FIX_ORCHESTRA.lang_id, name="interfaceDocumentation__lang_id", curie=FIX_ORCHESTRA.curie('lang_id'),
-                   model_uri=FIX_ORCHESTRA.interfaceDocumentation__lang_id, domain=None, range=Optional[str])
+slots.orchestraMappedDatatypeV10__fixr_element = Slot(uri=FIX_ORCHESTRA.fixr_element, name="orchestraMappedDatatypeV10__fixr_element", curie=FIX_ORCHESTRA.curie('fixr_element'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_element, domain=None, range=Optional[str])
 
-slots.interfaceDocumentation__purpose = Slot(uri=FIX_ORCHESTRA.purpose, name="interfaceDocumentation__purpose", curie=FIX_ORCHESTRA.curie('purpose'),
-                   model_uri=FIX_ORCHESTRA.interfaceDocumentation__purpose, domain=None, range=Optional[Union[str, InterfacePurpose]])
+slots.orchestraMappedDatatypeV10__fixr_parameter = Slot(uri=FIX_ORCHESTRA.fixr_parameter, name="orchestraMappedDatatypeV10__fixr_parameter", curie=FIX_ORCHESTRA.curie('fixr_parameter'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_parameter, domain=None, range=Optional[str])
 
-slots.interfaceDocumentation__content_type = Slot(uri=FIX_ORCHESTRA.content_type, name="interfaceDocumentation__content_type", curie=FIX_ORCHESTRA.curie('content_type'),
-                   model_uri=FIX_ORCHESTRA.interfaceDocumentation__content_type, domain=None, range=Optional[str])
+slots.orchestraMappedDatatypeV10__fixr_min_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_min_inclusive, name="orchestraMappedDatatypeV10__fixr_min_inclusive", curie=FIX_ORCHESTRA.curie('fixr_min_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_min_inclusive, domain=None, range=Optional[str])
 
-slots.protocolType__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="protocolType__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.protocolType__annotation, domain=None, range=Optional[Union[dict, InterfaceAnnotation]])
+slots.orchestraMappedDatatypeV10__fixr_max_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_max_inclusive, name="orchestraMappedDatatypeV10__fixr_max_inclusive", curie=FIX_ORCHESTRA.curie('fixr_max_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV10__fixr_max_inclusive, domain=None, range=Optional[str])
 
-slots.protocolType__name = Slot(uri=FIX_ORCHESTRA.name, name="protocolType__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.protocolType__name, domain=None, range=Optional[Union[str, ProtocolName]])
+slots.orchestraMessageRefV10__fixr_identifiers = Slot(uri=FIX_ORCHESTRA.fixr_identifiers, name="orchestraMessageRefV10__fixr_identifiers", curie=FIX_ORCHESTRA.curie('fixr_identifiers'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV10__fixr_identifiers, domain=None, range=Optional[Union[dict, OrchestraIdentifiersV10]])
 
-slots.protocolType__version = Slot(uri=FIX_ORCHESTRA.version, name="protocolType__version", curie=FIX_ORCHESTRA.curie('version'),
-                   model_uri=FIX_ORCHESTRA.protocolType__version, domain=None, range=Optional[str])
+slots.orchestraMessageRefV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraMessageRefV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.protocolType__deprecated = Slot(uri=FIX_ORCHESTRA.deprecated, name="protocolType__deprecated", curie=FIX_ORCHESTRA.curie('deprecated'),
-                   model_uri=FIX_ORCHESTRA.protocolType__deprecated, domain=None, range=Optional[Union[str, XSDDateTime]])
+slots.orchestraMessageRefV10__fixr_msg_type = Slot(uri=FIX_ORCHESTRA.fixr_msg_type, name="orchestraMessageRefV10__fixr_msg_type", curie=FIX_ORCHESTRA.curie('fixr_msg_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV10__fixr_msg_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{1,2}$'))
 
-slots.protocolType__reliability = Slot(uri=FIX_ORCHESTRA.reliability, name="protocolType__reliability", curie=FIX_ORCHESTRA.curie('reliability'),
-                   model_uri=FIX_ORCHESTRA.protocolType__reliability, domain=None, range=Optional[Union[str, "InterfaceReliability"]])
+slots.orchestraMessageRefV10__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraMessageRefV10__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV10__fixr_impl_min_occurs, domain=None, range=Optional[int])
 
-slots.sessionType__identifier = Slot(uri=FIX_ORCHESTRA.identifier, name="sessionType__identifier", curie=FIX_ORCHESTRA.curie('identifier'),
-                   model_uri=FIX_ORCHESTRA.sessionType__identifier, domain=None, range=Optional[Union[Union[dict, IdentifierType], list[Union[dict, IdentifierType]]]])
+slots.orchestraMessageRefV10__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraMessageRefV10__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV10__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
 
-slots.datatype__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="datatype__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.datatype__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraMessageStructureV10__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraMessageStructureV10__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageStructureV10__fixr_members, domain=None, range=Union[Union[dict, OrchestraStructureMemberV10], list[Union[dict, OrchestraStructureMemberV10]]])
 
-slots.datatype__name = Slot(uri=FIX_ORCHESTRA.name, name="datatype__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.datatype__name, domain=None, range=Union[str, Name])
+slots.orchestraMessageStructureV10__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraMessageStructureV10__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageStructureV10__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
 
-slots.datatype__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="datatype__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
-                   model_uri=FIX_ORCHESTRA.datatype__scenario, domain=None, range=Optional[Union[str, Name]])
+slots.orchestraMessageV10__fixr_structure = Slot(uri=FIX_ORCHESTRA.fixr_structure, name="orchestraMessageV10__fixr_structure", curie=FIX_ORCHESTRA.curie('fixr_structure'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_structure, domain=None, range=Union[dict, OrchestraMessageStructureV10])
 
-slots.actors__actor = Slot(uri=FIX_ORCHESTRA.actor, name="actors__actor", curie=FIX_ORCHESTRA.curie('actor'),
-                   model_uri=FIX_ORCHESTRA.actors__actor, domain=None, range=Optional[Union[Union[dict, ActorType], list[Union[dict, ActorType]]]])
+slots.orchestraMessageV10__fixr_responses = Slot(uri=FIX_ORCHESTRA.fixr_responses, name="orchestraMessageV10__fixr_responses", curie=FIX_ORCHESTRA.curie('fixr_responses'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_responses, domain=None, range=Optional[Union[dict, OrchestraResponsesV10]])
 
-slots.actors__flow = Slot(uri=FIX_ORCHESTRA.flow, name="actors__flow", curie=FIX_ORCHESTRA.curie('flow'),
-                   model_uri=FIX_ORCHESTRA.actors__flow, domain=None, range=Optional[Union[Union[dict, FlowType], list[Union[dict, FlowType]]]])
+slots.orchestraMessageV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraMessageV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.actors__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="actors__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.actors__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraMessageV10__fixr_msg_type = Slot(uri=FIX_ORCHESTRA.fixr_msg_type, name="orchestraMessageV10__fixr_msg_type", curie=FIX_ORCHESTRA.curie('fixr_msg_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_msg_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{1,2}$'))
 
-slots.actors__base = Slot(uri=FIX_ORCHESTRA.base, name="actors__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.actors__base, domain=None, range=Optional[str])
+slots.orchestraMessageV10__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraMessageV10__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.categories__category = Slot(uri=FIX_ORCHESTRA.category, name="categories__category", curie=FIX_ORCHESTRA.curie('category'),
-                   model_uri=FIX_ORCHESTRA.categories__category, domain=None, range=Optional[Union[Union[dict, CategoryType], list[Union[dict, CategoryType]]]])
+slots.orchestraMessageV10__fixr_flow = Slot(uri=FIX_ORCHESTRA.fixr_flow, name="orchestraMessageV10__fixr_flow", curie=FIX_ORCHESTRA.curie('fixr_flow'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV10__fixr_flow, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.categories__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="categories__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.categories__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraMessagesV10__fixr_message = Slot(uri=FIX_ORCHESTRA.fixr_message, name="orchestraMessagesV10__fixr_message", curie=FIX_ORCHESTRA.curie('fixr_message'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV10__fixr_message, domain=None, range=Union[Union[dict, OrchestraMessageV10], list[Union[dict, OrchestraMessageV10]]])
 
-slots.categories__base = Slot(uri=FIX_ORCHESTRA.base, name="categories__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.categories__base, domain=None, range=Optional[str])
+slots.orchestraMessagesV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraMessagesV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.codeSets__code_set = Slot(uri=FIX_ORCHESTRA.code_set, name="codeSets__code_set", curie=FIX_ORCHESTRA.curie('code_set'),
-                   model_uri=FIX_ORCHESTRA.codeSets__code_set, domain=None, range=Optional[Union[Union[dict, CodeSetType], list[Union[dict, CodeSetType]]]])
+slots.orchestraPedigreeV10Mixin__fixr_added = Slot(uri=FIX_ORCHESTRA.fixr_added, name="orchestraPedigreeV10Mixin__fixr_added", curie=FIX_ORCHESTRA.curie('fixr_added'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_added, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.codeSets__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="codeSets__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.codeSets__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_added_ep = Slot(uri=FIX_ORCHESTRA.fixr_added_ep, name="orchestraPedigreeV10Mixin__fixr_added_ep", curie=FIX_ORCHESTRA.curie('fixr_added_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_added_ep, domain=None, range=Optional[int])
 
-slots.codeSets__base = Slot(uri=FIX_ORCHESTRA.base, name="codeSets__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.codeSets__base, domain=None, range=Optional[str])
+slots.orchestraPedigreeV10Mixin__fixr_change_type = Slot(uri=FIX_ORCHESTRA.fixr_change_type, name="orchestraPedigreeV10Mixin__fixr_change_type", curie=FIX_ORCHESTRA.curie('fixr_change_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_change_type, domain=None, range=Optional[Union[str, "OrchestraChangeKind"]])
 
-slots.components__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="components__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.components__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_deprecated = Slot(uri=FIX_ORCHESTRA.fixr_deprecated, name="orchestraPedigreeV10Mixin__fixr_deprecated", curie=FIX_ORCHESTRA.curie('fixr_deprecated'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_deprecated, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.components__base = Slot(uri=FIX_ORCHESTRA.base, name="components__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.components__base, domain=None, range=Optional[str])
+slots.orchestraPedigreeV10Mixin__fixr_deprecated_ep = Slot(uri=FIX_ORCHESTRA.fixr_deprecated_ep, name="orchestraPedigreeV10Mixin__fixr_deprecated_ep", curie=FIX_ORCHESTRA.curie('fixr_deprecated_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_deprecated_ep, domain=None, range=Optional[int])
 
-slots.concepts__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="concepts__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.concepts__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_issue = Slot(uri=FIX_ORCHESTRA.fixr_issue, name="orchestraPedigreeV10Mixin__fixr_issue", curie=FIX_ORCHESTRA.curie('fixr_issue'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_issue, domain=None, range=Optional[str])
 
-slots.concepts__base = Slot(uri=FIX_ORCHESTRA.base, name="concepts__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.concepts__base, domain=None, range=Optional[str])
+slots.orchestraPedigreeV10Mixin__fixr_last_modified = Slot(uri=FIX_ORCHESTRA.fixr_last_modified, name="orchestraPedigreeV10Mixin__fixr_last_modified", curie=FIX_ORCHESTRA.curie('fixr_last_modified'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_last_modified, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.datatypes__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="datatypes__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.datatypes__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_replaced = Slot(uri=FIX_ORCHESTRA.fixr_replaced, name="orchestraPedigreeV10Mixin__fixr_replaced", curie=FIX_ORCHESTRA.curie('fixr_replaced'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_replaced, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.datatypes__base = Slot(uri=FIX_ORCHESTRA.base, name="datatypes__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.datatypes__base, domain=None, range=Optional[str])
+slots.orchestraPedigreeV10Mixin__fixr_replaced_ep = Slot(uri=FIX_ORCHESTRA.fixr_replaced_ep, name="orchestraPedigreeV10Mixin__fixr_replaced_ep", curie=FIX_ORCHESTRA.curie('fixr_replaced_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_replaced_ep, domain=None, range=Optional[int])
 
-slots.fields__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="fields__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.fields__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_replaced_by_field = Slot(uri=FIX_ORCHESTRA.fixr_replaced_by_field, name="orchestraPedigreeV10Mixin__fixr_replaced_by_field", curie=FIX_ORCHESTRA.curie('fixr_replaced_by_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_replaced_by_field, domain=None, range=Optional[int])
 
-slots.fields__base = Slot(uri=FIX_ORCHESTRA.base, name="fields__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.fields__base, domain=None, range=Optional[str])
+slots.orchestraPedigreeV10Mixin__fixr_supported = Slot(uri=FIX_ORCHESTRA.fixr_supported, name="orchestraPedigreeV10Mixin__fixr_supported", curie=FIX_ORCHESTRA.curie('fixr_supported'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_supported, domain=None, range=Optional[Union[str, "OrchestraSupport"]])
 
-slots.groups__group = Slot(uri=FIX_ORCHESTRA.group, name="groups__group", curie=FIX_ORCHESTRA.curie('group'),
-                   model_uri=FIX_ORCHESTRA.groups__group, domain=None, range=Optional[Union[Union[dict, GroupType], list[Union[dict, GroupType]]]])
+slots.orchestraPedigreeV10Mixin__fixr_updated = Slot(uri=FIX_ORCHESTRA.fixr_updated, name="orchestraPedigreeV10Mixin__fixr_updated", curie=FIX_ORCHESTRA.curie('fixr_updated'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_updated, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.groups__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="groups__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.groups__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraPedigreeV10Mixin__fixr_updated_ep = Slot(uri=FIX_ORCHESTRA.fixr_updated_ep, name="orchestraPedigreeV10Mixin__fixr_updated_ep", curie=FIX_ORCHESTRA.curie('fixr_updated_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV10Mixin__fixr_updated_ep, domain=None, range=Optional[int])
 
-slots.groups__base = Slot(uri=FIX_ORCHESTRA.base, name="groups__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.groups__base, domain=None, range=Optional[str])
+slots.orchestraProtocolV10__fixi_annotation = Slot(uri=FIX_ORCHESTRA.fixi_annotation, name="orchestraProtocolV10__fixi_annotation", curie=FIX_ORCHESTRA.curie('fixi_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_annotation, domain=None, range=Optional[Union[dict, OrchestraInterfaceAnnotationV10]])
 
-slots.messages__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="messages__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.messages__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraProtocolV10__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraProtocolV10__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_name, domain=None, range=Optional[Union[str, "OrchestraProtocolName"]])
 
-slots.messages__base = Slot(uri=FIX_ORCHESTRA.base, name="messages__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.messages__base, domain=None, range=Optional[str])
+slots.orchestraProtocolV10__fixi_version = Slot(uri=FIX_ORCHESTRA.fixi_version, name="orchestraProtocolV10__fixi_version", curie=FIX_ORCHESTRA.curie('fixi_version'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_version, domain=None, range=Optional[str])
 
-slots.repository__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="repository__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.repository__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraProtocolV10__fixi_layer = Slot(uri=FIX_ORCHESTRA.fixi_layer, name="orchestraProtocolV10__fixi_layer", curie=FIX_ORCHESTRA.curie('fixi_layer'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_layer, domain=None, range=Optional[Union[str, "OrchestraLayer"]])
 
-slots.repository__name = Slot(uri=FIX_ORCHESTRA.name, name="repository__name", curie=FIX_ORCHESTRA.curie('name'),
-                   model_uri=FIX_ORCHESTRA.repository__name, domain=None, range=str)
+slots.orchestraProtocolV10__fixi_reliability = Slot(uri=FIX_ORCHESTRA.fixi_reliability, name="orchestraProtocolV10__fixi_reliability", curie=FIX_ORCHESTRA.curie('fixi_reliability'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_reliability, domain=None, range=Optional[Union[str, "OrchestraReliability"]])
 
-slots.repository__version = Slot(uri=FIX_ORCHESTRA.version, name="repository__version", curie=FIX_ORCHESTRA.curie('version'),
-                   model_uri=FIX_ORCHESTRA.repository__version, domain=None, range=Union[str, Version])
+slots.orchestraProtocolV10__fixi_orchestration = Slot(uri=FIX_ORCHESTRA.fixi_orchestration, name="orchestraProtocolV10__fixi_orchestration", curie=FIX_ORCHESTRA.curie('fixi_orchestration'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_orchestration, domain=None, range=Optional[Union[str, URI]])
 
-slots.scenarios__scenario = Slot(uri=FIX_ORCHESTRA.scenario, name="scenarios__scenario", curie=FIX_ORCHESTRA.curie('scenario'),
-                   model_uri=FIX_ORCHESTRA.scenarios__scenario, domain=None, range=Optional[Union[Union[dict, ScenarioType], list[Union[dict, ScenarioType]]]])
+slots.orchestraProtocolV10__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraProtocolV10__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV10__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
 
-slots.scenarios__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="scenarios__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.scenarios__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraReferenceV10Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraReferenceV10Mixin__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraReferenceV10Mixin__fixr_id, domain=None, range=int)
 
-slots.scenarios__base = Slot(uri=FIX_ORCHESTRA.base, name="scenarios__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.scenarios__base, domain=None, range=Optional[str])
+slots.orchestraReferenceV10Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraReferenceV10Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
+                   model_uri=FIX_ORCHESTRA.orchestraReferenceV10Mixin__fixr_scenario, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$'))
 
-slots.sections__section = Slot(uri=FIX_ORCHESTRA.section, name="sections__section", curie=FIX_ORCHESTRA.curie('section'),
-                   model_uri=FIX_ORCHESTRA.sections__section, domain=None, range=Optional[Union[Union[dict, SectionType], list[Union[dict, SectionType]]]])
+slots.orchestraRepositoryV10__fixr_metadata = Slot(uri=FIX_ORCHESTRA.fixr_metadata, name="orchestraRepositoryV10__fixr_metadata", curie=FIX_ORCHESTRA.curie('fixr_metadata'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_metadata, domain=None, range=Union[dict, OrchestraMetadata])
 
-slots.sections__annotation = Slot(uri=FIX_ORCHESTRA.annotation, name="sections__annotation", curie=FIX_ORCHESTRA.curie('annotation'),
-                   model_uri=FIX_ORCHESTRA.sections__annotation, domain=None, range=Optional[Union[dict, Annotation]])
+slots.orchestraRepositoryV10__fixr_categories = Slot(uri=FIX_ORCHESTRA.fixr_categories, name="orchestraRepositoryV10__fixr_categories", curie=FIX_ORCHESTRA.curie('fixr_categories'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_categories, domain=None, range=Optional[Union[dict, OrchestraCategoriesV10]])
 
-slots.sections__base = Slot(uri=FIX_ORCHESTRA.base, name="sections__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.sections__base, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_sections = Slot(uri=FIX_ORCHESTRA.fixr_sections, name="orchestraRepositoryV10__fixr_sections", curie=FIX_ORCHESTRA.curie('fixr_sections'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_sections, domain=None, range=Optional[Union[dict, OrchestraSectionsV10]])
 
-slots.dcSimpleLiteral__lang = Slot(uri=FIX_ORCHESTRA.lang, name="dcSimpleLiteral__lang", curie=FIX_ORCHESTRA.curie('lang'),
-                   model_uri=FIX_ORCHESTRA.dcSimpleLiteral__lang, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_datatypes = Slot(uri=FIX_ORCHESTRA.fixr_datatypes, name="orchestraRepositoryV10__fixr_datatypes", curie=FIX_ORCHESTRA.curie('fixr_datatypes'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_datatypes, domain=None, range=Union[dict, OrchestraDatatypesV10])
 
-slots.dcElementContainer__type = Slot(uri=DCTERMS.type, name="dcElementContainer__type", curie=DCTERMS.curie('type'),
-                   model_uri=FIX_ORCHESTRA.dcElementContainer__type, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_code_sets = Slot(uri=FIX_ORCHESTRA.fixr_code_sets, name="orchestraRepositoryV10__fixr_code_sets", curie=FIX_ORCHESTRA.curie('fixr_code_sets'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_code_sets, domain=None, range=Union[dict, OrchestraCodeSetsV10])
 
-slots.dcElementContainer__identifier = Slot(uri=DCTERMS.identifier, name="dcElementContainer__identifier", curie=DCTERMS.curie('identifier'),
-                   model_uri=FIX_ORCHESTRA.dcElementContainer__identifier, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_fields = Slot(uri=FIX_ORCHESTRA.fixr_fields, name="orchestraRepositoryV10__fixr_fields", curie=FIX_ORCHESTRA.curie('fixr_fields'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_fields, domain=None, range=Union[dict, OrchestraFieldsV10])
 
-slots.dctermsElementOrRefinementContainer__type = Slot(uri=DCTERMS.type, name="dctermsElementOrRefinementContainer__type", curie=DCTERMS.curie('type'),
-                   model_uri=FIX_ORCHESTRA.dctermsElementOrRefinementContainer__type, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_actors = Slot(uri=FIX_ORCHESTRA.fixr_actors, name="orchestraRepositoryV10__fixr_actors", curie=FIX_ORCHESTRA.curie('fixr_actors'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_actors, domain=None, range=Optional[Union[dict, OrchestraActorsV10]])
 
-slots.dctermsElementOrRefinementContainer__identifier = Slot(uri=DCTERMS.identifier, name="dctermsElementOrRefinementContainer__identifier", curie=DCTERMS.curie('identifier'),
-                   model_uri=FIX_ORCHESTRA.dctermsElementOrRefinementContainer__identifier, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_components = Slot(uri=FIX_ORCHESTRA.fixr_components, name="orchestraRepositoryV10__fixr_components", curie=FIX_ORCHESTRA.curie('fixr_components'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_components, domain=None, range=Optional[Union[dict, OrchestraComponentsV10]])
 
-slots.xmlSpecialAttrs__base = Slot(uri=FIX_ORCHESTRA.base, name="xmlSpecialAttrs__base", curie=FIX_ORCHESTRA.curie('base'),
-                   model_uri=FIX_ORCHESTRA.xmlSpecialAttrs__base, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_groups = Slot(uri=FIX_ORCHESTRA.fixr_groups, name="orchestraRepositoryV10__fixr_groups", curie=FIX_ORCHESTRA.curie('fixr_groups'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_groups, domain=None, range=Optional[Union[dict, OrchestraGroupsV10]])
 
-slots.xmlSpecialAttrs__lang = Slot(uri=FIX_ORCHESTRA.lang, name="xmlSpecialAttrs__lang", curie=FIX_ORCHESTRA.curie('lang'),
-                   model_uri=FIX_ORCHESTRA.xmlSpecialAttrs__lang, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_messages = Slot(uri=FIX_ORCHESTRA.fixr_messages, name="orchestraRepositoryV10__fixr_messages", curie=FIX_ORCHESTRA.curie('fixr_messages'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_messages, domain=None, range=Union[dict, OrchestraMessagesV10])
 
-slots.xmlSpecialAttrs__space = Slot(uri=FIX_ORCHESTRA.space, name="xmlSpecialAttrs__space", curie=FIX_ORCHESTRA.curie('space'),
-                   model_uri=FIX_ORCHESTRA.xmlSpecialAttrs__space, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_concepts = Slot(uri=FIX_ORCHESTRA.fixr_concepts, name="orchestraRepositoryV10__fixr_concepts", curie=FIX_ORCHESTRA.curie('fixr_concepts'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_concepts, domain=None, range=Optional[Union[dict, OrchestraConceptsV10]])
 
-slots.xmlSpecialAttrs__id = Slot(uri=FIX_ORCHESTRA.id, name="xmlSpecialAttrs__id", curie=FIX_ORCHESTRA.curie('id'),
-                   model_uri=FIX_ORCHESTRA.xmlSpecialAttrs__id, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraRepositoryV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.xmlGlobalAttributes__lang = Slot(uri=XML.lang, name="xmlGlobalAttributes__lang", curie=XML.curie('lang'),
-                   model_uri=FIX_ORCHESTRA.xmlGlobalAttributes__lang, domain=None, range=Optional[Union[str, XmlLangType]])
+slots.orchestraRepositoryV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraRepositoryV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_name, domain=None, range=str)
 
-slots.xmlGlobalAttributes__space = Slot(uri=XML.space, name="xmlGlobalAttributes__space", curie=XML.curie('space'),
-                   model_uri=FIX_ORCHESTRA.xmlGlobalAttributes__space, domain=None, range=Optional[Union[str, "XmlSpaceType"]])
+slots.orchestraRepositoryV10__fixr_version = Slot(uri=FIX_ORCHESTRA.fixr_version, name="orchestraRepositoryV10__fixr_version", curie=FIX_ORCHESTRA.curie('fixr_version'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_version, domain=None, range=str,
+                   pattern=re.compile(r'^((FIX.2.7)|(FIX.3.0)|(FIX\.4\.[0-4])|((FIX.Latest|(FIX\.5\.0(SP\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\.([0-9]+)|(\d{8}))$'))
 
-slots.xmlGlobalAttributes__base = Slot(uri=XML.base, name="xmlGlobalAttributes__base", curie=XML.curie('base'),
-                   model_uri=FIX_ORCHESTRA.xmlGlobalAttributes__base, domain=None, range=Optional[Union[str, URI]])
+slots.orchestraRepositoryV10__fixr_guid = Slot(uri=FIX_ORCHESTRA.fixr_guid, name="orchestraRepositoryV10__fixr_guid", curie=FIX_ORCHESTRA.curie('fixr_guid'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_guid, domain=None, range=Optional[str])
 
-slots.xmlGlobalAttributes__id = Slot(uri=XML.id, name="xmlGlobalAttributes__id", curie=XML.curie('id'),
-                   model_uri=FIX_ORCHESTRA.xmlGlobalAttributes__id, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraRepositoryV10__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
 
-slots.FieldAttribGrp_presence = Slot(uri=FIX_ORCHESTRA.presence, name="FieldAttribGrp_presence", curie=FIX_ORCHESTRA.curie('presence'),
-                   model_uri=FIX_ORCHESTRA.FieldAttribGrp_presence, domain=None, range=Optional[Union[str, "Presence"]])
+slots.orchestraRepositoryV10__fixr_namespace = Slot(uri=FIX_ORCHESTRA.fixr_namespace, name="orchestraRepositoryV10__fixr_namespace", curie=FIX_ORCHESTRA.curie('fixr_namespace'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_namespace, domain=None, range=Optional[Union[str, URI]])
 
-slots.FieldAttribGrp_value = Slot(uri=FIX_ORCHESTRA.value, name="FieldAttribGrp_value", curie=FIX_ORCHESTRA.curie('value'),
-                   model_uri=FIX_ORCHESTRA.FieldAttribGrp_value, domain=None, range=Optional[str])
+slots.orchestraRepositoryV10__fixr_appl_ver_id = Slot(uri=FIX_ORCHESTRA.fixr_appl_ver_id, name="orchestraRepositoryV10__fixr_appl_ver_id", curie=FIX_ORCHESTRA.curie('fixr_appl_ver_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_appl_ver_id, domain=None, range=Optional[str])
 
-slots.ActionType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ActionType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.ActionType_field_ref, domain=ActionType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
+slots.orchestraRepositoryV10__fixr_expression_language = Slot(uri=FIX_ORCHESTRA.fixr_expression_language, name="orchestraRepositoryV10__fixr_expression_language", curie=FIX_ORCHESTRA.curie('fixr_expression_language'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV10__fixr_expression_language, domain=None, range=Optional[str])
 
-slots.ActorType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ActorType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.ActorType_field_ref, domain=ActorType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
+slots.orchestraResponseV10__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraResponseV10__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV10__fixr_when, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
 
-slots.BlockAssignmentType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="BlockAssignmentType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.BlockAssignmentType_field_ref, domain=BlockAssignmentType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
+slots.orchestraResponseV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraResponseV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.CodeSetType_spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="CodeSetType_spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
-                   model_uri=FIX_ORCHESTRA.CodeSetType_spec_url, domain=CodeSetType, range=Optional[Union[str, URI]])
+slots.orchestraResponseV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraResponseV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV10__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.CodeType_value = Slot(uri=FIX_ORCHESTRA.value, name="CodeType_value", curie=FIX_ORCHESTRA.curie('value'),
-                   model_uri=FIX_ORCHESTRA.CodeType_value, domain=CodeType, range=str)
+slots.orchestraResponseV10__fixr_sync = Slot(uri=FIX_ORCHESTRA.fixr_sync, name="orchestraResponseV10__fixr_sync", curie=FIX_ORCHESTRA.curie('fixr_sync'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV10__fixr_sync, domain=None, range=Optional[Union[str, "OrchestraSynchronization"]])
 
-slots.ComponentRefType_presence = Slot(uri=FIX_ORCHESTRA.presence, name="ComponentRefType_presence", curie=FIX_ORCHESTRA.curie('presence'),
-                   model_uri=FIX_ORCHESTRA.ComponentRefType_presence, domain=ComponentRefType, range=Optional[Union[str, "Presence"]])
+slots.orchestraResponsesV10__fixr_response = Slot(uri=FIX_ORCHESTRA.fixr_response, name="orchestraResponsesV10__fixr_response", curie=FIX_ORCHESTRA.curie('fixr_response'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponsesV10__fixr_response, domain=None, range=Union[Union[dict, OrchestraResponseV10], list[Union[dict, OrchestraResponseV10]]])
 
-slots.ComponentRuleType_when = Slot(uri=FIX_ORCHESTRA.when, name="ComponentRuleType_when", curie=FIX_ORCHESTRA.curie('when'),
-                   model_uri=FIX_ORCHESTRA.ComponentRuleType_when, domain=ComponentRuleType, range=Union[str, ExpressionType])
+slots.orchestraSectionV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraSectionV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.ComponentRuleType_presence = Slot(uri=FIX_ORCHESTRA.presence, name="ComponentRuleType_presence", curie=FIX_ORCHESTRA.curie('presence'),
-                   model_uri=FIX_ORCHESTRA.ComponentRuleType_presence, domain=ComponentRuleType, range=Optional[Union[str, "Presence"]])
+slots.orchestraSectionV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraSectionV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV10__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.ComponentType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ComponentType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.ComponentType_field_ref, domain=ComponentType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
+slots.orchestraSectionV10__fixr_display_order = Slot(uri=FIX_ORCHESTRA.fixr_display_order, name="orchestraSectionV10__fixr_display_order", curie=FIX_ORCHESTRA.curie('fixr_display_order'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV10__fixr_display_order, domain=None, range=Optional[int])
 
-slots.ComponentType_which = Slot(uri=FIX_ORCHESTRA.which, name="ComponentType_which", curie=FIX_ORCHESTRA.curie('which'),
-                   model_uri=FIX_ORCHESTRA.ComponentType_which, domain=ComponentType, range=Optional[Union[str, "MemberType"]])
+slots.orchestraSectionV10__fixr_fixml_file_name = Slot(uri=FIX_ORCHESTRA.fixr_fixml_file_name, name="orchestraSectionV10__fixr_fixml_file_name", curie=FIX_ORCHESTRA.curie('fixr_fixml_file_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV10__fixr_fixml_file_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.ConceptType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="ConceptType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.ConceptType_field_ref, domain=ConceptType, range=Optional[Union[Union[dict, "FieldRefType"], list[Union[dict, "FieldRefType"]]]])
+slots.orchestraSectionsV10__fixr_section = Slot(uri=FIX_ORCHESTRA.fixr_section, name="orchestraSectionsV10__fixr_section", curie=FIX_ORCHESTRA.curie('fixr_section'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionsV10__fixr_section, domain=None, range=Union[Union[dict, OrchestraSectionV10], list[Union[dict, OrchestraSectionV10]]])
 
-slots.ConceptType_message_ref = Slot(uri=FIX_ORCHESTRA.message_ref, name="ConceptType_message_ref", curie=FIX_ORCHESTRA.curie('message_ref'),
-                   model_uri=FIX_ORCHESTRA.ConceptType_message_ref, domain=ConceptType, range=Optional[Union[Union[dict, "MessageRefType"], list[Union[dict, "MessageRefType"]]]])
+slots.orchestraSectionsV10__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraSectionsV10__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionsV10__xml_base, domain=None, range=Optional[Union[str, URI]])
 
-slots.FieldRuleType_when = Slot(uri=FIX_ORCHESTRA.when, name="FieldRuleType_when", curie=FIX_ORCHESTRA.curie('when'),
-                   model_uri=FIX_ORCHESTRA.FieldRuleType_when, domain=FieldRuleType, range=Union[str, ExpressionType])
+slots.orchestraSessionIdentifierV10__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraSessionIdentifierV10__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionIdentifierV10__fixi_text, domain=None, range=Optional[str])
 
-slots.FlowType_source = Slot(uri=FIX_ORCHESTRA.source, name="FlowType_source", curie=FIX_ORCHESTRA.curie('source'),
-                   model_uri=FIX_ORCHESTRA.FlowType_source, domain=FlowType, range=str)
+slots.orchestraSessionIdentifierV10__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraSessionIdentifierV10__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionIdentifierV10__fixi_name, domain=None, range=Optional[str])
 
-slots.GroupRefType_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="GroupRefType_impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
-                   model_uri=FIX_ORCHESTRA.GroupRefType_impl_min_occurs, domain=GroupRefType, range=Optional[int])
+slots.orchestraSessionV10__fixi_identifier = Slot(uri=FIX_ORCHESTRA.fixi_identifier, name="orchestraSessionV10__fixi_identifier", curie=FIX_ORCHESTRA.curie('fixi_identifier'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV10__fixi_identifier, domain=None, range=Optional[Union[Union[dict, OrchestraSessionIdentifierV10], list[Union[dict, OrchestraSessionIdentifierV10]]]])
 
-slots.GroupRefType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="GroupRefType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
-                   model_uri=FIX_ORCHESTRA.GroupRefType_impl_max_occurs, domain=GroupRefType, range=Optional[Union[str, UnboundedIntType]])
+slots.orchestraSessionV10__fixi_activation_time = Slot(uri=FIX_ORCHESTRA.fixi_activation_time, name="orchestraSessionV10__fixi_activation_time", curie=FIX_ORCHESTRA.curie('fixi_activation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV10__fixi_activation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
 
-slots.GroupType_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="GroupType_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.GroupType_field_ref, domain=GroupType, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
+slots.orchestraSessionV10__fixi_deactivation_time = Slot(uri=FIX_ORCHESTRA.fixi_deactivation_time, name="orchestraSessionV10__fixi_deactivation_time", curie=FIX_ORCHESTRA.curie('fixi_deactivation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV10__fixi_deactivation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
 
-slots.GroupType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="GroupType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
-                   model_uri=FIX_ORCHESTRA.GroupType_impl_max_occurs, domain=GroupType, range=Optional[Union[str, UnboundedIntType]])
+slots.orchestraSessionV10__fixi_role = Slot(uri=FIX_ORCHESTRA.fixi_role, name="orchestraSessionV10__fixi_role", curie=FIX_ORCHESTRA.curie('fixi_role'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV10__fixi_role, domain=None, range=Optional[Union[str, "OrchestraRole"]])
 
-slots.MappedDatatype_min_inclusive = Slot(uri=FIX_ORCHESTRA.min_inclusive, name="MappedDatatype_min_inclusive", curie=FIX_ORCHESTRA.curie('min_inclusive'),
-                   model_uri=FIX_ORCHESTRA.MappedDatatype_min_inclusive, domain=MappedDatatype, range=Optional[str])
+slots.orchestraSessionV10__fixi_security_keys = Slot(uri=FIX_ORCHESTRA.fixi_security_keys, name="orchestraSessionV10__fixi_security_keys", curie=FIX_ORCHESTRA.curie('fixi_security_keys'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV10__fixi_security_keys, domain=None, range=Optional[str])
 
-slots.MappedDatatype_max_inclusive = Slot(uri=FIX_ORCHESTRA.max_inclusive, name="MappedDatatype_max_inclusive", curie=FIX_ORCHESTRA.curie('max_inclusive'),
-                   model_uri=FIX_ORCHESTRA.MappedDatatype_max_inclusive, domain=MappedDatatype, range=Optional[str])
+slots.orchestraSessionsV10__fixi_session = Slot(uri=FIX_ORCHESTRA.fixi_session, name="orchestraSessionsV10__fixi_session", curie=FIX_ORCHESTRA.curie('fixi_session'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionsV10__fixi_session, domain=None, range=Union[Union[dict, OrchestraSessionV10], list[Union[dict, OrchestraSessionV10]]])
 
-slots.MessageRefType_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.impl_min_occurs, name="MessageRefType_impl_min_occurs", curie=FIX_ORCHESTRA.curie('impl_min_occurs'),
-                   model_uri=FIX_ORCHESTRA.MessageRefType_impl_min_occurs, domain=MessageRefType, range=Optional[int])
+slots.orchestraStateMachineV10__fixr_initial = Slot(uri=FIX_ORCHESTRA.fixr_initial, name="orchestraStateMachineV10__fixr_initial", curie=FIX_ORCHESTRA.curie('fixr_initial'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV10__fixr_initial, domain=None, range=Union[dict, OrchestraStateV10])
 
-slots.MessageRefType_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.impl_max_occurs, name="MessageRefType_impl_max_occurs", curie=FIX_ORCHESTRA.curie('impl_max_occurs'),
-                   model_uri=FIX_ORCHESTRA.MessageRefType_impl_max_occurs, domain=MessageRefType, range=Optional[Union[str, UnboundedIntType]])
+slots.orchestraStateMachineV10__fixr_state = Slot(uri=FIX_ORCHESTRA.fixr_state, name="orchestraStateMachineV10__fixr_state", curie=FIX_ORCHESTRA.curie('fixr_state'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV10__fixr_state, domain=None, range=Union[Union[dict, OrchestraStateV10], list[Union[dict, OrchestraStateV10]]])
 
-slots.StructureInline_field_ref = Slot(uri=FIX_ORCHESTRA.field_ref, name="StructureInline_field_ref", curie=FIX_ORCHESTRA.curie('field_ref'),
-                   model_uri=FIX_ORCHESTRA.StructureInline_field_ref, domain=StructureInline, range=Optional[Union[Union[dict, FieldRefType], list[Union[dict, FieldRefType]]]])
+slots.orchestraStateMachineV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraStateMachineV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.StructureInline_which = Slot(uri=FIX_ORCHESTRA.which, name="StructureInline_which", curie=FIX_ORCHESTRA.curie('which'),
-                   model_uri=FIX_ORCHESTRA.StructureInline_which, domain=StructureInline, range=Optional[Union[str, "MemberType"]])
+slots.orchestraStateMachineV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateMachineV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.ResponseType_when = Slot(uri=FIX_ORCHESTRA.when, name="ResponseType_when", curie=FIX_ORCHESTRA.curie('when'),
-                   model_uri=FIX_ORCHESTRA.ResponseType_when, domain=ResponseType, range=Optional[Union[str, ExpressionType]])
+slots.orchestraStateV10__fixr_transition = Slot(uri=FIX_ORCHESTRA.fixr_transition, name="orchestraStateV10__fixr_transition", curie=FIX_ORCHESTRA.curie('fixr_transition'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_transition, domain=None, range=Optional[Union[Union[dict, OrchestraTransitionV10], list[Union[dict, OrchestraTransitionV10]]]])
 
-slots.TimerSchedule_activity = Slot(uri=FIX_ORCHESTRA.activity, name="TimerSchedule_activity", curie=FIX_ORCHESTRA.curie('activity'),
-                   model_uri=FIX_ORCHESTRA.TimerSchedule_activity, domain=TimerSchedule, range=Union[dict, ActionType])
+slots.orchestraStateV10__fixr_onentry = Slot(uri=FIX_ORCHESTRA.fixr_onentry, name="orchestraStateV10__fixr_onentry", curie=FIX_ORCHESTRA.curie('fixr_onentry'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_onentry, domain=None, range=Optional[Union[dict, OrchestraActionV10]])
 
-slots.TransitionType_when = Slot(uri=FIX_ORCHESTRA.when, name="TransitionType_when", curie=FIX_ORCHESTRA.curie('when'),
-                   model_uri=FIX_ORCHESTRA.TransitionType_when, domain=TransitionType, range=Optional[Union[str, ExpressionType]])
+slots.orchestraStateV10__fixr_activity = Slot(uri=FIX_ORCHESTRA.fixr_activity, name="orchestraStateV10__fixr_activity", curie=FIX_ORCHESTRA.curie('fixr_activity'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_activity, domain=None, range=Optional[Union[dict, OrchestraActionV10]])
 
-slots.InterfaceAppinfo_spec_url = Slot(uri=FIX_ORCHESTRA.spec_url, name="InterfaceAppinfo_spec_url", curie=FIX_ORCHESTRA.curie('spec_url'),
-                   model_uri=FIX_ORCHESTRA.InterfaceAppinfo_spec_url, domain=InterfaceAppinfo, range=Optional[Union[str, URI]])
+slots.orchestraStateV10__fixr_onexit = Slot(uri=FIX_ORCHESTRA.fixr_onexit, name="orchestraStateV10__fixr_onexit", curie=FIX_ORCHESTRA.curie('fixr_onexit'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_onexit, domain=None, range=Optional[Union[dict, OrchestraActionV10]])
 
-slots.SessionType_activation_time = Slot(uri=FIX_ORCHESTRA.activation_time, name="SessionType_activation_time", curie=FIX_ORCHESTRA.curie('activation_time'),
-                   model_uri=FIX_ORCHESTRA.SessionType_activation_time, domain=SessionType, range=Optional[Union[str, XSDDateTime]])
+slots.orchestraStateV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraStateV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
 
-slots.SessionType_deactivation_time = Slot(uri=FIX_ORCHESTRA.deactivation_time, name="SessionType_deactivation_time", curie=FIX_ORCHESTRA.curie('deactivation_time'),
-                   model_uri=FIX_ORCHESTRA.SessionType_deactivation_time, domain=SessionType, range=Optional[Union[str, XSDDateTime]])
+slots.orchestraStateV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
 
-slots.Interfaces_metadata = Slot(uri=FIX_ORCHESTRA.metadata, name="Interfaces_metadata", curie=FIX_ORCHESTRA.curie('metadata'),
-                   model_uri=FIX_ORCHESTRA.Interfaces_metadata, domain=Interfaces, range=Union[dict, "DctermsElementOrRefinementContainer"])
+slots.orchestraStructureMemberV10__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraStructureMemberV10__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV10__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV10]])
+
+slots.orchestraStructureMemberV10__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraStructureMemberV10__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV10__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV10]])
+
+slots.orchestraStructureMemberV10__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraStructureMemberV10__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV10__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV10]])
+
+slots.orchestraTimerScheduleV10__fixr_activity = Slot(uri=FIX_ORCHESTRA.fixr_activity, name="orchestraTimerScheduleV10__fixr_activity", curie=FIX_ORCHESTRA.curie('fixr_activity'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV10__fixr_activity, domain=None, range=Union[dict, OrchestraActionV10])
+
+slots.orchestraTimerScheduleV10__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTimerScheduleV10__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV10__fixr_actor, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraTimerScheduleV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerScheduleV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraTimerScheduleV10__fixr_operation = Slot(uri=FIX_ORCHESTRA.fixr_operation, name="orchestraTimerScheduleV10__fixr_operation", curie=FIX_ORCHESTRA.curie('fixr_operation'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV10__fixr_operation, domain=None, range=Union[str, "OrchestraTimerOperation"])
+
+slots.orchestraTimerScheduleV10__fixr_interval = Slot(uri=FIX_ORCHESTRA.fixr_interval, name="orchestraTimerScheduleV10__fixr_interval", curie=FIX_ORCHESTRA.curie('fixr_interval'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV10__fixr_interval, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?P(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+(\.\d+)?S)?)?$'))
+
+slots.orchestraTimerV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraTransitionV10__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraTransitionV10__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV10__fixr_when, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraTransitionV10__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraTransitionV10__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV10__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV10]])
+
+slots.orchestraTransitionV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTransitionV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraTransitionV10__fixr_target = Slot(uri=FIX_ORCHESTRA.fixr_target, name="orchestraTransitionV10__fixr_target", curie=FIX_ORCHESTRA.curie('fixr_target'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV10__fixr_target, domain=None, range=str)
+
+slots.orchestraTransportV10__fixi_address = Slot(uri=FIX_ORCHESTRA.fixi_address, name="orchestraTransportV10__fixi_address", curie=FIX_ORCHESTRA.curie('fixi_address'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV10__fixi_address, domain=None, range=Optional[str])
+
+slots.orchestraTransportV10__fixi_message_cast = Slot(uri=FIX_ORCHESTRA.fixi_message_cast, name="orchestraTransportV10__fixi_message_cast", curie=FIX_ORCHESTRA.curie('fixi_message_cast'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV10__fixi_message_cast, domain=None, range=Optional[Union[str, "OrchestraMessageCast"]])
+
+slots.orchestraTransportV10__fixi_use = Slot(uri=FIX_ORCHESTRA.fixi_use, name="orchestraTransportV10__fixi_use", curie=FIX_ORCHESTRA.curie('fixi_use'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV10__fixi_use, domain=None, range=Optional[Union[str, "OrchestraTransportUse"]])
+
+slots.orchestraTransportV10__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraTransportV10__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV10__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraTriggerV10__fixr_state_machine = Slot(uri=FIX_ORCHESTRA.fixr_state_machine, name="orchestraTriggerV10__fixr_state_machine", curie=FIX_ORCHESTRA.curie('fixr_state_machine'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV10__fixr_state_machine, domain=None, range=str)
+
+slots.orchestraTriggerV10__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTriggerV10__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV10__fixr_actor, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraTriggerV10__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTriggerV10__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV10__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$'))
+
+slots.orchestraUniqueV10__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraUniqueV10__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraUniqueV10__fixr_field_ref, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRefV10], list[Union[dict, OrchestraFieldRefV10]]]])
+
+slots.orchestraActionParameterV11__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraActionParameterV11__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_field, domain=None, range=Optional[Union[dict, OrchestraFieldV11]])
+
+slots.orchestraActionParameterV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraActionParameterV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV11]])
+
+slots.orchestraActionParameterV11__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraActionParameterV11__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_component, domain=None, range=Optional[Union[dict, OrchestraComponentV11]])
+
+slots.orchestraActionParameterV11__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraActionParameterV11__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV11]])
+
+slots.orchestraActionParameterV11__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraActionParameterV11__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_group, domain=None, range=Optional[Union[dict, OrchestraGroupV11]])
+
+slots.orchestraActionParameterV11__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraActionParameterV11__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionParameterV11__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV11]])
+
+slots.orchestraActionStepV11__fixr_message_ref = Slot(uri=FIX_ORCHESTRA.fixr_message_ref, name="orchestraActionStepV11__fixr_message_ref", curie=FIX_ORCHESTRA.curie('fixr_message_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV11__fixr_message_ref, domain=None, range=Optional[Union[dict, OrchestraMessageRefV11]])
+
+slots.orchestraActionStepV11__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraActionStepV11__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV11__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraActionStepV11__fixr_trigger = Slot(uri=FIX_ORCHESTRA.fixr_trigger, name="orchestraActionStepV11__fixr_trigger", curie=FIX_ORCHESTRA.curie('fixr_trigger'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV11__fixr_trigger, domain=None, range=Optional[Union[dict, OrchestraTriggerV11]])
+
+slots.orchestraActionStepV11__fixr_timer_schedule = Slot(uri=FIX_ORCHESTRA.fixr_timer_schedule, name="orchestraActionStepV11__fixr_timer_schedule", curie=FIX_ORCHESTRA.curie('fixr_timer_schedule'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionStepV11__fixr_timer_schedule, domain=None, range=Optional[Union[dict, OrchestraTimerScheduleV11]])
+
+slots.orchestraActionV11__fixr_parameters = Slot(uri=FIX_ORCHESTRA.fixr_parameters, name="orchestraActionV11__fixr_parameters", curie=FIX_ORCHESTRA.curie('fixr_parameters'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionV11__fixr_parameters, domain=None, range=Optional[Union[Union[dict, OrchestraActionParameterV11], list[Union[dict, OrchestraActionParameterV11]]]])
+
+slots.orchestraActionV11__fixr_actions = Slot(uri=FIX_ORCHESTRA.fixr_actions, name="orchestraActionV11__fixr_actions", curie=FIX_ORCHESTRA.curie('fixr_actions'),
+                   model_uri=FIX_ORCHESTRA.orchestraActionV11__fixr_actions, domain=None, range=Union[Union[dict, OrchestraActionStepV11], list[Union[dict, OrchestraActionStepV11]]])
+
+slots.orchestraActorMemberV11__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraActorMemberV11__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_field, domain=None, range=Optional[Union[dict, OrchestraFieldV11]])
+
+slots.orchestraActorMemberV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraActorMemberV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV11]])
+
+slots.orchestraActorMemberV11__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraActorMemberV11__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_component, domain=None, range=Optional[Union[dict, OrchestraComponentV11]])
+
+slots.orchestraActorMemberV11__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraActorMemberV11__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV11]])
+
+slots.orchestraActorMemberV11__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraActorMemberV11__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_group, domain=None, range=Optional[Union[dict, OrchestraGroupV11]])
+
+slots.orchestraActorMemberV11__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraActorMemberV11__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV11]])
+
+slots.orchestraActorMemberV11__fixr_states = Slot(uri=FIX_ORCHESTRA.fixr_states, name="orchestraActorMemberV11__fixr_states", curie=FIX_ORCHESTRA.curie('fixr_states'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_states, domain=None, range=Optional[Union[dict, OrchestraStateMachineV11]])
+
+slots.orchestraActorMemberV11__fixr_timer = Slot(uri=FIX_ORCHESTRA.fixr_timer, name="orchestraActorMemberV11__fixr_timer", curie=FIX_ORCHESTRA.curie('fixr_timer'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorMemberV11__fixr_timer, domain=None, range=Optional[Union[dict, OrchestraTimerV11]])
+
+slots.orchestraActorV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraActorV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV11__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraActorMemberV11], list[Union[dict, OrchestraActorMemberV11]]]])
+
+slots.orchestraActorV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraActorV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraActorV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraActorV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraActorsMemberV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraActorsMemberV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsMemberV11__fixr_actor, domain=None, range=Optional[Union[dict, OrchestraActorV11]])
+
+slots.orchestraActorsMemberV11__fixr_flow = Slot(uri=FIX_ORCHESTRA.fixr_flow, name="orchestraActorsMemberV11__fixr_flow", curie=FIX_ORCHESTRA.curie('fixr_flow'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsMemberV11__fixr_flow, domain=None, range=Optional[Union[dict, OrchestraFlowV11]])
+
+slots.orchestraActorsV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraActorsV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsV11__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraActorsMemberV11], list[Union[dict, OrchestraActorsMemberV11]]]])
+
+slots.orchestraActorsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraActorsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraActorsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraActorsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraActorsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraAnnotationMemberV11__fixr_documentation = Slot(uri=FIX_ORCHESTRA.fixr_documentation, name="orchestraAnnotationMemberV11__fixr_documentation", curie=FIX_ORCHESTRA.curie('fixr_documentation'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationMemberV11__fixr_documentation, domain=None, range=Optional[Union[dict, OrchestraDocumentationV11]])
+
+slots.orchestraAnnotationMemberV11__fixr_appinfo = Slot(uri=FIX_ORCHESTRA.fixr_appinfo, name="orchestraAnnotationMemberV11__fixr_appinfo", curie=FIX_ORCHESTRA.curie('fixr_appinfo'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationMemberV11__fixr_appinfo, domain=None, range=Optional[Union[dict, OrchestraAppinfoV11]])
+
+slots.orchestraAnnotationV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraAnnotationV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraAnnotationV11__fixr_members, domain=None, range=Union[Union[dict, OrchestraAnnotationMemberV11], list[Union[dict, OrchestraAnnotationMemberV11]]])
+
+slots.orchestraAppinfoV11__fixr_text = Slot(uri=FIX_ORCHESTRA.fixr_text, name="orchestraAppinfoV11__fixr_text", curie=FIX_ORCHESTRA.curie('fixr_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_text, domain=None, range=Optional[str])
+
+slots.orchestraAppinfoV11__fixr_any = Slot(uri=FIX_ORCHESTRA.fixr_any, name="orchestraAppinfoV11__fixr_any", curie=FIX_ORCHESTRA.curie('fixr_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
+
+slots.orchestraAppinfoV11__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraAppinfoV11__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraAppinfoV11__fixr_lang_id = Slot(uri=FIX_ORCHESTRA.fixr_lang_id, name="orchestraAppinfoV11__fixr_lang_id", curie=FIX_ORCHESTRA.curie('fixr_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
+
+slots.orchestraAppinfoV11__fixr_purpose = Slot(uri=FIX_ORCHESTRA.fixr_purpose, name="orchestraAppinfoV11__fixr_purpose", curie=FIX_ORCHESTRA.curie('fixr_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_purpose, domain=None, range=Optional[Union[str, "OrchestraPurposeV11"]])
+
+slots.orchestraAppinfoV11__fixr_other_attributes = Slot(uri=FIX_ORCHESTRA.fixr_other_attributes, name="orchestraAppinfoV11__fixr_other_attributes", curie=FIX_ORCHESTRA.curie('fixr_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraAppinfoV11__fixr_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraBaseEncodingV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraBaseEncodingV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseEncodingV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraBaseEncodingV11__fixr_any = Slot(uri=FIX_ORCHESTRA.fixr_any, name="orchestraBaseEncodingV11__fixr_any", curie=FIX_ORCHESTRA.curie('fixr_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseEncodingV11__fixr_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_service = Slot(uri=FIX_ORCHESTRA.fixi_service, name="orchestraBaseInterfaceV11__fixi_service", curie=FIX_ORCHESTRA.curie('fixi_service'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_service, domain=None, range=Optional[Union[Union[dict, OrchestraServiceV11], list[Union[dict, OrchestraServiceV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_user_interface = Slot(uri=FIX_ORCHESTRA.fixi_user_interface, name="orchestraBaseInterfaceV11__fixi_user_interface", curie=FIX_ORCHESTRA.curie('fixi_user_interface'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_user_interface, domain=None, range=Optional[Union[Union[dict, OrchestraUserInterfaceV11], list[Union[dict, OrchestraUserInterfaceV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_encoding = Slot(uri=FIX_ORCHESTRA.fixi_encoding, name="orchestraBaseInterfaceV11__fixi_encoding", curie=FIX_ORCHESTRA.curie('fixi_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_encoding, domain=None, range=Optional[Union[Union[dict, OrchestraEncodingV11], list[Union[dict, OrchestraEncodingV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_session_protocol = Slot(uri=FIX_ORCHESTRA.fixi_session_protocol, name="orchestraBaseInterfaceV11__fixi_session_protocol", curie=FIX_ORCHESTRA.curie('fixi_session_protocol'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_session_protocol, domain=None, range=Optional[Union[Union[dict, OrchestraSessionProtocolV11], list[Union[dict, OrchestraSessionProtocolV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_protocol = Slot(uri=FIX_ORCHESTRA.fixi_protocol, name="orchestraBaseInterfaceV11__fixi_protocol", curie=FIX_ORCHESTRA.curie('fixi_protocol'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_protocol, domain=None, range=Optional[Union[Union[dict, OrchestraProtocolV11], list[Union[dict, OrchestraProtocolV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_transport = Slot(uri=FIX_ORCHESTRA.fixi_transport, name="orchestraBaseInterfaceV11__fixi_transport", curie=FIX_ORCHESTRA.curie('fixi_transport'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_transport, domain=None, range=Optional[Union[Union[dict, OrchestraTransportV11], list[Union[dict, OrchestraTransportV11]]]])
+
+slots.orchestraBaseInterfaceV11__fixi_annotation = Slot(uri=FIX_ORCHESTRA.fixi_annotation, name="orchestraBaseInterfaceV11__fixi_annotation", curie=FIX_ORCHESTRA.curie('fixi_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_annotation, domain=None, range=Optional[Union[dict, OrchestraInterfaceAnnotationV11]])
+
+slots.orchestraBaseInterfaceV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraBaseInterfaceV11__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_name, domain=None, range=str,
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraBaseInterfaceV11__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraBaseInterfaceV11__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraBlockAssignmentV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraBlockAssignmentV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraBlockAssignmentV11__fixr_members, domain=None, range=Union[Union[dict, OrchestraStructureMemberV11], list[Union[dict, OrchestraStructureMemberV11]]])
+
+slots.orchestraCategoriesV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraCategoriesV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoriesV11__fixr_category, domain=None, range=Optional[Union[Union[dict, OrchestraCategoryV11], list[Union[dict, OrchestraCategoryV11]]]])
+
+slots.orchestraCategoriesV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCategoriesV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoriesV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraCategoriesV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraCategoriesV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoriesV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraCategoryV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraCategoryV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraCategoryV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCategoryV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraCategoryV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraCategoryV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraCategoryV11__fixr_section = Slot(uri=FIX_ORCHESTRA.fixr_section, name="orchestraCategoryV11__fixr_section", curie=FIX_ORCHESTRA.curie('fixr_section'),
+                   model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_section, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraCodeSetV11__fixr_code = Slot(uri=FIX_ORCHESTRA.fixr_code, name="orchestraCodeSetV11__fixr_code", curie=FIX_ORCHESTRA.curie('fixr_code'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_code, domain=None, range=Optional[Union[Union[dict, OrchestraCodeV11], list[Union[dict, OrchestraCodeV11]]]])
+
+slots.orchestraCodeSetV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCodeSetV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraCodeSetV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraCodeSetV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraCodeSetV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraCodeSetV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_type, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraCodeSetV11__fixr_default = Slot(uri=FIX_ORCHESTRA.fixr_default, name="orchestraCodeSetV11__fixr_default", curie=FIX_ORCHESTRA.curie('fixr_default'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_default, domain=None, range=Optional[str])
+
+slots.orchestraCodeSetV11__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraCodeSetV11__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraCodeSetV11__fixr_union_data_type = Slot(uri=FIX_ORCHESTRA.fixr_union_data_type, name="orchestraCodeSetV11__fixr_union_data_type", curie=FIX_ORCHESTRA.curie('fixr_union_data_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_union_data_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraCodeSetsV11__fixr_code_set = Slot(uri=FIX_ORCHESTRA.fixr_code_set, name="orchestraCodeSetsV11__fixr_code_set", curie=FIX_ORCHESTRA.curie('fixr_code_set'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV11__fixr_code_set, domain=None, range=Optional[Union[Union[dict, OrchestraCodeSetV11], list[Union[dict, OrchestraCodeSetV11]]]])
+
+slots.orchestraCodeSetsV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraCodeSetsV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraCodeSetsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCodeSetsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraCodeSetsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraCodeSetsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeSetsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraCodeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraCodeV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraCodeV11__fixr_value = Slot(uri=FIX_ORCHESTRA.fixr_value, name="orchestraCodeV11__fixr_value", curie=FIX_ORCHESTRA.curie('fixr_value'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_value, domain=None, range=str,
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraCodeV11__fixr_sort = Slot(uri=FIX_ORCHESTRA.fixr_sort, name="orchestraCodeV11__fixr_sort", curie=FIX_ORCHESTRA.curie('fixr_sort'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_sort, domain=None, range=Optional[int])
+
+slots.orchestraCodeV11__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraCodeV11__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_group, domain=None, range=Optional[str])
+
+slots.orchestraComponentRefV11__fixr_block_assignment = Slot(uri=FIX_ORCHESTRA.fixr_block_assignment, name="orchestraComponentRefV11__fixr_block_assignment", curie=FIX_ORCHESTRA.curie('fixr_block_assignment'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_block_assignment, domain=None, range=Optional[Union[Union[dict, OrchestraBlockAssignmentV11], list[Union[dict, OrchestraBlockAssignmentV11]]]])
+
+slots.orchestraComponentRefV11__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraComponentRefV11__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraComponentRuleV11], list[Union[dict, OrchestraComponentRuleV11]]]])
+
+slots.orchestraComponentRefV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraComponentRefV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraComponentRefV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraComponentRefV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraComponentRefV11__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraComponentRefV11__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
+
+slots.orchestraComponentRefV11__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraComponentRefV11__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_instance_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraComponentRuleV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraComponentRuleV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_when, domain=None, range=str,
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraComponentRuleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraComponentRuleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraComponentRuleV11__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraComponentRuleV11__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
+
+slots.orchestraComponentV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraComponentV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraStructureMemberV11], list[Union[dict, OrchestraStructureMemberV11]]]])
+
+slots.orchestraComponentV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraComponentV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraComponentV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraComponentV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraComponentV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraComponentV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraComponentV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraComponentV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_rendering, domain=None, range=Optional[str])
+
+slots.orchestraComponentV11__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraComponentV11__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
+
+slots.orchestraComponentsV11__fixr_component = Slot(uri=FIX_ORCHESTRA.fixr_component, name="orchestraComponentsV11__fixr_component", curie=FIX_ORCHESTRA.curie('fixr_component'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV11__fixr_component, domain=None, range=Optional[Union[Union[dict, OrchestraComponentV11], list[Union[dict, OrchestraComponentV11]]]])
+
+slots.orchestraComponentsV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraComponentsV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraComponentsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraComponentsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraComponentsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraComponentsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraComponentsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraConceptMemberV11__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraConceptMemberV11__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV11__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV11]])
+
+slots.orchestraConceptMemberV11__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraConceptMemberV11__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV11__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV11]])
+
+slots.orchestraConceptMemberV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraConceptMemberV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV11__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV11]])
+
+slots.orchestraConceptMemberV11__fixr_message_ref = Slot(uri=FIX_ORCHESTRA.fixr_message_ref, name="orchestraConceptMemberV11__fixr_message_ref", curie=FIX_ORCHESTRA.curie('fixr_message_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptMemberV11__fixr_message_ref, domain=None, range=Optional[Union[dict, OrchestraMessageRefV11]])
+
+slots.orchestraConceptV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraConceptV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV11__fixr_members, domain=None, range=Union[Union[dict, OrchestraConceptMemberV11], list[Union[dict, OrchestraConceptMemberV11]]])
+
+slots.orchestraConceptV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraConceptV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraConceptV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraConceptV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraConceptsV11__fixr_concept = Slot(uri=FIX_ORCHESTRA.fixr_concept, name="orchestraConceptsV11__fixr_concept", curie=FIX_ORCHESTRA.curie('fixr_concept'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptsV11__fixr_concept, domain=None, range=Optional[Union[Union[dict, OrchestraConceptV11], list[Union[dict, OrchestraConceptV11]]]])
+
+slots.orchestraConceptsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraConceptsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraConceptsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraConceptsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraConceptsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraDatatypeV11__fixr_mapped_datatype = Slot(uri=FIX_ORCHESTRA.fixr_mapped_datatype, name="orchestraDatatypeV11__fixr_mapped_datatype", curie=FIX_ORCHESTRA.curie('fixr_mapped_datatype'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_mapped_datatype, domain=None, range=Optional[Union[Union[dict, OrchestraMappedDatatypeV11], list[Union[dict, OrchestraMappedDatatypeV11]]]])
+
+slots.orchestraDatatypeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraDatatypeV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraDatatypeV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraDatatypeV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraDatatypeV11__fixr_base_type = Slot(uri=FIX_ORCHESTRA.fixr_base_type, name="orchestraDatatypeV11__fixr_base_type", curie=FIX_ORCHESTRA.curie('fixr_base_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_base_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraDatatypesV11__fixr_datatype = Slot(uri=FIX_ORCHESTRA.fixr_datatype, name="orchestraDatatypesV11__fixr_datatype", curie=FIX_ORCHESTRA.curie('fixr_datatype'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypesV11__fixr_datatype, domain=None, range=Optional[Union[Union[dict, OrchestraDatatypeV11], list[Union[dict, OrchestraDatatypeV11]]]])
+
+slots.orchestraDatatypesV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraDatatypesV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypesV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraDatatypesV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraDatatypesV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraDatatypesV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraDocumentationV11__fixr_text = Slot(uri=FIX_ORCHESTRA.fixr_text, name="orchestraDocumentationV11__fixr_text", curie=FIX_ORCHESTRA.curie('fixr_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV11__fixr_text, domain=None, range=Optional[str])
+
+slots.orchestraDocumentationV11__fixr_lang_id = Slot(uri=FIX_ORCHESTRA.fixr_lang_id, name="orchestraDocumentationV11__fixr_lang_id", curie=FIX_ORCHESTRA.curie('fixr_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV11__fixr_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
+
+slots.orchestraDocumentationV11__fixr_purpose = Slot(uri=FIX_ORCHESTRA.fixr_purpose, name="orchestraDocumentationV11__fixr_purpose", curie=FIX_ORCHESTRA.curie('fixr_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV11__fixr_purpose, domain=None, range=Optional[Union[str, "OrchestraPurposeV11"]])
+
+slots.orchestraDocumentationV11__fixr_content_type = Slot(uri=FIX_ORCHESTRA.fixr_content_type, name="orchestraDocumentationV11__fixr_content_type", curie=FIX_ORCHESTRA.curie('fixr_content_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraDocumentationV11__fixr_content_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{3,}$'))
+
+slots.orchestraEncodingStandardV11__fixr_encoding = Slot(uri=FIX_ORCHESTRA.fixr_encoding, name="orchestraEncodingStandardV11__fixr_encoding", curie=FIX_ORCHESTRA.curie('fixr_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_encoding, domain=None, range=Optional[Union[dict, OrchestraUnnamedEncodingV11]])
+
+slots.orchestraEncodingStandardV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraEncodingStandardV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraEncodingStandardV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraEncodingStandardV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraEncodingStandardV11__fixr_display_name = Slot(uri=FIX_ORCHESTRA.fixr_display_name, name="orchestraEncodingStandardV11__fixr_display_name", curie=FIX_ORCHESTRA.curie('fixr_display_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_display_name, domain=None, range=Optional[str])
+
+slots.orchestraEncodingStandardsV11__fixr_encoding_standard = Slot(uri=FIX_ORCHESTRA.fixr_encoding_standard, name="orchestraEncodingStandardsV11__fixr_encoding_standard", curie=FIX_ORCHESTRA.curie('fixr_encoding_standard'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardsV11__fixr_encoding_standard, domain=None, range=Optional[Union[Union[dict, OrchestraEncodingStandardV11], list[Union[dict, OrchestraEncodingStandardV11]]]])
+
+slots.orchestraEncodingStandardsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraEncodingStandardsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingStandardsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraEncodingsV11__fixr_encoding = Slot(uri=FIX_ORCHESTRA.fixr_encoding, name="orchestraEncodingsV11__fixr_encoding", curie=FIX_ORCHESTRA.curie('fixr_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraEncodingsV11__fixr_encoding, domain=None, range=Optional[Union[Union[dict, OrchestraNamedEncodingV11], list[Union[dict, OrchestraNamedEncodingV11]]]])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_min_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_min_inclusive, name="orchestraFieldConstraintsV11Mixin__fixr_min_inclusive", curie=FIX_ORCHESTRA.curie('fixr_min_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_min_inclusive, domain=None, range=Optional[str])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_max_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_max_inclusive, name="orchestraFieldConstraintsV11Mixin__fixr_max_inclusive", curie=FIX_ORCHESTRA.curie('fixr_max_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_max_inclusive, domain=None, range=Optional[str])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_impl_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_length, name="orchestraFieldConstraintsV11Mixin__fixr_impl_length", curie=FIX_ORCHESTRA.curie('fixr_impl_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_impl_length, domain=None, range=Optional[int])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_impl_min_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_length, name="orchestraFieldConstraintsV11Mixin__fixr_impl_min_length", curie=FIX_ORCHESTRA.curie('fixr_impl_min_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_impl_min_length, domain=None, range=Optional[int])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_impl_max_length = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_length, name="orchestraFieldConstraintsV11Mixin__fixr_impl_max_length", curie=FIX_ORCHESTRA.curie('fixr_impl_max_length'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_impl_max_length, domain=None, range=Optional[int])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraFieldConstraintsV11Mixin__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_encoding = Slot(uri=FIX_ORCHESTRA.fixr_encoding, name="orchestraFieldConstraintsV11Mixin__fixr_encoding", curie=FIX_ORCHESTRA.curie('fixr_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_encoding, domain=None, range=Optional[str])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_value = Slot(uri=FIX_ORCHESTRA.fixr_value, name="orchestraFieldConstraintsV11Mixin__fixr_value", curie=FIX_ORCHESTRA.curie('fixr_value'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_value, domain=None, range=Optional[str])
+
+slots.orchestraFieldConstraintsV11Mixin__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraFieldConstraintsV11Mixin__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldConstraintsV11Mixin__fixr_rendering, domain=None, range=Optional[str])
+
+slots.orchestraFieldRefV11__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraFieldRefV11__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRuleV11], list[Union[dict, OrchestraFieldRuleV11]]]])
+
+slots.orchestraFieldRefV11__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldRefV11__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraFieldRefV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraFieldRefV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraFieldRefV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFieldRefV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraFieldRefV11__fixr_length_id = Slot(uri=FIX_ORCHESTRA.fixr_length_id, name="orchestraFieldRefV11__fixr_length_id", curie=FIX_ORCHESTRA.curie('fixr_length_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_length_id, domain=None, range=Optional[int])
+
+slots.orchestraFieldRefV11__fixr_non_encoded_field_id = Slot(uri=FIX_ORCHESTRA.fixr_non_encoded_field_id, name="orchestraFieldRefV11__fixr_non_encoded_field_id", curie=FIX_ORCHESTRA.curie('fixr_non_encoded_field_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_non_encoded_field_id, domain=None, range=Optional[int])
+
+slots.orchestraFieldRefV11__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraFieldRefV11__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_instance_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldRuleV11__fixr_unique = Slot(uri=FIX_ORCHESTRA.fixr_unique, name="orchestraFieldRuleV11__fixr_unique", curie=FIX_ORCHESTRA.curie('fixr_unique'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_unique, domain=None, range=Optional[Union[dict, OrchestraUniqueV11]])
+
+slots.orchestraFieldRuleV11__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldRuleV11__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_assign, domain=None, range=Optional[Union[str, list[str]]],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraFieldRuleV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraFieldRuleV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_when, domain=None, range=str,
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraFieldRuleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFieldRuleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldRuleV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldRuleV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldV11__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraFieldV11__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRuleV11], list[Union[dict, OrchestraFieldRuleV11]]]])
+
+slots.orchestraFieldV11__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraFieldV11__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_assign, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraFieldV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraFieldV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraFieldV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFieldV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraFieldV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldV11__fixr_code_set = Slot(uri=FIX_ORCHESTRA.fixr_code_set, name="orchestraFieldV11__fixr_code_set", curie=FIX_ORCHESTRA.curie('fixr_code_set'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_code_set, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldV11__fixr_length_id = Slot(uri=FIX_ORCHESTRA.fixr_length_id, name="orchestraFieldV11__fixr_length_id", curie=FIX_ORCHESTRA.curie('fixr_length_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_length_id, domain=None, range=Optional[int])
+
+slots.orchestraFieldV11__fixr_non_encoded_field_id = Slot(uri=FIX_ORCHESTRA.fixr_non_encoded_field_id, name="orchestraFieldV11__fixr_non_encoded_field_id", curie=FIX_ORCHESTRA.curie('fixr_non_encoded_field_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_non_encoded_field_id, domain=None, range=Optional[int])
+
+slots.orchestraFieldV11__fixr_discriminator_id = Slot(uri=FIX_ORCHESTRA.fixr_discriminator_id, name="orchestraFieldV11__fixr_discriminator_id", curie=FIX_ORCHESTRA.curie('fixr_discriminator_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_discriminator_id, domain=None, range=Optional[int])
+
+slots.orchestraFieldV11__fixr_base_category = Slot(uri=FIX_ORCHESTRA.fixr_base_category, name="orchestraFieldV11__fixr_base_category", curie=FIX_ORCHESTRA.curie('fixr_base_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_base_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldV11__fixr_base_category_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_base_category_abbr_name, name="orchestraFieldV11__fixr_base_category_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_base_category_abbr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_base_category_abbr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldV11__fixr_union_data_type = Slot(uri=FIX_ORCHESTRA.fixr_union_data_type, name="orchestraFieldV11__fixr_union_data_type", curie=FIX_ORCHESTRA.curie('fixr_union_data_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_union_data_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFieldsV11__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraFieldsV11__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV11__fixr_field, domain=None, range=Optional[Union[Union[dict, OrchestraFieldV11], list[Union[dict, OrchestraFieldV11]]]])
+
+slots.orchestraFieldsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFieldsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraFieldsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraFieldsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraFieldsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraFlowV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraFlowV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraFlowV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFlowV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraFlowV11__fixr_source = Slot(uri=FIX_ORCHESTRA.fixr_source, name="orchestraFlowV11__fixr_source", curie=FIX_ORCHESTRA.curie('fixr_source'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_source, domain=None, range=str)
+
+slots.orchestraFlowV11__fixr_destination = Slot(uri=FIX_ORCHESTRA.fixr_destination, name="orchestraFlowV11__fixr_destination", curie=FIX_ORCHESTRA.curie('fixr_destination'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_destination, domain=None, range=str)
+
+slots.orchestraFlowV11__fixr_reliability = Slot(uri=FIX_ORCHESTRA.fixr_reliability, name="orchestraFlowV11__fixr_reliability", curie=FIX_ORCHESTRA.curie('fixr_reliability'),
+                   model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_reliability, domain=None, range=Optional[Union[str, "OrchestraReliability"]])
+
+slots.orchestraGroupRefV11__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraGroupRefV11__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupRefV11__fixr_impl_min_occurs, domain=None, range=Optional[int])
+
+slots.orchestraGroupRefV11__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraGroupRefV11__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupRefV11__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
+
+slots.orchestraGroupV11__fixr_num_in_group = Slot(uri=FIX_ORCHESTRA.fixr_num_in_group, name="orchestraGroupV11__fixr_num_in_group", curie=FIX_ORCHESTRA.curie('fixr_num_in_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_num_in_group, domain=None, range=Optional[Union[dict, OrchestraFieldRefV11]])
+
+slots.orchestraGroupV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraGroupV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraStructureMemberV11], list[Union[dict, OrchestraStructureMemberV11]]]])
+
+slots.orchestraGroupV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraGroupV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraGroupV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraGroupV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraGroupV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraGroupV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraGroupV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraGroupV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_rendering, domain=None, range=Optional[str])
+
+slots.orchestraGroupV11__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraGroupV11__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_impl_min_occurs, domain=None, range=Optional[int])
+
+slots.orchestraGroupV11__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraGroupV11__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
+
+slots.orchestraGroupV11__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraGroupV11__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
+
+slots.orchestraGroupsV11__fixr_group = Slot(uri=FIX_ORCHESTRA.fixr_group, name="orchestraGroupsV11__fixr_group", curie=FIX_ORCHESTRA.curie('fixr_group'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV11__fixr_group, domain=None, range=Optional[Union[Union[dict, OrchestraGroupV11], list[Union[dict, OrchestraGroupV11]]]])
+
+slots.orchestraGroupsV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraGroupsV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraGroupsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraGroupsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraGroupsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraGroupsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraGroupsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraIdentifierV11__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraIdentifierV11__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifierV11__fixr_id, domain=None, range=int)
+
+slots.orchestraIdentifierV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraIdentifierV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifierV11__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraIdentifierV11__fixr_source_id = Slot(uri=FIX_ORCHESTRA.fixr_source_id, name="orchestraIdentifierV11__fixr_source_id", curie=FIX_ORCHESTRA.curie('fixr_source_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifierV11__fixr_source_id, domain=None, range=Optional[int])
+
+slots.orchestraIdentifiersMemberV11__fixr_correlate = Slot(uri=FIX_ORCHESTRA.fixr_correlate, name="orchestraIdentifiersMemberV11__fixr_correlate", curie=FIX_ORCHESTRA.curie('fixr_correlate'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersMemberV11__fixr_correlate, domain=None, range=Optional[Union[dict, OrchestraIdentifierV11]])
+
+slots.orchestraIdentifiersMemberV11__fixr_assign = Slot(uri=FIX_ORCHESTRA.fixr_assign, name="orchestraIdentifiersMemberV11__fixr_assign", curie=FIX_ORCHESTRA.curie('fixr_assign'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersMemberV11__fixr_assign, domain=None, range=Optional[Union[dict, OrchestraIdentifierV11]])
+
+slots.orchestraIdentifiersV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraIdentifiersV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersV11__fixr_members, domain=None, range=Union[Union[dict, OrchestraIdentifiersMemberV11], list[Union[dict, OrchestraIdentifiersMemberV11]]])
+
+slots.orchestraIdentifiersV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraIdentifiersV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentifiersV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraIdentityV11Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraIdentityV11Mixin__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_id, domain=None, range=int)
+
+slots.orchestraIdentityV11Mixin__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraIdentityV11Mixin__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraIdentityV11Mixin__fixr_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_abbr_name, name="orchestraIdentityV11Mixin__fixr_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_abbr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_abbr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraIdentityV11Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraIdentityV11Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
+                   model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_scenario, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraInterfaceAnnotationMemberV11__fixi_documentation = Slot(uri=FIX_ORCHESTRA.fixi_documentation, name="orchestraInterfaceAnnotationMemberV11__fixi_documentation", curie=FIX_ORCHESTRA.curie('fixi_documentation'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationMemberV11__fixi_documentation, domain=None, range=Optional[Union[dict, OrchestraInterfaceDocumentationV11]])
+
+slots.orchestraInterfaceAnnotationMemberV11__fixi_appinfo = Slot(uri=FIX_ORCHESTRA.fixi_appinfo, name="orchestraInterfaceAnnotationMemberV11__fixi_appinfo", curie=FIX_ORCHESTRA.curie('fixi_appinfo'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationMemberV11__fixi_appinfo, domain=None, range=Optional[Union[dict, OrchestraInterfaceAppinfoV11]])
+
+slots.orchestraInterfaceAnnotationV11__fixi_members = Slot(uri=FIX_ORCHESTRA.fixi_members, name="orchestraInterfaceAnnotationV11__fixi_members", curie=FIX_ORCHESTRA.curie('fixi_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationV11__fixi_members, domain=None, range=Union[Union[dict, OrchestraInterfaceAnnotationMemberV11], list[Union[dict, OrchestraInterfaceAnnotationMemberV11]]])
+
+slots.orchestraInterfaceAppinfoV11__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraInterfaceAppinfoV11__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_text, domain=None, range=Optional[str])
+
+slots.orchestraInterfaceAppinfoV11__fixi_any = Slot(uri=FIX_ORCHESTRA.fixi_any, name="orchestraInterfaceAppinfoV11__fixi_any", curie=FIX_ORCHESTRA.curie('fixi_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
+
+slots.orchestraInterfaceAppinfoV11__fixi_spec_url = Slot(uri=FIX_ORCHESTRA.fixi_spec_url, name="orchestraInterfaceAppinfoV11__fixi_spec_url", curie=FIX_ORCHESTRA.curie('fixi_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_spec_url, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraInterfaceAppinfoV11__fixi_lang_id = Slot(uri=FIX_ORCHESTRA.fixi_lang_id, name="orchestraInterfaceAppinfoV11__fixi_lang_id", curie=FIX_ORCHESTRA.curie('fixi_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
+
+slots.orchestraInterfaceAppinfoV11__fixi_purpose = Slot(uri=FIX_ORCHESTRA.fixi_purpose, name="orchestraInterfaceAppinfoV11__fixi_purpose", curie=FIX_ORCHESTRA.curie('fixi_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
+
+slots.orchestraInterfaceAppinfoV11__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraInterfaceAppinfoV11__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceAppinfoV11__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraInterfaceDocumentationV11__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraInterfaceDocumentationV11__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_text, domain=None, range=Optional[str])
+
+slots.orchestraInterfaceDocumentationV11__fixi_any = Slot(uri=FIX_ORCHESTRA.fixi_any, name="orchestraInterfaceDocumentationV11__fixi_any", curie=FIX_ORCHESTRA.curie('fixi_any'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_any, domain=None, range=Optional[Union[Union[dict, OrchestraXmlElement], list[Union[dict, OrchestraXmlElement]]]])
+
+slots.orchestraInterfaceDocumentationV11__fixi_lang_id = Slot(uri=FIX_ORCHESTRA.fixi_lang_id, name="orchestraInterfaceDocumentationV11__fixi_lang_id", curie=FIX_ORCHESTRA.curie('fixi_lang_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_lang_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$'))
+
+slots.orchestraInterfaceDocumentationV11__fixi_purpose = Slot(uri=FIX_ORCHESTRA.fixi_purpose, name="orchestraInterfaceDocumentationV11__fixi_purpose", curie=FIX_ORCHESTRA.curie('fixi_purpose'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_purpose, domain=None, range=Optional[Union[str, "OrchestraPurpose"]])
+
+slots.orchestraInterfaceDocumentationV11__fixi_content_type = Slot(uri=FIX_ORCHESTRA.fixi_content_type, name="orchestraInterfaceDocumentationV11__fixi_content_type", curie=FIX_ORCHESTRA.curie('fixi_content_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_content_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraInterfaceV11__fixi_sessions = Slot(uri=FIX_ORCHESTRA.fixi_sessions, name="orchestraInterfaceV11__fixi_sessions", curie=FIX_ORCHESTRA.curie('fixi_sessions'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfaceV11__fixi_sessions, domain=None, range=Optional[Union[dict, OrchestraSessionsV11]])
+
+slots.orchestraInterfacesV11__fixi_metadata = Slot(uri=FIX_ORCHESTRA.fixi_metadata, name="orchestraInterfacesV11__fixi_metadata", curie=FIX_ORCHESTRA.curie('fixi_metadata'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfacesV11__fixi_metadata, domain=None, range=Union[dict, OrchestraMetadata])
+
+slots.orchestraInterfacesV11__fixi_interface = Slot(uri=FIX_ORCHESTRA.fixi_interface, name="orchestraInterfacesV11__fixi_interface", curie=FIX_ORCHESTRA.curie('fixi_interface'),
+                   model_uri=FIX_ORCHESTRA.orchestraInterfacesV11__fixi_interface, domain=None, range=Optional[Union[Union[dict, OrchestraInterfaceV11], list[Union[dict, OrchestraInterfaceV11]]]])
+
+slots.orchestraMappedDatatypeV11__fixr_encoding = Slot(uri=FIX_ORCHESTRA.fixr_encoding, name="orchestraMappedDatatypeV11__fixr_encoding", curie=FIX_ORCHESTRA.curie('fixr_encoding'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_encoding, domain=None, range=Optional[Union[dict, OrchestraUnnamedEncodingV11]])
+
+slots.orchestraMappedDatatypeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraMappedDatatypeV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraMappedDatatypeV11__fixr_standard = Slot(uri=FIX_ORCHESTRA.fixr_standard, name="orchestraMappedDatatypeV11__fixr_standard", curie=FIX_ORCHESTRA.curie('fixr_standard'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_standard, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraMappedDatatypeV11__fixr_builtin = Slot(uri=FIX_ORCHESTRA.fixr_builtin, name="orchestraMappedDatatypeV11__fixr_builtin", curie=FIX_ORCHESTRA.curie('fixr_builtin'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_builtin, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.orchestraMappedDatatypeV11__fixr_base = Slot(uri=FIX_ORCHESTRA.fixr_base, name="orchestraMappedDatatypeV11__fixr_base", curie=FIX_ORCHESTRA.curie('fixr_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_base, domain=None, range=Optional[str])
+
+slots.orchestraMappedDatatypeV11__fixr_pattern = Slot(uri=FIX_ORCHESTRA.fixr_pattern, name="orchestraMappedDatatypeV11__fixr_pattern", curie=FIX_ORCHESTRA.curie('fixr_pattern'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_pattern, domain=None, range=Optional[str])
+
+slots.orchestraMappedDatatypeV11__fixr_element = Slot(uri=FIX_ORCHESTRA.fixr_element, name="orchestraMappedDatatypeV11__fixr_element", curie=FIX_ORCHESTRA.curie('fixr_element'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_element, domain=None, range=Optional[str])
+
+slots.orchestraMappedDatatypeV11__fixr_size = Slot(uri=FIX_ORCHESTRA.fixr_size, name="orchestraMappedDatatypeV11__fixr_size", curie=FIX_ORCHESTRA.curie('fixr_size'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_size, domain=None, range=Optional[int])
+
+slots.orchestraMappedDatatypeV11__fixr_parameter = Slot(uri=FIX_ORCHESTRA.fixr_parameter, name="orchestraMappedDatatypeV11__fixr_parameter", curie=FIX_ORCHESTRA.curie('fixr_parameter'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_parameter, domain=None, range=Optional[str])
+
+slots.orchestraMappedDatatypeV11__fixr_min_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_min_inclusive, name="orchestraMappedDatatypeV11__fixr_min_inclusive", curie=FIX_ORCHESTRA.curie('fixr_min_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_min_inclusive, domain=None, range=Optional[str])
+
+slots.orchestraMappedDatatypeV11__fixr_max_inclusive = Slot(uri=FIX_ORCHESTRA.fixr_max_inclusive, name="orchestraMappedDatatypeV11__fixr_max_inclusive", curie=FIX_ORCHESTRA.curie('fixr_max_inclusive'),
+                   model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_max_inclusive, domain=None, range=Optional[str])
+
+slots.orchestraMessageRefV11__fixr_identifiers = Slot(uri=FIX_ORCHESTRA.fixr_identifiers, name="orchestraMessageRefV11__fixr_identifiers", curie=FIX_ORCHESTRA.curie('fixr_identifiers'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV11__fixr_identifiers, domain=None, range=Optional[Union[dict, OrchestraIdentifiersV11]])
+
+slots.orchestraMessageRefV11__fixr_msg_type = Slot(uri=FIX_ORCHESTRA.fixr_msg_type, name="orchestraMessageRefV11__fixr_msg_type", curie=FIX_ORCHESTRA.curie('fixr_msg_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV11__fixr_msg_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{1,6}$'))
+
+slots.orchestraMessageRefV11__fixr_impl_min_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_min_occurs, name="orchestraMessageRefV11__fixr_impl_min_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_min_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV11__fixr_impl_min_occurs, domain=None, range=Optional[int])
+
+slots.orchestraMessageRefV11__fixr_impl_max_occurs = Slot(uri=FIX_ORCHESTRA.fixr_impl_max_occurs, name="orchestraMessageRefV11__fixr_impl_max_occurs", curie=FIX_ORCHESTRA.curie('fixr_impl_max_occurs'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageRefV11__fixr_impl_max_occurs, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(\d+|unbounded)$'))
+
+slots.orchestraMessageStructureV11__fixr_members = Slot(uri=FIX_ORCHESTRA.fixr_members, name="orchestraMessageStructureV11__fixr_members", curie=FIX_ORCHESTRA.curie('fixr_members'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageStructureV11__fixr_members, domain=None, range=Optional[Union[Union[dict, OrchestraStructureMemberV11], list[Union[dict, OrchestraStructureMemberV11]]]])
+
+slots.orchestraMessageStructureV11__fixr_which = Slot(uri=FIX_ORCHESTRA.fixr_which, name="orchestraMessageStructureV11__fixr_which", curie=FIX_ORCHESTRA.curie('fixr_which'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageStructureV11__fixr_which, domain=None, range=Optional[Union[str, "OrchestraMemberSelection"]])
+
+slots.orchestraMessageV11__fixr_structure = Slot(uri=FIX_ORCHESTRA.fixr_structure, name="orchestraMessageV11__fixr_structure", curie=FIX_ORCHESTRA.curie('fixr_structure'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_structure, domain=None, range=Optional[Union[dict, OrchestraMessageStructureV11]])
+
+slots.orchestraMessageV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraMessageV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_when, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraMessageV11__fixr_responses = Slot(uri=FIX_ORCHESTRA.fixr_responses, name="orchestraMessageV11__fixr_responses", curie=FIX_ORCHESTRA.curie('fixr_responses'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_responses, domain=None, range=Optional[Union[dict, OrchestraResponsesV11]])
+
+slots.orchestraMessageV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraMessageV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraMessageV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraMessageV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraMessageV11__fixr_msg_type = Slot(uri=FIX_ORCHESTRA.fixr_msg_type, name="orchestraMessageV11__fixr_msg_type", curie=FIX_ORCHESTRA.curie('fixr_msg_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_msg_type, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{1,6}$'))
+
+slots.orchestraMessageV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraMessageV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_category, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraMessageV11__fixr_flow = Slot(uri=FIX_ORCHESTRA.fixr_flow, name="orchestraMessageV11__fixr_flow", curie=FIX_ORCHESTRA.curie('fixr_flow'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_flow, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraMessageV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraMessageV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_rendering, domain=None, range=Optional[str])
+
+slots.orchestraMessagesV11__fixr_message = Slot(uri=FIX_ORCHESTRA.fixr_message, name="orchestraMessagesV11__fixr_message", curie=FIX_ORCHESTRA.curie('fixr_message'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV11__fixr_message, domain=None, range=Optional[Union[Union[dict, OrchestraMessageV11], list[Union[dict, OrchestraMessageV11]]]])
+
+slots.orchestraMessagesV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraMessagesV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraMessagesV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraMessagesV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraMessagesV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraMessagesV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraMessagesV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraNamedEncodingV11__fixr_standard = Slot(uri=FIX_ORCHESTRA.fixr_standard, name="orchestraNamedEncodingV11__fixr_standard", curie=FIX_ORCHESTRA.curie('fixr_standard'),
+                   model_uri=FIX_ORCHESTRA.orchestraNamedEncodingV11__fixr_standard, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_added = Slot(uri=FIX_ORCHESTRA.fixr_added, name="orchestraPedigreeV11Mixin__fixr_added", curie=FIX_ORCHESTRA.curie('fixr_added'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_added, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_added_ep = Slot(uri=FIX_ORCHESTRA.fixr_added_ep, name="orchestraPedigreeV11Mixin__fixr_added_ep", curie=FIX_ORCHESTRA.curie('fixr_added_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_added_ep, domain=None, range=Optional[int])
+
+slots.orchestraPedigreeV11Mixin__fixr_change_type = Slot(uri=FIX_ORCHESTRA.fixr_change_type, name="orchestraPedigreeV11Mixin__fixr_change_type", curie=FIX_ORCHESTRA.curie('fixr_change_type'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_change_type, domain=None, range=Optional[Union[str, "OrchestraChangeKind"]])
+
+slots.orchestraPedigreeV11Mixin__fixr_deprecated = Slot(uri=FIX_ORCHESTRA.fixr_deprecated, name="orchestraPedigreeV11Mixin__fixr_deprecated", curie=FIX_ORCHESTRA.curie('fixr_deprecated'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_deprecated, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_deprecated_ep = Slot(uri=FIX_ORCHESTRA.fixr_deprecated_ep, name="orchestraPedigreeV11Mixin__fixr_deprecated_ep", curie=FIX_ORCHESTRA.curie('fixr_deprecated_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_deprecated_ep, domain=None, range=Optional[int])
+
+slots.orchestraPedigreeV11Mixin__fixr_issue = Slot(uri=FIX_ORCHESTRA.fixr_issue, name="orchestraPedigreeV11Mixin__fixr_issue", curie=FIX_ORCHESTRA.curie('fixr_issue'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_issue, domain=None, range=Optional[str])
+
+slots.orchestraPedigreeV11Mixin__fixr_last_modified = Slot(uri=FIX_ORCHESTRA.fixr_last_modified, name="orchestraPedigreeV11Mixin__fixr_last_modified", curie=FIX_ORCHESTRA.curie('fixr_last_modified'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_last_modified, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_replaced = Slot(uri=FIX_ORCHESTRA.fixr_replaced, name="orchestraPedigreeV11Mixin__fixr_replaced", curie=FIX_ORCHESTRA.curie('fixr_replaced'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_replaced, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_replaced_ep = Slot(uri=FIX_ORCHESTRA.fixr_replaced_ep, name="orchestraPedigreeV11Mixin__fixr_replaced_ep", curie=FIX_ORCHESTRA.curie('fixr_replaced_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_replaced_ep, domain=None, range=Optional[int])
+
+slots.orchestraPedigreeV11Mixin__fixr_replaced_by_field = Slot(uri=FIX_ORCHESTRA.fixr_replaced_by_field, name="orchestraPedigreeV11Mixin__fixr_replaced_by_field", curie=FIX_ORCHESTRA.curie('fixr_replaced_by_field'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_replaced_by_field, domain=None, range=Optional[int])
+
+slots.orchestraPedigreeV11Mixin__fixr_supported = Slot(uri=FIX_ORCHESTRA.fixr_supported, name="orchestraPedigreeV11Mixin__fixr_supported", curie=FIX_ORCHESTRA.curie('fixr_supported'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_supported, domain=None, range=Optional[Union[str, "OrchestraSupport"]])
+
+slots.orchestraPedigreeV11Mixin__fixr_updated = Slot(uri=FIX_ORCHESTRA.fixr_updated, name="orchestraPedigreeV11Mixin__fixr_updated", curie=FIX_ORCHESTRA.curie('fixr_updated'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_updated, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraPedigreeV11Mixin__fixr_updated_ep = Slot(uri=FIX_ORCHESTRA.fixr_updated_ep, name="orchestraPedigreeV11Mixin__fixr_updated_ep", curie=FIX_ORCHESTRA.curie('fixr_updated_ep'),
+                   model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_updated_ep, domain=None, range=Optional[int])
+
+slots.orchestraProtocolV11__fixi_annotation = Slot(uri=FIX_ORCHESTRA.fixi_annotation, name="orchestraProtocolV11__fixi_annotation", curie=FIX_ORCHESTRA.curie('fixi_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_annotation, domain=None, range=Optional[Union[dict, OrchestraInterfaceAnnotationV11]])
+
+slots.orchestraProtocolV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraProtocolV11__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_name, domain=None, range=Optional[Union[str, "OrchestraProtocolName"]])
+
+slots.orchestraProtocolV11__fixi_version = Slot(uri=FIX_ORCHESTRA.fixi_version, name="orchestraProtocolV11__fixi_version", curie=FIX_ORCHESTRA.curie('fixi_version'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_version, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraProtocolV11__fixi_activation_time = Slot(uri=FIX_ORCHESTRA.fixi_activation_time, name="orchestraProtocolV11__fixi_activation_time", curie=FIX_ORCHESTRA.curie('fixi_activation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_activation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
+
+slots.orchestraProtocolV11__fixi_deactivation_time = Slot(uri=FIX_ORCHESTRA.fixi_deactivation_time, name="orchestraProtocolV11__fixi_deactivation_time", curie=FIX_ORCHESTRA.curie('fixi_deactivation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_deactivation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
+
+slots.orchestraProtocolV11__fixi_deprecated = Slot(uri=FIX_ORCHESTRA.fixi_deprecated, name="orchestraProtocolV11__fixi_deprecated", curie=FIX_ORCHESTRA.curie('fixi_deprecated'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_deprecated, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
+
+slots.orchestraProtocolV11__fixi_layer = Slot(uri=FIX_ORCHESTRA.fixi_layer, name="orchestraProtocolV11__fixi_layer", curie=FIX_ORCHESTRA.curie('fixi_layer'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_layer, domain=None, range=Optional[Union[str, "OrchestraLayer"]])
+
+slots.orchestraProtocolV11__fixi_reliability = Slot(uri=FIX_ORCHESTRA.fixi_reliability, name="orchestraProtocolV11__fixi_reliability", curie=FIX_ORCHESTRA.curie('fixi_reliability'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_reliability, domain=None, range=Optional[Union[str, "OrchestraReliability"]])
+
+slots.orchestraProtocolV11__fixi_orchestration = Slot(uri=FIX_ORCHESTRA.fixi_orchestration, name="orchestraProtocolV11__fixi_orchestration", curie=FIX_ORCHESTRA.curie('fixi_orchestration'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_orchestration, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraProtocolV11__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraProtocolV11__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraReferenceV11Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="orchestraReferenceV11Mixin__fixr_id", curie=FIX_ORCHESTRA.curie('fixr_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraReferenceV11Mixin__fixr_id, domain=None, range=int)
+
+slots.orchestraReferenceV11Mixin__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraReferenceV11Mixin__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraReferenceV11Mixin__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraReferenceV11Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraReferenceV11Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
+                   model_uri=FIX_ORCHESTRA.orchestraReferenceV11Mixin__fixr_scenario, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraRepositoryV11__fixr_metadata = Slot(uri=FIX_ORCHESTRA.fixr_metadata, name="orchestraRepositoryV11__fixr_metadata", curie=FIX_ORCHESTRA.curie('fixr_metadata'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_metadata, domain=None, range=Union[dict, OrchestraMetadata])
+
+slots.orchestraRepositoryV11__fixr_categories = Slot(uri=FIX_ORCHESTRA.fixr_categories, name="orchestraRepositoryV11__fixr_categories", curie=FIX_ORCHESTRA.curie('fixr_categories'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_categories, domain=None, range=Optional[Union[dict, OrchestraCategoriesV11]])
+
+slots.orchestraRepositoryV11__fixr_sections = Slot(uri=FIX_ORCHESTRA.fixr_sections, name="orchestraRepositoryV11__fixr_sections", curie=FIX_ORCHESTRA.curie('fixr_sections'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_sections, domain=None, range=Optional[Union[dict, OrchestraSectionsV11]])
+
+slots.orchestraRepositoryV11__fixr_encoding_standards = Slot(uri=FIX_ORCHESTRA.fixr_encoding_standards, name="orchestraRepositoryV11__fixr_encoding_standards", curie=FIX_ORCHESTRA.curie('fixr_encoding_standards'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_encoding_standards, domain=None, range=Optional[Union[dict, OrchestraEncodingStandardsV11]])
+
+slots.orchestraRepositoryV11__fixr_datatypes = Slot(uri=FIX_ORCHESTRA.fixr_datatypes, name="orchestraRepositoryV11__fixr_datatypes", curie=FIX_ORCHESTRA.curie('fixr_datatypes'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_datatypes, domain=None, range=Optional[Union[dict, OrchestraDatatypesV11]])
+
+slots.orchestraRepositoryV11__fixr_code_sets = Slot(uri=FIX_ORCHESTRA.fixr_code_sets, name="orchestraRepositoryV11__fixr_code_sets", curie=FIX_ORCHESTRA.curie('fixr_code_sets'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_code_sets, domain=None, range=Optional[Union[dict, OrchestraCodeSetsV11]])
+
+slots.orchestraRepositoryV11__fixr_fields = Slot(uri=FIX_ORCHESTRA.fixr_fields, name="orchestraRepositoryV11__fixr_fields", curie=FIX_ORCHESTRA.curie('fixr_fields'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_fields, domain=None, range=Optional[Union[dict, OrchestraFieldsV11]])
+
+slots.orchestraRepositoryV11__fixr_actors = Slot(uri=FIX_ORCHESTRA.fixr_actors, name="orchestraRepositoryV11__fixr_actors", curie=FIX_ORCHESTRA.curie('fixr_actors'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_actors, domain=None, range=Optional[Union[dict, OrchestraActorsV11]])
+
+slots.orchestraRepositoryV11__fixr_components = Slot(uri=FIX_ORCHESTRA.fixr_components, name="orchestraRepositoryV11__fixr_components", curie=FIX_ORCHESTRA.curie('fixr_components'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_components, domain=None, range=Optional[Union[dict, OrchestraComponentsV11]])
+
+slots.orchestraRepositoryV11__fixr_groups = Slot(uri=FIX_ORCHESTRA.fixr_groups, name="orchestraRepositoryV11__fixr_groups", curie=FIX_ORCHESTRA.curie('fixr_groups'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_groups, domain=None, range=Optional[Union[dict, OrchestraGroupsV11]])
+
+slots.orchestraRepositoryV11__fixr_messages = Slot(uri=FIX_ORCHESTRA.fixr_messages, name="orchestraRepositoryV11__fixr_messages", curie=FIX_ORCHESTRA.curie('fixr_messages'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_messages, domain=None, range=Optional[Union[dict, OrchestraMessagesV11]])
+
+slots.orchestraRepositoryV11__fixr_concepts = Slot(uri=FIX_ORCHESTRA.fixr_concepts, name="orchestraRepositoryV11__fixr_concepts", curie=FIX_ORCHESTRA.curie('fixr_concepts'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_concepts, domain=None, range=Optional[Union[dict, OrchestraConceptsV11]])
+
+slots.orchestraRepositoryV11__fixr_scenarios = Slot(uri=FIX_ORCHESTRA.fixr_scenarios, name="orchestraRepositoryV11__fixr_scenarios", curie=FIX_ORCHESTRA.curie('fixr_scenarios'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_scenarios, domain=None, range=Optional[Union[dict, OrchestraScenariosV11]])
+
+slots.orchestraRepositoryV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraRepositoryV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraRepositoryV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraRepositoryV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_name, domain=None, range=str)
+
+slots.orchestraRepositoryV11__fixr_version = Slot(uri=FIX_ORCHESTRA.fixr_version, name="orchestraRepositoryV11__fixr_version", curie=FIX_ORCHESTRA.curie('fixr_version'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_version, domain=None, range=str,
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraRepositoryV11__fixr_guid = Slot(uri=FIX_ORCHESTRA.fixr_guid, name="orchestraRepositoryV11__fixr_guid", curie=FIX_ORCHESTRA.curie('fixr_guid'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_guid, domain=None, range=Optional[str])
+
+slots.orchestraRepositoryV11__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url, name="orchestraRepositoryV11__fixr_spec_url", curie=FIX_ORCHESTRA.curie('fixr_spec_url'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_spec_url, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraRepositoryV11__fixr_namespace = Slot(uri=FIX_ORCHESTRA.fixr_namespace, name="orchestraRepositoryV11__fixr_namespace", curie=FIX_ORCHESTRA.curie('fixr_namespace'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_namespace, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraRepositoryV11__fixr_expression_language = Slot(uri=FIX_ORCHESTRA.fixr_expression_language, name="orchestraRepositoryV11__fixr_expression_language", curie=FIX_ORCHESTRA.curie('fixr_expression_language'),
+                   model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_expression_language, domain=None, range=Optional[str])
+
+slots.orchestraResponseV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraResponseV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_when, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraResponseV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraResponseV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraResponseV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraResponseV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraResponseV11__fixr_sync = Slot(uri=FIX_ORCHESTRA.fixr_sync, name="orchestraResponseV11__fixr_sync", curie=FIX_ORCHESTRA.curie('fixr_sync'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_sync, domain=None, range=Optional[Union[str, "OrchestraSynchronization"]])
+
+slots.orchestraResponsesV11__fixr_response = Slot(uri=FIX_ORCHESTRA.fixr_response, name="orchestraResponsesV11__fixr_response", curie=FIX_ORCHESTRA.curie('fixr_response'),
+                   model_uri=FIX_ORCHESTRA.orchestraResponsesV11__fixr_response, domain=None, range=Union[Union[dict, OrchestraResponseV11], list[Union[dict, OrchestraResponseV11]]])
+
+slots.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref_id = Slot(uri=FIX_ORCHESTRA.fixr_scenario_ref_id, name="orchestraScenarioReferenceV11Mixin__fixr_scenario_ref_id", curie=FIX_ORCHESTRA.curie('fixr_scenario_ref_id'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref_id, domain=None, range=Optional[int])
+
+slots.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref = Slot(uri=FIX_ORCHESTRA.fixr_scenario_ref, name="orchestraScenarioReferenceV11Mixin__fixr_scenario_ref", curie=FIX_ORCHESTRA.curie('fixr_scenario_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraScenarioV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraScenarioV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenarioV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraScenarioV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraScenarioV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenarioV11__fixr_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraScenariosV11__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraScenariosV11__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenariosV11__fixr_scenario, domain=None, range=Optional[Union[Union[dict, OrchestraScenarioV11], list[Union[dict, OrchestraScenarioV11]]]])
+
+slots.orchestraScenariosV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraScenariosV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenariosV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraScenariosV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraScenariosV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraScenariosV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraSectionV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encodings, name="orchestraSectionV11__fixr_encodings", curie=FIX_ORCHESTRA.curie('fixr_encodings'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_encodings, domain=None, range=Optional[Union[dict, OrchestraEncodingsV11]])
+
+slots.orchestraSectionV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraSectionV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraSectionV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraSectionV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraSectionV11__fixr_display_order = Slot(uri=FIX_ORCHESTRA.fixr_display_order, name="orchestraSectionV11__fixr_display_order", curie=FIX_ORCHESTRA.curie('fixr_display_order'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_display_order, domain=None, range=Optional[int])
+
+slots.orchestraSectionsV11__fixr_section = Slot(uri=FIX_ORCHESTRA.fixr_section, name="orchestraSectionsV11__fixr_section", curie=FIX_ORCHESTRA.curie('fixr_section'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionsV11__fixr_section, domain=None, range=Optional[Union[Union[dict, OrchestraSectionV11], list[Union[dict, OrchestraSectionV11]]]])
+
+slots.orchestraSectionsV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraSectionsV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionsV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraSectionsV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="orchestraSectionsV11__xml_base", curie=FIX_ORCHESTRA.curie('xml_base'),
+                   model_uri=FIX_ORCHESTRA.orchestraSectionsV11__xml_base, domain=None, range=Optional[Union[str, URI]])
+
+slots.orchestraSessionIdentifierV11__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_text, name="orchestraSessionIdentifierV11__fixi_text", curie=FIX_ORCHESTRA.curie('fixi_text'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionIdentifierV11__fixi_text, domain=None, range=Optional[str])
+
+slots.orchestraSessionIdentifierV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraSessionIdentifierV11__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionIdentifierV11__fixi_name, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraSessionV11__fixi_identifier = Slot(uri=FIX_ORCHESTRA.fixi_identifier, name="orchestraSessionV11__fixi_identifier", curie=FIX_ORCHESTRA.curie('fixi_identifier'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_identifier, domain=None, range=Optional[Union[Union[dict, OrchestraSessionIdentifierV11], list[Union[dict, OrchestraSessionIdentifierV11]]]])
+
+slots.orchestraSessionV11__fixi_role = Slot(uri=FIX_ORCHESTRA.fixi_role, name="orchestraSessionV11__fixi_role", curie=FIX_ORCHESTRA.curie('fixi_role'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_role, domain=None, range=Optional[Union[str, "OrchestraRole"]])
+
+slots.orchestraSessionV11__fixi_security_keys = Slot(uri=FIX_ORCHESTRA.fixi_security_keys, name="orchestraSessionV11__fixi_security_keys", curie=FIX_ORCHESTRA.curie('fixi_security_keys'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_security_keys, domain=None, range=Optional[str])
+
+slots.orchestraSessionV11__fixi_activation_time = Slot(uri=FIX_ORCHESTRA.fixi_activation_time, name="orchestraSessionV11__fixi_activation_time", curie=FIX_ORCHESTRA.curie('fixi_activation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_activation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
+
+slots.orchestraSessionV11__fixi_deactivation_time = Slot(uri=FIX_ORCHESTRA.fixi_deactivation_time, name="orchestraSessionV11__fixi_deactivation_time", curie=FIX_ORCHESTRA.curie('fixi_deactivation_time'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_deactivation_time, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?\d{4,}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?$'))
+
+slots.orchestraSessionsV11__fixi_session = Slot(uri=FIX_ORCHESTRA.fixi_session, name="orchestraSessionsV11__fixi_session", curie=FIX_ORCHESTRA.curie('fixi_session'),
+                   model_uri=FIX_ORCHESTRA.orchestraSessionsV11__fixi_session, domain=None, range=Union[Union[dict, OrchestraSessionV11], list[Union[dict, OrchestraSessionV11]]])
+
+slots.orchestraStateMachineV11__fixr_initial = Slot(uri=FIX_ORCHESTRA.fixr_initial, name="orchestraStateMachineV11__fixr_initial", curie=FIX_ORCHESTRA.curie('fixr_initial'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV11__fixr_initial, domain=None, range=Union[dict, OrchestraStateV11])
+
+slots.orchestraStateMachineV11__fixr_state = Slot(uri=FIX_ORCHESTRA.fixr_state, name="orchestraStateMachineV11__fixr_state", curie=FIX_ORCHESTRA.curie('fixr_state'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV11__fixr_state, domain=None, range=Union[Union[dict, OrchestraStateV11], list[Union[dict, OrchestraStateV11]]])
+
+slots.orchestraStateMachineV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraStateMachineV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraStateMachineV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateMachineV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateMachineV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraStateV11__fixr_transition = Slot(uri=FIX_ORCHESTRA.fixr_transition, name="orchestraStateV11__fixr_transition", curie=FIX_ORCHESTRA.curie('fixr_transition'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_transition, domain=None, range=Optional[Union[Union[dict, OrchestraTransitionV11], list[Union[dict, OrchestraTransitionV11]]]])
+
+slots.orchestraStateV11__fixr_onentry = Slot(uri=FIX_ORCHESTRA.fixr_onentry, name="orchestraStateV11__fixr_onentry", curie=FIX_ORCHESTRA.curie('fixr_onentry'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_onentry, domain=None, range=Optional[Union[dict, OrchestraActionV11]])
+
+slots.orchestraStateV11__fixr_activity = Slot(uri=FIX_ORCHESTRA.fixr_activity, name="orchestraStateV11__fixr_activity", curie=FIX_ORCHESTRA.curie('fixr_activity'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_activity, domain=None, range=Optional[Union[dict, OrchestraActionV11]])
+
+slots.orchestraStateV11__fixr_onexit = Slot(uri=FIX_ORCHESTRA.fixr_onexit, name="orchestraStateV11__fixr_onexit", curie=FIX_ORCHESTRA.curie('fixr_onexit'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_onexit, domain=None, range=Optional[Union[dict, OrchestraActionV11]])
+
+slots.orchestraStateV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraStateV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraStateV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraStructureMemberV11__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraStructureMemberV11__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV11__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV11]])
+
+slots.orchestraStructureMemberV11__fixr_group_ref = Slot(uri=FIX_ORCHESTRA.fixr_group_ref, name="orchestraStructureMemberV11__fixr_group_ref", curie=FIX_ORCHESTRA.curie('fixr_group_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV11__fixr_group_ref, domain=None, range=Optional[Union[dict, OrchestraGroupRefV11]])
+
+slots.orchestraStructureMemberV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraStructureMemberV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraStructureMemberV11__fixr_field_ref, domain=None, range=Optional[Union[dict, OrchestraFieldRefV11]])
+
+slots.orchestraTimerScheduleV11__fixr_activity = Slot(uri=FIX_ORCHESTRA.fixr_activity, name="orchestraTimerScheduleV11__fixr_activity", curie=FIX_ORCHESTRA.curie('fixr_activity'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_activity, domain=None, range=Union[dict, OrchestraActionV11])
+
+slots.orchestraTimerScheduleV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTimerScheduleV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_actor, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraTimerScheduleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerScheduleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraTimerScheduleV11__fixr_operation = Slot(uri=FIX_ORCHESTRA.fixr_operation, name="orchestraTimerScheduleV11__fixr_operation", curie=FIX_ORCHESTRA.curie('fixr_operation'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_operation, domain=None, range=Union[str, "OrchestraTimerOperation"])
+
+slots.orchestraTimerScheduleV11__fixr_interval = Slot(uri=FIX_ORCHESTRA.fixr_interval, name="orchestraTimerScheduleV11__fixr_interval", curie=FIX_ORCHESTRA.curie('fixr_interval'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_interval, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^-?P(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+(\.\d+)?S)?)?$'))
+
+slots.orchestraTimerV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTimerV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraTransitionV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraTransitionV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_when, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[\s\S]{0,1024}$'))
+
+slots.orchestraTransitionV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraTransitionV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
+
+slots.orchestraTransitionV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTransitionV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraTransitionV11__fixr_target = Slot(uri=FIX_ORCHESTRA.fixr_target, name="orchestraTransitionV11__fixr_target", curie=FIX_ORCHESTRA.curie('fixr_target'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_target, domain=None, range=str)
+
+slots.orchestraTransportV11__fixi_address = Slot(uri=FIX_ORCHESTRA.fixi_address, name="orchestraTransportV11__fixi_address", curie=FIX_ORCHESTRA.curie('fixi_address'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_address, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
+
+slots.orchestraTransportV11__fixi_message_cast = Slot(uri=FIX_ORCHESTRA.fixi_message_cast, name="orchestraTransportV11__fixi_message_cast", curie=FIX_ORCHESTRA.curie('fixi_message_cast'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_message_cast, domain=None, range=Optional[Union[str, "OrchestraMessageCast"]])
+
+slots.orchestraTransportV11__fixi_use = Slot(uri=FIX_ORCHESTRA.fixi_use, name="orchestraTransportV11__fixi_use", curie=FIX_ORCHESTRA.curie('fixi_use'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_use, domain=None, range=Optional[Union[str, "OrchestraTransportUse"]])
+
+slots.orchestraTransportV11__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraTransportV11__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
+                   model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
+
+slots.orchestraTriggerV11__fixr_state_machine = Slot(uri=FIX_ORCHESTRA.fixr_state_machine, name="orchestraTriggerV11__fixr_state_machine", curie=FIX_ORCHESTRA.curie('fixr_state_machine'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV11__fixr_state_machine, domain=None, range=str)
+
+slots.orchestraTriggerV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTriggerV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV11__fixr_actor, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraTriggerV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTriggerV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
+                   model_uri=FIX_ORCHESTRA.orchestraTriggerV11__fixr_name, domain=None, range=str,
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
+
+slots.orchestraUniqueV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraUniqueV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
+                   model_uri=FIX_ORCHESTRA.orchestraUniqueV11__fixr_field_ref, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRefV11], list[Union[dict, OrchestraFieldRefV11]]]])

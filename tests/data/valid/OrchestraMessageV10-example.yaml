@@ -1,0 +1,116 @@
+# From tests/data/xml/v1.0-repository.xml, which this project wrote for its tests.
+fixr_id: 14
+fixr_name: NewOrderSingle
+fixr_msg_type: D
+fixr_category: SingleGeneralOrderHandling
+fixr_flow: OrderFlow
+fixr_added: FIX.4.0
+fixr_structure:
+  fixr_which: anyOf
+  fixr_members:
+    - fixr_field_ref:
+        fixr_id: 11
+        fixr_presence: required
+    - fixr_component_ref:
+        fixr_id: 1012
+        fixr_presence: optional
+        fixr_instance_name: OrderParties
+        fixr_block_assignment:
+          - fixr_members:
+              - fixr_field_ref:
+                  fixr_id: 448
+                  fixr_presence: constant
+                  fixr_value: FIRM1
+                  fixr_scenario: Equity
+        fixr_rule:
+          - fixr_name: PartiesForBuys
+            fixr_presence: required
+            fixr_when: Side == ^Buy
+    - fixr_group_ref:
+        fixr_id: 1013
+        fixr_impl_min_occurs: 1
+        fixr_impl_max_occurs: '5'
+    - fixr_field_ref:
+        fixr_id: 40
+        fixr_impl_min_length: 1
+        fixr_impl_max_length: 1
+        fixr_length_id: 38
+        fixr_instance_name: Kind
+        fixr_min_inclusive: '1'
+        fixr_max_inclusive: '9'
+        fixr_encoding: US-ASCII
+        fixr_rendering: code
+        fixr_rule:
+          - fixr_name: UniqueOrder
+            fixr_unique:
+              fixr_field_ref:
+                - fixr_id: 11
+            fixr_assign:
+              - $Venue.Count=$Venue.Count+1
+            fixr_when: OrdType == ^Limit
+        fixr_assign: ^Limit
+fixr_responses:
+  fixr_response:
+    - fixr_name: Accept
+      fixr_sync: asynchronous
+      fixr_parameters:
+        - fixr_field_ref:
+            fixr_id: 11
+      fixr_actions:
+        - fixr_message_ref:
+            fixr_name: ExecutionReport
+            fixr_msg_type: '8'
+            fixr_id: 9
+            fixr_impl_min_occurs: 1
+            fixr_impl_max_occurs: unbounded
+            fixr_identifiers:
+              fixr_members:
+                - fixr_correlate:
+                    fixr_id: 11
+                - fixr_assign:
+                    fixr_id: 37
+                    fixr_source_id: 11
+        - fixr_assign: $Trader.OrderLimit=0
+        - fixr_trigger:
+            fixr_state_machine: OrderState
+            fixr_actor: Trader
+            fixr_name: Fill
+        - fixr_timer_schedule:
+            fixr_actor: Trader
+            fixr_name: Expiry
+            fixr_operation: START
+            fixr_interval: PT30S
+            fixr_activity:
+              fixr_actions:
+                - fixr_assign: $Trader.OrderLimit=0
+      fixr_when: OrderQty > 0
+      fixr_annotation:
+        fixr_members:
+          - fixr_documentation:
+              fixr_text: Accept an order of any size.
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_purpose: SYNOPSIS
+        fixr_content_type: text/markdown
+        fixr_text: A *new* order.
+        fixr_any:
+          - xml_name: '{https://example.org/orchestra-test}note'
+            xml_attributes:
+              - xml_name: level
+                xml_value: '1'
+            xml_text: in place
+            xml_tail: ' and after.'
+    - fixr_appinfo:
+        fixr_purpose: FIXML
+        fixr_spec_url: https://example.org/fixml
+        fixr_lang_id: en
+        fixr_other_attributes:
+          - xml_name: '{https://example.org/orchestra-test}flag'
+            xml_value: 'yes'
+        fixr_text: 'kept '
+        fixr_any:
+          - xml_name: '{https://example.org/orchestra-test}hint'
+            xml_attributes:
+              - xml_name: notReqXML
+                xml_value: '1'

@@ -1,0 +1,6 @@
+# Fails at: /
+# RC3 documentation holds text only.
+fixr_purpose: CAPTION
+fixr_text: Orders for a single instrument.
+fixr_any:
+  - xml_name: b

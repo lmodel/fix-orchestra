@@ -1,0 +1,5 @@
+# Fails at: /fixr_lang_id
+# A language is a language tag.
+fixr_purpose: SYNOPSIS
+fixr_text: Orders for a single instrument.
+fixr_lang_id: English language

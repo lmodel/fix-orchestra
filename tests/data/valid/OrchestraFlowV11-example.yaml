@@ -1,0 +1,5 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_name: OrderFlow
+fixr_source: Trader
+fixr_destination: Venue
+fixr_reliability: idempotent

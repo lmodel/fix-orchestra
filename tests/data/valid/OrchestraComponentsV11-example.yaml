@@ -1,0 +1,37 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_component:
+  - fixr_id: 1012
+    fixr_name: Parties
+    fixr_category: Common
+    fixr_abbr_name: Pty
+    fixr_rendering: block
+    fixr_which: anyOf
+    fixr_scenario_ref_id: 1
+    fixr_scenario_ref: base
+    fixr_members:
+      - fixr_group_ref:
+          fixr_id: 1013
+          fixr_impl_min_occurs: 0
+          fixr_impl_max_occurs: unbounded
+    fixr_encodings:
+      fixr_encoding:
+        - fixr_standard: FIXML
+          fixr_any:
+            - xml_name: '{https://example.org/orchestra-test}element'
+              xml_attributes:
+                - xml_name: name
+                  xml_value: Pty
+              xml_tail: "\n        "
+fixr_encodings:
+  fixr_encoding:
+    - fixr_standard: FIXML
+      fixr_any:
+        - xml_name: '{https://example.org/orchestra-test}file'
+          xml_attributes:
+            - xml_name: name
+              xml_value: components
+          xml_tail: "\n      "
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_text: The venue's components.

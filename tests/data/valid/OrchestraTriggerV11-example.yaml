@@ -1,0 +1,4 @@
+# From tests/data/xml/v1.1-repository.xml, which this project wrote for its tests.
+fixr_state_machine: OrderState
+fixr_actor: Trader
+fixr_name: Fill

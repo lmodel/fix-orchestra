@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  An Orchestra v1.1 RC3 interfaces file written for this project's tests: how to reach an
+  imaginary venue, with one of each kind of element the RC3 interfaces XSD defines. It is
+  not FIX's text. tests/test_documents.py validates it with the pinned XSD and the schema.
+-->
+<fixi:interfaces xmlns:fixi="http://fixprotocol.io/2026/orchestra/interfaces"
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ex="https://example.org/orchestra-test">
+  <fixi:metadata>
+    <dcterms:title>Example venue interfaces</dcterms:title>
+  </fixi:metadata>
+  <fixi:interface name="OrderEntry" region="EU">
+    <fixi:service name="OrderRouting" version="1.0" layer="application" reliability="recoverable"
+        orchestration="https://example.org/venue/roe.xml" activationTime="2026-01-05T08:00:00Z"
+        deactivationTime="2027-01-05T08:00:00Z" deprecated="2026-06-01T00:00:00Z">
+      <fixi:annotation>
+        <fixi:documentation purpose="SYNOPSIS" langId="en" contentType="text/plain">Order routing.</fixi:documentation>
+      </fixi:annotation>
+    </fixi:service>
+    <fixi:userInterface name="TradingScreen" layer="application"/>
+    <fixi:encoding name="SBE" version="1.0" layer="presentation"/>
+    <fixi:sessionProtocol name="FIXP" version="1.1" layer="session" reliability="idempotent"/>
+    <fixi:protocol name="SOFH" layer="presentation" ex:framing="2"/>
+    <fixi:transport name="UDP" layer="transport" address="233.252.0.1:9001"
+        messageCast="multicast" use="alternate"/>
+    <fixi:annotation>
+      <fixi:documentation>The venue's order entry service.</fixi:documentation>
+      <fixi:appinfo purpose="monitoring" specUrl="https://example.org/venue/status" langId="en"
+          ex:level="2">status page <ex:link href="https://example.org/venue/status"/></fixi:appinfo>
+    </fixi:annotation>
+    <fixi:sessions>
+      <fixi:session name="FIRM1-VENUE" activationTime="2026-01-05T08:00:00Z"
+          deactivationTime="2027-01-05T08:00:00Z">
+        <fixi:encoding name="SBE"/>
+        <fixi:sessionProtocol name="FIXP"/>
+        <fixi:transport name="TCP" address="192.0.2.10:9002" use="primary"/>
+        <fixi:identifier name="SessionID">FIRM1</fixi:identifier>
+        <fixi:role>client</fixi:role>
+        <fixi:securityKeys>-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEAexampleexampleexampleexampleexampleexample0=
+-----END PUBLIC KEY-----</fixi:securityKeys>
+      </fixi:session>
+    </fixi:sessions>
+  </fixi:interface>
+</fixi:interfaces>

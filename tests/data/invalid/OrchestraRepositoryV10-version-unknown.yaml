@@ -1,0 +1,429 @@
+# Fails at: /fixr_version
+# A v1.0 version follows the FIX version pattern.
+fixr_name: ExampleVenue
+fixr_version: Latest
+fixr_latest_ep: 312
+fixr_guid: 5f0c1d9e-6c1b-4a8e-9b8d-2f3a4b5c6d7e
+fixr_spec_url: https://example.org/venue/roe
+fixr_namespace: https://example.org/venue
+fixr_appl_ver_id: '9'
+fixr_expression_language: Score
+fixr_metadata:
+  dcterms_title:
+    - Example venue rules of engagement
+  dcterms_publisher:
+    - lmodel/fix-orchestra
+  dcterms_conforms_to:
+    - Orchestra v1.0
+  dc_date:
+    - '2026-11-05'
+fixr_categories:
+  fixr_latest_ep: 312
+  fixr_category:
+    - fixr_name: SingleGeneralOrderHandling
+      fixr_section: Trade
+      fixr_component_type: Message
+      fixr_fixml_file_name: order
+      fixr_include_file: components
+      fixr_added: FIX.4.0
+      fixr_updated: FIX.Latest
+      fixr_updated_ep: 312
+      fixr_change_type: Editorial
+      fixr_annotation:
+        fixr_members:
+          - fixr_documentation:
+              fixr_purpose: SYNOPSIS
+              fixr_text: Orders for a single instrument.
+    - fixr_name: Common
+      fixr_component_type: Field
+      fixr_include_file: fields
+fixr_sections:
+  fixr_latest_ep: 312
+  fixr_section:
+    - fixr_name: Trade
+      fixr_display_order: 2
+      fixr_fixml_file_name: trade
+      fixr_supported: supported
+fixr_datatypes:
+  fixr_latest_ep: 312
+  fixr_datatype:
+    - fixr_name: int
+      fixr_added: FIX.2.7
+      fixr_mapped_datatype:
+        - fixr_standard: XML
+          fixr_builtin: true
+          fixr_base: xs:integer
+    - fixr_name: float
+    - fixr_name: Price
+      fixr_base_type: float
+      fixr_mapped_datatype:
+        - fixr_standard: GPB
+          fixr_builtin: false
+          fixr_base: Decimal64
+          fixr_pattern: '[0-9.]+'
+          fixr_element: digit
+          fixr_parameter: scale=8
+          fixr_min_inclusive: '0'
+          fixr_max_inclusive: '99999999'
+          fixr_extension:
+            fixr_any:
+              - xml_name: '{https://example.org/orchestra-test}precision'
+                xml_attributes:
+                  - xml_name: digits
+                    xml_value: '8'
+                xml_tail: "\n        "
+          fixr_annotation:
+            fixr_members:
+              - fixr_documentation:
+                  fixr_text: A price as a decimal with eight places.
+    - fixr_name: Qty
+      fixr_base_type: float
+    - fixr_name: String
+    - fixr_name: char
+    - fixr_name: NumInGroup
+      fixr_base_type: int
+fixr_code_sets:
+  fixr_code_set:
+    - fixr_name: SideCodeSet
+      fixr_id: 54
+      fixr_type: char
+      fixr_default: '1'
+      fixr_abbr_name: Side
+      fixr_spec_url: https://example.org/venue/sides
+      fixr_deprecated_ep: 312
+      fixr_code:
+        - fixr_name: Buy
+          fixr_id: 54001
+          fixr_value: '1'
+          fixr_sort: '1'
+          fixr_group: Main
+          fixr_abbr_name: Buy
+        - fixr_name: Sell
+          fixr_id: 54002
+          fixr_value: '2'
+          fixr_sort: '2'
+          fixr_group: Main
+          fixr_annotation:
+            fixr_members:
+              - fixr_documentation:
+                  fixr_purpose: EXAMPLE
+                  fixr_lang_id: en
+                  fixr_text: 54=2
+    - fixr_name: OrdTypeCodeSet
+      fixr_id: 40
+      fixr_type: char
+      fixr_scenario: base
+      fixr_issue: EP312-1
+      fixr_code:
+        - fixr_name: Limit
+          fixr_id: 40002
+          fixr_value: '2'
+          fixr_replaced: FIX.Latest
+          fixr_replaced_ep: 312
+          fixr_replaced_by_field: 44
+          fixr_last_modified: FIX.Latest
+fixr_fields:
+  fixr_latest_ep: 312
+  fixr_field:
+    - fixr_id: 11
+      fixr_name: ClOrdID
+      fixr_type: String
+      fixr_abbr_name: ClOrdID
+      fixr_base_category: SingleGeneralOrderHandling
+      fixr_base_category_abbr_name: ClOrdID
+      fixr_impl_min_length: 1
+      fixr_impl_max_length: 20
+      fixr_encoding: UTF-8
+      fixr_rendering: identifier
+    - fixr_id: 54
+      fixr_name: Side
+      fixr_type: SideCodeSet
+      fixr_presence: required
+    - fixr_id: 38
+      fixr_name: OrderQty
+      fixr_type: Qty
+      fixr_min_inclusive: '1'
+      fixr_max_inclusive: '1000000'
+    - fixr_id: 40
+      fixr_name: OrdType
+      fixr_type: OrdTypeCodeSet
+      fixr_value: '2'
+      fixr_presence: optional
+      fixr_rule:
+        - fixr_name: LimitNeedsPrice
+          fixr_presence: required
+          fixr_type: char
+          fixr_when: OrdType == ^Limit
+    - fixr_id: 44
+      fixr_name: Price
+      fixr_type: Price
+      fixr_discriminator_id: 40
+      fixr_impl_length: 12
+      fixr_deprecated: FIX.Latest
+      fixr_union_data_type: Qty
+      fixr_assign: $Venue.LastPrice
+    - fixr_id: 37
+      fixr_name: OrderID
+      fixr_type: String
+      fixr_length_id: 38
+    - fixr_id: 453
+      fixr_name: NoPartyIDs
+      fixr_type: NumInGroup
+    - fixr_id: 448
+      fixr_name: PartyID
+      fixr_type: String
+      fixr_scenario: Equity
+fixr_actors:
+  fixr_members:
+    - fixr_actor:
+        fixr_name: Trader
+        fixr_members:
+          - fixr_field:
+              fixr_id: 9001
+              fixr_name: OrderLimit
+              fixr_type: Qty
+          - fixr_field_ref:
+              fixr_id: 11
+          - fixr_states:
+              fixr_name: OrderState
+              fixr_initial:
+                fixr_name: New
+                fixr_transition:
+                  - fixr_name: Fill
+                    fixr_target: Filled
+                    fixr_when: $Trader.OrderLimit > 0
+                fixr_onentry:
+                  fixr_actions:
+                    - fixr_assign: $Trader.OrderLimit=100
+              fixr_state:
+                - fixr_name: Filled
+                  fixr_activity:
+                    fixr_actions:
+                      - fixr_message_ref:
+                          fixr_name: ExecutionReport
+                          fixr_id: 9
+                          fixr_msg_type: '8'
+                  fixr_onexit:
+                    fixr_actions:
+                      - fixr_trigger:
+                          fixr_state_machine: OrderState
+                          fixr_actor: Trader
+                          fixr_name: Fill
+          - fixr_timer:
+              fixr_name: Expiry
+        fixr_annotation:
+          fixr_members:
+            - fixr_documentation:
+                fixr_text: The firm that sends orders.
+    - fixr_actor:
+        fixr_name: Venue
+        fixr_members:
+          - fixr_component:
+              fixr_id: 9100
+              fixr_name: VenueState
+              fixr_members:
+                - fixr_field_ref:
+                    fixr_id: 37
+          - fixr_component_ref:
+              fixr_id: 1012
+          - fixr_group:
+              fixr_id: 9200
+              fixr_name: VenueGrp
+              fixr_members:
+                - fixr_field_ref:
+                    fixr_id: 448
+                    fixr_scenario: Equity
+          - fixr_group_ref:
+              fixr_id: 1013
+    - fixr_flow:
+        fixr_name: OrderFlow
+        fixr_source: Trader
+        fixr_destination: Venue
+        fixr_reliability: recoverable
+        fixr_annotation:
+          fixr_members:
+            - fixr_documentation:
+                fixr_text: Orders from the firm to the venue.
+fixr_components:
+  fixr_latest_ep: 312
+  fixr_component:
+    - fixr_id: 1012
+      fixr_name: Parties
+      fixr_category: Common
+      fixr_abbr_name: Pty
+      fixr_rendering: block
+      fixr_which: anyOf
+      fixr_members:
+        - fixr_group_ref:
+            fixr_id: 1013
+            fixr_impl_min_occurs: 0
+            fixr_impl_max_occurs: unbounded
+fixr_groups:
+  fixr_latest_ep: 312
+  fixr_group:
+    - fixr_id: 1013
+      fixr_name: PartiesGrp
+      fixr_category: Common
+      fixr_impl_min_occurs: 0
+      fixr_impl_max_occurs: '10'
+      fixr_which: oneOf
+      fixr_rendering: table
+      fixr_num_in_group:
+        fixr_id: 453
+      fixr_members:
+        - fixr_field_ref:
+            fixr_id: 448
+            fixr_presence: required
+            fixr_scenario: Equity
+fixr_messages:
+  fixr_latest_ep: 312
+  fixr_message:
+    - fixr_id: 14
+      fixr_name: NewOrderSingle
+      fixr_msg_type: D
+      fixr_category: SingleGeneralOrderHandling
+      fixr_flow: OrderFlow
+      fixr_added: FIX.4.0
+      fixr_structure:
+        fixr_which: anyOf
+        fixr_members:
+          - fixr_field_ref:
+              fixr_id: 11
+              fixr_presence: required
+          - fixr_component_ref:
+              fixr_id: 1012
+              fixr_presence: optional
+              fixr_instance_name: OrderParties
+              fixr_block_assignment:
+                - fixr_members:
+                    - fixr_field_ref:
+                        fixr_id: 448
+                        fixr_presence: constant
+                        fixr_value: FIRM1
+                        fixr_scenario: Equity
+              fixr_rule:
+                - fixr_name: PartiesForBuys
+                  fixr_presence: required
+                  fixr_when: Side == ^Buy
+          - fixr_group_ref:
+              fixr_id: 1013
+              fixr_impl_min_occurs: 1
+              fixr_impl_max_occurs: '5'
+          - fixr_field_ref:
+              fixr_id: 40
+              fixr_impl_min_length: 1
+              fixr_impl_max_length: 1
+              fixr_length_id: 38
+              fixr_instance_name: Kind
+              fixr_min_inclusive: '1'
+              fixr_max_inclusive: '9'
+              fixr_encoding: US-ASCII
+              fixr_rendering: code
+              fixr_rule:
+                - fixr_name: UniqueOrder
+                  fixr_unique:
+                    fixr_field_ref:
+                      - fixr_id: 11
+                  fixr_assign:
+                    - $Venue.Count=$Venue.Count+1
+                  fixr_when: OrdType == ^Limit
+              fixr_assign: ^Limit
+      fixr_responses:
+        fixr_response:
+          - fixr_name: Accept
+            fixr_sync: asynchronous
+            fixr_parameters:
+              - fixr_field_ref:
+                  fixr_id: 11
+            fixr_actions:
+              - fixr_message_ref:
+                  fixr_name: ExecutionReport
+                  fixr_msg_type: '8'
+                  fixr_id: 9
+                  fixr_impl_min_occurs: 1
+                  fixr_impl_max_occurs: unbounded
+                  fixr_identifiers:
+                    fixr_members:
+                      - fixr_correlate:
+                          fixr_id: 11
+                      - fixr_assign:
+                          fixr_id: 37
+                          fixr_source_id: 11
+              - fixr_assign: $Trader.OrderLimit=0
+              - fixr_trigger:
+                  fixr_state_machine: OrderState
+                  fixr_actor: Trader
+                  fixr_name: Fill
+              - fixr_timer_schedule:
+                  fixr_actor: Trader
+                  fixr_name: Expiry
+                  fixr_operation: START
+                  fixr_interval: PT30S
+                  fixr_activity:
+                    fixr_actions:
+                      - fixr_assign: $Trader.OrderLimit=0
+            fixr_when: OrderQty > 0
+            fixr_annotation:
+              fixr_members:
+                - fixr_documentation:
+                    fixr_text: Accept an order of any size.
+      fixr_annotation:
+        fixr_members:
+          - fixr_documentation:
+              fixr_purpose: SYNOPSIS
+              fixr_content_type: text/markdown
+              fixr_text: A *new* order.
+              fixr_any:
+                - xml_name: '{https://example.org/orchestra-test}note'
+                  xml_attributes:
+                    - xml_name: level
+                      xml_value: '1'
+                  xml_text: in place
+                  xml_tail: ' and after.'
+          - fixr_appinfo:
+              fixr_purpose: FIXML
+              fixr_spec_url: https://example.org/fixml
+              fixr_lang_id: en
+              fixr_other_attributes:
+                - xml_name: '{https://example.org/orchestra-test}flag'
+                  xml_value: 'yes'
+              fixr_text: 'kept '
+              fixr_any:
+                - xml_name: '{https://example.org/orchestra-test}hint'
+                  xml_attributes:
+                    - xml_name: notReqXML
+                      xml_value: '1'
+    - fixr_id: 9
+      fixr_name: ExecutionReport
+      fixr_msg_type: '8'
+      fixr_scenario: base
+      fixr_structure:
+        fixr_members:
+          - fixr_field_ref:
+              fixr_id: 37
+              fixr_presence: required
+          - fixr_field_ref:
+              fixr_id: 11
+fixr_concepts:
+  fixr_concept:
+    - fixr_name: OrderEntry
+      fixr_members:
+        - fixr_message_ref:
+            fixr_name: NewOrderSingle
+            fixr_id: 14
+            fixr_msg_type: D
+        - fixr_field_ref:
+            fixr_id: 11
+        - fixr_component_ref:
+            fixr_id: 1012
+        - fixr_group_ref:
+            fixr_id: 1013
+      fixr_annotation:
+        fixr_members:
+          - fixr_documentation:
+              fixr_text: Sending a new order.
+fixr_annotation:
+  fixr_members:
+    - fixr_documentation:
+        fixr_purpose: ELABORATION
+        fixr_text: Written for this project's tests.

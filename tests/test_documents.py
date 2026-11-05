@@ -113,7 +113,7 @@ def _rc3_repository(fields: str) -> bytes:
 def test_rc3_refuses_two_fields_of_one_datatype_and_the_schema_does_not():
     """RC3's fieldTypeOrCodeSetKey is a key, so the XSD refuses a second field of the
     same datatype, which every real repository has. The schema and the rules keep what
-    the key asks of one field and accept the pair. issues/93 reports the fault."""
+    the key asks of one field and accept the pair."""
     one = '<fixr:field id="1" name="A" type="String"/>'
     two = one + '<fixr:field id="2" name="B" type="String"/>'
     schema = conversion.xsd("V11", "repository")
@@ -164,7 +164,7 @@ def _rc3_from_fix_latest():
 def test_rc3_and_the_schema_agree_on_fix_latest_moved_to_rc3():
     """With the faulty key left out, RC3's XSD and the schema's v1.1 module judge FIX
     Latest in RC3's shape alike: both refuse only the one group name longer than RC3's
-    64 characters, which issues/93 reports."""
+    64 characters."""
     tree = conversion.xsd_tree("V11", "repository")
     for key in tree.getroot().iter("{http://www.w3.org/2001/XMLSchema}key"):
         if key.get("name") == "fieldTypeOrCodeSetKey":

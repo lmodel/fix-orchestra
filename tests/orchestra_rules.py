@@ -11,7 +11,7 @@ transition, state or timer names one the file holds. ``REFERENCE_RULES`` checks 
 RC3's fieldTypeOrCodeSetKey is a key on a field's type or code set, so it refuses two
 fields that share a datatype; no real repository can meet it. The rule here keeps what
 the key asks of one field, a type or a code set but not both, and leaves out the
-uniqueness. issues/93 reports the fault.
+uniqueness.
 
 ``rule_errors(class_name, record)`` returns each error as a JSON pointer and a sentence.
 tests/test_documents.py runs the rules over every pinned and example file, and

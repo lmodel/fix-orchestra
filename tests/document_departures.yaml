@@ -1,6 +1,6 @@
 # Where a real document breaks a rule of tests/orchestra_rules.py, by file name: each
 # JSON pointer is one error that tests/test_documents.py expects, so a change in either
-# the document or the rules fails the test. issues/93 reports each to the FIX Trading
+# the document or the rules fails the test. Each is reported to the FIX Trading
 # Community.
 #
 # FIX's two session files put three groups in the category Common, which neither file

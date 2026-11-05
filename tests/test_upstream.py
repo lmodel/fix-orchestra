@@ -79,8 +79,7 @@ def test_the_umbrella_names_both_editions():
 
 def test_the_specification_repository_holds_v10_xsds_at_its_rc3_tag():
     """At v1.1-rc3, fix-orchestra-spec's v1-1 folder holds the v1.0 XSDs, byte for byte,
-    so the RC3 XSDs come from the fix-orchestra code repository. issues/93 reports it.
-    The pins of the v1.0 files are the evidence: the watch lists the same hashes."""
+    so the RC3 XSDs come from the fix-orchestra code repository. The pins of the v1.0 files are the evidence: the watch lists the same hashes."""
     pins = {pin["local"]: pin["sha"] for pin in _watch().pins()}
     assert pins["v1.0/repository/repositorytypes.xsd"] == (
         "e1595434020673042675031c7575fda59afa0203"

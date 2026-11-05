@@ -34,6 +34,7 @@ def _answers(watch):
     """The answers of an unchanged upstream, built from the pins."""
     answers = {}
     for repository, tags in watch.KNOWN_TAGS.items():
+        answers[f"/{repository}"] = {"default_branch": "master"}
         answers[f"/{repository}/tags?per_page=100"] = [
             {"name": t} for t in sorted(tags)
         ]
@@ -47,7 +48,7 @@ def _answers(watch):
     for pin in watch.pins():
         folder = str(PurePosixPath(pin["path"]).parent)
         folder = "" if folder == "." else folder
-        for ref in (pin["commit"], watch.DEFAULT_BRANCH):
+        for ref in (pin["commit"], "master"):
             folders.setdefault((pin["repository"], folder, ref), []).append(
                 {"path": pin["path"], "sha": pin["sha"], "type": "file"}
             )
@@ -101,6 +102,44 @@ def test_an_annotated_tag_is_followed_to_its_commit(watch, capsys):
     answers["/fix-orchestra/git/tags/tagobject"] = {
         "object": {"type": "commit", "sha": commit}
     }
+    code, report = _run(watch, answers, capsys)
+    assert code == 0, report
+
+
+def test_a_tag_behind_two_tag_objects_is_followed(watch, capsys):
+    answers = _answers(watch)
+    commit = watch.EDITIONS["1.1-rc3"]["commit"]
+    answers["/fix-orchestra/git/ref/tags/v1.1-rc3"] = {
+        "object": {"type": "tag", "sha": "outer"}
+    }
+    answers["/fix-orchestra/git/tags/outer"] = {
+        "object": {"type": "tag", "sha": "inner"}
+    }
+    answers["/fix-orchestra/git/tags/inner"] = {
+        "object": {"type": "commit", "sha": commit}
+    }
+    code, report = _run(watch, answers, capsys)
+    assert code == 0, report
+
+
+def test_a_hundred_tags_stop_the_tags_check(watch, capsys):
+    answers = _answers(watch)
+    answers["/fix-orchestra/tags?per_page=100"] = [
+        {"name": f"t{i}"} for i in range(100)
+    ]
+    code, report = _run(watch, answers, capsys)
+    assert code == 1
+    assert "The tags check could not finish" in report
+    assert "100 tags or more" in report
+
+
+def test_a_renamed_default_branch_is_read_from_the_api(watch, capsys):
+    """The licence check reads the branch the API names, not a fixed one."""
+    answers = _answers(watch)
+    answers["/orchestrations"] = {"default_branch": "main"}
+    for key in [k for k in answers if k.startswith("/orchestrations/contents/")]:
+        if key.endswith("?ref=master"):
+            answers[key.replace("?ref=master", "?ref=main")] = answers.pop(key)
     code, report = _run(watch, answers, capsys)
     assert code == 0, report
 

@@ -103,8 +103,7 @@ KNOWN_TAGS = {
     "orchestrations": {"v1.5"},
 }
 
-# Each repository's default branch and the licence file at its root.
-DEFAULT_BRANCH = "master"
+# The licence file at each repository's root. The default branch is read from the API.
 LICENCE = "LICENSE"
 
 
@@ -177,11 +176,21 @@ def _files(repository: str, paths: set[str], ref: str) -> dict[str, str]:
 
 
 def _commit_of(repository: str, tag: str) -> str:
-    """The commit a tag names, through an annotated tag object if there is one."""
+    """The commit a tag names, through any annotated tag objects on the way."""
     target = _get(f"/{repository}/git/ref/tags/{_quote(tag)}")["object"]
-    if target["type"] == "tag":
+    while target["type"] == "tag":
         target = _get(f"/{repository}/git/tags/{target['sha']}")["object"]
     return target["sha"]
+
+
+_default_branches: dict[str, str] = {}
+
+
+def _default_branch(repository: str) -> str:
+    """The repository's default branch, read once."""
+    if repository not in _default_branches:
+        _default_branches[repository] = _get(f"/{repository}")["default_branch"]
+    return _default_branches[repository]
 
 
 def check_tags() -> tuple[list[str], bool]:
@@ -189,7 +198,12 @@ def check_tags() -> tuple[list[str], bool]:
     lines = []
     attention = False
     for repository, known in KNOWN_TAGS.items():
-        tags = {entry["name"] for entry in _get(f"/{repository}/tags?per_page=100")}
+        entries = _get(f"/{repository}/tags?per_page=100")
+        if len(entries) >= 100:
+            raise ValueError(
+                f"{repository} has 100 tags or more, past what one page holds"
+            )
+        tags = {entry["name"] for entry in entries}
         new = sorted(tags - known)
         if new:
             attention = True
@@ -254,7 +268,7 @@ def check_licences() -> tuple[list[str], bool]:
     lines = []
     attention = False
     for repository, sha in sorted(pinned.items()):
-        found = _files(repository, {LICENCE}, DEFAULT_BRANCH).get(LICENCE)
+        found = _files(repository, {LICENCE}, _default_branch(repository)).get(LICENCE)
         if found != sha:
             attention = True
             lines.append(
@@ -275,7 +289,9 @@ def check_default_branches() -> tuple[list[str], bool]:
         for pin in pins()
         if pin["commit"] == edition["commit"] and pin["path"].endswith(".xsd")
     }
-    found = _files(edition["repository"], set(rc_pins), DEFAULT_BRANCH)
+    found = _files(
+        edition["repository"], set(rc_pins), _default_branch(edition["repository"])
+    )
     moved = sorted(path for path, sha in rc_pins.items() if found.get(path) != sha)
     if moved:
         shown = ", ".join(_code(path) for path in moved)
@@ -292,7 +308,7 @@ def check_default_branches() -> tuple[list[str], bool]:
         for pin in pins()
         if pin["repository"] == "orchestrations" and pin["path"].endswith(".xml")
     }
-    found = _files("orchestrations", set(documents), DEFAULT_BRANCH)
+    found = _files("orchestrations", set(documents), _default_branch("orchestrations"))
     moved = sorted(path for path, sha in documents.items() if found.get(path) != sha)
     if moved:
         shown = ", ".join(_code(path) for path in moved)

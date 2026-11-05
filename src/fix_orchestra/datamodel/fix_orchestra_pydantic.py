@@ -9309,7 +9309,7 @@ class OrchestraActorV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -9614,7 +9614,7 @@ class OrchestraBaseInterfaceV11(ConfiguredBaseModel):
 
     @field_validator('fixi_name')
     def pattern_fixi_name(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -9960,7 +9960,7 @@ class OrchestraComponentRuleV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -10277,7 +10277,7 @@ class OrchestraConceptV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -10601,7 +10601,7 @@ class OrchestraEncodingStandardV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -10905,7 +10905,7 @@ class OrchestraFieldRuleV11(OrchestraFieldConstraintsV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -10918,7 +10918,7 @@ class OrchestraFieldRuleV11(OrchestraFieldConstraintsV11Mixin):
 
     @field_validator('fixr_type')
     def pattern_fixr_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11150,7 +11150,7 @@ class OrchestraFlowV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11343,7 +11343,7 @@ class OrchestraIdentifierV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11550,7 +11550,7 @@ class OrchestraIdentityV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11563,7 +11563,7 @@ class OrchestraIdentityV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11576,7 +11576,7 @@ class OrchestraIdentityV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11745,7 +11745,7 @@ class OrchestraInterfaceDocumentationV11(ConfiguredBaseModel):
 
     @field_validator('fixi_content_type')
     def pattern_fixi_content_type(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11808,7 +11808,7 @@ class OrchestraInterfaceV11(OrchestraBaseInterfaceV11):
 
     @field_validator('fixi_name')
     def pattern_fixi_name(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -11945,7 +11945,7 @@ class OrchestraMappedDatatypeV11(ConfiguredBaseModel):
 
     @field_validator('fixr_standard')
     def pattern_fixr_standard(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12190,7 +12190,7 @@ class OrchestraNamedEncodingV11(OrchestraBaseEncodingV11):
 
     @field_validator('fixr_standard')
     def pattern_fixr_standard(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12253,7 +12253,7 @@ class OrchestraPedigreeV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12266,7 +12266,7 @@ class OrchestraPedigreeV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12279,7 +12279,7 @@ class OrchestraPedigreeV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12292,7 +12292,7 @@ class OrchestraPedigreeV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12305,7 +12305,7 @@ class OrchestraPedigreeV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12388,7 +12388,7 @@ class OrchestraAnnotationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12401,7 +12401,7 @@ class OrchestraAnnotationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12414,7 +12414,7 @@ class OrchestraAnnotationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12427,7 +12427,7 @@ class OrchestraAnnotationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12440,7 +12440,7 @@ class OrchestraAnnotationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12547,7 +12547,7 @@ class OrchestraAppinfoV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12560,7 +12560,7 @@ class OrchestraAppinfoV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12573,7 +12573,7 @@ class OrchestraAppinfoV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12586,7 +12586,7 @@ class OrchestraAppinfoV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12599,7 +12599,7 @@ class OrchestraAppinfoV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12778,7 +12778,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12791,7 +12791,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_section')
     def pattern_fixr_section(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12804,7 +12804,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12817,7 +12817,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12830,7 +12830,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12843,7 +12843,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -12856,7 +12856,7 @@ class OrchestraCategoryV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13050,7 +13050,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_value')
     def pattern_fixr_value(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13063,7 +13063,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13076,7 +13076,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13089,7 +13089,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13102,7 +13102,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13115,7 +13115,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13128,7 +13128,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13141,7 +13141,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13154,7 +13154,7 @@ class OrchestraCodeV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13320,7 +13320,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13333,7 +13333,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_base_type')
     def pattern_fixr_base_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13346,7 +13346,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13359,7 +13359,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13372,7 +13372,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13385,7 +13385,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13398,7 +13398,7 @@ class OrchestraDatatypeV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13507,7 +13507,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13520,7 +13520,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13533,7 +13533,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13546,7 +13546,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13559,7 +13559,7 @@ class OrchestraDocumentationV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13870,7 +13870,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_type')
     def pattern_fixr_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13883,7 +13883,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_code_set')
     def pattern_fixr_code_set(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13896,7 +13896,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_base_category')
     def pattern_fixr_base_category(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13909,7 +13909,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_base_category_abbr_name')
     def pattern_fixr_base_category_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13922,7 +13922,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_union_data_type')
     def pattern_fixr_union_data_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13935,7 +13935,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13948,7 +13948,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13961,7 +13961,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13974,7 +13974,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -13987,7 +13987,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14000,7 +14000,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14013,7 +14013,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14026,7 +14026,7 @@ class OrchestraFieldV11(OrchestraPedigreeV11Mixin, OrchestraIdentityV11Mixin, Or
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14097,7 +14097,7 @@ class OrchestraProtocolV11(ConfiguredBaseModel):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14207,7 +14207,7 @@ class OrchestraEncodingV11(OrchestraProtocolV11):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14328,7 +14328,7 @@ class OrchestraReferenceV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14341,7 +14341,7 @@ class OrchestraReferenceV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14555,7 +14555,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_instance_name')
     def pattern_fixr_instance_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14568,7 +14568,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14581,7 +14581,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14594,7 +14594,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14607,7 +14607,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14620,7 +14620,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14633,7 +14633,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14646,7 +14646,7 @@ class OrchestraComponentRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11M
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14937,7 +14937,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_instance_name')
     def pattern_fixr_instance_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14950,7 +14950,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14963,7 +14963,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14976,7 +14976,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -14989,7 +14989,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15002,7 +15002,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15015,7 +15015,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15028,7 +15028,7 @@ class OrchestraFieldRefV11(OrchestraReferenceV11Mixin, OrchestraPedigreeV11Mixin
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15271,7 +15271,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_instance_name')
     def pattern_fixr_instance_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15284,7 +15284,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15297,7 +15297,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15310,7 +15310,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15323,7 +15323,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15336,7 +15336,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15349,7 +15349,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15362,7 +15362,7 @@ class OrchestraGroupRefV11(OrchestraComponentRefV11):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15495,7 +15495,7 @@ class OrchestraMessageRefV11(OrchestraReferenceV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15508,7 +15508,7 @@ class OrchestraMessageRefV11(OrchestraReferenceV11Mixin):
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15677,7 +15677,7 @@ class OrchestraRepositoryV11(ConfiguredBaseModel):
 
     @field_validator('fixr_version')
     def pattern_fixr_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15833,7 +15833,7 @@ class OrchestraResponseV11(OrchestraActionV11):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -15882,7 +15882,7 @@ class OrchestraScenarioReferenceV11Mixin(ConfiguredBaseModel):
 
     @field_validator('fixr_scenario_ref')
     def pattern_fixr_scenario_ref(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16103,7 +16103,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_type')
     def pattern_fixr_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16116,7 +16116,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_union_data_type')
     def pattern_fixr_union_data_type(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16129,7 +16129,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16142,7 +16142,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16155,7 +16155,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16168,7 +16168,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_scenario_ref')
     def pattern_fixr_scenario_ref(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16181,7 +16181,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16194,7 +16194,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16207,7 +16207,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16220,7 +16220,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16233,7 +16233,7 @@ class OrchestraCodeSetV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16479,7 +16479,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_category')
     def pattern_fixr_category(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16492,7 +16492,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16505,7 +16505,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16518,7 +16518,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16531,7 +16531,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16544,7 +16544,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16557,7 +16557,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16570,7 +16570,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16583,7 +16583,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16596,7 +16596,7 @@ class OrchestraComponentV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigre
 
     @field_validator('fixr_scenario_ref')
     def pattern_fixr_scenario_ref(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16860,7 +16860,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_category')
     def pattern_fixr_category(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16886,7 +16886,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16899,7 +16899,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16912,7 +16912,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16925,7 +16925,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16938,7 +16938,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16951,7 +16951,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16964,7 +16964,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16977,7 +16977,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -16990,7 +16990,7 @@ class OrchestraGroupV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV11
 
     @field_validator('fixr_scenario_ref')
     def pattern_fixr_scenario_ref(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17259,7 +17259,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_category')
     def pattern_fixr_category(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17272,7 +17272,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_flow')
     def pattern_fixr_flow(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17285,7 +17285,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17298,7 +17298,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_abbr_name')
     def pattern_fixr_abbr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17311,7 +17311,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_scenario')
     def pattern_fixr_scenario(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17324,7 +17324,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_scenario_ref')
     def pattern_fixr_scenario_ref(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17337,7 +17337,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17350,7 +17350,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17363,7 +17363,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17376,7 +17376,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17389,7 +17389,7 @@ class OrchestraMessageV11(OrchestraScenarioReferenceV11Mixin, OrchestraPedigreeV
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17550,7 +17550,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17563,7 +17563,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17576,7 +17576,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17589,7 +17589,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17602,7 +17602,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17615,7 +17615,7 @@ class OrchestraScenarioV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17892,7 +17892,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17905,7 +17905,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_added')
     def pattern_fixr_added(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17918,7 +17918,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_deprecated')
     def pattern_fixr_deprecated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17931,7 +17931,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_last_modified')
     def pattern_fixr_last_modified(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17944,7 +17944,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_replaced')
     def pattern_fixr_replaced(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -17957,7 +17957,7 @@ class OrchestraSectionV11(OrchestraPedigreeV11Mixin):
 
     @field_validator('fixr_updated')
     def pattern_fixr_updated(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18127,7 +18127,7 @@ class OrchestraServiceV11(OrchestraProtocolV11):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18206,7 +18206,7 @@ class OrchestraSessionIdentifierV11(ConfiguredBaseModel):
 
     @field_validator('fixi_name')
     def pattern_fixi_name(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18278,7 +18278,7 @@ class OrchestraSessionProtocolV11(OrchestraProtocolV11):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18421,7 +18421,7 @@ class OrchestraSessionV11(OrchestraBaseInterfaceV11):
 
     @field_validator('fixi_name')
     def pattern_fixi_name(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18564,7 +18564,7 @@ class OrchestraStateMachineV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18698,7 +18698,7 @@ class OrchestraStateV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18833,7 +18833,7 @@ class OrchestraTimerScheduleV11(ConfiguredBaseModel):
 
     @field_validator('fixr_actor')
     def pattern_fixr_actor(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18846,7 +18846,7 @@ class OrchestraTimerScheduleV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -18925,7 +18925,7 @@ class OrchestraTimerV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19073,7 +19073,7 @@ class OrchestraTransitionV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19154,7 +19154,7 @@ class OrchestraTransportV11(OrchestraProtocolV11):
 
     @field_validator('fixi_address')
     def pattern_fixi_address(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19167,7 +19167,7 @@ class OrchestraTransportV11(OrchestraProtocolV11):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19282,7 +19282,7 @@ class OrchestraTriggerV11(ConfiguredBaseModel):
 
     @field_validator('fixr_actor')
     def pattern_fixr_actor(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19295,7 +19295,7 @@ class OrchestraTriggerV11(ConfiguredBaseModel):
 
     @field_validator('fixr_name')
     def pattern_fixr_name(cls, v):
-        pattern=re.compile(r"^(?=[\s\S]{1,64}$)(\S+( \S+)*)$")
+        pattern=re.compile(r"^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):
@@ -19467,7 +19467,7 @@ class OrchestraUserInterfaceV11(OrchestraProtocolV11):
 
     @field_validator('fixi_version')
     def pattern_fixi_version(cls, v):
-        pattern=re.compile(r"^(\S+( \S+)*)?$")
+        pattern=re.compile(r"^([^ \t\r\n]+( [^ \t\r\n]+)*)?$")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.search(element):

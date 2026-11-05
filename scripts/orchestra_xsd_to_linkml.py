@@ -235,8 +235,10 @@ UNUSED_TYPES = {
 UNUSED_GROUPS = {"messageAttribGrp"}
 
 # Patterns for XSD built-in types that LinkML has no type for. Each is anchored, since an
-# XSD pattern matches the whole value and a LinkML pattern any part of it.
-TOKEN = r"\S+( \S+)*"
+# XSD pattern matches the whole value and a LinkML pattern any part of it. XML whitespace
+# is the space, tab, carriage return and line feed alone, so a token's characters are
+# spelled out rather than written \S, which would also refuse a no-break space.
+TOKEN = r"[^ \t\r\n]+( [^ \t\r\n]+)*"
 BUILTIN = {
     "string": ("string", None, None, None),
     "normalizedString": ("string", None, None, None),

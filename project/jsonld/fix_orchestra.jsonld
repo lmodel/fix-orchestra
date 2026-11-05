@@ -9530,7 +9530,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10072,7 +10072,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -10251,7 +10251,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10273,7 +10273,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10362,7 +10362,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10423,7 +10423,7 @@
         "OrchestraCodeSetV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10554,7 +10554,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -10727,7 +10727,7 @@
         "OrchestraComponentRefV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10770,7 +10770,7 @@
         "OrchestraComponentRuleV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -10878,7 +10878,7 @@
         "OrchestraComponentV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -11162,7 +11162,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -11294,7 +11294,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -11315,7 +11315,7 @@
         "OrchestraDatatypeV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -11539,7 +11539,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -11965,7 +11965,7 @@
         "OrchestraFieldRefV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12052,7 +12052,7 @@
         "OrchestraFieldRuleV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12073,7 +12073,7 @@
         "OrchestraFieldRuleV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12182,7 +12182,7 @@
         "OrchestraFieldV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12203,7 +12203,7 @@
         "OrchestraFieldV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12290,7 +12290,7 @@
         "OrchestraFieldV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12311,7 +12311,7 @@
         "OrchestraFieldV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12332,7 +12332,7 @@
         "OrchestraFieldV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12441,7 +12441,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12656,7 +12656,7 @@
         "OrchestraGroupV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -12869,7 +12869,7 @@
         "OrchestraIdentifierV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13027,7 +13027,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13048,7 +13048,7 @@
         "OrchestraIdentityV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13070,7 +13070,7 @@
         "OrchestraIdentityV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13392,7 +13392,7 @@
         "OrchestraInterfaceDocumentationV11"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -13526,7 +13526,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13968,7 +13968,7 @@
         "OrchestraMessageV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -13989,7 +13989,7 @@
         "OrchestraMessageV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14118,7 +14118,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14139,7 +14139,7 @@
         "OrchestraPedigreeV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14200,7 +14200,7 @@
         "OrchestraPedigreeV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14261,7 +14261,7 @@
         "OrchestraPedigreeV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14282,7 +14282,7 @@
         "OrchestraPedigreeV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14366,7 +14366,7 @@
         "OrchestraPedigreeV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14459,7 +14459,7 @@
         "OrchestraProtocolV11"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -14649,7 +14649,7 @@
         "OrchestraReferenceV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -14671,7 +14671,7 @@
         "OrchestraReferenceV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15023,7 +15023,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(\\S+( \\S+)*)$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15168,7 +15168,7 @@
         "OrchestraResponseV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15256,7 +15256,7 @@
         "OrchestraScenarioReferenceV11Mixin"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15300,7 +15300,7 @@
         "OrchestraScenarioV11"
       ],
       "range": "string",
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15431,7 +15431,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15559,7 +15559,7 @@
         "OrchestraSessionIdentifierV11"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -15781,7 +15781,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -15914,7 +15914,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16025,7 +16025,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16047,7 +16047,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16111,7 +16111,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16176,7 +16176,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16218,7 +16218,7 @@
         "OrchestraTransportV11"
       ],
       "range": "string",
-      "pattern": "^(\\S+( \\S+)*)?$",
+      "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
       "@type": "SlotDefinition"
     },
     {
@@ -16335,7 +16335,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -16357,7 +16357,7 @@
       ],
       "range": "string",
       "required": true,
-      "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+      "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
       "@type": "SlotDefinition"
     },
     {
@@ -25793,7 +25793,7 @@
           "description": "The actor's name, unique among the repository's actors.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -26454,7 +26454,7 @@
           "description": "The interface's or session's name, unique within the file.",
           "range": "string",
           "required": true,
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         },
         {
@@ -26682,7 +26682,7 @@
           "description": "The category's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -26697,7 +26697,7 @@
           "description": "The section the category belongs to, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -26815,7 +26815,7 @@
           "description": "The set's datatype, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -26855,7 +26855,7 @@
           ],
           "description": "A datatype whose values a field of this set may hold beside its codes, such as a range kept for user-defined values.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -27027,7 +27027,7 @@
           "description": "The value that goes on the wire for this code.",
           "range": "string",
           "required": true,
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         },
         {
@@ -27195,7 +27195,7 @@
           ],
           "description": "A name for this use of the element, so that one message or block can hold it more than once.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -27256,7 +27256,7 @@
           ],
           "description": "The rule's name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -27385,7 +27385,7 @@
           ],
           "description": "The category the component belongs to, by name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -27709,7 +27709,7 @@
           "description": "The concept's name, unique among the repository's concepts.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -27876,7 +27876,7 @@
           "description": "The datatype's name, such as Price.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -27890,7 +27890,7 @@
           ],
           "description": "The datatype this one narrows, such as int for Length.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -28153,7 +28153,7 @@
           "description": "The encoding standard's name, which encoding blocks use.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -28638,7 +28638,7 @@
           ],
           "description": "A name for this use of the element, so that one message or block can hold it more than once.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -28742,7 +28742,7 @@
           ],
           "description": "The rule's name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -28756,7 +28756,7 @@
           ],
           "description": "The datatype the field takes while the rule's condition holds.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -28899,7 +28899,7 @@
           ],
           "description": "The datatype that gives the field's values, by name, when no code set does.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -28913,7 +28913,7 @@
           ],
           "description": "The field's code set, by name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -28972,7 +28972,7 @@
           ],
           "description": "The category the field belongs to in the base specification.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -28986,7 +28986,7 @@
           ],
           "description": "The short name the field takes within its base category in FIXML.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29000,7 +29000,7 @@
           ],
           "description": "A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -29137,7 +29137,7 @@
           "description": "The flow's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29394,7 +29394,7 @@
           ],
           "description": "The category the group belongs to, by name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29599,7 +29599,7 @@
           ],
           "description": "The field that is set or carried over, by name, for readability.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29822,7 +29822,7 @@
           "description": "The element's name, unique among elements of its kind within one scenario.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29836,7 +29836,7 @@
           ],
           "description": "A short form of the name, which FIXML uses for tags.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -29851,7 +29851,7 @@
           "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
           "ifabsent": "string(base)",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -30219,7 +30219,7 @@
           "description": "The media type of the text; text/plain when none is given.",
           "ifabsent": "string(text/plain)",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         }
       ],
@@ -30418,7 +30418,7 @@
           "description": "The standard the datatype is written in, such as XML or GPB.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -30839,7 +30839,7 @@
           ],
           "description": "The category the message belongs to, by name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -30853,7 +30853,7 @@
           ],
           "description": "The flow that carries the message, by name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31003,7 +31003,7 @@
           "description": "The encoding standard this block is for, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -31060,7 +31060,7 @@
           ],
           "description": "The FIX version in which the element first appeared.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31100,7 +31100,7 @@
           ],
           "description": "The FIX version from which the element is deprecated.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31140,7 +31140,7 @@
           ],
           "description": "The FIX version in which the element last changed.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31154,7 +31154,7 @@
           ],
           "description": "The FIX version in which another element took this one's place.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31210,7 +31210,7 @@
           ],
           "description": "The FIX version of the element's latest update.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31312,7 +31312,7 @@
           ],
           "description": "The protocol's version.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         },
         {
@@ -31471,7 +31471,7 @@
           ],
           "description": "The element in use, by name, for readability; the number decides which element is meant.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31486,7 +31486,7 @@
           "description": "The scenario of the element in use; base when none is given.",
           "ifabsent": "string(base)",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -31761,7 +31761,7 @@
           "description": "The repository's version, such as FIX.Latest_EP312.",
           "range": "string",
           "required": true,
-          "pattern": "^(\\S+( \\S+)*)$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -31893,7 +31893,7 @@
           ],
           "description": "The response's name.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -32014,7 +32014,7 @@
           ],
           "description": "The scenario the element belongs to, by name, for readability.",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -32090,7 +32090,7 @@
           "description": "The scenario's name; base when none is given.",
           "ifabsent": "string(base)",
           "range": "string",
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -32256,7 +32256,7 @@
           "description": "The section's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -32441,7 +32441,7 @@
           ],
           "description": "What kind of identifier this is, such as SenderCompID.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         }
       ],
@@ -32733,7 +32733,7 @@
           "description": "The state machine's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -32854,7 +32854,7 @@
           "description": "The state's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -33024,7 +33024,7 @@
           "description": "The actor whose timer or state machine this is, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -33039,7 +33039,7 @@
           "description": "The timer to start, stop or restart, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -33112,7 +33112,7 @@
           "description": "The timer's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -33188,7 +33188,7 @@
           "description": "The transition's name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -33259,7 +33259,7 @@
           ],
           "description": "The address to connect to, such as a host and port.",
           "range": "string",
-          "pattern": "^(\\S+( \\S+)*)?$",
+          "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
           "@type": "SlotDefinition"
         },
         {
@@ -33371,7 +33371,7 @@
           "description": "The actor whose timer or state machine this is, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         },
         {
@@ -33386,7 +33386,7 @@
           "description": "The transition to fire, by name.",
           "range": "string",
           "required": true,
-          "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+          "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
           "@type": "SlotDefinition"
         }
       ],
@@ -33509,7 +33509,7 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "fix_orchestra.yaml",
-  "source_file_date": "2026-11-05T20:03:20",
+  "source_file_date": "2026-11-05T20:55:44",
   "source_file_size": 1195,
   "@type": "SchemaDefinition",
   "@context": [

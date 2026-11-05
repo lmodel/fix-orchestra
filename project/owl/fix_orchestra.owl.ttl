@@ -2352,7 +2352,7 @@ _:c14n0 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2272 ;
+	owl:allValuesFrom _:c14n2362 ;
 	owl:onProperty fix_orchestra:fixr_fixml_file_name .
 _:c14n10 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -2363,7 +2363,7 @@ _:c14n1000 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_encodings .
 _:c14n1001 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2183 ;
+	owl:allValuesFrom _:c14n2219 ;
 	owl:onProperty fix_orchestra:fixr_impl_min_length .
 _:c14n1002 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -2483,7 +2483,7 @@ _:c14n1038 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1039 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2218 ;
+	owl:allValuesFrom _:c14n2260 ;
 	owl:onProperty fix_orchestra:fixr_instance_name .
 _:c14n104 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -2628,7 +2628,7 @@ _:c14n1082 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_replaced_by_field .
 _:c14n1083 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2446 ;
+	owl:allValuesFrom _:c14n2506 ;
 	owl:onProperty fix_orchestra:fixi_activation_time .
 _:c14n1084 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -2683,7 +2683,7 @@ _:c14n11 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraTimerScheduleV11 ;
 	owl:onProperty fix_orchestra:fixr_timer_schedule .
 _:c14n110 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2986 ;
+	owl:allValuesFrom _:c14n2998 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n1100 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -2777,7 +2777,7 @@ _:c14n1128 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1129 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2686 ;
+	owl:allValuesFrom _:c14n2746 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n113 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -2803,7 +2803,7 @@ _:c14n1136 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_spec_url .
 _:c14n1137 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2782 ;
+	owl:allValuesFrom _:c14n2818 ;
 	owl:onProperty fix_orchestra:fixr_deprecated .
 _:c14n1138 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -2818,7 +2818,7 @@ _:c14n1140 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_fields .
 _:c14n1141 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2878 ;
+	owl:allValuesFrom _:c14n2896 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n1142 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
@@ -2830,7 +2830,7 @@ _:c14n1144 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraEncodingStandardsV11 ;
 	owl:onProperty fix_orchestra:fixr_encoding_standards .
 _:c14n1145 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3010 ;
+	owl:allValuesFrom _:c14n2572 ;
 	owl:onProperty fix_orchestra:fixr_abbr_name .
 _:c14n1146 rdf:first fix_orchestra:OrchestraMemberSelection\#anyOf ;
 	rdf:rest rdf:nil .
@@ -2838,7 +2838,7 @@ _:c14n1147 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_parameter .
 _:c14n1148 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2302 ;
+	owl:allValuesFrom _:c14n2380 ;
 	owl:onProperty fix_orchestra:fixr_section .
 _:c14n1149 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraInterfaceDocumentationV10 ;
@@ -2959,10 +2959,10 @@ _:c14n1185 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_value .
 _:c14n1186 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2788 ;
+	owl:allValuesFrom _:c14n2356 ;
 	owl:onProperty fix_orchestra:fixr_instance_name .
 _:c14n1187 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2866 ;
+	owl:allValuesFrom _:c14n2148 ;
 	owl:onProperty fix_orchestra:fixr_added .
 _:c14n1188 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -3174,7 +3174,7 @@ _:c14n125 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:dcterms_identifier .
 _:c14n1250 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2890 ;
+	owl:allValuesFrom _:c14n2908 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1251 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -3254,12 +3254,12 @@ _:c14n1274 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_actors .
 _:c14n1275 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2416 ;
+	owl:allValuesFrom _:c14n2482 ;
 	owl:onProperty fix_orchestra:fixi_lang_id .
 _:c14n1276 rdf:first fix_orchestra:OrchestraUnionDatatypeV10\#Reserved100Plus ;
 	rdf:rest _:c14n1811 .
 _:c14n1277 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2758 ;
+	owl:allValuesFrom _:c14n2800 ;
 	owl:onProperty fix_orchestra:fixr_base_category_abbr_name .
 _:c14n1278 rdf:first fix_orchestra:OrchestraProtocolName\#tagvalue ;
 	rdf:rest _:c14n740 .
@@ -3383,7 +3383,7 @@ _:c14n1313 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_length .
 _:c14n1314 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3034 ;
+	owl:allValuesFrom _:c14n3028 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n1315 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraXmlElement ;
@@ -3460,13 +3460,13 @@ _:c14n1337 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_block_assignment .
 _:c14n1338 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2248 ;
+	owl:allValuesFrom _:c14n2320 ;
 	owl:onProperty fix_orchestra:fixr_msg_type .
 _:c14n1339 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n134 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2524 ;
+	owl:allValuesFrom _:c14n2560 ;
 	owl:onProperty fix_orchestra:fixr_updated .
 _:c14n1340 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -3475,7 +3475,7 @@ _:c14n1341 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1342 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2602 ;
+	owl:allValuesFrom _:c14n2920 ;
 	owl:onProperty fix_orchestra:fixr_union_data_type .
 _:c14n1343 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
@@ -3496,7 +3496,7 @@ _:c14n1348 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1349 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2860 ;
+	owl:allValuesFrom _:c14n2884 ;
 	owl:onProperty fix_orchestra:fixi_lang_id .
 _:c14n135 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -3576,7 +3576,7 @@ _:c14n1372 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_mediator .
 _:c14n1373 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2722 ;
+	owl:allValuesFrom _:c14n2758 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1374 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -3643,13 +3643,13 @@ _:c14n1393 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1394 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2698 ;
+	owl:allValuesFrom _:c14n2734 ;
 	owl:onProperty fix_orchestra:fixi_deactivation_time .
 _:c14n1395 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_orchestration .
 _:c14n1396 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2650 ;
+	owl:allValuesFrom _:c14n2680 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1397 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraFieldsV11 ;
@@ -3718,10 +3718,10 @@ _:c14n1415 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:dcterms_is_format_of .
 _:c14n1416 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2932 ;
+	owl:allValuesFrom _:c14n2950 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n1417 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2173 ;
+	owl:allValuesFrom _:c14n2209 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_length .
 _:c14n1418 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -3785,7 +3785,7 @@ _:c14n1436 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_component .
 _:c14n1437 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2380 ;
+	owl:allValuesFrom _:c14n2368 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1438 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -3796,10 +3796,10 @@ _:c14n1439 a owl:Restriction ;
 _:c14n144 rdf:first fix_orchestra:OrchestraRole\#client ;
 	rdf:rest _:c14n3 .
 _:c14n1440 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2236 ;
+	owl:allValuesFrom _:c14n2290 ;
 	owl:onProperty fix_orchestra:fixr_union_data_type .
 _:c14n1441 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2584 ;
+	owl:allValuesFrom _:c14n2638 ;
 	owl:onProperty fix_orchestra:fixr_msg_type .
 _:c14n1442 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
@@ -3814,7 +3814,7 @@ _:c14n1445 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_onentry .
 _:c14n1446 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2422 ;
+	owl:allValuesFrom _:c14n2488 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n1447 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -3823,7 +3823,7 @@ _:c14n1448 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_field .
 _:c14n1449 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2728 ;
+	owl:allValuesFrom _:c14n2764 ;
 	owl:onProperty fix_orchestra:fixr_last_modified .
 _:c14n145 a owl:Restriction ;
 	owl:allValuesFrom xsd:anyURI ;
@@ -3868,7 +3868,7 @@ _:c14n1461 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1462 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2908 ;
+	owl:allValuesFrom _:c14n2626 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1463 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -3925,7 +3925,7 @@ _:c14n1479 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_source .
 _:c14n148 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2926 ;
+	owl:allValuesFrom _:c14n2938 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n1480 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -3940,7 +3940,7 @@ _:c14n1483 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_type .
 _:c14n1484 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2320 ;
+	owl:allValuesFrom _:c14n2404 ;
 	owl:onProperty fix_orchestra:fixr_lang_id .
 _:c14n1485 a owl:Restriction ;
 	owl:allValuesFrom xsd:anyURI ;
@@ -3949,7 +3949,7 @@ _:c14n1486 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_parameters .
 _:c14n1487 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2518 ;
+	owl:allValuesFrom _:c14n2554 ;
 	owl:onProperty fix_orchestra:fixr_content_type .
 _:c14n1488 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4018,15 +4018,15 @@ _:c14n1506 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraIdentifiersV10 ;
 	owl:onProperty fix_orchestra:fixr_identifiers .
 _:c14n1507 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2710 ;
+	owl:allValuesFrom _:c14n2740 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n1508 rdf:first fix_orchestra:OrchestraProtocolName\#JSON ;
 	rdf:rest _:c14n435 .
 _:c14n1509 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2830 ;
+	owl:allValuesFrom _:c14n2860 ;
 	owl:onProperty fix_orchestra:fixr_interval .
 _:c14n151 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2344 ;
+	owl:allValuesFrom _:c14n2428 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1510 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
@@ -4053,7 +4053,7 @@ _:c14n1517 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_standard .
 _:c14n1518 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2692 ;
+	owl:allValuesFrom _:c14n2728 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n1519 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraMessageCast ;
@@ -4115,7 +4115,7 @@ _:c14n1536 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1537 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2746 ;
+	owl:allValuesFrom _:c14n2788 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1538 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraActorV11 ;
@@ -4124,7 +4124,7 @@ _:c14n1539 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n154 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2230 ;
+	owl:allValuesFrom _:c14n2302 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1540 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4196,7 +4196,7 @@ _:c14n1560 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1561 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2452 ;
+	owl:allValuesFrom _:c14n2722 ;
 	owl:onProperty fix_orchestra:fixr_type .
 _:c14n1562 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -4263,7 +4263,7 @@ _:c14n1580 a owl:Restriction ;
 _:c14n1581 rdf:first fix_orchestra:OrchestraProtocolName\#GPB ;
 	rdf:rest _:c14n1508 .
 _:c14n1582 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2143 ;
+	owl:allValuesFrom _:c14n2179 ;
 	owl:onProperty fix_orchestra:fixr_impl_min_length .
 _:c14n1583 a owl:Restriction ;
 	owl:allValuesFrom _:c14n2064 ;
@@ -4364,7 +4364,7 @@ _:c14n1611 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1612 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2614 ;
+	owl:allValuesFrom _:c14n2584 ;
 	owl:onProperty fix_orchestra:fixi_version .
 _:c14n1613 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -4455,10 +4455,10 @@ _:c14n164 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n1640 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2770 ;
+	owl:allValuesFrom _:c14n2806 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n1641 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2998 ;
+	owl:allValuesFrom _:c14n2692 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n1642 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4492,7 +4492,7 @@ _:c14n1651 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_group .
 _:c14n1652 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2596 ;
+	owl:allValuesFrom _:c14n2650 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1653 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4518,7 +4518,7 @@ _:c14n166 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_added .
 _:c14n1660 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2644 ;
+	owl:allValuesFrom _:c14n2674 ;
 	owl:onProperty fix_orchestra:fixr_msg_type .
 _:c14n1661 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4586,7 +4586,7 @@ _:c14n1680 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_purpose .
 _:c14n1681 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2776 ;
+	owl:allValuesFrom _:c14n2602 ;
 	owl:onProperty fix_orchestra:fixr_base_type .
 _:c14n1682 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraFieldRefV11 ;
@@ -4677,7 +4677,7 @@ _:c14n1708 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1709 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2512 ;
+	owl:allValuesFrom _:c14n2530 ;
 	owl:onProperty fix_orchestra:fixr_flow .
 _:c14n171 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -4708,7 +4708,7 @@ _:c14n1717 a owl:Restriction ;
 _:c14n1718 rdf:first _:c14n3338 ;
 	rdf:rest _:c14n2070 .
 _:c14n1719 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2428 ;
+	owl:allValuesFrom _:c14n2494 ;
 	owl:onProperty fix_orchestra:fixr_content_type .
 _:c14n172 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4774,7 +4774,7 @@ _:c14n1738 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1739 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2362 ;
+	owl:allValuesFrom _:c14n2440 ;
 	owl:onProperty fix_orchestra:fixr_base_type .
 _:c14n174 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -4888,12 +4888,12 @@ _:c14n1773 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:dcterms_spatial .
 _:c14n1774 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2434 ;
+	owl:allValuesFrom _:c14n2794 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1775 rdf:first _:c14n3335 ;
 	rdf:rest _:c14n3327 .
 _:c14n1776 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2794 ;
+	owl:allValuesFrom _:c14n2836 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n1777 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -4905,7 +4905,7 @@ _:c14n1779 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n178 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2440 ;
+	owl:allValuesFrom _:c14n2392 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1780 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraMetadata ;
@@ -4965,7 +4965,7 @@ _:c14n1797 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_pattern .
 _:c14n1798 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2332 ;
+	owl:allValuesFrom _:c14n2416 ;
 	owl:onProperty fix_orchestra:fixr_lang_id .
 _:c14n1799 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -4989,7 +4989,7 @@ _:c14n1803 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_categories .
 _:c14n1804 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2206 ;
+	owl:allValuesFrom _:c14n2248 ;
 	owl:onProperty fix_orchestra:fixr_scenario .
 _:c14n1805 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -5020,7 +5020,7 @@ _:c14n1813 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_description .
 _:c14n1814 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2308 ;
+	owl:allValuesFrom _:c14n2278 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1815 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraPresence ;
@@ -5041,7 +5041,7 @@ _:c14n182 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraInterfaceV10 ;
 	owl:onProperty fix_orchestra:fixi_interface .
 _:c14n1820 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2938 ;
+	owl:allValuesFrom _:c14n2956 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n1821 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -5062,7 +5062,7 @@ _:c14n1826 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_group_ref .
 _:c14n1827 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2962 ;
+	owl:allValuesFrom _:c14n2980 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1828 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
@@ -5107,7 +5107,7 @@ _:c14n184 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_role .
 _:c14n1840 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2914 ;
+	owl:allValuesFrom _:c14n2272 ;
 	owl:onProperty fix_orchestra:fixr_type .
 _:c14n1841 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -5180,7 +5180,7 @@ _:c14n1862 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_session .
 _:c14n1863 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2404 ;
+	owl:allValuesFrom _:c14n2470 ;
 	owl:onProperty fix_orchestra:fixr_lang_id .
 _:c14n1864 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -5283,7 +5283,7 @@ _:c14n1894 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_text .
 _:c14n1895 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2668 ;
+	owl:allValuesFrom _:c14n2944 ;
 	owl:onProperty fix_orchestra:fixr_actor .
 _:c14n1896 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -5404,7 +5404,7 @@ _:c14n1930 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_group .
 _:c14n1931 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2578 ;
+	owl:allValuesFrom _:c14n2902 ;
 	owl:onProperty fix_orchestra:fixr_scenario .
 _:c14n1932 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraIdentifierV11 ;
@@ -5483,7 +5483,7 @@ _:c14n1954 a owl:Restriction ;
 	owl:onProperty fix_orchestra:fixr_component_type .
 _:c14n1955 owl:unionOf _:c14n1170 .
 _:c14n1956 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2902 ;
+	owl:allValuesFrom _:c14n2398 ;
 	owl:onProperty fix_orchestra:fixr_instance_name .
 _:c14n1957 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -5524,7 +5524,7 @@ _:c14n1967 a owl:Restriction ;
 _:c14n1968 rdf:first fix_orchestra:OrchestraReliability\#recoverable ;
 	rdf:rest rdf:nil .
 _:c14n1969 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2734 ;
+	owl:allValuesFrom _:c14n2770 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n197 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -5553,13 +5553,13 @@ _:c14n1977 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:dcterms_date_submitted .
 _:c14n1978 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2752 ;
+	owl:allValuesFrom _:c14n2284 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n1979 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n198 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2356 ;
+	owl:allValuesFrom _:c14n2434 ;
 	owl:onProperty fix_orchestra:fixr_scenario .
 _:c14n1980 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -5600,7 +5600,7 @@ _:c14n1991 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n1992 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2548 ;
+	owl:allValuesFrom _:c14n2154 ;
 	owl:onProperty fix_orchestra:fixr_last_modified .
 _:c14n1993 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -5630,7 +5630,7 @@ _:c14n20 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_activity .
 _:c14n200 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2314 ;
+	owl:allValuesFrom _:c14n2172 ;
 	owl:onProperty fix_orchestra:fixr_updated .
 _:c14n2000 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -5690,10 +5690,10 @@ _:c14n2017 a owl:Restriction ;
 	owl:allValuesFrom _:c14n3182 ;
 	owl:onProperty fix_orchestra:fixr_id .
 _:c14n2018 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3004 ;
+	owl:allValuesFrom _:c14n3010 ;
 	owl:onProperty fix_orchestra:fixi_activation_time .
 _:c14n2019 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2554 ;
+	owl:allValuesFrom _:c14n2608 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n202 a owl:Restriction ;
 	owl:allValuesFrom _:c14n3127 ;
@@ -5744,7 +5744,7 @@ _:c14n2033 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n2034 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2656 ;
+	owl:allValuesFrom _:c14n2782 ;
 	owl:onProperty fix_orchestra:fixr_standard .
 _:c14n2035 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -5923,7 +5923,7 @@ _:c14n2099 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_field_ref .
 _:c14n21 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2326 ;
+	owl:allValuesFrom _:c14n2410 ;
 	owl:onProperty fix_orchestra:fixi_lang_id .
 _:c14n210 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraResponseV11 ;
@@ -5982,7 +5982,7 @@ _:c14n2119 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_field_ref .
 _:c14n212 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2212 ;
+	owl:allValuesFrom _:c14n2254 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n2120 rdf:first _:c14n2119 ;
 	rdf:rest _:c14n2121 .
@@ -6029,150 +6029,149 @@ _:c14n2135 rdf:first _:c14n2136 ;
 _:c14n2136 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_group_ref .
-_:c14n2137 xsd:maxInclusive 32767 .
+_:c14n2137 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2138 rdf:first _:c14n2137 ;
 	rdf:rest rdf:nil .
 _:c14n2139 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
+	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2138 .
 _:c14n214 rdf:first fix_orchestra:OrchestraPurpose\#DISPLAY ;
 	rdf:rest rdf:nil .
 _:c14n2140 rdf:first _:c14n2139 ;
 	rdf:rest rdf:nil .
-_:c14n2141 rdf:first _:c14n2144 ;
+_:c14n2141 rdf:first xsd:string ;
 	rdf:rest _:c14n2140 .
-_:c14n2142 rdf:first xsd:integer ;
-	rdf:rest _:c14n2141 .
-_:c14n2143 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2142 .
-_:c14n2144 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2145 .
-_:c14n2145 rdf:first _:c14n2146 ;
+_:c14n2142 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2141 .
+_:c14n2143 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
+_:c14n2144 rdf:first _:c14n2143 ;
 	rdf:rest rdf:nil .
-_:c14n2146 xsd:minInclusive -32768 .
-_:c14n2147 xsd:maxInclusive 32767 .
-_:c14n2148 rdf:first _:c14n2147 ;
+_:c14n2145 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n2144 .
+_:c14n2146 rdf:first _:c14n2145 ;
 	rdf:rest rdf:nil .
-_:c14n2149 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2148 .
+_:c14n2147 rdf:first xsd:string ;
+	rdf:rest _:c14n2146 .
+_:c14n2148 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2147 .
+_:c14n2149 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n215 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_text .
 _:c14n2150 rdf:first _:c14n2149 ;
 	rdf:rest rdf:nil .
-_:c14n2151 rdf:first _:c14n2154 ;
-	rdf:rest _:c14n2150 .
-_:c14n2152 rdf:first xsd:integer ;
-	rdf:rest _:c14n2151 .
-_:c14n2153 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2152 .
-_:c14n2154 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2155 .
-_:c14n2155 rdf:first _:c14n2156 ;
+_:c14n2151 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n2150 .
+_:c14n2152 rdf:first _:c14n2151 ;
 	rdf:rest rdf:nil .
-_:c14n2156 xsd:minInclusive -32768 .
-_:c14n2157 xsd:maxInclusive 32767 .
+_:c14n2153 rdf:first xsd:string ;
+	rdf:rest _:c14n2152 .
+_:c14n2154 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2153 .
+_:c14n2155 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
+_:c14n2156 rdf:first _:c14n2155 ;
+	rdf:rest rdf:nil .
+_:c14n2157 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n2156 .
 _:c14n2158 rdf:first _:c14n2157 ;
 	rdf:rest rdf:nil .
-_:c14n2159 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2158 .
+_:c14n2159 rdf:first xsd:string ;
+	rdf:rest _:c14n2158 .
 _:c14n216 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_union_data_type .
-_:c14n2160 rdf:first _:c14n2159 ;
+_:c14n2160 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2159 .
+_:c14n2161 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
+_:c14n2162 rdf:first _:c14n2161 ;
 	rdf:rest rdf:nil .
-_:c14n2161 rdf:first _:c14n2164 ;
-	rdf:rest _:c14n2160 .
-_:c14n2162 rdf:first xsd:integer ;
-	rdf:rest _:c14n2161 .
 _:c14n2163 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2162 .
-_:c14n2164 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2165 .
-_:c14n2165 rdf:first _:c14n2166 ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n2162 .
+_:c14n2164 rdf:first _:c14n2163 ;
 	rdf:rest rdf:nil .
-_:c14n2166 xsd:minInclusive -32768 .
-_:c14n2167 xsd:maxInclusive 32767 .
+_:c14n2165 rdf:first xsd:string ;
+	rdf:rest _:c14n2164 .
+_:c14n2166 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2165 .
+_:c14n2167 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2168 rdf:first _:c14n2167 ;
 	rdf:rest rdf:nil .
 _:c14n2169 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
+	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2168 .
 _:c14n217 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_members .
 _:c14n2170 rdf:first _:c14n2169 ;
 	rdf:rest rdf:nil .
-_:c14n2171 rdf:first _:c14n2174 ;
+_:c14n2171 rdf:first xsd:string ;
 	rdf:rest _:c14n2170 .
-_:c14n2172 rdf:first xsd:integer ;
-	rdf:rest _:c14n2171 .
-_:c14n2173 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2172 .
-_:c14n2174 a rdfs:Datatype ;
+_:c14n2172 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2171 .
+_:c14n2173 xsd:maxInclusive 32767 .
+_:c14n2174 rdf:first _:c14n2173 ;
+	rdf:rest rdf:nil .
+_:c14n2175 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2175 .
-_:c14n2175 rdf:first _:c14n2176 ;
+	owl:withRestrictions _:c14n2174 .
+_:c14n2176 rdf:first _:c14n2175 ;
 	rdf:rest rdf:nil .
-_:c14n2176 xsd:minInclusive -32768 .
-_:c14n2177 xsd:maxInclusive 32767 .
-_:c14n2178 rdf:first _:c14n2177 ;
-	rdf:rest rdf:nil .
+_:c14n2177 rdf:first _:c14n2180 ;
+	rdf:rest _:c14n2176 .
+_:c14n2178 rdf:first xsd:integer ;
+	rdf:rest _:c14n2177 .
 _:c14n2179 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2178 .
+	owl:intersectionOf _:c14n2178 .
 _:c14n218 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
-_:c14n2180 rdf:first _:c14n2179 ;
-	rdf:rest rdf:nil .
-_:c14n2181 rdf:first _:c14n2184 ;
-	rdf:rest _:c14n2180 .
-_:c14n2182 rdf:first xsd:integer ;
-	rdf:rest _:c14n2181 .
-_:c14n2183 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2182 .
-_:c14n2184 a rdfs:Datatype ;
+_:c14n2180 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2185 .
-_:c14n2185 rdf:first _:c14n2186 ;
+	owl:withRestrictions _:c14n2181 .
+_:c14n2181 rdf:first _:c14n2182 ;
 	rdf:rest rdf:nil .
-_:c14n2186 xsd:minInclusive -32768 .
-_:c14n2187 xsd:maxInclusive 32767 .
-_:c14n2188 rdf:first _:c14n2187 ;
+_:c14n2182 xsd:minInclusive -32768 .
+_:c14n2183 xsd:maxInclusive 32767 .
+_:c14n2184 rdf:first _:c14n2183 ;
 	rdf:rest rdf:nil .
+_:c14n2185 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2184 .
+_:c14n2186 rdf:first _:c14n2185 ;
+	rdf:rest rdf:nil .
+_:c14n2187 rdf:first _:c14n2190 ;
+	rdf:rest _:c14n2186 .
+_:c14n2188 rdf:first xsd:integer ;
+	rdf:rest _:c14n2187 .
 _:c14n2189 a rdfs:Datatype ;
-	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2188 .
+	owl:intersectionOf _:c14n2188 .
 _:c14n219 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_last_modified .
-_:c14n2190 rdf:first _:c14n2189 ;
-	rdf:rest rdf:nil .
-_:c14n2191 rdf:first _:c14n2194 ;
-	rdf:rest _:c14n2190 .
-_:c14n2192 rdf:first xsd:integer ;
-	rdf:rest _:c14n2191 .
-_:c14n2193 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2192 .
-_:c14n2194 a rdfs:Datatype ;
+_:c14n2190 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n2195 .
-_:c14n2195 rdf:first _:c14n2196 ;
+	owl:withRestrictions _:c14n2191 .
+_:c14n2191 rdf:first _:c14n2192 ;
 	rdf:rest rdf:nil .
-_:c14n2196 xsd:minInclusive -32768 .
-_:c14n2197 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2201 .
-_:c14n2198 rdf:first _:c14n2197 ;
+_:c14n2192 xsd:minInclusive -32768 .
+_:c14n2193 xsd:maxInclusive 32767 .
+_:c14n2194 rdf:first _:c14n2193 ;
 	rdf:rest rdf:nil .
-_:c14n2199 rdf:first xsd:string ;
-	rdf:rest _:c14n2198 .
+_:c14n2195 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2194 .
+_:c14n2196 rdf:first _:c14n2195 ;
+	rdf:rest rdf:nil .
+_:c14n2197 rdf:first _:c14n2200 ;
+	rdf:rest _:c14n2196 .
+_:c14n2198 rdf:first xsd:integer ;
+	rdf:rest _:c14n2197 .
+_:c14n2199 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2198 .
 _:c14n22 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_sections .
@@ -6180,79 +6179,80 @@ _:c14n220 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_value .
 _:c14n2200 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2199 .
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2201 .
 _:c14n2201 rdf:first _:c14n2202 ;
 	rdf:rest rdf:nil .
-_:c14n2202 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
-_:c14n2203 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2207 .
+_:c14n2202 xsd:minInclusive -32768 .
+_:c14n2203 xsd:maxInclusive 32767 .
 _:c14n2204 rdf:first _:c14n2203 ;
 	rdf:rest rdf:nil .
-_:c14n2205 rdf:first xsd:string ;
-	rdf:rest _:c14n2204 .
-_:c14n2206 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2205 .
-_:c14n2207 rdf:first _:c14n2208 ;
+_:c14n2205 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2204 .
+_:c14n2206 rdf:first _:c14n2205 ;
 	rdf:rest rdf:nil .
-_:c14n2208 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$" .
+_:c14n2207 rdf:first _:c14n2210 ;
+	rdf:rest _:c14n2206 .
+_:c14n2208 rdf:first xsd:integer ;
+	rdf:rest _:c14n2207 .
 _:c14n2209 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2213 .
+	owl:intersectionOf _:c14n2208 .
 _:c14n221 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_spec_url .
-_:c14n2210 rdf:first _:c14n2209 ;
+_:c14n2210 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2211 .
+_:c14n2211 rdf:first _:c14n2212 ;
 	rdf:rest rdf:nil .
-_:c14n2211 rdf:first xsd:string ;
-	rdf:rest _:c14n2210 .
-_:c14n2212 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2211 .
-_:c14n2213 rdf:first _:c14n2214 ;
+_:c14n2212 xsd:minInclusive -32768 .
+_:c14n2213 xsd:maxInclusive 32767 .
+_:c14n2214 rdf:first _:c14n2213 ;
 	rdf:rest rdf:nil .
-_:c14n2214 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2215 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2219 .
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2214 .
 _:c14n2216 rdf:first _:c14n2215 ;
 	rdf:rest rdf:nil .
-_:c14n2217 rdf:first xsd:string ;
+_:c14n2217 rdf:first _:c14n2220 ;
 	rdf:rest _:c14n2216 .
-_:c14n2218 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2217 .
-_:c14n2219 rdf:first _:c14n2220 ;
-	rdf:rest rdf:nil .
+_:c14n2218 rdf:first xsd:integer ;
+	rdf:rest _:c14n2217 .
+_:c14n2219 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2218 .
 _:c14n222 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_conforms_to .
-_:c14n2220 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
-_:c14n2221 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2225 .
-_:c14n2222 rdf:first _:c14n2221 ;
+_:c14n2220 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2221 .
+_:c14n2221 rdf:first _:c14n2222 ;
 	rdf:rest rdf:nil .
-_:c14n2223 rdf:first xsd:string ;
-	rdf:rest _:c14n2222 .
-_:c14n2224 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2223 .
-_:c14n2225 rdf:first _:c14n2226 ;
+_:c14n2222 xsd:minInclusive -32768 .
+_:c14n2223 xsd:maxInclusive 32767 .
+_:c14n2224 rdf:first _:c14n2223 ;
 	rdf:rest rdf:nil .
-_:c14n2226 xsd:pattern "^[\\s\\S]{0,1024}$" .
-_:c14n2227 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n2231 .
-_:c14n2228 rdf:first _:c14n2227 ;
+_:c14n2225 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2224 .
+_:c14n2226 rdf:first _:c14n2225 ;
 	rdf:rest rdf:nil .
-_:c14n2229 rdf:first xsd:string ;
-	rdf:rest _:c14n2228 .
+_:c14n2227 rdf:first _:c14n2230 ;
+	rdf:rest _:c14n2226 .
+_:c14n2228 rdf:first xsd:integer ;
+	rdf:rest _:c14n2227 .
+_:c14n2229 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n2228 .
 _:c14n223 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_code .
 _:c14n2230 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n2229 .
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n2231 .
 _:c14n2231 rdf:first _:c14n2232 ;
 	rdf:rest rdf:nil .
-_:c14n2232 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2232 xsd:minInclusive -32768 .
 _:c14n2233 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2237 .
@@ -6264,12 +6264,12 @@ _:c14n2236 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2235 .
 _:c14n2237 rdf:first _:c14n2238 ;
 	rdf:rest rdf:nil .
-_:c14n2238 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2238 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2239 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2243 .
 _:c14n224 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2956 ;
+	owl:allValuesFrom _:c14n2386 ;
 	owl:onProperty fix_orchestra:fixi_name .
 _:c14n2240 rdf:first _:c14n2239 ;
 	rdf:rest rdf:nil .
@@ -6279,7 +6279,7 @@ _:c14n2242 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2241 .
 _:c14n2243 rdf:first _:c14n2244 ;
 	rdf:rest rdf:nil .
-_:c14n2244 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n2244 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2245 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2249 .
@@ -6294,7 +6294,7 @@ _:c14n2249 rdf:first _:c14n2250 ;
 _:c14n225 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_actor .
-_:c14n2250 xsd:pattern "^[\\s\\S]{1,6}$" .
+_:c14n2250 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$" .
 _:c14n2251 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2255 .
@@ -6306,7 +6306,7 @@ _:c14n2254 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2253 .
 _:c14n2255 rdf:first _:c14n2256 ;
 	rdf:rest rdf:nil .
-_:c14n2256 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n2256 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2257 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2261 .
@@ -6333,7 +6333,7 @@ _:c14n2266 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2265 .
 _:c14n2267 rdf:first _:c14n2268 ;
 	rdf:rest rdf:nil .
-_:c14n2268 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2268 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2269 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2273 .
@@ -6348,7 +6348,7 @@ _:c14n2272 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2271 .
 _:c14n2273 rdf:first _:c14n2274 ;
 	rdf:rest rdf:nil .
-_:c14n2274 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2274 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2275 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2279 .
@@ -6363,7 +6363,7 @@ _:c14n2279 rdf:first _:c14n2280 ;
 _:c14n228 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_annotation .
-_:c14n2280 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2280 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2281 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2285 .
@@ -6375,7 +6375,7 @@ _:c14n2284 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2283 .
 _:c14n2285 rdf:first _:c14n2286 ;
 	rdf:rest rdf:nil .
-_:c14n2286 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2286 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2287 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2291 .
@@ -6390,7 +6390,7 @@ _:c14n2290 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2289 .
 _:c14n2291 rdf:first _:c14n2292 ;
 	rdf:rest rdf:nil .
-_:c14n2292 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2292 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2293 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2297 .
@@ -6435,7 +6435,7 @@ _:c14n2309 rdf:first _:c14n2310 ;
 _:c14n231 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_change_type .
-_:c14n2310 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2310 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2311 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2315 .
@@ -6447,7 +6447,7 @@ _:c14n2314 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2313 .
 _:c14n2315 rdf:first _:c14n2316 ;
 	rdf:rest rdf:nil .
-_:c14n2316 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2316 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n2317 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2321 .
@@ -6462,7 +6462,7 @@ _:c14n2320 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2319 .
 _:c14n2321 rdf:first _:c14n2322 ;
 	rdf:rest rdf:nil .
-_:c14n2322 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2322 xsd:pattern "^[\\s\\S]{1,6}$" .
 _:c14n2323 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2327 .
@@ -6474,7 +6474,7 @@ _:c14n2326 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2325 .
 _:c14n2327 rdf:first _:c14n2328 ;
 	rdf:rest rdf:nil .
-_:c14n2328 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2328 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n2329 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2333 .
@@ -6489,7 +6489,7 @@ _:c14n2332 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2331 .
 _:c14n2333 rdf:first _:c14n2334 ;
 	rdf:rest rdf:nil .
-_:c14n2334 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2334 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2335 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2339 .
@@ -6503,7 +6503,7 @@ _:c14n2339 rdf:first _:c14n2340 ;
 	rdf:rest rdf:nil .
 _:c14n234 rdf:first fix_orchestra:OrchestraCategoryIncludeFileV10\#fields ;
 	rdf:rest rdf:nil .
-_:c14n2340 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2340 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2341 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2345 .
@@ -6515,7 +6515,7 @@ _:c14n2344 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2343 .
 _:c14n2345 rdf:first _:c14n2346 ;
 	rdf:rest rdf:nil .
-_:c14n2346 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2346 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2347 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2351 .
@@ -6530,7 +6530,7 @@ _:c14n2350 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2349 .
 _:c14n2351 rdf:first _:c14n2352 ;
 	rdf:rest rdf:nil .
-_:c14n2352 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2352 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2353 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2357 .
@@ -6542,12 +6542,12 @@ _:c14n2356 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2355 .
 _:c14n2357 rdf:first _:c14n2358 ;
 	rdf:rest rdf:nil .
-_:c14n2358 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$" .
+_:c14n2358 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2359 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2363 .
 _:c14n236 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2500 ;
+	owl:allValuesFrom _:c14n2548 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n2360 rdf:first _:c14n2359 ;
 	rdf:rest rdf:nil .
@@ -6572,7 +6572,7 @@ _:c14n2369 rdf:first _:c14n2370 ;
 _:c14n237 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_encodings .
-_:c14n2370 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2370 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2371 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2375 .
@@ -6584,7 +6584,7 @@ _:c14n2374 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2373 .
 _:c14n2375 rdf:first _:c14n2376 ;
 	rdf:rest rdf:nil .
-_:c14n2376 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2376 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2377 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2381 .
@@ -6599,7 +6599,7 @@ _:c14n2380 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2379 .
 _:c14n2381 rdf:first _:c14n2382 ;
 	rdf:rest rdf:nil .
-_:c14n2382 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2382 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2383 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2387 .
@@ -6611,7 +6611,7 @@ _:c14n2386 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2385 .
 _:c14n2387 rdf:first _:c14n2388 ;
 	rdf:rest rdf:nil .
-_:c14n2388 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2388 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2389 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2393 .
@@ -6626,7 +6626,7 @@ _:c14n2392 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2391 .
 _:c14n2393 rdf:first _:c14n2394 ;
 	rdf:rest rdf:nil .
-_:c14n2394 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2394 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2395 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2399 .
@@ -6644,7 +6644,7 @@ _:c14n24 a owl:Restriction ;
 _:c14n240 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_encodings .
-_:c14n2400 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2400 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2401 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2405 .
@@ -6665,13 +6665,13 @@ _:c14n2408 rdf:first _:c14n2407 ;
 _:c14n2409 rdf:first xsd:string ;
 	rdf:rest _:c14n2408 .
 _:c14n241 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2992 ;
+	owl:allValuesFrom _:c14n3004 ;
 	owl:onProperty fix_orchestra:fixr_version .
 _:c14n2410 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2409 .
 _:c14n2411 rdf:first _:c14n2412 ;
 	rdf:rest rdf:nil .
-_:c14n2412 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2412 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2413 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2417 .
@@ -6698,7 +6698,7 @@ _:c14n2422 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2421 .
 _:c14n2423 rdf:first _:c14n2424 ;
 	rdf:rest rdf:nil .
-_:c14n2424 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2424 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2425 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2429 .
@@ -6713,7 +6713,7 @@ _:c14n2429 rdf:first _:c14n2430 ;
 _:c14n243 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_min_inclusive .
-_:c14n2430 xsd:pattern "^[\\s\\S]{3,}$" .
+_:c14n2430 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2431 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2435 .
@@ -6725,7 +6725,7 @@ _:c14n2434 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2433 .
 _:c14n2435 rdf:first _:c14n2436 ;
 	rdf:rest rdf:nil .
-_:c14n2436 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2436 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_|-)*)$" .
 _:c14n2437 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2441 .
@@ -6740,7 +6740,7 @@ _:c14n2440 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2439 .
 _:c14n2441 rdf:first _:c14n2442 ;
 	rdf:rest rdf:nil .
-_:c14n2442 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2442 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2443 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2447 .
@@ -6752,7 +6752,7 @@ _:c14n2446 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2445 .
 _:c14n2447 rdf:first _:c14n2448 ;
 	rdf:rest rdf:nil .
-_:c14n2448 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n2448 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n2449 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2453 .
@@ -6767,7 +6767,7 @@ _:c14n2452 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2451 .
 _:c14n2453 rdf:first _:c14n2454 ;
 	rdf:rest rdf:nil .
-_:c14n2454 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2454 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2455 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2459 .
@@ -6782,7 +6782,7 @@ _:c14n2459 rdf:first _:c14n2460 ;
 _:c14n246 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_encoding .
-_:c14n2460 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2460 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2461 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2465 .
@@ -6794,7 +6794,7 @@ _:c14n2464 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2463 .
 _:c14n2465 rdf:first _:c14n2466 ;
 	rdf:rest rdf:nil .
-_:c14n2466 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2466 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n2467 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2471 .
@@ -6809,7 +6809,7 @@ _:c14n2470 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2469 .
 _:c14n2471 rdf:first _:c14n2472 ;
 	rdf:rest rdf:nil .
-_:c14n2472 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2472 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2473 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2477 .
@@ -6821,7 +6821,7 @@ _:c14n2476 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2475 .
 _:c14n2477 rdf:first _:c14n2478 ;
 	rdf:rest rdf:nil .
-_:c14n2478 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2478 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2479 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2483 .
@@ -6836,7 +6836,7 @@ _:c14n2482 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2481 .
 _:c14n2483 rdf:first _:c14n2484 ;
 	rdf:rest rdf:nil .
-_:c14n2484 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2484 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2485 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2489 .
@@ -6851,7 +6851,7 @@ _:c14n2489 rdf:first _:c14n2490 ;
 _:c14n249 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:xml_base .
-_:c14n2490 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2490 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2491 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2495 .
@@ -6863,7 +6863,7 @@ _:c14n2494 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2493 .
 _:c14n2495 rdf:first _:c14n2496 ;
 	rdf:rest rdf:nil .
-_:c14n2496 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2496 xsd:pattern "^[\\s\\S]{3,}$" .
 _:c14n2497 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2501 .
@@ -6880,7 +6880,7 @@ _:c14n2500 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2499 .
 _:c14n2501 rdf:first _:c14n2502 ;
 	rdf:rest rdf:nil .
-_:c14n2502 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2502 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2503 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2507 .
@@ -6892,7 +6892,7 @@ _:c14n2506 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2505 .
 _:c14n2507 rdf:first _:c14n2508 ;
 	rdf:rest rdf:nil .
-_:c14n2508 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2508 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n2509 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2513 .
@@ -6907,7 +6907,7 @@ _:c14n2512 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2511 .
 _:c14n2513 rdf:first _:c14n2514 ;
 	rdf:rest rdf:nil .
-_:c14n2514 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2514 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2515 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2519 .
@@ -6920,9 +6920,9 @@ _:c14n2518 a rdfs:Datatype ;
 _:c14n2519 rdf:first _:c14n2520 ;
 	rdf:rest rdf:nil .
 _:c14n252 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2806 ;
+	owl:allValuesFrom _:c14n2422 ;
 	owl:onProperty fix_orchestra:fixr_base_category_abbr_name .
-_:c14n2520 xsd:pattern "^[\\s\\S]{3,}$" .
+_:c14n2520 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n2521 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2525 .
@@ -6934,7 +6934,7 @@ _:c14n2524 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2523 .
 _:c14n2525 rdf:first _:c14n2526 ;
 	rdf:rest rdf:nil .
-_:c14n2526 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2526 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2527 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2531 .
@@ -6949,7 +6949,7 @@ _:c14n2530 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2529 .
 _:c14n2531 rdf:first _:c14n2532 ;
 	rdf:rest rdf:nil .
-_:c14n2532 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2532 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2533 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2537 .
@@ -6961,7 +6961,7 @@ _:c14n2536 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2535 .
 _:c14n2537 rdf:first _:c14n2538 ;
 	rdf:rest rdf:nil .
-_:c14n2538 xsd:pattern "^-?P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" .
+_:c14n2538 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2539 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2543 .
@@ -6976,7 +6976,7 @@ _:c14n2542 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2541 .
 _:c14n2543 rdf:first _:c14n2544 ;
 	rdf:rest rdf:nil .
-_:c14n2544 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2544 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2545 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2549 .
@@ -6991,7 +6991,7 @@ _:c14n2549 rdf:first _:c14n2550 ;
 _:c14n255 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_presence .
-_:c14n2550 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2550 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2551 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2555 .
@@ -7003,7 +7003,7 @@ _:c14n2554 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2553 .
 _:c14n2555 rdf:first _:c14n2556 ;
 	rdf:rest rdf:nil .
-_:c14n2556 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2556 xsd:pattern "^[\\s\\S]{3,}$" .
 _:c14n2557 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2561 .
@@ -7018,7 +7018,7 @@ _:c14n2560 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2559 .
 _:c14n2561 rdf:first _:c14n2562 ;
 	rdf:rest rdf:nil .
-_:c14n2562 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2562 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n2563 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2567 .
@@ -7030,7 +7030,7 @@ _:c14n2566 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2565 .
 _:c14n2567 rdf:first _:c14n2568 ;
 	rdf:rest rdf:nil .
-_:c14n2568 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2568 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2569 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2573 .
@@ -7045,7 +7045,7 @@ _:c14n2572 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2571 .
 _:c14n2573 rdf:first _:c14n2574 ;
 	rdf:rest rdf:nil .
-_:c14n2574 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2574 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2575 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2579 .
@@ -7060,7 +7060,7 @@ _:c14n2579 rdf:first _:c14n2580 ;
 _:c14n258 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_issue .
-_:c14n2580 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2580 xsd:pattern "^-?P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" .
 _:c14n2581 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2585 .
@@ -7072,7 +7072,7 @@ _:c14n2584 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2583 .
 _:c14n2585 rdf:first _:c14n2586 ;
 	rdf:rest rdf:nil .
-_:c14n2586 xsd:pattern "^[\\s\\S]{1,2}$" .
+_:c14n2586 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2587 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2591 .
@@ -7087,7 +7087,7 @@ _:c14n2590 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2589 .
 _:c14n2591 rdf:first _:c14n2592 ;
 	rdf:rest rdf:nil .
-_:c14n2592 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2592 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2593 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2597 .
@@ -7099,7 +7099,7 @@ _:c14n2596 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2595 .
 _:c14n2597 rdf:first _:c14n2598 ;
 	rdf:rest rdf:nil .
-_:c14n2598 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2598 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2599 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2603 .
@@ -7107,7 +7107,7 @@ _:c14n26 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n260 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2200 ;
+	owl:allValuesFrom _:c14n2236 ;
 	owl:onProperty fix_orchestra:fixr_base_category .
 _:c14n2600 rdf:first _:c14n2599 ;
 	rdf:rest rdf:nil .
@@ -7117,7 +7117,7 @@ _:c14n2602 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2601 .
 _:c14n2603 rdf:first _:c14n2604 ;
 	rdf:rest rdf:nil .
-_:c14n2604 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2604 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2605 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2609 .
@@ -7132,7 +7132,7 @@ _:c14n2609 rdf:first _:c14n2610 ;
 _:c14n261 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
-_:c14n2610 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2610 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2611 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2615 .
@@ -7144,7 +7144,7 @@ _:c14n2614 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2613 .
 _:c14n2615 rdf:first _:c14n2616 ;
 	rdf:rest rdf:nil .
-_:c14n2616 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2616 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2617 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2621 .
@@ -7159,7 +7159,7 @@ _:c14n2620 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2619 .
 _:c14n2621 rdf:first _:c14n2622 ;
 	rdf:rest rdf:nil .
-_:c14n2622 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2622 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2623 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2627 .
@@ -7171,7 +7171,7 @@ _:c14n2626 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2625 .
 _:c14n2627 rdf:first _:c14n2628 ;
 	rdf:rest rdf:nil .
-_:c14n2628 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2628 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2629 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2633 .
@@ -7186,7 +7186,7 @@ _:c14n2632 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2631 .
 _:c14n2633 rdf:first _:c14n2634 ;
 	rdf:rest rdf:nil .
-_:c14n2634 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2634 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2635 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2639 .
@@ -7199,9 +7199,9 @@ _:c14n2638 a rdfs:Datatype ;
 _:c14n2639 rdf:first _:c14n2640 ;
 	rdf:rest rdf:nil .
 _:c14n264 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2530 ;
+	owl:allValuesFrom _:c14n2566 ;
 	owl:onProperty fix_orchestra:fixr_actor .
-_:c14n2640 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2640 xsd:pattern "^[\\s\\S]{1,2}$" .
 _:c14n2641 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2645 .
@@ -7213,7 +7213,7 @@ _:c14n2644 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2643 .
 _:c14n2645 rdf:first _:c14n2646 ;
 	rdf:rest rdf:nil .
-_:c14n2646 xsd:pattern "^[\\s\\S]{1,2}$" .
+_:c14n2646 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2647 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2651 .
@@ -7240,7 +7240,7 @@ _:c14n2656 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2655 .
 _:c14n2657 rdf:first _:c14n2658 ;
 	rdf:rest rdf:nil .
-_:c14n2658 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2658 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2659 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2663 .
@@ -7270,7 +7270,7 @@ _:c14n2669 rdf:first _:c14n2670 ;
 _:c14n267 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_appinfo .
-_:c14n2670 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2670 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2671 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2675 .
@@ -7282,7 +7282,7 @@ _:c14n2674 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2673 .
 _:c14n2675 rdf:first _:c14n2676 ;
 	rdf:rest rdf:nil .
-_:c14n2676 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2676 xsd:pattern "^[\\s\\S]{1,2}$" .
 _:c14n2677 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2681 .
@@ -7297,7 +7297,7 @@ _:c14n2680 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2679 .
 _:c14n2681 rdf:first _:c14n2682 ;
 	rdf:rest rdf:nil .
-_:c14n2682 xsd:pattern "^[\\s\\S]{1,6}$" .
+_:c14n2682 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2683 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2687 .
@@ -7309,7 +7309,7 @@ _:c14n2686 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2685 .
 _:c14n2687 rdf:first _:c14n2688 ;
 	rdf:rest rdf:nil .
-_:c14n2688 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2688 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2689 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2693 .
@@ -7324,7 +7324,7 @@ _:c14n2692 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2691 .
 _:c14n2693 rdf:first _:c14n2694 ;
 	rdf:rest rdf:nil .
-_:c14n2694 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2694 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2695 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2699 .
@@ -7342,7 +7342,7 @@ _:c14n27 a owl:Restriction ;
 _:c14n270 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_base_type .
-_:c14n2700 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n2700 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2701 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2705 .
@@ -7354,7 +7354,7 @@ _:c14n2704 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2703 .
 _:c14n2705 rdf:first _:c14n2706 ;
 	rdf:rest rdf:nil .
-_:c14n2706 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2706 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2707 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2711 .
@@ -7381,7 +7381,7 @@ _:c14n2716 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2715 .
 _:c14n2717 rdf:first _:c14n2718 ;
 	rdf:rest rdf:nil .
-_:c14n2718 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2718 xsd:pattern "^[\\s\\S]{1,6}$" .
 _:c14n2719 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2723 .
@@ -7396,7 +7396,7 @@ _:c14n2722 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2721 .
 _:c14n2723 rdf:first _:c14n2724 ;
 	rdf:rest rdf:nil .
-_:c14n2724 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2724 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2725 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2729 .
@@ -7411,7 +7411,7 @@ _:c14n2729 rdf:first _:c14n2730 ;
 _:c14n273 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:xml_base .
-_:c14n2730 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2730 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2731 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2735 .
@@ -7423,7 +7423,7 @@ _:c14n2734 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2733 .
 _:c14n2735 rdf:first _:c14n2736 ;
 	rdf:rest rdf:nil .
-_:c14n2736 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2736 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n2737 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2741 .
@@ -7450,7 +7450,7 @@ _:c14n2746 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2745 .
 _:c14n2747 rdf:first _:c14n2748 ;
 	rdf:rest rdf:nil .
-_:c14n2748 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2748 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2749 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2753 .
@@ -7465,7 +7465,7 @@ _:c14n2752 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2751 .
 _:c14n2753 rdf:first _:c14n2754 ;
 	rdf:rest rdf:nil .
-_:c14n2754 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2754 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2755 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2759 .
@@ -7492,7 +7492,7 @@ _:c14n2764 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2763 .
 _:c14n2765 rdf:first _:c14n2766 ;
 	rdf:rest rdf:nil .
-_:c14n2766 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2766 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n2767 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2771 .
@@ -7507,7 +7507,7 @@ _:c14n2770 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2769 .
 _:c14n2771 rdf:first _:c14n2772 ;
 	rdf:rest rdf:nil .
-_:c14n2772 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2772 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2773 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2777 .
@@ -7519,7 +7519,7 @@ _:c14n2776 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2775 .
 _:c14n2777 rdf:first _:c14n2778 ;
 	rdf:rest rdf:nil .
-_:c14n2778 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2778 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2779 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2783 .
@@ -7534,7 +7534,7 @@ _:c14n2782 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2781 .
 _:c14n2783 rdf:first _:c14n2784 ;
 	rdf:rest rdf:nil .
-_:c14n2784 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2784 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2785 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2789 .
@@ -7549,7 +7549,7 @@ _:c14n2789 rdf:first _:c14n2790 ;
 _:c14n279 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraTimerV10 ;
 	owl:onProperty fix_orchestra:fixr_timer .
-_:c14n2790 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2790 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2791 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2795 .
@@ -7561,7 +7561,7 @@ _:c14n2794 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2793 .
 _:c14n2795 rdf:first _:c14n2796 ;
 	rdf:rest rdf:nil .
-_:c14n2796 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2796 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2797 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2801 .
@@ -7579,7 +7579,7 @@ _:c14n2800 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2799 .
 _:c14n2801 rdf:first _:c14n2802 ;
 	rdf:rest rdf:nil .
-_:c14n2802 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2802 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2803 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2807 .
@@ -7591,7 +7591,7 @@ _:c14n2806 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2805 .
 _:c14n2807 rdf:first _:c14n2808 ;
 	rdf:rest rdf:nil .
-_:c14n2808 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2808 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n2809 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2813 .
@@ -7606,7 +7606,7 @@ _:c14n2812 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2811 .
 _:c14n2813 rdf:first _:c14n2814 ;
 	rdf:rest rdf:nil .
-_:c14n2814 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2814 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2815 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2819 .
@@ -7621,7 +7621,7 @@ _:c14n2819 rdf:first _:c14n2820 ;
 _:c14n282 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_group .
-_:c14n2820 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2820 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n2821 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2825 .
@@ -7633,7 +7633,7 @@ _:c14n2824 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2823 .
 _:c14n2825 rdf:first _:c14n2826 ;
 	rdf:rest rdf:nil .
-_:c14n2826 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2826 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2827 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2831 .
@@ -7648,7 +7648,7 @@ _:c14n2830 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2829 .
 _:c14n2831 rdf:first _:c14n2832 ;
 	rdf:rest rdf:nil .
-_:c14n2832 xsd:pattern "^-?P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" .
+_:c14n2832 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2833 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2837 .
@@ -7660,7 +7660,7 @@ _:c14n2836 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2835 .
 _:c14n2837 rdf:first _:c14n2838 ;
 	rdf:rest rdf:nil .
-_:c14n2838 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2838 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2839 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2843 .
@@ -7675,7 +7675,7 @@ _:c14n2842 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2841 .
 _:c14n2843 rdf:first _:c14n2844 ;
 	rdf:rest rdf:nil .
-_:c14n2844 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2844 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2845 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2849 .
@@ -7690,7 +7690,7 @@ _:c14n2849 rdf:first _:c14n2850 ;
 _:c14n285 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_text .
-_:c14n2850 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2850 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2851 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2855 .
@@ -7702,7 +7702,7 @@ _:c14n2854 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2853 .
 _:c14n2855 rdf:first _:c14n2856 ;
 	rdf:rest rdf:nil .
-_:c14n2856 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2856 xsd:pattern "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$" .
 _:c14n2857 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2861 .
@@ -7711,13 +7711,13 @@ _:c14n2858 rdf:first _:c14n2857 ;
 _:c14n2859 rdf:first xsd:string ;
 	rdf:rest _:c14n2858 .
 _:c14n286 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2560 ;
+	owl:allValuesFrom _:c14n3034 ;
 	owl:onProperty fix_orchestra:fixr_section .
 _:c14n2860 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2859 .
 _:c14n2861 rdf:first _:c14n2862 ;
 	rdf:rest rdf:nil .
-_:c14n2862 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2862 xsd:pattern "^-?P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" .
 _:c14n2863 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2867 .
@@ -7729,7 +7729,7 @@ _:c14n2866 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2865 .
 _:c14n2867 rdf:first _:c14n2868 ;
 	rdf:rest rdf:nil .
-_:c14n2868 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2868 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2869 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2873 .
@@ -7744,7 +7744,7 @@ _:c14n2872 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2871 .
 _:c14n2873 rdf:first _:c14n2874 ;
 	rdf:rest rdf:nil .
-_:c14n2874 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n2874 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2875 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2879 .
@@ -7771,7 +7771,7 @@ _:c14n2884 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2883 .
 _:c14n2885 rdf:first _:c14n2886 ;
 	rdf:rest rdf:nil .
-_:c14n2886 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2886 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2887 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2891 .
@@ -7786,7 +7786,7 @@ _:c14n2890 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2889 .
 _:c14n2891 rdf:first _:c14n2892 ;
 	rdf:rest rdf:nil .
-_:c14n2892 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2892 xsd:pattern "^[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*$" .
 _:c14n2893 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2897 .
@@ -7798,7 +7798,7 @@ _:c14n2896 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2895 .
 _:c14n2897 rdf:first _:c14n2898 ;
 	rdf:rest rdf:nil .
-_:c14n2898 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n2898 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2899 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2903 .
@@ -7816,7 +7816,7 @@ _:c14n2902 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2901 .
 _:c14n2903 rdf:first _:c14n2904 ;
 	rdf:rest rdf:nil .
-_:c14n2904 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2904 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2905 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2909 .
@@ -7831,7 +7831,7 @@ _:c14n2909 rdf:first _:c14n2910 ;
 _:c14n291 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_actions .
-_:c14n2910 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2910 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2911 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2915 .
@@ -7843,7 +7843,7 @@ _:c14n2914 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2913 .
 _:c14n2915 rdf:first _:c14n2916 ;
 	rdf:rest rdf:nil .
-_:c14n2916 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2916 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n2917 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2921 .
@@ -7858,7 +7858,7 @@ _:c14n2920 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2919 .
 _:c14n2921 rdf:first _:c14n2922 ;
 	rdf:rest rdf:nil .
-_:c14n2922 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n2922 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2923 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2927 .
@@ -7870,7 +7870,7 @@ _:c14n2926 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2925 .
 _:c14n2927 rdf:first _:c14n2928 ;
 	rdf:rest rdf:nil .
-_:c14n2928 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2928 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2929 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2933 .
@@ -7885,7 +7885,7 @@ _:c14n2932 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2931 .
 _:c14n2933 rdf:first _:c14n2934 ;
 	rdf:rest rdf:nil .
-_:c14n2934 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2934 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2935 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2939 .
@@ -7900,7 +7900,7 @@ _:c14n2939 rdf:first _:c14n2940 ;
 _:c14n294 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_reliability .
-_:c14n2940 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n2940 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n2941 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2945 .
@@ -7912,7 +7912,7 @@ _:c14n2944 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2943 .
 _:c14n2945 rdf:first _:c14n2946 ;
 	rdf:rest rdf:nil .
-_:c14n2946 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2946 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2947 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2951 .
@@ -7927,7 +7927,7 @@ _:c14n2950 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2949 .
 _:c14n2951 rdf:first _:c14n2952 ;
 	rdf:rest rdf:nil .
-_:c14n2952 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2952 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n2953 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2957 .
@@ -7939,7 +7939,7 @@ _:c14n2956 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2955 .
 _:c14n2957 rdf:first _:c14n2958 ;
 	rdf:rest rdf:nil .
-_:c14n2958 xsd:pattern "^(\\S+( \\S+)*)?$" .
+_:c14n2958 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n2959 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2963 .
@@ -7954,7 +7954,7 @@ _:c14n2962 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2961 .
 _:c14n2963 rdf:first _:c14n2964 ;
 	rdf:rest rdf:nil .
-_:c14n2964 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
+_:c14n2964 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n2965 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2969 .
@@ -7969,7 +7969,7 @@ _:c14n2969 rdf:first _:c14n2970 ;
 _:c14n297 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_date_copyrighted .
-_:c14n2970 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2970 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2971 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2975 .
@@ -7981,7 +7981,7 @@ _:c14n2974 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2973 .
 _:c14n2975 rdf:first _:c14n2976 ;
 	rdf:rest rdf:nil .
-_:c14n2976 xsd:pattern "^(\\S+( \\S+)*)$" .
+_:c14n2976 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2977 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2981 .
@@ -8008,7 +8008,7 @@ _:c14n2986 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2985 .
 _:c14n2987 rdf:first _:c14n2988 ;
 	rdf:rest rdf:nil .
-_:c14n2988 xsd:pattern "^(\\d+|unbounded)$" .
+_:c14n2988 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n2989 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2993 .
@@ -8023,7 +8023,7 @@ _:c14n2992 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n2991 .
 _:c14n2993 rdf:first _:c14n2994 ;
 	rdf:rest rdf:nil .
-_:c14n2994 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
+_:c14n2994 xsd:pattern "^(?=[\\s\\S]{1,255}$)(([A-Z]|[a-z])([0-9]|[A-Z]|[a-z]|_)*)$" .
 _:c14n2995 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n2999 .
@@ -8043,7 +8043,7 @@ _:c14n30 a owl:Restriction ;
 _:c14n300 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dc_subject .
-_:c14n3000 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n3000 xsd:pattern "^(\\d+|unbounded)$" .
 _:c14n3001 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3005 .
@@ -8055,7 +8055,7 @@ _:c14n3004 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3003 .
 _:c14n3005 rdf:first _:c14n3006 ;
 	rdf:rest rdf:nil .
-_:c14n3006 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
+_:c14n3006 xsd:pattern "^((FIX.2.7)|(FIX.3.0)|(FIX\\.4\\.[0-4])|((FIX.Latest|(FIX\\.5\\.0(SP\\d{1,2})?))(_EP((9[8-9])|([1-9][0-9][0-9])))?)|(FIXT.1.1)|([0-9]+)\\.([0-9]+)|(\\d{8}))$" .
 _:c14n3007 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3011 .
@@ -8070,7 +8070,7 @@ _:c14n3010 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3009 .
 _:c14n3011 rdf:first _:c14n3012 ;
 	rdf:rest rdf:nil .
-_:c14n3012 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n3012 xsd:pattern "^-?\\d{4,}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$" .
 _:c14n3013 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3017 .
@@ -8082,7 +8082,7 @@ _:c14n3016 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3015 .
 _:c14n3017 rdf:first _:c14n3018 ;
 	rdf:rest rdf:nil .
-_:c14n3018 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n3018 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n3019 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3023 .
@@ -8097,7 +8097,7 @@ _:c14n3022 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3021 .
 _:c14n3023 rdf:first _:c14n3024 ;
 	rdf:rest rdf:nil .
-_:c14n3024 xsd:pattern "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$" .
+_:c14n3024 xsd:pattern "^[\\s\\S]{0,1024}$" .
 _:c14n3025 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3029 .
@@ -8124,7 +8124,7 @@ _:c14n3034 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3033 .
 _:c14n3035 rdf:first _:c14n3036 ;
 	rdf:rest rdf:nil .
-_:c14n3036 xsd:pattern "^[\\s\\S]{0,1024}$" .
+_:c14n3036 xsd:pattern "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$" .
 _:c14n3037 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
 	owl:withRestrictions _:c14n3041 .
@@ -8133,7 +8133,7 @@ _:c14n3038 rdf:first _:c14n3037 ;
 _:c14n3039 rdf:first xsd:string ;
 	rdf:rest _:c14n3038 .
 _:c14n304 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2266 ;
+	owl:allValuesFrom _:c14n2344 ;
 	owl:onProperty fix_orchestra:fixr_lang_id .
 _:c14n3040 a rdfs:Datatype ;
 	owl:intersectionOf _:c14n3039 .
@@ -8179,7 +8179,7 @@ _:c14n3058 a rdfs:Datatype ;
 _:c14n3059 rdf:first _:c14n3060 ;
 	rdf:rest rdf:nil .
 _:c14n306 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2818 ;
+	owl:allValuesFrom _:c14n2632 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n3060 xsd:minInclusive 1 .
 _:c14n3061 a rdfs:Datatype ;
@@ -8575,7 +8575,7 @@ _:c14n3228 a rdfs:Datatype ;
 _:c14n3229 rdf:first _:c14n3230 ;
 	rdf:rest rdf:nil .
 _:c14n323 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2974 ;
+	owl:allValuesFrom _:c14n2160 ;
 	owl:onProperty fix_orchestra:fixr_deprecated .
 _:c14n3230 xsd:maxInclusive 2147483647 .
 _:c14n3231 a rdfs:Datatype ;
@@ -8886,7 +8886,7 @@ _:c14n340 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_unique .
 _:c14n341 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3022 ;
+	owl:allValuesFrom _:c14n2830 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n342 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -8910,13 +8910,13 @@ _:c14n348 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_parameter .
 _:c14n349 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2398 ;
+	owl:allValuesFrom _:c14n2464 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n35 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraFieldRefV11 ;
 	owl:onProperty fix_orchestra:fixr_field_ref .
 _:c14n350 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2800 ;
+	owl:allValuesFrom _:c14n2842 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n351 a owl:Restriction ;
 	owl:allValuesFrom _:c14n3299 ;
@@ -8937,7 +8937,7 @@ _:c14n356 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_builtin .
 _:c14n357 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2536 ;
+	owl:allValuesFrom _:c14n2578 ;
 	owl:onProperty fix_orchestra:fixr_interval .
 _:c14n358 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -8972,7 +8972,7 @@ _:c14n367 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dc_language .
 _:c14n368 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2163 ;
+	owl:allValuesFrom _:c14n2199 ;
 	owl:onProperty fix_orchestra:fixr_impl_length .
 _:c14n369 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -8996,7 +8996,7 @@ _:c14n374 a owl:Restriction ;
 	owl:allValuesFrom xsd:anyURI ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n375 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2278 ;
+	owl:allValuesFrom _:c14n2698 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n376 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
@@ -9087,7 +9087,7 @@ _:c14n400 a owl:Restriction ;
 _:c14n401 rdf:first fix_orchestra:OrchestraPresence\#forbidden ;
 	rdf:rest _:c14n399 .
 _:c14n402 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2488 ;
+	owl:allValuesFrom _:c14n2536 ;
 	owl:onProperty fix_orchestra:fixr_fixml_file_name .
 _:c14n403 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraSessionProtocolV11 ;
@@ -9111,10 +9111,10 @@ _:c14n409 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_states .
 _:c14n41 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2608 ;
+	owl:allValuesFrom _:c14n2926 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n410 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2812 ;
+	owl:allValuesFrom _:c14n2848 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n411 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -9199,7 +9199,7 @@ _:c14n436 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_impl_min_occurs .
 _:c14n437 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2590 ;
+	owl:allValuesFrom _:c14n2644 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n438 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraEncodingsV11 ;
@@ -9226,7 +9226,7 @@ _:c14n444 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_session_protocol .
 _:c14n445 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2338 ;
+	owl:allValuesFrom _:c14n2524 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n446 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9258,7 +9258,7 @@ _:c14n454 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n455 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2872 ;
+	owl:allValuesFrom _:c14n2890 ;
 	owl:onProperty fix_orchestra:fixi_lang_id .
 _:c14n456 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraSectionsV10 ;
@@ -9288,7 +9288,7 @@ _:c14n463 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_value .
 _:c14n464 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2764 ;
+	owl:allValuesFrom _:c14n2866 ;
 	owl:onProperty fix_orchestra:fixr_standard .
 _:c14n465 rdf:first fix_orchestra:OrchestraReliability\#bestEffort ;
 	rdf:rest _:c14n588 .
@@ -9325,7 +9325,7 @@ _:c14n474 a owl:Restriction ;
 _:c14n475 rdf:first fix_orchestra:OrchestraProtocolName\#SOFH ;
 	rdf:rest _:c14n1581 .
 _:c14n476 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2854 ;
+	owl:allValuesFrom _:c14n2878 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n477 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraFieldRuleV10 ;
@@ -9337,7 +9337,7 @@ _:c14n479 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dc_rights .
 _:c14n48 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2716 ;
+	owl:allValuesFrom _:c14n2656 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n480 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -9395,7 +9395,7 @@ _:c14n497 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_group .
 _:c14n498 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2284 ;
+	owl:allValuesFrom _:c14n2308 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n499 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -9406,7 +9406,7 @@ _:c14n5 a owl:Restriction ;
 _:c14n50 rdf:first fix_orchestra:OrchestraPurpose\#ELABORATION ;
 	rdf:rest _:c14n250 .
 _:c14n500 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2638 ;
+	owl:allValuesFrom _:c14n3016 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n501 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9485,7 +9485,7 @@ _:c14n524 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV11 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n525 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2224 ;
+	owl:allValuesFrom _:c14n2296 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n526 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -9542,7 +9542,7 @@ _:c14n541 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_min_inclusive .
 _:c14n542 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2494 ;
+	owl:allValuesFrom _:c14n2350 ;
 	owl:onProperty fix_orchestra:fixi_content_type .
 _:c14n543 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -9551,7 +9551,7 @@ _:c14n544 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n545 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2410 ;
+	owl:allValuesFrom _:c14n2476 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n546 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -9560,7 +9560,7 @@ _:c14n547 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_metadata .
 _:c14n548 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2572 ;
+	owl:allValuesFrom _:c14n2620 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n549 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -9597,7 +9597,7 @@ _:c14n559 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n56 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2296 ;
+	owl:allValuesFrom _:c14n2374 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n560 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -9618,7 +9618,7 @@ _:c14n565 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_is_replaced_by .
 _:c14n566 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2260 ;
+	owl:allValuesFrom _:c14n2332 ;
 	owl:onProperty fix_orchestra:fixr_actor .
 _:c14n567 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9630,7 +9630,7 @@ _:c14n569 a owl:Restriction ;
 	owl:allValuesFrom xsd:anyURI ;
 	owl:onProperty fix_orchestra:xml_base .
 _:c14n57 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2824 ;
+	owl:allValuesFrom _:c14n2242 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n570 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9645,16 +9645,16 @@ _:c14n573 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_use .
 _:c14n574 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2506 ;
+	owl:allValuesFrom _:c14n2500 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n575 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2470 ;
+	owl:allValuesFrom _:c14n2752 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n576 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n577 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3016 ;
+	owl:allValuesFrom _:c14n2338 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n578 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -9748,7 +9748,7 @@ _:c14n604 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_activation_time .
 _:c14n605 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2242 ;
+	owl:allValuesFrom _:c14n2314 ;
 	owl:onProperty fix_orchestra:fixi_activation_time .
 _:c14n606 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9772,7 +9772,7 @@ _:c14n611 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_discriminator_id .
 _:c14n612 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2386 ;
+	owl:allValuesFrom _:c14n2452 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n613 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraGroupRefV10 ;
@@ -9799,7 +9799,7 @@ _:c14n62 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_replaced_ep .
 _:c14n620 a owl:Restriction ;
-	owl:allValuesFrom _:c14n3028 ;
+	owl:allValuesFrom _:c14n3022 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n621 a owl:Restriction ;
 	owl:allValuesFrom _:c14n2054 ;
@@ -9829,7 +9829,7 @@ _:c14n629 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n63 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2836 ;
+	owl:allValuesFrom _:c14n2512 ;
 	owl:onProperty fix_orchestra:fixr_value .
 _:c14n630 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -9847,7 +9847,7 @@ _:c14n634 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:dcterms_replaces .
 _:c14n635 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2884 ;
+	owl:allValuesFrom _:c14n2596 ;
 	owl:onProperty fix_orchestra:fixr_code_set .
 _:c14n636 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9899,10 +9899,10 @@ _:c14n650 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_user_interface .
 _:c14n651 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2392 ;
+	owl:allValuesFrom _:c14n2458 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n652 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2662 ;
+	owl:allValuesFrom _:c14n2704 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n653 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -9959,7 +9959,7 @@ _:c14n669 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_lang_id .
 _:c14n67 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2542 ;
+	owl:allValuesFrom _:c14n2590 ;
 	owl:onProperty fix_orchestra:fixi_address .
 _:c14n670 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -10076,7 +10076,7 @@ _:c14n703 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n704 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2968 ;
+	owl:allValuesFrom _:c14n2986 ;
 	owl:onProperty fix_orchestra:fixr_added .
 _:c14n705 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -10181,7 +10181,7 @@ _:c14n735 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n736 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2896 ;
+	owl:allValuesFrom _:c14n2914 ;
 	owl:onProperty fix_orchestra:fixi_deactivation_time .
 _:c14n737 a owl:Restriction ;
 	owl:allValuesFrom xsd:anyURI ;
@@ -10206,7 +10206,7 @@ _:c14n743 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n744 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2704 ;
+	owl:allValuesFrom _:c14n2166 ;
 	owl:onProperty fix_orchestra:fixr_replaced .
 _:c14n745 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10238,7 +10238,7 @@ _:c14n753 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n754 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2632 ;
+	owl:allValuesFrom _:c14n2668 ;
 	owl:onProperty fix_orchestra:fixr_flow .
 _:c14n755 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10340,7 +10340,7 @@ _:c14n785 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_max_inclusive .
 _:c14n786 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2680 ;
+	owl:allValuesFrom _:c14n2716 ;
 	owl:onProperty fix_orchestra:fixr_msg_type .
 _:c14n787 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10349,7 +10349,7 @@ _:c14n788 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n789 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2950 ;
+	owl:allValuesFrom _:c14n2974 ;
 	owl:onProperty fix_orchestra:fixr_instance_name .
 _:c14n79 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -10390,7 +10390,7 @@ _:c14n80 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_onexit .
 _:c14n800 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2464 ;
+	owl:allValuesFrom _:c14n2266 ;
 	owl:onProperty fix_orchestra:fixr_actor .
 _:c14n801 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10423,13 +10423,13 @@ _:c14n81 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_annotation .
 _:c14n810 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2848 ;
+	owl:allValuesFrom _:c14n2824 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n811 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_length .
 _:c14n812 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2482 ;
+	owl:allValuesFrom _:c14n2142 ;
 	owl:onProperty fix_orchestra:fixr_version .
 _:c14n813 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
@@ -10496,7 +10496,7 @@ _:c14n832 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_content_type .
 _:c14n833 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2458 ;
+	owl:allValuesFrom _:c14n2518 ;
 	owl:onProperty fix_orchestra:fixr_replaced .
 _:c14n834 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10522,7 +10522,7 @@ _:c14n840 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_min_inclusive .
 _:c14n841 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2476 ;
+	owl:allValuesFrom _:c14n2962 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n842 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraAnnotationV10 ;
@@ -10557,7 +10557,7 @@ _:c14n851 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraComponentRuleV11 ;
 	owl:onProperty fix_orchestra:fixr_rule .
 _:c14n852 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2920 ;
+	owl:allValuesFrom _:c14n2812 ;
 	owl:onProperty fix_orchestra:fixr_type .
 _:c14n853 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraComponentV11 ;
@@ -10590,7 +10590,7 @@ _:c14n861 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:fixi_address .
 _:c14n862 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2290 ;
+	owl:allValuesFrom _:c14n2686 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n863 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraXmlElement ;
@@ -10616,7 +10616,7 @@ _:c14n87 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_spec_url .
 _:c14n870 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2153 ;
+	owl:allValuesFrom _:c14n2189 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_length .
 _:c14n871 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10669,10 +10669,10 @@ _:c14n885 a owl:Restriction ;
 _:c14n886 rdf:first fix_orchestra:OrchestraSupport\#forbidden ;
 	rdf:rest _:c14n1697 .
 _:c14n887 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2674 ;
+	owl:allValuesFrom _:c14n2710 ;
 	owl:onProperty fix_orchestra:fixr_when .
 _:c14n888 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2368 ;
+	owl:allValuesFrom _:c14n2446 ;
 	owl:onProperty fix_orchestra:fixr_impl_max_occurs .
 _:c14n889 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10717,7 +10717,7 @@ _:c14n90 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixi_security_keys .
 _:c14n900 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2254 ;
+	owl:allValuesFrom _:c14n2326 ;
 	owl:onProperty fix_orchestra:fixi_deprecated .
 _:c14n901 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10816,14 +10816,14 @@ _:c14n93 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_encodings .
 _:c14n930 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2374 ;
+	owl:allValuesFrom _:c14n2854 ;
 	owl:onProperty fix_orchestra:fixi_name .
 _:c14n931 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2626 ;
+	owl:allValuesFrom _:c14n2662 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n932 owl:unionOf _:c14n867 .
 _:c14n933 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2620 ;
+	owl:allValuesFrom _:c14n2542 ;
 	owl:onProperty fix_orchestra:fixr_scenario_ref .
 _:c14n934 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraInterfaceAppinfoV11 ;
@@ -10844,7 +10844,7 @@ _:c14n939 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_supported .
 _:c14n94 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2350 ;
+	owl:allValuesFrom _:c14n2614 ;
 	owl:onProperty fix_orchestra:fixr_base_category .
 _:c14n940 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10859,7 +10859,7 @@ _:c14n943 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_message_ref .
 _:c14n944 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2193 ;
+	owl:allValuesFrom _:c14n2229 ;
 	owl:onProperty fix_orchestra:fixr_impl_length .
 _:c14n945 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10890,7 +10890,7 @@ _:c14n953 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty fix_orchestra:dcterms_education_level .
 _:c14n954 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2740 ;
+	owl:allValuesFrom _:c14n2776 ;
 	owl:onProperty fix_orchestra:fixr_assign .
 _:c14n955 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10911,7 +10911,7 @@ _:c14n96 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_onexit .
 _:c14n960 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2566 ;
+	owl:allValuesFrom _:c14n2932 ;
 	owl:onProperty fix_orchestra:fixr_scenario .
 _:c14n961 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10935,7 +10935,7 @@ _:c14n967 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty fix_orchestra:fixr_base .
 _:c14n968 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2944 ;
+	owl:allValuesFrom _:c14n2968 ;
 	owl:onProperty fix_orchestra:fixr_category .
 _:c14n969 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -10959,7 +10959,7 @@ _:c14n974 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty fix_orchestra:fixr_default .
 _:c14n975 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2842 ;
+	owl:allValuesFrom _:c14n2872 ;
 	owl:onProperty fix_orchestra:fixr_type .
 _:c14n976 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -10983,7 +10983,7 @@ _:c14n981 a owl:Restriction ;
 	owl:allValuesFrom fix_orchestra:OrchestraProtocolV11 ;
 	owl:onProperty fix_orchestra:fixi_protocol .
 _:c14n982 a owl:Restriction ;
-	owl:allValuesFrom _:c14n2980 ;
+	owl:allValuesFrom _:c14n2992 ;
 	owl:onProperty fix_orchestra:fixr_name .
 _:c14n983 a owl:Restriction ;
 	owl:minCardinality 0 ;

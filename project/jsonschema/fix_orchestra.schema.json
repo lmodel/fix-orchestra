@@ -860,7 +860,7 @@
                 },
                 "fixr_name": {
                     "description": "The actor's name, unique among the repository's actors.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -1256,7 +1256,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1282,7 +1282,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1304,7 +1304,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1320,7 +1320,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1355,7 +1355,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1551,7 +1551,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1587,7 +1587,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1617,7 +1617,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1649,7 +1649,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1699,7 +1699,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -1868,7 +1868,7 @@
                 },
                 "fixi_name": {
                     "description": "The interface's or session's name, unique within the file.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": "string"
                 },
                 "fixi_other_attributes": {
@@ -2241,7 +2241,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2278,7 +2278,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2311,7 +2311,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2319,12 +2319,12 @@
                 },
                 "fixr_name": {
                     "description": "The category's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2348,7 +2348,7 @@
                 },
                 "fixr_section": {
                     "description": "The section the category belongs to, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_supported": {
@@ -2364,7 +2364,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2584,7 +2584,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2592,7 +2592,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2646,7 +2646,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2685,7 +2685,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2693,12 +2693,12 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2722,7 +2722,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2730,7 +2730,7 @@
                 },
                 "fixr_scenario_ref": {
                     "description": "The scenario the element belongs to, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2766,12 +2766,12 @@
                 },
                 "fixr_type": {
                     "description": "The set's datatype, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_union_data_type": {
                     "description": "A datatype whose values a field of this set may hold beside its codes, such as a range kept for user-defined values.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -2779,7 +2779,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3054,7 +3054,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3062,7 +3062,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3099,7 +3099,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3134,7 +3134,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3142,12 +3142,12 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3171,7 +3171,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3198,7 +3198,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3213,7 +3213,7 @@
                 },
                 "fixr_value": {
                     "description": "The value that goes on the wire for this code.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": "string"
                 }
             },
@@ -3410,7 +3410,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3457,7 +3457,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3489,7 +3489,7 @@
                 },
                 "fixr_instance_name": {
                     "description": "A name for this use of the element, so that one message or block can hold it more than once.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3504,7 +3504,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3512,7 +3512,7 @@
                 },
                 "fixr_name": {
                     "description": "The element in use, by name, for readability; the number decides which element is meant.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3531,7 +3531,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3565,7 +3565,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The scenario of the element in use; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3584,7 +3584,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3645,7 +3645,7 @@
             "properties": {
                 "fixr_name": {
                     "description": "The rule's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3868,7 +3868,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3876,7 +3876,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3902,7 +3902,7 @@
                 },
                 "fixr_category": {
                     "description": "The category the component belongs to, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3921,7 +3921,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3960,7 +3960,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -3978,7 +3978,7 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_rendering": {
@@ -3990,7 +3990,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4014,7 +4014,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4022,7 +4022,7 @@
                 },
                 "fixr_scenario_ref": {
                     "description": "The scenario the element belongs to, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4050,7 +4050,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4397,7 +4397,7 @@
                 },
                 "fixr_name": {
                     "description": "The concept's name, unique among the repository's concepts.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -4674,7 +4674,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4700,7 +4700,7 @@
                 },
                 "fixr_base_type": {
                     "description": "The datatype this one narrows, such as int for Length.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4719,7 +4719,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4741,7 +4741,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4759,12 +4759,12 @@
                 },
                 "fixr_name": {
                     "description": "The datatype's name, such as Price.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -4799,7 +4799,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5056,7 +5056,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5090,7 +5090,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5120,7 +5120,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5142,7 +5142,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5184,7 +5184,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5236,7 +5236,7 @@
                 },
                 "fixr_name": {
                     "description": "The encoding standard's name, which encoding blocks use.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -5447,7 +5447,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -5890,7 +5890,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -5935,7 +5935,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6001,7 +6001,7 @@
                 },
                 "fixr_instance_name": {
                     "description": "A name for this use of the element, so that one message or block can hold it more than once.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6016,7 +6016,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6047,7 +6047,7 @@
                 },
                 "fixr_name": {
                     "description": "The element in use, by name, for readability; the number decides which element is meant.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6082,7 +6082,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6116,7 +6116,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The scenario of the element in use; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6135,7 +6135,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6353,7 +6353,7 @@
                 },
                 "fixr_name": {
                     "description": "The rule's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6379,7 +6379,7 @@
                 },
                 "fixr_type": {
                     "description": "The datatype the field takes while the rule's condition holds.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6713,7 +6713,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6721,7 +6721,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6755,7 +6755,7 @@
                 },
                 "fixr_base_category": {
                     "description": "The category the field belongs to in the base specification.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6763,7 +6763,7 @@
                 },
                 "fixr_base_category_abbr_name": {
                     "description": "The short name the field takes within its base category in FIXML.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6782,7 +6782,7 @@
                 },
                 "fixr_code_set": {
                     "description": "The field's code set, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6790,7 +6790,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6872,7 +6872,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6903,7 +6903,7 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_non_encoded_field_id": {
@@ -6935,7 +6935,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6969,7 +6969,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6988,7 +6988,7 @@
                 },
                 "fixr_type": {
                     "description": "The datatype that gives the field's values, by name, when no code set does.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -6996,7 +6996,7 @@
                 },
                 "fixr_union_data_type": {
                     "description": "A datatype whose values the field may hold beside its codes, such as a range kept for user-defined values.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7004,7 +7004,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7172,7 +7172,7 @@
                 },
                 "fixr_name": {
                     "description": "The flow's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_reliability": {
@@ -7400,7 +7400,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7447,7 +7447,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7495,7 +7495,7 @@
                 },
                 "fixr_instance_name": {
                     "description": "A name for this use of the element, so that one message or block can hold it more than once.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7510,7 +7510,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7518,7 +7518,7 @@
                 },
                 "fixr_name": {
                     "description": "The element in use, by name, for readability; the number decides which element is meant.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7537,7 +7537,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7571,7 +7571,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The scenario of the element in use; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7590,7 +7590,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7831,7 +7831,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7839,7 +7839,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7865,7 +7865,7 @@
                 },
                 "fixr_category": {
                     "description": "The category the group belongs to, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7884,7 +7884,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7939,7 +7939,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -7957,7 +7957,7 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_num_in_group": {
@@ -7980,7 +7980,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8004,7 +8004,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8012,7 +8012,7 @@
                 },
                 "fixr_scenario_ref": {
                     "description": "The scenario the element belongs to, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8040,7 +8040,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8190,7 +8190,7 @@
                 },
                 "fixr_name": {
                     "description": "The field that is set or carried over, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8411,7 +8411,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8425,12 +8425,12 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -8778,7 +8778,7 @@
                 },
                 "fixi_content_type": {
                     "description": "The media type of the text; text/plain when none is given.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -8951,7 +8951,7 @@
                 },
                 "fixi_name": {
                     "description": "The interface's or session's name, unique within the file.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": "string"
                 },
                 "fixi_other_attributes": {
@@ -9271,7 +9271,7 @@
                 },
                 "fixr_standard": {
                     "description": "The standard the datatype is written in, such as XML or GPB.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -9412,7 +9412,7 @@
                 },
                 "fixr_name": {
                     "description": "The element in use, by name, for readability; the number decides which element is meant.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9420,7 +9420,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The scenario of the element in use; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9691,7 +9691,7 @@
             "properties": {
                 "fixr_abbr_name": {
                     "description": "A short form of the name, which FIXML uses for tags.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9699,7 +9699,7 @@
                 },
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9725,7 +9725,7 @@
                 },
                 "fixr_category": {
                     "description": "The category the message belongs to, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9744,7 +9744,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9770,7 +9770,7 @@
                 },
                 "fixr_flow": {
                     "description": "The flow that carries the message, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9791,7 +9791,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9807,7 +9807,7 @@
                 },
                 "fixr_name": {
                     "description": "The element's name, unique among elements of its kind within one scenario.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_rendering": {
@@ -9819,7 +9819,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9854,7 +9854,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The use case this variant of the element serves, such as a workflow or an asset class; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9862,7 +9862,7 @@
                 },
                 "fixr_scenario_ref": {
                     "description": "The scenario the element belongs to, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -9901,7 +9901,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -10747,7 +10747,7 @@
                 },
                 "fixr_standard": {
                     "description": "The encoding standard this block is for, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -10876,7 +10876,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -10902,7 +10902,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -10924,7 +10924,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -10932,7 +10932,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -10967,7 +10967,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11189,7 +11189,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -11260,7 +11260,7 @@
                 },
                 "fixr_name": {
                     "description": "The element in use, by name, for readability; the number decides which element is meant.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11268,7 +11268,7 @@
                 },
                 "fixr_scenario": {
                     "description": "The scenario of the element in use; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11645,7 +11645,7 @@
                 },
                 "fixr_version": {
                     "description": "The repository's version, such as FIX.Latest_EP312.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -11749,7 +11749,7 @@
                 },
                 "fixr_name": {
                     "description": "The response's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11846,7 +11846,7 @@
             "properties": {
                 "fixr_scenario_ref": {
                     "description": "The scenario the element belongs to, by name, for readability.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11871,7 +11871,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11908,7 +11908,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11930,7 +11930,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11938,7 +11938,7 @@
                 },
                 "fixr_name": {
                     "description": "The scenario's name; base when none is given.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11946,7 +11946,7 @@
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -11981,7 +11981,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12190,7 +12190,7 @@
             "properties": {
                 "fixr_added": {
                     "description": "The FIX version in which the element first appeared.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12227,7 +12227,7 @@
                 },
                 "fixr_deprecated": {
                     "description": "The FIX version from which the element is deprecated.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12269,7 +12269,7 @@
                 },
                 "fixr_last_modified": {
                     "description": "The FIX version in which the element last changed.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12277,12 +12277,12 @@
                 },
                 "fixr_name": {
                     "description": "The section's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_replaced": {
                     "description": "The FIX version in which another element took this one's place.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12317,7 +12317,7 @@
                 },
                 "fixr_updated": {
                     "description": "The FIX version of the element's latest update.",
-                    "pattern": "^(\\S+( \\S+)*)$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": [
                         "string",
                         "null"
@@ -12583,7 +12583,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -12621,7 +12621,7 @@
             "properties": {
                 "fixi_name": {
                     "description": "What kind of identifier this is, such as SenderCompID.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -12813,7 +12813,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -13016,7 +13016,7 @@
                 },
                 "fixi_name": {
                     "description": "The interface's or session's name, unique within the file.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": "string"
                 },
                 "fixi_other_attributes": {
@@ -13204,7 +13204,7 @@
                 },
                 "fixr_name": {
                     "description": "The state machine's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_state": {
@@ -13322,7 +13322,7 @@
                 },
                 "fixr_name": {
                     "description": "The state's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_onentry": {
@@ -13578,7 +13578,7 @@
                 },
                 "fixr_actor": {
                     "description": "The actor whose timer or state machine this is, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_interval": {
@@ -13591,7 +13591,7 @@
                 },
                 "fixr_name": {
                     "description": "The timer to start, stop or restart, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_operation": {
@@ -13630,7 +13630,7 @@
             "properties": {
                 "fixr_name": {
                     "description": "The timer's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 }
             },
@@ -13697,7 +13697,7 @@
                 },
                 "fixr_name": {
                     "description": "The transition's name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_target": {
@@ -13856,7 +13856,7 @@
                 },
                 "fixi_address": {
                     "description": "The address to connect to, such as a host and port.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -13970,7 +13970,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"
@@ -14013,12 +14013,12 @@
             "properties": {
                 "fixr_actor": {
                     "description": "The actor whose timer or state machine this is, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_name": {
                     "description": "The transition to fire, by name.",
-                    "pattern": "^(?=[\\s\\S]{1,64}$)(\\S+( \\S+)*)$",
+                    "pattern": "^(?=[\\s\\S]{1,64}$)([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)$",
                     "type": "string"
                 },
                 "fixr_state_machine": {
@@ -14286,7 +14286,7 @@
                 },
                 "fixi_version": {
                     "description": "The protocol's version.",
-                    "pattern": "^(\\S+( \\S+)*)?$",
+                    "pattern": "^([^ \\t\\r\\n]+( [^ \\t\\r\\n]+)*)?$",
                     "type": [
                         "string",
                         "null"

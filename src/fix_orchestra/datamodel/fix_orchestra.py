@@ -9817,7 +9817,7 @@ slots.orchestraActorV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotatio
 
 slots.orchestraActorV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraActorV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraActorV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraActorsMemberV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraActorsMemberV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
                    model_uri=FIX_ORCHESTRA.orchestraActorsMemberV11__fixr_actor, domain=None, range=Optional[Union[dict, OrchestraActorV11]])
@@ -9891,7 +9891,7 @@ slots.orchestraBaseInterfaceV11__fixi_annotation = Slot(uri=FIX_ORCHESTRA.fixi_a
 
 slots.orchestraBaseInterfaceV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraBaseInterfaceV11__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
                    model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_name, domain=None, range=str,
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraBaseInterfaceV11__fixi_other_attributes = Slot(uri=FIX_ORCHESTRA.fixi_other_attributes, name="orchestraBaseInterfaceV11__fixi_other_attributes", curie=FIX_ORCHESTRA.curie('fixi_other_attributes'),
                    model_uri=FIX_ORCHESTRA.orchestraBaseInterfaceV11__fixi_other_attributes, domain=None, range=Optional[Union[Union[dict, OrchestraXmlAttribute], list[Union[dict, OrchestraXmlAttribute]]]])
@@ -9916,11 +9916,11 @@ slots.orchestraCategoryV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annota
 
 slots.orchestraCategoryV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraCategoryV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraCategoryV11__fixr_section = Slot(uri=FIX_ORCHESTRA.fixr_section, name="orchestraCategoryV11__fixr_section", curie=FIX_ORCHESTRA.curie('fixr_section'),
                    model_uri=FIX_ORCHESTRA.orchestraCategoryV11__fixr_section, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraCodeSetV11__fixr_code = Slot(uri=FIX_ORCHESTRA.fixr_code, name="orchestraCodeSetV11__fixr_code", curie=FIX_ORCHESTRA.curie('fixr_code'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_code, domain=None, range=Optional[Union[Union[dict, OrchestraCodeV11], list[Union[dict, OrchestraCodeV11]]]])
@@ -9933,7 +9933,7 @@ slots.orchestraCodeSetV11__fixr_encodings = Slot(uri=FIX_ORCHESTRA.fixr_encoding
 
 slots.orchestraCodeSetV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraCodeSetV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_type, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraCodeSetV11__fixr_default = Slot(uri=FIX_ORCHESTRA.fixr_default, name="orchestraCodeSetV11__fixr_default", curie=FIX_ORCHESTRA.curie('fixr_default'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_default, domain=None, range=Optional[str])
@@ -9943,7 +9943,7 @@ slots.orchestraCodeSetV11__fixr_spec_url = Slot(uri=FIX_ORCHESTRA.fixr_spec_url,
 
 slots.orchestraCodeSetV11__fixr_union_data_type = Slot(uri=FIX_ORCHESTRA.fixr_union_data_type, name="orchestraCodeSetV11__fixr_union_data_type", curie=FIX_ORCHESTRA.curie('fixr_union_data_type'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeSetV11__fixr_union_data_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraCodeSetsV11__fixr_code_set = Slot(uri=FIX_ORCHESTRA.fixr_code_set, name="orchestraCodeSetsV11__fixr_code_set", curie=FIX_ORCHESTRA.curie('fixr_code_set'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeSetsV11__fixr_code_set, domain=None, range=Optional[Union[Union[dict, OrchestraCodeSetV11], list[Union[dict, OrchestraCodeSetV11]]]])
@@ -9962,7 +9962,7 @@ slots.orchestraCodeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation
 
 slots.orchestraCodeV11__fixr_value = Slot(uri=FIX_ORCHESTRA.fixr_value, name="orchestraCodeV11__fixr_value", curie=FIX_ORCHESTRA.curie('fixr_value'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_value, domain=None, range=str,
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraCodeV11__fixr_sort = Slot(uri=FIX_ORCHESTRA.fixr_sort, name="orchestraCodeV11__fixr_sort", curie=FIX_ORCHESTRA.curie('fixr_sort'),
                    model_uri=FIX_ORCHESTRA.orchestraCodeV11__fixr_sort, domain=None, range=Optional[int])
@@ -9987,7 +9987,7 @@ slots.orchestraComponentRefV11__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_pres
 
 slots.orchestraComponentRefV11__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraComponentRefV11__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentRefV11__fixr_instance_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraComponentRuleV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraComponentRuleV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_when, domain=None, range=str,
@@ -9995,7 +9995,7 @@ slots.orchestraComponentRuleV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, n
 
 slots.orchestraComponentRuleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraComponentRuleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraComponentRuleV11__fixr_presence = Slot(uri=FIX_ORCHESTRA.fixr_presence, name="orchestraComponentRuleV11__fixr_presence", curie=FIX_ORCHESTRA.curie('fixr_presence'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentRuleV11__fixr_presence, domain=None, range=Optional[Union[str, "OrchestraPresence"]])
@@ -10011,7 +10011,7 @@ slots.orchestraComponentV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annot
 
 slots.orchestraComponentV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraComponentV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_category, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraComponentV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraComponentV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
                    model_uri=FIX_ORCHESTRA.orchestraComponentV11__fixr_rendering, domain=None, range=Optional[str])
@@ -10051,7 +10051,7 @@ slots.orchestraConceptV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotat
 
 slots.orchestraConceptV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraConceptV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraConceptV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraConceptsV11__fixr_concept = Slot(uri=FIX_ORCHESTRA.fixr_concept, name="orchestraConceptsV11__fixr_concept", curie=FIX_ORCHESTRA.curie('fixr_concept'),
                    model_uri=FIX_ORCHESTRA.orchestraConceptsV11__fixr_concept, domain=None, range=Optional[Union[Union[dict, OrchestraConceptV11], list[Union[dict, OrchestraConceptV11]]]])
@@ -10070,11 +10070,11 @@ slots.orchestraDatatypeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annota
 
 slots.orchestraDatatypeV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraDatatypeV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraDatatypeV11__fixr_base_type = Slot(uri=FIX_ORCHESTRA.fixr_base_type, name="orchestraDatatypeV11__fixr_base_type", curie=FIX_ORCHESTRA.curie('fixr_base_type'),
                    model_uri=FIX_ORCHESTRA.orchestraDatatypeV11__fixr_base_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraDatatypesV11__fixr_datatype = Slot(uri=FIX_ORCHESTRA.fixr_datatype, name="orchestraDatatypesV11__fixr_datatype", curie=FIX_ORCHESTRA.curie('fixr_datatype'),
                    model_uri=FIX_ORCHESTRA.orchestraDatatypesV11__fixr_datatype, domain=None, range=Optional[Union[Union[dict, OrchestraDatatypeV11], list[Union[dict, OrchestraDatatypeV11]]]])
@@ -10107,7 +10107,7 @@ slots.orchestraEncodingStandardV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fix
 
 slots.orchestraEncodingStandardV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraEncodingStandardV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraEncodingStandardV11__fixr_display_name = Slot(uri=FIX_ORCHESTRA.fixr_display_name, name="orchestraEncodingStandardV11__fixr_display_name", curie=FIX_ORCHESTRA.curie('fixr_display_name'),
                    model_uri=FIX_ORCHESTRA.orchestraEncodingStandardV11__fixr_display_name, domain=None, range=Optional[str])
@@ -10169,7 +10169,7 @@ slots.orchestraFieldRefV11__fixr_non_encoded_field_id = Slot(uri=FIX_ORCHESTRA.f
 
 slots.orchestraFieldRefV11__fixr_instance_name = Slot(uri=FIX_ORCHESTRA.fixr_instance_name, name="orchestraFieldRefV11__fixr_instance_name", curie=FIX_ORCHESTRA.curie('fixr_instance_name'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldRefV11__fixr_instance_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldRuleV11__fixr_unique = Slot(uri=FIX_ORCHESTRA.fixr_unique, name="orchestraFieldRuleV11__fixr_unique", curie=FIX_ORCHESTRA.curie('fixr_unique'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_unique, domain=None, range=Optional[Union[dict, OrchestraUniqueV11]])
@@ -10184,11 +10184,11 @@ slots.orchestraFieldRuleV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name=
 
 slots.orchestraFieldRuleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFieldRuleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldRuleV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldRuleV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldRuleV11__fixr_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldV11__fixr_rule = Slot(uri=FIX_ORCHESTRA.fixr_rule, name="orchestraFieldV11__fixr_rule", curie=FIX_ORCHESTRA.curie('fixr_rule'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_rule, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRuleV11], list[Union[dict, OrchestraFieldRuleV11]]]])
@@ -10205,11 +10205,11 @@ slots.orchestraFieldV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotatio
 
 slots.orchestraFieldV11__fixr_type = Slot(uri=FIX_ORCHESTRA.fixr_type, name="orchestraFieldV11__fixr_type", curie=FIX_ORCHESTRA.curie('fixr_type'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldV11__fixr_code_set = Slot(uri=FIX_ORCHESTRA.fixr_code_set, name="orchestraFieldV11__fixr_code_set", curie=FIX_ORCHESTRA.curie('fixr_code_set'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_code_set, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldV11__fixr_length_id = Slot(uri=FIX_ORCHESTRA.fixr_length_id, name="orchestraFieldV11__fixr_length_id", curie=FIX_ORCHESTRA.curie('fixr_length_id'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_length_id, domain=None, range=Optional[int])
@@ -10222,15 +10222,15 @@ slots.orchestraFieldV11__fixr_discriminator_id = Slot(uri=FIX_ORCHESTRA.fixr_dis
 
 slots.orchestraFieldV11__fixr_base_category = Slot(uri=FIX_ORCHESTRA.fixr_base_category, name="orchestraFieldV11__fixr_base_category", curie=FIX_ORCHESTRA.curie('fixr_base_category'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_base_category, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldV11__fixr_base_category_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_base_category_abbr_name, name="orchestraFieldV11__fixr_base_category_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_base_category_abbr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_base_category_abbr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldV11__fixr_union_data_type = Slot(uri=FIX_ORCHESTRA.fixr_union_data_type, name="orchestraFieldV11__fixr_union_data_type", curie=FIX_ORCHESTRA.curie('fixr_union_data_type'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldV11__fixr_union_data_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFieldsV11__fixr_field = Slot(uri=FIX_ORCHESTRA.fixr_field, name="orchestraFieldsV11__fixr_field", curie=FIX_ORCHESTRA.curie('fixr_field'),
                    model_uri=FIX_ORCHESTRA.orchestraFieldsV11__fixr_field, domain=None, range=Optional[Union[Union[dict, OrchestraFieldV11], list[Union[dict, OrchestraFieldV11]]]])
@@ -10246,7 +10246,7 @@ slots.orchestraFlowV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation
 
 slots.orchestraFlowV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraFlowV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraFlowV11__fixr_source = Slot(uri=FIX_ORCHESTRA.fixr_source, name="orchestraFlowV11__fixr_source", curie=FIX_ORCHESTRA.curie('fixr_source'),
                    model_uri=FIX_ORCHESTRA.orchestraFlowV11__fixr_source, domain=None, range=str)
@@ -10278,7 +10278,7 @@ slots.orchestraGroupV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotatio
 
 slots.orchestraGroupV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraGroupV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
                    model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_category, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraGroupV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraGroupV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
                    model_uri=FIX_ORCHESTRA.orchestraGroupV11__fixr_rendering, domain=None, range=Optional[str])
@@ -10310,7 +10310,7 @@ slots.orchestraIdentifierV11__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name="or
 
 slots.orchestraIdentifierV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraIdentifierV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraIdentifierV11__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraIdentifierV11__fixr_source_id = Slot(uri=FIX_ORCHESTRA.fixr_source_id, name="orchestraIdentifierV11__fixr_source_id", curie=FIX_ORCHESTRA.curie('fixr_source_id'),
                    model_uri=FIX_ORCHESTRA.orchestraIdentifierV11__fixr_source_id, domain=None, range=Optional[int])
@@ -10332,15 +10332,15 @@ slots.orchestraIdentityV11Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name=
 
 slots.orchestraIdentityV11Mixin__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraIdentityV11Mixin__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraIdentityV11Mixin__fixr_abbr_name = Slot(uri=FIX_ORCHESTRA.fixr_abbr_name, name="orchestraIdentityV11Mixin__fixr_abbr_name", curie=FIX_ORCHESTRA.curie('fixr_abbr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_abbr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraIdentityV11Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraIdentityV11Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
                    model_uri=FIX_ORCHESTRA.orchestraIdentityV11Mixin__fixr_scenario, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraInterfaceAnnotationMemberV11__fixi_documentation = Slot(uri=FIX_ORCHESTRA.fixi_documentation, name="orchestraInterfaceAnnotationMemberV11__fixi_documentation", curie=FIX_ORCHESTRA.curie('fixi_documentation'),
                    model_uri=FIX_ORCHESTRA.orchestraInterfaceAnnotationMemberV11__fixi_documentation, domain=None, range=Optional[Union[dict, OrchestraInterfaceDocumentationV11]])
@@ -10385,7 +10385,7 @@ slots.orchestraInterfaceDocumentationV11__fixi_purpose = Slot(uri=FIX_ORCHESTRA.
 
 slots.orchestraInterfaceDocumentationV11__fixi_content_type = Slot(uri=FIX_ORCHESTRA.fixi_content_type, name="orchestraInterfaceDocumentationV11__fixi_content_type", curie=FIX_ORCHESTRA.curie('fixi_content_type'),
                    model_uri=FIX_ORCHESTRA.orchestraInterfaceDocumentationV11__fixi_content_type, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraInterfaceV11__fixi_sessions = Slot(uri=FIX_ORCHESTRA.fixi_sessions, name="orchestraInterfaceV11__fixi_sessions", curie=FIX_ORCHESTRA.curie('fixi_sessions'),
                    model_uri=FIX_ORCHESTRA.orchestraInterfaceV11__fixi_sessions, domain=None, range=Optional[Union[dict, OrchestraSessionsV11]])
@@ -10404,7 +10404,7 @@ slots.orchestraMappedDatatypeV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_
 
 slots.orchestraMappedDatatypeV11__fixr_standard = Slot(uri=FIX_ORCHESTRA.fixr_standard, name="orchestraMappedDatatypeV11__fixr_standard", curie=FIX_ORCHESTRA.curie('fixr_standard'),
                    model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_standard, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraMappedDatatypeV11__fixr_builtin = Slot(uri=FIX_ORCHESTRA.fixr_builtin, name="orchestraMappedDatatypeV11__fixr_builtin", curie=FIX_ORCHESTRA.curie('fixr_builtin'),
                    model_uri=FIX_ORCHESTRA.orchestraMappedDatatypeV11__fixr_builtin, domain=None, range=Optional[Union[bool, Bool]])
@@ -10472,11 +10472,11 @@ slots.orchestraMessageV11__fixr_msg_type = Slot(uri=FIX_ORCHESTRA.fixr_msg_type,
 
 slots.orchestraMessageV11__fixr_category = Slot(uri=FIX_ORCHESTRA.fixr_category, name="orchestraMessageV11__fixr_category", curie=FIX_ORCHESTRA.curie('fixr_category'),
                    model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_category, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraMessageV11__fixr_flow = Slot(uri=FIX_ORCHESTRA.fixr_flow, name="orchestraMessageV11__fixr_flow", curie=FIX_ORCHESTRA.curie('fixr_flow'),
                    model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_flow, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraMessageV11__fixr_rendering = Slot(uri=FIX_ORCHESTRA.fixr_rendering, name="orchestraMessageV11__fixr_rendering", curie=FIX_ORCHESTRA.curie('fixr_rendering'),
                    model_uri=FIX_ORCHESTRA.orchestraMessageV11__fixr_rendering, domain=None, range=Optional[str])
@@ -10495,11 +10495,11 @@ slots.orchestraMessagesV11__xml_base = Slot(uri=FIX_ORCHESTRA.xml_base, name="or
 
 slots.orchestraNamedEncodingV11__fixr_standard = Slot(uri=FIX_ORCHESTRA.fixr_standard, name="orchestraNamedEncodingV11__fixr_standard", curie=FIX_ORCHESTRA.curie('fixr_standard'),
                    model_uri=FIX_ORCHESTRA.orchestraNamedEncodingV11__fixr_standard, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_added = Slot(uri=FIX_ORCHESTRA.fixr_added, name="orchestraPedigreeV11Mixin__fixr_added", curie=FIX_ORCHESTRA.curie('fixr_added'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_added, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_added_ep = Slot(uri=FIX_ORCHESTRA.fixr_added_ep, name="orchestraPedigreeV11Mixin__fixr_added_ep", curie=FIX_ORCHESTRA.curie('fixr_added_ep'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_added_ep, domain=None, range=Optional[int])
@@ -10509,7 +10509,7 @@ slots.orchestraPedigreeV11Mixin__fixr_change_type = Slot(uri=FIX_ORCHESTRA.fixr_
 
 slots.orchestraPedigreeV11Mixin__fixr_deprecated = Slot(uri=FIX_ORCHESTRA.fixr_deprecated, name="orchestraPedigreeV11Mixin__fixr_deprecated", curie=FIX_ORCHESTRA.curie('fixr_deprecated'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_deprecated, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_deprecated_ep = Slot(uri=FIX_ORCHESTRA.fixr_deprecated_ep, name="orchestraPedigreeV11Mixin__fixr_deprecated_ep", curie=FIX_ORCHESTRA.curie('fixr_deprecated_ep'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_deprecated_ep, domain=None, range=Optional[int])
@@ -10519,11 +10519,11 @@ slots.orchestraPedigreeV11Mixin__fixr_issue = Slot(uri=FIX_ORCHESTRA.fixr_issue,
 
 slots.orchestraPedigreeV11Mixin__fixr_last_modified = Slot(uri=FIX_ORCHESTRA.fixr_last_modified, name="orchestraPedigreeV11Mixin__fixr_last_modified", curie=FIX_ORCHESTRA.curie('fixr_last_modified'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_last_modified, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_replaced = Slot(uri=FIX_ORCHESTRA.fixr_replaced, name="orchestraPedigreeV11Mixin__fixr_replaced", curie=FIX_ORCHESTRA.curie('fixr_replaced'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_replaced, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_replaced_ep = Slot(uri=FIX_ORCHESTRA.fixr_replaced_ep, name="orchestraPedigreeV11Mixin__fixr_replaced_ep", curie=FIX_ORCHESTRA.curie('fixr_replaced_ep'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_replaced_ep, domain=None, range=Optional[int])
@@ -10536,7 +10536,7 @@ slots.orchestraPedigreeV11Mixin__fixr_supported = Slot(uri=FIX_ORCHESTRA.fixr_su
 
 slots.orchestraPedigreeV11Mixin__fixr_updated = Slot(uri=FIX_ORCHESTRA.fixr_updated, name="orchestraPedigreeV11Mixin__fixr_updated", curie=FIX_ORCHESTRA.curie('fixr_updated'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_updated, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraPedigreeV11Mixin__fixr_updated_ep = Slot(uri=FIX_ORCHESTRA.fixr_updated_ep, name="orchestraPedigreeV11Mixin__fixr_updated_ep", curie=FIX_ORCHESTRA.curie('fixr_updated_ep'),
                    model_uri=FIX_ORCHESTRA.orchestraPedigreeV11Mixin__fixr_updated_ep, domain=None, range=Optional[int])
@@ -10549,7 +10549,7 @@ slots.orchestraProtocolV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="
 
 slots.orchestraProtocolV11__fixi_version = Slot(uri=FIX_ORCHESTRA.fixi_version, name="orchestraProtocolV11__fixi_version", curie=FIX_ORCHESTRA.curie('fixi_version'),
                    model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_version, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraProtocolV11__fixi_activation_time = Slot(uri=FIX_ORCHESTRA.fixi_activation_time, name="orchestraProtocolV11__fixi_activation_time", curie=FIX_ORCHESTRA.curie('fixi_activation_time'),
                    model_uri=FIX_ORCHESTRA.orchestraProtocolV11__fixi_activation_time, domain=None, range=Optional[str],
@@ -10580,11 +10580,11 @@ slots.orchestraReferenceV11Mixin__fixr_id = Slot(uri=FIX_ORCHESTRA.fixr_id, name
 
 slots.orchestraReferenceV11Mixin__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraReferenceV11Mixin__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraReferenceV11Mixin__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraReferenceV11Mixin__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraReferenceV11Mixin__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
                    model_uri=FIX_ORCHESTRA.orchestraReferenceV11Mixin__fixr_scenario, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraRepositoryV11__fixr_metadata = Slot(uri=FIX_ORCHESTRA.fixr_metadata, name="orchestraRepositoryV11__fixr_metadata", curie=FIX_ORCHESTRA.curie('fixr_metadata'),
                    model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_metadata, domain=None, range=Union[dict, OrchestraMetadata])
@@ -10633,7 +10633,7 @@ slots.orchestraRepositoryV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name
 
 slots.orchestraRepositoryV11__fixr_version = Slot(uri=FIX_ORCHESTRA.fixr_version, name="orchestraRepositoryV11__fixr_version", curie=FIX_ORCHESTRA.curie('fixr_version'),
                    model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_version, domain=None, range=str,
-                   pattern=re.compile(r'^(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraRepositoryV11__fixr_guid = Slot(uri=FIX_ORCHESTRA.fixr_guid, name="orchestraRepositoryV11__fixr_guid", curie=FIX_ORCHESTRA.curie('fixr_guid'),
                    model_uri=FIX_ORCHESTRA.orchestraRepositoryV11__fixr_guid, domain=None, range=Optional[str])
@@ -10656,7 +10656,7 @@ slots.orchestraResponseV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annota
 
 slots.orchestraResponseV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraResponseV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraResponseV11__fixr_sync = Slot(uri=FIX_ORCHESTRA.fixr_sync, name="orchestraResponseV11__fixr_sync", curie=FIX_ORCHESTRA.curie('fixr_sync'),
                    model_uri=FIX_ORCHESTRA.orchestraResponseV11__fixr_sync, domain=None, range=Optional[Union[str, "OrchestraSynchronization"]])
@@ -10669,14 +10669,14 @@ slots.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref_id = Slot(uri=FIX_OR
 
 slots.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref = Slot(uri=FIX_ORCHESTRA.fixr_scenario_ref, name="orchestraScenarioReferenceV11Mixin__fixr_scenario_ref", curie=FIX_ORCHESTRA.curie('fixr_scenario_ref'),
                    model_uri=FIX_ORCHESTRA.orchestraScenarioReferenceV11Mixin__fixr_scenario_ref, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraScenarioV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotation, name="orchestraScenarioV11__fixr_annotation", curie=FIX_ORCHESTRA.curie('fixr_annotation'),
                    model_uri=FIX_ORCHESTRA.orchestraScenarioV11__fixr_annotation, domain=None, range=Optional[Union[dict, OrchestraAnnotationV11]])
 
 slots.orchestraScenarioV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraScenarioV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraScenarioV11__fixr_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraScenariosV11__fixr_scenario = Slot(uri=FIX_ORCHESTRA.fixr_scenario, name="orchestraScenariosV11__fixr_scenario", curie=FIX_ORCHESTRA.curie('fixr_scenario'),
                    model_uri=FIX_ORCHESTRA.orchestraScenariosV11__fixr_scenario, domain=None, range=Optional[Union[Union[dict, OrchestraScenarioV11], list[Union[dict, OrchestraScenarioV11]]]])
@@ -10695,7 +10695,7 @@ slots.orchestraSectionV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotat
 
 slots.orchestraSectionV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraSectionV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraSectionV11__fixr_display_order = Slot(uri=FIX_ORCHESTRA.fixr_display_order, name="orchestraSectionV11__fixr_display_order", curie=FIX_ORCHESTRA.curie('fixr_display_order'),
                    model_uri=FIX_ORCHESTRA.orchestraSectionV11__fixr_display_order, domain=None, range=Optional[int])
@@ -10714,7 +10714,7 @@ slots.orchestraSessionIdentifierV11__fixi_text = Slot(uri=FIX_ORCHESTRA.fixi_tex
 
 slots.orchestraSessionIdentifierV11__fixi_name = Slot(uri=FIX_ORCHESTRA.fixi_name, name="orchestraSessionIdentifierV11__fixi_name", curie=FIX_ORCHESTRA.curie('fixi_name'),
                    model_uri=FIX_ORCHESTRA.orchestraSessionIdentifierV11__fixi_name, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraSessionV11__fixi_identifier = Slot(uri=FIX_ORCHESTRA.fixi_identifier, name="orchestraSessionV11__fixi_identifier", curie=FIX_ORCHESTRA.curie('fixi_identifier'),
                    model_uri=FIX_ORCHESTRA.orchestraSessionV11__fixi_identifier, domain=None, range=Optional[Union[Union[dict, OrchestraSessionIdentifierV11], list[Union[dict, OrchestraSessionIdentifierV11]]]])
@@ -10747,7 +10747,7 @@ slots.orchestraStateMachineV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_an
 
 slots.orchestraStateMachineV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateMachineV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraStateMachineV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraStateV11__fixr_transition = Slot(uri=FIX_ORCHESTRA.fixr_transition, name="orchestraStateV11__fixr_transition", curie=FIX_ORCHESTRA.curie('fixr_transition'),
                    model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_transition, domain=None, range=Optional[Union[Union[dict, OrchestraTransitionV11], list[Union[dict, OrchestraTransitionV11]]]])
@@ -10766,7 +10766,7 @@ slots.orchestraStateV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_annotatio
 
 slots.orchestraStateV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraStateV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraStateV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraStructureMemberV11__fixr_component_ref = Slot(uri=FIX_ORCHESTRA.fixr_component_ref, name="orchestraStructureMemberV11__fixr_component_ref", curie=FIX_ORCHESTRA.curie('fixr_component_ref'),
                    model_uri=FIX_ORCHESTRA.orchestraStructureMemberV11__fixr_component_ref, domain=None, range=Optional[Union[dict, OrchestraComponentRefV11]])
@@ -10782,11 +10782,11 @@ slots.orchestraTimerScheduleV11__fixr_activity = Slot(uri=FIX_ORCHESTRA.fixr_act
 
 slots.orchestraTimerScheduleV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTimerScheduleV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
                    model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_actor, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraTimerScheduleV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerScheduleV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraTimerScheduleV11__fixr_operation = Slot(uri=FIX_ORCHESTRA.fixr_operation, name="orchestraTimerScheduleV11__fixr_operation", curie=FIX_ORCHESTRA.curie('fixr_operation'),
                    model_uri=FIX_ORCHESTRA.orchestraTimerScheduleV11__fixr_operation, domain=None, range=Union[str, "OrchestraTimerOperation"])
@@ -10797,7 +10797,7 @@ slots.orchestraTimerScheduleV11__fixr_interval = Slot(uri=FIX_ORCHESTRA.fixr_int
 
 slots.orchestraTimerV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTimerV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraTimerV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraTransitionV11__fixr_when = Slot(uri=FIX_ORCHESTRA.fixr_when, name="orchestraTransitionV11__fixr_when", curie=FIX_ORCHESTRA.curie('fixr_when'),
                    model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_when, domain=None, range=Optional[str],
@@ -10808,14 +10808,14 @@ slots.orchestraTransitionV11__fixr_annotation = Slot(uri=FIX_ORCHESTRA.fixr_anno
 
 slots.orchestraTransitionV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTransitionV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraTransitionV11__fixr_target = Slot(uri=FIX_ORCHESTRA.fixr_target, name="orchestraTransitionV11__fixr_target", curie=FIX_ORCHESTRA.curie('fixr_target'),
                    model_uri=FIX_ORCHESTRA.orchestraTransitionV11__fixr_target, domain=None, range=str)
 
 slots.orchestraTransportV11__fixi_address = Slot(uri=FIX_ORCHESTRA.fixi_address, name="orchestraTransportV11__fixi_address", curie=FIX_ORCHESTRA.curie('fixi_address'),
                    model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_address, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^(\S+( \S+)*)?$'))
+                   pattern=re.compile(r'^([^ \t\r\n]+( [^ \t\r\n]+)*)?$'))
 
 slots.orchestraTransportV11__fixi_message_cast = Slot(uri=FIX_ORCHESTRA.fixi_message_cast, name="orchestraTransportV11__fixi_message_cast", curie=FIX_ORCHESTRA.curie('fixi_message_cast'),
                    model_uri=FIX_ORCHESTRA.orchestraTransportV11__fixi_message_cast, domain=None, range=Optional[Union[str, "OrchestraMessageCast"]])
@@ -10831,11 +10831,11 @@ slots.orchestraTriggerV11__fixr_state_machine = Slot(uri=FIX_ORCHESTRA.fixr_stat
 
 slots.orchestraTriggerV11__fixr_actor = Slot(uri=FIX_ORCHESTRA.fixr_actor, name="orchestraTriggerV11__fixr_actor", curie=FIX_ORCHESTRA.curie('fixr_actor'),
                    model_uri=FIX_ORCHESTRA.orchestraTriggerV11__fixr_actor, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraTriggerV11__fixr_name = Slot(uri=FIX_ORCHESTRA.fixr_name, name="orchestraTriggerV11__fixr_name", curie=FIX_ORCHESTRA.curie('fixr_name'),
                    model_uri=FIX_ORCHESTRA.orchestraTriggerV11__fixr_name, domain=None, range=str,
-                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)(\S+( \S+)*)$'))
+                   pattern=re.compile(r'^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$'))
 
 slots.orchestraUniqueV11__fixr_field_ref = Slot(uri=FIX_ORCHESTRA.fixr_field_ref, name="orchestraUniqueV11__fixr_field_ref", curie=FIX_ORCHESTRA.curie('fixr_field_ref'),
                    model_uri=FIX_ORCHESTRA.orchestraUniqueV11__fixr_field_ref, domain=None, range=Optional[Union[Union[dict, OrchestraFieldRefV11], list[Union[dict, OrchestraFieldRefV11]]]])

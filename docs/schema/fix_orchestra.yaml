@@ -6959,7 +6959,7 @@ slots:
     - OrchestraActorV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraActorsMemberV11__fixr_actor:
     name: orchestraActorsMemberV11__fixr_actor
     annotations:
@@ -7350,7 +7350,7 @@ slots:
     - OrchestraBaseInterfaceV11
     range: string
     required: true
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraBaseInterfaceV11__fixi_other_attributes:
     name: orchestraBaseInterfaceV11__fixi_other_attributes
     annotations:
@@ -7481,7 +7481,7 @@ slots:
     - OrchestraCategoryV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraCategoryV11__fixr_section:
     name: orchestraCategoryV11__fixr_section
     annotations:
@@ -7497,7 +7497,7 @@ slots:
     - OrchestraCategoryV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraCodeSetV11__fixr_code:
     name: orchestraCodeSetV11__fixr_code
     annotations:
@@ -7562,7 +7562,7 @@ slots:
     - OrchestraCodeSetV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraCodeSetV11__fixr_default:
     name: orchestraCodeSetV11__fixr_default
     annotations:
@@ -7607,7 +7607,7 @@ slots:
     domain_of:
     - OrchestraCodeSetV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraCodeSetsV11__fixr_code_set:
     name: orchestraCodeSetsV11__fixr_code_set
     annotations:
@@ -7702,7 +7702,7 @@ slots:
     - OrchestraCodeV11
     range: string
     required: true
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraCodeV11__fixr_sort:
     name: orchestraCodeV11__fixr_sort
     annotations:
@@ -7829,7 +7829,7 @@ slots:
     domain_of:
     - OrchestraComponentRefV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraComponentRuleV11__fixr_when:
     name: orchestraComponentRuleV11__fixr_when
     annotations:
@@ -7860,7 +7860,7 @@ slots:
     domain_of:
     - OrchestraComponentRuleV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraComponentRuleV11__fixr_presence:
     name: orchestraComponentRuleV11__fixr_presence
     annotations:
@@ -7938,7 +7938,7 @@ slots:
     domain_of:
     - OrchestraComponentV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraComponentV11__fixr_rendering:
     name: orchestraComponentV11__fixr_rendering
     annotations:
@@ -8145,7 +8145,7 @@ slots:
     - OrchestraConceptV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraConceptsV11__fixr_concept:
     name: orchestraConceptsV11__fixr_concept
     annotations:
@@ -8241,7 +8241,7 @@ slots:
     - OrchestraDatatypeV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraDatatypeV11__fixr_base_type:
     name: orchestraDatatypeV11__fixr_base_type
     annotations:
@@ -8256,7 +8256,7 @@ slots:
     domain_of:
     - OrchestraDatatypeV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraDatatypesV11__fixr_datatype:
     name: orchestraDatatypesV11__fixr_datatype
     annotations:
@@ -8413,7 +8413,7 @@ slots:
     - OrchestraEncodingStandardV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraEncodingStandardV11__fixr_display_name:
     name: orchestraEncodingStandardV11__fixr_display_name
     annotations:
@@ -8725,7 +8725,7 @@ slots:
     domain_of:
     - OrchestraFieldRefV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldRuleV11__fixr_unique:
     name: orchestraFieldRuleV11__fixr_unique
     annotations:
@@ -8788,7 +8788,7 @@ slots:
     domain_of:
     - OrchestraFieldRuleV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldRuleV11__fixr_type:
     name: orchestraFieldRuleV11__fixr_type
     annotations:
@@ -8803,7 +8803,7 @@ slots:
     domain_of:
     - OrchestraFieldRuleV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldV11__fixr_rule:
     name: orchestraFieldV11__fixr_rule
     annotations:
@@ -8884,7 +8884,7 @@ slots:
     domain_of:
     - OrchestraFieldV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldV11__fixr_code_set:
     name: orchestraFieldV11__fixr_code_set
     annotations:
@@ -8899,7 +8899,7 @@ slots:
     domain_of:
     - OrchestraFieldV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldV11__fixr_length_id:
     name: orchestraFieldV11__fixr_length_id
     annotations:
@@ -8964,7 +8964,7 @@ slots:
     domain_of:
     - OrchestraFieldV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldV11__fixr_base_category_abbr_name:
     name: orchestraFieldV11__fixr_base_category_abbr_name
     annotations:
@@ -8979,7 +8979,7 @@ slots:
     domain_of:
     - OrchestraFieldV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldV11__fixr_union_data_type:
     name: orchestraFieldV11__fixr_union_data_type
     annotations:
@@ -8995,7 +8995,7 @@ slots:
     domain_of:
     - OrchestraFieldV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFieldsV11__fixr_field:
     name: orchestraFieldsV11__fixr_field
     annotations:
@@ -9074,7 +9074,7 @@ slots:
     - OrchestraFlowV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraFlowV11__fixr_source:
     name: orchestraFlowV11__fixr_source
     annotations:
@@ -9230,7 +9230,7 @@ slots:
     domain_of:
     - OrchestraGroupV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraGroupV11__fixr_rendering:
     name: orchestraGroupV11__fixr_rendering
     annotations:
@@ -9384,7 +9384,7 @@ slots:
     domain_of:
     - OrchestraIdentifierV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraIdentifierV11__fixr_source_id:
     name: orchestraIdentifierV11__fixr_source_id
     annotations:
@@ -9503,7 +9503,7 @@ slots:
     - OrchestraIdentityV11Mixin
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraIdentityV11Mixin__fixr_abbr_name:
     name: orchestraIdentityV11Mixin__fixr_abbr_name
     annotations:
@@ -9518,7 +9518,7 @@ slots:
     domain_of:
     - OrchestraIdentityV11Mixin
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraIdentityV11Mixin__fixr_scenario:
     name: orchestraIdentityV11Mixin__fixr_scenario
     annotations:
@@ -9535,7 +9535,7 @@ slots:
     domain_of:
     - OrchestraIdentityV11Mixin
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraInterfaceAnnotationMemberV11__fixi_documentation:
     name: orchestraInterfaceAnnotationMemberV11__fixi_documentation
     annotations:
@@ -9759,7 +9759,7 @@ slots:
     domain_of:
     - OrchestraInterfaceDocumentationV11
     range: string
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraInterfaceV11__fixi_sessions:
     name: orchestraInterfaceV11__fixi_sessions
     annotations:
@@ -9858,7 +9858,7 @@ slots:
     - OrchestraMappedDatatypeV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraMappedDatatypeV11__fixr_builtin:
     name: orchestraMappedDatatypeV11__fixr_builtin
     annotations:
@@ -10176,7 +10176,7 @@ slots:
     domain_of:
     - OrchestraMessageV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraMessageV11__fixr_flow:
     name: orchestraMessageV11__fixr_flow
     annotations:
@@ -10191,7 +10191,7 @@ slots:
     domain_of:
     - OrchestraMessageV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraMessageV11__fixr_rendering:
     name: orchestraMessageV11__fixr_rendering
     annotations:
@@ -10285,7 +10285,7 @@ slots:
     - OrchestraNamedEncodingV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_added:
     name: orchestraPedigreeV11Mixin__fixr_added
     annotations:
@@ -10300,7 +10300,7 @@ slots:
     domain_of:
     - OrchestraPedigreeV11Mixin
     range: string
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_added_ep:
     name: orchestraPedigreeV11Mixin__fixr_added_ep
     annotations:
@@ -10343,7 +10343,7 @@ slots:
     domain_of:
     - OrchestraPedigreeV11Mixin
     range: string
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_deprecated_ep:
     name: orchestraPedigreeV11Mixin__fixr_deprecated_ep
     annotations:
@@ -10386,7 +10386,7 @@ slots:
     domain_of:
     - OrchestraPedigreeV11Mixin
     range: string
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_replaced:
     name: orchestraPedigreeV11Mixin__fixr_replaced
     annotations:
@@ -10401,7 +10401,7 @@ slots:
     domain_of:
     - OrchestraPedigreeV11Mixin
     range: string
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_replaced_ep:
     name: orchestraPedigreeV11Mixin__fixr_replaced_ep
     annotations:
@@ -10462,7 +10462,7 @@ slots:
     domain_of:
     - OrchestraPedigreeV11Mixin
     range: string
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraPedigreeV11Mixin__fixr_updated_ep:
     name: orchestraPedigreeV11Mixin__fixr_updated_ep
     annotations:
@@ -10525,7 +10525,7 @@ slots:
     domain_of:
     - OrchestraProtocolV11
     range: string
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraProtocolV11__fixi_activation_time:
     name: orchestraProtocolV11__fixi_activation_time
     annotations:
@@ -10664,7 +10664,7 @@ slots:
     domain_of:
     - OrchestraReferenceV11Mixin
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraReferenceV11Mixin__fixr_scenario:
     name: orchestraReferenceV11Mixin__fixr_scenario
     annotations:
@@ -10680,7 +10680,7 @@ slots:
     domain_of:
     - OrchestraReferenceV11Mixin
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraRepositoryV11__fixr_metadata:
     name: orchestraRepositoryV11__fixr_metadata
     annotations:
@@ -10937,7 +10937,7 @@ slots:
     - OrchestraRepositoryV11
     range: string
     required: true
-    pattern: ^(\S+( \S+)*)$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraRepositoryV11__fixr_guid:
     name: orchestraRepositoryV11__fixr_guid
     annotations:
@@ -11042,7 +11042,7 @@ slots:
     domain_of:
     - OrchestraResponseV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraResponseV11__fixr_sync:
     name: orchestraResponseV11__fixr_sync
     annotations:
@@ -11106,7 +11106,7 @@ slots:
     domain_of:
     - OrchestraScenarioReferenceV11Mixin
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraScenarioV11__fixr_annotation:
     name: orchestraScenarioV11__fixr_annotation
     annotations:
@@ -11138,7 +11138,7 @@ slots:
     domain_of:
     - OrchestraScenarioV11
     range: string
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraScenariosV11__fixr_scenario:
     name: orchestraScenariosV11__fixr_scenario
     annotations:
@@ -11233,7 +11233,7 @@ slots:
     - OrchestraSectionV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraSectionV11__fixr_display_order:
     name: orchestraSectionV11__fixr_display_order
     annotations:
@@ -11325,7 +11325,7 @@ slots:
     domain_of:
     - OrchestraSessionIdentifierV11
     range: string
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraSessionV11__fixi_identifier:
     name: orchestraSessionV11__fixi_identifier
     annotations:
@@ -11487,7 +11487,7 @@ slots:
     - OrchestraStateMachineV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraStateV11__fixr_transition:
     name: orchestraStateV11__fixr_transition
     annotations:
@@ -11584,7 +11584,7 @@ slots:
     - OrchestraStateV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraStructureMemberV11__fixr_component_ref:
     name: orchestraStructureMemberV11__fixr_component_ref
     annotations:
@@ -11665,7 +11665,7 @@ slots:
     - OrchestraTimerScheduleV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraTimerScheduleV11__fixr_name:
     name: orchestraTimerScheduleV11__fixr_name
     annotations:
@@ -11681,7 +11681,7 @@ slots:
     - OrchestraTimerScheduleV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraTimerScheduleV11__fixr_operation:
     name: orchestraTimerScheduleV11__fixr_operation
     annotations:
@@ -11727,7 +11727,7 @@ slots:
     - OrchestraTimerV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraTransitionV11__fixr_when:
     name: orchestraTransitionV11__fixr_when
     annotations:
@@ -11775,7 +11775,7 @@ slots:
     - OrchestraTransitionV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraTransitionV11__fixr_target:
     name: orchestraTransitionV11__fixr_target
     annotations:
@@ -11805,7 +11805,7 @@ slots:
     domain_of:
     - OrchestraTransportV11
     range: string
-    pattern: ^(\S+( \S+)*)?$
+    pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
   orchestraTransportV11__fixi_message_cast:
     name: orchestraTransportV11__fixi_message_cast
     annotations:
@@ -11886,7 +11886,7 @@ slots:
     - OrchestraTriggerV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraTriggerV11__fixr_name:
     name: orchestraTriggerV11__fixr_name
     annotations:
@@ -11902,7 +11902,7 @@ slots:
     - OrchestraTriggerV11
     range: string
     required: true
-    pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+    pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
   orchestraUniqueV11__fixr_field_ref:
     name: orchestraUniqueV11__fixr_field_ref
     annotations:
@@ -18207,7 +18207,7 @@ classes:
         description: The actor's name, unique among the repository's actors.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraActorV11
   OrchestraActorsMemberV11:
     name: OrchestraActorsMemberV11
@@ -18643,7 +18643,7 @@ classes:
         description: The interface's or session's name, unique within the file.
         range: string
         required: true
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
       fixi_other_attributes:
         name: fixi_other_attributes
         annotations:
@@ -18800,7 +18800,7 @@ classes:
         description: The category's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_section:
         name: fixr_section
         annotations:
@@ -18810,7 +18810,7 @@ classes:
         description: The section the category belongs to, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraCategoryV11
   OrchestraCodeSetV11:
     name: OrchestraCodeSetV11
@@ -18897,7 +18897,7 @@ classes:
         description: The set's datatype, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_default:
         name: fixr_default
         annotations:
@@ -18924,7 +18924,7 @@ classes:
         description: A datatype whose values a field of this set may hold beside its
           codes, such as a range kept for user-defined values.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraCodeSetV11
   OrchestraCodeSetsV11:
     name: OrchestraCodeSetsV11
@@ -19045,7 +19045,7 @@ classes:
         description: The value that goes on the wire for this code.
         range: string
         required: true
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
       fixr_sort:
         name: fixr_sort
         annotations:
@@ -19164,7 +19164,7 @@ classes:
         description: A name for this use of the element, so that one message or block
           can hold it more than once.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraComponentRefV11
   OrchestraComponentRuleV11:
     name: OrchestraComponentRuleV11
@@ -19205,7 +19205,7 @@ classes:
             value: name
         description: The rule's name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_presence:
         name: fixr_presence
         annotations:
@@ -19298,7 +19298,7 @@ classes:
             value: category
         description: The category the component belongs to, by name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_rendering:
         name: fixr_rendering
         annotations:
@@ -19504,7 +19504,7 @@ classes:
         description: The concept's name, unique among the repository's concepts.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraConceptV11
   OrchestraConceptsV11:
     name: OrchestraConceptsV11
@@ -19620,7 +19620,7 @@ classes:
         description: The datatype's name, such as Price.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_base_type:
         name: fixr_base_type
         annotations:
@@ -19629,7 +19629,7 @@ classes:
             value: baseType
         description: The datatype this one narrows, such as int for Length.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraDatatypeV11
   OrchestraDatatypesV11:
     name: OrchestraDatatypesV11
@@ -19803,7 +19803,7 @@ classes:
         description: The encoding standard's name, which encoding blocks use.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_display_name:
         name: fixr_display_name
         annotations:
@@ -20145,7 +20145,7 @@ classes:
         description: A name for this use of the element, so that one message or block
           can hold it more than once.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraFieldRefV11
   OrchestraFieldRuleV11:
     name: OrchestraFieldRuleV11
@@ -20219,7 +20219,7 @@ classes:
             value: name
         description: The rule's name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_type:
         name: fixr_type
         annotations:
@@ -20228,7 +20228,7 @@ classes:
             value: type
         description: The datatype the field takes while the rule's condition holds.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraFieldRuleV11
   OrchestraFieldV11:
     name: OrchestraFieldV11
@@ -20337,7 +20337,7 @@ classes:
         description: The datatype that gives the field's values, by name, when no
           code set does.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_code_set:
         name: fixr_code_set
         annotations:
@@ -20346,7 +20346,7 @@ classes:
             value: codeSet
         description: The field's code set, by name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_length_id:
         name: fixr_length_id
         annotations:
@@ -20387,7 +20387,7 @@ classes:
             value: baseCategory
         description: The category the field belongs to in the base specification.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_base_category_abbr_name:
         name: fixr_base_category_abbr_name
         annotations:
@@ -20396,7 +20396,7 @@ classes:
             value: baseCategoryAbbrName
         description: The short name the field takes within its base category in FIXML.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_union_data_type:
         name: fixr_union_data_type
         annotations:
@@ -20406,7 +20406,7 @@ classes:
         description: A datatype whose values the field may hold beside its codes,
           such as a range kept for user-defined values.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraFieldV11
   OrchestraFieldsV11:
     name: OrchestraFieldsV11
@@ -20498,7 +20498,7 @@ classes:
         description: The flow's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_source:
         name: fixr_source
         annotations:
@@ -20685,7 +20685,7 @@ classes:
             value: category
         description: The category the group belongs to, by name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_rendering:
         name: fixr_rendering
         annotations:
@@ -20821,7 +20821,7 @@ classes:
             value: name
         description: The field that is set or carried over, by name, for readability.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_source_id:
         name: fixr_source_id
         annotations:
@@ -20967,7 +20967,7 @@ classes:
           one scenario.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_abbr_name:
         name: fixr_abbr_name
         annotations:
@@ -20976,7 +20976,7 @@ classes:
             value: abbrName
         description: A short form of the name, which FIXML uses for tags.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_scenario:
         name: fixr_scenario
         annotations:
@@ -20987,7 +20987,7 @@ classes:
           or an asset class; base when none is given.
         ifabsent: string(base)
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraIdentityV11Mixin
   OrchestraInterfaceAnnotationMemberV11:
     name: OrchestraInterfaceAnnotationMemberV11
@@ -21216,7 +21216,7 @@ classes:
         description: The media type of the text; text/plain when none is given.
         ifabsent: string(text/plain)
         range: string
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
     class_uri: fix_orchestra:OrchestraInterfaceDocumentationV11
   OrchestraInterfaceV11:
     name: OrchestraInterfaceV11
@@ -21356,7 +21356,7 @@ classes:
         description: The standard the datatype is written in, such as XML or GPB.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_builtin:
         name: fixr_builtin
         annotations:
@@ -21642,7 +21642,7 @@ classes:
             value: category
         description: The category the message belongs to, by name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_flow:
         name: fixr_flow
         annotations:
@@ -21651,7 +21651,7 @@ classes:
             value: flow
         description: The flow that carries the message, by name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_rendering:
         name: fixr_rendering
         annotations:
@@ -21751,7 +21751,7 @@ classes:
         description: The encoding standard this block is for, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraNamedEncodingV11
   OrchestraPedigreeV11Mixin:
     name: OrchestraPedigreeV11Mixin
@@ -21793,7 +21793,7 @@ classes:
             value: added
         description: The FIX version in which the element first appeared.
         range: string
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_added_ep:
         name: fixr_added_ep
         annotations:
@@ -21818,7 +21818,7 @@ classes:
             value: deprecated
         description: The FIX version from which the element is deprecated.
         range: string
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_deprecated_ep:
         name: fixr_deprecated_ep
         annotations:
@@ -21843,7 +21843,7 @@ classes:
             value: lastModified
         description: The FIX version in which the element last changed.
         range: string
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_replaced:
         name: fixr_replaced
         annotations:
@@ -21852,7 +21852,7 @@ classes:
             value: replaced
         description: The FIX version in which another element took this one's place.
         range: string
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_replaced_ep:
         name: fixr_replaced_ep
         annotations:
@@ -21889,7 +21889,7 @@ classes:
             value: updated
         description: The FIX version of the element's latest update.
         range: string
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_updated_ep:
         name: fixr_updated_ep
         annotations:
@@ -21955,7 +21955,7 @@ classes:
             value: version
         description: The protocol's version.
         range: string
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
       fixi_activation_time:
         name: fixi_activation_time
         annotations:
@@ -22062,7 +22062,7 @@ classes:
         description: The element in use, by name, for readability; the number decides
           which element is meant.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_scenario:
         name: fixr_scenario
         annotations:
@@ -22072,7 +22072,7 @@ classes:
         description: The scenario of the element in use; base when none is given.
         ifabsent: string(base)
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraReferenceV11Mixin
   OrchestraRepositoryV11:
     name: OrchestraRepositoryV11
@@ -22260,7 +22260,7 @@ classes:
         description: The repository's version, such as FIX.Latest_EP312.
         range: string
         required: true
-        pattern: ^(\S+( \S+)*)$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_guid:
         name: fixr_guid
         annotations:
@@ -22349,7 +22349,7 @@ classes:
             value: name
         description: The response's name.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_sync:
         name: fixr_sync
         annotations:
@@ -22429,7 +22429,7 @@ classes:
             value: scenarioRef
         description: The scenario the element belongs to, by name, for readability.
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraScenarioReferenceV11Mixin
   OrchestraScenarioV11:
     name: OrchestraScenarioV11
@@ -22484,7 +22484,7 @@ classes:
         description: The scenario's name; base when none is given.
         ifabsent: string(base)
         range: string
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraScenarioV11
   OrchestraScenariosV11:
     name: OrchestraScenariosV11
@@ -22599,7 +22599,7 @@ classes:
         description: The section's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_display_order:
         name: fixr_display_order
         annotations:
@@ -22725,7 +22725,7 @@ classes:
             value: name
         description: What kind of identifier this is, such as SenderCompID.
         range: string
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
     class_uri: fix_orchestra:OrchestraSessionIdentifierV11
   OrchestraSessionProtocolV11:
     name: OrchestraSessionProtocolV11
@@ -22927,7 +22927,7 @@ classes:
         description: The state machine's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraStateMachineV11
   OrchestraStateV11:
     name: OrchestraStateV11
@@ -23008,7 +23008,7 @@ classes:
         description: The state's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraStateV11
   OrchestraStructureMemberV11:
     name: OrchestraStructureMemberV11
@@ -23114,7 +23114,7 @@ classes:
         description: The actor whose timer or state machine this is, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_name:
         name: fixr_name
         annotations:
@@ -23124,7 +23124,7 @@ classes:
         description: The timer to start, stop or restart, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_operation:
         name: fixr_operation
         annotations:
@@ -23171,7 +23171,7 @@ classes:
         description: The timer's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraTimerV11
   OrchestraTransitionV11:
     name: OrchestraTransitionV11
@@ -23223,7 +23223,7 @@ classes:
         description: The transition's name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_target:
         name: fixr_target
         annotations:
@@ -23274,7 +23274,7 @@ classes:
             value: address
         description: The address to connect to, such as a host and port.
         range: string
-        pattern: ^(\S+( \S+)*)?$
+        pattern: ^([^ \t\r\n]+( [^ \t\r\n]+)*)?$
       fixi_message_cast:
         name: fixi_message_cast
         annotations:
@@ -23344,7 +23344,7 @@ classes:
         description: The actor whose timer or state machine this is, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
       fixr_name:
         name: fixr_name
         annotations:
@@ -23354,7 +23354,7 @@ classes:
         description: The transition to fire, by name.
         range: string
         required: true
-        pattern: ^(?=[\s\S]{1,64}$)(\S+( \S+)*)$
+        pattern: ^(?=[\s\S]{1,64}$)([^ \t\r\n]+( [^ \t\r\n]+)*)$
     class_uri: fix_orchestra:OrchestraTriggerV11
   OrchestraUniqueV11:
     name: OrchestraUniqueV11
@@ -23438,6 +23438,6 @@ classes:
     class_uri: fix_orchestra:OrchestraUserInterfaceV11
 metamodel_version: 1.12.0
 source_file: fix_orchestra.yaml
-source_file_date: '2026-11-05T20:03:20'
+source_file_date: '2026-11-05T20:55:44'
 source_file_size: 1195
 

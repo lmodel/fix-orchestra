@@ -1,6 +1,6 @@
 # Datasets
 
-* [The adapt copy](adapt-copy.md) - `.lokf/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`.
+* [The adapt copy](adapt-copy.md) - `.lokf/schema/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`.
 * [The common module](common-module.md) - `src/fix_orchestra/schema/fix_orchestra_common.yaml`: the 13 value lists both editions share, `OrchestraMetadata` for the Dublin Core block that heads a file, and `OrchestraXmlElement` and `OrchestraXmlAttribute` for XML the XSDs leave open.
 * [Where FIX's files break a rule](document-departures.md) - `tests/document_departures.yaml`: each rule a real FIX file breaks, by file and JSON pointer. FIX's two session files put groups in a category named Common, which neither defines.
 * [The example data](example-data.md) - `tests/data/`: a valid example of each class, taken from the example files, three small whole files for the rule tests, a counter-example per kind of constraint, and a counter-example per rule the JSON Schema cannot state.

@@ -3,8 +3,8 @@ type: Dataset
 id: https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/adapt-copy
 genre: reference
 title: The adapt copy
-description: "`.lokf/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`."
-resource: .lokf/fix-orchestra.yaml
+description: "`.lokf/schema/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`."
+resource: .lokf/schema/fix-orchestra.yaml
 derivedFrom:
   - https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/fix-orchestra-linkml-schema
 about:
@@ -21,7 +21,7 @@ sources:
     title: test_the_copy_keeps_every_class_and_key
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-06T21:19:55Z"
 status: draft
 ---
 

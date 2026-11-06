@@ -39,7 +39,7 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 
 ## Before opening a pull request
 
-- **Edit the words or the converter, then regenerate.** Run `just gen-schema`, `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. Everything under `src/fix_orchestra/schema/`, `src/fix_orchestra/datamodel/`, `project/`, `docs/schema/` and `.lokf/fix-orchestra.yaml` is generated.
+- **Edit the words or the converter, then regenerate.** Run `just gen-schema`, `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. Everything under `src/fix_orchestra/schema/`, `src/fix_orchestra/datamodel/`, `project/`, `docs/schema/` and `.lokf/schema/fix-orchestra.yaml` is generated.
 - **The XSD decides the shape.** `tests/test_coverage.py` checks that every attribute and element of each XSD type has a key in its class, and `tests/test_documents.py` tests the converter on real FIX files, both ways.
 - **The words are this project's own.** A description is written from what the element does, in `scripts/orchestra_words.yaml`. `tests/test_own_words.py` refuses any run of four words the XSDs' documentation holds; [NOTICE](NOTICE) says why.
 - **A rule is the XSD's or the specification's.** A key or a reference rule goes in `tests/orchestra_rules.py`, and a real file that breaks one in `tests/document_departures.yaml`, each with a report to the FIX Trading Community.

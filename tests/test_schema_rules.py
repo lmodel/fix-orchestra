@@ -17,8 +17,8 @@ ROOT = Path(__file__).parent.parent
 # schema asset of a release, downloaded and checked against the release's .sha256 and its
 # attestation, and pinned here by that checksum.
 SOURCE_DIR = ROOT / "src" / "fix_orchestra" / "schema"
-COPY = ROOT / ".lokf" / "fix-orchestra.yaml"
-LOKF = ROOT / ".lokf" / "lokf.yaml"
+COPY = ROOT / ".lokf" / "schema" / "fix-orchestra.yaml"
+LOKF = ROOT / ".lokf" / "schema" / "lokf.yaml"
 VALID = ROOT / "tests" / "data" / "valid"
 NEIGHBOURS = {
     # lmodel/ai-governance-framework v0.1.0

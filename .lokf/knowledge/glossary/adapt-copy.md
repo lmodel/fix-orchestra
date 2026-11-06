@@ -2,7 +2,7 @@
 type: GlossaryTerm
 id: https://w3id.org/lmodel/fix-orchestra/knowledge/glossary/adapt-copy
 title: Adapt copy
-description: "The adapt copy: the copy of a schema that `lokf adapt` writes so that it can sit beside LOKF's schema in a knowledge bundle, here `.lokf/fix-orchestra.yaml`."
+description: "The adapt copy: the copy of a schema that `lokf adapt` writes so that it can sit beside LOKF's schema in a knowledge bundle, here `.lokf/schema/fix-orchestra.yaml`."
 relatedTo:
   - https://w3id.org/lmodel/fix-orchestra/knowledge/datasets/adapt-copy
 sources:
@@ -11,7 +11,7 @@ sources:
     title: Knowledge Trust Ladder (KTL)
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T19:53:42Z"
+  at: "2026-11-06T21:19:55Z"
 status: draft
 ---
 

@@ -41,7 +41,7 @@ Run `just` to list the project's [just](https://github.com/casey/just/) recipes.
 
 ## Knowledge Trust Ladder (KTL)
 
-`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/fix-orchestra.yaml`, is the copy `just lokf-adapt` writes from `src/fix_orchestra/schema/fix_orchestra.yaml`, and `just lokf-adapt-check` says when it is stale. Edit the source, never the copy. A release carries the copy as `schema-<tag>-fix-orchestra.yaml`.
+`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/schema/fix-orchestra.yaml`, is the copy `just lokf-adapt` writes from `src/fix_orchestra/schema/fix_orchestra.yaml`, and `just lokf-adapt-check` says when it is stale. Edit the source, never the copy. A release carries the copy as `schema-<tag>-fix-orchestra.yaml`.
 
 The copy roots each edition's file classes and named elements on `Concept`, such as `OrchestraMessageV10` and `OrchestraSessionV11`. An element of one of these types nested in another, such as a field an actor defines in place, is a concept with keys of its own. In Obsidian, add these to the *Known LOKF types* setting of the KTL Registrar and KTL Curator plugins:
 

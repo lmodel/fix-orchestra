@@ -24,7 +24,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 
 # Datasets
 
-* [The adapt copy](datasets/adapt-copy.md) - `.lokf/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`.
+* [The adapt copy](datasets/adapt-copy.md) - `.lokf/schema/fix-orchestra.yaml`, which `just lokf-adapt` writes from the schema so that it can sit beside LOKF's: the file this bundle validates against, and the file a release attaches as `schema-<tag>-fix-orchestra.yaml`.
 * [The common module](datasets/common-module.md) - `src/fix_orchestra/schema/fix_orchestra_common.yaml`: the 13 value lists both editions share, `OrchestraMetadata` for the Dublin Core block that heads a file, and `OrchestraXmlElement` and `OrchestraXmlAttribute` for XML the XSDs leave open.
 * [Where FIX's files break a rule](datasets/document-departures.md) - `tests/document_departures.yaml`: each rule a real FIX file breaks, by file and JSON pointer. FIX's two session files put groups in a category named Common, which neither defines.
 * [The example data](datasets/example-data.md) - `tests/data/`: a valid example of each class, taken from the example files, three small whole files for the rule tests, a counter-example per kind of constraint, and a counter-example per rule the JSON Schema cannot state.
@@ -49,7 +49,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 
 # Glossary
 
-* [Adapt copy](glossary/adapt-copy.md) - The adapt copy: the copy of a schema that `lokf adapt` writes so that it can sit beside LOKF's schema in a knowledge bundle, here `.lokf/fix-orchestra.yaml`.
+* [Adapt copy](glossary/adapt-copy.md) - The adapt copy: the copy of a schema that `lokf adapt` writes so that it can sit beside LOKF's schema in a knowledge bundle, here `.lokf/schema/fix-orchestra.yaml`.
 * [Departure](glossary/departure.md) - A departure: a place where a real FIX file breaks one of this project's rules, listed by file and JSON pointer in `tests/document_departures.yaml` so a test expects it.
 * [Edition](glossary/edition.md) - An edition: one published version of FIX Orchestra that the schema renders, v1.0 or v1.1 RC3, each a module of its own whose class names end in `V10` or `V11`.
 * [Member](glossary/member.md) - A member: one item of a repeated XSD choice, such as a field, component or group in a message's structure, held as an object with exactly one key so the list keeps the elements' order.

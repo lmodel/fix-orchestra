@@ -18,7 +18,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 
 # Services
 
-* [Documentation site](services/documentation-site.md) - The knowledge website in `website/`, an Astro Starlight site that the Knowledge website workflow publishes to GitHub Pages at `https://lmodel.github.io/fix-orchestra`, built from the README, `docs/`, the schema's pages and this bundle.
+* [Documentation site](services/documentation-site.md) - The knowledge website in `website/`, a Hugo site that the Knowledge website workflow publishes to GitHub Pages at `https://lmodel.github.io/fix-orchestra`, built from the README, `docs/`, the schema's pages and this bundle.
 * [The XML converter](services/xml-converter.md) - `scripts/orchestra_xml_to_yaml.py`: converts an Orchestra repository or interfaces file to records the schema validates, picking the edition by the root's namespace, and writes records back to XML. `just to-records FILE` runs it.
 * [The XSD converter](services/xsd-converter.md) - `scripts/orchestra_xsd_to_linkml.py`: reads both editions' XSDs under `upstream/` and the words table, and writes the schema's four modules. `just gen-schema` runs it, and it stops on any XSD construct or name it has no rule or words for.
 
@@ -83,6 +83,6 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for fix-orchestra. Every
 * [Knowledge sync (knowledge-sync.yaml)](workflows/knowledge-sync.md) - The workflow that copies the KTL sidecar's scripts and workflows from a newer KTL release into this repository, as a pull request.
 * [Knowledge website (knowledge-website.yaml)](workflows/knowledge-website.md) - The workflow that builds the documentation site and deploys it to GitHub Pages from `main`, once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.
 * [Lint and docs (lint-and-docs.yaml)](workflows/lint-and-docs.md) - The workflow of static checks: ShellCheck, actionlint, markdownlint, lychee, codespell, and the word budgets that hold CONTRIBUTING.md to 1,000 words and SECURITY.md to 900.
-* [Build and test (main.yaml)](workflows/main.md) - The workflow that runs `just lint` and `just test` on Python 3.10 to 3.14 on every pull request and push to `main`, and checks that the adapt copy is current.
+* [Build and test (main.yaml)](workflows/main.md) - The workflow that runs `just lint` and `just test` on Python 3.11 to 3.14 on every pull request and push to `main`, and checks that the adapt copy is current.
 * [Semantic release (semantic-release.yml)](workflows/semantic-release.md) - The workflow that, on a push to `main`, promotes the changelog's `[Unreleased]` section, tags `vX.Y.Z`, publishes the GitHub Release and dispatches the knowledge release.
 * [Upstream watch (upstream-watch.yaml)](workflows/upstream-watch.md) - The weekly check that `scripts/check_upstream_release.py` runs: a new tag in FIX's repositories, a moved tag, a changed or missing pinned file, or a changed licence opens or updates an issue.

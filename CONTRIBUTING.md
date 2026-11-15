@@ -19,7 +19,7 @@ A LinkML schema of FIX Orchestra, the FIX Trading Community's standard for rules
 
 ## Development setup
 
-You need Python 3.10+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
+You need Python 3.11+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
 
 ```bash
 git clone https://github.com/lmodel/fix-orchestra.git

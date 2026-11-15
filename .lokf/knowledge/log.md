@@ -2,6 +2,7 @@
 
 ## 2026-11-15
 
+* **Changed**: The sources map re-checks the documentation site with the Hugo build script that replaced the Astro build.
 * **Changed**: The concepts that cite the knowledge website describe the Hugo site that replaced the Astro one, set by `website/site.toml`.
 
 ## 2026-11-06

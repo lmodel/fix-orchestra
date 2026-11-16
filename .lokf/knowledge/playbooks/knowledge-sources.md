@@ -87,7 +87,7 @@ sources:
   - resource: .github/scripts
   - resource: .github/workflows
   - resource: .github/dependabot.yml
-  - resource: .github/release
+  - resource: .release
   - resource: justfile
   - resource: .linkml/generators.yaml
   - resource: .linkmllint.yaml
@@ -104,7 +104,7 @@ sources:
   - resource: pyproject.toml
 generated:
   by: process:ktl-librarian
-  at: "2026-11-15T03:02:09Z"
+  at: "2026-11-15T20:57:03Z"
 status: draft
 ---
 
@@ -119,6 +119,6 @@ The bundle derives its concepts from the paths under `sources`, each re-read whe
 | `upstream/`, `scripts/upstream_pins.tsv` | the copy of FIX's files, FIX Latest and the references | `tests/test_upstream.py`; the watch |
 | `tests/` | the example files and data, the rules, the departures and the neighbour copies | `just test` |
 | `docs/`, `README.md`, `CHANGELOG.md` | the explanations and the playbooks | read the page |
-| `.github/workflows/`, `.github/scripts/`, `.github/release/`, `.releaserc.json` | the workflows and the release playbook | read the file |
+| `.github/workflows/`, `.github/scripts/`, `.release/`, `.releaserc.json` | the workflows and the release playbook | read the file |
 | `NOTICE`, `LICENSE`, `SECURITY.md`, `AI_COVENANT.md` | the policies | read the file |
 | `website/` | the documentation site | `scripts/build.sh` in `website/` |
